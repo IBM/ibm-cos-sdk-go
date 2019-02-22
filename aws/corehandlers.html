@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Package: corehandlers
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "aws/corehandlers";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (c)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../aws.html" title="aws (package)">aws</a></span></span>
+     &raquo; 
+    <span class="title">corehandlers</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="../package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Package: corehandlers
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/aws/corehandlers"
+</div>
+
+  
+
+  
+    <h2>Variables</h2>
+    
+      <dl class="constants">
+        
+          <dt id="BuildContentLengthHandler-constant" class="">
+          <div class="defn">var <strong>BuildContentLengthHandler</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>BuildContentLengthHandler builds the content length of a request based on the body,
+or will use the HTTPRequest.Header's "Content-Length" if defined. If unable
+to determine request body length and no "Content-Length" was specified it will panic.</p>
+
+<p>The Content-Length will only be added to the request if the length of the body
+is greater than 0. If the body is empty or the current <code>Content-Length</code>
+header is &lt;= 0, the header will also be stripped.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{Name: <span class="hljs-string">"core.BuildContentLengthHandler"</span>, Fn: <span class="hljs-keyword">func</span>(r *<span class='object_link'><a href="request/Request.html" title="request.Request (struct)">request.Request</a></span>) {
+	<span class="hljs-keyword">var</span> length <span class="hljs-constant">int64</span>
+
+	<span class="hljs-keyword">if</span> slength := r.HTTPRequest.Header.Get(<span class="hljs-string">"Content-Length"</span>); slength != <span class="hljs-string">""</span> {
+		length, _ = strconv.ParseInt(slength, 10, 64)
+	} <span class="hljs-keyword">else</span> {
+		<span class="hljs-keyword">if</span> r.Body != <span class="hljs-constant">nil</span> {
+			<span class="hljs-keyword">var</span> err <span class="hljs-constant">error</span>
+			length, err = aws.SeekerLen(r.Body)
+			<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+				r.Error = <span class='object_link'><a href="awserr.html#New-class_method" title="awserr.New() (method)">awserr.New</a></span>(<span class='object_link'><a href="request.html#ErrCodeSerialization-constant" title="aws/request.ErrCodeSerialization (constant)">request.ErrCodeSerialization</a></span>, <span class="hljs-string">"failed to get request body's length"</span>, err)
+				<span class="hljs-keyword">return</span>
+			}
+		}
+	}
+
+	<span class="hljs-keyword">if</span> length > 0 {
+		r.HTTPRequest.ContentLength = length
+		r.HTTPRequest.Header.Set(<span class="hljs-string">"Content-Length"</span>, fmt.Sprintf(<span class="hljs-string">"%d"</span>, length))
+	} <span class="hljs-keyword">else</span> {
+		r.HTTPRequest.ContentLength = 0
+		r.HTTPRequest.Header.Del(<span class="hljs-string">"Content-Length"</span>)
+	}
+}}</div></pre>
+          </dd>
+        
+          <dt id="ValidateReqSigHandler-constant" class="">
+          <div class="defn">var <strong>ValidateReqSigHandler</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ValidateReqSigHandler is a request handler to ensure that the request's
+signature doesn't expire before it is sent. This can happen when a request
+is built and signed significantly before it is sent. Or significant delays
+occur when retrying requests that would cause the signature to expire.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{
+	Name: <span class="hljs-string">"core.ValidateReqSigHandler"</span>,
+	Fn: <span class="hljs-keyword">func</span>(r *<span class='object_link'><a href="request/Request.html" title="request.Request (struct)">request.Request</a></span>) {
+		<span class="hljs-comment">// Unsigned requests are not signed</span>
+		<span class="hljs-keyword">if</span> r.Config.Credentials == <span class='object_link'><a href="credentials.html#AnonymousCredentials-constant" title="aws/credentials.AnonymousCredentials (constant)">credentials.AnonymousCredentials</a></span> {
+			<span class="hljs-keyword">return</span>
+		}
+
+		signedTime := r.Time
+		<span class="hljs-keyword">if</span> !r.LastSignedAt.IsZero() {
+			signedTime = r.LastSignedAt
+		}
+
+		<span class="hljs-comment">// 10 minutes to allow for some clock skew/delays in transmission.</span>
+		<span class="hljs-comment">// Would be improved with aws/aws-sdk-go#423</span>
+		<span class="hljs-keyword">if</span> signedTime.Add(10 * time.Minute).After(time.Now()) {
+			<span class="hljs-keyword">return</span>
+		}
+
+		fmt.Println(<span class="hljs-string">"request expired, resigning"</span>)
+		r.Sign()
+	},
+}</div></pre>
+          </dd>
+        
+          <dt id="SendHandler-constant" class="">
+          <div class="defn">var <strong>SendHandler</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>SendHandler is a request handler to send service request using HTTP client.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{
+	Name: <span class="hljs-string">"core.SendHandler"</span>,
+	Fn: <span class="hljs-keyword">func</span>(r *<span class='object_link'><a href="request/Request.html" title="request.Request (struct)">request.Request</a></span>) {
+		sender := sendFollowRedirects
+		<span class="hljs-keyword">if</span> r.DisableFollowRedirects {
+			sender = sendWithoutFollowRedirects
+		}
+
+		<span class="hljs-keyword">if</span> <span class='object_link'><a href="request.html#NoBody-constant" title="aws/request.NoBody (constant)">request.NoBody</a></span> == r.HTTPRequest.Body {
+			<span class="hljs-comment">// Strip off the request body if the NoBody reader was used as a</span>
+			<span class="hljs-comment">// place holder for a request body. This prevents the SDK from</span>
+			<span class="hljs-comment">// making requests with a request body when it would be invalid</span>
+			<span class="hljs-comment">// to do so.</span>
+			//
+			<span class="hljs-comment">// Use a shallow copy of the http.Request to ensure the race condition</span>
+			<span class="hljs-comment">// of transport on Body will not trigger</span>
+			reqOrig, reqCopy := r.HTTPRequest, *r.HTTPRequest
+			reqCopy.Body = <span class="hljs-constant">nil</span>
+			r.HTTPRequest = &reqCopy
+			<span class="hljs-keyword">defer</span> <span class="hljs-keyword">func</span>() {
+				r.HTTPRequest = reqOrig
+			}()
+		}
+
+		<span class="hljs-keyword">var</span> err <span class="hljs-constant">error</span>
+		r.HTTPResponse, err = sender(r)
+		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+			handleSendError(r, err)
+		}
+	},
+}</div></pre>
+          </dd>
+        
+          <dt id="ValidateResponseHandler-constant" class="">
+          <div class="defn">var <strong>ValidateResponseHandler</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ValidateResponseHandler is a request handler to validate service response.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{Name: <span class="hljs-string">"core.ValidateResponseHandler"</span>, Fn: <span class="hljs-keyword">func</span>(r *<span class='object_link'><a href="request/Request.html" title="request.Request (struct)">request.Request</a></span>) {
+	<span class="hljs-keyword">if</span> r.HTTPResponse.StatusCode == 0 || r.HTTPResponse.StatusCode >= 300 {
+		<span class="hljs-comment">// this may be replaced by an UnmarshalError handler</span>
+		r.Error = <span class='object_link'><a href="awserr.html#New-class_method" title="awserr.New() (method)">awserr.New</a></span>(<span class="hljs-string">"UnknownError"</span>, <span class="hljs-string">"unknown error"</span>, <span class="hljs-constant">nil</span>)
+	}
+}}</div></pre>
+          </dd>
+        
+          <dt id="AfterRetryHandler-constant" class="">
+          <div class="defn">var <strong>AfterRetryHandler</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>AfterRetryHandler performs final checks to determine if the request should
+be retried and how long to delay.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{Name: <span class="hljs-string">"core.AfterRetryHandler"</span>, Fn: <span class="hljs-keyword">func</span>(r *<span class='object_link'><a href="request/Request.html" title="request.Request (struct)">request.Request</a></span>) {
+	<span class="hljs-comment">// If one of the other handlers already set the retry state</span>
+	<span class="hljs-comment">// we don't want to override it based on the service's state</span>
+	<span class="hljs-keyword">if</span> r.Retryable == <span class="hljs-constant">nil</span> || aws.BoolValue(r.Config.EnforceShouldRetryCheck) {
+		r.Retryable = aws.Bool(r.ShouldRetry(r))
+	}
+
+	<span class="hljs-keyword">if</span> r.WillRetry() {
+		r.RetryDelay = r.RetryRules(r)
+
+		<span class="hljs-keyword">if</span> sleepFn := r.Config.SleepDelay; sleepFn != <span class="hljs-constant">nil</span> {
+			<span class="hljs-comment">// Support SleepDelay for backwards compatibility and testing</span>
+			sleepFn(r.RetryDelay)
+		} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> err := aws.SleepWithContext(r.Context(), r.RetryDelay); err != <span class="hljs-constant">nil</span> {
+			r.Error = <span class='object_link'><a href="awserr.html#New-class_method" title="awserr.New() (method)">awserr.New</a></span>(<span class='object_link'><a href="request.html#CanceledErrorCode-constant" title="aws/request.CanceledErrorCode (constant)">request.CanceledErrorCode</a></span>,
+				<span class="hljs-string">"request context canceled"</span>, err)
+			r.Retryable = aws.Bool(<span class="hljs-constant">false</span>)
+			<span class="hljs-keyword">return</span>
+		}
+
+		<span class="hljs-comment">// when the expired token exception occurs the credentials</span>
+		<span class="hljs-comment">// need to be expired locally so that the next request to</span>
+		<span class="hljs-comment">// get credentials will trigger a credentials refresh.</span>
+		<span class="hljs-keyword">if</span> r.IsErrorExpired() {
+			r.Config.Credentials.Expire()
+		}
+
+		r.RetryCount++
+		r.Error = <span class="hljs-constant">nil</span>
+	}
+}}</div></pre>
+          </dd>
+        
+          <dt id="ValidateEndpointHandler-constant" class="">
+          <div class="defn">var <strong>ValidateEndpointHandler</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ValidateEndpointHandler is a request handler to validate a request had the
+appropriate Region and Endpoint set. Will set r.Error if the endpoint or
+region is not valid.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{Name: <span class="hljs-string">"core.ValidateEndpointHandler"</span>, Fn: <span class="hljs-keyword">func</span>(r *<span class='object_link'><a href="request/Request.html" title="request.Request (struct)">request.Request</a></span>) {
+
+	checkIfRegionPresent := <span class="hljs-constant">true</span>
+
+	<span class="hljs-keyword">if</span> r.Config.Credentials != <span class='object_link'><a href="credentials.html#AnonymousCredentials-constant" title="aws/credentials.AnonymousCredentials (constant)">credentials.AnonymousCredentials</a></span> {
+		value, err := r.Config.Credentials.Get()
+		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+			r.Error = err
+			<span class="hljs-keyword">return</span>
+		}
+		checkIfRegionPresent = value.ProviderType == <span class="hljs-string">""</span> || value.ProviderType == <span class="hljs-string">"v4"</span>
+	}
+
+	<span class="hljs-keyword">if</span> checkIfRegionPresent && r.ClientInfo.SigningRegion == <span class="hljs-string">""</span> && aws.StringValue(r.Config.Region) == <span class="hljs-string">""</span> {
+		r.Error = <span class='object_link'><a href="../aws.html#ErrMissingRegion-constant" title="aws.ErrMissingRegion (constant)">aws.ErrMissingRegion</a></span>
+	} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> r.ClientInfo.Endpo<span class="hljs-constant">int</span> == <span class="hljs-string">""</span> {
+		r.Error = aws.ErrMissingEndpo<span class="hljs-constant">int</span>
+	}
+}}</div></pre>
+          </dd>
+        
+          <dt id="SDKVersionUserAgentHandler-constant" class="">
+          <div class="defn">var <strong>SDKVersionUserAgentHandler</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>SDKVersionUserAgentHandler is a request handler for adding the SDK Version
+to the user agent.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{
+	Name: <span class="hljs-string">"core.SDKVersionUserAgentHandler"</span>,
+	Fn: <span class='object_link'><a href="request.html#MakeAddToUserAgentHandler-class_method" title="request.MakeAddToUserAgentHandler() (method)">request.MakeAddToUserAgentHandler</a></span>(<span class='object_link'><a href="../aws.html#SDKName-constant" title="aws.SDKName (constant)">aws.SDKName</a></span>, <span class='object_link'><a href="../aws.html#SDKVersion-constant" title="aws.SDKVersion (constant)">aws.SDKVersion</a></span>,
+		runtime.Version(), runtime.GOOS, runtime.GOARCH),
+}</div></pre>
+          </dd>
+        
+          <dt id="AddHostExecEnvUserAgentHander-constant" class="">
+          <div class="defn">var <strong>AddHostExecEnvUserAgentHander</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>AddHostExecEnvUserAgentHander is a request handler appending the SDK's
+execution environment to the user agent.</p>
+
+<p>If the environment variable AWS_EXECUTION_ENV is set, its value will be
+appended to the user agent string.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{
+	Name: <span class="hljs-string">"core.AddHostExecEnvUserAgentHander"</span>,
+	Fn: <span class="hljs-keyword">func</span>(r *<span class='object_link'><a href="request/Request.html" title="request.Request (struct)">request.Request</a></span>) {
+		v := os.Getenv(execEnvVar)
+		<span class="hljs-keyword">if</span> len(v) == 0 {
+			<span class="hljs-keyword">return</span>
+		}
+
+		<span class='object_link'><a href="request.html#AddToUserAgent-class_method" title="request.AddToUserAgent() (method)">request.AddToUserAgent</a></span>(r, execEnvUAKey+<span class="hljs-string">"/"</span>+v)
+	},
+}</div></pre>
+          </dd>
+        
+          <dt id="ValidateParametersHandler-constant" class="">
+          <div class="defn">var <strong>ValidateParametersHandler</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ValidateParametersHandler is a request handler to validate the input parameters.
+Validating parameters only has meaning if done prior to the request being sent.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{Name: <span class="hljs-string">"core.ValidateParametersHandler"</span>, Fn: <span class="hljs-keyword">func</span>(r *<span class='object_link'><a href="request/Request.html" title="request.Request (struct)">request.Request</a></span>) {
+	<span class="hljs-keyword">if</span> !r.ParamsFilled() {
+		<span class="hljs-keyword">return</span>
+	}
+
+	<span class="hljs-keyword">if</span> v, ok := r.Params.(<span class='object_link'><a href="request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>); ok {
+		<span class="hljs-keyword">if</span> err := v.Validate(); err != <span class="hljs-constant">nil</span> {
+			r.Error = err
+		}
+	}
+}}</div></pre>
+          </dd>
+        
+      </dl>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:11 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>

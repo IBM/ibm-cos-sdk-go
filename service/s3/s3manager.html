@@ -1,0 +1,2500 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Package: s3manager
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "service/s3/s3manager";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (s)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../service.html" title="service (package)">service</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../s3.html" title="s3 (package)">s3</a></span></span>
+     &raquo; 
+    <span class="title">s3manager</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="../../package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Package: s3manager
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
+</div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Package s3manager provides utilities to upload and download objects from
+S3 concurrently. Helpful for when working with large objects.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subpackages">
+<h2 class="packages">Sub-Packages</h2>
+<p class="children"><span class='object_link'><a href="s3manager/s3manageriface.html" title="s3manageriface (package)">s3manageriface</a></span></p>
+</div>
+
+  
+    <h2>Constants</h2>
+    
+      <dl class="constants">
+        
+          <dt id="DefaultBatchSize-constant" class="">
+          <div class="defn">const <strong>DefaultBatchSize</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>DefaultBatchSize is the batch size we initialize when constructing a batch delete client.
+This value is used when calling DeleteObjects. This represents how many objects to delete
+per DeleteObjects call.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">100</div></pre>
+          </dd>
+        
+          <dt id="ErrDeleteBatchFailCode-constant" class="">
+          <div class="defn">const <strong>ErrDeleteBatchFailCode</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrDeleteBatchFailCode represents an error code which will be returned
+only when DeleteObjects.Errors has an error that does not contain a code.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"DeleteBatchError"</span></div></pre>
+          </dd>
+        
+          <dt id="MaxUploadParts-constant" class="">
+          <div class="defn">const <strong>MaxUploadParts</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>MaxUploadParts is the maximum allowed number of parts in a multi-part upload
+on Amazon S3.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">10000</div></pre>
+          </dd>
+        
+          <dt id="MinUploadPartSize-constant" class="">
+          <div class="defn">const <strong>MinUploadPartSize</strong> int64 = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>MinUploadPartSize is the minimum allowed part size when uploading a part to
+Amazon S3.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">1024 * 1024 * 5</div></pre>
+          </dd>
+        
+          <dt id="DefaultUploadPartSize-constant" class="">
+          <div class="defn">const <strong>DefaultUploadPartSize</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>DefaultUploadPartSize is the default part size to buffer chunks of a
+payload into.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="#MinUploadPartSize-constant" title="service/s3/s3manager.MinUploadPartSize (constant)">MinUploadPartSize</a></span></div></pre>
+          </dd>
+        
+          <dt id="DefaultUploadConcurrency-constant" class="">
+          <div class="defn">const <strong>DefaultUploadConcurrency</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>DefaultUploadConcurrency is the default number of goroutines to spin up when
+using Upload().</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">5</div></pre>
+          </dd>
+        
+          <dt id="DefaultDownloadPartSize-constant" class="">
+          <div class="defn">const <strong>DefaultDownloadPartSize</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>DefaultDownloadPartSize is the default range of bytes to get at a time when
+using Download().</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">1024 * 1024 * 5</div></pre>
+          </dd>
+        
+          <dt id="DefaultDownloadConcurrency-constant" class="">
+          <div class="defn">const <strong>DefaultDownloadConcurrency</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>DefaultDownloadConcurrency is the default number of goroutines to spin up
+when using Download().</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">5</div></pre>
+          </dd>
+        
+      </dl>
+    
+  
+
+  
+
+
+
+
+
+
+
+  <h2>
+    Type Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/BatchDelete.html" title="s3manager.BatchDelete (struct)"><strong>BatchDelete</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BatchDelete will use the s3 package's service client to perform a batch delete.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-BatchDeleteObject" title="s3manager (package)"><strong>BatchDeleteObject</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BatchDeleteObject is a wrapper object for calling the batch delete operation.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-BatchDownloadObject" title="s3manager (package)"><strong>BatchDownloadObject</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BatchDownloadObject contains all necessary information to run a batch operation once.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/BatchError.html" title="s3manager.BatchError (struct)"><strong>BatchError</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BatchError will contain the key and bucket of the object that failed to either upload or download.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-BatchUploadObject" title="s3manager (package)"><strong>BatchUploadObject</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BatchUploadObject contains all necessary information to run a batch operation once.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/DeleteListIterator.html" title="s3manager.DeleteListIterator (struct)"><strong>DeleteListIterator</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>DeleteListIterator is an alternative iterator for the BatchDelete client.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/DeleteObjectsIterator.html" title="s3manager.DeleteObjectsIterator (struct)"><strong>DeleteObjectsIterator</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>DeleteObjectsIterator is an interface that uses the scanner pattern to iterate through a series of objects to be deleted.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/DownloadObjectsIterator.html" title="s3manager.DownloadObjectsIterator (struct)"><strong>DownloadObjectsIterator</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>DownloadObjectsIterator implements the BatchDownloadIterator interface and allows for batched download of objects.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/Downloader.html" title="s3manager.Downloader (struct)"><strong>Downloader</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The Downloader structure that calls Download().</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/Error.html" title="s3manager.Error (struct)"><strong>Error</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Error will contain the original error, bucket, and key of the operation that failed during batch operations.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/Errors.html" title="s3manager.Errors (struct)"><strong>Errors</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-UploadInput" title="s3manager (package)"><strong>UploadInput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>UploadInput contains all input for upload requests to Amazon S3.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/UploadObjectsIterator.html" title="s3manager.UploadObjectsIterator (struct)"><strong>UploadObjectsIterator</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>UploadObjectsIterator implements the BatchUploadIterator interface and allows for batched upload of objects.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-UploadOutput" title="s3manager (package)"><strong>UploadOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>UploadOutput represents a response from the Upload() call.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/Uploader.html" title="s3manager.Uploader (struct)"><strong>Uploader</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The Uploader structure that calls Upload().</p>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+  <h2>
+    Interface Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/BatchDeleteIterator.html" title="s3manager.BatchDeleteIterator (interface)"><strong>BatchDeleteIterator</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BatchDeleteIterator is an interface that uses the scanner pattern to iterate through what needs to be deleted.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/BatchDownloadIterator.html" title="s3manager.BatchDownloadIterator (interface)"><strong>BatchDownloadIterator</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BatchDownloadIterator is an interface that uses the scanner pattern to iterate through a series of objects to be downloaded.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/BatchUploadIterator.html" title="s3manager.BatchUploadIterator (interface)"><strong>BatchUploadIterator</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BatchUploadIterator is an interface that uses the scanner pattern to iterate through what needs to be uploaded.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/MultiUploadFailure.html" title="s3manager.MultiUploadFailure (interface)"><strong>MultiUploadFailure</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A MultiUploadFailure wraps a failed S3 multipart upload.</p>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+  
+    <h2>
+      Function  Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketRegion-class_method" title="s3manager.GetBucketRegion() (method)">func <strong>GetBucketRegion</strong>(ctx aws.Context, c client.ConfigProvider, bucket, regionHint string, opts ...request.Option) (string, error) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>GetBucketRegion will attempt to get the region for a bucket using the regionHint to determine which AWS partition to perform the query on.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketRegionWithClient-class_method" title="s3manager.GetBucketRegionWithClient() (method)">func <strong>GetBucketRegionWithClient</strong>(ctx aws.Context, svc s3iface.S3API, bucket string, opts ...request.Option) (string, error) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>GetBucketRegionWithClient is the same as GetBucketRegion with the exception that it takes a S3 service client instead of a Session.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewBatchDelete-class_method" title="s3manager.NewBatchDelete() (method)">func <strong>NewBatchDelete</strong>(c client.ConfigProvider, options ...func(*BatchDelete)) *BatchDelete </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewBatchDelete will return a new delete client that can delete a batched amount of objects.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewBatchDeleteWithClient-class_method" title="s3manager.NewBatchDeleteWithClient() (method)">func <strong>NewBatchDeleteWithClient</strong>(client s3iface.S3API, options ...func(*BatchDelete)) *BatchDelete </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewBatchDeleteWithClient will return a new delete client that can delete a batched amount of objects.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewBatchError-class_method" title="s3manager.NewBatchError() (method)">func <strong>NewBatchError</strong>(code, message string, err []Error) awserr.Error </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewBatchError will return a BatchError that satisfies the awserr.Error interface.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewDeleteListIterator-class_method" title="s3manager.NewDeleteListIterator() (method)">func <strong>NewDeleteListIterator</strong>(svc s3iface.S3API, input *s3.ListObjectsInput, opts ...func(*DeleteListIterator)) BatchDeleteIterator </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewDeleteListIterator will return a new DeleteListIterator.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewDownloader-class_method" title="s3manager.NewDownloader() (method)">func <strong>NewDownloader</strong>(c client.ConfigProvider, options ...func(*Downloader)) *Downloader </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewDownloader creates a new Downloader instance to downloads objects from S3 in concurrent chunks.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewDownloaderWithClient-class_method" title="s3manager.NewDownloaderWithClient() (method)">func <strong>NewDownloaderWithClient</strong>(svc s3iface.S3API, options ...func(*Downloader)) *Downloader </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewDownloaderWithClient creates a new Downloader instance to downloads objects from S3 in concurrent chunks.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewUploader-class_method" title="s3manager.NewUploader() (method)">func <strong>NewUploader</strong>(c client.ConfigProvider, options ...func(*Uploader)) *Uploader </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewUploader creates a new Uploader instance to upload objects to S3.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewUploaderWithClient-class_method" title="s3manager.NewUploaderWithClient() (method)">func <strong>NewUploaderWithClient</strong>(svc s3iface.S3API, options ...func(*Uploader)) *Uploader </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewUploaderWithClient creates a new Uploader instance to upload objects to S3.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithDownloaderRequestOptions-class_method" title="s3manager.WithDownloaderRequestOptions() (method)">func <strong>WithDownloaderRequestOptions</strong>(opts ...request.Option) func(*Downloader) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithDownloaderRequestOptions appends to the Downloader's API request options.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithUploaderRequestOptions-class_method" title="s3manager.WithUploaderRequestOptions() (method)">func <strong>WithUploaderRequestOptions</strong>(opts ...request.Option) func(*Uploader) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithUploaderRequestOptions appends to the Uploader's API request options.</p>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+
+
+
+
+  <div id="type_details" class="method_details_list">
+    <h2>Type Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="type-BatchDeleteObject">
+  
+    <strong>BatchDeleteObject</strong> struct
+  
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>BatchDeleteObject is a wrapper object for calling the batch delete operation.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>Object</strong> *<span class='object_link'><a href="../DeleteObjectInput.html" title="s3.DeleteObjectInput (struct)">s3.DeleteObjectInput</a></span> 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-BatchDownloadObject">
+  
+    <strong>BatchDownloadObject</strong> struct
+  
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>BatchDownloadObject contains all necessary information to run a batch operation once.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>Object</strong> *<span class='object_link'><a href="../GetObjectInput.html" title="s3.GetObjectInput (struct)">s3.GetObjectInput</a></span> 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>Writer</strong> io.WriterAt 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-BatchUploadObject">
+  
+    <strong>BatchUploadObject</strong> struct
+  
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>BatchUploadObject contains all necessary information to run a batch operation once.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>Object</strong> *<span class='object_link'><a href="#type-UploadInput" title="s3manager (package)">UploadInput</a></span> 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-UploadInput">
+  
+    <strong>UploadInput</strong> struct
+  
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>UploadInput contains all input for upload requests to Amazon S3.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>Key</strong> *string 
+    <span class="note title readonly">required</span>
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>Bucket</strong> *string 
+    <span class="note title readonly">required</span>
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>ContentDisposition</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Specifies presentational information for the object.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>ContentEncoding</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Specifies what content encodings have been applied to the object and thus
+what decoding mechanisms must be applied to obtain the media-type referenced
+by the Content-Type header field.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>ContentLanguage</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>The language the content is in.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>ContentMD5</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>The base64-encoded 128-bit MD5 digest of the part data.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>ContentType</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>A standard MIME type describing the format of the object data.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>Expires</strong> *time.Time 
+    
+    
+  </code></dt>
+  <dd>
+    <p>The date and time at which the object is no longer cacheable.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>GrantFullControl</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>GrantRead</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Allows grantee to read the object data and its metadata.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>GrantReadACP</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Allows grantee to read the object ACL.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>GrantWriteACP</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Allows grantee to write the ACL for the applicable object.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>Metadata</strong> map[string]*string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>A map of metadata to store with the object in S3.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>RequestPayer</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Confirms that the requester knows that she or he will be charged for the
+request. Bucket owners need not specify this parameter in their requests.
+Documentation on downloading objects from requester pays buckets can be found
+at <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a></p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>SSECustomerAlgorithm</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Specifies the algorithm to use to when encrypting the object (e.g., AES256,
+aws:kms).</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>SSECustomerKey</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting
+data. This value is used to store the object and then it is discarded; Amazon
+does not store the encryption key. The key must be appropriate for use with
+the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm
+header.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>SSECustomerKeyMD5</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
+Amazon S3 uses this header for a message integrity check to ensure the encryption
+key was transmitted without error.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>SSEKMSKeyId</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Specifies the AWS KMS key ID to use for object encryption. All GET and PUT
+requests for an object protected by AWS KMS will fail if not made via SSL
+or using SigV4. Documentation on configuring any of the officially supported
+AWS SDKs and CLI can be found at <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</a></p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>ServerSideEncryption</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>The Server-side encryption algorithm used when storing this object in S3
+(e.g., AES256, aws:kms).</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>StorageClass</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>The type of storage to use for the object. Defaults to 'STANDARD'.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>Tagging</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>WebsiteRedirectLocation</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>If the bucket is configured as a website, redirects requests for this object
+to another object in the same bucket or to an external URL. Amazon S3 stores
+the value of this header in the object metadata.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>ACL</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>The canned ACL to apply to the object.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>Body</strong> io.Reader 
+    
+    
+  </code></dt>
+  <dd>
+    <p>The readable body payload to send to S3.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>CacheControl</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Specifies caching behavior along the request/reply chain.</p>
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-UploadOutput">
+  
+    <strong>UploadOutput</strong> struct
+  
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>UploadOutput represents a response from the Upload() call.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>Location</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>The URL where the object was uploaded to.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>VersionID</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>The version of the object that was uploaded. Will only be populated if
+the S3 Bucket is versioned. If the bucket is not versioned this field
+will not be set.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>UploadID</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>The ID for a multipart upload to S3. In the case of an error the error
+can be cast to the MultiUploadFailure interface to extract the upload ID.</p>
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+  </div>
+
+
+  <div id="Function_method_details" class="method_details_list">
+    <h2>Function Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="GetBucketRegion-class_method">
+  
+    func <strong><span class='object_link'><a href="#GetBucketRegion-class_method" title="s3manager.GetBucketRegion() (method)">GetBucketRegion</a></span></strong>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, c client.ConfigProvider, bucket, regionHint string, opts ...request.Option) (string, error) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>GetBucketRegion will attempt to get the region for a bucket using the
+regionHint to determine which AWS partition to perform the query on.</p>
+
+<p>The request will not be signed, and will not use your AWS credentials.</p>
+
+<p>A "NotFound" error code will be returned if the bucket does not exist in the
+AWS partition the regionHint belongs to. If the regionHint parameter is an
+empty string GetBucketRegion will fallback to the ConfigProvider's region
+config. If the regionHint is empty, and the ConfigProvider does not have a
+region value, an error will be returned..</p>
+
+<p>For example to get the region of a bucket which exists in "eu-central-1"
+you could provide a region hint of "us-west-2".</p>
+
+<p>   sess := session.Must(session.NewSession())</p>
+
+<p>   bucket := "my-bucket"
+   region, err := s3manager.GetBucketRegion(ctx, sess, bucket, "us-west-2")
+   if err != nil {
+       if aerr, ok := err.(awserr.Error); ok &amp;&amp; aerr.Code() == "NotFound" {
+            fmt.Fprintf(os.Stderr, "unable to find bucket %s's region not found\n", bucket)
+       }
+       return err
+   }
+   fmt.Printf("Bucket %s is in %s region\n", bucket, region)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/bucket_region.go', line 37</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> GetBucketRegion(ctx aws.Context, c client.ConfigProvider, bucket, regionH<span class="hljs-constant">int</span> <span class="hljs-constant">string</span>, opts ...request.Option) (<span class="hljs-constant">string</span>, <span class="hljs-constant">error</span>) {
+	<span class="hljs-keyword">var</span> cfg aws.Config
+	<span class="hljs-keyword">if</span> len(regionH<span class="hljs-constant">int</span>) != 0 {
+		cfg.Region = aws.String(regionH<span class="hljs-constant">int</span>)
+	}
+	svc := s3.New(c, &cfg)
+	<span class="hljs-keyword">return</span> GetBucketRegionWithClient(ctx, svc, bucket, opts...)
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketRegionWithClient-class_method">
+  
+    func <strong><span class='object_link'><a href="#GetBucketRegionWithClient-class_method" title="s3manager.GetBucketRegionWithClient() (method)">GetBucketRegionWithClient</a></span></strong>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, svc <span class='object_link'><a href="s3iface/S3API.html" title="s3iface.S3API (interface)">s3iface.S3API</a></span>, bucket string, opts ...request.Option) (string, error) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>GetBucketRegionWithClient is the same as GetBucketRegion with the exception
+that it takes a S3 service client instead of a Session. The regionHint is
+derived from the region the S3 service client was created in.</p>
+
+<p>See GetBucketRegion for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/bucket_region.go', line 53</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> GetBucketRegionWithClient(ctx aws.Context, svc s3iface.S3API, bucket <span class="hljs-constant">string</span>, opts ...request.Option) (<span class="hljs-constant">string</span>, <span class="hljs-constant">error</span>) {
+	req, _ := svc.HeadBucketRequest(&s3.HeadBucketInput{
+		Bucket: aws.String(bucket),
+	})
+	req.Config.S3ForcePathStyle = aws.Bool(<span class="hljs-constant">true</span>)
+	req.Config.Credentials = credentials.AnonymousCredentials
+	req.SetContext(ctx)
+
+	<span class="hljs-comment">// Disable HTTP redirects to prevent an invalid 301 from eating the response</span>
+	<span class="hljs-comment">// because Go's HTTP client will fail, and drop the response if an 301 is</span>
+	<span class="hljs-comment">// received without a location header. S3 will return a 301 without the</span>
+	<span class="hljs-comment">// location header for HeadObject API calls.</span>
+	req.DisableFollowRedirects = <span class="hljs-constant">true</span>
+
+	<span class="hljs-keyword">var</span> bucketRegion <span class="hljs-constant">string</span>
+	req.Handlers.Send.PushBack(<span class="hljs-keyword">func</span>(r *request.Request) {
+		bucketRegion = r.HTTPResponse.Header.Get(bucketRegionHeader)
+		<span class="hljs-keyword">if</span> len(bucketRegion) == 0 {
+			<span class="hljs-keyword">return</span>
+		}
+		r.HTTPResponse.StatusCode = 200
+		r.HTTPResponse.Status = <span class="hljs-string">"OK"</span>
+		r.Error = <span class="hljs-constant">nil</span>
+	})
+
+	req.ApplyOptions(opts...)
+
+	<span class="hljs-keyword">if</span> err := req.Send(); err != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> <span class="hljs-string">""</span>, err
+	}
+
+	bucketRegion = s3.NormalizeBucketLocation(bucketRegion)
+
+	<span class="hljs-keyword">return</span> bucketRegion, <span class="hljs-constant">nil</span>
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewBatchDelete-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewBatchDelete-class_method" title="s3manager.NewBatchDelete() (method)">NewBatchDelete</a></span></strong>(c client.ConfigProvider, options ...func(*<span class='object_link'><a href="s3manager/BatchDelete.html" title="s3manager.BatchDelete (struct)">BatchDelete</a></span>)) *<span class='object_link'><a href="s3manager/BatchDelete.html" title="s3manager.BatchDelete (struct)">BatchDelete</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewBatchDelete will return a new delete client that can delete a batched amount of
+objects.</p>
+
+<p>Example:
+    batcher := s3manager.NewBatchDelete(sess, size)</p>
+
+<pre class="code go"><code class="go"><div class="hljs">objects := []BatchDeleteObject{
+    {
+        Object: &s3.DeleteObjectInput {
+            Key: aws.String(<span class="hljs-string">"key"</span>),
+            Bucket: aws.String(<span class="hljs-string">"bucket"</span>),
+        },
+    },
+}
+
+<span class="hljs-keyword">if</span> err := batcher.Delete(aws.BackgroundContext(), &s3manager.DeleteObjectsIterator{
+    Objects: objects,
+}); err != <span class="hljs-constant">nil</span> {
+    <span class="hljs-keyword">return</span> err
+}
+</div></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+254
+255
+256
+257</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/batch.go', line 254</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewBatchDelete(c client.ConfigProvider, options ...<span class="hljs-keyword">func</span>(*BatchDelete)) *BatchDelete {
+	client := s3.New(c)
+	<span class="hljs-keyword">return</span> NewBatchDeleteWithClient(client, options...)
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewBatchDeleteWithClient-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewBatchDeleteWithClient-class_method" title="s3manager.NewBatchDeleteWithClient() (method)">NewBatchDeleteWithClient</a></span></strong>(client <span class='object_link'><a href="s3iface/S3API.html" title="s3iface.S3API (interface)">s3iface.S3API</a></span>, options ...func(*<span class='object_link'><a href="s3manager/BatchDelete.html" title="s3manager.BatchDelete (struct)">BatchDelete</a></span>)) *<span class='object_link'><a href="s3manager/BatchDelete.html" title="s3manager.BatchDelete (struct)">BatchDelete</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewBatchDeleteWithClient will return a new delete client that can delete a batched amount of
+objects.</p>
+
+<p>Example:
+    batcher := s3manager.NewBatchDeleteWithClient(client, size)</p>
+
+<pre class="code go"><code class="go"><div class="hljs">objects := []BatchDeleteObject{
+    {
+        Object: &s3.DeleteObjectInput {
+            Key: aws.String(<span class="hljs-string">"key"</span>),
+            Bucket: aws.String(<span class="hljs-string">"bucket"</span>),
+        },
+    },
+}
+
+<span class="hljs-keyword">if</span> err := batcher.Delete(aws.BackgroundContext(), &s3manager.DeleteObjectsIterator{
+    Objects: objects,
+}); err != <span class="hljs-constant">nil</span> {
+    <span class="hljs-keyword">return</span> err
+}
+</div></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/batch.go', line 221</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewBatchDeleteWithClient(client s3iface.S3API, options ...<span class="hljs-keyword">func</span>(*BatchDelete)) *BatchDelete {
+	svc := &BatchDelete{
+		Client:    client,
+		BatchSize: DefaultBatchSize,
+	}
+
+	<span class="hljs-keyword">for</span> _, opt := <span class="hljs-keyword">range</span> options {
+		opt(svc)
+	}
+
+	<span class="hljs-keyword">return</span> svc
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewBatchError-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewBatchError-class_method" title="s3manager.NewBatchError() (method)">NewBatchError</a></span></strong>(code, message string, err []<span class='object_link'><a href="s3manager/Error.html" title="s3manager.Error (struct)">Error</a></span>) awserr.Error 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewBatchError will return a BatchError that satisfies the awserr.Error interface.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+74
+75
+76
+77
+78
+79
+80</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/batch.go', line 74</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewBatchError(code, message <span class="hljs-constant">string</span>, err []Error) awserr.Error {
+	<span class="hljs-keyword">return</span> &BatchError{
+		Errors:  err,
+		code:    code,
+		message: message,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewDeleteListIterator-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewDeleteListIterator-class_method" title="s3manager.NewDeleteListIterator() (method)">NewDeleteListIterator</a></span></strong>(svc <span class='object_link'><a href="s3iface/S3API.html" title="s3iface.S3API (interface)">s3iface.S3API</a></span>, input *<span class='object_link'><a href="ListObjectsInput.html" title="s3.ListObjectsInput (struct)">s3.ListObjectsInput</a></span>, opts ...func(*<span class='object_link'><a href="s3manager/DeleteListIterator.html" title="s3manager.DeleteListIterator (struct)">DeleteListIterator</a></span>)) <span class='object_link'><a href="s3manager/BatchDeleteIterator.html" title="s3manager.BatchDeleteIterator (interface)">BatchDeleteIterator</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewDeleteListIterator will return a new DeleteListIterator.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/batch.go', line 144</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewDeleteListIterator(svc s3iface.S3API, input *s3.ListObjectsInput, opts ...<span class="hljs-keyword">func</span>(*DeleteListIterator)) BatchDeleteIterator {
+	iter := &DeleteListIterator{
+		Bucket: input.Bucket,
+		Paginator: request.Pagination{
+			NewRequest: <span class="hljs-keyword">func</span>() (*request.Request, <span class="hljs-constant">error</span>) {
+				<span class="hljs-keyword">var</span> inCpy *s3.ListObjectsInput
+				<span class="hljs-keyword">if</span> input != <span class="hljs-constant">nil</span> {
+					tmp := *input
+					inCpy = &tmp
+				}
+				req, _ := svc.ListObjectsRequest(inCpy)
+				<span class="hljs-keyword">return</span> req, <span class="hljs-constant">nil</span>
+			},
+		},
+	}
+
+	<span class="hljs-keyword">for</span> _, opt := <span class="hljs-keyword">range</span> opts {
+		opt(iter)
+	}
+	<span class="hljs-keyword">return</span> iter
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewDownloader-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewDownloader-class_method" title="s3manager.NewDownloader() (method)">NewDownloader</a></span></strong>(c client.ConfigProvider, options ...func(*<span class='object_link'><a href="s3manager/Downloader.html" title="s3manager.Downloader (struct)">Downloader</a></span>)) *<span class='object_link'><a href="s3manager/Downloader.html" title="s3manager.Downloader (struct)">Downloader</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewDownloader creates a new Downloader instance to downloads objects from
+S3 in concurrent chunks. Pass in additional functional options  to customize
+the downloader behavior. Requires a client.ConfigProvider in order to create
+a S3 service client. The session.Session satisfies the client.ConfigProvider
+interface.</p>
+
+<p>Example:
+    // The session the S3 Downloader will use
+    sess := session.Must(session.NewSession())</p>
+
+<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Create a downloader with the session and default options</span>
+downloader := s3manager.NewDownloader(sess)
+
+<span class="hljs-comment">// Create a downloader with the session and custom options</span>
+downloader := s3manager.NewDownloader(sess, <span class="hljs-keyword">func</span>(d *s3manager.Downloader) {
+     d.PartSize = 64 * 1024 * 1024 <span class="hljs-comment">// 64MB per part</span>
+})
+</div></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 78</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewDownloader(c client.ConfigProvider, options ...<span class="hljs-keyword">func</span>(*Downloader)) *Downloader {
+	d := &Downloader{
+		S3:          s3.New(c),
+		PartSize:    DefaultDownloadPartSize,
+		Concurrency: DefaultDownloadConcurrency,
+	}
+	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> options {
+		option(d)
+	}
+
+	<span class="hljs-keyword">return</span> d
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewDownloaderWithClient-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewDownloaderWithClient-class_method" title="s3manager.NewDownloaderWithClient() (method)">NewDownloaderWithClient</a></span></strong>(svc <span class='object_link'><a href="s3iface/S3API.html" title="s3iface.S3API (interface)">s3iface.S3API</a></span>, options ...func(*<span class='object_link'><a href="s3manager/Downloader.html" title="s3manager.Downloader (struct)">Downloader</a></span>)) *<span class='object_link'><a href="s3manager/Downloader.html" title="s3manager.Downloader (struct)">Downloader</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewDownloaderWithClient creates a new Downloader instance to downloads
+objects from S3 in concurrent chunks. Pass in additional functional
+options to customize the downloader behavior. Requires a S3 service client
+to make S3 API calls.</p>
+
+<p>Example:
+    // The session the S3 Downloader will use
+    sess := session.Must(session.NewSession())</p>
+
+<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// The S3 client the S3 Downloader will use</span>
+s3Svc := s3.new(sess)
+
+<span class="hljs-comment">// Create a downloader with the s3 client and default options</span>
+downloader := s3manager.NewDownloaderWithClient(s3Svc)
+
+<span class="hljs-comment">// Create a downloader with the s3 client and custom options</span>
+downloader := s3manager.NewDownloaderWithClient(s3Svc, <span class="hljs-keyword">func</span>(d *s3manager.Downloader) {
+     d.PartSize = 64 * 1024 * 1024 <span class="hljs-comment">// 64MB per part</span>
+})
+</div></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 110</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewDownloaderWithClient(svc s3iface.S3API, options ...<span class="hljs-keyword">func</span>(*Downloader)) *Downloader {
+	d := &Downloader{
+		S3:          svc,
+		PartSize:    DefaultDownloadPartSize,
+		Concurrency: DefaultDownloadConcurrency,
+	}
+	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> options {
+		option(d)
+	}
+
+	<span class="hljs-keyword">return</span> d
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewUploader-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewUploader-class_method" title="s3manager.NewUploader() (method)">NewUploader</a></span></strong>(c client.ConfigProvider, options ...func(*<span class='object_link'><a href="s3manager/Uploader.html" title="s3manager.Uploader (struct)">Uploader</a></span>)) *<span class='object_link'><a href="s3manager/Uploader.html" title="s3manager.Uploader (struct)">Uploader</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewUploader creates a new Uploader instance to upload objects to S3. Pass In
+additional functional options to customize the uploader's behavior. Requires a
+client.ConfigProvider in order to create a S3 service client. The session.Session
+satisfies the client.ConfigProvider interface.</p>
+
+<p>Example:
+    // The session the S3 Uploader will use
+    sess := session.Must(session.NewSession())</p>
+
+<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Create an uploader with the session and default options</span>
+uploader := s3manager.NewUploader(sess)
+
+<span class="hljs-comment">// Create an uploader with the session and custom options</span>
+uploader := s3manager.NewUploader(session, <span class="hljs-keyword">func</span>(u *s3manager.Uploader) {
+     u.PartSize = 64 * 1024 * 1024 <span class="hljs-comment">// 64MB per part</span>
+})
+</div></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 271</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewUploader(c client.ConfigProvider, options ...<span class="hljs-keyword">func</span>(*Uploader)) *Uploader {
+	u := &Uploader{
+		S3:                s3.New(c),
+		PartSize:          DefaultUploadPartSize,
+		Concurrency:       DefaultUploadConcurrency,
+		LeavePartsOnError: <span class="hljs-constant">false</span>,
+		MaxUploadParts:    MaxUploadParts,
+	}
+
+	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> options {
+		option(u)
+	}
+
+	<span class="hljs-keyword">return</span> u
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewUploaderWithClient-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewUploaderWithClient-class_method" title="s3manager.NewUploaderWithClient() (method)">NewUploaderWithClient</a></span></strong>(svc <span class='object_link'><a href="s3iface/S3API.html" title="s3iface.S3API (interface)">s3iface.S3API</a></span>, options ...func(*<span class='object_link'><a href="s3manager/Uploader.html" title="s3manager.Uploader (struct)">Uploader</a></span>)) *<span class='object_link'><a href="s3manager/Uploader.html" title="s3manager.Uploader (struct)">Uploader</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewUploaderWithClient creates a new Uploader instance to upload objects to S3. Pass in
+additional functional options to customize the uploader's behavior. Requires
+a S3 service client to make S3 API calls.</p>
+
+<p>Example:
+    // The session the S3 Uploader will use
+    sess := session.Must(session.NewSession())</p>
+
+<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// S3 service client the Upload manager will use.</span>
+s3Svc := s3.New(sess)
+
+<span class="hljs-comment">// Create an uploader with S3 client and default options</span>
+uploader := s3manager.NewUploaderWithClient(s3Svc)
+
+<span class="hljs-comment">// Create an uploader with S3 client and custom options</span>
+uploader := s3manager.NewUploaderWithClient(s3Svc, <span class="hljs-keyword">func</span>(u *s3manager.Uploader) {
+     u.PartSize = 64 * 1024 * 1024 <span class="hljs-comment">// 64MB per part</span>
+})
+</div></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 305</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewUploaderWithClient(svc s3iface.S3API, options ...<span class="hljs-keyword">func</span>(*Uploader)) *Uploader {
+	u := &Uploader{
+		S3:                svc,
+		PartSize:          DefaultUploadPartSize,
+		Concurrency:       DefaultUploadConcurrency,
+		LeavePartsOnError: <span class="hljs-constant">false</span>,
+		MaxUploadParts:    MaxUploadParts,
+	}
+
+	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> options {
+		option(u)
+	}
+
+	<span class="hljs-keyword">return</span> u
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithDownloaderRequestOptions-class_method">
+  
+    func <strong><span class='object_link'><a href="#WithDownloaderRequestOptions-class_method" title="s3manager.WithDownloaderRequestOptions() (method)">WithDownloaderRequestOptions</a></span></strong>(opts ...request.Option) func(*<span class='object_link'><a href="s3manager/Downloader.html" title="s3manager.Downloader (struct)">Downloader</a></span>) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithDownloaderRequestOptions appends to the Downloader's API request options.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 55</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> WithDownloaderRequestOptions(opts ...request.Option) <span class="hljs-keyword">func</span>(*Downloader) {
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(d *Downloader) {
+		d.RequestOptions = append(d.RequestOptions, opts...)
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithUploaderRequestOptions-class_method">
+  
+    func <strong><span class='object_link'><a href="#WithUploaderRequestOptions-class_method" title="s3manager.WithUploaderRequestOptions() (method)">WithUploaderRequestOptions</a></span></strong>(opts ...request.Option) func(*<span class='object_link'><a href="s3manager/Uploader.html" title="s3manager.Uploader (struct)">Uploader</a></span>) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithUploaderRequestOptions appends to the Uploader's API request options.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+208
+209
+210
+211
+212</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 208</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> WithUploaderRequestOptions(opts ...request.Option) <span class="hljs-keyword">func</span>(*Uploader) {
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(u *Uploader) {
+		u.RequestOptions = append(u.RequestOptions, opts...)
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:12 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>

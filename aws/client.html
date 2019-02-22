@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Package: client
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "aws/client";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (c)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../aws.html" title="aws (package)">aws</a></span></span>
+     &raquo; 
+    <span class="title">client</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="../package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Package: client
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/aws/client"
+</div>
+<div id="subpackages">
+<h2 class="packages">Sub-Packages</h2>
+<p class="children"><span class='object_link'><a href="client/metadata.html" title="metadata (package)">metadata</a></span></p>
+</div>
+
+  
+
+  
+    <h2>Variables</h2>
+    
+      <dl class="constants">
+        
+          <dt id="LogHTTPRequestHandler-constant" class="">
+          <div class="defn">var <strong>LogHTTPRequestHandler</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>LogHTTPRequestHandler is a SDK request handler to log the HTTP request sent
+to a service. Will include the HTTP request body if the LogLevel of the
+request matches LogDebugWithHTTPBody.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{
+	Name: <span class="hljs-string">"awssdk.client.LogRequest"</span>,
+	Fn:   logRequest,
+}</div></pre>
+          </dd>
+        
+          <dt id="LogHTTPRequestHeaderHandler-constant" class="">
+          <div class="defn">var <strong>LogHTTPRequestHeaderHandler</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>LogHTTPRequestHeaderHandler is a SDK request handler to log the HTTP request sent
+to a service. Will only log the HTTP request's headers. The request payload
+will not be read.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{
+	Name: <span class="hljs-string">"awssdk.client.LogRequestHeader"</span>,
+	Fn:   logRequestHeader,
+}</div></pre>
+          </dd>
+        
+          <dt id="LogHTTPResponseHandler-constant" class="">
+          <div class="defn">var <strong>LogHTTPResponseHandler</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>LogHTTPResponseHandler is a SDK request handler to log the HTTP response
+received from a service. Will include the HTTP response body if the LogLevel
+of the request matches LogDebugWithHTTPBody.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{
+	Name: <span class="hljs-string">"awssdk.client.LogResponse"</span>,
+	Fn:   logResponse,
+}</div></pre>
+          </dd>
+        
+          <dt id="LogHTTPResponseHeaderHandler-constant" class="">
+          <div class="defn">var <strong>LogHTTPResponseHeaderHandler</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>LogHTTPResponseHeaderHandler is a SDK request handler to log the HTTP
+response received from a service. Will only log the HTTP response's headers.
+The response payload will not be read.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{
+	Name: <span class="hljs-string">"awssdk.client.LogResponseHeader"</span>,
+	Fn:   logResponseHeader,
+}</div></pre>
+          </dd>
+        
+      </dl>
+    
+  
+
+
+
+
+
+
+
+  <h2>
+    Type Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="client/Client.html" title="client.Client (struct)"><strong>Client</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A Client implements the base client request and response handling used by all service clients.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="client/Config.html" title="client.Config (struct)"><strong>Config</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A Config provides configuration to a service client instance.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="client/DefaultRetryer.html" title="client.DefaultRetryer (struct)"><strong>DefaultRetryer</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>DefaultRetryer implements basic retry logic using exponential backoff for most services.</p>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+  <h2>
+    Interface Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="client/ConfigNoResolveEndpointProvider.html" title="client.ConfigNoResolveEndpointProvider (interface)"><strong>ConfigNoResolveEndpointProvider</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>ConfigNoResolveEndpointProvider same as ConfigProvider except it will not resolve the endpoint automatically.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="client/ConfigProvider.html" title="client.ConfigProvider (interface)"><strong>ConfigProvider</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>ConfigProvider provides a generic way for a service client to receive the ClientConfig without circular dependencies.</p>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+  
+    <h2>
+      Function  Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#New-class_method" title="client.New() (method)">func <strong>New</strong>(cfg aws.Config, info metadata.ClientInfo, handlers request.Handlers, options ...func(*Client)) *Client </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>New will return a pointer to a new initialized service client.</p>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+
+
+
+
+
+  <div id="Function_method_details" class="method_details_list">
+    <h2>Function Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="New-class_method">
+  
+    func <strong><span class='object_link'><a href="#New-class_method" title="client.New() (method)">New</a></span></strong>(cfg <span class='object_link'><a href="Config.html" title="aws.Config (struct)">aws.Config</a></span>, info <span class='object_link'><a href="client/metadata.html#type-ClientInfo" title="metadata (package)">metadata.ClientInfo</a></span>, handlers <span class='object_link'><a href="request/Handlers.html" title="request.Handlers (struct)">request.Handlers</a></span>, options ...func(*<span class='object_link'><a href="client/Client.html" title="client.Client (struct)">Client</a></span>)) *<span class='object_link'><a href="client/Client.html" title="client.Client (struct)">Client</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>New will return a pointer to a new initialized service client.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/client/client.go', line 49</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> New(cfg aws.Config, info metadata.ClientInfo, handlers request.Handlers, options ...<span class="hljs-keyword">func</span>(*Client)) *Client {
+	svc := &Client{
+		Config:     cfg,
+		ClientInfo: info,
+		Handlers:   handlers.Copy(),
+	}
+
+	<span class="hljs-keyword">switch</span> retryer, ok := cfg.Retryer.(request.Retryer); {
+	<span class="hljs-keyword">case</span> ok:
+		svc.Retryer = retryer
+	<span class="hljs-keyword">case</span> cfg.Retryer != <span class="hljs-constant">nil</span> && cfg.Logger != <span class="hljs-constant">nil</span>:
+		s := fmt.Sprintf(<span class="hljs-string">"WARNING: %T does not implement request.Retryer; using DefaultRetryer instead"</span>, cfg.Retryer)
+		cfg.Logger.Log(s)
+		<span class="hljs-keyword">fallthrough</span>
+	<span class="hljs-keyword">default</span>:
+		maxRetries := aws.IntValue(cfg.MaxRetries)
+		<span class="hljs-keyword">if</span> cfg.MaxRetries == <span class="hljs-constant">nil</span> || maxRetries == aws.UseServiceDefaultRetries {
+			maxRetries = 3
+		}
+		svc.Retryer = DefaultRetryer{NumMaxRetries: maxRetries}
+	}
+
+	svc.AddDebugHandlers()
+
+	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> options {
+		option(svc)
+	}
+
+	<span class="hljs-keyword">return</span> svc
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:10 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,3935 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Package: aws
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "aws";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (a)</a> &raquo;
+    
+    
+    <span class="title">aws</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Package: aws
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/aws"
+</div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Package aws provides core functionality for making requests to AWS services.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subpackages">
+<h2 class="packages">Sub-Packages</h2>
+<p class="children"><span class='object_link'><a href="aws/awserr.html" title="awserr (package)">awserr</a></span>, <span class='object_link'><a href="aws/awsutil.html" title="awsutil (package)">awsutil</a></span>, <span class='object_link'><a href="aws/client.html" title="client (package)">client</a></span>, <span class='object_link'><a href="aws/corehandlers.html" title="corehandlers (package)">corehandlers</a></span>, <span class='object_link'><a href="aws/credentials.html" title="credentials (package)">credentials</a></span>, <span class='object_link'><a href="aws/defaults.html" title="defaults (package)">defaults</a></span>, <span class='object_link'><a href="aws/ec2metadata.html" title="ec2metadata (package)">ec2metadata</a></span>, <span class='object_link'><a href="aws/endpoints.html" title="endpoints (package)">endpoints</a></span>, <span class='object_link'><a href="aws/request.html" title="request (package)">request</a></span>, <span class='object_link'><a href="aws/session.html" title="session (package)">session</a></span>, <span class='object_link'><a href="aws/signer.html" title="signer (package)">signer</a></span></p>
+</div>
+
+  
+    <h2>Constants</h2>
+    
+      <dl class="constants">
+        
+          <dt id="UseServiceDefaultRetries-constant" class="">
+          <div class="defn">const <strong>UseServiceDefaultRetries</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>UseServiceDefaultRetries instructs the config to use the service's own
+default number of retries. This will be the default action if
+Config.MaxRetries is nil also.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">-1</div></pre>
+          </dd>
+        
+          <dt id="LogOff-constant" class="">
+          <div class="defn">const <strong>LogOff</strong> <span class='object_link'><a href="aws/LogLevelType.html" title="aws.LogLevelType (struct)">LogLevelType</a></span> = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>LogOff states that no logging should be performed by the SDK. This is the
+default state of the SDK, and should be use to disable all logging.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">iota * 0x1000</div></pre>
+          </dd>
+        
+          <dt id="LogDebugWithSigning-constant" class="">
+          <div class="defn">const <strong>LogDebugWithSigning</strong> <span class='object_link'><a href="aws/LogLevelType.html" title="aws.LogLevelType (struct)">LogLevelType</a></span> = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>LogDebugWithSigning states that the SDK should log request signing and
+presigning events. This should be used to log the signing details of
+requests for debugging. Will also enable LogDebug.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">LogDebug | (1 << iota)</div></pre>
+          </dd>
+        
+          <dt id="SDKName-constant" class="">
+          <div class="defn">const <strong>SDKName</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>SDKName is the name of this AWS SDK</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"ibm-cos-sdk-go"</span></div></pre>
+          </dd>
+        
+          <dt id="SDKVersion-constant" class="">
+          <div class="defn">const <strong>SDKVersion</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>SDKVersion is the version of this SDK</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"1.0.0"</span></div></pre>
+          </dd>
+        
+      </dl>
+    
+  
+
+  
+    <h2>Variables</h2>
+    
+      <dl class="constants">
+        
+          <dt id="ErrMissingRegion-constant" class="">
+          <div class="defn">var <strong>ErrMissingRegion</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrMissingRegion is an error that is returned if region configuration is
+not found.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="aws/awserr.html#New-class_method" title="awserr.New() (method)">awserr.New</a></span>(<span class="hljs-string">"MissingRegion"</span>, <span class="hljs-string">"could not find region configuration"</span>, <span class="hljs-constant">nil</span>)</div></pre>
+          </dd>
+        
+          <dt id="ErrMissingEndpoint-constant" class="">
+          <div class="defn">var <strong>ErrMissingEndpoint</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrMissingEndpoint is an error that is returned if an endpoint cannot be
+resolved for a service.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="aws/awserr.html#New-class_method" title="awserr.New() (method)">awserr.New</a></span>(<span class="hljs-string">"MissingEndpoint"</span>, <span class="hljs-string">"'Endpoint' configuration is required for this service"</span>, <span class="hljs-constant">nil</span>)</div></pre>
+          </dd>
+        
+      </dl>
+    
+  
+
+
+
+
+
+
+
+  <h2>
+    Type Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="aws/Config.html" title="aws.Config (struct)"><strong>Config</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A Config provides service configuration for service clients.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="aws/LogLevelType.html" title="aws.LogLevelType (struct)"><strong>LogLevelType</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Value returns the LogLevel value or the default value LogOff if the LogLevel is nil.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="aws/LoggerFunc.html" title="aws.LoggerFunc (struct)"><strong>LoggerFunc</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Log calls the wrapped function with the arguments provided.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="aws/ReaderSeekerCloser.html" title="aws.ReaderSeekerCloser (struct)"><strong>ReaderSeekerCloser</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>ReaderSeekerCloser represents a reader that can also delegate io.Seeker and io.Closer interfaces to the underlying object if they are available.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="aws/WriteAtBuffer.html" title="aws.WriteAtBuffer (struct)"><strong>WriteAtBuffer</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A WriteAtBuffer provides a in memory buffer supporting the io.WriterAt interface Can be used with the s3manager.Downloader to download content to a buffer in memory.</p>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+  <h2>
+    Interface Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="aws/Context.html" title="aws.Context (interface)"><strong>Context</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Context is an copy of the Go v1.7 stdlib's context.Context interface.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="aws/Logger.html" title="aws.Logger (interface)"><strong>Logger</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A Logger is a minimalistic interface for the SDK to log messages to.</p>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+  
+    <h2>
+      Function  Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BackgroundContext-class_method" title="aws.BackgroundContext() (method)">func <strong>BackgroundContext</strong>() Context </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BackgroundContext returns a context that will never be canceled, has no values, and no deadline.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Bool-class_method" title="aws.Bool() (method)">func <strong>Bool</strong>(v bool) *bool </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Bool returns a pointer to the bool value passed in.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BoolMap-class_method" title="aws.BoolMap() (method)">func <strong>BoolMap</strong>(src map[string]bool) map[string]*bool </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BoolMap converts a string map of bool values into a string map of bool pointers.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BoolSlice-class_method" title="aws.BoolSlice() (method)">func <strong>BoolSlice</strong>(src []bool) []*bool </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BoolSlice converts a slice of bool values into a slice of bool pointers.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BoolValue-class_method" title="aws.BoolValue() (method)">func <strong>BoolValue</strong>(v *bool) bool </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BoolValue returns the value of the bool pointer passed in or false if the pointer is nil.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BoolValueMap-class_method" title="aws.BoolValueMap() (method)">func <strong>BoolValueMap</strong>(src map[string]*bool) map[string]bool </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BoolValueMap converts a string map of bool pointers into a string map of bool values.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BoolValueSlice-class_method" title="aws.BoolValueSlice() (method)">func <strong>BoolValueSlice</strong>(src []*bool) []bool </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>BoolValueSlice converts a slice of bool pointers into a slice of bool values.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Float64-class_method" title="aws.Float64() (method)">func <strong>Float64</strong>(v float64) *float64 </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Float64 returns a pointer to the float64 value passed in.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Float64Map-class_method" title="aws.Float64Map() (method)">func <strong>Float64Map</strong>(src map[string]float64) map[string]*float64 </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Float64Map converts a string map of float64 values into a string map of float64 pointers.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Float64Slice-class_method" title="aws.Float64Slice() (method)">func <strong>Float64Slice</strong>(src []float64) []*float64 </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Float64Slice converts a slice of float64 values into a slice of float64 pointers.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Float64Value-class_method" title="aws.Float64Value() (method)">func <strong>Float64Value</strong>(v *float64) float64 </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Float64Value returns the value of the float64 pointer passed in or 0 if the pointer is nil.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Float64ValueMap-class_method" title="aws.Float64ValueMap() (method)">func <strong>Float64ValueMap</strong>(src map[string]*float64) map[string]float64 </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Float64ValueMap converts a string map of float64 pointers into a string map of float64 values.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Float64ValueSlice-class_method" title="aws.Float64ValueSlice() (method)">func <strong>Float64ValueSlice</strong>(src []*float64) []float64 </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Float64ValueSlice converts a slice of float64 pointers into a slice of float64 values.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Int-class_method" title="aws.Int() (method)">func <strong>Int</strong>(v int) *int </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Int returns a pointer to the int value passed in.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Int64-class_method" title="aws.Int64() (method)">func <strong>Int64</strong>(v int64) *int64 </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Int64 returns a pointer to the int64 value passed in.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Int64Map-class_method" title="aws.Int64Map() (method)">func <strong>Int64Map</strong>(src map[string]int64) map[string]*int64 </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Int64Map converts a string map of int64 values into a string map of int64 pointers.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Int64Slice-class_method" title="aws.Int64Slice() (method)">func <strong>Int64Slice</strong>(src []int64) []*int64 </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Int64Slice converts a slice of int64 values into a slice of int64 pointers.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Int64Value-class_method" title="aws.Int64Value() (method)">func <strong>Int64Value</strong>(v *int64) int64 </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Int64Value returns the value of the int64 pointer passed in or 0 if the pointer is nil.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Int64ValueMap-class_method" title="aws.Int64ValueMap() (method)">func <strong>Int64ValueMap</strong>(src map[string]*int64) map[string]int64 </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Int64ValueMap converts a string map of int64 pointers into a string map of int64 values.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Int64ValueSlice-class_method" title="aws.Int64ValueSlice() (method)">func <strong>Int64ValueSlice</strong>(src []*int64) []int64 </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Int64ValueSlice converts a slice of int64 pointers into a slice of int64 values.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IntMap-class_method" title="aws.IntMap() (method)">func <strong>IntMap</strong>(src map[string]int) map[string]*int </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>IntMap converts a string map of int values into a string map of int pointers.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IntSlice-class_method" title="aws.IntSlice() (method)">func <strong>IntSlice</strong>(src []int) []*int </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>IntSlice converts a slice of int values into a slice of int pointers.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IntValue-class_method" title="aws.IntValue() (method)">func <strong>IntValue</strong>(v *int) int </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>IntValue returns the value of the int pointer passed in or 0 if the pointer is nil.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IntValueMap-class_method" title="aws.IntValueMap() (method)">func <strong>IntValueMap</strong>(src map[string]*int) map[string]int </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>IntValueMap converts a string map of int pointers into a string map of int values.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IntValueSlice-class_method" title="aws.IntValueSlice() (method)">func <strong>IntValueSlice</strong>(src []*int) []int </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>IntValueSlice converts a slice of int pointers into a slice of int values.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IsReaderSeekable-class_method" title="aws.IsReaderSeekable() (method)">func <strong>IsReaderSeekable</strong>(r io.Reader) bool </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>IsReaderSeekable returns if the underlying reader type can be seeked.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#MillisecondsTimeValue-class_method" title="aws.MillisecondsTimeValue() (method)">func <strong>MillisecondsTimeValue</strong>(v *int64) time.Time </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>MillisecondsTimeValue converts an int64 pointer to a time.Time value representing milliseconds sinch Epoch or time.Time{} if the pointer is nil.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewDefaultLogger-class_method" title="aws.NewDefaultLogger() (method)">func <strong>NewDefaultLogger</strong>() Logger </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewDefaultLogger returns a Logger which will write log messages to stdout, and use same formatting runes as the stdlib log.Logger.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ReadSeekCloser-class_method" title="aws.ReadSeekCloser() (method)">func <strong>ReadSeekCloser</strong>(r io.Reader) ReaderSeekerCloser </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>ReadSeekCloser wraps a io.Reader returning a ReaderSeekerCloser.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SecondsTimeValue-class_method" title="aws.SecondsTimeValue() (method)">func <strong>SecondsTimeValue</strong>(v *int64) time.Time </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SecondsTimeValue converts an int64 pointer to a time.Time value representing seconds since Epoch or time.Time{} if the pointer is nil.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SeekerLen-class_method" title="aws.SeekerLen() (method)">func <strong>SeekerLen</strong>(s io.Seeker) (int64, error) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SeekerLen attempts to get the number of bytes remaining at the seeker's current position.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SleepWithContext-class_method" title="aws.SleepWithContext() (method)">func <strong>SleepWithContext</strong>(ctx Context, dur time.Duration) error </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SleepWithContext will wait for the timer duration to expire, or the context is canceled.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#String-class_method" title="aws.String() (method)">func <strong>String</strong>(v string) *string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>String returns a pointer to the string value passed in.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#StringMap-class_method" title="aws.StringMap() (method)">func <strong>StringMap</strong>(src map[string]string) map[string]*string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>StringMap converts a string map of string values into a string map of string pointers.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#StringSlice-class_method" title="aws.StringSlice() (method)">func <strong>StringSlice</strong>(src []string) []*string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>StringSlice converts a slice of string values into a slice of string pointers.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#StringValue-class_method" title="aws.StringValue() (method)">func <strong>StringValue</strong>(v *string) string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>StringValue returns the value of the string pointer passed in or "" if the pointer is nil.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#StringValueMap-class_method" title="aws.StringValueMap() (method)">func <strong>StringValueMap</strong>(src map[string]*string) map[string]string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>StringValueMap converts a string map of string pointers into a string map of string values.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#StringValueSlice-class_method" title="aws.StringValueSlice() (method)">func <strong>StringValueSlice</strong>(src []*string) []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>StringValueSlice converts a slice of string pointers into a slice of string values.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Time-class_method" title="aws.Time() (method)">func <strong>Time</strong>(v time.Time) *time.Time </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Time returns a pointer to the time.Time value passed in.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#TimeMap-class_method" title="aws.TimeMap() (method)">func <strong>TimeMap</strong>(src map[string]time.Time) map[string]*time.Time </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>TimeMap converts a string map of time.Time values into a string map of time.Time pointers.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#TimeSlice-class_method" title="aws.TimeSlice() (method)">func <strong>TimeSlice</strong>(src []time.Time) []*time.Time </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>TimeSlice converts a slice of time.Time values into a slice of time.Time pointers.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#TimeUnixMilli-class_method" title="aws.TimeUnixMilli() (method)">func <strong>TimeUnixMilli</strong>(t time.Time) int64 </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>TimeUnixMilli returns a Unix timestamp in milliseconds from "January 1, 1970 UTC".</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#TimeValue-class_method" title="aws.TimeValue() (method)">func <strong>TimeValue</strong>(v *time.Time) time.Time </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>TimeValue returns the value of the time.Time pointer passed in or time.Time{} if the pointer is nil.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#TimeValueMap-class_method" title="aws.TimeValueMap() (method)">func <strong>TimeValueMap</strong>(src map[string]*time.Time) map[string]time.Time </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>TimeValueMap converts a string map of time.Time pointers into a string map of time.Time values.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#TimeValueSlice-class_method" title="aws.TimeValueSlice() (method)">func <strong>TimeValueSlice</strong>(src []*time.Time) []time.Time </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>TimeValueSlice converts a slice of time.Time pointers into a slice of time.Time values.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#URLHostname-class_method" title="aws.URLHostname() (method)">func <strong>URLHostname</strong>(url *url.URL) string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>URLHostname will extract the Hostname without port from the URL value.</p>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+
+
+
+
+
+  <div id="Function_method_details" class="method_details_list">
+    <h2>Function Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="BackgroundContext-class_method">
+  
+    func <strong><span class='object_link'><a href="#BackgroundContext-class_method" title="aws.BackgroundContext() (method)">BackgroundContext</a></span></strong>() <span class='object_link'><a href="aws/Context.html" title="aws.Context (interface)">Context</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>BackgroundContext returns a context that will never be canceled, has no
+values, and no deadline. This context is used by the SDK to provide
+backwards compatibility with non-context API operations and functionality.</p>
+
+<p>Go 1.6 and before:
+This context function is equivalent to context.Background in the Go stdlib.</p>
+
+<p>Go 1.7 and later:
+The context returned will be the value returned by context.Background()</p>
+
+<p>See <a href="https://golang.org/pkg/context">https://golang.org/pkg/context</a> for more information on Contexts.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/context.go', line 49</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> BackgroundContext() Context {
+	<span class="hljs-keyword">return</span> backgroundCtx
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Bool-class_method">
+  
+    func <strong><span class='object_link'><a href="#Bool-class_method" title="aws.Bool() (method)">Bool</a></span></strong>(v bool) *bool 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Bool returns a pointer to the bool value passed in.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 64</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Bool(v <span class="hljs-constant">bool</span>) *<span class="hljs-constant">bool</span> {
+	<span class="hljs-keyword">return</span> &v
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="BoolMap-class_method">
+  
+    func <strong><span class='object_link'><a href="#BoolMap-class_method" title="aws.BoolMap() (method)">BoolMap</a></span></strong>(src map[string]bool) map[string]*bool 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>BoolMap converts a string map of bool values into a string
+map of bool pointers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103
+104
+105
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 101</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> BoolMap(src <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">bool</span>) <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">bool</span> {
+	dst := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">bool</span>)
+	<span class="hljs-keyword">for</span> k, val := <span class="hljs-keyword">range</span> src {
+		v := val
+		dst[k] = &v
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="BoolSlice-class_method">
+  
+    func <strong><span class='object_link'><a href="#BoolSlice-class_method" title="aws.BoolSlice() (method)">BoolSlice</a></span></strong>(src []bool) []*bool 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>BoolSlice converts a slice of bool values into a slice of
+bool pointers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81
+82
+83
+84
+85</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 79</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> BoolSlice(src []<span class="hljs-constant">bool</span>) []*<span class="hljs-constant">bool</span> {
+	dst := make([]*<span class="hljs-constant">bool</span>, len(src))
+	<span class="hljs-keyword">for</span> i := 0; i < len(src); i++ {
+		dst[i] = &(src[i])
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="BoolValue-class_method">
+  
+    func <strong><span class='object_link'><a href="#BoolValue-class_method" title="aws.BoolValue() (method)">BoolValue</a></span></strong>(v *bool) bool 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>BoolValue returns the value of the bool pointer passed in or
+false if the pointer is nil.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 70</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> BoolValue(v *<span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span> {
+	<span class="hljs-keyword">if</span> v != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> *v
+	}
+	<span class="hljs-keyword">return</span> <span class="hljs-constant">false</span>
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="BoolValueMap-class_method">
+  
+    func <strong><span class='object_link'><a href="#BoolValueMap-class_method" title="aws.BoolValueMap() (method)">BoolValueMap</a></span></strong>(src map[string]*bool) map[string]bool 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>BoolValueMap converts a string map of bool pointers into a string
+map of bool values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114
+115
+116
+117
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 112</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> BoolValueMap(src <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">bool</span>) <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">bool</span> {
+	dst := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">bool</span>)
+	<span class="hljs-keyword">for</span> k, val := <span class="hljs-keyword">range</span> src {
+		<span class="hljs-keyword">if</span> val != <span class="hljs-constant">nil</span> {
+			dst[k] = *val
+		}
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="BoolValueSlice-class_method">
+  
+    func <strong><span class='object_link'><a href="#BoolValueSlice-class_method" title="aws.BoolValueSlice() (method)">BoolValueSlice</a></span></strong>(src []*bool) []bool 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>BoolValueSlice converts a slice of bool pointers into a slice of
+bool values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91
+92
+93
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 89</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> BoolValueSlice(src []*<span class="hljs-constant">bool</span>) []<span class="hljs-constant">bool</span> {
+	dst := make([]<span class="hljs-constant">bool</span>, len(src))
+	<span class="hljs-keyword">for</span> i := 0; i < len(src); i++ {
+		<span class="hljs-keyword">if</span> src[i] != <span class="hljs-constant">nil</span> {
+			dst[i] = *(src[i])
+		}
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Float64-class_method">
+  
+    func <strong><span class='object_link'><a href="#Float64-class_method" title="aws.Float64() (method)">Float64</a></span></strong>(v float64) *float64 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Float64 returns a pointer to the float64 value passed in.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+241
+242
+243</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 241</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Float64(v <span class="hljs-constant">float64</span>) *<span class="hljs-constant">float64</span> {
+	<span class="hljs-keyword">return</span> &v
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Float64Map-class_method">
+  
+    func <strong><span class='object_link'><a href="#Float64Map-class_method" title="aws.Float64Map() (method)">Float64Map</a></span></strong>(src map[string]float64) map[string]*float64 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Float64Map converts a string map of float64 values into a string
+map of float64 pointers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+278
+279
+280
+281
+282
+283
+284
+285</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 278</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Float64Map(src <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">float64</span>) <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">float64</span> {
+	dst := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">float64</span>)
+	<span class="hljs-keyword">for</span> k, val := <span class="hljs-keyword">range</span> src {
+		v := val
+		dst[k] = &v
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Float64Slice-class_method">
+  
+    func <strong><span class='object_link'><a href="#Float64Slice-class_method" title="aws.Float64Slice() (method)">Float64Slice</a></span></strong>(src []float64) []*float64 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Float64Slice converts a slice of float64 values into a slice of
+float64 pointers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+256
+257
+258
+259
+260
+261
+262</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 256</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Float64Slice(src []<span class="hljs-constant">float64</span>) []*<span class="hljs-constant">float64</span> {
+	dst := make([]*<span class="hljs-constant">float64</span>, len(src))
+	<span class="hljs-keyword">for</span> i := 0; i < len(src); i++ {
+		dst[i] = &(src[i])
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Float64Value-class_method">
+  
+    func <strong><span class='object_link'><a href="#Float64Value-class_method" title="aws.Float64Value() (method)">Float64Value</a></span></strong>(v *float64) float64 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Float64Value returns the value of the float64 pointer passed in or
+0 if the pointer is nil.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+247
+248
+249
+250
+251
+252</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 247</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Float64Value(v *<span class="hljs-constant">float64</span>) <span class="hljs-constant">float64</span> {
+	<span class="hljs-keyword">if</span> v != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> *v
+	}
+	<span class="hljs-keyword">return</span> 0
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Float64ValueMap-class_method">
+  
+    func <strong><span class='object_link'><a href="#Float64ValueMap-class_method" title="aws.Float64ValueMap() (method)">Float64ValueMap</a></span></strong>(src map[string]*float64) map[string]float64 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Float64ValueMap converts a string map of float64 pointers into a string
+map of float64 values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+289
+290
+291
+292
+293
+294
+295
+296
+297</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 289</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Float64ValueMap(src <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">float64</span>) <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">float64</span> {
+	dst := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">float64</span>)
+	<span class="hljs-keyword">for</span> k, val := <span class="hljs-keyword">range</span> src {
+		<span class="hljs-keyword">if</span> val != <span class="hljs-constant">nil</span> {
+			dst[k] = *val
+		}
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Float64ValueSlice-class_method">
+  
+    func <strong><span class='object_link'><a href="#Float64ValueSlice-class_method" title="aws.Float64ValueSlice() (method)">Float64ValueSlice</a></span></strong>(src []*float64) []float64 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Float64ValueSlice converts a slice of float64 pointers into a slice of
+float64 values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+266
+267
+268
+269
+270
+271
+272
+273
+274</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 266</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Float64ValueSlice(src []*<span class="hljs-constant">float64</span>) []<span class="hljs-constant">float64</span> {
+	dst := make([]<span class="hljs-constant">float64</span>, len(src))
+	<span class="hljs-keyword">for</span> i := 0; i < len(src); i++ {
+		<span class="hljs-keyword">if</span> src[i] != <span class="hljs-constant">nil</span> {
+			dst[i] = *(src[i])
+		}
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Int-class_method">
+  
+    func <strong><span class='object_link'><a href="#Int-class_method" title="aws.Int() (method)">Int</a></span></strong>(v int) *int 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Int returns a pointer to the int value passed in.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+123
+124
+125</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 123</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Int(v <span class="hljs-constant">int</span>) *<span class="hljs-constant">int</span> {
+	<span class="hljs-keyword">return</span> &v
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Int64-class_method">
+  
+    func <strong><span class='object_link'><a href="#Int64-class_method" title="aws.Int64() (method)">Int64</a></span></strong>(v int64) *int64 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Int64 returns a pointer to the int64 value passed in.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+182
+183
+184</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 182</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Int64(v <span class="hljs-constant">int64</span>) *<span class="hljs-constant">int64</span> {
+	<span class="hljs-keyword">return</span> &v
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Int64Map-class_method">
+  
+    func <strong><span class='object_link'><a href="#Int64Map-class_method" title="aws.Int64Map() (method)">Int64Map</a></span></strong>(src map[string]int64) map[string]*int64 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Int64Map converts a string map of int64 values into a string
+map of int64 pointers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+219
+220
+221
+222
+223
+224
+225
+226</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 219</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Int64Map(src <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">int64</span>) <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">int64</span> {
+	dst := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">int64</span>)
+	<span class="hljs-keyword">for</span> k, val := <span class="hljs-keyword">range</span> src {
+		v := val
+		dst[k] = &v
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Int64Slice-class_method">
+  
+    func <strong><span class='object_link'><a href="#Int64Slice-class_method" title="aws.Int64Slice() (method)">Int64Slice</a></span></strong>(src []int64) []*int64 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Int64Slice converts a slice of int64 values into a slice of
+int64 pointers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+197
+198
+199
+200
+201
+202
+203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 197</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Int64Slice(src []<span class="hljs-constant">int64</span>) []*<span class="hljs-constant">int64</span> {
+	dst := make([]*<span class="hljs-constant">int64</span>, len(src))
+	<span class="hljs-keyword">for</span> i := 0; i < len(src); i++ {
+		dst[i] = &(src[i])
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Int64Value-class_method">
+  
+    func <strong><span class='object_link'><a href="#Int64Value-class_method" title="aws.Int64Value() (method)">Int64Value</a></span></strong>(v *int64) int64 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Int64Value returns the value of the int64 pointer passed in or
+0 if the pointer is nil.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+188
+189
+190
+191
+192
+193</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 188</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Int64Value(v *<span class="hljs-constant">int64</span>) <span class="hljs-constant">int64</span> {
+	<span class="hljs-keyword">if</span> v != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> *v
+	}
+	<span class="hljs-keyword">return</span> 0
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Int64ValueMap-class_method">
+  
+    func <strong><span class='object_link'><a href="#Int64ValueMap-class_method" title="aws.Int64ValueMap() (method)">Int64ValueMap</a></span></strong>(src map[string]*int64) map[string]int64 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Int64ValueMap converts a string map of int64 pointers into a string
+map of int64 values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+230
+231
+232
+233
+234
+235
+236
+237
+238</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 230</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Int64ValueMap(src <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">int64</span>) <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">int64</span> {
+	dst := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">int64</span>)
+	<span class="hljs-keyword">for</span> k, val := <span class="hljs-keyword">range</span> src {
+		<span class="hljs-keyword">if</span> val != <span class="hljs-constant">nil</span> {
+			dst[k] = *val
+		}
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Int64ValueSlice-class_method">
+  
+    func <strong><span class='object_link'><a href="#Int64ValueSlice-class_method" title="aws.Int64ValueSlice() (method)">Int64ValueSlice</a></span></strong>(src []*int64) []int64 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Int64ValueSlice converts a slice of int64 pointers into a slice of
+int64 values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+207
+208
+209
+210
+211
+212
+213
+214
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 207</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Int64ValueSlice(src []*<span class="hljs-constant">int64</span>) []<span class="hljs-constant">int64</span> {
+	dst := make([]<span class="hljs-constant">int64</span>, len(src))
+	<span class="hljs-keyword">for</span> i := 0; i < len(src); i++ {
+		<span class="hljs-keyword">if</span> src[i] != <span class="hljs-constant">nil</span> {
+			dst[i] = *(src[i])
+		}
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="IntMap-class_method">
+  
+    func <strong><span class='object_link'><a href="#IntMap-class_method" title="aws.IntMap() (method)">IntMap</a></span></strong>(src map[string]int) map[string]*int 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>IntMap converts a string map of int values into a string
+map of int pointers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+160
+161
+162
+163
+164
+165
+166
+167</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 160</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> IntMap(src <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">int</span>) <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">int</span> {
+	dst := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">int</span>)
+	<span class="hljs-keyword">for</span> k, val := <span class="hljs-keyword">range</span> src {
+		v := val
+		dst[k] = &v
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="IntSlice-class_method">
+  
+    func <strong><span class='object_link'><a href="#IntSlice-class_method" title="aws.IntSlice() (method)">IntSlice</a></span></strong>(src []int) []*int 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>IntSlice converts a slice of int values into a slice of
+int pointers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140
+141
+142
+143
+144</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 138</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> IntSlice(src []<span class="hljs-constant">int</span>) []*<span class="hljs-constant">int</span> {
+	dst := make([]*<span class="hljs-constant">int</span>, len(src))
+	<span class="hljs-keyword">for</span> i := 0; i < len(src); i++ {
+		dst[i] = &(src[i])
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="IntValue-class_method">
+  
+    func <strong><span class='object_link'><a href="#IntValue-class_method" title="aws.IntValue() (method)">IntValue</a></span></strong>(v *int) int 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>IntValue returns the value of the int pointer passed in or
+0 if the pointer is nil.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+129
+130
+131
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 129</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> IntValue(v *<span class="hljs-constant">int</span>) <span class="hljs-constant">int</span> {
+	<span class="hljs-keyword">if</span> v != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> *v
+	}
+	<span class="hljs-keyword">return</span> 0
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="IntValueMap-class_method">
+  
+    func <strong><span class='object_link'><a href="#IntValueMap-class_method" title="aws.IntValueMap() (method)">IntValueMap</a></span></strong>(src map[string]*int) map[string]int 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>IntValueMap converts a string map of int pointers into a string
+map of int values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+171
+172
+173
+174
+175
+176
+177
+178
+179</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 171</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> IntValueMap(src <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">int</span>) <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">int</span> {
+	dst := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">int</span>)
+	<span class="hljs-keyword">for</span> k, val := <span class="hljs-keyword">range</span> src {
+		<span class="hljs-keyword">if</span> val != <span class="hljs-constant">nil</span> {
+			dst[k] = *val
+		}
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="IntValueSlice-class_method">
+  
+    func <strong><span class='object_link'><a href="#IntValueSlice-class_method" title="aws.IntValueSlice() (method)">IntValueSlice</a></span></strong>(src []*int) []int 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>IntValueSlice converts a slice of int pointers into a slice of
+int values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148
+149
+150
+151
+152
+153
+154
+155
+156</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 148</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> IntValueSlice(src []*<span class="hljs-constant">int</span>) []<span class="hljs-constant">int</span> {
+	dst := make([]<span class="hljs-constant">int</span>, len(src))
+	<span class="hljs-keyword">for</span> i := 0; i < len(src); i++ {
+		<span class="hljs-keyword">if</span> src[i] != <span class="hljs-constant">nil</span> {
+			dst[i] = *(src[i])
+		}
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="IsReaderSeekable-class_method">
+  
+    func <strong><span class='object_link'><a href="#IsReaderSeekable-class_method" title="aws.IsReaderSeekable() (method)">IsReaderSeekable</a></span></strong>(r io.Reader) bool 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>IsReaderSeekable returns if the underlying reader type can be seeked. A
+io.Reader might not actually be seekable if it is the ReaderSeekerCloser
+type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 29</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> IsReaderSeekable(r io.Reader) <span class="hljs-constant">bool</span> {
+	<span class="hljs-keyword">switch</span> v := r.(<span class="hljs-keyword">type</span>) {
+	<span class="hljs-keyword">case</span> ReaderSeekerCloser:
+		<span class="hljs-keyword">return</span> v.IsSeeker()
+	<span class="hljs-keyword">case</span> *ReaderSeekerCloser:
+		<span class="hljs-keyword">return</span> v.IsSeeker()
+	<span class="hljs-keyword">case</span> io.ReadSeeker:
+		<span class="hljs-keyword">return</span> <span class="hljs-constant">true</span>
+	<span class="hljs-keyword">default</span>:
+		<span class="hljs-keyword">return</span> <span class="hljs-constant">false</span>
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="MillisecondsTimeValue-class_method">
+  
+    func <strong><span class='object_link'><a href="#MillisecondsTimeValue-class_method" title="aws.MillisecondsTimeValue() (method)">MillisecondsTimeValue</a></span></strong>(v *int64) time.Time 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>MillisecondsTimeValue converts an int64 pointer to a time.Time value
+representing milliseconds sinch Epoch or time.Time{} if the pointer is nil.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+324
+325
+326
+327
+328
+329</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 324</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> MillisecondsTimeValue(v *<span class="hljs-constant">int64</span>) time.Time {
+	<span class="hljs-keyword">if</span> v != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> time.Unix(0, (*v * 1000000))
+	}
+	<span class="hljs-keyword">return</span> time.Time{}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewDefaultLogger-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewDefaultLogger-class_method" title="aws.NewDefaultLogger() (method)">NewDefaultLogger</a></span></strong>() <span class='object_link'><a href="aws/Logger.html" title="aws.Logger (interface)">Logger</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewDefaultLogger returns a Logger which will write log messages to stdout, and
+use same formatting runes as the stdlib log.Logger</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105
+106
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/logger.go', line 103</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewDefaultLogger() Logger {
+	<span class="hljs-keyword">return</span> &defaultLogger{
+		logger: log.New(os.Stdout, <span class="hljs-string">""</span>, log.LstdFlags),
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ReadSeekCloser-class_method">
+  
+    func <strong><span class='object_link'><a href="#ReadSeekCloser-class_method" title="aws.ReadSeekCloser() (method)">ReadSeekCloser</a></span></strong>(r io.Reader) <span class='object_link'><a href="aws/ReaderSeekerCloser.html" title="aws.ReaderSeekerCloser (struct)">ReaderSeekerCloser</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>ReadSeekCloser wraps a io.Reader returning a ReaderSeekerCloser. Should
+only be used with an io.Reader that is also an io.Seeker. Doing so may
+cause request signature errors, or request body's not sent for GET, HEAD
+and DELETE HTTP methods.</p>
+
+<p>Deprecated: Should only be used with io.ReadSeeker. If using for
+S3 PutObject to stream content use s3manager.Uploader instead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 16</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> ReadSeekCloser(r io.Reader) ReaderSeekerCloser {
+	<span class="hljs-keyword">return</span> ReaderSeekerCloser{r}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SecondsTimeValue-class_method">
+  
+    func <strong><span class='object_link'><a href="#SecondsTimeValue-class_method" title="aws.SecondsTimeValue() (method)">SecondsTimeValue</a></span></strong>(v *int64) time.Time 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SecondsTimeValue converts an int64 pointer to a time.Time value
+representing seconds since Epoch or time.Time{} if the pointer is nil.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+315
+316
+317
+318
+319
+320</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 315</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> SecondsTimeValue(v *<span class="hljs-constant">int64</span>) time.Time {
+	<span class="hljs-keyword">if</span> v != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> time.Unix((*v / 1000), 0)
+	}
+	<span class="hljs-keyword">return</span> time.Time{}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SeekerLen-class_method">
+  
+    func <strong><span class='object_link'><a href="#SeekerLen-class_method" title="aws.SeekerLen() (method)">SeekerLen</a></span></strong>(s io.Seeker) (int64, error) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SeekerLen attempts to get the number of bytes remaining at the seeker's
+current position.  Returns the number of bytes remaining or error.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 109</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> SeekerLen(s io.Seeker) (<span class="hljs-constant">int64</span>, <span class="hljs-constant">error</span>) {
+	<span class="hljs-comment">// Determine if the seeker is actually seekable. ReaderSeekerCloser</span>
+	<span class="hljs-comment">// hides the fact that a io.Readers might not actually be seekable.</span>
+	<span class="hljs-keyword">switch</span> v := s.(<span class="hljs-keyword">type</span>) {
+	<span class="hljs-keyword">case</span> ReaderSeekerCloser:
+		<span class="hljs-keyword">return</span> v.GetLen()
+	<span class="hljs-keyword">case</span> *ReaderSeekerCloser:
+		<span class="hljs-keyword">return</span> v.GetLen()
+	}
+
+	<span class="hljs-keyword">return</span> seekerLen(s)
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SleepWithContext-class_method">
+  
+    func <strong><span class='object_link'><a href="#SleepWithContext-class_method" title="aws.SleepWithContext() (method)">SleepWithContext</a></span></strong>(ctx <span class='object_link'><a href="aws/Context.html" title="aws.Context (interface)">Context</a></span>, dur time.Duration) error 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SleepWithContext will wait for the timer duration to expire, or the context
+is canceled. Which ever happens first. If the context is canceled the Context's
+error will be returned.</p>
+
+<p>Expects Context to always return a non-nil error if the Done channel is closed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/context.go', line 58</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> SleepWithContext(ctx Context, dur time.Duration) <span class="hljs-constant">error</span> {
+	t := time.NewTimer(dur)
+	<span class="hljs-keyword">defer</span> t.Stop()
+
+	<span class="hljs-keyword">select</span> {
+	<span class="hljs-keyword">case</span> <-t.C:
+		<span class="hljs-keyword">break</span>
+	<span class="hljs-keyword">case</span> <-ctx.Done():
+		<span class="hljs-keyword">return</span> ctx.Err()
+	}
+
+	<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="String-class_method">
+  
+    func <strong><span class='object_link'><a href="#String-class_method" title="aws.String() (method)">String</a></span></strong>(v string) *string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>String returns a pointer to the string value passed in.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 5</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> String(v <span class="hljs-constant">string</span>) *<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> &v
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="StringMap-class_method">
+  
+    func <strong><span class='object_link'><a href="#StringMap-class_method" title="aws.StringMap() (method)">StringMap</a></span></strong>(src map[string]string) map[string]*string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>StringMap converts a string map of string values into a string
+map of string pointers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44
+45
+46
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 42</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> StringMap(src <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">string</span>) <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span> {
+	dst := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>)
+	<span class="hljs-keyword">for</span> k, val := <span class="hljs-keyword">range</span> src {
+		v := val
+		dst[k] = &v
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="StringSlice-class_method">
+  
+    func <strong><span class='object_link'><a href="#StringSlice-class_method" title="aws.StringSlice() (method)">StringSlice</a></span></strong>(src []string) []*string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>StringSlice converts a slice of string values into a slice of
+string pointers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 20</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> StringSlice(src []<span class="hljs-constant">string</span>) []*<span class="hljs-constant">string</span> {
+	dst := make([]*<span class="hljs-constant">string</span>, len(src))
+	<span class="hljs-keyword">for</span> i := 0; i < len(src); i++ {
+		dst[i] = &(src[i])
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="StringValue-class_method">
+  
+    func <strong><span class='object_link'><a href="#StringValue-class_method" title="aws.StringValue() (method)">StringValue</a></span></strong>(v *string) string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>StringValue returns the value of the string pointer passed in or
+"" if the pointer is nil.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 11</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> StringValue(v *<span class="hljs-constant">string</span>) <span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">if</span> v != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> *v
+	}
+	<span class="hljs-keyword">return</span> <span class="hljs-string">""</span>
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="StringValueMap-class_method">
+  
+    func <strong><span class='object_link'><a href="#StringValueMap-class_method" title="aws.StringValueMap() (method)">StringValueMap</a></span></strong>(src map[string]*string) map[string]string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>StringValueMap converts a string map of string pointers into a string
+map of string values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 53</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> StringValueMap(src <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">string</span> {
+	dst := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">string</span>)
+	<span class="hljs-keyword">for</span> k, val := <span class="hljs-keyword">range</span> src {
+		<span class="hljs-keyword">if</span> val != <span class="hljs-constant">nil</span> {
+			dst[k] = *val
+		}
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="StringValueSlice-class_method">
+  
+    func <strong><span class='object_link'><a href="#StringValueSlice-class_method" title="aws.StringValueSlice() (method)">StringValueSlice</a></span></strong>(src []*string) []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>StringValueSlice converts a slice of string pointers into a slice of
+string values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 30</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> StringValueSlice(src []*<span class="hljs-constant">string</span>) []<span class="hljs-constant">string</span> {
+	dst := make([]<span class="hljs-constant">string</span>, len(src))
+	<span class="hljs-keyword">for</span> i := 0; i < len(src); i++ {
+		<span class="hljs-keyword">if</span> src[i] != <span class="hljs-constant">nil</span> {
+			dst[i] = *(src[i])
+		}
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Time-class_method">
+  
+    func <strong><span class='object_link'><a href="#Time-class_method" title="aws.Time() (method)">Time</a></span></strong>(v time.Time) *time.Time 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Time returns a pointer to the time.Time value passed in.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+300
+301
+302</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 300</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Time(v time.Time) *time.Time {
+	<span class="hljs-keyword">return</span> &v
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="TimeMap-class_method">
+  
+    func <strong><span class='object_link'><a href="#TimeMap-class_method" title="aws.TimeMap() (method)">TimeMap</a></span></strong>(src map[string]time.Time) map[string]*time.Time 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>TimeMap converts a string map of time.Time values into a string
+map of time.Time pointers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+367
+368
+369
+370
+371
+372
+373
+374</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 367</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> TimeMap(src <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]time.Time) <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*time.Time {
+	dst := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*time.Time)
+	<span class="hljs-keyword">for</span> k, val := <span class="hljs-keyword">range</span> src {
+		v := val
+		dst[k] = &v
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="TimeSlice-class_method">
+  
+    func <strong><span class='object_link'><a href="#TimeSlice-class_method" title="aws.TimeSlice() (method)">TimeSlice</a></span></strong>(src []time.Time) []*time.Time 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>TimeSlice converts a slice of time.Time values into a slice of
+time.Time pointers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+345
+346
+347
+348
+349
+350
+351</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 345</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> TimeSlice(src []time.Time) []*time.Time {
+	dst := make([]*time.Time, len(src))
+	<span class="hljs-keyword">for</span> i := 0; i < len(src); i++ {
+		dst[i] = &(src[i])
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="TimeUnixMilli-class_method">
+  
+    func <strong><span class='object_link'><a href="#TimeUnixMilli-class_method" title="aws.TimeUnixMilli() (method)">TimeUnixMilli</a></span></strong>(t time.Time) int64 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>TimeUnixMilli returns a Unix timestamp in milliseconds from "January 1, 1970 UTC".
+The result is undefined if the Unix time cannot be represented by an int64.
+Which includes calling TimeUnixMilli on a zero Time is undefined.</p>
+
+<p>This utility is useful for service API's such as CloudWatch Logs which require
+their unix time values to be in milliseconds.</p>
+
+<p>See Go stdlib <a href="https://golang.org/pkg/time/#Time.UnixNano">https://golang.org/pkg/time/#Time.UnixNano</a> for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+339
+340
+341</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 339</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> TimeUnixMilli(t time.Time) <span class="hljs-constant">int64</span> {
+	<span class="hljs-keyword">return</span> t.UnixNano() / <span class="hljs-constant">int64</span>(time.Millisecond/time.Nanosecond)
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="TimeValue-class_method">
+  
+    func <strong><span class='object_link'><a href="#TimeValue-class_method" title="aws.TimeValue() (method)">TimeValue</a></span></strong>(v *time.Time) time.Time 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>TimeValue returns the value of the time.Time pointer passed in or
+time.Time{} if the pointer is nil.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+306
+307
+308
+309
+310
+311</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 306</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> TimeValue(v *time.Time) time.Time {
+	<span class="hljs-keyword">if</span> v != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> *v
+	}
+	<span class="hljs-keyword">return</span> time.Time{}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="TimeValueMap-class_method">
+  
+    func <strong><span class='object_link'><a href="#TimeValueMap-class_method" title="aws.TimeValueMap() (method)">TimeValueMap</a></span></strong>(src map[string]*time.Time) map[string]time.Time 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>TimeValueMap converts a string map of time.Time pointers into a string
+map of time.Time values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+378
+379
+380
+381
+382
+383
+384
+385
+386</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 378</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> TimeValueMap(src <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*time.Time) <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]time.Time {
+	dst := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]time.Time)
+	<span class="hljs-keyword">for</span> k, val := <span class="hljs-keyword">range</span> src {
+		<span class="hljs-keyword">if</span> val != <span class="hljs-constant">nil</span> {
+			dst[k] = *val
+		}
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="TimeValueSlice-class_method">
+  
+    func <strong><span class='object_link'><a href="#TimeValueSlice-class_method" title="aws.TimeValueSlice() (method)">TimeValueSlice</a></span></strong>(src []*time.Time) []time.Time 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>TimeValueSlice converts a slice of time.Time pointers into a slice of
+time.Time values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+355
+356
+357
+358
+359
+360
+361
+362
+363</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/convert_types.go', line 355</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> TimeValueSlice(src []*time.Time) []time.Time {
+	dst := make([]time.Time, len(src))
+	<span class="hljs-keyword">for</span> i := 0; i < len(src); i++ {
+		<span class="hljs-keyword">if</span> src[i] != <span class="hljs-constant">nil</span> {
+			dst[i] = *(src[i])
+		}
+	}
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="URLHostname-class_method">
+  
+    func <strong><span class='object_link'><a href="#URLHostname-class_method" title="aws.URLHostname() (method)">URLHostname</a></span></strong>(url *url.URL) string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>URLHostname will extract the Hostname without port from the URL value.</p>
+
+<p>Wrapper of net/url#URL.Hostname for backwards Go version compatibility.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/url.go', line 9</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> URLHostname(url *url.URL) <span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> url.Hostname()
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:10 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>

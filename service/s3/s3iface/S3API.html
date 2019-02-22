@@ -1,0 +1,6675 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Interface: s3iface.S3API
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "service/s3/s3iface.S3API";
+  relpath = '../../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../../package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../../_index.html">Index (S)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../service.html" title="service (package)">service</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../s3.html" title="s3 (package)">s3</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../s3iface.html" title="s3iface (package)">s3iface</a></span></span>
+     &raquo; 
+    <span class="title">S3API</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="../../../package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Interface: s3iface.S3API
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
+</div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>S3API provides an interface to enable mocking the
+s3.S3 service client's API operation,
+paginators, and waiters. This make unit testing your code that calls out
+to the SDK's service client's calls easier.</p>
+
+<p>The best way to use this interface is so the SDK's service client's calls
+can be stubbed out for unit testing your code with the SDK without needing
+to inject custom request handlers into the SDK's request pipeline.</p>
+
+<p>   // myFunc uses an SDK service client to make a request to
+   // Amazon Simple Storage Service.
+   func myFunc(svc s3iface.S3API) bool {
+       // Make svc.AbortMultipartUpload request
+   }</p>
+
+<p>   func main() {
+       sess := session.Must(session.NewSession())
+       svc := s3.New(sess)</p>
+
+<pre class="code go"><code class="go"><div class="hljs">   myFunc(svc)
+</div></code></pre>
+
+<p>   }</p>
+
+<p>In your _test.go file:</p>
+
+<p>   // Define a mock struct to be used in your unit tests of myFunc.
+   type mockS3Client struct {
+       s3iface.S3API
+   }
+   func (m <em>mockS3Client) AbortMultipartUpload(input </em>s3.AbortMultipartUploadInput) (*s3.AbortMultipartUploadOutput, error) {
+       // mock response/functionality
+   }</p>
+
+<p>   func TestMyFunc(t *testing.T) {
+       // Setup Test
+       mockSvc := &amp;mockS3Client{}</p>
+
+<pre class="code go"><code class="go"><div class="hljs">   my<span class="hljs-keyword">func</span>(mockSvc)
+
+   <span class="hljs-comment">// Verify myFunc's functionality</span>
+</div></code></pre>
+
+<p>   }</p>
+
+<p>It is important to note that this interface will have breaking changes
+when the service model is updated and adds new API operations, paginators,
+and waiters. Its suggested to use the pattern above for testing, or using
+tooling to generate mocks to satisfy the interfaces.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+  <h3 class="inherited">Implemented By</h3>
+  <p class="inherited"><span class='object_link'><a href="../S3.html" title="s3.S3 (struct)">s3.S3</a></span></p>
+
+
+  
+
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Interface Method  Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#AbortMultipartUpload-instance_method" title="s3iface.S3API.AbortMultipartUpload() (method)"><strong>AbortMultipartUpload</strong>(*s3.AbortMultipartUploadInput) (*s3.AbortMultipartUploadOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#AbortMultipartUploadRequest-instance_method" title="s3iface.S3API.AbortMultipartUploadRequest() (method)"><strong>AbortMultipartUploadRequest</strong>(*s3.AbortMultipartUploadInput) (*request.Request, *s3.AbortMultipartUploadOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#AbortMultipartUploadWithContext-instance_method" title="s3iface.S3API.AbortMultipartUploadWithContext() (method)"><strong>AbortMultipartUploadWithContext</strong>(aws.Context, *s3.AbortMultipartUploadInput, ...request.Option) (*s3.AbortMultipartUploadOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CompleteMultipartUpload-instance_method" title="s3iface.S3API.CompleteMultipartUpload() (method)"><strong>CompleteMultipartUpload</strong>(*s3.CompleteMultipartUploadInput) (*s3.CompleteMultipartUploadOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CompleteMultipartUploadRequest-instance_method" title="s3iface.S3API.CompleteMultipartUploadRequest() (method)"><strong>CompleteMultipartUploadRequest</strong>(*s3.CompleteMultipartUploadInput) (*request.Request, *s3.CompleteMultipartUploadOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CompleteMultipartUploadWithContext-instance_method" title="s3iface.S3API.CompleteMultipartUploadWithContext() (method)"><strong>CompleteMultipartUploadWithContext</strong>(aws.Context, *s3.CompleteMultipartUploadInput, ...request.Option) (*s3.CompleteMultipartUploadOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CopyObject-instance_method" title="s3iface.S3API.CopyObject() (method)"><strong>CopyObject</strong>(*s3.CopyObjectInput) (*s3.CopyObjectOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CopyObjectRequest-instance_method" title="s3iface.S3API.CopyObjectRequest() (method)"><strong>CopyObjectRequest</strong>(*s3.CopyObjectInput) (*request.Request, *s3.CopyObjectOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CopyObjectWithContext-instance_method" title="s3iface.S3API.CopyObjectWithContext() (method)"><strong>CopyObjectWithContext</strong>(aws.Context, *s3.CopyObjectInput, ...request.Option) (*s3.CopyObjectOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CreateBucket-instance_method" title="s3iface.S3API.CreateBucket() (method)"><strong>CreateBucket</strong>(*s3.CreateBucketInput) (*s3.CreateBucketOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CreateBucketRequest-instance_method" title="s3iface.S3API.CreateBucketRequest() (method)"><strong>CreateBucketRequest</strong>(*s3.CreateBucketInput) (*request.Request, *s3.CreateBucketOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CreateBucketWithContext-instance_method" title="s3iface.S3API.CreateBucketWithContext() (method)"><strong>CreateBucketWithContext</strong>(aws.Context, *s3.CreateBucketInput, ...request.Option) (*s3.CreateBucketOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CreateMultipartUpload-instance_method" title="s3iface.S3API.CreateMultipartUpload() (method)"><strong>CreateMultipartUpload</strong>(*s3.CreateMultipartUploadInput) (*s3.CreateMultipartUploadOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CreateMultipartUploadRequest-instance_method" title="s3iface.S3API.CreateMultipartUploadRequest() (method)"><strong>CreateMultipartUploadRequest</strong>(*s3.CreateMultipartUploadInput) (*request.Request, *s3.CreateMultipartUploadOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CreateMultipartUploadWithContext-instance_method" title="s3iface.S3API.CreateMultipartUploadWithContext() (method)"><strong>CreateMultipartUploadWithContext</strong>(aws.Context, *s3.CreateMultipartUploadInput, ...request.Option) (*s3.CreateMultipartUploadOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteBucket-instance_method" title="s3iface.S3API.DeleteBucket() (method)"><strong>DeleteBucket</strong>(*s3.DeleteBucketInput) (*s3.DeleteBucketOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteBucketCors-instance_method" title="s3iface.S3API.DeleteBucketCors() (method)"><strong>DeleteBucketCors</strong>(*s3.DeleteBucketCorsInput) (*s3.DeleteBucketCorsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteBucketCorsRequest-instance_method" title="s3iface.S3API.DeleteBucketCorsRequest() (method)"><strong>DeleteBucketCorsRequest</strong>(*s3.DeleteBucketCorsInput) (*request.Request, *s3.DeleteBucketCorsOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteBucketCorsWithContext-instance_method" title="s3iface.S3API.DeleteBucketCorsWithContext() (method)"><strong>DeleteBucketCorsWithContext</strong>(aws.Context, *s3.DeleteBucketCorsInput, ...request.Option) (*s3.DeleteBucketCorsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteBucketRequest-instance_method" title="s3iface.S3API.DeleteBucketRequest() (method)"><strong>DeleteBucketRequest</strong>(*s3.DeleteBucketInput) (*request.Request, *s3.DeleteBucketOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteBucketWithContext-instance_method" title="s3iface.S3API.DeleteBucketWithContext() (method)"><strong>DeleteBucketWithContext</strong>(aws.Context, *s3.DeleteBucketInput, ...request.Option) (*s3.DeleteBucketOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteObject-instance_method" title="s3iface.S3API.DeleteObject() (method)"><strong>DeleteObject</strong>(*s3.DeleteObjectInput) (*s3.DeleteObjectOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteObjectRequest-instance_method" title="s3iface.S3API.DeleteObjectRequest() (method)"><strong>DeleteObjectRequest</strong>(*s3.DeleteObjectInput) (*request.Request, *s3.DeleteObjectOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteObjects-instance_method" title="s3iface.S3API.DeleteObjects() (method)"><strong>DeleteObjects</strong>(*s3.DeleteObjectsInput) (*s3.DeleteObjectsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteObjectsRequest-instance_method" title="s3iface.S3API.DeleteObjectsRequest() (method)"><strong>DeleteObjectsRequest</strong>(*s3.DeleteObjectsInput) (*request.Request, *s3.DeleteObjectsOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteObjectsWithContext-instance_method" title="s3iface.S3API.DeleteObjectsWithContext() (method)"><strong>DeleteObjectsWithContext</strong>(aws.Context, *s3.DeleteObjectsInput, ...request.Option) (*s3.DeleteObjectsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteObjectWithContext-instance_method" title="s3iface.S3API.DeleteObjectWithContext() (method)"><strong>DeleteObjectWithContext</strong>(aws.Context, *s3.DeleteObjectInput, ...request.Option) (*s3.DeleteObjectOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketAcl-instance_method" title="s3iface.S3API.GetBucketAcl() (method)"><strong>GetBucketAcl</strong>(*s3.GetBucketAclInput) (*s3.GetBucketAclOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketAclRequest-instance_method" title="s3iface.S3API.GetBucketAclRequest() (method)"><strong>GetBucketAclRequest</strong>(*s3.GetBucketAclInput) (*request.Request, *s3.GetBucketAclOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketAclWithContext-instance_method" title="s3iface.S3API.GetBucketAclWithContext() (method)"><strong>GetBucketAclWithContext</strong>(aws.Context, *s3.GetBucketAclInput, ...request.Option) (*s3.GetBucketAclOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketCors-instance_method" title="s3iface.S3API.GetBucketCors() (method)"><strong>GetBucketCors</strong>(*s3.GetBucketCorsInput) (*s3.GetBucketCorsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketCorsRequest-instance_method" title="s3iface.S3API.GetBucketCorsRequest() (method)"><strong>GetBucketCorsRequest</strong>(*s3.GetBucketCorsInput) (*request.Request, *s3.GetBucketCorsOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketCorsWithContext-instance_method" title="s3iface.S3API.GetBucketCorsWithContext() (method)"><strong>GetBucketCorsWithContext</strong>(aws.Context, *s3.GetBucketCorsInput, ...request.Option) (*s3.GetBucketCorsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketLocation-instance_method" title="s3iface.S3API.GetBucketLocation() (method)"><strong>GetBucketLocation</strong>(*s3.GetBucketLocationInput) (*s3.GetBucketLocationOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketLocationRequest-instance_method" title="s3iface.S3API.GetBucketLocationRequest() (method)"><strong>GetBucketLocationRequest</strong>(*s3.GetBucketLocationInput) (*request.Request, *s3.GetBucketLocationOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketLocationWithContext-instance_method" title="s3iface.S3API.GetBucketLocationWithContext() (method)"><strong>GetBucketLocationWithContext</strong>(aws.Context, *s3.GetBucketLocationInput, ...request.Option) (*s3.GetBucketLocationOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketLogging-instance_method" title="s3iface.S3API.GetBucketLogging() (method)"><strong>GetBucketLogging</strong>(*s3.GetBucketLoggingInput) (*s3.GetBucketLoggingOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketLoggingRequest-instance_method" title="s3iface.S3API.GetBucketLoggingRequest() (method)"><strong>GetBucketLoggingRequest</strong>(*s3.GetBucketLoggingInput) (*request.Request, *s3.GetBucketLoggingOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketLoggingWithContext-instance_method" title="s3iface.S3API.GetBucketLoggingWithContext() (method)"><strong>GetBucketLoggingWithContext</strong>(aws.Context, *s3.GetBucketLoggingInput, ...request.Option) (*s3.GetBucketLoggingOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetObject-instance_method" title="s3iface.S3API.GetObject() (method)"><strong>GetObject</strong>(*s3.GetObjectInput) (*s3.GetObjectOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetObjectAcl-instance_method" title="s3iface.S3API.GetObjectAcl() (method)"><strong>GetObjectAcl</strong>(*s3.GetObjectAclInput) (*s3.GetObjectAclOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetObjectAclRequest-instance_method" title="s3iface.S3API.GetObjectAclRequest() (method)"><strong>GetObjectAclRequest</strong>(*s3.GetObjectAclInput) (*request.Request, *s3.GetObjectAclOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetObjectAclWithContext-instance_method" title="s3iface.S3API.GetObjectAclWithContext() (method)"><strong>GetObjectAclWithContext</strong>(aws.Context, *s3.GetObjectAclInput, ...request.Option) (*s3.GetObjectAclOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetObjectRequest-instance_method" title="s3iface.S3API.GetObjectRequest() (method)"><strong>GetObjectRequest</strong>(*s3.GetObjectInput) (*request.Request, *s3.GetObjectOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetObjectWithContext-instance_method" title="s3iface.S3API.GetObjectWithContext() (method)"><strong>GetObjectWithContext</strong>(aws.Context, *s3.GetObjectInput, ...request.Option) (*s3.GetObjectOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#HeadBucket-instance_method" title="s3iface.S3API.HeadBucket() (method)"><strong>HeadBucket</strong>(*s3.HeadBucketInput) (*s3.HeadBucketOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#HeadBucketRequest-instance_method" title="s3iface.S3API.HeadBucketRequest() (method)"><strong>HeadBucketRequest</strong>(*s3.HeadBucketInput) (*request.Request, *s3.HeadBucketOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#HeadBucketWithContext-instance_method" title="s3iface.S3API.HeadBucketWithContext() (method)"><strong>HeadBucketWithContext</strong>(aws.Context, *s3.HeadBucketInput, ...request.Option) (*s3.HeadBucketOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#HeadObject-instance_method" title="s3iface.S3API.HeadObject() (method)"><strong>HeadObject</strong>(*s3.HeadObjectInput) (*s3.HeadObjectOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#HeadObjectRequest-instance_method" title="s3iface.S3API.HeadObjectRequest() (method)"><strong>HeadObjectRequest</strong>(*s3.HeadObjectInput) (*request.Request, *s3.HeadObjectOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#HeadObjectWithContext-instance_method" title="s3iface.S3API.HeadObjectWithContext() (method)"><strong>HeadObjectWithContext</strong>(aws.Context, *s3.HeadObjectInput, ...request.Option) (*s3.HeadObjectOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListBuckets-instance_method" title="s3iface.S3API.ListBuckets() (method)"><strong>ListBuckets</strong>(*s3.ListBucketsInput) (*s3.ListBucketsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListBucketsRequest-instance_method" title="s3iface.S3API.ListBucketsRequest() (method)"><strong>ListBucketsRequest</strong>(*s3.ListBucketsInput) (*request.Request, *s3.ListBucketsOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListBucketsWithContext-instance_method" title="s3iface.S3API.ListBucketsWithContext() (method)"><strong>ListBucketsWithContext</strong>(aws.Context, *s3.ListBucketsInput, ...request.Option) (*s3.ListBucketsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListMultipartUploads-instance_method" title="s3iface.S3API.ListMultipartUploads() (method)"><strong>ListMultipartUploads</strong>(*s3.ListMultipartUploadsInput) (*s3.ListMultipartUploadsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListMultipartUploadsPages-instance_method" title="s3iface.S3API.ListMultipartUploadsPages() (method)"><strong>ListMultipartUploadsPages</strong>(*s3.ListMultipartUploadsInput, func(*s3.ListMultipartUploadsOutput, bool) bool) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListMultipartUploadsPagesWithContext-instance_method" title="s3iface.S3API.ListMultipartUploadsPagesWithContext() (method)"><strong>ListMultipartUploadsPagesWithContext</strong>(aws.Context, *s3.ListMultipartUploadsInput, func(*s3.ListMultipartUploadsOutput, bool) bool, ...request.Option) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListMultipartUploadsRequest-instance_method" title="s3iface.S3API.ListMultipartUploadsRequest() (method)"><strong>ListMultipartUploadsRequest</strong>(*s3.ListMultipartUploadsInput) (*request.Request, *s3.ListMultipartUploadsOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListMultipartUploadsWithContext-instance_method" title="s3iface.S3API.ListMultipartUploadsWithContext() (method)"><strong>ListMultipartUploadsWithContext</strong>(aws.Context, *s3.ListMultipartUploadsInput, ...request.Option) (*s3.ListMultipartUploadsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListObjects-instance_method" title="s3iface.S3API.ListObjects() (method)"><strong>ListObjects</strong>(*s3.ListObjectsInput) (*s3.ListObjectsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListObjectsPages-instance_method" title="s3iface.S3API.ListObjectsPages() (method)"><strong>ListObjectsPages</strong>(*s3.ListObjectsInput, func(*s3.ListObjectsOutput, bool) bool) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListObjectsPagesWithContext-instance_method" title="s3iface.S3API.ListObjectsPagesWithContext() (method)"><strong>ListObjectsPagesWithContext</strong>(aws.Context, *s3.ListObjectsInput, func(*s3.ListObjectsOutput, bool) bool, ...request.Option) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListObjectsRequest-instance_method" title="s3iface.S3API.ListObjectsRequest() (method)"><strong>ListObjectsRequest</strong>(*s3.ListObjectsInput) (*request.Request, *s3.ListObjectsOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListObjectsWithContext-instance_method" title="s3iface.S3API.ListObjectsWithContext() (method)"><strong>ListObjectsWithContext</strong>(aws.Context, *s3.ListObjectsInput, ...request.Option) (*s3.ListObjectsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListParts-instance_method" title="s3iface.S3API.ListParts() (method)"><strong>ListParts</strong>(*s3.ListPartsInput) (*s3.ListPartsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListPartsPages-instance_method" title="s3iface.S3API.ListPartsPages() (method)"><strong>ListPartsPages</strong>(*s3.ListPartsInput, func(*s3.ListPartsOutput, bool) bool) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListPartsPagesWithContext-instance_method" title="s3iface.S3API.ListPartsPagesWithContext() (method)"><strong>ListPartsPagesWithContext</strong>(aws.Context, *s3.ListPartsInput, func(*s3.ListPartsOutput, bool) bool, ...request.Option) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListPartsRequest-instance_method" title="s3iface.S3API.ListPartsRequest() (method)"><strong>ListPartsRequest</strong>(*s3.ListPartsInput) (*request.Request, *s3.ListPartsOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListPartsWithContext-instance_method" title="s3iface.S3API.ListPartsWithContext() (method)"><strong>ListPartsWithContext</strong>(aws.Context, *s3.ListPartsInput, ...request.Option) (*s3.ListPartsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketAcl-instance_method" title="s3iface.S3API.PutBucketAcl() (method)"><strong>PutBucketAcl</strong>(*s3.PutBucketAclInput) (*s3.PutBucketAclOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketAclRequest-instance_method" title="s3iface.S3API.PutBucketAclRequest() (method)"><strong>PutBucketAclRequest</strong>(*s3.PutBucketAclInput) (*request.Request, *s3.PutBucketAclOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketAclWithContext-instance_method" title="s3iface.S3API.PutBucketAclWithContext() (method)"><strong>PutBucketAclWithContext</strong>(aws.Context, *s3.PutBucketAclInput, ...request.Option) (*s3.PutBucketAclOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketCors-instance_method" title="s3iface.S3API.PutBucketCors() (method)"><strong>PutBucketCors</strong>(*s3.PutBucketCorsInput) (*s3.PutBucketCorsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketCorsRequest-instance_method" title="s3iface.S3API.PutBucketCorsRequest() (method)"><strong>PutBucketCorsRequest</strong>(*s3.PutBucketCorsInput) (*request.Request, *s3.PutBucketCorsOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketCorsWithContext-instance_method" title="s3iface.S3API.PutBucketCorsWithContext() (method)"><strong>PutBucketCorsWithContext</strong>(aws.Context, *s3.PutBucketCorsInput, ...request.Option) (*s3.PutBucketCorsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketLogging-instance_method" title="s3iface.S3API.PutBucketLogging() (method)"><strong>PutBucketLogging</strong>(*s3.PutBucketLoggingInput) (*s3.PutBucketLoggingOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketLoggingRequest-instance_method" title="s3iface.S3API.PutBucketLoggingRequest() (method)"><strong>PutBucketLoggingRequest</strong>(*s3.PutBucketLoggingInput) (*request.Request, *s3.PutBucketLoggingOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketLoggingWithContext-instance_method" title="s3iface.S3API.PutBucketLoggingWithContext() (method)"><strong>PutBucketLoggingWithContext</strong>(aws.Context, *s3.PutBucketLoggingInput, ...request.Option) (*s3.PutBucketLoggingOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutObject-instance_method" title="s3iface.S3API.PutObject() (method)"><strong>PutObject</strong>(*s3.PutObjectInput) (*s3.PutObjectOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutObjectAcl-instance_method" title="s3iface.S3API.PutObjectAcl() (method)"><strong>PutObjectAcl</strong>(*s3.PutObjectAclInput) (*s3.PutObjectAclOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutObjectAclRequest-instance_method" title="s3iface.S3API.PutObjectAclRequest() (method)"><strong>PutObjectAclRequest</strong>(*s3.PutObjectAclInput) (*request.Request, *s3.PutObjectAclOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutObjectAclWithContext-instance_method" title="s3iface.S3API.PutObjectAclWithContext() (method)"><strong>PutObjectAclWithContext</strong>(aws.Context, *s3.PutObjectAclInput, ...request.Option) (*s3.PutObjectAclOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutObjectRequest-instance_method" title="s3iface.S3API.PutObjectRequest() (method)"><strong>PutObjectRequest</strong>(*s3.PutObjectInput) (*request.Request, *s3.PutObjectOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutObjectWithContext-instance_method" title="s3iface.S3API.PutObjectWithContext() (method)"><strong>PutObjectWithContext</strong>(aws.Context, *s3.PutObjectInput, ...request.Option) (*s3.PutObjectOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#UploadPart-instance_method" title="s3iface.S3API.UploadPart() (method)"><strong>UploadPart</strong>(*s3.UploadPartInput) (*s3.UploadPartOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#UploadPartCopy-instance_method" title="s3iface.S3API.UploadPartCopy() (method)"><strong>UploadPartCopy</strong>(*s3.UploadPartCopyInput) (*s3.UploadPartCopyOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#UploadPartCopyRequest-instance_method" title="s3iface.S3API.UploadPartCopyRequest() (method)"><strong>UploadPartCopyRequest</strong>(*s3.UploadPartCopyInput) (*request.Request, *s3.UploadPartCopyOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#UploadPartCopyWithContext-instance_method" title="s3iface.S3API.UploadPartCopyWithContext() (method)"><strong>UploadPartCopyWithContext</strong>(aws.Context, *s3.UploadPartCopyInput, ...request.Option) (*s3.UploadPartCopyOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#UploadPartRequest-instance_method" title="s3iface.S3API.UploadPartRequest() (method)"><strong>UploadPartRequest</strong>(*s3.UploadPartInput) (*request.Request, *s3.UploadPartOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#UploadPartWithContext-instance_method" title="s3iface.S3API.UploadPartWithContext() (method)"><strong>UploadPartWithContext</strong>(aws.Context, *s3.UploadPartInput, ...request.Option) (*s3.UploadPartOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WaitUntilBucketExists-instance_method" title="s3iface.S3API.WaitUntilBucketExists() (method)"><strong>WaitUntilBucketExists</strong>(*s3.HeadBucketInput) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WaitUntilBucketExistsWithContext-instance_method" title="s3iface.S3API.WaitUntilBucketExistsWithContext() (method)"><strong>WaitUntilBucketExistsWithContext</strong>(aws.Context, *s3.HeadBucketInput, ...request.WaiterOption) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WaitUntilBucketNotExists-instance_method" title="s3iface.S3API.WaitUntilBucketNotExists() (method)"><strong>WaitUntilBucketNotExists</strong>(*s3.HeadBucketInput) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WaitUntilBucketNotExistsWithContext-instance_method" title="s3iface.S3API.WaitUntilBucketNotExistsWithContext() (method)"><strong>WaitUntilBucketNotExistsWithContext</strong>(aws.Context, *s3.HeadBucketInput, ...request.WaiterOption) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WaitUntilObjectExists-instance_method" title="s3iface.S3API.WaitUntilObjectExists() (method)"><strong>WaitUntilObjectExists</strong>(*s3.HeadObjectInput) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WaitUntilObjectExistsWithContext-instance_method" title="s3iface.S3API.WaitUntilObjectExistsWithContext() (method)"><strong>WaitUntilObjectExistsWithContext</strong>(aws.Context, *s3.HeadObjectInput, ...request.WaiterOption) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WaitUntilObjectNotExists-instance_method" title="s3iface.S3API.WaitUntilObjectNotExists() (method)"><strong>WaitUntilObjectNotExists</strong>(*s3.HeadObjectInput) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WaitUntilObjectNotExistsWithContext-instance_method" title="s3iface.S3API.WaitUntilObjectNotExistsWithContext() (method)"><strong>WaitUntilObjectNotExistsWithContext</strong>(aws.Context, *s3.HeadObjectInput, ...request.WaiterOption) error</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+
+
+
+
+  <div id="Interface Method_method_details" class="method_details_list">
+    <h2>Interface Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="AbortMultipartUpload-instance_method">
+  
+    <strong><span class='object_link'><a href="#AbortMultipartUpload-instance_method" title="s3iface.S3API.AbortMultipartUpload() (method)">AbortMultipartUpload</a></span></strong>(*<span class='object_link'><a href="../AbortMultipartUploadInput.html" title="s3.AbortMultipartUploadInput (struct)">s3.AbortMultipartUploadInput</a></span>) (*<span class='object_link'><a href="../AbortMultipartUploadOutput.html" title="s3.AbortMultipartUploadOutput (struct)">s3.AbortMultipartUploadOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 62</span>
+
+<div class="hljs">AbortMultipartUpload(*s3.AbortMultipartUploadInput) (*s3.AbortMultipartUploadOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="AbortMultipartUploadRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#AbortMultipartUploadRequest-instance_method" title="s3iface.S3API.AbortMultipartUploadRequest() (method)">AbortMultipartUploadRequest</a></span></strong>(*<span class='object_link'><a href="../AbortMultipartUploadInput.html" title="s3.AbortMultipartUploadInput (struct)">s3.AbortMultipartUploadInput</a></span>) (*request.Request, *<span class='object_link'><a href="../AbortMultipartUploadOutput.html" title="s3.AbortMultipartUploadOutput (struct)">s3.AbortMultipartUploadOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 64</span>
+
+<div class="hljs">AbortMultipartUploadRequest(*s3.AbortMultipartUploadInput) (*request.Request, *s3.AbortMultipartUploadOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="AbortMultipartUploadWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#AbortMultipartUploadWithContext-instance_method" title="s3iface.S3API.AbortMultipartUploadWithContext() (method)">AbortMultipartUploadWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../AbortMultipartUploadInput.html" title="s3.AbortMultipartUploadInput (struct)">s3.AbortMultipartUploadInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../AbortMultipartUploadOutput.html" title="s3.AbortMultipartUploadOutput (struct)">s3.AbortMultipartUploadOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 63</span>
+
+<div class="hljs">AbortMultipartUploadWithContext(aws.Context, *s3.AbortMultipartUploadInput, ...request.Option) (*s3.AbortMultipartUploadOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CompleteMultipartUpload-instance_method">
+  
+    <strong><span class='object_link'><a href="#CompleteMultipartUpload-instance_method" title="s3iface.S3API.CompleteMultipartUpload() (method)">CompleteMultipartUpload</a></span></strong>(*<span class='object_link'><a href="../CompleteMultipartUploadInput.html" title="s3.CompleteMultipartUploadInput (struct)">s3.CompleteMultipartUploadInput</a></span>) (*<span class='object_link'><a href="../CompleteMultipartUploadOutput.html" title="s3.CompleteMultipartUploadOutput (struct)">s3.CompleteMultipartUploadOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 66</span>
+
+<div class="hljs">CompleteMultipartUpload(*s3.CompleteMultipartUploadInput) (*s3.CompleteMultipartUploadOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CompleteMultipartUploadRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#CompleteMultipartUploadRequest-instance_method" title="s3iface.S3API.CompleteMultipartUploadRequest() (method)">CompleteMultipartUploadRequest</a></span></strong>(*<span class='object_link'><a href="../CompleteMultipartUploadInput.html" title="s3.CompleteMultipartUploadInput (struct)">s3.CompleteMultipartUploadInput</a></span>) (*request.Request, *<span class='object_link'><a href="../CompleteMultipartUploadOutput.html" title="s3.CompleteMultipartUploadOutput (struct)">s3.CompleteMultipartUploadOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 68</span>
+
+<div class="hljs">CompleteMultipartUploadRequest(*s3.CompleteMultipartUploadInput) (*request.Request, *s3.CompleteMultipartUploadOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CompleteMultipartUploadWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#CompleteMultipartUploadWithContext-instance_method" title="s3iface.S3API.CompleteMultipartUploadWithContext() (method)">CompleteMultipartUploadWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../CompleteMultipartUploadInput.html" title="s3.CompleteMultipartUploadInput (struct)">s3.CompleteMultipartUploadInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../CompleteMultipartUploadOutput.html" title="s3.CompleteMultipartUploadOutput (struct)">s3.CompleteMultipartUploadOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 67</span>
+
+<div class="hljs">CompleteMultipartUploadWithContext(aws.Context, *s3.CompleteMultipartUploadInput, ...request.Option) (*s3.CompleteMultipartUploadOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CopyObject-instance_method">
+  
+    <strong><span class='object_link'><a href="#CopyObject-instance_method" title="s3iface.S3API.CopyObject() (method)">CopyObject</a></span></strong>(*<span class='object_link'><a href="../CopyObjectInput.html" title="s3.CopyObjectInput (struct)">s3.CopyObjectInput</a></span>) (*<span class='object_link'><a href="../CopyObjectOutput.html" title="s3.CopyObjectOutput (struct)">s3.CopyObjectOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 70</span>
+
+<div class="hljs">CopyObject(*s3.CopyObjectInput) (*s3.CopyObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CopyObjectRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#CopyObjectRequest-instance_method" title="s3iface.S3API.CopyObjectRequest() (method)">CopyObjectRequest</a></span></strong>(*<span class='object_link'><a href="../CopyObjectInput.html" title="s3.CopyObjectInput (struct)">s3.CopyObjectInput</a></span>) (*request.Request, *<span class='object_link'><a href="../CopyObjectOutput.html" title="s3.CopyObjectOutput (struct)">s3.CopyObjectOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 72</span>
+
+<div class="hljs">CopyObjectRequest(*s3.CopyObjectInput) (*request.Request, *s3.CopyObjectOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CopyObjectWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#CopyObjectWithContext-instance_method" title="s3iface.S3API.CopyObjectWithContext() (method)">CopyObjectWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../CopyObjectInput.html" title="s3.CopyObjectInput (struct)">s3.CopyObjectInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../CopyObjectOutput.html" title="s3.CopyObjectOutput (struct)">s3.CopyObjectOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 71</span>
+
+<div class="hljs">CopyObjectWithContext(aws.Context, *s3.CopyObjectInput, ...request.Option) (*s3.CopyObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CreateBucket-instance_method">
+  
+    <strong><span class='object_link'><a href="#CreateBucket-instance_method" title="s3iface.S3API.CreateBucket() (method)">CreateBucket</a></span></strong>(*<span class='object_link'><a href="../CreateBucketInput.html" title="s3.CreateBucketInput (struct)">s3.CreateBucketInput</a></span>) (*<span class='object_link'><a href="../CreateBucketOutput.html" title="s3.CreateBucketOutput (struct)">s3.CreateBucketOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 74</span>
+
+<div class="hljs">CreateBucket(*s3.CreateBucketInput) (*s3.CreateBucketOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CreateBucketRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#CreateBucketRequest-instance_method" title="s3iface.S3API.CreateBucketRequest() (method)">CreateBucketRequest</a></span></strong>(*<span class='object_link'><a href="../CreateBucketInput.html" title="s3.CreateBucketInput (struct)">s3.CreateBucketInput</a></span>) (*request.Request, *<span class='object_link'><a href="../CreateBucketOutput.html" title="s3.CreateBucketOutput (struct)">s3.CreateBucketOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 76</span>
+
+<div class="hljs">CreateBucketRequest(*s3.CreateBucketInput) (*request.Request, *s3.CreateBucketOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CreateBucketWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#CreateBucketWithContext-instance_method" title="s3iface.S3API.CreateBucketWithContext() (method)">CreateBucketWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../CreateBucketInput.html" title="s3.CreateBucketInput (struct)">s3.CreateBucketInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../CreateBucketOutput.html" title="s3.CreateBucketOutput (struct)">s3.CreateBucketOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 75</span>
+
+<div class="hljs">CreateBucketWithContext(aws.Context, *s3.CreateBucketInput, ...request.Option) (*s3.CreateBucketOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CreateMultipartUpload-instance_method">
+  
+    <strong><span class='object_link'><a href="#CreateMultipartUpload-instance_method" title="s3iface.S3API.CreateMultipartUpload() (method)">CreateMultipartUpload</a></span></strong>(*<span class='object_link'><a href="../CreateMultipartUploadInput.html" title="s3.CreateMultipartUploadInput (struct)">s3.CreateMultipartUploadInput</a></span>) (*<span class='object_link'><a href="../CreateMultipartUploadOutput.html" title="s3.CreateMultipartUploadOutput (struct)">s3.CreateMultipartUploadOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 78</span>
+
+<div class="hljs">CreateMultipartUpload(*s3.CreateMultipartUploadInput) (*s3.CreateMultipartUploadOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CreateMultipartUploadRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#CreateMultipartUploadRequest-instance_method" title="s3iface.S3API.CreateMultipartUploadRequest() (method)">CreateMultipartUploadRequest</a></span></strong>(*<span class='object_link'><a href="../CreateMultipartUploadInput.html" title="s3.CreateMultipartUploadInput (struct)">s3.CreateMultipartUploadInput</a></span>) (*request.Request, *<span class='object_link'><a href="../CreateMultipartUploadOutput.html" title="s3.CreateMultipartUploadOutput (struct)">s3.CreateMultipartUploadOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 80</span>
+
+<div class="hljs">CreateMultipartUploadRequest(*s3.CreateMultipartUploadInput) (*request.Request, *s3.CreateMultipartUploadOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CreateMultipartUploadWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#CreateMultipartUploadWithContext-instance_method" title="s3iface.S3API.CreateMultipartUploadWithContext() (method)">CreateMultipartUploadWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../CreateMultipartUploadInput.html" title="s3.CreateMultipartUploadInput (struct)">s3.CreateMultipartUploadInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../CreateMultipartUploadOutput.html" title="s3.CreateMultipartUploadOutput (struct)">s3.CreateMultipartUploadOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 79</span>
+
+<div class="hljs">CreateMultipartUploadWithContext(aws.Context, *s3.CreateMultipartUploadInput, ...request.Option) (*s3.CreateMultipartUploadOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteBucket-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteBucket-instance_method" title="s3iface.S3API.DeleteBucket() (method)">DeleteBucket</a></span></strong>(*<span class='object_link'><a href="../DeleteBucketInput.html" title="s3.DeleteBucketInput (struct)">s3.DeleteBucketInput</a></span>) (*<span class='object_link'><a href="../../s3.html#type-DeleteBucketOutput" title="s3 (package)">s3.DeleteBucketOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 82</span>
+
+<div class="hljs">DeleteBucket(*s3.DeleteBucketInput) (*s3.DeleteBucketOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteBucketCors-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteBucketCors-instance_method" title="s3iface.S3API.DeleteBucketCors() (method)">DeleteBucketCors</a></span></strong>(*<span class='object_link'><a href="../DeleteBucketCorsInput.html" title="s3.DeleteBucketCorsInput (struct)">s3.DeleteBucketCorsInput</a></span>) (*<span class='object_link'><a href="../../s3.html#type-DeleteBucketCorsOutput" title="s3 (package)">s3.DeleteBucketCorsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 86</span>
+
+<div class="hljs">DeleteBucketCors(*s3.DeleteBucketCorsInput) (*s3.DeleteBucketCorsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteBucketCorsRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteBucketCorsRequest-instance_method" title="s3iface.S3API.DeleteBucketCorsRequest() (method)">DeleteBucketCorsRequest</a></span></strong>(*<span class='object_link'><a href="../DeleteBucketCorsInput.html" title="s3.DeleteBucketCorsInput (struct)">s3.DeleteBucketCorsInput</a></span>) (*request.Request, *<span class='object_link'><a href="../../s3.html#type-DeleteBucketCorsOutput" title="s3 (package)">s3.DeleteBucketCorsOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 88</span>
+
+<div class="hljs">DeleteBucketCorsRequest(*s3.DeleteBucketCorsInput) (*request.Request, *s3.DeleteBucketCorsOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteBucketCorsWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteBucketCorsWithContext-instance_method" title="s3iface.S3API.DeleteBucketCorsWithContext() (method)">DeleteBucketCorsWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../DeleteBucketCorsInput.html" title="s3.DeleteBucketCorsInput (struct)">s3.DeleteBucketCorsInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../../s3.html#type-DeleteBucketCorsOutput" title="s3 (package)">s3.DeleteBucketCorsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 87</span>
+
+<div class="hljs">DeleteBucketCorsWithContext(aws.Context, *s3.DeleteBucketCorsInput, ...request.Option) (*s3.DeleteBucketCorsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteBucketRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteBucketRequest-instance_method" title="s3iface.S3API.DeleteBucketRequest() (method)">DeleteBucketRequest</a></span></strong>(*<span class='object_link'><a href="../DeleteBucketInput.html" title="s3.DeleteBucketInput (struct)">s3.DeleteBucketInput</a></span>) (*request.Request, *<span class='object_link'><a href="../../s3.html#type-DeleteBucketOutput" title="s3 (package)">s3.DeleteBucketOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 84</span>
+
+<div class="hljs">DeleteBucketRequest(*s3.DeleteBucketInput) (*request.Request, *s3.DeleteBucketOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteBucketWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteBucketWithContext-instance_method" title="s3iface.S3API.DeleteBucketWithContext() (method)">DeleteBucketWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../DeleteBucketInput.html" title="s3.DeleteBucketInput (struct)">s3.DeleteBucketInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../../s3.html#type-DeleteBucketOutput" title="s3 (package)">s3.DeleteBucketOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 83</span>
+
+<div class="hljs">DeleteBucketWithContext(aws.Context, *s3.DeleteBucketInput, ...request.Option) (*s3.DeleteBucketOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteObject-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteObject-instance_method" title="s3iface.S3API.DeleteObject() (method)">DeleteObject</a></span></strong>(*<span class='object_link'><a href="../DeleteObjectInput.html" title="s3.DeleteObjectInput (struct)">s3.DeleteObjectInput</a></span>) (*<span class='object_link'><a href="../DeleteObjectOutput.html" title="s3.DeleteObjectOutput (struct)">s3.DeleteObjectOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 90</span>
+
+<div class="hljs">DeleteObject(*s3.DeleteObjectInput) (*s3.DeleteObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteObjectRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteObjectRequest-instance_method" title="s3iface.S3API.DeleteObjectRequest() (method)">DeleteObjectRequest</a></span></strong>(*<span class='object_link'><a href="../DeleteObjectInput.html" title="s3.DeleteObjectInput (struct)">s3.DeleteObjectInput</a></span>) (*request.Request, *<span class='object_link'><a href="../DeleteObjectOutput.html" title="s3.DeleteObjectOutput (struct)">s3.DeleteObjectOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 92</span>
+
+<div class="hljs">DeleteObjectRequest(*s3.DeleteObjectInput) (*request.Request, *s3.DeleteObjectOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteObjects-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteObjects-instance_method" title="s3iface.S3API.DeleteObjects() (method)">DeleteObjects</a></span></strong>(*<span class='object_link'><a href="../DeleteObjectsInput.html" title="s3.DeleteObjectsInput (struct)">s3.DeleteObjectsInput</a></span>) (*<span class='object_link'><a href="../DeleteObjectsOutput.html" title="s3.DeleteObjectsOutput (struct)">s3.DeleteObjectsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 94</span>
+
+<div class="hljs">DeleteObjects(*s3.DeleteObjectsInput) (*s3.DeleteObjectsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteObjectsRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteObjectsRequest-instance_method" title="s3iface.S3API.DeleteObjectsRequest() (method)">DeleteObjectsRequest</a></span></strong>(*<span class='object_link'><a href="../DeleteObjectsInput.html" title="s3.DeleteObjectsInput (struct)">s3.DeleteObjectsInput</a></span>) (*request.Request, *<span class='object_link'><a href="../DeleteObjectsOutput.html" title="s3.DeleteObjectsOutput (struct)">s3.DeleteObjectsOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 96</span>
+
+<div class="hljs">DeleteObjectsRequest(*s3.DeleteObjectsInput) (*request.Request, *s3.DeleteObjectsOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteObjectsWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteObjectsWithContext-instance_method" title="s3iface.S3API.DeleteObjectsWithContext() (method)">DeleteObjectsWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../DeleteObjectsInput.html" title="s3.DeleteObjectsInput (struct)">s3.DeleteObjectsInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../DeleteObjectsOutput.html" title="s3.DeleteObjectsOutput (struct)">s3.DeleteObjectsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 95</span>
+
+<div class="hljs">DeleteObjectsWithContext(aws.Context, *s3.DeleteObjectsInput, ...request.Option) (*s3.DeleteObjectsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteObjectWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteObjectWithContext-instance_method" title="s3iface.S3API.DeleteObjectWithContext() (method)">DeleteObjectWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../DeleteObjectInput.html" title="s3.DeleteObjectInput (struct)">s3.DeleteObjectInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../DeleteObjectOutput.html" title="s3.DeleteObjectOutput (struct)">s3.DeleteObjectOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 91</span>
+
+<div class="hljs">DeleteObjectWithContext(aws.Context, *s3.DeleteObjectInput, ...request.Option) (*s3.DeleteObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketAcl-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketAcl-instance_method" title="s3iface.S3API.GetBucketAcl() (method)">GetBucketAcl</a></span></strong>(*<span class='object_link'><a href="../GetBucketAclInput.html" title="s3.GetBucketAclInput (struct)">s3.GetBucketAclInput</a></span>) (*<span class='object_link'><a href="../GetBucketAclOutput.html" title="s3.GetBucketAclOutput (struct)">s3.GetBucketAclOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+98</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 98</span>
+
+<div class="hljs">GetBucketAcl(*s3.GetBucketAclInput) (*s3.GetBucketAclOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketAclRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketAclRequest-instance_method" title="s3iface.S3API.GetBucketAclRequest() (method)">GetBucketAclRequest</a></span></strong>(*<span class='object_link'><a href="../GetBucketAclInput.html" title="s3.GetBucketAclInput (struct)">s3.GetBucketAclInput</a></span>) (*request.Request, *<span class='object_link'><a href="../GetBucketAclOutput.html" title="s3.GetBucketAclOutput (struct)">s3.GetBucketAclOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 100</span>
+
+<div class="hljs">GetBucketAclRequest(*s3.GetBucketAclInput) (*request.Request, *s3.GetBucketAclOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketAclWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketAclWithContext-instance_method" title="s3iface.S3API.GetBucketAclWithContext() (method)">GetBucketAclWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../GetBucketAclInput.html" title="s3.GetBucketAclInput (struct)">s3.GetBucketAclInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../GetBucketAclOutput.html" title="s3.GetBucketAclOutput (struct)">s3.GetBucketAclOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 99</span>
+
+<div class="hljs">GetBucketAclWithContext(aws.Context, *s3.GetBucketAclInput, ...request.Option) (*s3.GetBucketAclOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketCors-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketCors-instance_method" title="s3iface.S3API.GetBucketCors() (method)">GetBucketCors</a></span></strong>(*<span class='object_link'><a href="../GetBucketCorsInput.html" title="s3.GetBucketCorsInput (struct)">s3.GetBucketCorsInput</a></span>) (*<span class='object_link'><a href="../GetBucketCorsOutput.html" title="s3.GetBucketCorsOutput (struct)">s3.GetBucketCorsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 102</span>
+
+<div class="hljs">GetBucketCors(*s3.GetBucketCorsInput) (*s3.GetBucketCorsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketCorsRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketCorsRequest-instance_method" title="s3iface.S3API.GetBucketCorsRequest() (method)">GetBucketCorsRequest</a></span></strong>(*<span class='object_link'><a href="../GetBucketCorsInput.html" title="s3.GetBucketCorsInput (struct)">s3.GetBucketCorsInput</a></span>) (*request.Request, *<span class='object_link'><a href="../GetBucketCorsOutput.html" title="s3.GetBucketCorsOutput (struct)">s3.GetBucketCorsOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+104</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 104</span>
+
+<div class="hljs">GetBucketCorsRequest(*s3.GetBucketCorsInput) (*request.Request, *s3.GetBucketCorsOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketCorsWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketCorsWithContext-instance_method" title="s3iface.S3API.GetBucketCorsWithContext() (method)">GetBucketCorsWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../GetBucketCorsInput.html" title="s3.GetBucketCorsInput (struct)">s3.GetBucketCorsInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../GetBucketCorsOutput.html" title="s3.GetBucketCorsOutput (struct)">s3.GetBucketCorsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 103</span>
+
+<div class="hljs">GetBucketCorsWithContext(aws.Context, *s3.GetBucketCorsInput, ...request.Option) (*s3.GetBucketCorsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketLocation-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketLocation-instance_method" title="s3iface.S3API.GetBucketLocation() (method)">GetBucketLocation</a></span></strong>(*<span class='object_link'><a href="../GetBucketLocationInput.html" title="s3.GetBucketLocationInput (struct)">s3.GetBucketLocationInput</a></span>) (*<span class='object_link'><a href="../GetBucketLocationOutput.html" title="s3.GetBucketLocationOutput (struct)">s3.GetBucketLocationOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 106</span>
+
+<div class="hljs">GetBucketLocation(*s3.GetBucketLocationInput) (*s3.GetBucketLocationOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketLocationRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketLocationRequest-instance_method" title="s3iface.S3API.GetBucketLocationRequest() (method)">GetBucketLocationRequest</a></span></strong>(*<span class='object_link'><a href="../GetBucketLocationInput.html" title="s3.GetBucketLocationInput (struct)">s3.GetBucketLocationInput</a></span>) (*request.Request, *<span class='object_link'><a href="../GetBucketLocationOutput.html" title="s3.GetBucketLocationOutput (struct)">s3.GetBucketLocationOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 108</span>
+
+<div class="hljs">GetBucketLocationRequest(*s3.GetBucketLocationInput) (*request.Request, *s3.GetBucketLocationOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketLocationWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketLocationWithContext-instance_method" title="s3iface.S3API.GetBucketLocationWithContext() (method)">GetBucketLocationWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../GetBucketLocationInput.html" title="s3.GetBucketLocationInput (struct)">s3.GetBucketLocationInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../GetBucketLocationOutput.html" title="s3.GetBucketLocationOutput (struct)">s3.GetBucketLocationOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 107</span>
+
+<div class="hljs">GetBucketLocationWithContext(aws.Context, *s3.GetBucketLocationInput, ...request.Option) (*s3.GetBucketLocationOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketLogging-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketLogging-instance_method" title="s3iface.S3API.GetBucketLogging() (method)">GetBucketLogging</a></span></strong>(*<span class='object_link'><a href="../GetBucketLoggingInput.html" title="s3.GetBucketLoggingInput (struct)">s3.GetBucketLoggingInput</a></span>) (*<span class='object_link'><a href="../GetBucketLoggingOutput.html" title="s3.GetBucketLoggingOutput (struct)">s3.GetBucketLoggingOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 110</span>
+
+<div class="hljs">GetBucketLogging(*s3.GetBucketLoggingInput) (*s3.GetBucketLoggingOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketLoggingRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketLoggingRequest-instance_method" title="s3iface.S3API.GetBucketLoggingRequest() (method)">GetBucketLoggingRequest</a></span></strong>(*<span class='object_link'><a href="../GetBucketLoggingInput.html" title="s3.GetBucketLoggingInput (struct)">s3.GetBucketLoggingInput</a></span>) (*request.Request, *<span class='object_link'><a href="../GetBucketLoggingOutput.html" title="s3.GetBucketLoggingOutput (struct)">s3.GetBucketLoggingOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 112</span>
+
+<div class="hljs">GetBucketLoggingRequest(*s3.GetBucketLoggingInput) (*request.Request, *s3.GetBucketLoggingOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketLoggingWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketLoggingWithContext-instance_method" title="s3iface.S3API.GetBucketLoggingWithContext() (method)">GetBucketLoggingWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../GetBucketLoggingInput.html" title="s3.GetBucketLoggingInput (struct)">s3.GetBucketLoggingInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../GetBucketLoggingOutput.html" title="s3.GetBucketLoggingOutput (struct)">s3.GetBucketLoggingOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 111</span>
+
+<div class="hljs">GetBucketLoggingWithContext(aws.Context, *s3.GetBucketLoggingInput, ...request.Option) (*s3.GetBucketLoggingOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetObject-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetObject-instance_method" title="s3iface.S3API.GetObject() (method)">GetObject</a></span></strong>(*<span class='object_link'><a href="../GetObjectInput.html" title="s3.GetObjectInput (struct)">s3.GetObjectInput</a></span>) (*<span class='object_link'><a href="../GetObjectOutput.html" title="s3.GetObjectOutput (struct)">s3.GetObjectOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 114</span>
+
+<div class="hljs">GetObject(*s3.GetObjectInput) (*s3.GetObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetObjectAcl-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetObjectAcl-instance_method" title="s3iface.S3API.GetObjectAcl() (method)">GetObjectAcl</a></span></strong>(*<span class='object_link'><a href="../GetObjectAclInput.html" title="s3.GetObjectAclInput (struct)">s3.GetObjectAclInput</a></span>) (*<span class='object_link'><a href="../GetObjectAclOutput.html" title="s3.GetObjectAclOutput (struct)">s3.GetObjectAclOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 118</span>
+
+<div class="hljs">GetObjectAcl(*s3.GetObjectAclInput) (*s3.GetObjectAclOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetObjectAclRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetObjectAclRequest-instance_method" title="s3iface.S3API.GetObjectAclRequest() (method)">GetObjectAclRequest</a></span></strong>(*<span class='object_link'><a href="../GetObjectAclInput.html" title="s3.GetObjectAclInput (struct)">s3.GetObjectAclInput</a></span>) (*request.Request, *<span class='object_link'><a href="../GetObjectAclOutput.html" title="s3.GetObjectAclOutput (struct)">s3.GetObjectAclOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 120</span>
+
+<div class="hljs">GetObjectAclRequest(*s3.GetObjectAclInput) (*request.Request, *s3.GetObjectAclOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetObjectAclWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetObjectAclWithContext-instance_method" title="s3iface.S3API.GetObjectAclWithContext() (method)">GetObjectAclWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../GetObjectAclInput.html" title="s3.GetObjectAclInput (struct)">s3.GetObjectAclInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../GetObjectAclOutput.html" title="s3.GetObjectAclOutput (struct)">s3.GetObjectAclOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+119</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 119</span>
+
+<div class="hljs">GetObjectAclWithContext(aws.Context, *s3.GetObjectAclInput, ...request.Option) (*s3.GetObjectAclOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetObjectRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetObjectRequest-instance_method" title="s3iface.S3API.GetObjectRequest() (method)">GetObjectRequest</a></span></strong>(*<span class='object_link'><a href="../GetObjectInput.html" title="s3.GetObjectInput (struct)">s3.GetObjectInput</a></span>) (*request.Request, *<span class='object_link'><a href="../GetObjectOutput.html" title="s3.GetObjectOutput (struct)">s3.GetObjectOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+116</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 116</span>
+
+<div class="hljs">GetObjectRequest(*s3.GetObjectInput) (*request.Request, *s3.GetObjectOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetObjectWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetObjectWithContext-instance_method" title="s3iface.S3API.GetObjectWithContext() (method)">GetObjectWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../GetObjectInput.html" title="s3.GetObjectInput (struct)">s3.GetObjectInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../GetObjectOutput.html" title="s3.GetObjectOutput (struct)">s3.GetObjectOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 115</span>
+
+<div class="hljs">GetObjectWithContext(aws.Context, *s3.GetObjectInput, ...request.Option) (*s3.GetObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="HeadBucket-instance_method">
+  
+    <strong><span class='object_link'><a href="#HeadBucket-instance_method" title="s3iface.S3API.HeadBucket() (method)">HeadBucket</a></span></strong>(*<span class='object_link'><a href="../HeadBucketInput.html" title="s3.HeadBucketInput (struct)">s3.HeadBucketInput</a></span>) (*<span class='object_link'><a href="../../s3.html#type-HeadBucketOutput" title="s3 (package)">s3.HeadBucketOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 122</span>
+
+<div class="hljs">HeadBucket(*s3.HeadBucketInput) (*s3.HeadBucketOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="HeadBucketRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#HeadBucketRequest-instance_method" title="s3iface.S3API.HeadBucketRequest() (method)">HeadBucketRequest</a></span></strong>(*<span class='object_link'><a href="../HeadBucketInput.html" title="s3.HeadBucketInput (struct)">s3.HeadBucketInput</a></span>) (*request.Request, *<span class='object_link'><a href="../../s3.html#type-HeadBucketOutput" title="s3 (package)">s3.HeadBucketOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+124</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 124</span>
+
+<div class="hljs">HeadBucketRequest(*s3.HeadBucketInput) (*request.Request, *s3.HeadBucketOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="HeadBucketWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#HeadBucketWithContext-instance_method" title="s3iface.S3API.HeadBucketWithContext() (method)">HeadBucketWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../HeadBucketInput.html" title="s3.HeadBucketInput (struct)">s3.HeadBucketInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../../s3.html#type-HeadBucketOutput" title="s3 (package)">s3.HeadBucketOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 123</span>
+
+<div class="hljs">HeadBucketWithContext(aws.Context, *s3.HeadBucketInput, ...request.Option) (*s3.HeadBucketOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="HeadObject-instance_method">
+  
+    <strong><span class='object_link'><a href="#HeadObject-instance_method" title="s3iface.S3API.HeadObject() (method)">HeadObject</a></span></strong>(*<span class='object_link'><a href="../HeadObjectInput.html" title="s3.HeadObjectInput (struct)">s3.HeadObjectInput</a></span>) (*<span class='object_link'><a href="../HeadObjectOutput.html" title="s3.HeadObjectOutput (struct)">s3.HeadObjectOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 126</span>
+
+<div class="hljs">HeadObject(*s3.HeadObjectInput) (*s3.HeadObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="HeadObjectRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#HeadObjectRequest-instance_method" title="s3iface.S3API.HeadObjectRequest() (method)">HeadObjectRequest</a></span></strong>(*<span class='object_link'><a href="../HeadObjectInput.html" title="s3.HeadObjectInput (struct)">s3.HeadObjectInput</a></span>) (*request.Request, *<span class='object_link'><a href="../HeadObjectOutput.html" title="s3.HeadObjectOutput (struct)">s3.HeadObjectOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 128</span>
+
+<div class="hljs">HeadObjectRequest(*s3.HeadObjectInput) (*request.Request, *s3.HeadObjectOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="HeadObjectWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#HeadObjectWithContext-instance_method" title="s3iface.S3API.HeadObjectWithContext() (method)">HeadObjectWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../HeadObjectInput.html" title="s3.HeadObjectInput (struct)">s3.HeadObjectInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../HeadObjectOutput.html" title="s3.HeadObjectOutput (struct)">s3.HeadObjectOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+127</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 127</span>
+
+<div class="hljs">HeadObjectWithContext(aws.Context, *s3.HeadObjectInput, ...request.Option) (*s3.HeadObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListBuckets-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListBuckets-instance_method" title="s3iface.S3API.ListBuckets() (method)">ListBuckets</a></span></strong>(*<span class='object_link'><a href="../ListBucketsInput.html" title="s3.ListBucketsInput (struct)">s3.ListBucketsInput</a></span>) (*<span class='object_link'><a href="../ListBucketsOutput.html" title="s3.ListBucketsOutput (struct)">s3.ListBucketsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+130</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 130</span>
+
+<div class="hljs">ListBuckets(*s3.ListBucketsInput) (*s3.ListBucketsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListBucketsRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListBucketsRequest-instance_method" title="s3iface.S3API.ListBucketsRequest() (method)">ListBucketsRequest</a></span></strong>(*<span class='object_link'><a href="../ListBucketsInput.html" title="s3.ListBucketsInput (struct)">s3.ListBucketsInput</a></span>) (*request.Request, *<span class='object_link'><a href="../ListBucketsOutput.html" title="s3.ListBucketsOutput (struct)">s3.ListBucketsOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 132</span>
+
+<div class="hljs">ListBucketsRequest(*s3.ListBucketsInput) (*request.Request, *s3.ListBucketsOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListBucketsWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListBucketsWithContext-instance_method" title="s3iface.S3API.ListBucketsWithContext() (method)">ListBucketsWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../ListBucketsInput.html" title="s3.ListBucketsInput (struct)">s3.ListBucketsInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../ListBucketsOutput.html" title="s3.ListBucketsOutput (struct)">s3.ListBucketsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 131</span>
+
+<div class="hljs">ListBucketsWithContext(aws.Context, *s3.ListBucketsInput, ...request.Option) (*s3.ListBucketsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListMultipartUploads-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListMultipartUploads-instance_method" title="s3iface.S3API.ListMultipartUploads() (method)">ListMultipartUploads</a></span></strong>(*<span class='object_link'><a href="../ListMultipartUploadsInput.html" title="s3.ListMultipartUploadsInput (struct)">s3.ListMultipartUploadsInput</a></span>) (*<span class='object_link'><a href="../ListMultipartUploadsOutput.html" title="s3.ListMultipartUploadsOutput (struct)">s3.ListMultipartUploadsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 134</span>
+
+<div class="hljs">ListMultipartUploads(*s3.ListMultipartUploadsInput) (*s3.ListMultipartUploadsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListMultipartUploadsPages-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListMultipartUploadsPages-instance_method" title="s3iface.S3API.ListMultipartUploadsPages() (method)">ListMultipartUploadsPages</a></span></strong>(*<span class='object_link'><a href="../ListMultipartUploadsInput.html" title="s3.ListMultipartUploadsInput (struct)">s3.ListMultipartUploadsInput</a></span>, func(*<span class='object_link'><a href="../ListMultipartUploadsOutput.html" title="s3.ListMultipartUploadsOutput (struct)">s3.ListMultipartUploadsOutput</a></span>, bool) bool) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 138</span>
+
+<div class="hljs">ListMultipartUploadsPages(*s3.ListMultipartUploadsInput, <span class="hljs-keyword">func</span>(*s3.ListMultipartUploadsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListMultipartUploadsPagesWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListMultipartUploadsPagesWithContext-instance_method" title="s3iface.S3API.ListMultipartUploadsPagesWithContext() (method)">ListMultipartUploadsPagesWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../ListMultipartUploadsInput.html" title="s3.ListMultipartUploadsInput (struct)">s3.ListMultipartUploadsInput</a></span>, func(*<span class='object_link'><a href="../ListMultipartUploadsOutput.html" title="s3.ListMultipartUploadsOutput (struct)">s3.ListMultipartUploadsOutput</a></span>, bool) bool, ...request.Option) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 139</span>
+
+<div class="hljs">ListMultipartUploadsPagesWithContext(aws.Context, *s3.ListMultipartUploadsInput, <span class="hljs-keyword">func</span>(*s3.ListMultipartUploadsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>, ...request.Option) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListMultipartUploadsRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListMultipartUploadsRequest-instance_method" title="s3iface.S3API.ListMultipartUploadsRequest() (method)">ListMultipartUploadsRequest</a></span></strong>(*<span class='object_link'><a href="../ListMultipartUploadsInput.html" title="s3.ListMultipartUploadsInput (struct)">s3.ListMultipartUploadsInput</a></span>) (*request.Request, *<span class='object_link'><a href="../ListMultipartUploadsOutput.html" title="s3.ListMultipartUploadsOutput (struct)">s3.ListMultipartUploadsOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 136</span>
+
+<div class="hljs">ListMultipartUploadsRequest(*s3.ListMultipartUploadsInput) (*request.Request, *s3.ListMultipartUploadsOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListMultipartUploadsWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListMultipartUploadsWithContext-instance_method" title="s3iface.S3API.ListMultipartUploadsWithContext() (method)">ListMultipartUploadsWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../ListMultipartUploadsInput.html" title="s3.ListMultipartUploadsInput (struct)">s3.ListMultipartUploadsInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../ListMultipartUploadsOutput.html" title="s3.ListMultipartUploadsOutput (struct)">s3.ListMultipartUploadsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 135</span>
+
+<div class="hljs">ListMultipartUploadsWithContext(aws.Context, *s3.ListMultipartUploadsInput, ...request.Option) (*s3.ListMultipartUploadsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListObjects-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListObjects-instance_method" title="s3iface.S3API.ListObjects() (method)">ListObjects</a></span></strong>(*<span class='object_link'><a href="../ListObjectsInput.html" title="s3.ListObjectsInput (struct)">s3.ListObjectsInput</a></span>) (*<span class='object_link'><a href="../ListObjectsOutput.html" title="s3.ListObjectsOutput (struct)">s3.ListObjectsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 141</span>
+
+<div class="hljs">ListObjects(*s3.ListObjectsInput) (*s3.ListObjectsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListObjectsPages-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListObjectsPages-instance_method" title="s3iface.S3API.ListObjectsPages() (method)">ListObjectsPages</a></span></strong>(*<span class='object_link'><a href="../ListObjectsInput.html" title="s3.ListObjectsInput (struct)">s3.ListObjectsInput</a></span>, func(*<span class='object_link'><a href="../ListObjectsOutput.html" title="s3.ListObjectsOutput (struct)">s3.ListObjectsOutput</a></span>, bool) bool) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 145</span>
+
+<div class="hljs">ListObjectsPages(*s3.ListObjectsInput, <span class="hljs-keyword">func</span>(*s3.ListObjectsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListObjectsPagesWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListObjectsPagesWithContext-instance_method" title="s3iface.S3API.ListObjectsPagesWithContext() (method)">ListObjectsPagesWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../ListObjectsInput.html" title="s3.ListObjectsInput (struct)">s3.ListObjectsInput</a></span>, func(*<span class='object_link'><a href="../ListObjectsOutput.html" title="s3.ListObjectsOutput (struct)">s3.ListObjectsOutput</a></span>, bool) bool, ...request.Option) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+146</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 146</span>
+
+<div class="hljs">ListObjectsPagesWithContext(aws.Context, *s3.ListObjectsInput, <span class="hljs-keyword">func</span>(*s3.ListObjectsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>, ...request.Option) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListObjectsRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListObjectsRequest-instance_method" title="s3iface.S3API.ListObjectsRequest() (method)">ListObjectsRequest</a></span></strong>(*<span class='object_link'><a href="../ListObjectsInput.html" title="s3.ListObjectsInput (struct)">s3.ListObjectsInput</a></span>) (*request.Request, *<span class='object_link'><a href="../ListObjectsOutput.html" title="s3.ListObjectsOutput (struct)">s3.ListObjectsOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 143</span>
+
+<div class="hljs">ListObjectsRequest(*s3.ListObjectsInput) (*request.Request, *s3.ListObjectsOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListObjectsWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListObjectsWithContext-instance_method" title="s3iface.S3API.ListObjectsWithContext() (method)">ListObjectsWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../ListObjectsInput.html" title="s3.ListObjectsInput (struct)">s3.ListObjectsInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../ListObjectsOutput.html" title="s3.ListObjectsOutput (struct)">s3.ListObjectsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+142</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 142</span>
+
+<div class="hljs">ListObjectsWithContext(aws.Context, *s3.ListObjectsInput, ...request.Option) (*s3.ListObjectsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListParts-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListParts-instance_method" title="s3iface.S3API.ListParts() (method)">ListParts</a></span></strong>(*<span class='object_link'><a href="../ListPartsInput.html" title="s3.ListPartsInput (struct)">s3.ListPartsInput</a></span>) (*<span class='object_link'><a href="../ListPartsOutput.html" title="s3.ListPartsOutput (struct)">s3.ListPartsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 148</span>
+
+<div class="hljs">ListParts(*s3.ListPartsInput) (*s3.ListPartsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListPartsPages-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListPartsPages-instance_method" title="s3iface.S3API.ListPartsPages() (method)">ListPartsPages</a></span></strong>(*<span class='object_link'><a href="../ListPartsInput.html" title="s3.ListPartsInput (struct)">s3.ListPartsInput</a></span>, func(*<span class='object_link'><a href="../ListPartsOutput.html" title="s3.ListPartsOutput (struct)">s3.ListPartsOutput</a></span>, bool) bool) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 152</span>
+
+<div class="hljs">ListPartsPages(*s3.ListPartsInput, <span class="hljs-keyword">func</span>(*s3.ListPartsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListPartsPagesWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListPartsPagesWithContext-instance_method" title="s3iface.S3API.ListPartsPagesWithContext() (method)">ListPartsPagesWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../ListPartsInput.html" title="s3.ListPartsInput (struct)">s3.ListPartsInput</a></span>, func(*<span class='object_link'><a href="../ListPartsOutput.html" title="s3.ListPartsOutput (struct)">s3.ListPartsOutput</a></span>, bool) bool, ...request.Option) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+153</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 153</span>
+
+<div class="hljs">ListPartsPagesWithContext(aws.Context, *s3.ListPartsInput, <span class="hljs-keyword">func</span>(*s3.ListPartsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>, ...request.Option) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListPartsRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListPartsRequest-instance_method" title="s3iface.S3API.ListPartsRequest() (method)">ListPartsRequest</a></span></strong>(*<span class='object_link'><a href="../ListPartsInput.html" title="s3.ListPartsInput (struct)">s3.ListPartsInput</a></span>) (*request.Request, *<span class='object_link'><a href="../ListPartsOutput.html" title="s3.ListPartsOutput (struct)">s3.ListPartsOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+150</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 150</span>
+
+<div class="hljs">ListPartsRequest(*s3.ListPartsInput) (*request.Request, *s3.ListPartsOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListPartsWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListPartsWithContext-instance_method" title="s3iface.S3API.ListPartsWithContext() (method)">ListPartsWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../ListPartsInput.html" title="s3.ListPartsInput (struct)">s3.ListPartsInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../ListPartsOutput.html" title="s3.ListPartsOutput (struct)">s3.ListPartsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 149</span>
+
+<div class="hljs">ListPartsWithContext(aws.Context, *s3.ListPartsInput, ...request.Option) (*s3.ListPartsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketAcl-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketAcl-instance_method" title="s3iface.S3API.PutBucketAcl() (method)">PutBucketAcl</a></span></strong>(*<span class='object_link'><a href="../PutBucketAclInput.html" title="s3.PutBucketAclInput (struct)">s3.PutBucketAclInput</a></span>) (*<span class='object_link'><a href="../../s3.html#type-PutBucketAclOutput" title="s3 (package)">s3.PutBucketAclOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+155</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 155</span>
+
+<div class="hljs">PutBucketAcl(*s3.PutBucketAclInput) (*s3.PutBucketAclOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketAclRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketAclRequest-instance_method" title="s3iface.S3API.PutBucketAclRequest() (method)">PutBucketAclRequest</a></span></strong>(*<span class='object_link'><a href="../PutBucketAclInput.html" title="s3.PutBucketAclInput (struct)">s3.PutBucketAclInput</a></span>) (*request.Request, *<span class='object_link'><a href="../../s3.html#type-PutBucketAclOutput" title="s3 (package)">s3.PutBucketAclOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+157</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 157</span>
+
+<div class="hljs">PutBucketAclRequest(*s3.PutBucketAclInput) (*request.Request, *s3.PutBucketAclOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketAclWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketAclWithContext-instance_method" title="s3iface.S3API.PutBucketAclWithContext() (method)">PutBucketAclWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../PutBucketAclInput.html" title="s3.PutBucketAclInput (struct)">s3.PutBucketAclInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../../s3.html#type-PutBucketAclOutput" title="s3 (package)">s3.PutBucketAclOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+156</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 156</span>
+
+<div class="hljs">PutBucketAclWithContext(aws.Context, *s3.PutBucketAclInput, ...request.Option) (*s3.PutBucketAclOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketCors-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketCors-instance_method" title="s3iface.S3API.PutBucketCors() (method)">PutBucketCors</a></span></strong>(*<span class='object_link'><a href="../PutBucketCorsInput.html" title="s3.PutBucketCorsInput (struct)">s3.PutBucketCorsInput</a></span>) (*<span class='object_link'><a href="../../s3.html#type-PutBucketCorsOutput" title="s3 (package)">s3.PutBucketCorsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 159</span>
+
+<div class="hljs">PutBucketCors(*s3.PutBucketCorsInput) (*s3.PutBucketCorsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketCorsRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketCorsRequest-instance_method" title="s3iface.S3API.PutBucketCorsRequest() (method)">PutBucketCorsRequest</a></span></strong>(*<span class='object_link'><a href="../PutBucketCorsInput.html" title="s3.PutBucketCorsInput (struct)">s3.PutBucketCorsInput</a></span>) (*request.Request, *<span class='object_link'><a href="../../s3.html#type-PutBucketCorsOutput" title="s3 (package)">s3.PutBucketCorsOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 161</span>
+
+<div class="hljs">PutBucketCorsRequest(*s3.PutBucketCorsInput) (*request.Request, *s3.PutBucketCorsOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketCorsWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketCorsWithContext-instance_method" title="s3iface.S3API.PutBucketCorsWithContext() (method)">PutBucketCorsWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../PutBucketCorsInput.html" title="s3.PutBucketCorsInput (struct)">s3.PutBucketCorsInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../../s3.html#type-PutBucketCorsOutput" title="s3 (package)">s3.PutBucketCorsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+160</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 160</span>
+
+<div class="hljs">PutBucketCorsWithContext(aws.Context, *s3.PutBucketCorsInput, ...request.Option) (*s3.PutBucketCorsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketLogging-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketLogging-instance_method" title="s3iface.S3API.PutBucketLogging() (method)">PutBucketLogging</a></span></strong>(*<span class='object_link'><a href="../PutBucketLoggingInput.html" title="s3.PutBucketLoggingInput (struct)">s3.PutBucketLoggingInput</a></span>) (*<span class='object_link'><a href="../../s3.html#type-PutBucketLoggingOutput" title="s3 (package)">s3.PutBucketLoggingOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+163</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 163</span>
+
+<div class="hljs">PutBucketLogging(*s3.PutBucketLoggingInput) (*s3.PutBucketLoggingOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketLoggingRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketLoggingRequest-instance_method" title="s3iface.S3API.PutBucketLoggingRequest() (method)">PutBucketLoggingRequest</a></span></strong>(*<span class='object_link'><a href="../PutBucketLoggingInput.html" title="s3.PutBucketLoggingInput (struct)">s3.PutBucketLoggingInput</a></span>) (*request.Request, *<span class='object_link'><a href="../../s3.html#type-PutBucketLoggingOutput" title="s3 (package)">s3.PutBucketLoggingOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+165</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 165</span>
+
+<div class="hljs">PutBucketLoggingRequest(*s3.PutBucketLoggingInput) (*request.Request, *s3.PutBucketLoggingOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketLoggingWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketLoggingWithContext-instance_method" title="s3iface.S3API.PutBucketLoggingWithContext() (method)">PutBucketLoggingWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../PutBucketLoggingInput.html" title="s3.PutBucketLoggingInput (struct)">s3.PutBucketLoggingInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../../s3.html#type-PutBucketLoggingOutput" title="s3 (package)">s3.PutBucketLoggingOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+164</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 164</span>
+
+<div class="hljs">PutBucketLoggingWithContext(aws.Context, *s3.PutBucketLoggingInput, ...request.Option) (*s3.PutBucketLoggingOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutObject-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutObject-instance_method" title="s3iface.S3API.PutObject() (method)">PutObject</a></span></strong>(*<span class='object_link'><a href="../PutObjectInput.html" title="s3.PutObjectInput (struct)">s3.PutObjectInput</a></span>) (*<span class='object_link'><a href="../PutObjectOutput.html" title="s3.PutObjectOutput (struct)">s3.PutObjectOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 167</span>
+
+<div class="hljs">PutObject(*s3.PutObjectInput) (*s3.PutObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutObjectAcl-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutObjectAcl-instance_method" title="s3iface.S3API.PutObjectAcl() (method)">PutObjectAcl</a></span></strong>(*<span class='object_link'><a href="../PutObjectAclInput.html" title="s3.PutObjectAclInput (struct)">s3.PutObjectAclInput</a></span>) (*<span class='object_link'><a href="../PutObjectAclOutput.html" title="s3.PutObjectAclOutput (struct)">s3.PutObjectAclOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+171</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 171</span>
+
+<div class="hljs">PutObjectAcl(*s3.PutObjectAclInput) (*s3.PutObjectAclOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutObjectAclRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutObjectAclRequest-instance_method" title="s3iface.S3API.PutObjectAclRequest() (method)">PutObjectAclRequest</a></span></strong>(*<span class='object_link'><a href="../PutObjectAclInput.html" title="s3.PutObjectAclInput (struct)">s3.PutObjectAclInput</a></span>) (*request.Request, *<span class='object_link'><a href="../PutObjectAclOutput.html" title="s3.PutObjectAclOutput (struct)">s3.PutObjectAclOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+173</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 173</span>
+
+<div class="hljs">PutObjectAclRequest(*s3.PutObjectAclInput) (*request.Request, *s3.PutObjectAclOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutObjectAclWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutObjectAclWithContext-instance_method" title="s3iface.S3API.PutObjectAclWithContext() (method)">PutObjectAclWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../PutObjectAclInput.html" title="s3.PutObjectAclInput (struct)">s3.PutObjectAclInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../PutObjectAclOutput.html" title="s3.PutObjectAclOutput (struct)">s3.PutObjectAclOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+172</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 172</span>
+
+<div class="hljs">PutObjectAclWithContext(aws.Context, *s3.PutObjectAclInput, ...request.Option) (*s3.PutObjectAclOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutObjectRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutObjectRequest-instance_method" title="s3iface.S3API.PutObjectRequest() (method)">PutObjectRequest</a></span></strong>(*<span class='object_link'><a href="../PutObjectInput.html" title="s3.PutObjectInput (struct)">s3.PutObjectInput</a></span>) (*request.Request, *<span class='object_link'><a href="../PutObjectOutput.html" title="s3.PutObjectOutput (struct)">s3.PutObjectOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 169</span>
+
+<div class="hljs">PutObjectRequest(*s3.PutObjectInput) (*request.Request, *s3.PutObjectOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutObjectWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutObjectWithContext-instance_method" title="s3iface.S3API.PutObjectWithContext() (method)">PutObjectWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../PutObjectInput.html" title="s3.PutObjectInput (struct)">s3.PutObjectInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../PutObjectOutput.html" title="s3.PutObjectOutput (struct)">s3.PutObjectOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+168</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 168</span>
+
+<div class="hljs">PutObjectWithContext(aws.Context, *s3.PutObjectInput, ...request.Option) (*s3.PutObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="UploadPart-instance_method">
+  
+    <strong><span class='object_link'><a href="#UploadPart-instance_method" title="s3iface.S3API.UploadPart() (method)">UploadPart</a></span></strong>(*<span class='object_link'><a href="../UploadPartInput.html" title="s3.UploadPartInput (struct)">s3.UploadPartInput</a></span>) (*<span class='object_link'><a href="../UploadPartOutput.html" title="s3.UploadPartOutput (struct)">s3.UploadPartOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+175</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 175</span>
+
+<div class="hljs">UploadPart(*s3.UploadPartInput) (*s3.UploadPartOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="UploadPartCopy-instance_method">
+  
+    <strong><span class='object_link'><a href="#UploadPartCopy-instance_method" title="s3iface.S3API.UploadPartCopy() (method)">UploadPartCopy</a></span></strong>(*<span class='object_link'><a href="../UploadPartCopyInput.html" title="s3.UploadPartCopyInput (struct)">s3.UploadPartCopyInput</a></span>) (*<span class='object_link'><a href="../UploadPartCopyOutput.html" title="s3.UploadPartCopyOutput (struct)">s3.UploadPartCopyOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+179</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 179</span>
+
+<div class="hljs">UploadPartCopy(*s3.UploadPartCopyInput) (*s3.UploadPartCopyOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="UploadPartCopyRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#UploadPartCopyRequest-instance_method" title="s3iface.S3API.UploadPartCopyRequest() (method)">UploadPartCopyRequest</a></span></strong>(*<span class='object_link'><a href="../UploadPartCopyInput.html" title="s3.UploadPartCopyInput (struct)">s3.UploadPartCopyInput</a></span>) (*request.Request, *<span class='object_link'><a href="../UploadPartCopyOutput.html" title="s3.UploadPartCopyOutput (struct)">s3.UploadPartCopyOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+181</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 181</span>
+
+<div class="hljs">UploadPartCopyRequest(*s3.UploadPartCopyInput) (*request.Request, *s3.UploadPartCopyOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="UploadPartCopyWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#UploadPartCopyWithContext-instance_method" title="s3iface.S3API.UploadPartCopyWithContext() (method)">UploadPartCopyWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../UploadPartCopyInput.html" title="s3.UploadPartCopyInput (struct)">s3.UploadPartCopyInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../UploadPartCopyOutput.html" title="s3.UploadPartCopyOutput (struct)">s3.UploadPartCopyOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+180</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 180</span>
+
+<div class="hljs">UploadPartCopyWithContext(aws.Context, *s3.UploadPartCopyInput, ...request.Option) (*s3.UploadPartCopyOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="UploadPartRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#UploadPartRequest-instance_method" title="s3iface.S3API.UploadPartRequest() (method)">UploadPartRequest</a></span></strong>(*<span class='object_link'><a href="../UploadPartInput.html" title="s3.UploadPartInput (struct)">s3.UploadPartInput</a></span>) (*request.Request, *<span class='object_link'><a href="../UploadPartOutput.html" title="s3.UploadPartOutput (struct)">s3.UploadPartOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+177</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 177</span>
+
+<div class="hljs">UploadPartRequest(*s3.UploadPartInput) (*request.Request, *s3.UploadPartOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="UploadPartWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#UploadPartWithContext-instance_method" title="s3iface.S3API.UploadPartWithContext() (method)">UploadPartWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../UploadPartInput.html" title="s3.UploadPartInput (struct)">s3.UploadPartInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../UploadPartOutput.html" title="s3.UploadPartOutput (struct)">s3.UploadPartOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 176</span>
+
+<div class="hljs">UploadPartWithContext(aws.Context, *s3.UploadPartInput, ...request.Option) (*s3.UploadPartOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WaitUntilBucketExists-instance_method">
+  
+    <strong><span class='object_link'><a href="#WaitUntilBucketExists-instance_method" title="s3iface.S3API.WaitUntilBucketExists() (method)">WaitUntilBucketExists</a></span></strong>(*<span class='object_link'><a href="../HeadBucketInput.html" title="s3.HeadBucketInput (struct)">s3.HeadBucketInput</a></span>) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+183</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 183</span>
+
+<div class="hljs">WaitUntilBucketExists(*s3.HeadBucketInput) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WaitUntilBucketExistsWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#WaitUntilBucketExistsWithContext-instance_method" title="s3iface.S3API.WaitUntilBucketExistsWithContext() (method)">WaitUntilBucketExistsWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../HeadBucketInput.html" title="s3.HeadBucketInput (struct)">s3.HeadBucketInput</a></span>, ...request.WaiterOption) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+184</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 184</span>
+
+<div class="hljs">WaitUntilBucketExistsWithContext(aws.Context, *s3.HeadBucketInput, ...request.WaiterOption) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WaitUntilBucketNotExists-instance_method">
+  
+    <strong><span class='object_link'><a href="#WaitUntilBucketNotExists-instance_method" title="s3iface.S3API.WaitUntilBucketNotExists() (method)">WaitUntilBucketNotExists</a></span></strong>(*<span class='object_link'><a href="../HeadBucketInput.html" title="s3.HeadBucketInput (struct)">s3.HeadBucketInput</a></span>) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 186</span>
+
+<div class="hljs">WaitUntilBucketNotExists(*s3.HeadBucketInput) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WaitUntilBucketNotExistsWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#WaitUntilBucketNotExistsWithContext-instance_method" title="s3iface.S3API.WaitUntilBucketNotExistsWithContext() (method)">WaitUntilBucketNotExistsWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../HeadBucketInput.html" title="s3.HeadBucketInput (struct)">s3.HeadBucketInput</a></span>, ...request.WaiterOption) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+187</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 187</span>
+
+<div class="hljs">WaitUntilBucketNotExistsWithContext(aws.Context, *s3.HeadBucketInput, ...request.WaiterOption) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WaitUntilObjectExists-instance_method">
+  
+    <strong><span class='object_link'><a href="#WaitUntilObjectExists-instance_method" title="s3iface.S3API.WaitUntilObjectExists() (method)">WaitUntilObjectExists</a></span></strong>(*<span class='object_link'><a href="../HeadObjectInput.html" title="s3.HeadObjectInput (struct)">s3.HeadObjectInput</a></span>) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+189</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 189</span>
+
+<div class="hljs">WaitUntilObjectExists(*s3.HeadObjectInput) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WaitUntilObjectExistsWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#WaitUntilObjectExistsWithContext-instance_method" title="s3iface.S3API.WaitUntilObjectExistsWithContext() (method)">WaitUntilObjectExistsWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../HeadObjectInput.html" title="s3.HeadObjectInput (struct)">s3.HeadObjectInput</a></span>, ...request.WaiterOption) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+190</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 190</span>
+
+<div class="hljs">WaitUntilObjectExistsWithContext(aws.Context, *s3.HeadObjectInput, ...request.WaiterOption) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WaitUntilObjectNotExists-instance_method">
+  
+    <strong><span class='object_link'><a href="#WaitUntilObjectNotExists-instance_method" title="s3iface.S3API.WaitUntilObjectNotExists() (method)">WaitUntilObjectNotExists</a></span></strong>(*<span class='object_link'><a href="../HeadObjectInput.html" title="s3.HeadObjectInput (struct)">s3.HeadObjectInput</a></span>) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+192</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 192</span>
+
+<div class="hljs">WaitUntilObjectNotExists(*s3.HeadObjectInput) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WaitUntilObjectNotExistsWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#WaitUntilObjectNotExistsWithContext-instance_method" title="s3iface.S3API.WaitUntilObjectNotExistsWithContext() (method)">WaitUntilObjectNotExistsWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../HeadObjectInput.html" title="s3.HeadObjectInput (struct)">s3.HeadObjectInput</a></span>, ...request.WaiterOption) error
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+193</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 193</span>
+
+<div class="hljs">WaitUntilObjectNotExistsWithContext(aws.Context, *s3.HeadObjectInput, ...request.WaiterOption) <span class="hljs-constant">error</span></div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:33 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Struct: client.DefaultRetryer
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "aws/client.DefaultRetryer";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (D)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../aws.html" title="aws (package)">aws</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../client.html" title="client (package)">client</a></span></span>
+     &raquo; 
+    <span class="title">DefaultRetryer</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="../../package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Struct: client.DefaultRetryer
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/aws/client"
+</div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>DefaultRetryer implements basic retry logic using exponential backoff for
+most services. If you want to implement custom retry logic, implement the
+request.Retryer interface or create a structure type that composes this
+struct and override the specific methods. For example, to override only
+the MaxRetries method:</p>
+
+<pre class="code go"><code class="go"><div class="hljs">    <span class="hljs-keyword">type</span> retryer <span class="hljs-keyword">struct</span> {
+ client.DefaultRetryer
+</div></code></pre>
+
+<p>   }</p>
+
+<p>   // This implementation always has 100 max retries
+   func (d retryer) MaxRetries() int { return 100 }</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+  <h3 class="inherited">Implemented Interfaces</h3>
+  <p class="inherited"><span class='object_link'><a href="../../service/s3/s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../request/Retryer.html" title="request.Retryer (interface)">request.Retryer</a></span></p>
+
+
+  
+
+  
+
+
+
+
+
+
+
+  <h2>
+    Structure Field Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NumMaxRetries-field" title="client.DefaultRetryer.NumMaxRetries (field)"><strong>NumMaxRetries</strong> int</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+
+  
+    <h2>
+      Method  Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#MaxRetries-instance_method" title="client.DefaultRetryer.MaxRetries() (method)">func (d DefaultRetryer) <strong>MaxRetries</strong>() int </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>MaxRetries returns the number of maximum returns the service will use to make an individual API request.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#RetryRules-instance_method" title="client.DefaultRetryer.RetryRules() (method)">func (d DefaultRetryer) <strong>RetryRules</strong>(r *request.Request) time.Duration </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>RetryRules returns the delay duration before retrying this request again.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ShouldRetry-instance_method" title="client.DefaultRetryer.ShouldRetry() (method)">func (d DefaultRetryer) <strong>ShouldRetry</strong>(r *request.Request) bool </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>ShouldRetry returns true if the request should be retried.</p>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+
+
+
+
+  <div id="type_details" class="method_details_list">
+    <h2>Structure Field Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="NumMaxRetries-field">
+  <strong>NumMaxRetries</strong> int 
+  
+</h3>
+
+</div>
+    
+  </div>
+
+
+  <div id="Method_method_details" class="method_details_list">
+    <h2>Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="MaxRetries-instance_method">
+  
+    func (d <span class='object_link'><a href="" title="client.DefaultRetryer (struct)">DefaultRetryer</a></span>) <strong><span class='object_link'><a href="#MaxRetries-instance_method" title="client.DefaultRetryer.MaxRetries() (method)">MaxRetries</a></span></strong>() int 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>MaxRetries returns the number of maximum returns the service will use to make
+an individual API request.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/client/default_retryer.go', line 28</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (d DefaultRetryer) MaxRetries() <span class="hljs-constant">int</span> {
+	<span class="hljs-keyword">return</span> d.NumMaxRetries
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="RetryRules-instance_method">
+  
+    func (d <span class='object_link'><a href="" title="client.DefaultRetryer (struct)">DefaultRetryer</a></span>) <strong><span class='object_link'><a href="#RetryRules-instance_method" title="client.DefaultRetryer.RetryRules() (method)">RetryRules</a></span></strong>(r *<span class='object_link'><a href="../request/Request.html" title="request.Request (struct)">request.Request</a></span>) time.Duration 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>RetryRules returns the delay duration before retrying this request again</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/client/default_retryer.go', line 33</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (d DefaultRetryer) RetryRules(r *request.Request) time.Duration {
+	<span class="hljs-comment">// Set the upper limit of delay in retrying at ~five minutes</span>
+	minTime := 30
+	throttle := d.shouldThrottle(r)
+	<span class="hljs-keyword">if</span> throttle {
+		<span class="hljs-keyword">if</span> delay, ok := getRetryDelay(r); ok {
+			<span class="hljs-keyword">return</span> delay
+		}
+
+		minTime = 500
+	}
+
+	retryCount := r.RetryCount
+	<span class="hljs-keyword">if</span> throttle && retryCount > 8 {
+		retryCount = 8
+	} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> retryCount > 13 {
+		retryCount = 13
+	}
+
+	delay := (1 << u<span class="hljs-constant">int</span>(retryCount)) * (sdkrand.SeededRand.Intn(minTime) + minTime)
+	<span class="hljs-keyword">return</span> time.Duration(delay) * time.Millisecond
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ShouldRetry-instance_method">
+  
+    func (d <span class='object_link'><a href="" title="client.DefaultRetryer (struct)">DefaultRetryer</a></span>) <strong><span class='object_link'><a href="#ShouldRetry-instance_method" title="client.DefaultRetryer.ShouldRetry() (method)">ShouldRetry</a></span></strong>(r *<span class='object_link'><a href="../request/Request.html" title="request.Request (struct)">request.Request</a></span>) bool 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>ShouldRetry returns true if the request should be retried.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/client/default_retryer.go', line 57</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (d DefaultRetryer) ShouldRetry(r *request.Request) <span class="hljs-constant">bool</span> {
+	<span class="hljs-comment">// If one of the other handlers already set the retry state</span>
+	<span class="hljs-comment">// we don't want to override it based on the service's state</span>
+	<span class="hljs-keyword">if</span> r.Retryable != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> *r.Retryable
+	}
+
+	<span class="hljs-keyword">if</span> r.HTTPResponse.StatusCode >= 500 && r.HTTPResponse.StatusCode != 501 {
+		<span class="hljs-keyword">return</span> <span class="hljs-constant">true</span>
+	}
+	<span class="hljs-keyword">return</span> r.IsErrorRetryable() || d.shouldThrottle(r)
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:13 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>

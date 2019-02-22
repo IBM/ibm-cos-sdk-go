@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Struct: s3.UploadPartCopyInput
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "service/s3.UploadPartCopyInput";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (U)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../service.html" title="service (package)">service</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../s3.html" title="s3 (package)">s3</a></span></span>
+     &raquo; 
+    <span class="title">UploadPartCopyInput</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="../../package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Struct: s3.UploadPartCopyInput
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/service/s3"
+</div>
+
+
+  <h3 class="inherited">Implemented Interfaces</h3>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+
+
+  
+
+  
+
+
+
+
+
+
+
+  <h2>
+    Structure Field Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Bucket-field" title="s3.UploadPartCopyInput.Bucket (field)"><strong>Bucket</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Bucket is a required field.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CopySource-field" title="s3.UploadPartCopyInput.CopySource (field)"><strong>CopySource</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The name of the source bucket and key name of the source object, separated by a slash (/).</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CopySourceIfMatch-field" title="s3.UploadPartCopyInput.CopySourceIfMatch (field)"><strong>CopySourceIfMatch</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Copies the object if its entity tag (ETag) matches the specified tag.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CopySourceIfModifiedSince-field" title="s3.UploadPartCopyInput.CopySourceIfModifiedSince (field)"><strong>CopySourceIfModifiedSince</strong> *time.Time</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Copies the object if it has been modified since the specified time.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CopySourceIfNoneMatch-field" title="s3.UploadPartCopyInput.CopySourceIfNoneMatch (field)"><strong>CopySourceIfNoneMatch</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Copies the object if its entity tag (ETag) is different than the specified ETag.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CopySourceIfUnmodifiedSince-field" title="s3.UploadPartCopyInput.CopySourceIfUnmodifiedSince (field)"><strong>CopySourceIfUnmodifiedSince</strong> *time.Time</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Copies the object if it hasn't been modified since the specified time.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CopySourceRange-field" title="s3.UploadPartCopyInput.CopySourceRange (field)"><strong>CopySourceRange</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The range of bytes to copy from the source object.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CopySourceSSECustomerAlgorithm-field" title="s3.UploadPartCopyInput.CopySourceSSECustomerAlgorithm (field)"><strong>CopySourceSSECustomerAlgorithm</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Specifies the algorithm to use when decrypting the source object (e.g., AES256).</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CopySourceSSECustomerKey-field" title="s3.UploadPartCopyInput.CopySourceSSECustomerKey (field)"><strong>CopySourceSSECustomerKey</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CopySourceSSECustomerKeyMD5-field" title="s3.UploadPartCopyInput.CopySourceSSECustomerKeyMD5 (field)"><strong>CopySourceSSECustomerKeyMD5</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Key-field" title="s3.UploadPartCopyInput.Key (field)"><strong>Key</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Key is a required field.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PartNumber-field" title="s3.UploadPartCopyInput.PartNumber (field)"><strong>PartNumber</strong> *int64</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Part number of part being copied.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#RequestPayer-field" title="s3.UploadPartCopyInput.RequestPayer (field)"><strong>RequestPayer</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Confirms that the requester knows that she or he will be charged for the request.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SSECustomerAlgorithm-field" title="s3.UploadPartCopyInput.SSECustomerAlgorithm (field)"><strong>SSECustomerAlgorithm</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SSECustomerKey-field" title="s3.UploadPartCopyInput.SSECustomerKey (field)"><strong>SSECustomerKey</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SSECustomerKeyMD5-field" title="s3.UploadPartCopyInput.SSECustomerKeyMD5 (field)"><strong>SSECustomerKeyMD5</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#UploadId-field" title="s3.UploadPartCopyInput.UploadId (field)"><strong>UploadId</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Upload ID identifying the multipart upload whose part is being copied.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#_-field" title="s3.UploadPartCopyInput._ (field)"><strong>_</strong> struct{}</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+
+  
+    <h2>
+      Service Operations
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GoString-instance_method" title="s3.UploadPartCopyInput.GoString() (method)"><strong>GoString</strong>()  string </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>GoString returns the string representation.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetBucket-instance_method" title="s3.UploadPartCopyInput.SetBucket() (method)"><strong>SetBucket</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetBucket sets the Bucket field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetCopySource-instance_method" title="s3.UploadPartCopyInput.SetCopySource() (method)"><strong>SetCopySource</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetCopySource sets the CopySource field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetCopySourceIfMatch-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfMatch() (method)"><strong>SetCopySourceIfMatch</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetCopySourceIfMatch sets the CopySourceIfMatch field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetCopySourceIfModifiedSince-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfModifiedSince() (method)"><strong>SetCopySourceIfModifiedSince</strong>(time.Time)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetCopySourceIfModifiedSince sets the CopySourceIfModifiedSince field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetCopySourceIfNoneMatch-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfNoneMatch() (method)"><strong>SetCopySourceIfNoneMatch</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetCopySourceIfNoneMatch sets the CopySourceIfNoneMatch field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetCopySourceIfUnmodifiedSince-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfUnmodifiedSince() (method)"><strong>SetCopySourceIfUnmodifiedSince</strong>(time.Time)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetCopySourceIfUnmodifiedSince sets the CopySourceIfUnmodifiedSince field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetCopySourceRange-instance_method" title="s3.UploadPartCopyInput.SetCopySourceRange() (method)"><strong>SetCopySourceRange</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetCopySourceRange sets the CopySourceRange field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetCopySourceSSECustomerAlgorithm-instance_method" title="s3.UploadPartCopyInput.SetCopySourceSSECustomerAlgorithm() (method)"><strong>SetCopySourceSSECustomerAlgorithm</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetCopySourceSSECustomerAlgorithm sets the CopySourceSSECustomerAlgorithm field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetCopySourceSSECustomerKey-instance_method" title="s3.UploadPartCopyInput.SetCopySourceSSECustomerKey() (method)"><strong>SetCopySourceSSECustomerKey</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetCopySourceSSECustomerKey sets the CopySourceSSECustomerKey field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetCopySourceSSECustomerKeyMD5-instance_method" title="s3.UploadPartCopyInput.SetCopySourceSSECustomerKeyMD5() (method)"><strong>SetCopySourceSSECustomerKeyMD5</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetCopySourceSSECustomerKeyMD5 sets the CopySourceSSECustomerKeyMD5 field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetKey-instance_method" title="s3.UploadPartCopyInput.SetKey() (method)"><strong>SetKey</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetKey sets the Key field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetPartNumber-instance_method" title="s3.UploadPartCopyInput.SetPartNumber() (method)"><strong>SetPartNumber</strong>(int64)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetPartNumber sets the PartNumber field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.UploadPartCopyInput.SetRequestPayer() (method)"><strong>SetRequestPayer</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetRequestPayer sets the RequestPayer field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.UploadPartCopyInput.SetSSECustomerAlgorithm() (method)"><strong>SetSSECustomerAlgorithm</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetSSECustomerAlgorithm sets the SSECustomerAlgorithm field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.UploadPartCopyInput.SetSSECustomerKey() (method)"><strong>SetSSECustomerKey</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetSSECustomerKey sets the SSECustomerKey field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.UploadPartCopyInput.SetSSECustomerKeyMD5() (method)"><strong>SetSSECustomerKeyMD5</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetSSECustomerKeyMD5 sets the SSECustomerKeyMD5 field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetUploadId-instance_method" title="s3.UploadPartCopyInput.SetUploadId() (method)"><strong>SetUploadId</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetUploadId sets the UploadId field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#String-instance_method" title="s3.UploadPartCopyInput.String() (method)"><strong>String</strong>()  string </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>String returns the string representation.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Validate-instance_method" title="s3.UploadPartCopyInput.Validate() (method)"><strong>Validate</strong>()  error </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Validate inspects the fields of the type to determine if they are valid.</p>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+
+
+
+
+  <div id="type_details" class="method_details_list">
+    <h2>Structure Field Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="Bucket-field">
+  <strong>Bucket</strong> *string 
+  <code>`location:"uri" locationName:"Bucket" type:"string" required:"true"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Bucket is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CopySource-field">
+  <strong>CopySource</strong> *string 
+  <code>`location:"header" locationName:"x-amz-copy-source" type:"string" required:"true"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The name of the source bucket and key name of the source object, separated
+by a slash (/). Must be URL-encoded.</p>
+
+<p>CopySource is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CopySourceIfMatch-field">
+  <strong>CopySourceIfMatch</strong> *string 
+  <code>`location:"header" locationName:"x-amz-copy-source-if-match" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Copies the object if its entity tag (ETag) matches the specified tag.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CopySourceIfModifiedSince-field">
+  <strong>CopySourceIfModifiedSince</strong> *time.Time 
+  <code>`location:"header" locationName:"x-amz-copy-source-if-modified-since" type:"timestamp"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Copies the object if it has been modified since the specified time.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CopySourceIfNoneMatch-field">
+  <strong>CopySourceIfNoneMatch</strong> *string 
+  <code>`location:"header" locationName:"x-amz-copy-source-if-none-match" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Copies the object if its entity tag (ETag) is different than the specified
+ETag.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CopySourceIfUnmodifiedSince-field">
+  <strong>CopySourceIfUnmodifiedSince</strong> *time.Time 
+  <code>`location:"header" locationName:"x-amz-copy-source-if-unmodified-since" type:"timestamp"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Copies the object if it hasn't been modified since the specified time.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CopySourceRange-field">
+  <strong>CopySourceRange</strong> *string 
+  <code>`location:"header" locationName:"x-amz-copy-source-range" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The range of bytes to copy from the source object. The range value must use
+the form bytes=first-last, where the first and last are the zero-based byte
+offsets to copy. For example, bytes=0-9 indicates that you want to copy the
+first ten bytes of the source. You can copy a range only if the source object
+is greater than 5 GB.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CopySourceSSECustomerAlgorithm-field">
+  <strong>CopySourceSSECustomerAlgorithm</strong> *string 
+  <code>`location:"header" locationName:"x-amz-copy-source-server-side-encryption-customer-algorithm" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Specifies the algorithm to use when decrypting the source object (e.g., AES256).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CopySourceSSECustomerKey-field">
+  <strong>CopySourceSSECustomerKey</strong> *string 
+  <code>`location:"header" locationName:"x-amz-copy-source-server-side-encryption-customer-key" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt
+the source object. The encryption key provided in this header must be one
+that was used when the source object was created.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CopySourceSSECustomerKeyMD5-field">
+  <strong>CopySourceSSECustomerKeyMD5</strong> *string 
+  <code>`location:"header" locationName:"x-amz-copy-source-server-side-encryption-customer-key-MD5" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
+Amazon S3 uses this header for a message integrity check to ensure the encryption
+key was transmitted without error.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Key-field">
+  <strong>Key</strong> *string 
+  <code>`location:"uri" locationName:"Key" min:"1" type:"string" required:"true"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Key is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PartNumber-field">
+  <strong>PartNumber</strong> *int64 
+  <code>`location:"querystring" locationName:"partNumber" type:"integer" required:"true"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Part number of part being copied. This is a positive integer between 1 and
+10,000.</p>
+
+<p>PartNumber is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="RequestPayer-field">
+  <strong>RequestPayer</strong> *string 
+  <code>`location:"header" locationName:"x-amz-request-payer" type:"string" enum:"RequestPayer"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Confirms that the requester knows that she or he will be charged for the
+request. Bucket owners need not specify this parameter in their requests.
+Documentation on downloading objects from requester pays buckets can be found
+at <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SSECustomerAlgorithm-field">
+  <strong>SSECustomerAlgorithm</strong> *string 
+  <code>`location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SSECustomerKey-field">
+  <strong>SSECustomerKey</strong> *string 
+  <code>`location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting
+data. This value is used to store the object and then it is discarded; Amazon
+does not store the encryption key. The key must be appropriate for use with
+the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm
+header. This must be the same encryption key specified in the initiate multipart
+upload request.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SSECustomerKeyMD5-field">
+  <strong>SSECustomerKeyMD5</strong> *string 
+  <code>`location:"header" locationName:"x-amz-server-side-encryption-customer-key-MD5" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
+Amazon S3 uses this header for a message integrity check to ensure the encryption
+key was transmitted without error.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="UploadId-field">
+  <strong>UploadId</strong> *string 
+  <code>`location:"querystring" locationName:"uploadId" type:"string" required:"true"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Upload ID identifying the multipart upload whose part is being copied.</p>
+
+<p>UploadId is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="_-field">
+  <strong>_</strong> struct{} 
+  <code>`type:"structure"`</code>
+</h3>
+
+</div>
+    
+  </div>
+
+
+  <div id="Method_method_details" class="method_details_list">
+    <h2>Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="GoString-instance_method">
+  
+    func (s <span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#GoString-instance_method" title="s3.UploadPartCopyInput.GoString() (method)">GoString</a></span></strong>() string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>GoString returns the string representation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8208
+8209
+8210</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8208</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.UploadPartCopyInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> s.String()
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetBucket-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetBucket-instance_method" title="s3.UploadPartCopyInput.SetBucket() (method)">SetBucket</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetBucket sets the Bucket field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8241
+8242
+8243
+8244</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8241</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.UploadPartCopyInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.Bucket = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetCopySource-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetCopySource-instance_method" title="s3.UploadPartCopyInput.SetCopySource() (method)">SetCopySource</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetCopySource sets the CopySource field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8254
+8255
+8256
+8257</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8254</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySource-instance_method" title="s3.UploadPartCopyInput.SetCopySource() (method)">SetCopySource</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.CopySource = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetCopySourceIfMatch-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetCopySourceIfMatch-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfMatch() (method)">SetCopySourceIfMatch</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetCopySourceIfMatch sets the CopySourceIfMatch field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8260
+8261
+8262
+8263</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8260</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceIfMatch-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfMatch() (method)">SetCopySourceIfMatch</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.CopySourceIfMatch = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetCopySourceIfModifiedSince-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetCopySourceIfModifiedSince-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfModifiedSince() (method)">SetCopySourceIfModifiedSince</a></span></strong>(v time.Time) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetCopySourceIfModifiedSince sets the CopySourceIfModifiedSince field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8266
+8267
+8268
+8269</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8266</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceIfModifiedSince-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfModifiedSince() (method)">SetCopySourceIfModifiedSince</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.CopySourceIfModifiedSince = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetCopySourceIfNoneMatch-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetCopySourceIfNoneMatch-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfNoneMatch() (method)">SetCopySourceIfNoneMatch</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetCopySourceIfNoneMatch sets the CopySourceIfNoneMatch field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8272
+8273
+8274
+8275</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8272</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceIfNoneMatch-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfNoneMatch() (method)">SetCopySourceIfNoneMatch</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.CopySourceIfNoneMatch = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetCopySourceIfUnmodifiedSince-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetCopySourceIfUnmodifiedSince-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfUnmodifiedSince() (method)">SetCopySourceIfUnmodifiedSince</a></span></strong>(v time.Time) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetCopySourceIfUnmodifiedSince sets the CopySourceIfUnmodifiedSince field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8278
+8279
+8280
+8281</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8278</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceIfUnmodifiedSince-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfUnmodifiedSince() (method)">SetCopySourceIfUnmodifiedSince</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.CopySourceIfUnmodifiedSince = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetCopySourceRange-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetCopySourceRange-instance_method" title="s3.UploadPartCopyInput.SetCopySourceRange() (method)">SetCopySourceRange</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetCopySourceRange sets the CopySourceRange field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8284
+8285
+8286
+8287</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8284</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceRange-instance_method" title="s3.UploadPartCopyInput.SetCopySourceRange() (method)">SetCopySourceRange</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.CopySourceRange = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetCopySourceSSECustomerAlgorithm-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetCopySourceSSECustomerAlgorithm-instance_method" title="s3.UploadPartCopyInput.SetCopySourceSSECustomerAlgorithm() (method)">SetCopySourceSSECustomerAlgorithm</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetCopySourceSSECustomerAlgorithm sets the CopySourceSSECustomerAlgorithm field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8290
+8291
+8292
+8293</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8290</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceSSECustomerAlgorithm-instance_method" title="s3.UploadPartCopyInput.SetCopySourceSSECustomerAlgorithm() (method)">SetCopySourceSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.CopySourceSSECustomerAlgorithm = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetCopySourceSSECustomerKey-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetCopySourceSSECustomerKey-instance_method" title="s3.UploadPartCopyInput.SetCopySourceSSECustomerKey() (method)">SetCopySourceSSECustomerKey</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetCopySourceSSECustomerKey sets the CopySourceSSECustomerKey field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8296
+8297
+8298
+8299</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8296</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceSSECustomerKey-instance_method" title="s3.UploadPartCopyInput.SetCopySourceSSECustomerKey() (method)">SetCopySourceSSECustomerKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.CopySourceSSECustomerKey = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetCopySourceSSECustomerKeyMD5-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetCopySourceSSECustomerKeyMD5-instance_method" title="s3.UploadPartCopyInput.SetCopySourceSSECustomerKeyMD5() (method)">SetCopySourceSSECustomerKeyMD5</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetCopySourceSSECustomerKeyMD5 sets the CopySourceSSECustomerKeyMD5 field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8309
+8310
+8311
+8312</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8309</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceSSECustomerKeyMD5-instance_method" title="s3.UploadPartCopyInput.SetCopySourceSSECustomerKeyMD5() (method)">SetCopySourceSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.CopySourceSSECustomerKeyMD5 = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetKey-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetKey-instance_method" title="s3.UploadPartCopyInput.SetKey() (method)">SetKey</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetKey sets the Key field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8315
+8316
+8317
+8318</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8315</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.UploadPartCopyInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.Key = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetPartNumber-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetPartNumber-instance_method" title="s3.UploadPartCopyInput.SetPartNumber() (method)">SetPartNumber</a></span></strong>(v int64) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetPartNumber sets the PartNumber field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8321
+8322
+8323
+8324</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8321</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetPartNumber-instance_method" title="s3.UploadPartCopyInput.SetPartNumber() (method)">SetPartNumber</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.PartNumber = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetRequestPayer-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.UploadPartCopyInput.SetRequestPayer() (method)">SetRequestPayer</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetRequestPayer sets the RequestPayer field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8327
+8328
+8329
+8330</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8327</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.UploadPartCopyInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.RequestPayer = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetSSECustomerAlgorithm-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.UploadPartCopyInput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetSSECustomerAlgorithm sets the SSECustomerAlgorithm field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8333
+8334
+8335
+8336</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8333</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.UploadPartCopyInput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.SSECustomerAlgorithm = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetSSECustomerKey-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.UploadPartCopyInput.SetSSECustomerKey() (method)">SetSSECustomerKey</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetSSECustomerKey sets the SSECustomerKey field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8339
+8340
+8341
+8342</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8339</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.UploadPartCopyInput.SetSSECustomerKey() (method)">SetSSECustomerKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.SSECustomerKey = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetSSECustomerKeyMD5-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.UploadPartCopyInput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetSSECustomerKeyMD5 sets the SSECustomerKeyMD5 field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8352
+8353
+8354
+8355</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8352</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.UploadPartCopyInput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.SSECustomerKeyMD5 = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetUploadId-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetUploadId-instance_method" title="s3.UploadPartCopyInput.SetUploadId() (method)">SetUploadId</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetUploadId sets the UploadId field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8358
+8359
+8360
+8361</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8358</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetUploadId-instance_method" title="s3.UploadPartCopyInput.SetUploadId() (method)">SetUploadId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.UploadId = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="String-instance_method">
+  
+    func (s <span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#String-instance_method" title="s3.UploadPartCopyInput.String() (method)">String</a></span></strong>() string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>String returns the string representation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8203
+8204
+8205</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8203</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.UploadPartCopyInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Validate-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#Validate-instance_method" title="s3.UploadPartCopyInput.Validate() (method)">Validate</a></span></strong>() error 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Validate inspects the fields of the type to determine if they are valid.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8213
+8214
+8215
+8216
+8217
+8218
+8219
+8220
+8221
+8222
+8223
+8224
+8225
+8226
+8227
+8228
+8229
+8230
+8231
+8232
+8233
+8234
+8235
+8236
+8237
+8238</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8213</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.UploadPartCopyInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
+	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>"</span>}
+	<span class="hljs-keyword">if</span> s.Bucket == <span class="hljs-constant">nil</span> {
+		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#Bucket-field" title="s3.UploadPartCopyInput.Bucket (field)">Bucket</a></span>"</span>))
+	}
+	<span class="hljs-keyword">if</span> s.CopySource == <span class="hljs-constant">nil</span> {
+		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#CopySource-field" title="s3.UploadPartCopyInput.CopySource (field)">CopySource</a></span>"</span>))
+	}
+	<span class="hljs-keyword">if</span> s.Key == <span class="hljs-constant">nil</span> {
+		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#Key-field" title="s3.UploadPartCopyInput.Key (field)">Key</a></span>"</span>))
+	}
+	<span class="hljs-keyword">if</span> s.Key != <span class="hljs-constant">nil</span> && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen(<span class="hljs-string">"<span class='object_link'><a href="#Key-field" title="s3.UploadPartCopyInput.Key (field)">Key</a></span>"</span>, 1))
+	}
+	<span class="hljs-keyword">if</span> s.PartNumber == <span class="hljs-constant">nil</span> {
+		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#PartNumber-field" title="s3.UploadPartCopyInput.PartNumber (field)">PartNumber</a></span>"</span>))
+	}
+	<span class="hljs-keyword">if</span> s.UploadId == <span class="hljs-constant">nil</span> {
+		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#UploadId-field" title="s3.UploadPartCopyInput.UploadId (field)">UploadId</a></span>"</span>))
+	}
+
+	<span class="hljs-keyword">if</span> invalidParams.Len() > 0 {
+		<span class="hljs-keyword">return</span> invalidParams
+	}
+	<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:21 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>

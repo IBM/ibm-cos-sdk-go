@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Struct: s3.CORSRule
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "service/s3.CORSRule";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../service.html" title="service (package)">service</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../s3.html" title="s3 (package)">s3</a></span></span>
+     &raquo; 
+    <span class="title">CORSRule</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="../../package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Struct: s3.CORSRule
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/service/s3"
+</div>
+
+
+  <h3 class="inherited">Implemented Interfaces</h3>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+
+
+  
+
+  
+
+
+
+
+
+
+
+  <h2>
+    Structure Field Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#AllowedHeaders-field" title="s3.CORSRule.AllowedHeaders (field)"><strong>AllowedHeaders</strong> []*string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Specifies which headers are allowed in a pre-flight OPTIONS request.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#AllowedMethods-field" title="s3.CORSRule.AllowedMethods (field)"><strong>AllowedMethods</strong> []*string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#AllowedOrigins-field" title="s3.CORSRule.AllowedOrigins (field)"><strong>AllowedOrigins</strong> []*string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>One or more origins you want customers to be able to access the bucket from.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExposeHeaders-field" title="s3.CORSRule.ExposeHeaders (field)"><strong>ExposeHeaders</strong> []*string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#MaxAgeSeconds-field" title="s3.CORSRule.MaxAgeSeconds (field)"><strong>MaxAgeSeconds</strong> *int64</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The time in seconds that your browser is to cache the preflight response for the specified resource.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#_-field" title="s3.CORSRule._ (field)"><strong>_</strong> struct{}</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+
+  
+    <h2>
+      Service Operations
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GoString-instance_method" title="s3.CORSRule.GoString() (method)"><strong>GoString</strong>()  string </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>GoString returns the string representation.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetAllowedHeaders-instance_method" title="s3.CORSRule.SetAllowedHeaders() (method)"><strong>SetAllowedHeaders</strong>([]*string)  *CORSRule </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetAllowedHeaders sets the AllowedHeaders field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetAllowedMethods-instance_method" title="s3.CORSRule.SetAllowedMethods() (method)"><strong>SetAllowedMethods</strong>([]*string)  *CORSRule </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetAllowedMethods sets the AllowedMethods field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetAllowedOrigins-instance_method" title="s3.CORSRule.SetAllowedOrigins() (method)"><strong>SetAllowedOrigins</strong>([]*string)  *CORSRule </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetAllowedOrigins sets the AllowedOrigins field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExposeHeaders-instance_method" title="s3.CORSRule.SetExposeHeaders() (method)"><strong>SetExposeHeaders</strong>([]*string)  *CORSRule </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetExposeHeaders sets the ExposeHeaders field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetMaxAgeSeconds-instance_method" title="s3.CORSRule.SetMaxAgeSeconds() (method)"><strong>SetMaxAgeSeconds</strong>(int64)  *CORSRule </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetMaxAgeSeconds sets the MaxAgeSeconds field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#String-instance_method" title="s3.CORSRule.String() (method)"><strong>String</strong>()  string </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>String returns the string representation.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Validate-instance_method" title="s3.CORSRule.Validate() (method)"><strong>Validate</strong>()  error </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Validate inspects the fields of the type to determine if they are valid.</p>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+
+
+
+
+  <div id="type_details" class="method_details_list">
+    <h2>Structure Field Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="AllowedHeaders-field">
+  <strong>AllowedHeaders</strong> []*string 
+  <code>`locationName:"AllowedHeader" type:"list" flattened:"true"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Specifies which headers are allowed in a pre-flight OPTIONS request.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="AllowedMethods-field">
+  <strong>AllowedMethods</strong> []*string 
+  <code>`locationName:"AllowedMethod" type:"list" flattened:"true" required:"true"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Identifies HTTP methods that the domain/origin specified in the rule is allowed
+to execute.</p>
+
+<p>AllowedMethods is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="AllowedOrigins-field">
+  <strong>AllowedOrigins</strong> []*string 
+  <code>`locationName:"AllowedOrigin" type:"list" flattened:"true" required:"true"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>One or more origins you want customers to be able to access the bucket from.</p>
+
+<p>AllowedOrigins is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExposeHeaders-field">
+  <strong>ExposeHeaders</strong> []*string 
+  <code>`locationName:"ExposeHeader" type:"list" flattened:"true"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>One or more headers in the response that you want customers to be able to
+access from their applications (for example, from a JavaScript XMLHttpRequest
+object).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="MaxAgeSeconds-field">
+  <strong>MaxAgeSeconds</strong> *int64 
+  <code>`type:"integer"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The time in seconds that your browser is to cache the preflight response
+for the specified resource.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="_-field">
+  <strong>_</strong> struct{} 
+  <code>`type:"structure"`</code>
+</h3>
+
+</div>
+    
+  </div>
+
+
+  <div id="Method_method_details" class="method_details_list">
+    <h2>Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="GoString-instance_method">
+  
+    func (s <span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <strong><span class='object_link'><a href="#GoString-instance_method" title="s3.CORSRule.GoString() (method)">GoString</a></span></strong>() string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>GoString returns the string representation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2645
+2646
+2647</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 2645</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.CORSRule.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> s.String()
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetAllowedHeaders-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <strong><span class='object_link'><a href="#SetAllowedHeaders-instance_method" title="s3.CORSRule.SetAllowedHeaders() (method)">SetAllowedHeaders</a></span></strong>(v []*string) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetAllowedHeaders sets the AllowedHeaders field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2666
+2667
+2668
+2669</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 2666</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#SetAllowedHeaders-instance_method" title="s3.CORSRule.SetAllowedHeaders() (method)">SetAllowedHeaders</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> {
+	s.AllowedHeaders = v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetAllowedMethods-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <strong><span class='object_link'><a href="#SetAllowedMethods-instance_method" title="s3.CORSRule.SetAllowedMethods() (method)">SetAllowedMethods</a></span></strong>(v []*string) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetAllowedMethods sets the AllowedMethods field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2672
+2673
+2674
+2675</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 2672</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#SetAllowedMethods-instance_method" title="s3.CORSRule.SetAllowedMethods() (method)">SetAllowedMethods</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> {
+	s.AllowedMethods = v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetAllowedOrigins-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <strong><span class='object_link'><a href="#SetAllowedOrigins-instance_method" title="s3.CORSRule.SetAllowedOrigins() (method)">SetAllowedOrigins</a></span></strong>(v []*string) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetAllowedOrigins sets the AllowedOrigins field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2678
+2679
+2680
+2681</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 2678</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#SetAllowedOrigins-instance_method" title="s3.CORSRule.SetAllowedOrigins() (method)">SetAllowedOrigins</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> {
+	s.AllowedOrigins = v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExposeHeaders-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <strong><span class='object_link'><a href="#SetExposeHeaders-instance_method" title="s3.CORSRule.SetExposeHeaders() (method)">SetExposeHeaders</a></span></strong>(v []*string) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetExposeHeaders sets the ExposeHeaders field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2684
+2685
+2686
+2687</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 2684</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#SetExposeHeaders-instance_method" title="s3.CORSRule.SetExposeHeaders() (method)">SetExposeHeaders</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> {
+	s.ExposeHeaders = v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetMaxAgeSeconds-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <strong><span class='object_link'><a href="#SetMaxAgeSeconds-instance_method" title="s3.CORSRule.SetMaxAgeSeconds() (method)">SetMaxAgeSeconds</a></span></strong>(v int64) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetMaxAgeSeconds sets the MaxAgeSeconds field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2690
+2691
+2692
+2693</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 2690</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#SetMaxAgeSeconds-instance_method" title="s3.CORSRule.SetMaxAgeSeconds() (method)">SetMaxAgeSeconds</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> {
+	s.MaxAgeSeconds = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="String-instance_method">
+  
+    func (s <span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <strong><span class='object_link'><a href="#String-instance_method" title="s3.CORSRule.String() (method)">String</a></span></strong>() string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>String returns the string representation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2640
+2641
+2642</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 2640</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.CORSRule.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Validate-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <strong><span class='object_link'><a href="#Validate-instance_method" title="s3.CORSRule.Validate() (method)">Validate</a></span></strong>() error 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Validate inspects the fields of the type to determine if they are valid.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2650
+2651
+2652
+2653
+2654
+2655
+2656
+2657
+2658
+2659
+2660
+2661
+2662
+2663</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 2650</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.CORSRule.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
+	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>"</span>}
+	<span class="hljs-keyword">if</span> s.AllowedMethods == <span class="hljs-constant">nil</span> {
+		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#AllowedMethods-field" title="s3.CORSRule.AllowedMethods (field)">AllowedMethods</a></span>"</span>))
+	}
+	<span class="hljs-keyword">if</span> s.AllowedOrigins == <span class="hljs-constant">nil</span> {
+		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#AllowedOrigins-field" title="s3.CORSRule.AllowedOrigins (field)">AllowedOrigins</a></span>"</span>))
+	}
+
+	<span class="hljs-keyword">if</span> invalidParams.Len() > 0 {
+		<span class="hljs-keyword">return</span> invalidParams
+	}
+	<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:16 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>

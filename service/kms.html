@@ -1,0 +1,2252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Package: kms
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "service/kms";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (k)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../service.html" title="service (package)">service</a></span></span>
+     &raquo; 
+    <span class="title">kms</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="../package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Package: kms
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/service/kms"
+</div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Package kms provides the client and types for making API
+requests to AWS Key Management Service.</p>
+
+<p>AWS Key Management Service (AWS KMS) is an encryption and key management
+web service. This guide describes the AWS KMS operations that you can call
+programmatically. For general information about AWS KMS, see the AWS Key
+Management Service Developer Guide (<a href="http://docs.aws.amazon.com/kms/latest/developerguide/">http://docs.aws.amazon.com/kms/latest/developerguide/</a>).</p>
+
+<p>AWS provides SDKs that consist of libraries and sample code for various programming
+languages and platforms (Java, Ruby, .Net, macOS, Android, etc.). The SDKs
+provide a convenient way to create programmatic access to AWS KMS and other
+AWS services. For example, the SDKs take care of tasks such as signing requests
+(see below), managing errors, and retrying requests automatically. For more
+information about the AWS SDKs, including how to download and install them,
+see Tools for Amazon Web Services (<a href="http://aws.amazon.com/tools/">http://aws.amazon.com/tools/</a>).</p>
+
+<p>We recommend that you use the AWS SDKs to make programmatic API calls to
+AWS KMS.</p>
+
+<p>Clients must support TLS (Transport Layer Security) 1.0. We recommend TLS
+1.2. Clients must also support cipher suites with Perfect Forward Secrecy
+(PFS) such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral
+Diffie-Hellman (ECDHE). Most modern systems such as Java 7 and later support
+these modes.</p>
+
+<p>Signing Requests</p>
+
+<p>Requests must be signed by using an access key ID and a secret access key.
+We strongly recommend that you do not use your AWS account (root) access
+key ID and secret key for everyday work with AWS KMS. Instead, use the access
+key ID and secret access key for an IAM user. You can also use the AWS Security
+Token Service to generate temporary security credentials that you can use
+to sign requests.</p>
+
+<p>All AWS KMS operations require Signature Version 4 (<a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>).</p>
+
+<p>Logging API Requests</p>
+
+<p>AWS KMS supports AWS CloudTrail, a service that logs AWS API calls and related
+events for your AWS account and delivers them to an Amazon S3 bucket that
+you specify. By using the information collected by CloudTrail, you can determine
+what requests were made to AWS KMS, who made the request, when it was made,
+and so on. To learn more about CloudTrail, including how to turn it on and
+find your log files, see the AWS CloudTrail User Guide (<a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/">http://docs.aws.amazon.com/awscloudtrail/latest/userguide/</a>).</p>
+
+<p>Additional Resources</p>
+
+<p>For more information about credentials and request signing, see the following:</p>
+
+<ul>
+<li> AWS Security Credentials (<a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a>)</li>
+<li><p> This topic provides general information about the types of credentials
+used for accessing AWS.</p></li>
+<li><p> Temporary Security Credentials (<a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html</a>)</p></li>
+<li><p> This section of the IAM User Guide describes how to create and use temporary
+security credentials.</p></li>
+<li><p> Signature Version 4 Signing Process (<a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>)</p></li>
+<li> This set of topics walks you through the process of signing a request
+using an access key ID and a secret access key.</li>
+</ul>
+
+
+<p>Commonly Used API Operations</p>
+
+<p>Of the API operations discussed in this guide, the following will prove the
+most useful for most applications. You will likely perform operations other
+than these, such as creating keys and assigning policies, by using the console.</p>
+
+<ul>
+<li><p> Encrypt</p></li>
+<li><p> Decrypt</p></li>
+<li><p> GenerateDataKey</p></li>
+<li><p> GenerateDataKeyWithoutPlaintext</p></li>
+</ul>
+
+
+<p>See <a href="https://docs.aws.amazon.com/goto/WebAPI/kms-2014-11-01">https://docs.aws.amazon.com/goto/WebAPI/kms-2014-11-01</a> for more information on this service.</p>
+
+<p>See kms package documentation for more information.
+<a href="https://docs.aws.amazon.com/sdk-for-go/api/service/kms/">https://docs.aws.amazon.com/sdk-for-go/api/service/kms/</a></p>
+
+<p>Using the Client</p>
+
+<p>To contact AWS Key Management Service with the SDK use the New function to create
+a new service client. With that client you can make API requests to the service.
+These clients are safe to use concurrently.</p>
+
+<p>See the SDK's documentation for more information on how to use the SDK.
+<a href="https://docs.aws.amazon.com/sdk-for-go/api/">https://docs.aws.amazon.com/sdk-for-go/api/</a></p>
+
+<p>See aws.Config documentation for more information on configuring SDK clients.
+<a href="https://docs.aws.amazon.com/sdk-for-go/api/aws/#Config">https://docs.aws.amazon.com/sdk-for-go/api/aws/#Config</a></p>
+
+<p>See the AWS Key Management Service client KMS for more
+information on creating client for this service.
+<a href="https://docs.aws.amazon.com/sdk-for-go/api/service/kms/#New">https://docs.aws.amazon.com/sdk-for-go/api/service/kms/#New</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subpackages">
+<h2 class="packages">Sub-Packages</h2>
+<p class="children"><span class='object_link'><a href="kms/kmsiface.html" title="kmsiface (package)">kmsiface</a></span></p>
+</div>
+<h2>Client Structure <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+<ul class="summary">
+  
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="kms/KMS.html" title="kms.KMS (struct)"><strong>KMS</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  <span class="note title writeonly">client</span>
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>KMS provides the API operation methods for making requests to AWS Key Management Service.</p>
+</div></span>
+  
+</li>
+
+
+</ul>
+
+  
+    <h2>Constants</h2>
+    
+      <dl class="constants">
+        
+          <dt id="AlgorithmSpecRsaesPkcs1V15-constant" class="">
+          <div class="defn">const <strong>AlgorithmSpecRsaesPkcs1V15</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>AlgorithmSpecRsaesPkcs1V15 is a AlgorithmSpec enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"RSAES_PKCS1_V1_5"</span></div></pre>
+          </dd>
+        
+          <dt id="AlgorithmSpecRsaesOaepSha1-constant" class="">
+          <div class="defn">const <strong>AlgorithmSpecRsaesOaepSha1</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>AlgorithmSpecRsaesOaepSha1 is a AlgorithmSpec enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"RSAES_OAEP_SHA_1"</span></div></pre>
+          </dd>
+        
+          <dt id="AlgorithmSpecRsaesOaepSha256-constant" class="">
+          <div class="defn">const <strong>AlgorithmSpecRsaesOaepSha256</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>AlgorithmSpecRsaesOaepSha256 is a AlgorithmSpec enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"RSAES_OAEP_SHA_256"</span></div></pre>
+          </dd>
+        
+          <dt id="DataKeySpecAes256-constant" class="">
+          <div class="defn">const <strong>DataKeySpecAes256</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>DataKeySpecAes256 is a DataKeySpec enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"AES_256"</span></div></pre>
+          </dd>
+        
+          <dt id="DataKeySpecAes128-constant" class="">
+          <div class="defn">const <strong>DataKeySpecAes128</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>DataKeySpecAes128 is a DataKeySpec enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"AES_128"</span></div></pre>
+          </dd>
+        
+          <dt id="ExpirationModelTypeKeyMaterialExpires-constant" class="">
+          <div class="defn">const <strong>ExpirationModelTypeKeyMaterialExpires</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ExpirationModelTypeKeyMaterialExpires is a ExpirationModelType enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"KEY_MATERIAL_EXPIRES"</span></div></pre>
+          </dd>
+        
+          <dt id="ExpirationModelTypeKeyMaterialDoesNotExpire-constant" class="">
+          <div class="defn">const <strong>ExpirationModelTypeKeyMaterialDoesNotExpire</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ExpirationModelTypeKeyMaterialDoesNotExpire is a ExpirationModelType enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"KEY_MATERIAL_DOES_NOT_EXPIRE"</span></div></pre>
+          </dd>
+        
+          <dt id="GrantOperationDecrypt-constant" class="">
+          <div class="defn">const <strong>GrantOperationDecrypt</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>GrantOperationDecrypt is a GrantOperation enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Decrypt"</span></div></pre>
+          </dd>
+        
+          <dt id="GrantOperationEncrypt-constant" class="">
+          <div class="defn">const <strong>GrantOperationEncrypt</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>GrantOperationEncrypt is a GrantOperation enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Encrypt"</span></div></pre>
+          </dd>
+        
+          <dt id="GrantOperationGenerateDataKey-constant" class="">
+          <div class="defn">const <strong>GrantOperationGenerateDataKey</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>GrantOperationGenerateDataKey is a GrantOperation enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"GenerateDataKey"</span></div></pre>
+          </dd>
+        
+          <dt id="GrantOperationGenerateDataKeyWithoutPlaintext-constant" class="">
+          <div class="defn">const <strong>GrantOperationGenerateDataKeyWithoutPlaintext</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>GrantOperationGenerateDataKeyWithoutPlaintext is a GrantOperation enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"GenerateDataKeyWithoutPlaintext"</span></div></pre>
+          </dd>
+        
+          <dt id="GrantOperationReEncryptFrom-constant" class="">
+          <div class="defn">const <strong>GrantOperationReEncryptFrom</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>GrantOperationReEncryptFrom is a GrantOperation enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"ReEncryptFrom"</span></div></pre>
+          </dd>
+        
+          <dt id="GrantOperationReEncryptTo-constant" class="">
+          <div class="defn">const <strong>GrantOperationReEncryptTo</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>GrantOperationReEncryptTo is a GrantOperation enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"ReEncryptTo"</span></div></pre>
+          </dd>
+        
+          <dt id="GrantOperationCreateGrant-constant" class="">
+          <div class="defn">const <strong>GrantOperationCreateGrant</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>GrantOperationCreateGrant is a GrantOperation enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"CreateGrant"</span></div></pre>
+          </dd>
+        
+          <dt id="GrantOperationRetireGrant-constant" class="">
+          <div class="defn">const <strong>GrantOperationRetireGrant</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>GrantOperationRetireGrant is a GrantOperation enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"RetireGrant"</span></div></pre>
+          </dd>
+        
+          <dt id="GrantOperationDescribeKey-constant" class="">
+          <div class="defn">const <strong>GrantOperationDescribeKey</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>GrantOperationDescribeKey is a GrantOperation enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"DescribeKey"</span></div></pre>
+          </dd>
+        
+          <dt id="KeyManagerTypeAws-constant" class="">
+          <div class="defn">const <strong>KeyManagerTypeAws</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>KeyManagerTypeAws is a KeyManagerType enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"AWS"</span></div></pre>
+          </dd>
+        
+          <dt id="KeyManagerTypeCustomer-constant" class="">
+          <div class="defn">const <strong>KeyManagerTypeCustomer</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>KeyManagerTypeCustomer is a KeyManagerType enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"CUSTOMER"</span></div></pre>
+          </dd>
+        
+          <dt id="KeyStateEnabled-constant" class="">
+          <div class="defn">const <strong>KeyStateEnabled</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>KeyStateEnabled is a KeyState enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Enabled"</span></div></pre>
+          </dd>
+        
+          <dt id="KeyStateDisabled-constant" class="">
+          <div class="defn">const <strong>KeyStateDisabled</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>KeyStateDisabled is a KeyState enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Disabled"</span></div></pre>
+          </dd>
+        
+          <dt id="KeyStatePendingDeletion-constant" class="">
+          <div class="defn">const <strong>KeyStatePendingDeletion</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>KeyStatePendingDeletion is a KeyState enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"PendingDeletion"</span></div></pre>
+          </dd>
+        
+          <dt id="KeyStatePendingImport-constant" class="">
+          <div class="defn">const <strong>KeyStatePendingImport</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>KeyStatePendingImport is a KeyState enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"PendingImport"</span></div></pre>
+          </dd>
+        
+          <dt id="KeyUsageTypeEncryptDecrypt-constant" class="">
+          <div class="defn">const <strong>KeyUsageTypeEncryptDecrypt</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>KeyUsageTypeEncryptDecrypt is a KeyUsageType enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"ENCRYPT_DECRYPT"</span></div></pre>
+          </dd>
+        
+          <dt id="OriginTypeAwsKms-constant" class="">
+          <div class="defn">const <strong>OriginTypeAwsKms</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>OriginTypeAwsKms is a OriginType enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"AWS_KMS"</span></div></pre>
+          </dd>
+        
+          <dt id="OriginTypeExternal-constant" class="">
+          <div class="defn">const <strong>OriginTypeExternal</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>OriginTypeExternal is a OriginType enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"EXTERNAL"</span></div></pre>
+          </dd>
+        
+          <dt id="WrappingKeySpecRsa2048-constant" class="">
+          <div class="defn">const <strong>WrappingKeySpecRsa2048</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>WrappingKeySpecRsa2048 is a WrappingKeySpec enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"RSA_2048"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeAlreadyExistsException-constant" class="">
+          <div class="defn">const <strong>ErrCodeAlreadyExistsException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeAlreadyExistsException for service response error code
+"AlreadyExistsException".</p>
+
+<p>The request was rejected because it attempted to create a resource that already
+exists.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"AlreadyExistsException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeDependencyTimeoutException-constant" class="">
+          <div class="defn">const <strong>ErrCodeDependencyTimeoutException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeDependencyTimeoutException for service response error code
+"DependencyTimeoutException".</p>
+
+<p>The system timed out while trying to fulfill the request. The request can
+be retried.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"DependencyTimeoutException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeDisabledException-constant" class="">
+          <div class="defn">const <strong>ErrCodeDisabledException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeDisabledException for service response error code
+"DisabledException".</p>
+
+<p>The request was rejected because the specified CMK is not enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"DisabledException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeExpiredImportTokenException-constant" class="">
+          <div class="defn">const <strong>ErrCodeExpiredImportTokenException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeExpiredImportTokenException for service response error code
+"ExpiredImportTokenException".</p>
+
+<p>The request was rejected because the provided import token is expired. Use
+GetParametersForImport to get a new import token and public key, use the
+new public key to encrypt the key material, and then try the request again.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"ExpiredImportTokenException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeIncorrectKeyMaterialException-constant" class="">
+          <div class="defn">const <strong>ErrCodeIncorrectKeyMaterialException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeIncorrectKeyMaterialException for service response error code
+"IncorrectKeyMaterialException".</p>
+
+<p>The request was rejected because the provided key material is invalid or
+is not the same key material that was previously imported into this customer
+master key (CMK).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"IncorrectKeyMaterialException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeInternalException-constant" class="">
+          <div class="defn">const <strong>ErrCodeInternalException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeInternalException for service response error code
+"KMSInternalException".</p>
+
+<p>The request was rejected because an internal exception occurred. The request
+can be retried.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"KMSInternalException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeInvalidAliasNameException-constant" class="">
+          <div class="defn">const <strong>ErrCodeInvalidAliasNameException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeInvalidAliasNameException for service response error code
+"InvalidAliasNameException".</p>
+
+<p>The request was rejected because the specified alias name is not valid.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"InvalidAliasNameException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeInvalidArnException-constant" class="">
+          <div class="defn">const <strong>ErrCodeInvalidArnException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeInvalidArnException for service response error code
+"InvalidArnException".</p>
+
+<p>The request was rejected because a specified ARN was not valid.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"InvalidArnException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeInvalidCiphertextException-constant" class="">
+          <div class="defn">const <strong>ErrCodeInvalidCiphertextException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeInvalidCiphertextException for service response error code
+"InvalidCiphertextException".</p>
+
+<p>The request was rejected because the specified ciphertext, or additional
+authenticated data incorporated into the ciphertext, such as the encryption
+context, is corrupted, missing, or otherwise invalid.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"InvalidCiphertextException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeInvalidGrantIdException-constant" class="">
+          <div class="defn">const <strong>ErrCodeInvalidGrantIdException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeInvalidGrantIdException for service response error code
+"InvalidGrantIdException".</p>
+
+<p>The request was rejected because the specified GrantId is not valid.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"InvalidGrantIdException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeInvalidGrantTokenException-constant" class="">
+          <div class="defn">const <strong>ErrCodeInvalidGrantTokenException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeInvalidGrantTokenException for service response error code
+"InvalidGrantTokenException".</p>
+
+<p>The request was rejected because the specified grant token is not valid.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"InvalidGrantTokenException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeInvalidImportTokenException-constant" class="">
+          <div class="defn">const <strong>ErrCodeInvalidImportTokenException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeInvalidImportTokenException for service response error code
+"InvalidImportTokenException".</p>
+
+<p>The request was rejected because the provided import token is invalid or
+is associated with a different customer master key (CMK).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"InvalidImportTokenException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeInvalidKeyUsageException-constant" class="">
+          <div class="defn">const <strong>ErrCodeInvalidKeyUsageException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeInvalidKeyUsageException for service response error code
+"InvalidKeyUsageException".</p>
+
+<p>The request was rejected because the specified KeySpec value is not valid.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"InvalidKeyUsageException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeInvalidMarkerException-constant" class="">
+          <div class="defn">const <strong>ErrCodeInvalidMarkerException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeInvalidMarkerException for service response error code
+"InvalidMarkerException".</p>
+
+<p>The request was rejected because the marker that specifies where pagination
+should next begin is not valid.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"InvalidMarkerException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeInvalidStateException-constant" class="">
+          <div class="defn">const <strong>ErrCodeInvalidStateException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeInvalidStateException for service response error code
+"KMSInvalidStateException".</p>
+
+<p>The request was rejected because the state of the specified resource is not
+valid for this request.</p>
+
+<p>For more information about how key state affects the use of a CMK, see How
+Key State Affects Use of a Customer Master Key (<a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>)
+in the AWS Key Management Service Developer Guide.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"KMSInvalidStateException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeKeyUnavailableException-constant" class="">
+          <div class="defn">const <strong>ErrCodeKeyUnavailableException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeKeyUnavailableException for service response error code
+"KeyUnavailableException".</p>
+
+<p>The request was rejected because the specified CMK was not available. The
+request can be retried.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"KeyUnavailableException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeLimitExceededException-constant" class="">
+          <div class="defn">const <strong>ErrCodeLimitExceededException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeLimitExceededException for service response error code
+"LimitExceededException".</p>
+
+<p>The request was rejected because a limit was exceeded. For more information,
+see Limits (<a href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html">http://docs.aws.amazon.com/kms/latest/developerguide/limits.html</a>)
+in the AWS Key Management Service Developer Guide.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"LimitExceededException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeMalformedPolicyDocumentException-constant" class="">
+          <div class="defn">const <strong>ErrCodeMalformedPolicyDocumentException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeMalformedPolicyDocumentException for service response error code
+"MalformedPolicyDocumentException".</p>
+
+<p>The request was rejected because the specified policy is not syntactically
+or semantically correct.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"MalformedPolicyDocumentException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeNotFoundException-constant" class="">
+          <div class="defn">const <strong>ErrCodeNotFoundException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeNotFoundException for service response error code
+"NotFoundException".</p>
+
+<p>The request was rejected because the specified entity or resource could not
+be found.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"NotFoundException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeTagException-constant" class="">
+          <div class="defn">const <strong>ErrCodeTagException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeTagException for service response error code
+"TagException".</p>
+
+<p>The request was rejected because one or more tags are not valid.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"TagException"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeUnsupportedOperationException-constant" class="">
+          <div class="defn">const <strong>ErrCodeUnsupportedOperationException</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ErrCodeUnsupportedOperationException for service response error code
+"UnsupportedOperationException".</p>
+
+<p>The request was rejected because a specified parameter is not supported or
+a specified resource is not valid for this operation.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"UnsupportedOperationException"</span></div></pre>
+          </dd>
+        
+          <dt id="ServiceName-constant" class="">
+          <div class="defn">const <strong>ServiceName</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"kms"</span>       <span class="hljs-comment">// Name of service.</span></div></pre>
+          </dd>
+        
+          <dt id="EndpointsID-constant" class="">
+          <div class="defn">const <strong>EndpointsID</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="#ServiceName-constant" title="service/kms.ServiceName (constant)">ServiceName</a></span> <span class="hljs-comment">// ID to lookup a service endpoint with.</span></div></pre>
+          </dd>
+        
+          <dt id="ServiceID-constant" class="">
+          <div class="defn">const <strong>ServiceID</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"<span class='object_link'><a href="kms/KMS.html" title="kms.KMS (struct)">KMS</a></span>"</span>       <span class="hljs-comment">// <span class='object_link'><a href="#ServiceID-constant" title="service/kms.ServiceID (constant)">ServiceID</a></span> is a unique identifer of a specific service.</span></div></pre>
+          </dd>
+        
+      </dl>
+    
+  
+
+  
+
+
+
+
+
+
+
+  <h2>
+    Type Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-CreateAliasOutput" title="kms (package)"><strong>CreateAliasOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-DeleteAliasOutput" title="kms (package)"><strong>DeleteAliasOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-DeleteImportedKeyMaterialOutput" title="kms (package)"><strong>DeleteImportedKeyMaterialOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-DisableKeyOutput" title="kms (package)"><strong>DisableKeyOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-DisableKeyRotationOutput" title="kms (package)"><strong>DisableKeyRotationOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-EnableKeyOutput" title="kms (package)"><strong>EnableKeyOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-EnableKeyRotationOutput" title="kms (package)"><strong>EnableKeyRotationOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-ImportKeyMaterialOutput" title="kms (package)"><strong>ImportKeyMaterialOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-PutKeyPolicyOutput" title="kms (package)"><strong>PutKeyPolicyOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-RetireGrantOutput" title="kms (package)"><strong>RetireGrantOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-RevokeGrantOutput" title="kms (package)"><strong>RevokeGrantOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-TagResourceOutput" title="kms (package)"><strong>TagResourceOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-UntagResourceOutput" title="kms (package)"><strong>UntagResourceOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-UpdateAliasOutput" title="kms (package)"><strong>UpdateAliasOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-UpdateKeyDescriptionOutput" title="kms (package)"><strong>UpdateKeyDescriptionOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+
+
+
+
+  <div id="type_details" class="method_details_list">
+    <h2>Type Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="type-CreateAliasOutput">
+  
+    <strong>CreateAliasOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-DeleteAliasOutput">
+  
+    <strong>DeleteAliasOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-DeleteImportedKeyMaterialOutput">
+  
+    <strong>DeleteImportedKeyMaterialOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-DisableKeyOutput">
+  
+    <strong>DisableKeyOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-DisableKeyRotationOutput">
+  
+    <strong>DisableKeyRotationOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-EnableKeyOutput">
+  
+    <strong>EnableKeyOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-EnableKeyRotationOutput">
+  
+    <strong>EnableKeyRotationOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-ImportKeyMaterialOutput">
+  
+    <strong>ImportKeyMaterialOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-PutKeyPolicyOutput">
+  
+    <strong>PutKeyPolicyOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-RetireGrantOutput">
+  
+    <strong>RetireGrantOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-RevokeGrantOutput">
+  
+    <strong>RevokeGrantOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-TagResourceOutput">
+  
+    <strong>TagResourceOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-UntagResourceOutput">
+  
+    <strong>UntagResourceOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-UpdateAliasOutput">
+  
+    <strong>UpdateAliasOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-UpdateKeyDescriptionOutput">
+  
+    <strong>UpdateKeyDescriptionOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+  </div>
+
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:12 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>

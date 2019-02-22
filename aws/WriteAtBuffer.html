@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Struct: aws.WriteAtBuffer
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "aws.WriteAtBuffer";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (W)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../aws.html" title="aws (package)">aws</a></span></span>
+     &raquo; 
+    <span class="title">WriteAtBuffer</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="../package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Struct: aws.WriteAtBuffer
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/aws"
+</div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>A WriteAtBuffer provides a in memory buffer supporting the io.WriterAt interface
+Can be used with the s3manager.Downloader to download content to a buffer
+in memory. Safe to use concurrently.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+  <h3 class="inherited">Implemented Interfaces</h3>
+  <p class="inherited"><span class='object_link'><a href="../service/s3/s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span></p>
+
+
+  
+
+  
+
+
+
+
+
+
+
+  <h2>
+    Structure Field Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GrowthCoeff-field" title="aws.WriteAtBuffer.GrowthCoeff (field)"><strong>GrowthCoeff</strong> float64</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>GrowthCoeff defines the growth rate of the internal buffer.</p>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+
+  
+    <h2>
+      Constructor Functions
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewWriteAtBuffer-class_method" title="aws.WriteAtBuffer.NewWriteAtBuffer() (method)">func <strong>NewWriteAtBuffer</strong>(buf []byte) *WriteAtBuffer </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewWriteAtBuffer creates a WriteAtBuffer with an internal buffer provided by buf.</p>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+    <h2>
+      Method  Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Bytes-instance_method" title="aws.WriteAtBuffer.Bytes() (method)">func (b *WriteAtBuffer) <strong>Bytes</strong>() []byte </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Bytes returns a slice of bytes written to the buffer.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WriteAt-instance_method" title="aws.WriteAtBuffer.WriteAt() (method)">func (b *WriteAtBuffer) <strong>WriteAt</strong>(p []byte, pos int64) (n int, err error) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WriteAt writes a slice of bytes to a buffer starting at the position provided The number of bytes written will be returned, or error.</p>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+
+
+
+
+  <div id="type_details" class="method_details_list">
+    <h2>Structure Field Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="GrowthCoeff-field">
+  <strong>GrowthCoeff</strong> float64 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>GrowthCoeff defines the growth rate of the internal buffer. By
+default, the growth rate is 1, where expanding the internal
+buffer will allocate only enough capacity to fit the new expected
+length.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+  </div>
+
+
+  <div id="Function_method_details" class="method_details_list">
+    <h2>Function Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="NewWriteAtBuffer-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewWriteAtBuffer-class_method" title="aws.WriteAtBuffer.NewWriteAtBuffer() (method)">NewWriteAtBuffer</a></span></strong>(buf []byte) *<span class='object_link'><a href="" title="aws.WriteAtBuffer (struct)">WriteAtBuffer</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewWriteAtBuffer creates a WriteAtBuffer with an internal buffer
+provided by buf.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+168
+169
+170</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 168</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewWriteAtBuffer(buf []byte) *WriteAtBuffer {
+	<span class="hljs-keyword">return</span> &WriteAtBuffer{buf: buf}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+  <div id="Method_method_details" class="method_details_list">
+    <h2>Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="Bytes-instance_method">
+  
+    func (b *<span class='object_link'><a href="" title="aws.WriteAtBuffer (struct)">WriteAtBuffer</a></span>) <strong><span class='object_link'><a href="#Bytes-instance_method" title="aws.WriteAtBuffer.Bytes() (method)">Bytes</a></span></strong>() []byte 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Bytes returns a slice of bytes written to the buffer.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+196
+197
+198
+199
+200</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 196</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (b *WriteAtBuffer) Bytes() []byte {
+	b.m.Lock()
+	<span class="hljs-keyword">defer</span> b.m.Unlock()
+	<span class="hljs-keyword">return</span> b.buf
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WriteAt-instance_method">
+  
+    func (b *<span class='object_link'><a href="" title="aws.WriteAtBuffer (struct)">WriteAtBuffer</a></span>) <strong><span class='object_link'><a href="#WriteAt-instance_method" title="aws.WriteAtBuffer.WriteAt() (method)">WriteAt</a></span></strong>(p []byte, pos int64) (n int, err error) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WriteAt writes a slice of bytes to a buffer starting at the position provided
+The number of bytes written will be returned, or error. Can overwrite previous
+written slices if the write ats overlap.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 175</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (b *WriteAtBuffer) WriteAt(p []byte, pos <span class="hljs-constant">int64</span>) (n <span class="hljs-constant">int</span>, err <span class="hljs-constant">error</span>) {
+	pLen := len(p)
+	expLen := pos + <span class="hljs-constant">int64</span>(pLen)
+	b.m.Lock()
+	<span class="hljs-keyword">defer</span> b.m.Unlock()
+	<span class="hljs-keyword">if</span> <span class="hljs-constant">int64</span>(len(b.buf)) < expLen {
+		<span class="hljs-keyword">if</span> <span class="hljs-constant">int64</span>(cap(b.buf)) < expLen {
+			<span class="hljs-keyword">if</span> b.GrowthCoeff < 1 {
+				b.GrowthCoeff = 1
+			}
+			newBuf := make([]byte, expLen, <span class="hljs-constant">int64</span>(b.GrowthCoeff*<span class="hljs-constant">float64</span>(expLen)))
+			copy(newBuf, b.buf)
+			b.buf = newBuf
+		}
+		b.buf = b.buf[:expLen]
+	}
+	copy(b.buf[pos:], p)
+	<span class="hljs-keyword">return</span> pLen, <span class="hljs-constant">nil</span>
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:12 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Struct: s3manager.Downloader
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "service/s3/s3manager.Downloader";
+  relpath = '../../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../../package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../../_index.html">Index (D)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../service.html" title="service (package)">service</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../s3.html" title="s3 (package)">s3</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../s3manager.html" title="s3manager (package)">s3manager</a></span></span>
+     &raquo; 
+    <span class="title">Downloader</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="../../../package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Struct: s3manager.Downloader
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
+</div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>The Downloader structure that calls Download(). It is safe to call Download()
+on this structure for multiple objects and across concurrent goroutines.
+Mutating the Downloader's properties is not safe to be done concurrently.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+  <h3 class="inherited">Implemented Interfaces</h3>
+  <p class="inherited"><span class='object_link'><a href="../s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manageriface/DownloaderAPI.html" title="s3manageriface.DownloaderAPI (interface)">s3manageriface.DownloaderAPI</a></span></p>
+
+
+  
+
+  
+
+
+
+
+
+
+
+  <h2>
+    Structure Field Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Concurrency-field" title="s3manager.Downloader.Concurrency (field)"><strong>Concurrency</strong> int</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The number of goroutines to spin up in parallel when sending parts.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PartSize-field" title="s3manager.Downloader.PartSize (field)"><strong>PartSize</strong> int64</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The buffer size (in bytes) to use when buffering data into chunks and sending them as parts to S3.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#RequestOptions-field" title="s3manager.Downloader.RequestOptions (field)"><strong>RequestOptions</strong> []request.Option</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>List of request options that will be passed down to individual API operation requests made by the downloader.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#S3-field" title="s3manager.Downloader.S3 (field)"><strong>S3</strong> s3iface.S3API</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>An S3 client to use when performing downloads.</p>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+
+  
+    <h2>
+      Method  Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Download-instance_method" title="s3manager.Downloader.Download() (method)">func (d Downloader) <strong>Download</strong>(w io.WriterAt, input *s3.GetObjectInput, options ...func(*Downloader)) (n int64, err error) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Download downloads an object in S3 and writes the payload into w using concurrent GET requests.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DownloadWithContext-instance_method" title="s3manager.Downloader.DownloadWithContext() (method)">func (d Downloader) <strong>DownloadWithContext</strong>(ctx aws.Context, w io.WriterAt, input *s3.GetObjectInput, options ...func(*Downloader)) (n int64, err error) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>DownloadWithContext downloads an object in S3 and writes the payload into w using concurrent GET requests.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DownloadWithIterator-instance_method" title="s3manager.Downloader.DownloadWithIterator() (method)">func (d Downloader) <strong>DownloadWithIterator</strong>(ctx aws.Context, iter BatchDownloadIterator, opts ...func(*Downloader)) error </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>DownloadWithIterator will download a batched amount of objects in S3 and writes them to the io.WriterAt specificed in the iterator.</p>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+
+
+
+
+  <div id="type_details" class="method_details_list">
+    <h2>Structure Field Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="Concurrency-field">
+  <strong>Concurrency</strong> int 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The number of goroutines to spin up in parallel when sending parts.
+If this is set to zero, the DefaultDownloadConcurrency value will be used.</p>
+
+<p>Concurrency of 1 will download the parts sequentially.</p>
+
+<p>Concurrency is ignored if the Range input parameter is provided.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PartSize-field">
+  <strong>PartSize</strong> int64 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The buffer size (in bytes) to use when buffering data into chunks and
+sending them as parts to S3. The minimum allowed part size is 5MB, and
+if this value is set to zero, the DefaultDownloadPartSize value will be used.</p>
+
+<p>PartSize is ignored if the Range input parameter is provided.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="RequestOptions-field">
+  <strong>RequestOptions</strong> []request.Option 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>List of request options that will be passed down to individual API
+operation requests made by the downloader.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="S3-field">
+  <strong>S3</strong> <span class='object_link'><a href="../s3iface/S3API.html" title="s3iface.S3API (interface)">s3iface.S3API</a></span> 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>An S3 client to use when performing downloads.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+  </div>
+
+
+  <div id="Method_method_details" class="method_details_list">
+    <h2>Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="Download-instance_method">
+  
+    func (d <span class='object_link'><a href="" title="s3manager.Downloader (struct)">Downloader</a></span>) <strong><span class='object_link'><a href="#Download-instance_method" title="s3manager.Downloader.Download() (method)">Download</a></span></strong>(w io.WriterAt, input *<span class='object_link'><a href="../GetObjectInput.html" title="s3.GetObjectInput (struct)">s3.GetObjectInput</a></span>, options ...func(*<span class='object_link'><a href="" title="s3manager.Downloader (struct)">Downloader</a></span>)) (n int64, err error) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Download downloads an object in S3 and writes the payload into w using
+concurrent GET requests.</p>
+
+<p>Additional functional options can be provided to configure the individual
+download. These options are copies of the Downloader instance Download is called from.
+Modifying the options will not impact the original Downloader instance.</p>
+
+<p>It is safe to call this method concurrently across goroutines.</p>
+
+<p>The w io.WriterAt can be satisfied by an os.File to do multipart concurrent
+downloads, or in memory []byte wrapper using aws.WriteAtBuffer.</p>
+
+<p>Specifying a Downloader.Concurrency of 1 will cause the Downloader to
+download the parts from S3 sequentially.</p>
+
+<p>If the GetObjectInput's Range value is provided that will cause the downloader
+to perform a single GetObjectInput request for that object's range. This will
+caused the part size, and concurrency configurations to be ignored.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 145</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) Download(w io.WriterAt, input *s3.GetObjectInput, options ...<span class="hljs-keyword">func</span>(*Downloader)) (n <span class="hljs-constant">int64</span>, err <span class="hljs-constant">error</span>) {
+	<span class="hljs-keyword">return</span> d.DownloadWithContext(aws.BackgroundContext(), w, input, options...)
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DownloadWithContext-instance_method">
+  
+    func (d <span class='object_link'><a href="" title="s3manager.Downloader (struct)">Downloader</a></span>) <strong><span class='object_link'><a href="#DownloadWithContext-instance_method" title="s3manager.Downloader.DownloadWithContext() (method)">DownloadWithContext</a></span></strong>(ctx <span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, w io.WriterAt, input *<span class='object_link'><a href="../GetObjectInput.html" title="s3.GetObjectInput (struct)">s3.GetObjectInput</a></span>, options ...func(*<span class='object_link'><a href="" title="s3manager.Downloader (struct)">Downloader</a></span>)) (n int64, err error) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>DownloadWithContext downloads an object in S3 and writes the payload into w
+using concurrent GET requests.</p>
+
+<p>DownloadWithContext is the same as Download with the additional support for
+Context input parameters. The Context must not be nil. A nil Context will
+cause a panic. Use the Context to add deadlining, timeouts, etc. The
+DownloadWithContext may create sub-contexts for individual underlying
+requests.</p>
+
+<p>Additional functional options can be provided to configure the individual
+download. These options are copies of the Downloader instance Download is
+called from. Modifying the options will not impact the original Downloader
+instance. Use the WithDownloaderRequestOptions helper function to pass in request
+options that will be applied to all API operations made with this downloader.</p>
+
+<p>The w io.WriterAt can be satisfied by an os.File to do multipart concurrent
+downloads, or in memory []byte wrapper using aws.WriteAtBuffer.</p>
+
+<p>Specifying a Downloader.Concurrency of 1 will cause the Downloader to
+download the parts from S3 sequentially.</p>
+
+<p>It is safe to call this method concurrently across goroutines.</p>
+
+<p>If the GetObjectInput's Range value is provided that will cause the downloader
+to perform a single GetObjectInput request for that object's range. This will
+caused the part size, and concurrency configurations to be ignored.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 175</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) DownloadWithContext(ctx aws.Context, w io.WriterAt, input *s3.GetObjectInput, options ...<span class="hljs-keyword">func</span>(*Downloader)) (n <span class="hljs-constant">int64</span>, err <span class="hljs-constant">error</span>) {
+	impl := downloader{w: w, in: input, cfg: d, ctx: ctx}
+
+	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> options {
+		option(&impl.cfg)
+	}
+	impl.cfg.RequestOptions = append(impl.cfg.RequestOptions, request.WithAppendUserAgent(<span class="hljs-string">"S3Manager"</span>))
+
+	<span class="hljs-keyword">if</span> s, ok := d.S3.(maxRetrier); ok {
+		impl.partBodyMaxRetries = s.MaxRetries()
+	}
+
+	impl.totalBytes = -1
+	<span class="hljs-keyword">if</span> impl.cfg.Concurrency == 0 {
+		impl.cfg.Concurrency = DefaultDownloadConcurrency
+	}
+
+	<span class="hljs-keyword">if</span> impl.cfg.PartSize == 0 {
+		impl.cfg.PartSize = DefaultDownloadPartSize
+	}
+
+	<span class="hljs-keyword">return</span> impl.download()
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DownloadWithIterator-instance_method">
+  
+    func (d <span class='object_link'><a href="" title="s3manager.Downloader (struct)">Downloader</a></span>) <strong><span class='object_link'><a href="#DownloadWithIterator-instance_method" title="s3manager.Downloader.DownloadWithIterator() (method)">DownloadWithIterator</a></span></strong>(ctx <span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, iter <span class='object_link'><a href="BatchDownloadIterator.html" title="s3manager.BatchDownloadIterator (interface)">BatchDownloadIterator</a></span>, opts ...func(*<span class='object_link'><a href="" title="s3manager.Downloader (struct)">Downloader</a></span>)) error 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>DownloadWithIterator will download a batched amount of objects in S3 and writes them
+to the io.WriterAt specificed in the iterator.</p>
+
+<p>Example:
+    svc := s3manager.NewDownloader(session)</p>
+
+<pre class="code go"><code class="go"><div class="hljs">fooFile, err := os.Open(<span class="hljs-string">"/tmp/foo.file"</span>)
+<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+    <span class="hljs-keyword">return</span> err
+}
+
+barFile, err := os.Open(<span class="hljs-string">"/tmp/bar.file"</span>)
+<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+    <span class="hljs-keyword">return</span> err
+}
+
+objects := []s3manager.BatchDownloadObject {
+    {
+        Object: &s3.GetObjectInput {
+            Bucket: aws.String(<span class="hljs-string">"bucket"</span>),
+            Key: aws.String(<span class="hljs-string">"foo"</span>),
+        },
+        Writer: fooFile,
+    },
+    {
+        Object: &s3.GetObjectInput {
+            Bucket: aws.String(<span class="hljs-string">"bucket"</span>),
+            Key: aws.String(<span class="hljs-string">"bar"</span>),
+        },
+        Writer: barFile,
+    },
+}
+
+iter := &s3manager.DownloadObjectsIterator{Objects: objects}
+<span class="hljs-keyword">if</span> err := svc.DownloadWithIterator(aws.BackgroundContext(), iter); err != <span class="hljs-constant">nil</span> {
+    <span class="hljs-keyword">return</span> err
+}
+</div></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 236</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) DownloadWithIterator(ctx aws.Context, iter BatchDownloadIterator, opts ...<span class="hljs-keyword">func</span>(*Downloader)) <span class="hljs-constant">error</span> {
+	<span class="hljs-keyword">var</span> errs []Error
+	<span class="hljs-keyword">for</span> iter.Next() {
+		object := iter.DownloadObject()
+		<span class="hljs-keyword">if</span> _, err := d.DownloadWithContext(ctx, object.Writer, object.Object, opts...); err != <span class="hljs-constant">nil</span> {
+			errs = append(errs, newError(err, object.Object.Bucket, object.Object.Key))
+		}
+
+		<span class="hljs-keyword">if</span> object.After == <span class="hljs-constant">nil</span> {
+			<span class="hljs-keyword">continue</span>
+		}
+
+		<span class="hljs-keyword">if</span> err := object.After(); err != <span class="hljs-constant">nil</span> {
+			errs = append(errs, newError(err, object.Object.Bucket, object.Object.Key))
+		}
+	}
+
+	<span class="hljs-keyword">if</span> len(errs) > 0 {
+		<span class="hljs-keyword">return</span> NewBatchError(<span class="hljs-string">"BatchedDownloadIncomplete"</span>, <span class="hljs-string">"some objects have failed to download."</span>, errs)
+	}
+	<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:31 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>

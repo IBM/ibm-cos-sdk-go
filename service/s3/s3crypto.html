@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Package: s3crypto
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "service/s3/s3crypto";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (s)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../service.html" title="service (package)">service</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../s3.html" title="s3 (package)">s3</a></span></span>
+     &raquo; 
+    <span class="title">s3crypto</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="../../package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Package: s3crypto
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/service/s3/s3crypto"
+</div>
+
+  
+    <h2>Constants</h2>
+    
+      <dl class="constants">
+        
+          <dt id="DefaultInstructionKeySuffix-constant" class="">
+          <div class="defn">const <strong>DefaultInstructionKeySuffix</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>DefaultInstructionKeySuffix is appended to the end of the instruction file key when
+grabbing or saving to S3</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">".instruction"</span></div></pre>
+          </dd>
+        
+          <dt id="AESGCMNoPadding-constant" class="">
+          <div class="defn">const <strong>AESGCMNoPadding</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>AESGCMNoPadding is the constant value that is used to specify
+the CEK algorithm consiting of AES GCM with no padding.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"AES/GCM/NoPadding"</span></div></pre>
+          </dd>
+        
+          <dt id="AESCBC-constant" class="">
+          <div class="defn">const <strong>AESCBC</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>AESCBC is the string constant that signifies the AES CBC algorithm cipher.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"AES/CBC"</span></div></pre>
+          </dd>
+        
+          <dt id="KMSWrap-constant" class="">
+          <div class="defn">const <strong>KMSWrap</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>KMSWrap is a constant used during decryption to build a KMS key handler.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"kms"</span></div></pre>
+          </dd>
+        
+          <dt id="DefaultMinFileSize-constant" class="">
+          <div class="defn">const <strong>DefaultMinFileSize</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>DefaultMinFileSize is used to check whether we want to write to a temp file
+or store the data in memory.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">1024 * 512 * 5</div></pre>
+          </dd>
+        
+      </dl>
+    
+  
+
+  
+    <h2>Variables</h2>
+    
+      <dl class="constants">
+        
+          <dt id="NoPadder-constant" class="">
+          <div class="defn">var <strong>NoPadder</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>NoPadder does not pad anything</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="s3crypto/Padder.html" title="s3crypto.Padder (interface)">Padder</a></span>(noPadder{})</div></pre>
+          </dd>
+        
+          <dt id="AESCBCPadder-constant" class="">
+          <div class="defn">var <strong>AESCBCPadder</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>AESCBCPadder is used to pad AES encrypted and decrypted data.
+Altough it uses the pkcs5Padder, it isn't following the RFC
+for PKCS5. The only reason why it is called pkcs5Padder is
+due to the Name returning PKCS5Padding.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="s3crypto/Padder.html" title="s3crypto.Padder (interface)">Padder</a></span>(aescbcPadding)</div></pre>
+          </dd>
+        
+      </dl>
+    
+  
+
+
+
+
+
+
+
+  <h2>
+    Type Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-CipherData" title="s3crypto (package)"><strong>CipherData</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>CipherData is used for content encryption.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/CryptoReadCloser.html" title="s3crypto.CryptoReadCloser (struct)"><strong>CryptoReadCloser</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>CryptoReadCloser handles closing of the body and allowing reads from the decrypted content.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/DecryptionClient.html" title="s3crypto.DecryptionClient (struct)"><strong>DecryptionClient</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>DecryptionClient is an S3 crypto client.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/EncryptionClient.html" title="s3crypto.EncryptionClient (struct)"><strong>EncryptionClient</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>EncryptionClient is an S3 crypto client.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-Envelope" title="s3crypto (package)"><strong>Envelope</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Envelope encryption starts off by generating a random symmetric key using AES GCM.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/HeaderV2LoadStrategy.html" title="s3crypto.HeaderV2LoadStrategy (struct)"><strong>HeaderV2LoadStrategy</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Load from a given object's header.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/HeaderV2SaveStrategy.html" title="s3crypto.HeaderV2SaveStrategy (struct)"><strong>HeaderV2SaveStrategy</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Save will save the envelope to the request's header.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/MaterialDescription.html" title="s3crypto.MaterialDescription (struct)"><strong>MaterialDescription</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/S3LoadStrategy.html" title="s3crypto.S3LoadStrategy (struct)"><strong>S3LoadStrategy</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>S3LoadStrategy will load the instruction file from s3.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/S3SaveStrategy.html" title="s3crypto.S3SaveStrategy (struct)"><strong>S3SaveStrategy</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>S3SaveStrategy will save the metadata to a separate instruction file in S3.</p>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+  <h2>
+    Interface Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)"><strong>Cipher</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Cipher interface allows for either encryption and decryption of an object.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/CipherDataDecrypter.html" title="s3crypto.CipherDataDecrypter (interface)"><strong>CipherDataDecrypter</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>CipherDataDecrypter is a handler to decrypt keys from the envelope.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/CipherDataGenerator.html" title="s3crypto.CipherDataGenerator (interface)"><strong>CipherDataGenerator</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>CipherDataGenerator handles generating proper key and IVs of proper size for the content cipher.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/ContentCipher.html" title="s3crypto.ContentCipher (interface)"><strong>ContentCipher</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>ContentCipher deals with encrypting and decrypting content.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/ContentCipherBuilder.html" title="s3crypto.ContentCipherBuilder (interface)"><strong>ContentCipherBuilder</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>ContentCipherBuilder is a builder interface that builds ciphers for each request.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/Decrypter.html" title="s3crypto.Decrypter (interface)"><strong>Decrypter</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Decrypter interface with only the decrypt method.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/Encrypter.html" title="s3crypto.Encrypter (interface)"><strong>Encrypter</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Encrypter interface with only the encrypt method.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/LoadStrategy.html" title="s3crypto.LoadStrategy (interface)"><strong>LoadStrategy</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>LoadStrategy ...</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/Padder.html" title="s3crypto.Padder (interface)"><strong>Padder</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Padder handles padding of crypto data.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/SaveStrategy.html" title="s3crypto.SaveStrategy (interface)"><strong>SaveStrategy</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SaveStrategy is how the data's metadata wants to be saved.</p>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+  
+    <h2>
+      Function  Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#AESCBCContentCipherBuilder-class_method" title="s3crypto.AESCBCContentCipherBuilder() (method)">func <strong>AESCBCContentCipherBuilder</strong>(generator CipherDataGenerator, padder Padder) ContentCipherBuilder </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>AESCBCContentCipherBuilder returns a new encryption only mode structure with a specific cipher for the master key.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#AESGCMContentCipherBuilder-class_method" title="s3crypto.AESGCMContentCipherBuilder() (method)">func <strong>AESGCMContentCipherBuilder</strong>(generator CipherDataGenerator) ContentCipherBuilder </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>AESGCMContentCipherBuilder returns a new encryption only mode structure with a specific cipher for the master key.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewDecryptionClient-class_method" title="s3crypto.NewDecryptionClient() (method)">func <strong>NewDecryptionClient</strong>(prov client.ConfigProvider, options ...func(*DecryptionClient)) *DecryptionClient </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewDecryptionClient instantiates a new S3 crypto client.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewEncryptionClient-class_method" title="s3crypto.NewEncryptionClient() (method)">func <strong>NewEncryptionClient</strong>(prov client.ConfigProvider, builder ContentCipherBuilder, options ...func(*EncryptionClient)) *EncryptionClient </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewEncryptionClient instantiates a new S3 crypto client.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewKMSKeyGenerator-class_method" title="s3crypto.NewKMSKeyGenerator() (method)">func <strong>NewKMSKeyGenerator</strong>(kmsClient kmsiface.KMSAPI, cmkID string) CipherDataGenerator </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewKMSKeyGenerator builds a new KMS key provider using the customer key ID and material description.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewKMSKeyGeneratorWithMatDesc-class_method" title="s3crypto.NewKMSKeyGeneratorWithMatDesc() (method)">func <strong>NewKMSKeyGeneratorWithMatDesc</strong>(kmsClient kmsiface.KMSAPI, cmkID string, matdesc MaterialDescription) CipherDataGenerator </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewKMSKeyGeneratorWithMatDesc builds a new KMS key provider using the customer key ID and material description.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewKMSWrapEntry-class_method" title="s3crypto.NewKMSWrapEntry() (method)">func <strong>NewKMSWrapEntry</strong>(kmsClient kmsiface.KMSAPI) WrapEntry </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewKMSWrapEntry builds returns a new KMS key provider and its decrypt handler.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewPKCS7Padder-class_method" title="s3crypto.NewPKCS7Padder() (method)">func <strong>NewPKCS7Padder</strong>(blockSize int) Padder </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewPKCS7Padder follows the RFC 2315: <a href="https://www.ietf.org/rfc/rfc2315.txt">https://www.ietf.org/rfc/rfc2315.txt</a> PKCS7 padding is subject to side-channel attacks and timing attacks.</p>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+
+
+
+
+  <div id="type_details" class="method_details_list">
+    <h2>Type Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="type-CipherData">
+  
+    <strong>CipherData</strong> struct
+  
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>CipherData is used for content encryption. It is used for storing the
+metadata of the encrypted content.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>Padder</strong> <span class='object_link'><a href="#Padder-field" title="s3crypto.CipherData.Padder (field)">Padder</a></span> 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>IV</strong> []byte 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>WrapAlgorithm</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>CEKAlgorithm</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>TagLength</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>MaterialDescription</strong> <span class='object_link'><a href="#MaterialDescription-field" title="s3crypto.CipherData.MaterialDescription (field)">MaterialDescription</a></span> 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>EncryptedKey</strong> []byte 
+    
+    
+  </code></dt>
+  <dd>
+    <p>EncryptedKey should be populated when calling GenerateCipherData</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>Key</strong> []byte 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-Envelope">
+  
+    <strong>Envelope</strong> struct
+  
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Envelope encryption starts off by generating a random symmetric key using
+AES GCM. The SDK generates a random IV based off the encryption cipher
+chosen. The master key that was provided, whether by the user or KMS, will be used
+to encrypt the randomly generated symmetric key and base64 encode the iv. This will
+allow for decryption of that same data later.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>UnencryptedContentLen</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>CipherKey</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>CipherKey is the randomly generated cipher key.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>MatDesc</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>MaterialDesc is a description to distinguish from other envelopes.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>WrapAlg</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>CEKAlg</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>TagLen</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>UnencryptedMD5</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>IV</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>IV is the randomly generated IV base64 encoded.</p>
+
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+  </div>
+
+
+  <div id="Function_method_details" class="method_details_list">
+    <h2>Function Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="AESCBCContentCipherBuilder-class_method">
+  
+    func <strong><span class='object_link'><a href="#AESCBCContentCipherBuilder-class_method" title="s3crypto.AESCBCContentCipherBuilder() (method)">AESCBCContentCipherBuilder</a></span></strong>(generator <span class='object_link'><a href="s3crypto/CipherDataGenerator.html" title="s3crypto.CipherDataGenerator (interface)">CipherDataGenerator</a></span>, padder <span class='object_link'><a href="s3crypto/Padder.html" title="s3crypto.Padder (interface)">Padder</a></span>) <span class='object_link'><a href="s3crypto/ContentCipherBuilder.html" title="s3crypto.ContentCipherBuilder (interface)">ContentCipherBuilder</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>AESCBCContentCipherBuilder returns a new encryption only mode structure with a specific cipher
+for the master key</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/aes_cbc_content_cipher.go', line 19</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> AESCBCContentCipherBuilder(generator CipherDataGenerator, padder Padder) ContentCipherBuilder {
+	<span class="hljs-keyword">return</span> cbcContentCipherBuilder{generator: generator, padder: padder}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="AESGCMContentCipherBuilder-class_method">
+  
+    func <strong><span class='object_link'><a href="#AESGCMContentCipherBuilder-class_method" title="s3crypto.AESGCMContentCipherBuilder() (method)">AESGCMContentCipherBuilder</a></span></strong>(generator <span class='object_link'><a href="s3crypto/CipherDataGenerator.html" title="s3crypto.CipherDataGenerator (interface)">CipherDataGenerator</a></span>) <span class='object_link'><a href="s3crypto/ContentCipherBuilder.html" title="s3crypto.ContentCipherBuilder (interface)">ContentCipherBuilder</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>AESGCMContentCipherBuilder returns a new encryption only mode structure with a specific cipher
+for the master key</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/aes_gcm_content_cipher.go', line 17</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> AESGCMContentCipherBuilder(generator CipherDataGenerator) ContentCipherBuilder {
+	<span class="hljs-keyword">return</span> gcmContentCipherBuilder{generator}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewDecryptionClient-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewDecryptionClient-class_method" title="s3crypto.NewDecryptionClient() (method)">NewDecryptionClient</a></span></strong>(prov client.ConfigProvider, options ...func(*<span class='object_link'><a href="s3crypto/DecryptionClient.html" title="s3crypto.DecryptionClient (struct)">DecryptionClient</a></span>)) *<span class='object_link'><a href="s3crypto/DecryptionClient.html" title="s3crypto.DecryptionClient (struct)">DecryptionClient</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewDecryptionClient instantiates a new S3 crypto client</p>
+
+<p>Example:
+    sess := session.Must(session.NewSession())
+    svc := s3crypto.NewDecryptionClient(sess, func(svc *s3crypto.DecryptionClient{
+        // Custom client options here
+    }))</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 47</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewDecryptionClient(prov client.ConfigProvider, options ...<span class="hljs-keyword">func</span>(*DecryptionClient)) *DecryptionClient {
+	s3client := s3.New(prov)
+	client := &DecryptionClient{
+		S3Client: s3client,
+		LoadStrategy: defaultV2LoadStrategy{
+			client: s3client,
+		},
+		WrapRegistry: <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]WrapEntry{
+			KMSWrap: (kmsKeyHandler{
+				kms: kms.New(prov),
+			}).decryptHandler,
+		},
+		CEKRegistry: <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]CEKEntry{
+			AESGCMNoPadding:                                          newAESGCMContentCipher,
+			strings.Join([]<span class="hljs-constant">string</span>{AESCBC, AESCBCPadder.Name()}, <span class="hljs-string">"/"</span>): newAESCBCContentCipher,
+		},
+		PadderRegistry: <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Padder{
+			strings.Join([]<span class="hljs-constant">string</span>{AESCBC, AESCBCPadder.Name()}, <span class="hljs-string">"/"</span>): AESCBCPadder,
+			<span class="hljs-string">"NoPadding"</span>: NoPadder,
+		},
+	}
+	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> options {
+		option(client)
+	}
+
+	<span class="hljs-keyword">return</span> client
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewEncryptionClient-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewEncryptionClient-class_method" title="s3crypto.NewEncryptionClient() (method)">NewEncryptionClient</a></span></strong>(prov client.ConfigProvider, builder <span class='object_link'><a href="s3crypto/ContentCipherBuilder.html" title="s3crypto.ContentCipherBuilder (interface)">ContentCipherBuilder</a></span>, options ...func(*<span class='object_link'><a href="s3crypto/EncryptionClient.html" title="s3crypto.EncryptionClient (struct)">EncryptionClient</a></span>)) *<span class='object_link'><a href="s3crypto/EncryptionClient.html" title="s3crypto.EncryptionClient (struct)">EncryptionClient</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewEncryptionClient instantiates a new S3 crypto client</p>
+
+<p>Example:
+    cmkID := "arn:aws:kms:region:000000000000:key/00000000-0000-0000-0000-000000000000"
+    sess := session.Must(session.NewSession())
+    handler := s3crypto.NewKMSKeyGenerator(kms.New(sess), cmkID)
+    svc := s3crypto.New(sess, s3crypto.AESGCMContentCipherBuilder(handler))</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 44</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewEncryptionClient(prov client.ConfigProvider, builder ContentCipherBuilder, options ...<span class="hljs-keyword">func</span>(*EncryptionClient)) *EncryptionClient {
+	client := &EncryptionClient{
+		S3Client:             s3.New(prov),
+		ContentCipherBuilder: builder,
+		SaveStrategy:         HeaderV2SaveStrategy{},
+		MinFileSize:          DefaultMinFileSize,
+	}
+
+	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> options {
+		option(client)
+	}
+
+	<span class="hljs-keyword">return</span> client
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewKMSKeyGenerator-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewKMSKeyGenerator-class_method" title="s3crypto.NewKMSKeyGenerator() (method)">NewKMSKeyGenerator</a></span></strong>(kmsClient kmsiface.KMSAPI, cmkID string) <span class='object_link'><a href="s3crypto/CipherDataGenerator.html" title="s3crypto.CipherDataGenerator (interface)">CipherDataGenerator</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewKMSKeyGenerator builds a new KMS key provider using the customer key ID and material
+description.</p>
+
+<p>Example:
+    sess := session.New(&amp;aws.Config{})
+    cmkID := "arn to key"
+    matdesc := s3crypto.MaterialDescription{}
+    handler := s3crypto.NewKMSKeyGenerator(kms.New(sess), cmkID)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_key_handler.go', line 30</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewKMSKeyGenerator(kmsClient kmsiface.KMSAPI, cmkID <span class="hljs-constant">string</span>) CipherDataGenerator {
+	<span class="hljs-keyword">return</span> NewKMSKeyGeneratorWithMatDesc(kmsClient, cmkID, MaterialDescription{})
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewKMSKeyGeneratorWithMatDesc-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewKMSKeyGeneratorWithMatDesc-class_method" title="s3crypto.NewKMSKeyGeneratorWithMatDesc() (method)">NewKMSKeyGeneratorWithMatDesc</a></span></strong>(kmsClient kmsiface.KMSAPI, cmkID string, matdesc <span class='object_link'><a href="s3crypto/MaterialDescription.html" title="s3crypto.MaterialDescription (struct)">MaterialDescription</a></span>) <span class='object_link'><a href="s3crypto/CipherDataGenerator.html" title="s3crypto.CipherDataGenerator (interface)">CipherDataGenerator</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewKMSKeyGeneratorWithMatDesc builds a new KMS key provider using the customer key ID and material
+description.</p>
+
+<p>Example:
+    sess := session.New(&amp;aws.Config{})
+    cmkID := "arn to key"
+    matdesc := s3crypto.MaterialDescription{}
+    handler := s3crypto.NewKMSKeyGeneratorWithMatDesc(kms.New(sess), cmkID, matdesc)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_key_handler.go', line 42</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewKMSKeyGeneratorWithMatDesc(kmsClient kmsiface.KMSAPI, cmkID <span class="hljs-constant">string</span>, matdesc MaterialDescription) CipherDataGenerator {
+	<span class="hljs-keyword">if</span> matdesc == <span class="hljs-constant">nil</span> {
+		matdesc = MaterialDescription{}
+	}
+	matdesc[<span class="hljs-string">"kms_cmk_id"</span>] = &cmkID
+
+	<span class="hljs-comment">// These values are read only making them thread safe</span>
+	kp := &kmsKeyHandler{
+		kms:   kmsClient,
+		cmkID: &cmkID,
+	}
+	<span class="hljs-comment">// These values are read only making them thread safe</span>
+	kp.CipherData.WrapAlgorithm = KMSWrap
+	kp.CipherData.MaterialDescription = matdesc
+	<span class="hljs-keyword">return</span> kp
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewKMSWrapEntry-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewKMSWrapEntry-class_method" title="s3crypto.NewKMSWrapEntry() (method)">NewKMSWrapEntry</a></span></strong>(kmsClient kmsiface.KMSAPI) WrapEntry 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewKMSWrapEntry builds returns a new KMS key provider and its decrypt handler.</p>
+
+<p>Example:
+    sess := session.New(&amp;aws.Config{})
+    customKMSClient := kms.New(sess)
+    decryptHandler := s3crypto.NewKMSWrapEntry(customKMSClient)</p>
+
+<pre class="code go"><code class="go"><div class="hljs">svc := s3crypto.NewDecryptionClient(sess, <span class="hljs-keyword">func</span>(svc *s3crypto.DecryptionClient) {
+    svc.WrapRegistry[KMSWrap] = decryptHandler
+}))
+</div></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71
+72
+73
+74
+75
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_key_handler.go', line 69</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewKMSWrapEntry(kmsClient kmsiface.KMSAPI) WrapEntry {
+	<span class="hljs-comment">// These values are read only making them thread safe</span>
+	kp := &kmsKeyHandler{
+		kms: kmsClient,
+	}
+
+	<span class="hljs-keyword">return</span> kp.decryptHandler
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewPKCS7Padder-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewPKCS7Padder-class_method" title="s3crypto.NewPKCS7Padder() (method)">NewPKCS7Padder</a></span></strong>(blockSize int) <span class='object_link'><a href="s3crypto/Padder.html" title="s3crypto.Padder (interface)">Padder</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewPKCS7Padder follows the RFC 2315: <a href="https://www.ietf.org/rfc/rfc2315.txt">https://www.ietf.org/rfc/rfc2315.txt</a>
+PKCS7 padding is subject to side-channel attacks and timing attacks. For
+the most secure data, use an authenticated crypto algorithm.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/pkcs7_padder.go', line 24</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewPKCS7Padder(blockSize <span class="hljs-constant">int</span>) Padder {
+	<span class="hljs-keyword">return</span> pkcs7Padder{blockSize}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:12 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>

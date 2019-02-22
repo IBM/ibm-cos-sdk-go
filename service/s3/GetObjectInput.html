@@ -1,0 +1,2509 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Struct: s3.GetObjectInput
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "service/s3.GetObjectInput";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (G)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../service.html" title="service (package)">service</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../s3.html" title="s3 (package)">s3</a></span></span>
+     &raquo; 
+    <span class="title">GetObjectInput</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="../../package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Struct: s3.GetObjectInput
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/service/s3"
+</div>
+
+
+  <h3 class="inherited">Implemented Interfaces</h3>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+
+
+  
+
+  
+
+
+
+
+
+
+
+  <h2>
+    Structure Field Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Bucket-field" title="s3.GetObjectInput.Bucket (field)"><strong>Bucket</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Bucket is a required field.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IfMatch-field" title="s3.GetObjectInput.IfMatch (field)"><strong>IfMatch</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IfModifiedSince-field" title="s3.GetObjectInput.IfModifiedSince (field)"><strong>IfModifiedSince</strong> *time.Time</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IfNoneMatch-field" title="s3.GetObjectInput.IfNoneMatch (field)"><strong>IfNoneMatch</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IfUnmodifiedSince-field" title="s3.GetObjectInput.IfUnmodifiedSince (field)"><strong>IfUnmodifiedSince</strong> *time.Time</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Key-field" title="s3.GetObjectInput.Key (field)"><strong>Key</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Key is a required field.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PartNumber-field" title="s3.GetObjectInput.PartNumber (field)"><strong>PartNumber</strong> *int64</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Part number of the object being read.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Range-field" title="s3.GetObjectInput.Range (field)"><strong>Range</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Downloads the specified range bytes of an object.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#RequestPayer-field" title="s3.GetObjectInput.RequestPayer (field)"><strong>RequestPayer</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Confirms that the requester knows that she or he will be charged for the request.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ResponseCacheControl-field" title="s3.GetObjectInput.ResponseCacheControl (field)"><strong>ResponseCacheControl</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets the Cache-Control header of the response.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ResponseContentDisposition-field" title="s3.GetObjectInput.ResponseContentDisposition (field)"><strong>ResponseContentDisposition</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets the Content-Disposition header of the response.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ResponseContentEncoding-field" title="s3.GetObjectInput.ResponseContentEncoding (field)"><strong>ResponseContentEncoding</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets the Content-Encoding header of the response.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ResponseContentLanguage-field" title="s3.GetObjectInput.ResponseContentLanguage (field)"><strong>ResponseContentLanguage</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets the Content-Language header of the response.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ResponseContentType-field" title="s3.GetObjectInput.ResponseContentType (field)"><strong>ResponseContentType</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets the Content-Type header of the response.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ResponseExpires-field" title="s3.GetObjectInput.ResponseExpires (field)"><strong>ResponseExpires</strong> *time.Time</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets the Expires header of the response.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SSECustomerAlgorithm-field" title="s3.GetObjectInput.SSECustomerAlgorithm (field)"><strong>SSECustomerAlgorithm</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SSECustomerKey-field" title="s3.GetObjectInput.SSECustomerKey (field)"><strong>SSECustomerKey</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SSECustomerKeyMD5-field" title="s3.GetObjectInput.SSECustomerKeyMD5 (field)"><strong>SSECustomerKeyMD5</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#VersionId-field" title="s3.GetObjectInput.VersionId (field)"><strong>VersionId</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>VersionId used to reference a specific version of the object.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#_-field" title="s3.GetObjectInput._ (field)"><strong>_</strong> struct{}</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+
+  
+    <h2>
+      Service Operations
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GoString-instance_method" title="s3.GetObjectInput.GoString() (method)"><strong>GoString</strong>()  string </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>GoString returns the string representation.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetObjectInput.SetBucket() (method)"><strong>SetBucket</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetBucket sets the Bucket field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetIfMatch-instance_method" title="s3.GetObjectInput.SetIfMatch() (method)"><strong>SetIfMatch</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetIfMatch sets the IfMatch field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetIfModifiedSince-instance_method" title="s3.GetObjectInput.SetIfModifiedSince() (method)"><strong>SetIfModifiedSince</strong>(time.Time)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetIfModifiedSince sets the IfModifiedSince field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetIfNoneMatch-instance_method" title="s3.GetObjectInput.SetIfNoneMatch() (method)"><strong>SetIfNoneMatch</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetIfNoneMatch sets the IfNoneMatch field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetIfUnmodifiedSince-instance_method" title="s3.GetObjectInput.SetIfUnmodifiedSince() (method)"><strong>SetIfUnmodifiedSince</strong>(time.Time)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetIfUnmodifiedSince sets the IfUnmodifiedSince field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetKey-instance_method" title="s3.GetObjectInput.SetKey() (method)"><strong>SetKey</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetKey sets the Key field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetPartNumber-instance_method" title="s3.GetObjectInput.SetPartNumber() (method)"><strong>SetPartNumber</strong>(int64)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetPartNumber sets the PartNumber field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetRange-instance_method" title="s3.GetObjectInput.SetRange() (method)"><strong>SetRange</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetRange sets the Range field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.GetObjectInput.SetRequestPayer() (method)"><strong>SetRequestPayer</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetRequestPayer sets the RequestPayer field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetResponseCacheControl-instance_method" title="s3.GetObjectInput.SetResponseCacheControl() (method)"><strong>SetResponseCacheControl</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetResponseCacheControl sets the ResponseCacheControl field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetResponseContentDisposition-instance_method" title="s3.GetObjectInput.SetResponseContentDisposition() (method)"><strong>SetResponseContentDisposition</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetResponseContentDisposition sets the ResponseContentDisposition field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetResponseContentEncoding-instance_method" title="s3.GetObjectInput.SetResponseContentEncoding() (method)"><strong>SetResponseContentEncoding</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetResponseContentEncoding sets the ResponseContentEncoding field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetResponseContentLanguage-instance_method" title="s3.GetObjectInput.SetResponseContentLanguage() (method)"><strong>SetResponseContentLanguage</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetResponseContentLanguage sets the ResponseContentLanguage field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetResponseContentType-instance_method" title="s3.GetObjectInput.SetResponseContentType() (method)"><strong>SetResponseContentType</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetResponseContentType sets the ResponseContentType field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetResponseExpires-instance_method" title="s3.GetObjectInput.SetResponseExpires() (method)"><strong>SetResponseExpires</strong>(time.Time)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetResponseExpires sets the ResponseExpires field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.GetObjectInput.SetSSECustomerAlgorithm() (method)"><strong>SetSSECustomerAlgorithm</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetSSECustomerAlgorithm sets the SSECustomerAlgorithm field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.GetObjectInput.SetSSECustomerKey() (method)"><strong>SetSSECustomerKey</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetSSECustomerKey sets the SSECustomerKey field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.GetObjectInput.SetSSECustomerKeyMD5() (method)"><strong>SetSSECustomerKeyMD5</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetSSECustomerKeyMD5 sets the SSECustomerKeyMD5 field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetVersionId-instance_method" title="s3.GetObjectInput.SetVersionId() (method)"><strong>SetVersionId</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetVersionId sets the VersionId field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#String-instance_method" title="s3.GetObjectInput.String() (method)"><strong>String</strong>()  string </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>String returns the string representation.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Validate-instance_method" title="s3.GetObjectInput.Validate() (method)"><strong>Validate</strong>()  error </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Validate inspects the fields of the type to determine if they are valid.</p>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+
+
+
+
+  <div id="type_details" class="method_details_list">
+    <h2>Structure Field Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="Bucket-field">
+  <strong>Bucket</strong> *string 
+  <code>`location:"uri" locationName:"Bucket" type:"string" required:"true"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Bucket is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="IfMatch-field">
+  <strong>IfMatch</strong> *string 
+  <code>`location:"header" locationName:"If-Match" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Return the object only if its entity tag (ETag) is the same as the one specified,
+otherwise return a 412 (precondition failed).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="IfModifiedSince-field">
+  <strong>IfModifiedSince</strong> *time.Time 
+  <code>`location:"header" locationName:"If-Modified-Since" type:"timestamp"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Return the object only if it has been modified since the specified time,
+otherwise return a 304 (not modified).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="IfNoneMatch-field">
+  <strong>IfNoneMatch</strong> *string 
+  <code>`location:"header" locationName:"If-None-Match" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Return the object only if its entity tag (ETag) is different from the one
+specified, otherwise return a 304 (not modified).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="IfUnmodifiedSince-field">
+  <strong>IfUnmodifiedSince</strong> *time.Time 
+  <code>`location:"header" locationName:"If-Unmodified-Since" type:"timestamp"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Return the object only if it has not been modified since the specified time,
+otherwise return a 412 (precondition failed).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Key-field">
+  <strong>Key</strong> *string 
+  <code>`location:"uri" locationName:"Key" min:"1" type:"string" required:"true"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Key is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PartNumber-field">
+  <strong>PartNumber</strong> *int64 
+  <code>`location:"querystring" locationName:"partNumber" type:"integer"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Part number of the object being read. This is a positive integer between
+1 and 10,000. Effectively performs a 'ranged' GET request for the part specified.
+Useful for downloading just a part of an object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Range-field">
+  <strong>Range</strong> *string 
+  <code>`location:"header" locationName:"Range" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Downloads the specified range bytes of an object. For more information about
+the HTTP Range header, go to <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="RequestPayer-field">
+  <strong>RequestPayer</strong> *string 
+  <code>`location:"header" locationName:"x-amz-request-payer" type:"string" enum:"RequestPayer"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Confirms that the requester knows that she or he will be charged for the
+request. Bucket owners need not specify this parameter in their requests.
+Documentation on downloading objects from requester pays buckets can be found
+at <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ResponseCacheControl-field">
+  <strong>ResponseCacheControl</strong> *string 
+  <code>`location:"querystring" locationName:"response-cache-control" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Sets the Cache-Control header of the response.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ResponseContentDisposition-field">
+  <strong>ResponseContentDisposition</strong> *string 
+  <code>`location:"querystring" locationName:"response-content-disposition" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Sets the Content-Disposition header of the response</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ResponseContentEncoding-field">
+  <strong>ResponseContentEncoding</strong> *string 
+  <code>`location:"querystring" locationName:"response-content-encoding" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Sets the Content-Encoding header of the response.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ResponseContentLanguage-field">
+  <strong>ResponseContentLanguage</strong> *string 
+  <code>`location:"querystring" locationName:"response-content-language" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Sets the Content-Language header of the response.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ResponseContentType-field">
+  <strong>ResponseContentType</strong> *string 
+  <code>`location:"querystring" locationName:"response-content-type" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Sets the Content-Type header of the response.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ResponseExpires-field">
+  <strong>ResponseExpires</strong> *time.Time 
+  <code>`location:"querystring" locationName:"response-expires" type:"timestamp"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Sets the Expires header of the response.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SSECustomerAlgorithm-field">
+  <strong>SSECustomerAlgorithm</strong> *string 
+  <code>`location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SSECustomerKey-field">
+  <strong>SSECustomerKey</strong> *string 
+  <code>`location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting
+data. This value is used to store the object and then it is discarded; Amazon
+does not store the encryption key. The key must be appropriate for use with
+the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm
+header.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SSECustomerKeyMD5-field">
+  <strong>SSECustomerKeyMD5</strong> *string 
+  <code>`location:"header" locationName:"x-amz-server-side-encryption-customer-key-MD5" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
+Amazon S3 uses this header for a message integrity check to ensure the encryption
+key was transmitted without error.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="VersionId-field">
+  <strong>VersionId</strong> *string 
+  <code>`location:"querystring" locationName:"versionId" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>VersionId used to reference a specific version of the object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="_-field">
+  <strong>_</strong> struct{} 
+  <code>`type:"structure"`</code>
+</h3>
+
+</div>
+    
+  </div>
+
+
+  <div id="Method_method_details" class="method_details_list">
+    <h2>Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="GoString-instance_method">
+  
+    func (s <span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#GoString-instance_method" title="s3.GetObjectInput.GoString() (method)">GoString</a></span></strong>() string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>GoString returns the string representation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5055
+5056
+5057</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5055</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetObjectInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> s.String()
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetBucket-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetObjectInput.SetBucket() (method)">SetBucket</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetBucket sets the Bucket field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5079
+5080
+5081
+5082</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5079</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetObjectInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.Bucket = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetIfMatch-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetIfMatch-instance_method" title="s3.GetObjectInput.SetIfMatch() (method)">SetIfMatch</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetIfMatch sets the IfMatch field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5092
+5093
+5094
+5095</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5092</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetIfMatch-instance_method" title="s3.GetObjectInput.SetIfMatch() (method)">SetIfMatch</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.IfMatch = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetIfModifiedSince-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetIfModifiedSince-instance_method" title="s3.GetObjectInput.SetIfModifiedSince() (method)">SetIfModifiedSince</a></span></strong>(v time.Time) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetIfModifiedSince sets the IfModifiedSince field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5098
+5099
+5100
+5101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5098</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetIfModifiedSince-instance_method" title="s3.GetObjectInput.SetIfModifiedSince() (method)">SetIfModifiedSince</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.IfModifiedSince = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetIfNoneMatch-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetIfNoneMatch-instance_method" title="s3.GetObjectInput.SetIfNoneMatch() (method)">SetIfNoneMatch</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetIfNoneMatch sets the IfNoneMatch field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5104
+5105
+5106
+5107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5104</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetIfNoneMatch-instance_method" title="s3.GetObjectInput.SetIfNoneMatch() (method)">SetIfNoneMatch</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.IfNoneMatch = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetIfUnmodifiedSince-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetIfUnmodifiedSince-instance_method" title="s3.GetObjectInput.SetIfUnmodifiedSince() (method)">SetIfUnmodifiedSince</a></span></strong>(v time.Time) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetIfUnmodifiedSince sets the IfUnmodifiedSince field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5110
+5111
+5112
+5113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5110</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetIfUnmodifiedSince-instance_method" title="s3.GetObjectInput.SetIfUnmodifiedSince() (method)">SetIfUnmodifiedSince</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.IfUnmodifiedSince = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetKey-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetKey-instance_method" title="s3.GetObjectInput.SetKey() (method)">SetKey</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetKey sets the Key field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5116
+5117
+5118
+5119</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5116</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.GetObjectInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.Key = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetPartNumber-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetPartNumber-instance_method" title="s3.GetObjectInput.SetPartNumber() (method)">SetPartNumber</a></span></strong>(v int64) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetPartNumber sets the PartNumber field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5122
+5123
+5124
+5125</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5122</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetPartNumber-instance_method" title="s3.GetObjectInput.SetPartNumber() (method)">SetPartNumber</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.PartNumber = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetRange-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetRange-instance_method" title="s3.GetObjectInput.SetRange() (method)">SetRange</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetRange sets the Range field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5128
+5129
+5130
+5131</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5128</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetRange-instance_method" title="s3.GetObjectInput.SetRange() (method)">SetRange</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.Range = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetRequestPayer-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.GetObjectInput.SetRequestPayer() (method)">SetRequestPayer</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetRequestPayer sets the RequestPayer field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5134
+5135
+5136
+5137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5134</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.GetObjectInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.RequestPayer = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetResponseCacheControl-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetResponseCacheControl-instance_method" title="s3.GetObjectInput.SetResponseCacheControl() (method)">SetResponseCacheControl</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetResponseCacheControl sets the ResponseCacheControl field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5140
+5141
+5142
+5143</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5140</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetResponseCacheControl-instance_method" title="s3.GetObjectInput.SetResponseCacheControl() (method)">SetResponseCacheControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.ResponseCacheControl = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetResponseContentDisposition-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetResponseContentDisposition-instance_method" title="s3.GetObjectInput.SetResponseContentDisposition() (method)">SetResponseContentDisposition</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetResponseContentDisposition sets the ResponseContentDisposition field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5146
+5147
+5148
+5149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5146</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetResponseContentDisposition-instance_method" title="s3.GetObjectInput.SetResponseContentDisposition() (method)">SetResponseContentDisposition</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.ResponseContentDisposition = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetResponseContentEncoding-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetResponseContentEncoding-instance_method" title="s3.GetObjectInput.SetResponseContentEncoding() (method)">SetResponseContentEncoding</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetResponseContentEncoding sets the ResponseContentEncoding field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5152
+5153
+5154
+5155</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5152</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetResponseContentEncoding-instance_method" title="s3.GetObjectInput.SetResponseContentEncoding() (method)">SetResponseContentEncoding</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.ResponseContentEncoding = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetResponseContentLanguage-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetResponseContentLanguage-instance_method" title="s3.GetObjectInput.SetResponseContentLanguage() (method)">SetResponseContentLanguage</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetResponseContentLanguage sets the ResponseContentLanguage field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5158
+5159
+5160
+5161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5158</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetResponseContentLanguage-instance_method" title="s3.GetObjectInput.SetResponseContentLanguage() (method)">SetResponseContentLanguage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.ResponseContentLanguage = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetResponseContentType-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetResponseContentType-instance_method" title="s3.GetObjectInput.SetResponseContentType() (method)">SetResponseContentType</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetResponseContentType sets the ResponseContentType field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5164
+5165
+5166
+5167</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5164</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetResponseContentType-instance_method" title="s3.GetObjectInput.SetResponseContentType() (method)">SetResponseContentType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.ResponseContentType = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetResponseExpires-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetResponseExpires-instance_method" title="s3.GetObjectInput.SetResponseExpires() (method)">SetResponseExpires</a></span></strong>(v time.Time) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetResponseExpires sets the ResponseExpires field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5170
+5171
+5172
+5173</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5170</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetResponseExpires-instance_method" title="s3.GetObjectInput.SetResponseExpires() (method)">SetResponseExpires</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.ResponseExpires = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetSSECustomerAlgorithm-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.GetObjectInput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetSSECustomerAlgorithm sets the SSECustomerAlgorithm field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5176
+5177
+5178
+5179</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5176</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.GetObjectInput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.SSECustomerAlgorithm = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetSSECustomerKey-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.GetObjectInput.SetSSECustomerKey() (method)">SetSSECustomerKey</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetSSECustomerKey sets the SSECustomerKey field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5182
+5183
+5184
+5185</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5182</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.GetObjectInput.SetSSECustomerKey() (method)">SetSSECustomerKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.SSECustomerKey = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetSSECustomerKeyMD5-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.GetObjectInput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetSSECustomerKeyMD5 sets the SSECustomerKeyMD5 field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5195
+5196
+5197
+5198</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5195</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.GetObjectInput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.SSECustomerKeyMD5 = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetVersionId-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetVersionId-instance_method" title="s3.GetObjectInput.SetVersionId() (method)">SetVersionId</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetVersionId sets the VersionId field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5201
+5202
+5203
+5204</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5201</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.GetObjectInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.VersionId = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="String-instance_method">
+  
+    func (s <span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#String-instance_method" title="s3.GetObjectInput.String() (method)">String</a></span></strong>() string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>String returns the string representation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5050
+5051
+5052</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5050</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetObjectInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Validate-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#Validate-instance_method" title="s3.GetObjectInput.Validate() (method)">Validate</a></span></strong>() error 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Validate inspects the fields of the type to determine if they are valid.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5060
+5061
+5062
+5063
+5064
+5065
+5066
+5067
+5068
+5069
+5070
+5071
+5072
+5073
+5074
+5075
+5076</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5060</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.GetObjectInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
+	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>"</span>}
+	<span class="hljs-keyword">if</span> s.Bucket == <span class="hljs-constant">nil</span> {
+		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#Bucket-field" title="s3.GetObjectInput.Bucket (field)">Bucket</a></span>"</span>))
+	}
+	<span class="hljs-keyword">if</span> s.Key == <span class="hljs-constant">nil</span> {
+		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#Key-field" title="s3.GetObjectInput.Key (field)">Key</a></span>"</span>))
+	}
+	<span class="hljs-keyword">if</span> s.Key != <span class="hljs-constant">nil</span> && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen(<span class="hljs-string">"<span class='object_link'><a href="#Key-field" title="s3.GetObjectInput.Key (field)">Key</a></span>"</span>, 1))
+	}
+
+	<span class="hljs-keyword">if</span> invalidParams.Len() > 0 {
+		<span class="hljs-keyword">return</span> invalidParams
+	}
+	<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:18 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>

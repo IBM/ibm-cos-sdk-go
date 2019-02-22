@@ -1,0 +1,2900 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Struct: aws.Config
+  
+    &mdash; IBM COS SDK for Go
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "aws.Config";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../package_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../aws.html" title="aws (package)">aws</a></span></span>
+     &raquo; 
+    <span class="title">Config</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="package_list_link"
+        href="../package_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame"></iframe>
+
+      <div id="content">
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <h1>Struct: aws.Config
+  
+  
+  
+</h1>
+<div class="package signature">
+import "github.com/IBM/ibm-cos-sdk-go/aws"
+</div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>A Config provides service configuration for service clients. By default,
+all clients will use the defaults.DefaultConfig structure.</p>
+
+<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Create Session with MaxRetry configuration to be shared by multiple</span>
+<span class="hljs-comment">// service clients.</span>
+sess := session.Must(session.NewSession(&aws.Config{
+    MaxRetries: aws.Int(3),
+}))
+
+<span class="hljs-comment">// Create S3 service client with a specific Region.</span>
+svc := s3.New(sess, &aws.Config{
+    Region: aws.String(<span class="hljs-string">"us-west-2"</span>),
+})
+</div></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+  <h3 class="inherited">Implemented Interfaces</h3>
+  <p class="inherited"><span class='object_link'><a href="../service/s3/s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span></p>
+
+
+  
+
+  
+
+
+
+
+
+
+
+  <h2>
+    Structure Field Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Credentials-field" title="aws.Config.Credentials (field)"><strong>Credentials</strong> *credentials.Credentials</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The credentials object to use when signing requests.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CredentialsChainVerboseErrors-field" title="aws.Config.CredentialsChainVerboseErrors (field)"><strong>CredentialsChainVerboseErrors</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Enables verbose error printing of all credential chain errors.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DisableComputeChecksums-field" title="aws.Config.DisableComputeChecksums (field)"><strong>DisableComputeChecksums</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Disables the computation of request and response checksums, e.g., CRC32 checksums in Amazon DynamoDB.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DisableParamValidation-field" title="aws.Config.DisableParamValidation (field)"><strong>DisableParamValidation</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Disables semantic parameter validation, which validates input for missing required fields and/or other semantic request input errors.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DisableRestProtocolURICleaning-field" title="aws.Config.DisableRestProtocolURICleaning (field)"><strong>DisableRestProtocolURICleaning</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>DisableRestProtocolURICleaning will not clean the URL path when making rest protocol requests.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DisableSSL-field" title="aws.Config.DisableSSL (field)"><strong>DisableSSL</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Set this to <code>true</code> to disable SSL when sending requests.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#EC2MetadataDisableTimeoutOverride-field" title="aws.Config.EC2MetadataDisableTimeoutOverride (field)"><strong>EC2MetadataDisableTimeoutOverride</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Set this to <code>true</code> to disable the EC2Metadata client from overriding the default http.Client's Timeout.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#EnableEndpointDiscovery-field" title="aws.Config.EnableEndpointDiscovery (field)"><strong>EnableEndpointDiscovery</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>EnableEndpointDiscovery will allow for endpoint discovery on operations that have the definition in its model.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Endpoint-field" title="aws.Config.Endpoint (field)"><strong>Endpoint</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>An optional endpoint URL (hostname only or fully qualified URI) that overrides the default generated endpoint for a client.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#EndpointResolver-field" title="aws.Config.EndpointResolver (field)"><strong>EndpointResolver</strong> endpoints.Resolver</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The resolver to use for looking up endpoints for AWS service clients to use based on region.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#EnforceShouldRetryCheck-field" title="aws.Config.EnforceShouldRetryCheck (field)"><strong>EnforceShouldRetryCheck</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>EnforceShouldRetryCheck is used in the AfterRetryHandler to always call ShouldRetry regardless of whether or not if request.Retryable is set.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#HTTPClient-field" title="aws.Config.HTTPClient (field)"><strong>HTTPClient</strong> *http.Client</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The HTTP client to use when sending requests.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#LogLevel-field" title="aws.Config.LogLevel (field)"><strong>LogLevel</strong> *LogLevelType</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>An integer value representing the logging level.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Logger-field" title="aws.Config.Logger (field)"><strong>Logger</strong> Logger</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The logger writer interface to write logging messages to.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#MaxRetries-field" title="aws.Config.MaxRetries (field)"><strong>MaxRetries</strong> *int</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The maximum number of times that a request will be retried for failures.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Region-field" title="aws.Config.Region (field)"><strong>Region</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The region to send requests to.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Retryer-field" title="aws.Config.Retryer (field)"><strong>Retryer</strong> RequestRetryer</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retryer guides how HTTP requests should be retried in case of recoverable failures.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#S3Disable100Continue-field" title="aws.Config.S3Disable100Continue (field)"><strong>S3Disable100Continue</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Set this to <code>true</code> to disable the SDK adding the <code>Expect: 100-Continue</code> header to PUT requests over 2MB of content.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#S3DisableContentMD5Validation-field" title="aws.Config.S3DisableContentMD5Validation (field)"><strong>S3DisableContentMD5Validation</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>S3DisableContentMD5Validation config option is temporarily disabled, For S3 GetObject API calls, #1837.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#S3ForcePathStyle-field" title="aws.Config.S3ForcePathStyle (field)"><strong>S3ForcePathStyle</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Set this to <code>true</code> to force the request to use path-style addressing, i.e., <code>http://s3.amazonaws.com/BUCKET/KEY</code>.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#S3UseAccelerate-field" title="aws.Config.S3UseAccelerate (field)"><strong>S3UseAccelerate</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Set this to <code>true</code> to enable S3 Accelerate feature.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SleepDelay-field" title="aws.Config.SleepDelay (field)"><strong>SleepDelay</strong> func(time.Duration)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SleepDelay is an override for the func the SDK will call when sleeping during the lifecycle of a request.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#UseDualStack-field" title="aws.Config.UseDualStack (field)"><strong>UseDualStack</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Instructs the endpoint to be generated for a service client to be the dual stack endpoint.</p>
+</div></span>
+  
+</li>
+
+
+    
+  </ul>
+
+
+
+  
+    <h2>
+      Constructor Functions
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewConfig-class_method" title="aws.Config.NewConfig() (method)">func <strong>NewConfig</strong>() *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>NewConfig returns a new Config pointer that can be chained with builder methods to set multiple configuration values inline without using pointers.</p>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+    <h2>
+      Method  Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Copy-instance_method" title="aws.Config.Copy() (method)">func (c *Config) <strong>Copy</strong>(cfgs ...*Config) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Copy will return a shallow copy of the Config object.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#MergeIn-instance_method" title="aws.Config.MergeIn() (method)">func (c *Config) <strong>MergeIn</strong>(cfgs ...*Config) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>MergeIn merges the passed in configs into the existing config object.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithCredentials-instance_method" title="aws.Config.WithCredentials() (method)">func (c *Config) <strong>WithCredentials</strong>(creds *credentials.Credentials) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithCredentials sets a config Credentials value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithCredentialsChainVerboseErrors-instance_method" title="aws.Config.WithCredentialsChainVerboseErrors() (method)">func (c *Config) <strong>WithCredentialsChainVerboseErrors</strong>(verboseErrs bool) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithCredentialsChainVerboseErrors sets a config verbose errors boolean and returning a Config pointer.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithDisableComputeChecksums-instance_method" title="aws.Config.WithDisableComputeChecksums() (method)">func (c *Config) <strong>WithDisableComputeChecksums</strong>(disable bool) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithDisableComputeChecksums sets a config DisableComputeChecksums value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithDisableParamValidation-instance_method" title="aws.Config.WithDisableParamValidation() (method)">func (c *Config) <strong>WithDisableParamValidation</strong>(disable bool) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithDisableParamValidation sets a config DisableParamValidation value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithDisableSSL-instance_method" title="aws.Config.WithDisableSSL() (method)">func (c *Config) <strong>WithDisableSSL</strong>(disable bool) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithDisableSSL sets a config DisableSSL value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithEC2MetadataDisableTimeoutOverride-instance_method" title="aws.Config.WithEC2MetadataDisableTimeoutOverride() (method)">func (c *Config) <strong>WithEC2MetadataDisableTimeoutOverride</strong>(enable bool) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithEC2MetadataDisableTimeoutOverride sets a config EC2MetadataDisableTimeoutOverride value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithEndpoint-instance_method" title="aws.Config.WithEndpoint() (method)">func (c *Config) <strong>WithEndpoint</strong>(endpoint string) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithEndpoint sets a config Endpoint value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithEndpointDiscovery-instance_method" title="aws.Config.WithEndpointDiscovery() (method)">func (c *Config) <strong>WithEndpointDiscovery</strong>(t bool) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithEndpointDiscovery will set whether or not to use endpoint discovery.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithEndpointResolver-instance_method" title="aws.Config.WithEndpointResolver() (method)">func (c *Config) <strong>WithEndpointResolver</strong>(resolver endpoints.Resolver) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithEndpointResolver sets a config EndpointResolver value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithHTTPClient-instance_method" title="aws.Config.WithHTTPClient() (method)">func (c *Config) <strong>WithHTTPClient</strong>(client *http.Client) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithHTTPClient sets a config HTTPClient value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithLogger-instance_method" title="aws.Config.WithLogger() (method)">func (c *Config) <strong>WithLogger</strong>(logger Logger) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithLogger sets a config Logger value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithLogLevel-instance_method" title="aws.Config.WithLogLevel() (method)">func (c *Config) <strong>WithLogLevel</strong>(level LogLevelType) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithLogLevel sets a config LogLevel value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithMaxRetries-instance_method" title="aws.Config.WithMaxRetries() (method)">func (c *Config) <strong>WithMaxRetries</strong>(max int) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithMaxRetries sets a config MaxRetries value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithRegion-instance_method" title="aws.Config.WithRegion() (method)">func (c *Config) <strong>WithRegion</strong>(region string) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithRegion sets a config Region value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithS3Disable100Continue-instance_method" title="aws.Config.WithS3Disable100Continue() (method)">func (c *Config) <strong>WithS3Disable100Continue</strong>(disable bool) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithS3Disable100Continue sets a config S3Disable100Continue value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithS3DisableContentMD5Validation-instance_method" title="aws.Config.WithS3DisableContentMD5Validation() (method)">func (c *Config) <strong>WithS3DisableContentMD5Validation</strong>(enable bool) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithS3DisableContentMD5Validation sets a config S3DisableContentMD5Validation value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithS3ForcePathStyle-instance_method" title="aws.Config.WithS3ForcePathStyle() (method)">func (c *Config) <strong>WithS3ForcePathStyle</strong>(force bool) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithS3ForcePathStyle sets a config S3ForcePathStyle value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithS3UseAccelerate-instance_method" title="aws.Config.WithS3UseAccelerate() (method)">func (c *Config) <strong>WithS3UseAccelerate</strong>(enable bool) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithS3UseAccelerate sets a config S3UseAccelerate value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithSleepDelay-instance_method" title="aws.Config.WithSleepDelay() (method)">func (c *Config) <strong>WithSleepDelay</strong>(fn func(time.Duration)) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithSleepDelay overrides the function used to sleep while waiting for the next retry.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithUseDualStack-instance_method" title="aws.Config.WithUseDualStack() (method)">func (c *Config) <strong>WithUseDualStack</strong>(enable bool) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>WithUseDualStack sets a config UseDualStack value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
+
+
+
+
+  <div id="type_details" class="method_details_list">
+    <h2>Structure Field Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="Credentials-field">
+  <strong>Credentials</strong> *<span class='object_link'><a href="credentials/Credentials.html" title="credentials.Credentials (struct)">credentials.Credentials</a></span> 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The credentials object to use when signing requests. Defaults to a
+chain of credential providers to search for credentials in environment
+variables, shared credential file, and EC2 Instance Roles.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CredentialsChainVerboseErrors-field">
+  <strong>CredentialsChainVerboseErrors</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Enables verbose error printing of all credential chain errors.
+Should be used when wanting to see all errors while attempting to
+retrieve credentials.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DisableComputeChecksums-field">
+  <strong>DisableComputeChecksums</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Disables the computation of request and response checksums, e.g.,
+CRC32 checksums in Amazon DynamoDB.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DisableParamValidation-field">
+  <strong>DisableParamValidation</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Disables semantic parameter validation, which validates input for
+missing required fields and/or other semantic request input errors.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DisableRestProtocolURICleaning-field">
+  <strong>DisableRestProtocolURICleaning</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>DisableRestProtocolURICleaning will not clean the URL path when making rest protocol requests.
+Will default to false. This would only be used for empty directory names in s3 requests.</p>
+
+<p>Example:
+   sess := session.Must(session.NewSession(&amp;aws.Config{
+        DisableRestProtocolURICleaning: aws.Bool(true),
+   }))</p>
+
+<p>   svc := s3.New(sess)
+   out, err := svc.GetObject(&amp;s3.GetObjectInput {
+    Bucket: aws.String("bucketname"),
+    Key: aws.String("//foo//bar//moo"),
+   })</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DisableSSL-field">
+  <strong>DisableSSL</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Set this to <code>true</code> to disable SSL when sending requests. Defaults
+to <code>false</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="EC2MetadataDisableTimeoutOverride-field">
+  <strong>EC2MetadataDisableTimeoutOverride</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Set this to <code>true</code> to disable the EC2Metadata client from overriding the
+default http.Client's Timeout. This is helpful if you do not want the
+EC2Metadata client to create a new http.Client. This options is only
+meaningful if you're not already using a custom HTTP client with the
+SDK. Enabled by default.</p>
+
+<p>Must be set and provided to the session.NewSession() in order to disable
+the EC2Metadata overriding the timeout for default credentials chain.</p>
+
+<p>Example:
+   sess := session.Must(session.NewSession(aws.NewConfig()
+      .WithEC2MetadataDiableTimeoutOverride(true)))</p>
+
+<p>   svc := s3.New(sess)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="EnableEndpointDiscovery-field">
+  <strong>EnableEndpointDiscovery</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>EnableEndpointDiscovery will allow for endpoint discovery on operations that
+have the definition in its model. By default, endpoint discovery is off.</p>
+
+<p>Example:
+   sess := session.Must(session.NewSession(&amp;aws.Config{
+        EnableEndpointDiscovery: aws.Bool(true),
+   }))</p>
+
+<p>   svc := s3.New(sess)
+   out, err := svc.GetObject(&amp;s3.GetObjectInput {
+    Bucket: aws.String("bucketname"),
+    Key: aws.String("/foo/bar/moo"),
+   })</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Endpoint-field">
+  <strong>Endpoint</strong> *string 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>An optional endpoint URL (hostname only or fully qualified URI)
+that overrides the default generated endpoint for a client. Set this
+to <code>""</code> to use the default generated endpoint.</p>
+
+<p>Note: You must still provide a <code>Region</code> value when specifying an
+endpoint for a client.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="EndpointResolver-field">
+  <strong>EndpointResolver</strong> <span class='object_link'><a href="endpoints/Resolver.html" title="endpoints.Resolver (interface)">endpoints.Resolver</a></span> 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The resolver to use for looking up endpoints for AWS service clients
+to use based on region.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="EnforceShouldRetryCheck-field">
+  <strong>EnforceShouldRetryCheck</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>EnforceShouldRetryCheck is used in the AfterRetryHandler to always call
+ShouldRetry regardless of whether or not if request.Retryable is set.
+This will utilize ShouldRetry method of custom retryers. If EnforceShouldRetryCheck
+is not set, then ShouldRetry will only be called if request.Retryable is nil.
+Proper handling of the request.Retryable field is important when setting this field.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="HTTPClient-field">
+  <strong>HTTPClient</strong> *http.Client 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The HTTP client to use when sending requests. Defaults to
+<code>http.DefaultClient</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="LogLevel-field">
+  <strong>LogLevel</strong> *<span class='object_link'><a href="LogLevelType.html" title="aws.LogLevelType (struct)">LogLevelType</a></span> 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>An integer value representing the logging level. The default log level
+is zero (LogOff), which represents no logging. To enable logging set
+to a LogLevel Value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Logger-field">
+  <strong>Logger</strong> <span class='object_link'><a href="#Logger-field" title="aws.Config.Logger (field)">Logger</a></span> 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The logger writer interface to write logging messages to. Defaults to
+standard out.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="MaxRetries-field">
+  <strong>MaxRetries</strong> *int 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The maximum number of times that a request will be retried for failures.
+Defaults to -1, which defers the max retry setting to the service
+specific configuration.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Region-field">
+  <strong>Region</strong> *string 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The region to send requests to. This parameter is required and must
+be configured globally or on a per-client basis unless otherwise
+noted. A full list of regions is found in the "Regions and Endpoints"
+document.</p>
+
+<p>See <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">http://docs.aws.amazon.com/general/latest/gr/rande.html</a> for AWS
+Regions and Endpoints.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Retryer-field">
+  <strong>Retryer</strong> RequestRetryer 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Retryer guides how HTTP requests should be retried in case of
+recoverable failures.</p>
+
+<p>When nil or the value does not implement the request.Retryer interface,
+the client.DefaultRetryer will be used.</p>
+
+<p>When both Retryer and MaxRetries are non-nil, the former is used and
+the latter ignored.</p>
+
+<p>To set the Retryer field in a type-safe manner and with chaining, use
+the request.WithRetryer helper function:</p>
+
+<p>  cfg := request.WithRetryer(aws.NewConfig(), myRetryer)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="S3Disable100Continue-field">
+  <strong>S3Disable100Continue</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Set this to <code>true</code> to disable the SDK adding the <code>Expect: 100-Continue</code>
+header to PUT requests over 2MB of content. 100-Continue instructs the
+HTTP client not to send the body until the service responds with a
+<code>continue</code> status. This is useful to prevent sending the request body
+until after the request is authenticated, and validated.</p>
+
+<p><a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html">http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html</a></p>
+
+<p>100-Continue is only enabled for Go 1.6 and above. See <code>http.Transport</code>'s
+<code>ExpectContinueTimeout</code> for information on adjusting the continue wait
+timeout. <a href="https://golang.org/pkg/net/http/#Transport">https://golang.org/pkg/net/http/#Transport</a></p>
+
+<p>You should use this flag to disble 100-Continue if you experience issues
+with proxies or third party S3 compatible services.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="S3DisableContentMD5Validation-field">
+  <strong>S3DisableContentMD5Validation</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>S3DisableContentMD5Validation config option is temporarily disabled,
+For S3 GetObject API calls, #1837.</p>
+
+<p>Set this to <code>true</code> to disable the S3 service client from automatically
+adding the ContentMD5 to S3 Object Put and Upload API calls. This option
+will also disable the SDK from performing object ContentMD5 validation
+on GetObject API calls.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="S3ForcePathStyle-field">
+  <strong>S3ForcePathStyle</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Set this to <code>true</code> to force the request to use path-style addressing,
+i.e., <code>http://s3.amazonaws.com/BUCKET/KEY</code>. By default, the S3 client
+will use virtual hosted bucket addressing when possible
+(<code>http://BUCKET.s3.amazonaws.com/KEY</code>).</p>
+
+<p>Note: This configuration option is specific to the Amazon S3 service.</p>
+
+<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html">http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html</a>
+for Amazon S3: Virtual Hosting of Buckets</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="S3UseAccelerate-field">
+  <strong>S3UseAccelerate</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Set this to <code>true</code> to enable S3 Accelerate feature. For all operations
+compatible with S3 Accelerate will use the accelerate endpoint for
+requests. Requests not compatible will fall back to normal S3 requests.</p>
+
+<p>The bucket must be enable for accelerate to be used with S3 client with
+accelerate enabled. If the bucket is not enabled for accelerate an error
+will be returned. The bucket name must be DNS compatible to also work
+with accelerate.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SleepDelay-field">
+  <strong>SleepDelay</strong> func(time.Duration) 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>SleepDelay is an override for the func the SDK will call when sleeping
+during the lifecycle of a request. Specifically this will be used for
+request delays. This value should only be used for testing. To adjust
+the delay of a request see the aws/client.DefaultRetryer and
+aws/request.Retryer.</p>
+
+<p>SleepDelay will prevent any Context from being used for canceling retry
+delay of an API operation. It is recommended to not use SleepDelay at all
+and specify a Retryer instead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="UseDualStack-field">
+  <strong>UseDualStack</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Instructs the endpoint to be generated for a service client to
+be the dual stack endpoint. The dual stack endpoint will support
+both IPv4 and IPv6 addressing.</p>
+
+<p>Setting this for a service which does not support dual stack will fail
+to make requets. It is not recommended to set this value on the session
+as it will apply to all service clients created with the session. Even
+services which don't support dual stack endpoints.</p>
+
+<p>If the Endpoint config value is also provided the UseDualStack flag
+will be ignored.</p>
+
+<p>Only supported with.</p>
+
+<pre class="code go"><code class="go"><div class="hljs">sess := session.Must(session.NewSession())
+
+svc := s3.New(sess, &aws.Config{
+    UseDualStack: aws.Bool(<span class="hljs-constant">true</span>),
+})
+</div></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+  </div>
+
+
+  <div id="Function_method_details" class="method_details_list">
+    <h2>Function Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="NewConfig-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewConfig-class_method" title="aws.Config.NewConfig() (method)">NewConfig</a></span></strong>() *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>NewConfig returns a new Config pointer that can be chained with builder
+methods to set multiple configuration values inline without using pointers.</p>
+
+<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Create Session with MaxRetry configuration to be shared by multiple</span>
+<span class="hljs-comment">// service clients.</span>
+sess := session.Must(session.NewSession(aws.NewConfig().
+    WithMaxRetries(3),
+))
+
+<span class="hljs-comment">// Create S3 service client with a specific Region.</span>
+svc := s3.New(sess, aws.NewConfig().
+    WithRegion(<span class="hljs-string">"us-west-2"</span>),
+)
+</div></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+256
+257
+258</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 256</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewConfig() *Config {
+	<span class="hljs-keyword">return</span> &Config{}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+  <div id="Method_method_details" class="method_details_list">
+    <h2>Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="Copy-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#Copy-instance_method" title="aws.Config.Copy() (method)">Copy</a></span></strong>(cfgs ...*<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Copy will return a shallow copy of the Config object. If any additional
+configurations are provided they will be merged into the new config returned.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 508</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) Copy(cfgs ...*Config) *Config {
+	dst := &Config{}
+	dst.MergeIn(c)
+
+	<span class="hljs-keyword">for</span> _, cfg := <span class="hljs-keyword">range</span> cfgs {
+		dst.MergeIn(cfg)
+	}
+
+	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="MergeIn-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#MergeIn-instance_method" title="aws.Config.MergeIn() (method)">MergeIn</a></span></strong>(cfgs ...*<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>MergeIn merges the passed in configs into the existing config object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+402
+403
+404
+405
+406</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 402</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) MergeIn(cfgs ...*Config) {
+	<span class="hljs-keyword">for</span> _, other := <span class="hljs-keyword">range</span> cfgs {
+		mergeInConfig(c, other)
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithCredentials-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithCredentials-instance_method" title="aws.Config.WithCredentials() (method)">WithCredentials</a></span></strong>(creds *<span class='object_link'><a href="credentials/Credentials.html" title="credentials.Credentials (struct)">credentials.Credentials</a></span>) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithCredentials sets a config Credentials value returning a Config pointer
+for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+269
+270
+271
+272</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 269</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithCredentials(creds *credentials.Credentials) *Config {
+	c.Credentials = creds
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithCredentialsChainVerboseErrors-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithCredentialsChainVerboseErrors-instance_method" title="aws.Config.WithCredentialsChainVerboseErrors() (method)">WithCredentialsChainVerboseErrors</a></span></strong>(verboseErrs bool) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithCredentialsChainVerboseErrors sets a config verbose errors boolean and returning
+a Config pointer.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+262
+263
+264
+265</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 262</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithCredentialsChainVerboseErrors(verboseErrs <span class="hljs-constant">bool</span>) *Config {
+	c.CredentialsChainVerboseErrors = &verboseErrs
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithDisableComputeChecksums-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithDisableComputeChecksums-instance_method" title="aws.Config.WithDisableComputeChecksums() (method)">WithDisableComputeChecksums</a></span></strong>(disable bool) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithDisableComputeChecksums sets a config DisableComputeChecksums value
+returning a Config pointer for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+325
+326
+327
+328</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 325</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableComputeChecksums(disable <span class="hljs-constant">bool</span>) *Config {
+	c.DisableComputeChecksums = &disable
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithDisableParamValidation-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithDisableParamValidation-instance_method" title="aws.Config.WithDisableParamValidation() (method)">WithDisableParamValidation</a></span></strong>(disable bool) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithDisableParamValidation sets a config DisableParamValidation value
+returning a Config pointer for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+318
+319
+320
+321</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 318</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableParamValidation(disable <span class="hljs-constant">bool</span>) *Config {
+	c.DisableParamValidation = &disable
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithDisableSSL-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithDisableSSL-instance_method" title="aws.Config.WithDisableSSL() (method)">WithDisableSSL</a></span></strong>(disable bool) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithDisableSSL sets a config DisableSSL value returning a Config pointer
+for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+297
+298
+299
+300</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 297</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableSSL(disable <span class="hljs-constant">bool</span>) *Config {
+	c.DisableSSL = &disable
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithEC2MetadataDisableTimeoutOverride-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithEC2MetadataDisableTimeoutOverride-instance_method" title="aws.Config.WithEC2MetadataDisableTimeoutOverride() (method)">WithEC2MetadataDisableTimeoutOverride</a></span></strong>(enable bool) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithEC2MetadataDisableTimeoutOverride sets a config EC2MetadataDisableTimeoutOverride value
+returning a Config pointer for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+383
+384
+385
+386</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 383</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEC2MetadataDisableTimeoutOverride(enable <span class="hljs-constant">bool</span>) *Config {
+	c.EC2MetadataDisableTimeoutOverride = &enable
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithEndpoint-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithEndpoint-instance_method" title="aws.Config.WithEndpoint() (method)">WithEndpoint</a></span></strong>(endpoint string) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithEndpoint sets a config Endpoint value returning a Config pointer for
+chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+276
+277
+278
+279</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 276</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEndpo<span class="hljs-constant">int</span>(endpo<span class="hljs-constant">int</span> <span class="hljs-constant">string</span>) *Config {
+	c.Endpo<span class="hljs-constant">int</span> = &endpo<span class="hljs-constant">int</span>
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithEndpointDiscovery-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithEndpointDiscovery-instance_method" title="aws.Config.WithEndpointDiscovery() (method)">WithEndpointDiscovery</a></span></strong>(t bool) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithEndpointDiscovery will set whether or not to use endpoint discovery.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+396
+397
+398
+399</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 396</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEndpointDiscovery(t <span class="hljs-constant">bool</span>) *Config {
+	c.EnableEndpointDiscovery = &t
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithEndpointResolver-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithEndpointResolver-instance_method" title="aws.Config.WithEndpointResolver() (method)">WithEndpointResolver</a></span></strong>(resolver <span class='object_link'><a href="endpoints/Resolver.html" title="endpoints.Resolver (interface)">endpoints.Resolver</a></span>) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithEndpointResolver sets a config EndpointResolver value returning a
+Config pointer for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+283
+284
+285
+286</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 283</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEndpointResolver(resolver endpoints.Resolver) *Config {
+	c.EndpointResolver = resolver
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithHTTPClient-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithHTTPClient-instance_method" title="aws.Config.WithHTTPClient() (method)">WithHTTPClient</a></span></strong>(client *http.Client) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithHTTPClient sets a config HTTPClient value returning a Config pointer
+for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+304
+305
+306
+307</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 304</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithHTTPClient(client *http.Client) *Config {
+	c.HTTPClient = client
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithLogger-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithLogger-instance_method" title="aws.Config.WithLogger() (method)">WithLogger</a></span></strong>(logger <span class='object_link'><a href="#Logger-field" title="aws.Config.Logger (field)">Logger</a></span>) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithLogger sets a config Logger value returning a Config pointer for
+chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+339
+340
+341
+342</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 339</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithLogger(logger Logger) *Config {
+	c.Logger = logger
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithLogLevel-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithLogLevel-instance_method" title="aws.Config.WithLogLevel() (method)">WithLogLevel</a></span></strong>(level <span class='object_link'><a href="LogLevelType.html" title="aws.LogLevelType (struct)">LogLevelType</a></span>) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithLogLevel sets a config LogLevel value returning a Config pointer for
+chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+332
+333
+334
+335</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 332</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithLogLevel(level LogLevelType) *Config {
+	c.LogLevel = &level
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithMaxRetries-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithMaxRetries-instance_method" title="aws.Config.WithMaxRetries() (method)">WithMaxRetries</a></span></strong>(max int) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithMaxRetries sets a config MaxRetries value returning a Config pointer
+for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+311
+312
+313
+314</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 311</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithMaxRetries(max <span class="hljs-constant">int</span>) *Config {
+	c.MaxRetries = &max
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithRegion-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithRegion-instance_method" title="aws.Config.WithRegion() (method)">WithRegion</a></span></strong>(region string) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithRegion sets a config Region value returning a Config pointer for
+chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+290
+291
+292
+293</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 290</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithRegion(region <span class="hljs-constant">string</span>) *Config {
+	c.Region = &region
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithS3Disable100Continue-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithS3Disable100Continue-instance_method" title="aws.Config.WithS3Disable100Continue() (method)">WithS3Disable100Continue</a></span></strong>(disable bool) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithS3Disable100Continue sets a config S3Disable100Continue value returning
+a Config pointer for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+353
+354
+355
+356</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 353</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3Disable100Continue(disable <span class="hljs-constant">bool</span>) *Config {
+	c.S3Disable100Continue = &disable
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithS3DisableContentMD5Validation-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithS3DisableContentMD5Validation-instance_method" title="aws.Config.WithS3DisableContentMD5Validation() (method)">WithS3DisableContentMD5Validation</a></span></strong>(enable bool) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithS3DisableContentMD5Validation sets a config
+S3DisableContentMD5Validation value returning a Config pointer for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+368
+369
+370
+371
+372</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 368</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3DisableContentMD5Validation(enable <span class="hljs-constant">bool</span>) *Config {
+	c.S3DisableContentMD5Validation = &enable
+	<span class="hljs-keyword">return</span> c
+
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithS3ForcePathStyle-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithS3ForcePathStyle-instance_method" title="aws.Config.WithS3ForcePathStyle() (method)">WithS3ForcePathStyle</a></span></strong>(force bool) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithS3ForcePathStyle sets a config S3ForcePathStyle value returning a Config
+pointer for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+346
+347
+348
+349</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 346</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3ForcePathStyle(force <span class="hljs-constant">bool</span>) *Config {
+	c.S3ForcePathStyle = &force
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithS3UseAccelerate-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithS3UseAccelerate-instance_method" title="aws.Config.WithS3UseAccelerate() (method)">WithS3UseAccelerate</a></span></strong>(enable bool) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithS3UseAccelerate sets a config S3UseAccelerate value returning a Config
+pointer for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+360
+361
+362
+363
+364</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 360</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3UseAccelerate(enable <span class="hljs-constant">bool</span>) *Config {
+	c.S3UseAccelerate = &enable
+	<span class="hljs-keyword">return</span> c
+
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithSleepDelay-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithSleepDelay-instance_method" title="aws.Config.WithSleepDelay() (method)">WithSleepDelay</a></span></strong>(fn func(time.Duration)) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithSleepDelay overrides the function used to sleep while waiting for the
+next retry. Defaults to time.Sleep.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+390
+391
+392
+393</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 390</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithSleepDelay(fn <span class="hljs-keyword">func</span>(time.Duration)) *Config {
+	c.SleepDelay = fn
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithUseDualStack-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithUseDualStack-instance_method" title="aws.Config.WithUseDualStack() (method)">WithUseDualStack</a></span></strong>(enable bool) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>WithUseDualStack sets a config UseDualStack value returning a Config
+pointer for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+376
+377
+378
+379</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 376</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithUseDualStack(enable <span class="hljs-constant">bool</span>) *Config {
+	c.UseDualStack = &enable
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
+
+
+      </div>
+
+      <div id="footer">
+  Generated on Fri Feb 22 10:35:12 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.1).
+</div>
+
+<!-- BEGIN-SECTION -->
+<script type="text/javascript" src="https://media.amazonwebservices.com/amznUrchin.js"></script>
+<!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  s.prop66='AWS SDK for Go';
+  s.eVar66='D=c66';
+  s.prop65='API Reference';
+  s.eVar65='D=c65';
+  var s_code=s.t();if(s_code)document.write(s_code)
+  //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+  //-->
+</script>
+<noscript>
+  <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="">
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.2. -->
+<!-- END-SECTION -->
+
+    </div>
+  </body>
+</html>
