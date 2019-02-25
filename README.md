@@ -1,13 +1,13 @@
 # IBM Cloud Object Storage - Go SDK
 
 This package allows Go developers to write software that interacts with [IBM
-Cloud Object Storage](https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html).  It is a fork of [the ``AWS SDK for Go`` library](https://github.com/aws/aws-sdk-go) and can stand as a drop-in replacement if the application needs to connect to object storage using an S3-like API and does not make use of other AWS services.
+Cloud Object Storage](https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html).  It is a fork of [the ``AWS SDK for Go`` library](https://github.com/aws/aws-sdk-go) and can stand as a drop-in replacement if the application needs to connect to object storage using an S3-like API and does not make use of other AWS services.
 
 ## Documentation
 
-* [Core documentation for IBM COS](https://console.bluemix.net/docs/services/cloud-object-storage/getting-started.html)
+* [Core documentation for IBM COS](https://cloud.ibm.com/docs/services/cloud-object-storage/getting-started.html)
 * [Go API reference documentation](https://ibm.github.io/ibm-cos-sdk-go)
-* [REST API reference documentation](https://console.bluemix.net/docs/services/cloud-object-storage/api-reference/about-api.html)
+* [REST API reference documentation](https://cloud.ibm.com/docs/services/cloud-object-storage/api-reference/about-api.html)
 
 For release notes, see the [CHANGELOG](CHANGELOG.rst).
 
@@ -19,12 +19,12 @@ For release notes, see the [CHANGELOG](CHANGELOG.rst).
 
 You'll need:
   * An instance of COS.
-  * An API key from [IBM Cloud Identity and Access Management](https://console.bluemix.net/docs/iam/users_roles.html) with at least `Writer` permissions.
+  * An API key from [IBM Cloud Identity and Access Management](https://cloud.ibm.com/docs/iam/users_roles.html) with at least `Writer` permissions.
   * The ID of the instance of COS that you are working with.
   * Token acquisition endpoint
   * Service endpoint
 
-These values can be found in the IBM Cloud Console by [generating a 'service credential'](https://console.bluemix.net/docs/services/cloud-object-storage/iam/service-credentials.html).
+These values can be found in the IBM Cloud Console by [generating a 'service credential'](https://cloud.ibm.com/docs/services/cloud-object-storage/iam/service-credentials.html).
 
 
 ## Getting the SDK
@@ -101,7 +101,7 @@ From the command line, run `go run main.go`.  You should see a list of your buck
 
 Feel free to use GitHub issues for tracking bugs and feature requests, but for help please use one of the following resources:
 
-* Read a quick start guide in [IBM Cloud Docs](https://console.bluemix.net/docs/services/cloud-object-storage/libraries/go.html#go).
+* Read a quick start guide in [IBM Cloud Docs](https://cloud.ibm.com/docs/services/cloud-object-storage/libraries/go.html#go).
 * Ask a question on [Stack Overflow](https://stackoverflow.com/) and tag it with `ibm` and `object-storage`.
 * Open a support ticket with [IBM Cloud Support](https://support.ng.bluemix.net/gethelp/)
 * If it turns out that you may have found a bug, please [open an issue](https://github.com/ibm/ibm-cos-sdk-go/issues/new).
