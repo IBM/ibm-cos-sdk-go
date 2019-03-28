@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/s3"
+import "../../../../../../../../../service/s3"
 </div>
 
 
@@ -1618,7 +1618,8 @@ body cannot be determined automatically.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>The base64-encoded 128-bit MD5 digest of the part data.</p>
+    <p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is
+auto-populated when using the command from the CLI</p>
 
 
   </div>
@@ -1817,7 +1818,7 @@ at <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPay
       <div class="method_details ">
   <h3 class="signature " id="SSECustomerKey-field">
   <strong>SSECustomerKey</strong> *string 
-  <code>`location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string"`</code>
+  <code>`location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`</code>
 </h3>
 <div class="docstring">
   <div class="discussion">
@@ -1859,7 +1860,7 @@ key was transmitted without error.</p>
       <div class="method_details ">
   <h3 class="signature " id="SSEKMSKeyId-field">
   <strong>SSEKMSKeyId</strong> *string 
-  <code>`location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string"`</code>
+  <code>`location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string" sensitive:"true"`</code>
 </h3>
 <div class="docstring">
   <div class="discussion">
@@ -1921,7 +1922,8 @@ AWS SDKs and CLI can be found at <a href="http://docs.aws.amazon.com/AmazonS3/la
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters</p>
+    <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters.
+(For example, "Key1=Value1")</p>
 
 
   </div>
@@ -1992,12 +1994,12 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7787
-7788
-7789</pre>
+7855
+7856
+7857</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7787</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7855</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.PutObjectInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -2033,13 +2035,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7811
-7812
-7813
-7814</pre>
+7882
+7883
+7884
+7885</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7811</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7882</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetACL-instance_method" title="s3.PutObjectInput.SetACL() (method)">SetACL</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ACL = &v
@@ -2076,13 +2078,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7817
-7818
-7819
-7820</pre>
+7888
+7889
+7890
+7891</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7817</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7888</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetBody-instance_method" title="s3.PutObjectInput.SetBody() (method)">SetBody</a></span>(v io.ReadSeeker) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.Body = v
@@ -2119,13 +2121,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7823
-7824
-7825
-7826</pre>
+7894
+7895
+7896
+7897</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7823</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7894</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.PutObjectInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.Bucket = &v
@@ -2162,13 +2164,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7836
-7837
-7838
-7839</pre>
+7907
+7908
+7909
+7910</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7836</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7907</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetCacheControl-instance_method" title="s3.PutObjectInput.SetCacheControl() (method)">SetCacheControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.CacheControl = &v
@@ -2205,13 +2207,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7842
-7843
-7844
-7845</pre>
+7913
+7914
+7915
+7916</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7842</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7913</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetContentDisposition-instance_method" title="s3.PutObjectInput.SetContentDisposition() (method)">SetContentDisposition</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ContentDisposition = &v
@@ -2248,13 +2250,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7848
-7849
-7850
-7851</pre>
+7919
+7920
+7921
+7922</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7848</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7919</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetContentEncoding-instance_method" title="s3.PutObjectInput.SetContentEncoding() (method)">SetContentEncoding</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ContentEncoding = &v
@@ -2291,13 +2293,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7854
-7855
-7856
-7857</pre>
+7925
+7926
+7927
+7928</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7854</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7925</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetContentLanguage-instance_method" title="s3.PutObjectInput.SetContentLanguage() (method)">SetContentLanguage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ContentLanguage = &v
@@ -2334,13 +2336,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7860
-7861
-7862
-7863</pre>
+7931
+7932
+7933
+7934</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7860</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7931</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetContentLength-instance_method" title="s3.PutObjectInput.SetContentLength() (method)">SetContentLength</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ContentLength = &v
@@ -2377,13 +2379,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7866
-7867
-7868
-7869</pre>
+7937
+7938
+7939
+7940</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7866</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7937</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetContentMD5-instance_method" title="s3.PutObjectInput.SetContentMD5() (method)">SetContentMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ContentMD5 = &v
@@ -2420,13 +2422,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7872
-7873
-7874
-7875</pre>
+7943
+7944
+7945
+7946</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7872</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7943</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetContentType-instance_method" title="s3.PutObjectInput.SetContentType() (method)">SetContentType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ContentType = &v
@@ -2463,13 +2465,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7878
-7879
-7880
-7881</pre>
+7949
+7950
+7951
+7952</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7878</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7949</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetExpires-instance_method" title="s3.PutObjectInput.SetExpires() (method)">SetExpires</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.Expires = &v
@@ -2506,13 +2508,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7884
-7885
-7886
-7887</pre>
+7955
+7956
+7957
+7958</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7884</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7955</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetGrantFullControl-instance_method" title="s3.PutObjectInput.SetGrantFullControl() (method)">SetGrantFullControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.GrantFullControl = &v
@@ -2549,13 +2551,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7890
-7891
-7892
-7893</pre>
+7961
+7962
+7963
+7964</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7890</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7961</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetGrantRead-instance_method" title="s3.PutObjectInput.SetGrantRead() (method)">SetGrantRead</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.GrantRead = &v
@@ -2592,13 +2594,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7896
-7897
-7898
-7899</pre>
+7967
+7968
+7969
+7970</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7896</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7967</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetGrantReadACP-instance_method" title="s3.PutObjectInput.SetGrantReadACP() (method)">SetGrantReadACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.GrantReadACP = &v
@@ -2635,13 +2637,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7902
-7903
-7904
-7905</pre>
+7973
+7974
+7975
+7976</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7902</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7973</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetGrantWriteACP-instance_method" title="s3.PutObjectInput.SetGrantWriteACP() (method)">SetGrantWriteACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.GrantWriteACP = &v
@@ -2678,13 +2680,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7908
-7909
-7910
-7911</pre>
+7979
+7980
+7981
+7982</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7908</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7979</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.PutObjectInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.Key = &v
@@ -2721,13 +2723,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7914
-7915
-7916
-7917</pre>
+7985
+7986
+7987
+7988</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7914</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7985</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetMetadata-instance_method" title="s3.PutObjectInput.SetMetadata() (method)">SetMetadata</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.Metadata = v
@@ -2764,13 +2766,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7920
-7921
-7922
-7923</pre>
+7991
+7992
+7993
+7994</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7920</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7991</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.PutObjectInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.RequestPayer = &v
@@ -2807,13 +2809,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7957
-7958
-7959
-7960</pre>
+8028
+8029
+8030
+8031</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7957</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8028</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.PutObjectInput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ServerSideEncryption = &v
@@ -2850,13 +2852,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7926
-7927
-7928
-7929</pre>
+7997
+7998
+7999
+8000</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7926</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7997</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.PutObjectInput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -2893,13 +2895,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7932
-7933
-7934
-7935</pre>
+8003
+8004
+8005
+8006</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7932</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8003</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.PutObjectInput.SetSSECustomerKey() (method)">SetSSECustomerKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.SSECustomerKey = &v
@@ -2936,13 +2938,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7945
-7946
-7947
-7948</pre>
+8016
+8017
+8018
+8019</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7945</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8016</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.PutObjectInput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -2979,13 +2981,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7951
-7952
-7953
-7954</pre>
+8022
+8023
+8024
+8025</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7951</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8022</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.PutObjectInput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -3022,13 +3024,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7963
-7964
-7965
-7966</pre>
+8034
+8035
+8036
+8037</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7963</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8034</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetStorageClass-instance_method" title="s3.PutObjectInput.SetStorageClass() (method)">SetStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.StorageClass = &v
@@ -3065,13 +3067,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7969
-7970
-7971
-7972</pre>
+8040
+8041
+8042
+8043</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7969</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8040</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetTagging-instance_method" title="s3.PutObjectInput.SetTagging() (method)">SetTagging</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.Tagging = &v
@@ -3108,13 +3110,13 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7975
-7976
-7977
-7978</pre>
+8046
+8047
+8048
+8049</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7975</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8046</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetWebsiteRedirectLocation-instance_method" title="s3.PutObjectInput.SetWebsiteRedirectLocation() (method)">SetWebsiteRedirectLocation</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.WebsiteRedirectLocation = &v
@@ -3151,12 +3153,12 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7782
-7783
-7784</pre>
+7850
+7851
+7852</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7782</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7850</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.PutObjectInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -3192,31 +3194,37 @@ the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7792
-7793
-7794
-7795
-7796
-7797
-7798
-7799
-7800
-7801
-7802
-7803
-7804
-7805
-7806
-7807
-7808</pre>
+7860
+7861
+7862
+7863
+7864
+7865
+7866
+7867
+7868
+7869
+7870
+7871
+7872
+7873
+7874
+7875
+7876
+7877
+7878
+7879</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7792</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7860</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.PutObjectInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>"</span>}
 	<span class="hljs-keyword">if</span> s.Bucket == <span class="hljs-constant">nil</span> {
 		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#Bucket-field" title="s3.PutObjectInput.Bucket (field)">Bucket</a></span>"</span>))
+	}
+	<span class="hljs-keyword">if</span> s.Bucket != <span class="hljs-constant">nil</span> && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen(<span class="hljs-string">"<span class='object_link'><a href="#Bucket-field" title="s3.PutObjectInput.Bucket (field)">Bucket</a></span>"</span>, 1))
 	}
 	<span class="hljs-keyword">if</span> s.Key == <span class="hljs-constant">nil</span> {
 		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#Key-field" title="s3.PutObjectInput.Key (field)">Key</a></span>"</span>))
@@ -3242,7 +3250,7 @@ the value of this header in the object metadata.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:21 2019 by
+  Generated on Thu Mar 28 13:39:58 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

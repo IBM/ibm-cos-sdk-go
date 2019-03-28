@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/request"
+import "../../../../../../../../../aws/request"
 </div>
 
   
@@ -330,6 +330,28 @@ number value.</p>
             <pre class="code"><div class="hljs"><span class="hljs-string">"ParamMinLenError"</span></div></pre>
           </dd>
         
+          <dt id="ParamMaxLenErrCode-constant" class="">
+          <div class="defn">const <strong>ParamMaxLenErrCode</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ParamMaxLenErrCode is the error code for value being too long.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"ParamMaxLenError"</span></div></pre>
+          </dd>
+        
           <dt id="ParamFormatErrCode-constant" class="">
           <div class="defn">const <strong>ParamFormatErrCode</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -466,6 +488,30 @@ and body in the HTTP request.</p>
 
   
     <span class="summary_desc"><div class='inline'><p>An ErrParamFormat represents a invalid format parameter error.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="request/ErrParamMaxLen.html" title="request.ErrParamMaxLen (struct)"><strong>ErrParamMaxLen</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>An ErrParamMaxLen represents a maximum length parameter error.</p>
 </div></span>
   
 </li>
@@ -1765,16 +1811,16 @@ pagination.</p>
       <pre class="lines">
 
 
+555
+556
+557
+558
 559
 560
-561
-562
-563
-564
-565</pre>
+561</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 559</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 555</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AddToUserAgent(r *Request, s <span class="hljs-constant">string</span>) {
 	curUA := r.HTTPRequest.Header.Get(<span class="hljs-string">"User-Agent"</span>)
@@ -1863,18 +1909,18 @@ request handlers in a HandlerList.</p>
       <pre class="lines">
 
 
-225
-226
-227
 228
 229
 230
 231
 232
-233</pre>
+233
+234
+235
+236</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 225</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 228</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> HandlerListLogItem(item HandlerListRunItem) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> item.Request.Config.Logger == <span class="hljs-constant">nil</span> {
@@ -1918,12 +1964,12 @@ to continue iterating.</p>
       <pre class="lines">
 
 
-238
-239
-240</pre>
+241
+242
+243</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 238</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 241</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> HandlerListStopOnError(item HandlerListRunItem) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">return</span> item.Request.Error == <span class="hljs-constant">nil</span>
@@ -1960,17 +2006,17 @@ Returns false if error is nil.</p>
       <pre class="lines">
 
 
-129
-130
 131
 132
 133
 134
 135
-136</pre>
+136
+137
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 129</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 131</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsErrorExpiredCreds(err <span class="hljs-constant">error</span>) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
@@ -2012,17 +2058,17 @@ Returns false if error is nil.</p>
       <pre class="lines">
 
 
-107
-108
 109
 110
 111
 112
 113
-114</pre>
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 107</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 109</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsErrorRetryable(err <span class="hljs-constant">error</span>) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
@@ -2064,17 +2110,17 @@ Returns false if error is nil.</p>
       <pre class="lines">
 
 
-118
-119
 120
 121
 122
 123
 124
-125</pre>
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 118</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 120</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsErrorThrottle(err <span class="hljs-constant">error</span>) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
@@ -2116,14 +2162,14 @@ The input string will be concatenated with the current request's user agent stri
       <pre class="lines">
 
 
-269
-270
-271
 272
-273</pre>
+273
+274
+275
+276</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 269</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 272</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> MakeAddToUserAgentFreeFormHandler(s <span class="hljs-constant">string</span>) <span class="hljs-keyword">func</span>(*Request) {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2165,18 +2211,18 @@ The user agent part will be concatenated with this current request's user agent 
       <pre class="lines">
 
 
-257
-258
-259
 260
 261
 262
 263
 264
-265</pre>
+265
+266
+267
+268</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 257</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 260</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> MakeAddToUserAgentHandler(name, version <span class="hljs-constant">string</span>, extra ...<span class="hljs-constant">string</span>) <span class="hljs-keyword">func</span>(*Request) {
 	ua := fmt.Sprintf(<span class="hljs-string">"%s/%s"</span>, name, version)
@@ -2218,16 +2264,16 @@ The user agent part will be concatenated with this current request's user agent 
       <pre class="lines">
 
 
-594
-595
-596
-597
-598
-599
-600</pre>
+606
+607
+608
+609
+610
+611
+612</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 594</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 606</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> SanitizeHostForHeader(r *http.Request) {
 	host := getHost(r)
@@ -2268,16 +2314,16 @@ single white space.</p>
       <pre class="lines">
 
 
-244
-245
-246
 247
 248
 249
-250</pre>
+250
+251
+252
+253</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 244</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 247</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithAppendUserAgent(s <span class="hljs-constant">string</span>) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2328,16 +2374,16 @@ map directly. The passed in val pointer must be non-nil.</p>
       <pre class="lines">
 
 
+153
+154
 155
 156
 157
 158
-159
-160
-161</pre>
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 155</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 153</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithGetResponseHeader(key <span class="hljs-constant">string</span>, val *<span class="hljs-constant">string</span>) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2382,16 +2428,16 @@ variable. The passed in headers pointer must be non-nil.</p>
       <pre class="lines">
 
 
+167
+168
 169
 170
 171
 172
-173
-174
-175</pre>
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 169</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 167</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithGetResponseHeaders(headers *http.Header) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2435,14 +2481,14 @@ log level when the request is made.</p>
       <pre class="lines">
 
 
+179
+180
 181
 182
-183
-184
-185</pre>
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 181</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 179</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithLogLevel(l aws.LogLevelType) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2769,7 +2815,7 @@ options already set.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:11 2019 by
+  Generated on Thu Mar 28 13:39:52 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

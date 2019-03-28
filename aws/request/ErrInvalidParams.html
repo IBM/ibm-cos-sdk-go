@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/request"
+import "../../../../../../../../../aws/request"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -397,13 +397,13 @@ this collection.</p>
       <pre class="lines">
 
 
-43
-44
 45
-46</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 43</span>
+      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 45</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (e *ErrInvalidParams) Add(err ErrInvalidParam) {
 	err.SetContext(e.Context)
@@ -444,16 +444,16 @@ updated and base context to reflect the merging.</p>
       <pre class="lines">
 
 
-53
-54
 55
 56
 57
 58
-59</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 53</span>
+      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 55</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (e *ErrInvalidParams) AddNested(nestedCtx <span class="hljs-constant">string</span>, nested ErrInvalidParams) {
 	<span class="hljs-keyword">for</span> _, err := <span class="hljs-keyword">range</span> nested.errs {
@@ -493,12 +493,12 @@ updated and base context to reflect the merging.</p>
       <pre class="lines">
 
 
-67
-68
-69</pre>
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 67</span>
+      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 69</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (e ErrInvalidParams) Code() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> InvalidParameterErrCode
@@ -534,8 +534,6 @@ updated and base context to reflect the merging.</p>
       <pre class="lines">
 
 
-77
-78
 79
 80
 81
@@ -543,10 +541,12 @@ updated and base context to reflect the merging.</p>
 83
 84
 85
-86</pre>
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 77</span>
+      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 79</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (e ErrInvalidParams) Error() <span class="hljs-constant">string</span> {
 	w := &bytes.Buffer{}
@@ -589,12 +589,12 @@ updated and base context to reflect the merging.</p>
       <pre class="lines">
 
 
-62
-63
-64</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 62</span>
+      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 64</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (e ErrInvalidParams) Len() <span class="hljs-constant">int</span> {
 	<span class="hljs-keyword">return</span> len(e.errs)
@@ -630,12 +630,12 @@ updated and base context to reflect the merging.</p>
       <pre class="lines">
 
 
-72
-73
-74</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 72</span>
+      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 74</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (e ErrInvalidParams) Message() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> fmt.Sprintf(<span class="hljs-string">"%d validation error(s) found."</span>, len(e.errs))
@@ -671,13 +671,13 @@ updated and base context to reflect the merging.</p>
       <pre class="lines">
 
 
-89
-90
 91
-92</pre>
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 89</span>
+      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 91</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (e ErrInvalidParams) OrigErr() <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">return</span> awserr.NewBatchError(
@@ -714,17 +714,17 @@ updated and base context to reflect the merging.</p>
       <pre class="lines">
 
 
-95
-96
 97
 98
 99
 100
 101
-102</pre>
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 95</span>
+      <pre class="code"><span class="info file">// File 'aws/request/validation.go', line 97</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (e ErrInvalidParams) OrigErrs() []<span class="hljs-constant">error</span> {
 	errs := make([]<span class="hljs-constant">error</span>, len(e.errs))
@@ -746,7 +746,7 @@ updated and base context to reflect the merging.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:13 2019 by
+  Generated on Thu Mar 28 13:39:53 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

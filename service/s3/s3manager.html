@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
+import "../../../../../../../../../service/s3/s3manager"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -579,7 +579,7 @@ when using Download().</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>UploadInput contains all input for upload requests to Amazon S3.</p>
+    <span class="summary_desc"><div class='inline'><p>UploadInput provides the input parameters for uploading a stream or buffer to an object in an Amazon S3 bucket.</p>
 </div></span>
   
 </li>
@@ -1214,7 +1214,10 @@ when using Download().</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>UploadInput contains all input for upload requests to Amazon S3.</p>
+    <p>UploadInput provides the input parameters for uploading a stream or buffer
+to an object in an Amazon S3 bucket. This type is similar to the s3
+package's PutObjectInput with the exception that the Body member is an
+io.Reader instead of an io.ReadSeeker.</p>
 
 
   </div>
@@ -1227,23 +1230,49 @@ when using Download().</p>
 <dl class="fields">
 
   <dt><code>
-    <strong>Key</strong> *string 
-    <span class="note title readonly">required</span>
-    
-  </code></dt>
-  <dd>
-    
-
-    
-  </dd>
-
-  <dt><code>
     <strong>Bucket</strong> *string 
     <span class="note title readonly">required</span>
     
   </code></dt>
   <dd>
+    <p>Name of the bucket to which the PUT operation was initiated.</p>
+
+<p>Bucket is a required field</p>
+
     
+  </dd>
+
+  <dt><code>
+    <strong>Key</strong> *string 
+    <span class="note title readonly">required</span>
+    
+  </code></dt>
+  <dd>
+    <p>Object key for which the PUT operation was initiated.</p>
+
+<p>Key is a required field</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>Body</strong> io.Reader 
+    
+    
+  </code></dt>
+  <dd>
+    <p>The readable body payload to send to S3.</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>CacheControl</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Specifies caching behavior along the request/reply chain.</p>
 
     
   </dd>
@@ -1289,7 +1318,8 @@ by the Content-Type header field.</p>
     
   </code></dt>
   <dd>
-    <p>The base64-encoded 128-bit MD5 digest of the part data.</p>
+    <p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is
+auto-populated when using the command from the CLI</p>
 
     
   </dd>
@@ -1374,7 +1404,7 @@ by the Content-Type header field.</p>
   <dt><code>
     <strong>RequestPayer</strong> *string 
     
-    
+    <span class="note title enum">enum</span>
   </code></dt>
   <dd>
     <p>Confirms that the requester knows that she or he will be charged for the
@@ -1382,7 +1412,15 @@ request. Bucket owners need not specify this parameter in their requests.
 Documentation on downloading objects from requester pays buckets can be found
 at <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a></p>
 
-    
+    <div class="tags">
+<p class="tag_title">Enum Values:</p>
+<dl class="enums">
+
+
+  <dt><em>(no defined enumerable values)</em></dt>
+
+</dl>
+</div>
   </dd>
 
   <dt><code>
@@ -1391,8 +1429,7 @@ at <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPay
     
   </code></dt>
   <dd>
-    <p>Specifies the algorithm to use to when encrypting the object (e.g., AES256,
-aws:kms).</p>
+    <p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>
 
     
   </dd>
@@ -1442,24 +1479,40 @@ AWS SDKs and CLI can be found at <a href="http://docs.aws.amazon.com/AmazonS3/la
   <dt><code>
     <strong>ServerSideEncryption</strong> *string 
     
-    
+    <span class="note title enum">enum</span>
   </code></dt>
   <dd>
     <p>The Server-side encryption algorithm used when storing this object in S3
 (e.g., AES256, aws:kms).</p>
 
-    
+    <div class="tags">
+<p class="tag_title">Enum Values:</p>
+<dl class="enums">
+
+
+  <dt><em>(no defined enumerable values)</em></dt>
+
+</dl>
+</div>
   </dd>
 
   <dt><code>
     <strong>StorageClass</strong> *string 
     
-    
+    <span class="note title enum">enum</span>
   </code></dt>
   <dd>
     <p>The type of storage to use for the object. Defaults to 'STANDARD'.</p>
 
-    
+    <div class="tags">
+<p class="tag_title">Enum Values:</p>
+<dl class="enums">
+
+
+  <dt><em>(no defined enumerable values)</em></dt>
+
+</dl>
+</div>
   </dd>
 
   <dt><code>
@@ -1468,7 +1521,19 @@ AWS SDKs and CLI can be found at <a href="http://docs.aws.amazon.com/AmazonS3/la
     
   </code></dt>
   <dd>
-    <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters</p>
+    <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters.
+(For example, "Key1=Value1")</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
 
     
   </dd>
@@ -1489,34 +1554,20 @@ the value of this header in the object metadata.</p>
   <dt><code>
     <strong>ACL</strong> *string 
     
-    
+    <span class="note title enum">enum</span>
   </code></dt>
   <dd>
     <p>The canned ACL to apply to the object.</p>
 
-    
-  </dd>
+    <div class="tags">
+<p class="tag_title">Enum Values:</p>
+<dl class="enums">
 
-  <dt><code>
-    <strong>Body</strong> io.Reader 
-    
-    
-  </code></dt>
-  <dd>
-    <p>The readable body payload to send to S3.</p>
 
-    
-  </dd>
+  <dt><em>(no defined enumerable values)</em></dt>
 
-  <dt><code>
-    <strong>CacheControl</strong> *string 
-    
-    
-  </code></dt>
-  <dd>
-    <p>Specifies caching behavior along the request/reply chain.</p>
-
-    
+</dl>
+</div>
   </dd>
 
 
@@ -2464,7 +2515,7 @@ uploader := s3manager.NewUploaderWithClient(s3Svc, <span class="hljs-keyword">fu
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:12 2019 by
+  Generated on Thu Mar 28 13:39:53 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

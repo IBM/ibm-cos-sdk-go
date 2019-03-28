@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/s3"
+import "../../../../../../../../../service/s3"
 </div>
 
 
@@ -320,12 +320,12 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4732
-4733
-4734</pre>
+4759
+4760
+4761</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4732</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4759</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetBucketLocationInput (struct)">GetBucketLocationInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetBucketLocationInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -361,13 +361,13 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4750
-4751
-4752
-4753</pre>
+4780
+4781
+4782
+4783</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4750</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4780</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketLocationInput (struct)">GetBucketLocationInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetBucketLocationInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetBucketLocationInput (struct)">GetBucketLocationInput</a></span> {
 	s.Bucket = &v
@@ -404,12 +404,12 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4727
-4728
-4729</pre>
+4754
+4755
+4756</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4727</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4754</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetBucketLocationInput (struct)">GetBucketLocationInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetBucketLocationInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -445,25 +445,31 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4737
-4738
-4739
-4740
-4741
-4742
-4743
-4744
-4745
-4746
-4747</pre>
+4764
+4765
+4766
+4767
+4768
+4769
+4770
+4771
+4772
+4773
+4774
+4775
+4776
+4777</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4737</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4764</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketLocationInput (struct)">GetBucketLocationInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.GetBucketLocationInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.GetBucketLocationInput (struct)">GetBucketLocationInput</a></span>"</span>}
 	<span class="hljs-keyword">if</span> s.Bucket == <span class="hljs-constant">nil</span> {
 		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#Bucket-field" title="s3.GetBucketLocationInput.Bucket (field)">Bucket</a></span>"</span>))
+	}
+	<span class="hljs-keyword">if</span> s.Bucket != <span class="hljs-constant">nil</span> && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen(<span class="hljs-string">"<span class='object_link'><a href="#Bucket-field" title="s3.GetBucketLocationInput.Bucket (field)">Bucket</a></span>"</span>, 1))
 	}
 
 	<span class="hljs-keyword">if</span> invalidParams.Len() > 0 {
@@ -483,7 +489,7 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:18 2019 by
+  Generated on Thu Mar 28 13:39:56 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

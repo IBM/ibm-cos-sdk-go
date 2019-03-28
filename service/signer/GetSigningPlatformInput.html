@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/signer"
+import "../../../../../../../../../service/signer"
 </div>
 
 
@@ -322,12 +322,12 @@ import "github.com/IBM/ibm-cos-sdk-go/service/signer"
       <pre class="lines">
 
 
-1322
-1323
-1324</pre>
+1324
+1325
+1326</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1322</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1324</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="signer.GetSigningPlatformInput (struct)">GetSigningPlatformInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="signer.GetSigningPlatformInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -363,13 +363,13 @@ import "github.com/IBM/ibm-cos-sdk-go/service/signer"
       <pre class="lines">
 
 
-1340
-1341
-1342
-1343</pre>
+1345
+1346
+1347
+1348</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1340</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1345</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="signer.GetSigningPlatformInput (struct)">GetSigningPlatformInput</a></span>) <span class='object_link'><a href="#SetPlatformId-instance_method" title="signer.GetSigningPlatformInput.SetPlatformId() (method)">SetPlatformId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="signer.GetSigningPlatformInput (struct)">GetSigningPlatformInput</a></span> {
 	s.PlatformId = &v
@@ -406,12 +406,12 @@ import "github.com/IBM/ibm-cos-sdk-go/service/signer"
       <pre class="lines">
 
 
-1317
-1318
-1319</pre>
+1319
+1320
+1321</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1317</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1319</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="signer.GetSigningPlatformInput (struct)">GetSigningPlatformInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="signer.GetSigningPlatformInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -447,8 +447,6 @@ import "github.com/IBM/ibm-cos-sdk-go/service/signer"
       <pre class="lines">
 
 
-1327
-1328
 1329
 1330
 1331
@@ -457,15 +455,23 @@ import "github.com/IBM/ibm-cos-sdk-go/service/signer"
 1334
 1335
 1336
-1337</pre>
+1337
+1338
+1339
+1340
+1341
+1342</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1327</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1329</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="signer.GetSigningPlatformInput (struct)">GetSigningPlatformInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="signer.GetSigningPlatformInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="signer.GetSigningPlatformInput (struct)">GetSigningPlatformInput</a></span>"</span>}
 	<span class="hljs-keyword">if</span> s.PlatformId == <span class="hljs-constant">nil</span> {
 		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#PlatformId-field" title="signer.GetSigningPlatformInput.PlatformId (field)">PlatformId</a></span>"</span>))
+	}
+	<span class="hljs-keyword">if</span> s.PlatformId != <span class="hljs-constant">nil</span> && len(*s.PlatformId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen(<span class="hljs-string">"<span class='object_link'><a href="#PlatformId-field" title="signer.GetSigningPlatformInput.PlatformId (field)">PlatformId</a></span>"</span>, 1))
 	}
 
 	<span class="hljs-keyword">if</span> invalidParams.Len() > 0 {
@@ -485,7 +491,7 @@ import "github.com/IBM/ibm-cos-sdk-go/service/signer"
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:29 2019 by
+  Generated on Thu Mar 28 13:40:02 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

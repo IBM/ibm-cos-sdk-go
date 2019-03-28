@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/s3"
+import "../../../../../../../../../service/s3"
 </div>
 
 
@@ -320,12 +320,12 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4189
-4190
-4191</pre>
+4201
+4202
+4203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4189</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4201</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteBucketInput (struct)">DeleteBucketInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.DeleteBucketInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -361,13 +361,13 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4207
-4208
-4209
-4210</pre>
+4222
+4223
+4224
+4225</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4207</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4222</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteBucketInput (struct)">DeleteBucketInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.DeleteBucketInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteBucketInput (struct)">DeleteBucketInput</a></span> {
 	s.Bucket = &v
@@ -404,12 +404,12 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4184
-4185
-4186</pre>
+4196
+4197
+4198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4184</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4196</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteBucketInput (struct)">DeleteBucketInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.DeleteBucketInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -445,25 +445,31 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4194
-4195
-4196
-4197
-4198
-4199
-4200
-4201
-4202
-4203
-4204</pre>
+4206
+4207
+4208
+4209
+4210
+4211
+4212
+4213
+4214
+4215
+4216
+4217
+4218
+4219</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4194</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4206</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteBucketInput (struct)">DeleteBucketInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.DeleteBucketInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.DeleteBucketInput (struct)">DeleteBucketInput</a></span>"</span>}
 	<span class="hljs-keyword">if</span> s.Bucket == <span class="hljs-constant">nil</span> {
 		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#Bucket-field" title="s3.DeleteBucketInput.Bucket (field)">Bucket</a></span>"</span>))
+	}
+	<span class="hljs-keyword">if</span> s.Bucket != <span class="hljs-constant">nil</span> && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen(<span class="hljs-string">"<span class='object_link'><a href="#Bucket-field" title="s3.DeleteBucketInput.Bucket (field)">Bucket</a></span>"</span>, 1))
 	}
 
 	<span class="hljs-keyword">if</span> invalidParams.Len() > 0 {
@@ -483,7 +489,7 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:17 2019 by
+  Generated on Thu Mar 28 13:39:56 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

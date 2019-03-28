@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/ec2metadata"
+import "../../../../../../../../../aws/ec2metadata"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -81,7 +81,7 @@ EC2 Metadata service.</p>
 <p>This package's client can be disabled completely by setting the environment
 variable "AWS_EC2_METADATA_DISABLED=true". This environment variable set to
 true instructs the SDK to disable the EC2 Metadata client. The client cannot
-be used while the environemnt variable is set to true, (case insensitive).</p>
+be used while the environment variable is set to true, (case insensitive).</p>
 
 
   </div>
@@ -601,7 +601,10 @@ To disable this set Config.EC2MetadataDisableTimeoutOverride to false. Enabled b
 105
 106
 107
-108</pre>
+108
+109
+110
+111</pre>
     </td>
     <td>
       <pre class="code"><span class="info file">// File 'aws/ec2metadata/service.go', line 57</span>
@@ -643,6 +646,9 @@ To disable this set Config.EC2MetadataDisableTimeoutOverride to false. Enabled b
 		svc.Handlers.Send.SwapNamed(request.NamedHandler{
 			Name: corehandlers.SendHandler.Name,
 			Fn: <span class="hljs-keyword">func</span>(r *request.Request) {
+				r.HTTPResponse = &http.Response{
+					Header: http.Header{},
+				}
 				r.Error = awserr.New(
 					request.CanceledErrorCode,
 					<span class="hljs-string">"EC2 IMDS access disabled via "</span>+disableServiceEnvVar+<span class="hljs-string">" env var"</span>,
@@ -670,7 +676,7 @@ To disable this set Config.EC2MetadataDisableTimeoutOverride to false. Enabled b
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:11 2019 by
+  Generated on Thu Mar 28 13:39:52 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

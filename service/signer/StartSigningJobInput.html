@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/signer"
+import "../../../../../../../../../service/signer"
 </div>
 
 
@@ -409,14 +409,12 @@ import "github.com/IBM/ibm-cos-sdk-go/service/signer"
       <div class="method_details first">
   <h3 class="signature first" id="ClientRequestToken-field">
   <strong>ClientRequestToken</strong> *string 
-  <code>`locationName:"clientRequestToken" type:"string" required:"true" idempotencyToken:"true"`</code>
+  <code>`locationName:"clientRequestToken" type:"string" idempotencyToken:"true"`</code>
 </h3>
 <div class="docstring">
   <div class="discussion">
     <p>String that identifies the signing request. All calls after the first that
 use this token return the same response as the first call.</p>
-
-<p>ClientRequestToken is a required field</p>
 
 
   </div>
@@ -527,12 +525,12 @@ raw code.</p>
       <pre class="lines">
 
 
-2633
-2634
-2635</pre>
+2636
+2637
+2638</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 2633</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 2636</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="signer.StartSigningJobInput (struct)">StartSigningJobInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="signer.StartSigningJobInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -740,12 +738,12 @@ raw code.</p>
       <pre class="lines">
 
 
-2628
-2629
-2630</pre>
+2631
+2632
+2633</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 2628</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 2631</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="signer.StartSigningJobInput (struct)">StartSigningJobInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="signer.StartSigningJobInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -781,9 +779,6 @@ raw code.</p>
       <pre class="lines">
 
 
-2638
-2639
-2640
 2641
 2642
 2643
@@ -808,13 +803,10 @@ raw code.</p>
 2662</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 2638</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 2641</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="signer.StartSigningJobInput (struct)">StartSigningJobInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="signer.StartSigningJobInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="signer.StartSigningJobInput (struct)">StartSigningJobInput</a></span>"</span>}
-	<span class="hljs-keyword">if</span> s.ClientRequestToken == <span class="hljs-constant">nil</span> {
-		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#ClientRequestToken-field" title="signer.StartSigningJobInput.ClientRequestToken (field)">ClientRequestToken</a></span>"</span>))
-	}
 	<span class="hljs-keyword">if</span> s.Destination == <span class="hljs-constant">nil</span> {
 		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#Destination-field" title="signer.StartSigningJobInput.Destination (field)">Destination</a></span>"</span>))
 	}
@@ -847,7 +839,7 @@ raw code.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:30 2019 by
+  Generated on Thu Mar 28 13:40:02 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

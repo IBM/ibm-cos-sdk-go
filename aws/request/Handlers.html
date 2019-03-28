@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/request"
+import "../../../../../../../../../aws/request"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -158,6 +158,30 @@ stages of handling requests.</p>
       
 <li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#Complete-field" title="request.Handlers.Complete (field)"><strong>Complete</strong> HandlerList</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CompleteAttempt-field" title="request.Handlers.CompleteAttempt (field)"><strong>CompleteAttempt</strong> HandlerList</a></span></span>
   
   
   
@@ -490,6 +514,14 @@ stages of handling requests.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="CompleteAttempt-field">
+  <strong>CompleteAttempt</strong> <span class='object_link'><a href="HandlerList.html" title="request.HandlerList (struct)">HandlerList</a></span> 
+  
+</h3>
+
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="Retry-field">
   <strong>Retry</strong> <span class='object_link'><a href="HandlerList.html" title="request.HandlerList (struct)">HandlerList</a></span> 
   
@@ -593,8 +625,6 @@ stages of handling requests.</p>
       <pre class="lines">
 
 
-43
-44
 45
 46
 47
@@ -606,10 +636,13 @@ stages of handling requests.</p>
 53
 54
 55
-56</pre>
+56
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 43</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 45</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (h *Handlers) Clear() {
 	h.Validate.Clear()
@@ -623,6 +656,7 @@ stages of handling requests.</p>
 	h.ValidateResponse.Clear()
 	h.Retry.Clear()
 	h.AfterRetry.Clear()
+	h.CompleteAttempt.Clear()
 	h.Complete.Clear()
 }</div></pre>
     </td>
@@ -656,7 +690,6 @@ stages of handling requests.</p>
       <pre class="lines">
 
 
-25
 26
 27
 28
@@ -671,10 +704,12 @@ stages of handling requests.</p>
 37
 38
 39
-40</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 25</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 26</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (h *Handlers) Copy() Handlers {
 	<span class="hljs-keyword">return</span> Handlers{
@@ -689,6 +724,7 @@ stages of handling requests.</p>
 		UnmarshalMeta:    h.UnmarshalMeta.copy(),
 		Retry:            h.Retry.copy(),
 		AfterRetry:       h.AfterRetry.copy(),
+		CompleteAttempt:  h.CompleteAttempt.copy(),
 		Complete:         h.Complete.copy(),
 	}
 }</div></pre>
@@ -704,7 +740,7 @@ stages of handling requests.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:13 2019 by
+  Generated on Thu Mar 28 13:39:53 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

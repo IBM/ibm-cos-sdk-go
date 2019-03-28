@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/signer"
+import "../../../../../../../../../service/signer"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -844,13 +844,13 @@ An internal error occurred.</p></li>
       <pre class="lines">
 
 
+84
 85
 86
-87
-88</pre>
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 85</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 84</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#CancelSigningProfile-instance_method" title="signer.Signer.CancelSigningProfile() (method)">CancelSigningProfile</a></span>(input *<span class='object_link'><a href="CancelSigningProfileInput.html" title="signer.CancelSigningProfileInput (struct)">CancelSigningProfileInput</a></span>) (*<span class='object_link'><a href="../signer.html#type-CancelSigningProfileOutput" title="signer (package)">CancelSigningProfileOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.CancelSigningProfileRequest(input)
@@ -934,8 +934,7 @@ err := req.Send()
 52
 53
 54
-55
-56</pre>
+55</pre>
     </td>
     <td>
       <pre class="code"><span class="info file">// File 'service/signer/api.go', line 40</span>
@@ -953,8 +952,7 @@ err := req.Send()
 
 	output = &CancelSigningProfileOutput{}
 	req = c.newRequest(op, input, output)
-	req.Handlers.Unmarshal.Remove(restjson.UnmarshalHandler)
-	req.Handlers.Unmarshal.PushBackNamed(protocol.UnmarshalDiscardBodyHandler)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	<span class="hljs-keyword">return</span>
 }</div></pre>
     </td>
@@ -996,15 +994,15 @@ for more information on using Contexts.</p>
       <pre class="lines">
 
 
+98
 99
 100
 101
 102
-103
-104</pre>
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 99</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 98</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#CancelSigningProfileWithContext-instance_method" title="signer.Signer.CancelSigningProfileWithContext() (method)">CancelSigningProfileWithContext</a></span>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="CancelSigningProfileInput.html" title="signer.CancelSigningProfileInput (struct)">CancelSigningProfileInput</a></span>, opts ...request.Option) (*<span class='object_link'><a href="../signer.html#type-CancelSigningProfileOutput" title="signer (package)">CancelSigningProfileOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.CancelSigningProfileRequest(input)
@@ -1067,13 +1065,13 @@ An internal error occurred.</p></li>
       <pre class="lines">
 
 
+170
 171
 172
-173
-174</pre>
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 171</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 170</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#DescribeSigningJob-instance_method" title="signer.Signer.DescribeSigningJob() (method)">DescribeSigningJob</a></span>(input *<span class='object_link'><a href="DescribeSigningJobInput.html" title="signer.DescribeSigningJobInput (struct)">DescribeSigningJobInput</a></span>) (*<span class='object_link'><a href="DescribeSigningJobOutput.html" title="signer.DescribeSigningJobOutput (struct)">DescribeSigningJobOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.DescribeSigningJobRequest(input)
@@ -1142,6 +1140,7 @@ err := req.Send()
       <pre class="lines">
 
 
+131
 132
 133
 134
@@ -1155,11 +1154,10 @@ err := req.Send()
 142
 143
 144
-145
-146</pre>
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 132</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 131</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Signer) DescribeSigningJobRequest(input *DescribeSigningJobInput) (req *request.Request, output *DescribeSigningJobOutput) {
 	op := &request.Operation{
@@ -1215,15 +1213,15 @@ for more information on using Contexts.</p>
       <pre class="lines">
 
 
+184
 185
 186
 187
 188
-189
-190</pre>
+189</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 185</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 184</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#DescribeSigningJobWithContext-instance_method" title="signer.Signer.DescribeSigningJobWithContext() (method)">DescribeSigningJobWithContext</a></span>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="DescribeSigningJobInput.html" title="signer.DescribeSigningJobInput (struct)">DescribeSigningJobInput</a></span>, opts ...request.Option) (*<span class='object_link'><a href="DescribeSigningJobOutput.html" title="signer.DescribeSigningJobOutput (struct)">DescribeSigningJobOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.DescribeSigningJobRequest(input)
@@ -1285,13 +1283,13 @@ An internal error occurred.</p></li>
       <pre class="lines">
 
 
+255
 256
 257
-258
-259</pre>
+258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 256</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 255</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#GetSigningPlatform-instance_method" title="signer.Signer.GetSigningPlatform() (method)">GetSigningPlatform</a></span>(input *<span class='object_link'><a href="GetSigningPlatformInput.html" title="signer.GetSigningPlatformInput (struct)">GetSigningPlatformInput</a></span>) (*<span class='object_link'><a href="GetSigningPlatformOutput.html" title="signer.GetSigningPlatformOutput (struct)">GetSigningPlatformOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.GetSigningPlatformRequest(input)
@@ -1360,6 +1358,7 @@ err := req.Send()
       <pre class="lines">
 
 
+217
 218
 219
 220
@@ -1373,11 +1372,10 @@ err := req.Send()
 228
 229
 230
-231
-232</pre>
+231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 218</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 217</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Signer) GetSigningPlatformRequest(input *GetSigningPlatformInput) (req *request.Request, output *GetSigningPlatformOutput) {
 	op := &request.Operation{
@@ -1433,15 +1431,15 @@ for more information on using Contexts.</p>
       <pre class="lines">
 
 
+269
 270
 271
 272
 273
-274
-275</pre>
+274</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 270</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 269</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#GetSigningPlatformWithContext-instance_method" title="signer.Signer.GetSigningPlatformWithContext() (method)">GetSigningPlatformWithContext</a></span>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="GetSigningPlatformInput.html" title="signer.GetSigningPlatformInput (struct)">GetSigningPlatformInput</a></span>, opts ...request.Option) (*<span class='object_link'><a href="GetSigningPlatformOutput.html" title="signer.GetSigningPlatformOutput (struct)">GetSigningPlatformOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.GetSigningPlatformRequest(input)
@@ -1505,13 +1503,13 @@ An internal error occurred.</p></li>
       <pre class="lines">
 
 
+343
 344
 345
-346
-347</pre>
+346</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 344</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 343</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#GetSigningProfile-instance_method" title="signer.Signer.GetSigningProfile() (method)">GetSigningProfile</a></span>(input *<span class='object_link'><a href="GetSigningProfileInput.html" title="signer.GetSigningProfileInput (struct)">GetSigningProfileInput</a></span>) (*<span class='object_link'><a href="GetSigningProfileOutput.html" title="signer.GetSigningProfileOutput (struct)">GetSigningProfileOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.GetSigningProfileRequest(input)
@@ -1580,6 +1578,7 @@ err := req.Send()
       <pre class="lines">
 
 
+302
 303
 304
 305
@@ -1593,11 +1592,10 @@ err := req.Send()
 313
 314
 315
-316
-317</pre>
+316</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 303</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 302</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Signer) GetSigningProfileRequest(input *GetSigningProfileInput) (req *request.Request, output *GetSigningProfileOutput) {
 	op := &request.Operation{
@@ -1653,15 +1651,15 @@ for more information on using Contexts.</p>
       <pre class="lines">
 
 
+357
 358
 359
 360
 361
-362
-363</pre>
+362</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 358</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 357</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#GetSigningProfileWithContext-instance_method" title="signer.Signer.GetSigningProfileWithContext() (method)">GetSigningProfileWithContext</a></span>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="GetSigningProfileInput.html" title="signer.GetSigningProfileInput (struct)">GetSigningProfileInput</a></span>, opts ...request.Option) (*<span class='object_link'><a href="GetSigningProfileOutput.html" title="signer.GetSigningProfileOutput (struct)">GetSigningProfileOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.GetSigningProfileRequest(input)
@@ -1731,13 +1729,13 @@ An internal error occurred.</p></li>
       <pre class="lines">
 
 
+443
 444
 445
-446
-447</pre>
+446</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 444</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 443</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#ListSigningJobs-instance_method" title="signer.Signer.ListSigningJobs() (method)">ListSigningJobs</a></span>(input *<span class='object_link'><a href="ListSigningJobsInput.html" title="signer.ListSigningJobsInput (struct)">ListSigningJobsInput</a></span>) (*<span class='object_link'><a href="ListSigningJobsOutput.html" title="signer.ListSigningJobsOutput (struct)">ListSigningJobsOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.ListSigningJobsRequest(input)
@@ -1806,12 +1804,12 @@ err := client.ListSigningJobsPages(params, <span class="hljs-keyword">func</span
       <pre class="lines">
 
 
+481
 482
-483
-484</pre>
+483</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 482</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 481</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Signer) ListSigningJobsPages(input *ListSigningJobsInput, fn <span class="hljs-keyword">func</span>(*ListSigningJobsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">return</span> c.ListSigningJobsPagesWithContext(aws.BackgroundContext(), input, fn)
@@ -1853,6 +1851,7 @@ for more information on using Contexts.</p>
       <pre class="lines">
 
 
+492
 493
 494
 495
@@ -1872,11 +1871,10 @@ for more information on using Contexts.</p>
 509
 510
 511
-512
-513</pre>
+512</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 493</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 492</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#ListSigningJobsPagesWithContext-instance_method" title="signer.Signer.ListSigningJobsPagesWithContext() (method)">ListSigningJobsPagesWithContext</a></span>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="ListSigningJobsInput.html" title="signer.ListSigningJobsInput (struct)">ListSigningJobsInput</a></span>, fn <span class="hljs-keyword">func</span>(*<span class='object_link'><a href="ListSigningJobsOutput.html" title="signer.ListSigningJobsOutput (struct)">ListSigningJobsOutput</a></span>, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>, opts ...request.Option) <span class="hljs-constant">error</span> {
 	p := request.Pagination{
@@ -1962,6 +1960,7 @@ err := req.Send()
       <pre class="lines">
 
 
+390
 391
 392
 393
@@ -1981,11 +1980,10 @@ err := req.Send()
 407
 408
 409
-410
-411</pre>
+410</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 391</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 390</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Signer) ListSigningJobsRequest(input *ListSigningJobsInput) (req *request.Request, output *ListSigningJobsOutput) {
 	op := &request.Operation{
@@ -2047,15 +2045,15 @@ for more information on using Contexts.</p>
       <pre class="lines">
 
 
+457
 458
 459
 460
 461
-462
-463</pre>
+462</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 458</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 457</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#ListSigningJobsWithContext-instance_method" title="signer.Signer.ListSigningJobsWithContext() (method)">ListSigningJobsWithContext</a></span>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="ListSigningJobsInput.html" title="signer.ListSigningJobsInput (struct)">ListSigningJobsInput</a></span>, opts ...request.Option) (*<span class='object_link'><a href="ListSigningJobsOutput.html" title="signer.ListSigningJobsOutput (struct)">ListSigningJobsOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.ListSigningJobsRequest(input)
@@ -2124,13 +2122,13 @@ An internal error occurred.</p></li>
       <pre class="lines">
 
 
+592
 593
 594
-595
-596</pre>
+595</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 593</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 592</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#ListSigningPlatforms-instance_method" title="signer.Signer.ListSigningPlatforms() (method)">ListSigningPlatforms</a></span>(input *<span class='object_link'><a href="ListSigningPlatformsInput.html" title="signer.ListSigningPlatformsInput (struct)">ListSigningPlatformsInput</a></span>) (*<span class='object_link'><a href="ListSigningPlatformsOutput.html" title="signer.ListSigningPlatformsOutput (struct)">ListSigningPlatformsOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.ListSigningPlatformsRequest(input)
@@ -2199,12 +2197,12 @@ err := client.ListSigningPlatformsPages(params, <span class="hljs-keyword">func<
       <pre class="lines">
 
 
+630
 631
-632
-633</pre>
+632</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 631</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 630</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Signer) ListSigningPlatformsPages(input *ListSigningPlatformsInput, fn <span class="hljs-keyword">func</span>(*ListSigningPlatformsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">return</span> c.ListSigningPlatformsPagesWithContext(aws.BackgroundContext(), input, fn)
@@ -2246,6 +2244,7 @@ for more information on using Contexts.</p>
       <pre class="lines">
 
 
+641
 642
 643
 644
@@ -2265,11 +2264,10 @@ for more information on using Contexts.</p>
 658
 659
 660
-661
-662</pre>
+661</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 642</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 641</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#ListSigningPlatformsPagesWithContext-instance_method" title="signer.Signer.ListSigningPlatformsPagesWithContext() (method)">ListSigningPlatformsPagesWithContext</a></span>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="ListSigningPlatformsInput.html" title="signer.ListSigningPlatformsInput (struct)">ListSigningPlatformsInput</a></span>, fn <span class="hljs-keyword">func</span>(*<span class='object_link'><a href="ListSigningPlatformsOutput.html" title="signer.ListSigningPlatformsOutput (struct)">ListSigningPlatformsOutput</a></span>, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>, opts ...request.Option) <span class="hljs-constant">error</span> {
 	p := request.Pagination{
@@ -2355,6 +2353,7 @@ err := req.Send()
       <pre class="lines">
 
 
+540
 541
 542
 543
@@ -2374,11 +2373,10 @@ err := req.Send()
 557
 558
 559
-560
-561</pre>
+560</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 541</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 540</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Signer) ListSigningPlatformsRequest(input *ListSigningPlatformsInput) (req *request.Request, output *ListSigningPlatformsOutput) {
 	op := &request.Operation{
@@ -2440,15 +2438,15 @@ for more information on using Contexts.</p>
       <pre class="lines">
 
 
+606
 607
 608
 609
 610
-611
-612</pre>
+611</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 607</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 606</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#ListSigningPlatformsWithContext-instance_method" title="signer.Signer.ListSigningPlatformsWithContext() (method)">ListSigningPlatformsWithContext</a></span>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="ListSigningPlatformsInput.html" title="signer.ListSigningPlatformsInput (struct)">ListSigningPlatformsInput</a></span>, opts ...request.Option) (*<span class='object_link'><a href="ListSigningPlatformsOutput.html" title="signer.ListSigningPlatformsOutput (struct)">ListSigningPlatformsOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.ListSigningPlatformsRequest(input)
@@ -2516,13 +2514,13 @@ An internal error occurred.</p></li>
       <pre class="lines">
 
 
+739
 740
 741
-742
-743</pre>
+742</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 740</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 739</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#ListSigningProfiles-instance_method" title="signer.Signer.ListSigningProfiles() (method)">ListSigningProfiles</a></span>(input *<span class='object_link'><a href="ListSigningProfilesInput.html" title="signer.ListSigningProfilesInput (struct)">ListSigningProfilesInput</a></span>) (*<span class='object_link'><a href="ListSigningProfilesOutput.html" title="signer.ListSigningProfilesOutput (struct)">ListSigningProfilesOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.ListSigningProfilesRequest(input)
@@ -2591,12 +2589,12 @@ err := client.ListSigningProfilesPages(params, <span class="hljs-keyword">func</
       <pre class="lines">
 
 
+777
 778
-779
-780</pre>
+779</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 778</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 777</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Signer) ListSigningProfilesPages(input *ListSigningProfilesInput, fn <span class="hljs-keyword">func</span>(*ListSigningProfilesOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">return</span> c.ListSigningProfilesPagesWithContext(aws.BackgroundContext(), input, fn)
@@ -2638,6 +2636,7 @@ for more information on using Contexts.</p>
       <pre class="lines">
 
 
+788
 789
 790
 791
@@ -2657,11 +2656,10 @@ for more information on using Contexts.</p>
 805
 806
 807
-808
-809</pre>
+808</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 789</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 788</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#ListSigningProfilesPagesWithContext-instance_method" title="signer.Signer.ListSigningProfilesPagesWithContext() (method)">ListSigningProfilesPagesWithContext</a></span>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="ListSigningProfilesInput.html" title="signer.ListSigningProfilesInput (struct)">ListSigningProfilesInput</a></span>, fn <span class="hljs-keyword">func</span>(*<span class='object_link'><a href="ListSigningProfilesOutput.html" title="signer.ListSigningProfilesOutput (struct)">ListSigningProfilesOutput</a></span>, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>, opts ...request.Option) <span class="hljs-constant">error</span> {
 	p := request.Pagination{
@@ -2747,6 +2745,7 @@ err := req.Send()
       <pre class="lines">
 
 
+689
 690
 691
 692
@@ -2766,11 +2765,10 @@ err := req.Send()
 706
 707
 708
-709
-710</pre>
+709</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 690</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 689</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Signer) ListSigningProfilesRequest(input *ListSigningProfilesInput) (req *request.Request, output *ListSigningProfilesOutput) {
 	op := &request.Operation{
@@ -2832,15 +2830,15 @@ for more information on using Contexts.</p>
       <pre class="lines">
 
 
+753
 754
 755
 756
 757
-758
-759</pre>
+758</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 754</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 753</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#ListSigningProfilesWithContext-instance_method" title="signer.Signer.ListSigningProfilesWithContext() (method)">ListSigningProfilesWithContext</a></span>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="ListSigningProfilesInput.html" title="signer.ListSigningProfilesInput (struct)">ListSigningProfilesInput</a></span>, opts ...request.Option) (*<span class='object_link'><a href="ListSigningProfilesOutput.html" title="signer.ListSigningProfilesOutput (struct)">ListSigningProfilesOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.ListSigningProfilesRequest(input)
@@ -2909,13 +2907,13 @@ An internal error occurred.</p></li>
       <pre class="lines">
 
 
+883
 884
 885
-886
-887</pre>
+886</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 884</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 883</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#PutSigningProfile-instance_method" title="signer.Signer.PutSigningProfile() (method)">PutSigningProfile</a></span>(input *<span class='object_link'><a href="PutSigningProfileInput.html" title="signer.PutSigningProfileInput (struct)">PutSigningProfileInput</a></span>) (*<span class='object_link'><a href="PutSigningProfileOutput.html" title="signer.PutSigningProfileOutput (struct)">PutSigningProfileOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.PutSigningProfileRequest(input)
@@ -2984,6 +2982,7 @@ err := req.Send()
       <pre class="lines">
 
 
+836
 837
 838
 839
@@ -2997,11 +2996,10 @@ err := req.Send()
 847
 848
 849
-850
-851</pre>
+850</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 837</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 836</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Signer) PutSigningProfileRequest(input *PutSigningProfileInput) (req *request.Request, output *PutSigningProfileOutput) {
 	op := &request.Operation{
@@ -3057,15 +3055,15 @@ for more information on using Contexts.</p>
       <pre class="lines">
 
 
+897
 898
 899
 900
 901
-902
-903</pre>
+902</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 898</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 897</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#PutSigningProfileWithContext-instance_method" title="signer.Signer.PutSigningProfileWithContext() (method)">PutSigningProfileWithContext</a></span>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="PutSigningProfileInput.html" title="signer.PutSigningProfileInput (struct)">PutSigningProfileInput</a></span>, opts ...request.Option) (*<span class='object_link'><a href="PutSigningProfileOutput.html" title="signer.PutSigningProfileOutput (struct)">PutSigningProfileOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.PutSigningProfileRequest(input)
@@ -3153,13 +3151,13 @@ An internal error occurred.</p></li>
       <pre class="lines">
 
 
+997
 998
 999
-1000
-1001</pre>
+1000</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 998</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 997</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#StartSigningJob-instance_method" title="signer.Signer.StartSigningJob() (method)">StartSigningJob</a></span>(input *<span class='object_link'><a href="StartSigningJobInput.html" title="signer.StartSigningJobInput (struct)">StartSigningJobInput</a></span>) (*<span class='object_link'><a href="StartSigningJobOutput.html" title="signer.StartSigningJobOutput (struct)">StartSigningJobOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.StartSigningJobRequest(input)
@@ -3228,6 +3226,7 @@ err := req.Send()
       <pre class="lines">
 
 
+930
 931
 932
 933
@@ -3241,11 +3240,10 @@ err := req.Send()
 941
 942
 943
-944
-945</pre>
+944</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 931</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 930</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Signer) StartSigningJobRequest(input *StartSigningJobInput) (req *request.Request, output *StartSigningJobOutput) {
 	op := &request.Operation{
@@ -3301,15 +3299,15 @@ for more information on using Contexts.</p>
       <pre class="lines">
 
 
+1011
 1012
 1013
 1014
 1015
-1016
-1017</pre>
+1016</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1012</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1011</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *<span class='object_link'><a href="" title="signer.Signer (struct)">Signer</a></span>) <span class='object_link'><a href="#StartSigningJobWithContext-instance_method" title="signer.Signer.StartSigningJobWithContext() (method)">StartSigningJobWithContext</a></span>(ctx <span class='object_link'><a href="../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="StartSigningJobInput.html" title="signer.StartSigningJobInput (struct)">StartSigningJobInput</a></span>, opts ...request.Option) (*<span class='object_link'><a href="StartSigningJobOutput.html" title="signer.StartSigningJobOutput (struct)">StartSigningJobOutput</a></span>, <span class="hljs-constant">error</span>) {
 	req, out := c.StartSigningJobRequest(input)
@@ -3480,7 +3478,7 @@ for more information on using Contexts.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:28 2019 by
+  Generated on Thu Mar 28 13:40:01 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

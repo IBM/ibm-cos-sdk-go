@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/kms"
+import "../../../../../../../../../service/kms"
 </div>
 
 
@@ -342,7 +342,7 @@ import "github.com/IBM/ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     <p>The encrypted data encryption key. When you use the HTTP API or the AWS CLI,
-the value is Base64-encoded. Otherwise, it is not encoded.</p>
+the value is Base64-encdoded. Otherwise, it is not encoded.</p>
 
 <p>CiphertextBlob is automatically base64 encoded/decoded by the SDK.</p>
 
@@ -377,12 +377,12 @@ and encrypted.</p>
       <div class="method_details ">
   <h3 class="signature " id="Plaintext-field">
   <strong>Plaintext</strong> []byte 
-  <code>`min:"1" type:"blob"`</code>
+  <code>`min:"1" type:"blob" sensitive:"true"`</code>
 </h3>
 <div class="docstring">
   <div class="discussion">
     <p>The data encryption key. When you use the HTTP API or the AWS CLI, the value
-is Base64-encoded. Otherwise, it is not encoded. Use this data key for local
+is Base64-encdoded. Otherwise, it is not encoded. Use this data key for local
 encryption and decryption, then remove it from memory as soon as possible.</p>
 
 <p>Plaintext is automatically base64 encoded/decoded by the SDK.</p>
@@ -436,12 +436,12 @@ encryption and decryption, then remove it from memory as soon as possible.</p>
       <pre class="lines">
 
 
-5710
-5711
-5712</pre>
+7293
+7294
+7295</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 5710</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7293</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GenerateDataKeyOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -477,13 +477,13 @@ encryption and decryption, then remove it from memory as soon as possible.</p>
       <pre class="lines">
 
 
-5715
-5716
-5717
-5718</pre>
+7298
+7299
+7300
+7301</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 5715</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7298</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span>) <span class='object_link'><a href="#SetCiphertextBlob-instance_method" title="kms.GenerateDataKeyOutput.SetCiphertextBlob() (method)">SetCiphertextBlob</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span> {
 	s.CiphertextBlob = v
@@ -520,13 +520,13 @@ encryption and decryption, then remove it from memory as soon as possible.</p>
       <pre class="lines">
 
 
-5721
-5722
-5723
-5724</pre>
+7304
+7305
+7306
+7307</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 5721</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7304</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.GenerateDataKeyOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span> {
 	s.KeyId = &v
@@ -563,13 +563,13 @@ encryption and decryption, then remove it from memory as soon as possible.</p>
       <pre class="lines">
 
 
-5727
-5728
-5729
-5730</pre>
+7310
+7311
+7312
+7313</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 5727</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7310</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span>) <span class='object_link'><a href="#SetPlaintext-instance_method" title="kms.GenerateDataKeyOutput.SetPlaintext() (method)">SetPlaintext</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span> {
 	s.Plaintext = v
@@ -606,12 +606,12 @@ encryption and decryption, then remove it from memory as soon as possible.</p>
       <pre class="lines">
 
 
-5705
-5706
-5707</pre>
+7288
+7289
+7290</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 5705</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7288</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GenerateDataKeyOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -628,7 +628,7 @@ encryption and decryption, then remove it from memory as soon as possible.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:25 2019 by
+  Generated on Thu Mar 28 13:40:00 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

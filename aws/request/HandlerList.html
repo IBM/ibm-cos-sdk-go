@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/request"
+import "../../../../../../../../../aws/request"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -457,12 +457,12 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-102
-103
-104</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 102</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 105</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) Clear() {
 	l.list = l.list[0:0]
@@ -498,12 +498,12 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-107
-108
-109</pre>
+110
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 107</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 110</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) Len() <span class="hljs-constant">int</span> {
 	<span class="hljs-keyword">return</span> len(l.list)
@@ -539,12 +539,12 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-112
-113
-114</pre>
+115
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 112</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 115</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) PushBack(f <span class="hljs-keyword">func</span>(*Request)) {
 	l.PushBackNamed(NamedHandler{<span class="hljs-string">"__anonymous"</span>, f})
@@ -580,15 +580,15 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-117
-118
-119
 120
 121
-122</pre>
+122
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 117</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 120</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) PushBackNamed(n NamedHandler) {
 	<span class="hljs-keyword">if</span> cap(l.list) == 0 {
@@ -627,12 +627,12 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-125
-126
-127</pre>
+128
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 125</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 128</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) PushFront(f <span class="hljs-keyword">func</span>(*Request)) {
 	l.PushFrontNamed(NamedHandler{<span class="hljs-string">"__anonymous"</span>, f})
@@ -668,9 +668,6 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-130
-131
-132
 133
 134
 135
@@ -678,10 +675,13 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/request"
 137
 138
 139
-140</pre>
+140
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 130</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 133</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) PushFrontNamed(n NamedHandler) {
 	<span class="hljs-keyword">if</span> cap(l.list) == len(l.list) {
@@ -725,12 +725,12 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-143
-144
-145</pre>
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 143</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 146</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) Remove(n NamedHandler) {
 	l.RemoveByName(n.Name)
@@ -766,9 +766,6 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-148
-149
-150
 151
 152
 153
@@ -779,10 +776,13 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/request"
 158
 159
 160
-161</pre>
+161
+162
+163
+164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 148</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 151</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) RemoveByName(name <span class="hljs-constant">string</span>) {
 	<span class="hljs-keyword">for</span> i := 0; i < len(l.list); i++ {
@@ -829,9 +829,6 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-210
-211
-212
 213
 214
 215
@@ -839,10 +836,13 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/request"
 217
 218
 219
-220</pre>
+220
+221
+222
+223</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 210</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 213</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) Run(r *Request) {
 	<span class="hljs-keyword">for</span> i, h := <span class="hljs-keyword">range</span> l.list {
@@ -887,14 +887,14 @@ If the handler does not exist the handler will be added to the end of the list.<
       <pre class="lines">
 
 
-194
-195
-196
 197
-198</pre>
+198
+199
+200
+201</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 194</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 197</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) SetBackNamed(n NamedHandler) {
 	<span class="hljs-keyword">if</span> !l.SwapNamed(n) {
@@ -934,14 +934,14 @@ the list.</p>
       <pre class="lines">
 
 
-203
-204
-205
 206
-207</pre>
+207
+208
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 203</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 206</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) SetFrontNamed(n NamedHandler) {
 	<span class="hljs-keyword">if</span> !l.SwapNamed(n) {
@@ -980,9 +980,6 @@ handlers will be swapped in. True is returned if the handlers were swapped.</p>
       <pre class="lines">
 
 
-179
-180
-181
 182
 183
 184
@@ -991,10 +988,13 @@ handlers will be swapped in. True is returned if the handlers were swapped.</p>
 187
 188
 189
-190</pre>
+190
+191
+192
+193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 179</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 182</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) Swap(name <span class="hljs-constant">string</span>, replace NamedHandler) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">var</span> swapped <span class="hljs-constant">bool</span>
@@ -1041,19 +1041,19 @@ returned otherwise.</p>
       <pre class="lines">
 
 
-166
-167
-168
 169
 170
 171
 172
 173
 174
-175</pre>
+175
+176
+177
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 166</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 169</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) SwapNamed(n NamedHandler) (swapped <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">for</span> i := 0; i < len(l.list); i++ {
@@ -1077,7 +1077,7 @@ returned otherwise.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:13 2019 by
+  Generated on Thu Mar 28 13:39:53 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

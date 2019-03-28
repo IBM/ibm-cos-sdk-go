@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/corehandlers"
+import "../../../../../../../../../aws/corehandlers"
 </div>
 
   
@@ -165,9 +165,9 @@ occur when retrying requests that would cause the signature to expire.</p>
 			signedTime = r.LastSignedAt
 		}
 
-		<span class="hljs-comment">// 10 minutes to allow for some clock skew/delays in transmission.</span>
+		<span class="hljs-comment">// 5 minutes to allow for some clock skew/delays in transmission.</span>
 		<span class="hljs-comment">// Would be improved with aws/aws-sdk-go#423</span>
-		<span class="hljs-keyword">if</span> signedTime.Add(10 * time.Minute).After(time.Now()) {
+		<span class="hljs-keyword">if</span> signedTime.Add(5 * time.Minute).After(time.Now()) {
 			<span class="hljs-keyword">return</span>
 		}
 
@@ -460,7 +460,7 @@ Validating parameters only has meaning if done prior to the request being sent.<
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:11 2019 by
+  Generated on Thu Mar 28 13:39:52 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

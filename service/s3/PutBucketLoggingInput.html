@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/s3"
+import "../../../../../../../../../service/s3"
 </div>
 
 
@@ -386,12 +386,12 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-7448
-7449
-7450</pre>
+7508
+7509
+7510</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7448</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7508</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.PutBucketLoggingInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -427,13 +427,13 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-7474
-7475
-7476
-7477</pre>
+7537
+7538
+7539
+7540</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7474</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7537</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.PutBucketLoggingInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span> {
 	s.Bucket = &v
@@ -470,13 +470,13 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-7487
-7488
-7489
-7490</pre>
+7550
+7551
+7552
+7553</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7487</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7550</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>) <span class='object_link'><a href="#SetBucketLoggingStatus-instance_method" title="s3.PutBucketLoggingInput.SetBucketLoggingStatus() (method)">SetBucketLoggingStatus</a></span>(v *<span class='object_link'><a href="#BucketLoggingStatus-field" title="s3.PutBucketLoggingInput.BucketLoggingStatus (field)">BucketLoggingStatus</a></span>) *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span> {
 	s.BucketLoggingStatus = v
@@ -513,12 +513,12 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-7443
-7444
-7445</pre>
+7503
+7504
+7505</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7443</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7503</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.PutBucketLoggingInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -554,33 +554,39 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-7453
-7454
-7455
-7456
-7457
-7458
-7459
-7460
-7461
-7462
-7463
-7464
-7465
-7466
-7467
-7468
-7469
-7470
-7471</pre>
+7513
+7514
+7515
+7516
+7517
+7518
+7519
+7520
+7521
+7522
+7523
+7524
+7525
+7526
+7527
+7528
+7529
+7530
+7531
+7532
+7533
+7534</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7453</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7513</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.PutBucketLoggingInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>"</span>}
 	<span class="hljs-keyword">if</span> s.Bucket == <span class="hljs-constant">nil</span> {
 		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#Bucket-field" title="s3.PutBucketLoggingInput.Bucket (field)">Bucket</a></span>"</span>))
+	}
+	<span class="hljs-keyword">if</span> s.Bucket != <span class="hljs-constant">nil</span> && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen(<span class="hljs-string">"<span class='object_link'><a href="#Bucket-field" title="s3.PutBucketLoggingInput.Bucket (field)">Bucket</a></span>"</span>, 1))
 	}
 	<span class="hljs-keyword">if</span> s.BucketLoggingStatus == <span class="hljs-constant">nil</span> {
 		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#BucketLoggingStatus-field" title="s3.PutBucketLoggingInput.BucketLoggingStatus (field)">BucketLoggingStatus</a></span>"</span>))
@@ -608,7 +614,7 @@ import "github.com/IBM/ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:21 2019 by
+  Generated on Thu Mar 28 13:39:57 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

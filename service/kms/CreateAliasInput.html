@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/kms"
+import "../../../../../../../../../service/kms"
 </div>
 
 
@@ -113,7 +113,7 @@ import "github.com/IBM/ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Specifies the alias name.</p>
+    <span class="summary_desc"><div class='inline'><p>String that contains the display name.</p>
 </div></span>
   
 </li>
@@ -317,9 +317,9 @@ import "github.com/IBM/ibm-cos-sdk-go/service/kms"
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>Specifies the alias name. This value must begin with alias/ followed by the
-alias name, such as alias/ExampleAlias. The alias name cannot begin with
-aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.</p>
+    <p>String that contains the display name. The name must start with the word
+"alias" followed by a forward slash (alias/). Aliases that begin with "alias/AWS"
+are reserved.</p>
 
 <p>AliasName is a required field</p>
 
@@ -405,12 +405,12 @@ be an alias.</p>
       <pre class="lines">
 
 
-4442
-4443
-4444</pre>
+5503
+5504
+5505</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 4442</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 5503</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.CreateAliasInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -446,13 +446,13 @@ be an alias.</p>
       <pre class="lines">
 
 
-4469
-4470
-4471
-4472</pre>
+5530
+5531
+5532
+5533</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 4469</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 5530</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span>) <span class='object_link'><a href="#SetAliasName-instance_method" title="kms.CreateAliasInput.SetAliasName() (method)">SetAliasName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span> {
 	s.AliasName = &v
@@ -489,13 +489,13 @@ be an alias.</p>
       <pre class="lines">
 
 
-4475
-4476
-4477
-4478</pre>
+5536
+5537
+5538
+5539</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 4475</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 5536</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span>) <span class='object_link'><a href="#SetTargetKeyId-instance_method" title="kms.CreateAliasInput.SetTargetKeyId() (method)">SetTargetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span> {
 	s.TargetKeyId = &v
@@ -532,12 +532,12 @@ be an alias.</p>
       <pre class="lines">
 
 
-4437
-4438
-4439</pre>
+5498
+5499
+5500</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 4437</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 5498</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.CreateAliasInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -573,29 +573,29 @@ be an alias.</p>
       <pre class="lines">
 
 
-4447
-4448
-4449
-4450
-4451
-4452
-4453
-4454
-4455
-4456
-4457
-4458
-4459
-4460
-4461
-4462
-4463
-4464
-4465
-4466</pre>
+5508
+5509
+5510
+5511
+5512
+5513
+5514
+5515
+5516
+5517
+5518
+5519
+5520
+5521
+5522
+5523
+5524
+5525
+5526
+5527</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 4447</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 5508</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.CreateAliasInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span>"</span>}
@@ -629,7 +629,7 @@ be an alias.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:24 2019 by
+  Generated on Thu Mar 28 13:39:59 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

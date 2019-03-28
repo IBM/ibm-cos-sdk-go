@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/endpoints"
+import "../../../../../../../../../aws/endpoints"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -272,6 +272,18 @@ sess := session.Must(session.NewSession(&aws.Config{
           <dd>
             <h3>Value:</h3>
             <pre class="code"><div class="hljs"><span class="hljs-string">"eu-central-1"</span>   <span class="hljs-comment">// EU (Frankfurt).</span></div></pre>
+          </dd>
+        
+          <dt id="EuNorth1RegionID-constant" class="">
+          <div class="defn">const <strong>EuNorth1RegionID</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"eu-north-1"</span>     <span class="hljs-comment">// EU (Stockholm).</span></div></pre>
           </dd>
         
           <dt id="EuWest1RegionID-constant" class="">
@@ -1678,6 +1690,30 @@ sess := session.Must(session.NewSession(&aws.Config{
             <pre class="code"><div class="hljs"><span class="hljs-string">"s3"</span>                           <span class="hljs-comment">// S3.</span></div></pre>
           </dd>
         
+          <dt id="S3ControlServiceID-constant" class="">
+          <div class="defn">const <strong>S3ControlServiceID</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"s3-control"</span>                   <span class="hljs-comment">// S3Control.</span></div></pre>
+          </dd>
+        
+          <dt id="SagemakerServiceID-constant" class="">
+          <div class="defn">const <strong>SagemakerServiceID</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"api.sagemaker"</span>                <span class="hljs-comment">// Sagemaker.</span></div></pre>
+          </dd>
+        
           <dt id="SdbServiceID-constant" class="">
           <div class="defn">const <strong>SdbServiceID</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -1892,6 +1928,18 @@ sess := session.Must(session.NewSession(&aws.Config{
           <dd>
             <h3>Value:</h3>
             <pre class="code"><div class="hljs"><span class="hljs-string">"tagging"</span>                      <span class="hljs-comment">// Tagging.</span></div></pre>
+          </dd>
+        
+          <dt id="TransferServiceID-constant" class="">
+          <div class="defn">const <strong>TransferServiceID</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"transfer"</span>                     <span class="hljs-comment">// Transfer.</span></div></pre>
           </dd>
         
           <dt id="TranslateServiceID-constant" class="">
@@ -2990,12 +3038,12 @@ contain a scheme.</p>
       <pre class="lines">
 
 
-2675
-2676
-2677</pre>
+3073
+3074
+3075</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 2675</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 3073</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsCnPartition() Partition {
 	<span class="hljs-keyword">return</span> awscnPartition.Partition()
@@ -3031,12 +3079,12 @@ contain a scheme.</p>
       <pre class="lines">
 
 
-206
-207
-208</pre>
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 206</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 73</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsPartition() Partition {
 	<span class="hljs-keyword">return</span> awsPartition.Partition()
@@ -3072,12 +3120,12 @@ contain a scheme.</p>
       <pre class="lines">
 
 
-3051
-3052
-3053</pre>
+3507
+3508
+3509</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 3051</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 3507</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsUsGovPartition() Partition {
 	<span class="hljs-keyword">return</span> awsusgovPartition.Partition()
@@ -3115,10 +3163,6 @@ the code is unable to be generated, or decoded.</p>
       <pre class="lines">
 
 
-30
-31
-32
-33
 34
 35
 36
@@ -3132,10 +3176,22 @@ the code is unable to be generated, or decoded.</p>
 44
 45
 46
-47</pre>
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/v3model_codegen.go', line 30</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/v3model_codegen.go', line 34</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> CodeGenModel(modelFile io.Reader, outFile io.Writer, optFns ...<span class="hljs-keyword">func</span>(*CodeGenOptions)) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">var</span> opts CodeGenOptions
@@ -3148,8 +3204,16 @@ the code is unable to be generated, or decoded.</p>
 		<span class="hljs-keyword">return</span> err
 	}
 
+	v := <span class="hljs-keyword">struct</span> {
+		Resolver
+		CodeGenOptions
+	}{
+		Resolver:       resolver,
+		CodeGenOptions: opts,
+	}
+
 	tmpl := template.Must(template.New(<span class="hljs-string">"tmpl"</span>).Funcs(funcMap).Parse(v3Tmpl))
-	<span class="hljs-keyword">if</span> err := tmpl.ExecuteTemplate(outFile, <span class="hljs-string">"defaults"</span>, resolver); err != <span class="hljs-constant">nil</span> {
+	<span class="hljs-keyword">if</span> err := tmpl.ExecuteTemplate(outFile, <span class="hljs-string">"defaults"</span>, v); err != <span class="hljs-constant">nil</span> {
 		<span class="hljs-keyword">return</span> fmt.Errorf(<span class="hljs-string">"failed to execute template, %v"</span>, err)
 	}
 
@@ -3290,12 +3354,12 @@ with. The available partitions are: AWS Standard, AWS China, and AWS GovCloud (U
       <pre class="lines">
 
 
-195
-196
-197</pre>
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 195</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 62</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> DefaultPartitions() []Partition {
 	<span class="hljs-keyword">return</span> defaultPartitions.Partitions()
@@ -3334,12 +3398,12 @@ to resolve endpoints for: AWS Standard, AWS China, and AWS GovCloud (US).</p>
       <pre class="lines">
 
 
-184
-185
-186</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 184</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 51</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> DefaultResolver() Resolver {
 	<span class="hljs-keyword">return</span> defaultPartitions
@@ -3768,7 +3832,7 @@ option when resolving endpoints.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:11 2019 by
+  Generated on Thu Mar 28 13:39:52 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

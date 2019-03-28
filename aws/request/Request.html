@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/request"
+import "../../../../../../../../../aws/request"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -1399,14 +1399,14 @@ the were provided.</p>
       <pre class="lines">
 
 
+187
+188
 189
 190
-191
-192
-193</pre>
+191</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 189</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 187</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) ApplyOptions(opts ...Option) {
 	<span class="hljs-keyword">for</span> _, opt := <span class="hljs-keyword">range</span> opts {
@@ -1453,6 +1453,8 @@ which occurred will be returned.</p>
       <pre class="lines">
 
 
+356
+357
 358
 359
 360
@@ -1467,12 +1469,10 @@ which occurred will be returned.</p>
 369
 370
 371
-372
-373
-374</pre>
+372</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 358</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 356</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) Build() <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">if</span> !r.built {
@@ -1523,15 +1523,15 @@ context aws.BackgroundContext will be returned.</p>
       <pre class="lines">
 
 
+195
+196
 197
 198
 199
-200
-201
-202</pre>
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 197</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 195</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) Context() aws.Context {
 	<span class="hljs-keyword">if</span> r.context != <span class="hljs-constant">nil</span> {
@@ -1572,12 +1572,12 @@ set, or is invalid.</p>
       <pre class="lines">
 
 
-245
-246
-247</pre>
+243
+244
+245</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 245</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 243</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) DataFilled() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">return</span> r.Data != <span class="hljs-constant">nil</span> && reflect.ValueOf(r.Data).Elem().IsValid()
@@ -1693,12 +1693,12 @@ input body with a concurrency safe wrapper.</p>
       <pre class="lines">
 
 
-444
-445
-446</pre>
+442
+443
+444</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 444</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 442</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) GetBody() io.ReadSeeker {
 	<span class="hljs-keyword">return</span> r.safeBody
@@ -1786,12 +1786,12 @@ Returns false if the request has no Error set.</p>
       <pre class="lines">
 
 
-158
-159
-160</pre>
+160
+161
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 158</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 160</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) IsErrorExpired() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">return</span> IsErrorExpiredCreds(r.Error)
@@ -1817,12 +1817,12 @@ Returns false if the request has no Error set.</p>
       <pre class="lines">
 
 
-142
-143
-144</pre>
+144
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 142</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 144</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) IsErrorRetryable() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">return</span> IsErrorRetryable(r.Error)
@@ -1861,12 +1861,12 @@ Returns false if the request has no Error set</p>
       <pre class="lines">
 
 
-150
-151
-152</pre>
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 150</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 152</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) IsErrorThrottle() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">return</span> IsErrorThrottle(r.Error)
@@ -1902,12 +1902,12 @@ Returns false if the request has no Error set</p>
       <pre class="lines">
 
 
-306
-307
-308</pre>
+304
+305
+306</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 306</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 304</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) IsPresigned() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">return</span> r.ExpireTime != 0
@@ -2015,12 +2015,12 @@ provided or invalid.</p>
       <pre class="lines">
 
 
-238
-239
-240</pre>
+236
+237
+238</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 238</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 236</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) ParamsFilled() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">return</span> r.Params != <span class="hljs-constant">nil</span> && reflect.ValueOf(r.Params).Elem().IsValid()
@@ -2044,7 +2044,7 @@ provided or invalid.</p>
   <div class="discussion">
     <p>Presign returns the request's signed URL. Error will be returned
 if the signing fails. The expire parameter is only used for presigned Amazon
-S3 API requests. All other AWS services will use a fixed expriation
+S3 API requests. All other AWS services will use a fixed expiration
 time of 15 minutes.</p>
 
 <p>It is invalid to create a presigned URL with a expire duration 0 or less. An
@@ -2062,6 +2062,8 @@ error is returned if expire duration is 0 or less.</p>
       <pre class="lines">
 
 
+272
+273
 274
 275
 276
@@ -2070,12 +2072,10 @@ error is returned if expire duration is 0 or less.</p>
 279
 280
 281
-282
-283
-284</pre>
+282</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 274</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 272</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) Presign(expire time.Duration) (<span class="hljs-constant">string</span>, <span class="hljs-constant">error</span>) {
 	r = r.copy()
@@ -2108,7 +2108,7 @@ error is returned if expire duration is 0 or less.</p>
     <p>PresignRequest behaves just like presign, with the addition of returning a
 set of headers that were signed. The expire parameter is only used for
 presigned Amazon S3 API requests. All other AWS services will use a fixed
-expriation time of 15 minutes.</p>
+expiration time of 15 minutes.</p>
 
 <p>It is invalid to create a presigned URL with a expire duration 0 or less. An
 error is returned if expire duration is 0 or less.</p>
@@ -2132,13 +2132,13 @@ this Request value prior to calling PresignRequest.</p>
       <pre class="lines">
 
 
+298
+299
 300
-301
-302
-303</pre>
+301</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 300</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 298</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) PresignRequest(expire time.Duration) (<span class="hljs-constant">string</span>, http.Header, <span class="hljs-constant">error</span>) {
 	r = r.copy()
@@ -2232,6 +2232,8 @@ reads or getting the connection.</p>
       <pre class="lines">
 
 
+459
+460
 461
 462
 463
@@ -2266,60 +2268,10 @@ reads or getting the connection.</p>
 492
 493
 494
-495
-496
-497
-498
-499
-500
-501
-502
-503
-504
-505
-506
-507
-508
-509
-510
-511
-512
-513
-514
-515
-516
-517
-518
-519
-520
-521
-522
-523
-524
-525
-526
-527
-528
-529
-530
-531
-532
-533
-534
-535
-536
-537
-538
-539
-540
-541
-542
-543
-544
-545</pre>
+495</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 461</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 459</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) Send() <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">defer</span> <span class="hljs-keyword">func</span>() {
@@ -2328,83 +2280,35 @@ reads or getting the connection.</p>
 		r.Handlers.Complete.Run(r)
 	}()
 
-	<span class="hljs-keyword">for</span> {
-		r.AttemptTime = time.Now()
-		<span class="hljs-keyword">if</span> aws.BoolValue(r.Retryable) {
-			<span class="hljs-keyword">if</span> r.Config.LogLevel.Matches(aws.LogDebugWithRequestRetries) {
-				r.Config.Logger.Log(fmt.Sprintf(<span class="hljs-string">"DEBUG: Retrying Request %s/%s, attempt %d"</span>,
-					r.ClientInfo.ServiceName, r.Operation.Name, r.RetryCount))
-			}
-
-			<span class="hljs-comment">// The previous http.Request will have a reference to the r.Body</span>
-			<span class="hljs-comment">// and the HTTP Client's Transport may still be reading from</span>
-			<span class="hljs-comment">// the request's body even though the Client's Do returned.</span>
-			r.HTTPRequest = copyHTTPRequest(r.HTTPRequest, <span class="hljs-constant">nil</span>)
-			r.ResetBody()
-
-			<span class="hljs-comment">// Closing response body to ensure that no response body is leaked</span>
-			<span class="hljs-comment">// between retry attempts.</span>
-			<span class="hljs-keyword">if</span> r.HTTPResponse != <span class="hljs-constant">nil</span> && r.HTTPResponse.Body != <span class="hljs-constant">nil</span> {
-				r.HTTPResponse.Body.Close()
-			}
-		}
-
-		r.Sign()
-		<span class="hljs-keyword">if</span> r.Error != <span class="hljs-constant">nil</span> {
-			<span class="hljs-keyword">return</span> r.Error
-		}
-
-		r.Retryable = <span class="hljs-constant">nil</span>
-
-		r.Handlers.Send.Run(r)
-		<span class="hljs-keyword">if</span> r.Error != <span class="hljs-constant">nil</span> {
-			<span class="hljs-keyword">if</span> !shouldRetryCancel(r) {
-				<span class="hljs-keyword">return</span> r.Error
-			}
-
-			err := r.Error
-			r.Handlers.Retry.Run(r)
-			r.Handlers.AfterRetry.Run(r)
-			<span class="hljs-keyword">if</span> r.Error != <span class="hljs-constant">nil</span> {
-				debugLogReqError(r, <span class="hljs-string">"Send Request"</span>, <span class="hljs-constant">false</span>, err)
-				<span class="hljs-keyword">return</span> r.Error
-			}
-			debugLogReqError(r, <span class="hljs-string">"Send Request"</span>, <span class="hljs-constant">true</span>, err)
-			<span class="hljs-keyword">continue</span>
-		}
-		r.Handlers.UnmarshalMeta.Run(r)
-		r.Handlers.ValidateResponse.Run(r)
-		<span class="hljs-keyword">if</span> r.Error != <span class="hljs-constant">nil</span> {
-			r.Handlers.UnmarshalError.Run(r)
-			err := r.Error
-
-			r.Handlers.Retry.Run(r)
-			r.Handlers.AfterRetry.Run(r)
-			<span class="hljs-keyword">if</span> r.Error != <span class="hljs-constant">nil</span> {
-				debugLogReqError(r, <span class="hljs-string">"Validate Response"</span>, <span class="hljs-constant">false</span>, err)
-				<span class="hljs-keyword">return</span> r.Error
-			}
-			debugLogReqError(r, <span class="hljs-string">"Validate Response"</span>, <span class="hljs-constant">true</span>, err)
-			<span class="hljs-keyword">continue</span>
-		}
-
-		r.Handlers.Unmarshal.Run(r)
-		<span class="hljs-keyword">if</span> r.Error != <span class="hljs-constant">nil</span> {
-			err := r.Error
-			r.Handlers.Retry.Run(r)
-			r.Handlers.AfterRetry.Run(r)
-			<span class="hljs-keyword">if</span> r.Error != <span class="hljs-constant">nil</span> {
-				debugLogReqError(r, <span class="hljs-string">"Unmarshal Response"</span>, <span class="hljs-constant">false</span>, err)
-				<span class="hljs-keyword">return</span> r.Error
-			}
-			debugLogReqError(r, <span class="hljs-string">"Unmarshal Response"</span>, <span class="hljs-constant">true</span>, err)
-			<span class="hljs-keyword">continue</span>
-		}
-
-		<span class="hljs-keyword">break</span>
+	<span class="hljs-keyword">if</span> err := r.Error; err != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> err
 	}
 
-	<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
+	<span class="hljs-keyword">for</span> {
+		r.Error = <span class="hljs-constant">nil</span>
+		r.AttemptTime = time.Now()
+
+		<span class="hljs-keyword">if</span> err := r.Sign(); err != <span class="hljs-constant">nil</span> {
+			debugLogReqError(r, <span class="hljs-string">"Sign Request"</span>, <span class="hljs-constant">false</span>, err)
+			<span class="hljs-keyword">return</span> err
+		}
+
+		<span class="hljs-keyword">if</span> err := r.sendRequest(); err == <span class="hljs-constant">nil</span> {
+			<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
+		} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> !shouldRetryCancel(r.Error) {
+			<span class="hljs-keyword">return</span> err
+		} <span class="hljs-keyword">else</span> {
+			r.Handlers.Retry.Run(r)
+			r.Handlers.AfterRetry.Run(r)
+
+			<span class="hljs-keyword">if</span> r.Error != <span class="hljs-constant">nil</span> || !aws.BoolValue(r.Retryable) {
+				<span class="hljs-keyword">return</span> r.Error
+			}
+
+			r.prepareRetry()
+			<span class="hljs-keyword">continue</span>
+		}
+	}
 }</div></pre>
     </td>
   </tr>
@@ -2438,12 +2342,12 @@ the service API.</p>
       <pre class="lines">
 
 
-251
-252
-253</pre>
+249
+250
+251</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 251</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 249</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) SetBufferBody(buf []byte) {
 	r.SetReaderBody(bytes.NewReader(buf))
@@ -2494,15 +2398,15 @@ may create sub contexts in the future for nested requests such as retries.</p>
       <pre class="lines">
 
 
+218
+219
 220
 221
 222
-223
-224
-225</pre>
+223</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 220</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 218</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) SetContext(ctx aws.Context) {
 	<span class="hljs-keyword">if</span> ctx == <span class="hljs-constant">nil</span> {
@@ -2541,14 +2445,14 @@ may create sub contexts in the future for nested requests such as retries.</p>
       <pre class="lines">
 
 
+259
+260
 261
 262
-263
-264
-265</pre>
+263</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 261</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 259</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) SetReaderBody(reader io.ReadSeeker) {
 	r.Body = reader
@@ -2586,12 +2490,12 @@ may create sub contexts in the future for nested requests such as retries.</p>
       <pre class="lines">
 
 
-256
-257
-258</pre>
+254
+255
+256</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 256</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 254</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) SetStringBody(s <span class="hljs-constant">string</span>) {
 	r.SetReaderBody(strings.NewReader(s))
@@ -2630,6 +2534,8 @@ be executed in the order they were set.</p>
       <pre class="lines">
 
 
+378
+379
 380
 381
 382
@@ -2637,12 +2543,10 @@ be executed in the order they were set.</p>
 384
 385
 386
-387
-388
-389</pre>
+387</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 380</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 378</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) Sign() <span class="hljs-constant">error</span> {
 	r.Build()
@@ -2685,15 +2589,15 @@ be executed in the order they were set.</p>
       <pre class="lines">
 
 
+226
+227
 228
 229
 230
-231
-232
-233</pre>
+231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 228</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 226</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) WillRetry() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> !aws.IsReaderSeekable(r.Body) && r.HTTPRequest.Body != NoBody {
@@ -2713,7 +2617,7 @@ be executed in the order they were set.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:13 2019 by
+  Generated on Thu Mar 28 13:39:53 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/signer/v4"
+import "../../../../../../../../../aws/signer/v4"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -167,27 +167,6 @@ service client request with using the V4 signature.</p>
             <pre class="code"><div class="hljs"><span class='object_link'><a href="../request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{
 	Name: <span class="hljs-string">"<span class='object_link'><a href="#SignRequestHandler-constant" title="aws/signer/v4.SignRequestHandler (constant)">v4.SignRequestHandler</a></span>"</span>, Fn: <span class='object_link'><a href="#SignSDKRequest-class_method" title="v4.SignSDKRequest() (method)">SignSDKRequest</a></span>,
 }</div></pre>
-          </dd>
-        
-          <dt id="SignSDKRequestWithCurrTime-constant" class="">
-          <div class="defn">var <strong>SignSDKRequestWithCurrTime</strong>  = 
-          <span class="note title writeonly">writable</span>
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    <p>SignSDKRequestWithCurrTime exposes the signSDKRequestWithCurrTime without changing the containing file</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs">signSDKRequestWithCurrTime</div></pre>
           </dd>
         
       </dl>
@@ -317,6 +296,30 @@ service client request with using the V4 signature.</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SignSDKRequestWithCurrentTime-class_method" title="v4.SignSDKRequestWithCurrentTime() (method)">func <strong>SignSDKRequestWithCurrentTime</strong>(req *request.Request, curTimeFn func() time.Time, opts ...func(*Signer)) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SignSDKRequestWithCurrentTime will sign the SDK's request using the time function passed in.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#WithUnsignedPayload-class_method" title="v4.WithUnsignedPayload() (method)">func <strong>WithUnsignedPayload</strong>(v4 *Signer) </a></span></span>
   
   
@@ -391,7 +394,7 @@ service client request with using the V4 signature.</p>
 	<span class="hljs-keyword">return</span> request.NamedHandler{
 		Name: name,
 		Fn: <span class="hljs-keyword">func</span>(req *request.Request) {
-			signSDKRequestWithCurrTime(req, time.Now, opts...)
+			SignSDKRequestWithCurrentTime(req, time.Now, opts...)
 		},
 	}
 }</div></pre>
@@ -503,7 +506,142 @@ credentials.AnonymousCredentials the request will not be signed.</p>
       <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 423</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> SignSDKRequest(req *request.Request) {
-	signSDKRequestWithCurrTime(req, time.Now)
+	SignSDKRequestWithCurrentTime(req, time.Now)
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SignSDKRequestWithCurrentTime-class_method">
+  
+    func <strong><span class='object_link'><a href="#SignSDKRequestWithCurrentTime-class_method" title="v4.SignSDKRequestWithCurrentTime() (method)">SignSDKRequestWithCurrentTime</a></span></strong>(req *<span class='object_link'><a href="../request/Request.html" title="request.Request (struct)">request.Request</a></span>, curTimeFn func() time.Time, opts ...func(*<span class='object_link'><a href="v4/Signer.html" title="v4.Signer (struct)">Signer</a></span>)) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SignSDKRequestWithCurrentTime will sign the SDK's request using the time
+function passed in. Behaves the same as SignSDKRequest with the exception
+the request is signed with the value returned by the current time function.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 440</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> SignSDKRequestWithCurrentTime(req *request.Request, curTimeFn <span class="hljs-keyword">func</span>() time.Time, opts ...<span class="hljs-keyword">func</span>(*Signer)) {
+	<span class="hljs-comment">// If the request does not need to be signed ignore the signing of the</span>
+	<span class="hljs-comment">// request if the AnonymousCredentials object is used.</span>
+	<span class="hljs-keyword">if</span> req.Config.Credentials == credentials.AnonymousCredentials {
+		<span class="hljs-keyword">return</span>
+	}
+
+	region := req.ClientInfo.SigningRegion
+	<span class="hljs-keyword">if</span> region == <span class="hljs-string">""</span> {
+		region = aws.StringValue(req.Config.Region)
+	}
+
+	name := req.ClientInfo.SigningName
+	<span class="hljs-keyword">if</span> name == <span class="hljs-string">""</span> {
+		name = req.ClientInfo.ServiceName
+	}
+
+	v4 := NewSigner(req.Config.Credentials, <span class="hljs-keyword">func</span>(v4 *Signer) {
+		v4.Debug = req.Config.LogLevel.Value()
+		v4.Logger = req.Config.Logger
+		v4.DisableHeaderHoisting = req.NotHoist
+		v4.currentTimeFn = curTimeFn
+		<span class="hljs-keyword">if</span> name == <span class="hljs-string">"s3"</span> {
+			<span class="hljs-comment">// S3 service should not have any escaping applied</span>
+			v4.DisableURIPathEscaping = <span class="hljs-constant">true</span>
+		}
+		<span class="hljs-comment">// Prevents setting the HTTPRequest's Body. Since the Body could be</span>
+		<span class="hljs-comment">// wrapped in a custom io.Closer that we do not want to be stompped</span>
+		<span class="hljs-comment">// on top of by the signer.</span>
+		v4.DisableRequestBodyOverwrite = <span class="hljs-constant">true</span>
+	})
+
+	<span class="hljs-keyword">for</span> _, opt := <span class="hljs-keyword">range</span> opts {
+		opt(v4)
+	}
+
+	curTime := curTimeFn()
+	signedHeaders, err := v4.signWithBody(req.HTTPRequest, req.GetBody(),
+		name, region, req.ExpireTime, req.ExpireTime > 0, curTime,
+	)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+		req.Error = err
+		req.SignedHeaderVals = <span class="hljs-constant">nil</span>
+		<span class="hljs-keyword">return</span>
+	}
+
+	req.SignedHeaderVals = signedHeaders
+	req.LastSignedAt = curTime
 }</div></pre>
     </td>
   </tr>
@@ -559,7 +697,7 @@ true of the signer.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:10 2019 by
+  Generated on Thu Mar 28 13:39:52 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>

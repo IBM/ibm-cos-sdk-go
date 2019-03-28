@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/signer"
+import "../../../../../../../../../service/signer"
 </div>
 
 
@@ -322,12 +322,12 @@ import "github.com/IBM/ibm-cos-sdk-go/service/signer"
       <pre class="lines">
 
 
+1088
 1089
-1090
-1091</pre>
+1090</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1089</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1088</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="signer.DescribeSigningJobInput (struct)">DescribeSigningJobInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="signer.DescribeSigningJobInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -363,13 +363,13 @@ import "github.com/IBM/ibm-cos-sdk-go/service/signer"
       <pre class="lines">
 
 
-1107
-1108
 1109
-1110</pre>
+1110
+1111
+1112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1107</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1109</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="signer.DescribeSigningJobInput (struct)">DescribeSigningJobInput</a></span>) <span class='object_link'><a href="#SetJobId-instance_method" title="signer.DescribeSigningJobInput.SetJobId() (method)">SetJobId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="signer.DescribeSigningJobInput (struct)">DescribeSigningJobInput</a></span> {
 	s.JobId = &v
@@ -406,12 +406,12 @@ import "github.com/IBM/ibm-cos-sdk-go/service/signer"
       <pre class="lines">
 
 
+1083
 1084
-1085
-1086</pre>
+1085</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1084</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1083</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="signer.DescribeSigningJobInput (struct)">DescribeSigningJobInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="signer.DescribeSigningJobInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -447,6 +447,7 @@ import "github.com/IBM/ibm-cos-sdk-go/service/signer"
       <pre class="lines">
 
 
+1093
 1094
 1095
 1096
@@ -457,15 +458,20 @@ import "github.com/IBM/ibm-cos-sdk-go/service/signer"
 1101
 1102
 1103
-1104</pre>
+1104
+1105
+1106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1094</span>
+      <pre class="code"><span class="info file">// File 'service/signer/api.go', line 1093</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="signer.DescribeSigningJobInput (struct)">DescribeSigningJobInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="signer.DescribeSigningJobInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="signer.DescribeSigningJobInput (struct)">DescribeSigningJobInput</a></span>"</span>}
 	<span class="hljs-keyword">if</span> s.JobId == <span class="hljs-constant">nil</span> {
 		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#JobId-field" title="signer.DescribeSigningJobInput.JobId (field)">JobId</a></span>"</span>))
+	}
+	<span class="hljs-keyword">if</span> s.JobId != <span class="hljs-constant">nil</span> && len(*s.JobId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen(<span class="hljs-string">"<span class='object_link'><a href="#JobId-field" title="signer.DescribeSigningJobInput.JobId (field)">JobId</a></span>"</span>, 1))
 	}
 
 	<span class="hljs-keyword">if</span> invalidParams.Len() > 0 {
@@ -485,7 +491,7 @@ import "github.com/IBM/ibm-cos-sdk-go/service/signer"
       </div>
 
       <div id="footer">
-  Generated on Fri Feb 22 10:35:28 2019 by
+  Generated on Thu Mar 28 13:40:02 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>
