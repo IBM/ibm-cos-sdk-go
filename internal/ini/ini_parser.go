@@ -37,7 +37,7 @@ const (
 
 // parseTable is a state machine to dictate the grammar above.
 var parseTable = map[ASTKind]map[TokenType]int{
-	ASTKindStart: map[TokenType]int{
+	ASTKindStart: {
 		TokenLit:     StatementState,
 		TokenSep:     OpenScopeState,
 		TokenWS:      SkipTokenState,
@@ -45,7 +45,7 @@ var parseTable = map[ASTKind]map[TokenType]int{
 		TokenComment: CommentState,
 		TokenNone:    TerminalState,
 	},
-	ASTKindCommentStatement: map[TokenType]int{
+	ASTKindCommentStatement: {
 		TokenLit:     StatementState,
 		TokenSep:     OpenScopeState,
 		TokenWS:      SkipTokenState,
@@ -53,7 +53,7 @@ var parseTable = map[ASTKind]map[TokenType]int{
 		TokenComment: CommentState,
 		TokenNone:    MarkCompleteState,
 	},
-	ASTKindExpr: map[TokenType]int{
+	ASTKindExpr: {
 		TokenOp:      StatementPrimeState,
 		TokenLit:     ValueState,
 		TokenSep:     OpenScopeState,
@@ -62,12 +62,12 @@ var parseTable = map[ASTKind]map[TokenType]int{
 		TokenComment: CommentState,
 		TokenNone:    MarkCompleteState,
 	},
-	ASTKindEqualExpr: map[TokenType]int{
+	ASTKindEqualExpr: {
 		TokenLit: ValueState,
 		TokenWS:  SkipTokenState,
 		TokenNL:  SkipState,
 	},
-	ASTKindStatement: map[TokenType]int{
+	ASTKindStatement: {
 		TokenLit:     SectionState,
 		TokenSep:     CloseScopeState,
 		TokenWS:      SkipTokenState,
@@ -75,7 +75,7 @@ var parseTable = map[ASTKind]map[TokenType]int{
 		TokenComment: CommentState,
 		TokenNone:    MarkCompleteState,
 	},
-	ASTKindExprStatement: map[TokenType]int{
+	ASTKindExprStatement: {
 		TokenLit:     ValueState,
 		TokenSep:     OpenScopeState,
 		TokenOp:      ValueState,
@@ -85,14 +85,14 @@ var parseTable = map[ASTKind]map[TokenType]int{
 		TokenNone:    TerminalState,
 		TokenComma:   SkipState,
 	},
-	ASTKindSectionStatement: map[TokenType]int{
+	ASTKindSectionStatement: {
 		TokenLit: SectionState,
 		TokenOp:  SectionState,
 		TokenSep: CloseScopeState,
 		TokenWS:  SectionState,
 		TokenNL:  SkipTokenState,
 	},
-	ASTKindCompletedSectionStatement: map[TokenType]int{
+	ASTKindCompletedSectionStatement: {
 		TokenWS:      SkipTokenState,
 		TokenNL:      SkipTokenState,
 		TokenLit:     StatementState,
@@ -100,7 +100,7 @@ var parseTable = map[ASTKind]map[TokenType]int{
 		TokenComment: CommentState,
 		TokenNone:    MarkCompleteState,
 	},
-	ASTKindSkipStatement: map[TokenType]int{
+	ASTKindSkipStatement: {
 		TokenLit:     StatementState,
 		TokenSep:     OpenScopeState,
 		TokenWS:      SkipTokenState,
@@ -317,7 +317,7 @@ loop:
 		return nil, NewParseError(fmt.Sprintf("incomplete expression: %v", stack.container))
 	}
 
-	// returns a sublist which exludes the start symbol
+	// returns a sublist which excludes the start symbol
 	return stack.List(), nil
 }
 
@@ -335,13 +335,12 @@ func trimSpaces(k AST) AST {
 	}
 
 	// trim right hand side of spaces
-	for i := len(k.Root.raw) - 1; i > 0; i-- {
+	for i := len(k.Root.raw) - 1; i >= 0; i-- {
 		if !isWhitespace(k.Root.raw[i]) {
 			break
 		}
 
 		k.Root.raw = k.Root.raw[:len(k.Root.raw)-1]
-		i--
 	}
 
 	return k

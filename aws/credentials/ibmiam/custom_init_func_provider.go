@@ -32,9 +32,9 @@ func NewCustomInitFuncProvider(config *aws.Config, initFunc func() (*token.Token
 	logLevel := aws.LogLevel(aws.LogOff)
 	if config != nil && config.LogLevel != nil && config.Logger != nil {
 		logLevel = config.LogLevel
+		provider.logger = config.Logger
 	}
 	provider.logLevel = logLevel
-	provider.logger = config.Logger
 
 	provider.serviceInstanceID = serviceInstanceID
 

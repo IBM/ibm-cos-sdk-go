@@ -1,9 +1,8 @@
 package request_test
 
 import (
+	"reflect"
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/aws/request"
@@ -32,8 +31,12 @@ func TestSkipPagination(t *testing.T) {
 		}
 		return true
 	})
-	assert.Equal(t, 1, numPages)
-	assert.True(t, gotToEnd)
+	if e, a := 1, numPages; e != a {
+		t.Errorf("expect %v, got %v", e, a)
+	}
+	if !gotToEnd {
+		t.Errorf("expect true")
+	}
 }
 
 // Use S3 for simplicity
@@ -65,8 +68,12 @@ func TestPaginationTruncation(t *testing.T) {
 		return true
 	})
 
-	assert.Equal(t, []string{"Key1", "Key2", "Key3"}, results)
-	assert.Nil(t, err)
+	if e, a := []string{"Key1", "Key2", "Key3"}, results; !reflect.DeepEqual(e, a) {
+		t.Errorf("expect %v, got %v", e, a)
+	}
+	if err != nil {
+		t.Errorf("expect nil, %v", err)
+	}
 
 	// Try again without truncation token at all
 	reqNum = 0
@@ -78,8 +85,12 @@ func TestPaginationTruncation(t *testing.T) {
 		return true
 	})
 
-	assert.Equal(t, []string{"Key1", "Key2"}, results)
-	assert.Nil(t, err)
+	if e, a := []string{"Key1", "Key2"}, results; !reflect.DeepEqual(e, a) {
+		t.Errorf("expect %v, got %v", e, a)
+	}
+	if err != nil {
+		t.Errorf("expect nil, %v", err)
+	}
 }
 
 func TestPaginationNilInput(t *testing.T) {

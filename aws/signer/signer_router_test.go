@@ -43,19 +43,19 @@ func getMockRouter() request.NamedHandler {
 
 	realValue := DefaultSignerHandlerForProviderType
 	DefaultSignerHandlerForProviderType = map[string]request.NamedHandler{
-		"1": request.NamedHandler{
+		"1": {
 			Name: "Sgn1",
 			Fn: func(i *request.Request) {
 				i.HTTPRequest.Header.Add("Signer", "sg1")
 			},
 		},
-		"2": request.NamedHandler{
+		"2": {
 			Name: "Sgn1",
 			Fn: func(i *request.Request) {
 				i.HTTPRequest.Header.Add("Signer", "sg2")
 			},
 		},
-		"3": request.NamedHandler{
+		"3": {
 			Name: "Sgn1",
 			Fn: func(i *request.Request) {
 				i.HTTPRequest.Header.Add("Signer", "sg3")

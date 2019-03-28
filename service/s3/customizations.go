@@ -32,8 +32,10 @@ func defaultInitRequestFn(r *request.Request) {
 
 	switch r.Operation.Name {
 	case opPutBucketCors, opDeleteObjects:
-		// 	opPutBucketTagging, opPutBucketLifeCycle, opPutBucketLifecycleConfiguration,
-		// 	opPutBucketReplication, opPutBucketPolicy:
+		//opPutBucketLifecycle, opPutBucketPolicy,
+		//opPutBucketTagging,  opPutBucketLifecycleConfiguration,
+		//opPutObjectLegalHold, opPutObjectRetention, opPutObjectLockConfiguration,
+		//opPutBucketReplication:
 		// These S3 operations require Content-MD5 to be set
 		r.Handlers.Build.PushBack(contentMD5)
 	case opGetBucketLocation:

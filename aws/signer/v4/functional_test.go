@@ -8,6 +8,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/IBM/ibm-cos-sdk-go/aws/request"
+	"github.com/IBM/ibm-cos-sdk-go/aws/signer"
+
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/aws/signer/v4"
 	"github.com/IBM/ibm-cos-sdk-go/awstesting/unit"
@@ -30,15 +33,24 @@ var standaloneSignCases = []struct {
 	},
 }
 
+func epochTime() time.Time { return time.Unix(0, 0) }
+
 func TestPresignHandler(t *testing.T) {
 	svc := s3.New(unit.Session)
+	svc.Handlers.Sign.SwapNamed(request.NamedHandler{
+		Name: signer.SignRequestHandler.Name,
+		Fn: func(r *request.Request) {
+			v4.SignSDKRequestWithCurrentTime(r, epochTime)
+		},
+	})
+
 	req, _ := svc.PutObjectRequest(&s3.PutObjectInput{
 		Bucket:             aws.String("bucket"),
 		Key:                aws.String("key"),
 		ContentDisposition: aws.String("a+b c$d"),
 		ACL:                aws.String("public-read"),
 	})
-	req.Time = time.Unix(0, 0)
+	req.Time = epochTime()
 	urlstr, err := req.Presign(5 * time.Minute)
 
 	if err != nil {
@@ -82,13 +94,20 @@ func TestPresignHandler(t *testing.T) {
 
 func TestPresignRequest(t *testing.T) {
 	svc := s3.New(unit.Session)
+	svc.Handlers.Sign.SwapNamed(request.NamedHandler{
+		Name: signer.SignRequestHandler.Name,
+		Fn: func(r *request.Request) {
+			v4.SignSDKRequestWithCurrentTime(r, epochTime)
+		},
+	})
+
 	req, _ := svc.PutObjectRequest(&s3.PutObjectInput{
 		Bucket:             aws.String("bucket"),
 		Key:                aws.String("key"),
 		ContentDisposition: aws.String("a+b c$d"),
 		ACL:                aws.String("public-read"),
 	})
-	req.Time = time.Unix(0, 0)
+	req.Time = epochTime()
 	urlstr, headers, err := req.PresignRequest(5 * time.Minute)
 
 	if err != nil {
@@ -154,7 +173,7 @@ func TestStandaloneSign_CustomURIEscape(t *testing.T) {
 	req.URL.Path = `/log-*/_search`
 	req.URL.Opaque = "//subdomain.us-east-1.es.amazonaws.com/log-%2A/_search"
 
-	_, err = signer.Sign(req, nil, "es", "us-east-1", time.Unix(0, 0))
+	_, err = signer.Sign(req, nil, "es", "us-east-1", epochTime())
 	if err != nil {
 		t.Fatalf("expect no error, got %v", err)
 	}
@@ -197,7 +216,7 @@ func TestStandaloneSign_WithPort(t *testing.T) {
 	for _, c := range cases {
 		signer := v4.NewSigner(unit.Session.Config.Credentials)
 		req, _ := http.NewRequest("GET", c.url, nil)
-		_, err := signer.Sign(req, nil, "es", "us-east-1", time.Unix(0, 0))
+		_, err := signer.Sign(req, nil, "es", "us-east-1", epochTime())
 		if err != nil {
 			t.Fatalf("expect no error, got %v", err)
 		}
@@ -241,7 +260,7 @@ func TestStandalonePresign_WithPort(t *testing.T) {
 	for _, c := range cases {
 		signer := v4.NewSigner(unit.Session.Config.Credentials)
 		req, _ := http.NewRequest("GET", c.url, nil)
-		_, err := signer.Presign(req, nil, "es", "us-east-1", 5*time.Minute, time.Unix(0, 0))
+		_, err := signer.Presign(req, nil, "es", "us-east-1", 5*time.Minute, epochTime())
 		if err != nil {
 			t.Fatalf("expect no error, got %v", err)
 		}

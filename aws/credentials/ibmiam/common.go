@@ -63,9 +63,10 @@ func NewProvider(providerName string, config *aws.Config, apiKey, authEndPoint, 
 	logLevel := aws.LogLevel(aws.LogOff)
 	if config != nil && config.LogLevel != nil && config.Logger != nil {
 		logLevel = config.LogLevel
+		provider.logger = config.Logger
 	}
 	provider.logLevel = logLevel
-	provider.logger = config.Logger
+
 
 	if apiKey == "" {
 		provider.ErrorStatus = awserr.New("IbmApiKeyIdNotFound", "IBM API Key Id not found", nil)

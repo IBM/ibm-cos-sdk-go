@@ -54,7 +54,7 @@ func CustomRequestSignerRouter(opts ...func(*v4.Signer)) request.NamedHandler {
 	customV4Handler := request.NamedHandler{
 		Name: v4.SignRequestHandler.Name,
 		Fn: func(req *request.Request) {
-			v4.SignSDKRequestWithCurrTime(req, time.Now, opts...)
+			v4.SignSDKRequestWithCurrentTime(req, time.Now, opts...)
 		},
 	}
 
