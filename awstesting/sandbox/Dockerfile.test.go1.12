@@ -1,5 +1,5 @@
 FROM ubuntu:12.04
-FROM golang:1.9
+FROM golang:1.12
 
 ADD . /go/src/github.com/IBM/ibm-cos-sdk-go
 
@@ -8,4 +8,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	&& rm -rf /var/list/apt/lists/*
 
 WORKDIR /go/src/github.com/IBM/ibm-cos-sdk-go
-CMD ["make", "get-deps-tests", "unit-old-go-race-cover"]
+CMD ["make", "get-deps", "unit"]

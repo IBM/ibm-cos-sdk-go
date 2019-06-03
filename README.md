@@ -1,13 +1,13 @@
 # IBM Cloud Object Storage - Go SDK
 
 This package allows Go developers to write software that interacts with [IBM
-Cloud Object Storage](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage#about-ibm-cloud-object-storage).  It is a fork of the [``AWS SDK for Go``](https://github.com/aws/aws-sdk-go) library and can stand as a drop-in replacement if the application needs to connect to object storage using an S3-like API and does not make use of other AWS services.
+Cloud Object Storage](https://www.ibm.com/cloud/object-storage).  It is a fork of the [``AWS SDK for Go``](https://github.com/aws/aws-sdk-go) library and can stand as a drop-in replacement if the application needs to connect to object storage using an S3-like API and does not make use of other AWS services.
 
 ## Documentation
 
-* [Core documentation for IBM COS](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started-tutorial#getting-started-tutorial)
+* [Core documentation for IBM COS](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started)
 * [Go API reference documentation](https://ibm.github.io/ibm-cos-sdk-go)
-* [REST API reference documentation](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about)
+* [REST API reference documentation](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api)
 
 For release notes, see the [CHANGELOG](CHANGELOG.rst).
 
@@ -29,7 +29,7 @@ These values can be found in the IBM Cloud Console by [generating a 'service cre
 
 ## Getting the SDK
 
-Use go get to retrieve the SDK to add it to your GOPATH workspace, or project's Go module dependencies.  The SDK requires a minimum version of Go 1.9.
+Use go get to retrieve the SDK to add it to your GOPATH workspace, or project's Go module dependencies.  The SDK requires a minimum version of Go 1.10.
 
 ```sh
 go get github.com/IBM/ibm-cos-sdk-go
@@ -101,8 +101,8 @@ From the command line, run `go run main.go`.  You should see a list of your buck
 
 Feel free to use GitHub issues for tracking bugs and feature requests, but for help please use one of the following resources:
 
-* Read a quick start guide in [IBM Cloud Docs](https://cloud.ibm.com/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-using-go#using-go).
-* Ask a question on [Stack Overflow](https://stackoverflow.com/) and tag it with `ibm` and `object-storage`.
+* Read a quick start guide in [IBM Cloud Docs](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go).
+* Ask a question on [Stack Overflow](https://stackoverflow.com/questions/tagged/object-storage+ibm) and tag it with `ibm` and `object-storage`.
 * Open a support ticket with [IBM Cloud Support](https://cloud.ibm.com/unifiedsupport/supportcenter/)
 * If it turns out that you may have found a bug, please [open an issue](https://github.com/ibm/ibm-cos-sdk-go/issues/new).
 

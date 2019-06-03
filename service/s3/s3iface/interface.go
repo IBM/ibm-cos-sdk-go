@@ -132,6 +132,13 @@ type S3API interface {
 	ListBucketsWithContext(aws.Context, *s3.ListBucketsInput, ...request.Option) (*s3.ListBucketsOutput, error)
 	ListBucketsRequest(*s3.ListBucketsInput) (*request.Request, *s3.ListBucketsOutput)
 
+	ListBucketsExtended(*s3.ListBucketsExtendedInput) (*s3.ListBucketsExtendedOutput, error)
+	ListBucketsExtendedWithContext(aws.Context, *s3.ListBucketsExtendedInput, ...request.Option) (*s3.ListBucketsExtendedOutput, error)
+	ListBucketsExtendedRequest(*s3.ListBucketsExtendedInput) (*request.Request, *s3.ListBucketsExtendedOutput)
+
+	ListBucketsExtendedPages(*s3.ListBucketsExtendedInput, func(*s3.ListBucketsExtendedOutput, bool) bool) error
+	ListBucketsExtendedPagesWithContext(aws.Context, *s3.ListBucketsExtendedInput, func(*s3.ListBucketsExtendedOutput, bool) bool, ...request.Option) error
+
 	ListMultipartUploads(*s3.ListMultipartUploadsInput) (*s3.ListMultipartUploadsOutput, error)
 	ListMultipartUploadsWithContext(aws.Context, *s3.ListMultipartUploadsInput, ...request.Option) (*s3.ListMultipartUploadsOutput, error)
 	ListMultipartUploadsRequest(*s3.ListMultipartUploadsInput) (*request.Request, *s3.ListMultipartUploadsOutput)

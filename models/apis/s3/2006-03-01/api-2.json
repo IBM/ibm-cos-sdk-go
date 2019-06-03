@@ -17,7 +17,8 @@
       "name":"AbortMultipartUpload",
       "http":{
         "method":"DELETE",
-        "requestUri":"/{Bucket}/{Key+}"
+        "requestUri":"/{Bucket}/{Key+}",
+        "responseCode":204
       },
       "input":{"shape":"AbortMultipartUploadRequest"},
       "output":{"shape":"AbortMultipartUploadOutput"},
@@ -80,7 +81,8 @@
       "name":"DeleteBucket",
       "http":{
         "method":"DELETE",
-        "requestUri":"/{Bucket}"
+        "requestUri":"/{Bucket}",
+        "responseCode":204
       },
       "input":{"shape":"DeleteBucketRequest"},
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETE.html"
@@ -89,7 +91,8 @@
       "name":"DeleteBucketCors",
       "http":{
         "method":"DELETE",
-        "requestUri":"/{Bucket}?cors"
+        "requestUri":"/{Bucket}?cors",
+        "responseCode":204
       },
       "input":{"shape":"DeleteBucketCorsRequest"},
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETEcors.html"
@@ -98,7 +101,8 @@
       "name":"DeleteObject",
       "http":{
         "method":"DELETE",
-        "requestUri":"/{Bucket}/{Key+}"
+        "requestUri":"/{Bucket}/{Key+}",
+        "responseCode":204
       },
       "input":{"shape":"DeleteObjectRequest"},
       "output":{"shape":"DeleteObjectOutput"},
@@ -188,6 +192,7 @@
         "requestUri":"/{Bucket}"
       },
       "input":{"shape":"HeadBucketRequest"},
+      "output":{"shape":"HeadBucketOutput"},
       "errors":[
         {"shape":"NoSuchBucket"}
       ],
@@ -212,10 +217,21 @@
         "method":"GET",
         "requestUri":"/"
       },
-      "input":{"shape":"ListBucketsInput"},
+      "input":{"shape":"ListBucketsRequest"},
       "output":{"shape":"ListBucketsOutput"},
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTServiceGET.html",
       "alias":"GetService"
+    },
+    "ListBucketsExtended":{
+      "name":"ListBucketsExtended",
+      "http":{
+        "method":"GET",
+        "requestUri":"/?extended"
+      },
+      "input":{"shape":"ListBucketsExtendedRequest"},
+      "output":{"shape":"ListBucketsExtendedOutput"},
+      "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTServiceGET.html",
+      "alias":"GetServiceExtended"
     },
     "ListMultipartUploads":{
       "name":"ListMultipartUploads",
@@ -484,6 +500,14 @@
         "CreationDate":{"shape":"CreationDate"}
       }
     },
+    "BucketExtended":{
+      "type":"structure",
+      "members":{
+        "Name":{"shape":"BucketName"},
+        "CreationDate":{"shape":"CreationDate"},
+        "LocationConstraint": {"shape": "BucketLocationConstraint"}
+      }
+    },
     "BucketAccelerateStatus":{
       "type":"string",
       "enum":[
@@ -554,6 +578,13 @@
       "type":"list",
       "member":{
         "shape":"Bucket",
+        "locationName":"Bucket"
+      }
+    },
+    "BucketsExtended":{
+      "type":"list",
+      "member":{
+        "shape":"BucketExtended",
         "locationName":"Bucket"
       }
     },
@@ -1091,6 +1122,16 @@
           "shape":"IBMServiceInstanceId",
           "location":"header",
           "locationName":"ibm-service-instance-id"
+        },
+        "IBMSSEKPCustomerRootKeyCrn":{
+          "shape":"IBMSSEKPCustomerRootKeyCrn",
+          "location":"header",
+          "locationName":"ibm-sse-kp-customer-root-key-crn"
+        },
+        "IBMSSEKPEncryptionAlgorithm":{
+          "shape":"IBMSSEKPEncryptionAlgorithm",
+          "location":"header",
+          "locationName":"ibm-sse-kp-encryption-algorithm"
         }
       },
       "payload":"CreateBucketConfiguration"
@@ -1994,6 +2035,21 @@
         "locationName":"Grant"
       }
     },
+    "HeadBucketOutput":{
+      "type":"structure",
+      "members": {
+        "IBMSSEKPCrkId":{
+          "shape":"IBMSSEKPCustomerRootKeyCrn",
+          "location":"header",
+          "locationName":"ibm-sse-kp-customer-root-key-crn"
+        },
+        "IBMSSEKPEnabled":{
+          "shape":"IBMSSEKPEnabled",
+          "location":"header",
+          "locationName":"ibm-sse-kp-enabled"
+        }
+      }
+    },
     "HeadBucketRequest":{
       "type":"structure",
       "required":["Bucket"],
@@ -2213,6 +2269,9 @@
     "HttpErrorCodeReturnedEquals":{"type":"string"},
     "HttpRedirectCode":{"type":"string"},
     "IBMServiceInstanceId":{"type":"string"},
+    "IBMSSEKPCustomerRootKeyCrn":{"type":"string"},
+    "IBMSSEKPEncryptionAlgorithm":{"type":"string"},
+    "IBMSSEKPEnabled":{"type": "boolean"},
     "ID":{"type":"string"},
     "IfMatch":{"type":"string"},
     "IfModifiedSince":{"type":"timestamp"},
@@ -2480,13 +2539,49 @@
         "Owner":{"shape":"Owner"}
       }
     },
-    "ListBucketsInput":{
+    "ListBucketsRequest":{
       "type":"structure",
       "members":{
         "IBMServiceInstanceId":{
           "shape":"IBMServiceInstanceId",
           "location":"header",
           "locationName":"ibm-service-instance-id"
+        }
+      }
+    },
+    "ListBucketsExtendedOutput":{
+      "type":"structure",
+      "members":{
+        "Buckets":{"shape":"BucketsExtended"},
+        "Owner":{"shape":"Owner"},
+        "IsTruncated":{"shape":"IsTruncated"},
+        "Marker":{"shape":"Marker"},
+        "Prefix":{"shape":"Prefix"},
+        "MaxKeys":{"shape":"MaxKeys"}
+      }
+    },
+    "ListBucketsExtendedRequest":{
+      "type":"structure",
+      "members":{
+        "IBMServiceInstanceId":{
+          "shape":"IBMServiceInstanceId",
+          "location":"header",
+          "locationName":"ibm-service-instance-id"
+        },
+        "Marker":{
+          "shape":"Marker",
+          "location":"querystring",
+          "locationName":"marker"
+        },
+        "MaxKeys":{
+          "shape":"MaxKeys",
+          "location":"querystring",
+          "locationName":"max-keys"
+        },
+        "Prefix":{
+          "shape":"Prefix",
+          "location":"querystring",
+          "locationName":"prefix"
         }
       }
     },
@@ -2563,7 +2658,17 @@
         "Delimiter":{"shape":"Delimiter"},
         "MaxKeys":{"shape":"MaxKeys"},
         "CommonPrefixes":{"shape":"CommonPrefixList"},
-        "EncodingType":{"shape":"EncodingType"}
+        "EncodingType":{"shape":"EncodingType"},
+        "IBMSSEKPCrkId":{
+          "shape":"IBMSSEKPCustomerRootKeyCrn",
+          "location":"header",
+          "locationName":"ibm-sse-kp-customer-root-key-crn"
+        },
+        "IBMSSEKPEnabled":{
+          "shape":"IBMSSEKPEnabled",
+          "location":"header",
+          "locationName":"ibm-sse-kp-enabled"
+        }
       }
     },
     "ListObjectsRequest":{
@@ -2929,7 +3034,9 @@
         "REDUCED_REDUNDANCY",
         "GLACIER",
         "STANDARD_IA",
-        "ONEZONE_IA"
+        "ONEZONE_IA",
+        "INTELLIGENT_TIERING",
+        "DEEP_ARCHIVE"
       ]
     },
     "ObjectVersion":{
@@ -3819,7 +3926,10 @@
         "STANDARD",
         "REDUCED_REDUNDANCY",
         "STANDARD_IA",
-        "ONEZONE_IA"
+        "ONEZONE_IA",
+        "INTELLIGENT_TIERING",
+        "GLACIER",
+        "DEEP_ARCHIVE"
       ]
     },
     "StorageClassAnalysis":{
@@ -3961,7 +4071,9 @@
       "enum":[
         "GLACIER",
         "STANDARD_IA",
-        "ONEZONE_IA"
+        "ONEZONE_IA",
+        "INTELLIGENT_TIERING",
+        "DEEP_ARCHIVE"
       ]
     },
     "Type":{

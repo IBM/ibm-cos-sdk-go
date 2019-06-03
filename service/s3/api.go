@@ -1206,7 +1206,6 @@ func (c *S3) HeadBucketRequest(input *HeadBucketInput) (req *request.Request, ou
 
 	output = &HeadBucketOutput{}
 	req = c.newRequest(op, input, output)
-	req.Handlers.Unmarshal.Swap(restxml.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -1399,6 +1398,134 @@ func (c *S3) ListBucketsWithContext(ctx aws.Context, input *ListBucketsInput, op
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
+}
+
+const opListBucketsExtended = "ListBucketsExtended"
+
+// ListBucketsExtendedRequest generates a "aws/request.Request" representing the
+// client's request for the ListBucketsExtended operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListBucketsExtended for more information on using the ListBucketsExtended
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ListBucketsExtendedRequest method.
+//    req, resp := client.ListBucketsExtendedRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketsExtended
+func (c *S3) ListBucketsExtendedRequest(input *ListBucketsExtendedInput) (req *request.Request, output *ListBucketsExtendedOutput) {
+	op := &request.Operation{
+		Name:       opListBucketsExtended,
+		HTTPMethod: "GET",
+		HTTPPath:   "/?extended",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"Marker"},
+			OutputTokens:    []string{"Buckets[-1].Name"},
+			LimitToken:      "MaxKeys",
+			TruncationToken: "IsTruncated",
+		},
+	}
+
+	if input == nil {
+		input = &ListBucketsExtendedInput{}
+	}
+
+	output = &ListBucketsExtendedOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListBucketsExtended API operation for Amazon Simple Storage Service.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation ListBucketsExtended for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketsExtended
+func (c *S3) ListBucketsExtended(input *ListBucketsExtendedInput) (*ListBucketsExtendedOutput, error) {
+	req, out := c.ListBucketsExtendedRequest(input)
+	return out, req.Send()
+}
+
+// ListBucketsExtendedWithContext is the same as ListBucketsExtended with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListBucketsExtended for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) ListBucketsExtendedWithContext(ctx aws.Context, input *ListBucketsExtendedInput, opts ...request.Option) (*ListBucketsExtendedOutput, error) {
+	req, out := c.ListBucketsExtendedRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListBucketsExtendedPages iterates over the pages of a ListBucketsExtended operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListBucketsExtended method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//    // Example iterating over at most 3 pages of a ListBucketsExtended operation.
+//    pageNum := 0
+//    err := client.ListBucketsExtendedPages(params,
+//        func(page *ListBucketsExtendedOutput, lastPage bool) bool {
+//            pageNum++
+//            fmt.Println(page)
+//            return pageNum <= 3
+//        })
+//
+func (c *S3) ListBucketsExtendedPages(input *ListBucketsExtendedInput, fn func(*ListBucketsExtendedOutput, bool) bool) error {
+	return c.ListBucketsExtendedPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListBucketsExtendedPagesWithContext same as ListBucketsExtendedPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) ListBucketsExtendedPagesWithContext(ctx aws.Context, input *ListBucketsExtendedInput, fn func(*ListBucketsExtendedOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListBucketsExtendedInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListBucketsExtendedRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	cont := true
+	for p.Next() && cont {
+		cont = fn(p.Page().(*ListBucketsExtendedOutput), !p.HasNextPage())
+	}
+	return p.Err()
 }
 
 const opListMultipartUploads = "ListMultipartUploads"
@@ -2521,6 +2648,47 @@ func (s *Bucket) SetName(v string) *Bucket {
 	return s
 }
 
+type BucketExtended struct {
+	_ struct{} `type:"structure"`
+
+	// Date the bucket was created.
+	CreationDate *time.Time `type:"timestamp"`
+
+	// Specifies the region where the bucket was created.
+	LocationConstraint *string `type:"string" enum:"BucketLocationConstraint"`
+
+	// The name of the bucket.
+	Name *string `type:"string"`
+}
+
+// String returns the string representation
+func (s BucketExtended) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BucketExtended) GoString() string {
+	return s.String()
+}
+
+// SetCreationDate sets the CreationDate field's value.
+func (s *BucketExtended) SetCreationDate(v time.Time) *BucketExtended {
+	s.CreationDate = &v
+	return s
+}
+
+// SetLocationConstraint sets the LocationConstraint field's value.
+func (s *BucketExtended) SetLocationConstraint(v string) *BucketExtended {
+	s.LocationConstraint = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *BucketExtended) SetName(v string) *BucketExtended {
+	s.Name = &v
+	return s
+}
+
 type BucketLoggingStatus struct {
 	_ struct{} `type:"structure"`
 
@@ -3562,6 +3730,14 @@ type CreateBucketInput struct {
 	// Allows grantee to write the ACL for the applicable bucket.
 	GrantWriteACP *string `location:"header" locationName:"x-amz-grant-write-acp" type:"string"`
 
+	// The root key used by Key Protect to encrypt this bucket. This value must
+	// be the full CRN of the root key.
+	IBMSSEKPCustomerRootKeyCrn *string `location:"header" locationName:"ibm-sse-kp-customer-root-key-crn" type:"string"`
+
+	// The algorithm and key size to use with the encryption key stored by using
+	// Key Protect. This value must be set to the string "AES256".
+	IBMSSEKPEncryptionAlgorithm *string `location:"header" locationName:"ibm-sse-kp-encryption-algorithm" type:"string"`
+
 	// Sets the IBM Service Instance Id in the request.
 	//
 	// Only Valid for IBM IAM Authentication
@@ -3646,6 +3822,18 @@ func (s *CreateBucketInput) SetGrantWrite(v string) *CreateBucketInput {
 // SetGrantWriteACP sets the GrantWriteACP field's value.
 func (s *CreateBucketInput) SetGrantWriteACP(v string) *CreateBucketInput {
 	s.GrantWriteACP = &v
+	return s
+}
+
+// SetIBMSSEKPCustomerRootKeyCrn sets the IBMSSEKPCustomerRootKeyCrn field's value.
+func (s *CreateBucketInput) SetIBMSSEKPCustomerRootKeyCrn(v string) *CreateBucketInput {
+	s.IBMSSEKPCustomerRootKeyCrn = &v
+	return s
+}
+
+// SetIBMSSEKPEncryptionAlgorithm sets the IBMSSEKPEncryptionAlgorithm field's value.
+func (s *CreateBucketInput) SetIBMSSEKPEncryptionAlgorithm(v string) *CreateBucketInput {
+	s.IBMSSEKPEncryptionAlgorithm = &v
 	return s
 }
 
@@ -5694,6 +5882,13 @@ func (s *HeadBucketInput) getBucket() (v string) {
 
 type HeadBucketOutput struct {
 	_ struct{} `type:"structure"`
+
+	// The root key used by Key Protect to encrypt this bucket. This value must
+	// be the full CRN of the root key.
+	IBMSSEKPCrkId *string `location:"header" locationName:"ibm-sse-kp-customer-root-key-crn" type:"string"`
+
+	// Specifies whether the Bucket has Key Protect enabled.
+	IBMSSEKPEnabled *bool `location:"header" locationName:"ibm-sse-kp-enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -5704,6 +5899,18 @@ func (s HeadBucketOutput) String() string {
 // GoString returns the string representation
 func (s HeadBucketOutput) GoString() string {
 	return s.String()
+}
+
+// SetIBMSSEKPCrkId sets the IBMSSEKPCrkId field's value.
+func (s *HeadBucketOutput) SetIBMSSEKPCrkId(v string) *HeadBucketOutput {
+	s.IBMSSEKPCrkId = &v
+	return s
+}
+
+// SetIBMSSEKPEnabled sets the IBMSSEKPEnabled field's value.
+func (s *HeadBucketOutput) SetIBMSSEKPEnabled(v bool) *HeadBucketOutput {
+	s.IBMSSEKPEnabled = &v
+	return s
 }
 
 type HeadObjectInput struct {
@@ -6179,6 +6386,125 @@ func (s *Initiator) SetID(v string) *Initiator {
 	return s
 }
 
+type ListBucketsExtendedInput struct {
+	_ struct{} `type:"structure"`
+
+	// Sets the IBM Service Instance Id in the request.
+	//
+	// Only Valid for IBM IAM Authentication
+	IBMServiceInstanceId *string `location:"header" locationName:"ibm-service-instance-id" type:"string"`
+
+	// Specifies the bucket to start with when listing all buckets.
+	Marker *string `location:"querystring" locationName:"marker" type:"string"`
+
+	// Sets the maximum number of keys returned in the response. The response might
+	// contain fewer keys but will never contain more.
+	MaxKeys *int64 `location:"querystring" locationName:"max-keys" type:"integer"`
+
+	// Limits the response to buckets that begin with the specified prefix.
+	Prefix *string `location:"querystring" locationName:"prefix" type:"string"`
+}
+
+// String returns the string representation
+func (s ListBucketsExtendedInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListBucketsExtendedInput) GoString() string {
+	return s.String()
+}
+
+// SetIBMServiceInstanceId sets the IBMServiceInstanceId field's value.
+func (s *ListBucketsExtendedInput) SetIBMServiceInstanceId(v string) *ListBucketsExtendedInput {
+	s.IBMServiceInstanceId = &v
+	return s
+}
+
+// SetMarker sets the Marker field's value.
+func (s *ListBucketsExtendedInput) SetMarker(v string) *ListBucketsExtendedInput {
+	s.Marker = &v
+	return s
+}
+
+// SetMaxKeys sets the MaxKeys field's value.
+func (s *ListBucketsExtendedInput) SetMaxKeys(v int64) *ListBucketsExtendedInput {
+	s.MaxKeys = &v
+	return s
+}
+
+// SetPrefix sets the Prefix field's value.
+func (s *ListBucketsExtendedInput) SetPrefix(v string) *ListBucketsExtendedInput {
+	s.Prefix = &v
+	return s
+}
+
+type ListBucketsExtendedOutput struct {
+	_ struct{} `type:"structure"`
+
+	Buckets []*BucketExtended `locationNameList:"Bucket" type:"list"`
+
+	// Indicates whether the returned list of buckets is truncated.
+	IsTruncated *bool `type:"boolean"`
+
+	// The bucket at or after which the listing began.
+	Marker *string `type:"string"`
+
+	MaxKeys *int64 `type:"integer"`
+
+	Owner *Owner `type:"structure"`
+
+	// When a prefix is provided in the request, this field contains the specified
+	// prefix. The result contains only buckets starting with the specified prefix.
+	Prefix *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ListBucketsExtendedOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListBucketsExtendedOutput) GoString() string {
+	return s.String()
+}
+
+// SetBuckets sets the Buckets field's value.
+func (s *ListBucketsExtendedOutput) SetBuckets(v []*BucketExtended) *ListBucketsExtendedOutput {
+	s.Buckets = v
+	return s
+}
+
+// SetIsTruncated sets the IsTruncated field's value.
+func (s *ListBucketsExtendedOutput) SetIsTruncated(v bool) *ListBucketsExtendedOutput {
+	s.IsTruncated = &v
+	return s
+}
+
+// SetMarker sets the Marker field's value.
+func (s *ListBucketsExtendedOutput) SetMarker(v string) *ListBucketsExtendedOutput {
+	s.Marker = &v
+	return s
+}
+
+// SetMaxKeys sets the MaxKeys field's value.
+func (s *ListBucketsExtendedOutput) SetMaxKeys(v int64) *ListBucketsExtendedOutput {
+	s.MaxKeys = &v
+	return s
+}
+
+// SetOwner sets the Owner field's value.
+func (s *ListBucketsExtendedOutput) SetOwner(v *Owner) *ListBucketsExtendedOutput {
+	s.Owner = v
+	return s
+}
+
+// SetPrefix sets the Prefix field's value.
+func (s *ListBucketsExtendedOutput) SetPrefix(v string) *ListBucketsExtendedOutput {
+	s.Prefix = &v
+	return s
+}
+
 type ListBucketsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6598,6 +6924,13 @@ type ListObjectsOutput struct {
 	// Encoding type used by Amazon S3 to encode object keys in the response.
 	EncodingType *string `type:"string" enum:"EncodingType"`
 
+	// The root key used by Key Protect to encrypt this bucket. This value must
+	// be the full CRN of the root key.
+	IBMSSEKPCrkId *string `location:"header" locationName:"ibm-sse-kp-customer-root-key-crn" type:"string"`
+
+	// Specifies whether the Bucket has Key Protect enabled.
+	IBMSSEKPEnabled *bool `location:"header" locationName:"ibm-sse-kp-enabled" type:"boolean"`
+
 	// A flag that indicates whether or not Amazon S3 returned all of the results
 	// that satisfied the search criteria.
 	IsTruncated *bool `type:"boolean"`
@@ -6651,6 +6984,18 @@ func (s *ListObjectsOutput) SetDelimiter(v string) *ListObjectsOutput {
 // SetEncodingType sets the EncodingType field's value.
 func (s *ListObjectsOutput) SetEncodingType(v string) *ListObjectsOutput {
 	s.EncodingType = &v
+	return s
+}
+
+// SetIBMSSEKPCrkId sets the IBMSSEKPCrkId field's value.
+func (s *ListObjectsOutput) SetIBMSSEKPCrkId(v string) *ListObjectsOutput {
+	s.IBMSSEKPCrkId = &v
+	return s
+}
+
+// SetIBMSSEKPEnabled sets the IBMSSEKPEnabled field's value.
+func (s *ListObjectsOutput) SetIBMSSEKPEnabled(v bool) *ListObjectsOutput {
+	s.IBMSSEKPEnabled = &v
 	return s
 }
 
@@ -8886,6 +9231,12 @@ const (
 
 	// ObjectStorageClassOnezoneIa is a ObjectStorageClass enum value
 	ObjectStorageClassOnezoneIa = "ONEZONE_IA"
+
+	// ObjectStorageClassIntelligentTiering is a ObjectStorageClass enum value
+	ObjectStorageClassIntelligentTiering = "INTELLIGENT_TIERING"
+
+	// ObjectStorageClassDeepArchive is a ObjectStorageClass enum value
+	ObjectStorageClassDeepArchive = "DEEP_ARCHIVE"
 )
 
 const (
@@ -8955,6 +9306,15 @@ const (
 
 	// StorageClassOnezoneIa is a StorageClass enum value
 	StorageClassOnezoneIa = "ONEZONE_IA"
+
+	// StorageClassIntelligentTiering is a StorageClass enum value
+	StorageClassIntelligentTiering = "INTELLIGENT_TIERING"
+
+	// StorageClassGlacier is a StorageClass enum value
+	StorageClassGlacier = "GLACIER"
+
+	// StorageClassDeepArchive is a StorageClass enum value
+	StorageClassDeepArchive = "DEEP_ARCHIVE"
 )
 
 const (

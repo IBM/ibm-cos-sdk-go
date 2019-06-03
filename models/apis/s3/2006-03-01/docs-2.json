@@ -240,7 +240,8 @@
       "base": null,
       "refs": {
         "CreateBucketConfiguration$LocationConstraint": "<p>Specifies the region where the bucket will be created. If you don't specify a region, the bucket is created in US East (N. Virginia) Region (us-east-1).</p>",
-        "GetBucketLocationOutput$LocationConstraint": "<p/>"
+        "GetBucketLocationOutput$LocationConstraint": "<p/>",
+        "BucketExtended$LocationConstraint" : "<p>Specifies the region where the bucket was created.</p>"
       }
     },
     "BucketLoggingStatus": {
@@ -261,6 +262,7 @@
         "AbortMultipartUploadRequest$Bucket": "<p/>",
         "AnalyticsS3BucketDestination$Bucket": "<p>The Amazon resource name (ARN) of the bucket to which data is exported.</p>",
         "Bucket$Name": "<p>The name of the bucket.</p>",
+        "BucketExtended$Name" : "<p>The name of the bucket.</p>",
         "CompleteMultipartUploadOutput$Bucket": "<p/>",
         "CompleteMultipartUploadRequest$Bucket": "<p/>",
         "CopyObjectRequest$Bucket": "<p/>",
@@ -369,6 +371,12 @@
       "base": null,
       "refs": {
         "ListBucketsOutput$Buckets": "<p/>"
+      }
+    },
+    "BucketsExtended": {
+      "base": null,
+      "refs": {
+        "ListBucketsExtendedOutput$Buckets": "<p/>"
       }
     },
     "BypassGovernanceRetention": {
@@ -736,9 +744,10 @@
       }
     },
     "CreationDate": {
-      "base": null,
+      "base": "<p>Date the bucket was created.</p>",
       "refs": {
-        "Bucket$CreationDate": "<p>Date the bucket was created.</p>"
+        "Bucket$CreationDate": null,
+        "BucketExtended$CreationDate" : null
       }
     },
     "Date": {
@@ -754,7 +763,7 @@
       "refs": {
         "DefaultRetention$Days": "<p>The number of days that you want to specify for the default retention period.</p>",
         "LifecycleExpiration$Days": "<p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</p>",
-        "NoncurrentVersionExpiration$NoncurrentDays": "<p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.</p>",
+        "NoncurrentVersionExpiration$NoncurrentDays": "<p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.</p>",
         "NoncurrentVersionTransition$NoncurrentDays": "<p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.</p>",
         "RestoreRequest$Days": "<p>Lifetime of the active copy in days. Do not use with restores that specify OutputLocation.</p>",
         "Transition$Days": "<p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</p>"
@@ -1488,6 +1497,27 @@
         "CreateBucketRequest$IBMServiceInstanceId" : null
       }
     },
+    "IBMSSEKPCustomerRootKeyCrn": {
+      "base" :"<p>The root key used by Key Protect to encrypt this bucket. This value must be the full CRN of the root key.</p>",
+      "refs" : {
+        "CreateBucketRequest$IBMSSEKPCustomerRootKeyCrn" : null,
+        "HeadBucketOutput$IBMSSEKPCrkId" : null,
+        "ListObjectsOutput$IBMSSEKPCrkId" : null
+      }
+    },
+    "IBMSSEKPEnabled": {
+      "base" :"<p>Specifies whether the Bucket has Key Protect enabled.</p>",
+      "refs" : {
+        "HeadBucketOutput$IBMSSEKPEnabled" : null,
+        "ListObjectsOutput$IBMSSEKPEnabled" : null
+      }
+    },
+    "IBMSSEKPEncryptionAlgorithm": {
+      "base" :"<p>The algorithm and key size to use with the encryption key stored by using Key Protect. This value must be set to the string \"AES256\".</p>",
+      "refs" : {
+        "CreateBucketRequest$IBMSSEKPEncryptionAlgorithm" : null
+      }
+    },
     "ID": {
       "base": null,
       "refs": {
@@ -1660,7 +1690,8 @@
         "ListObjectVersionsOutput$IsTruncated": "<p>A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.</p>",
         "ListObjectsOutput$IsTruncated": "<p>A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.</p>",
         "ListObjectsV2Output$IsTruncated": "<p>A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.</p>",
-        "ListPartsOutput$IsTruncated": "<p>Indicates whether the returned list of parts is truncated.</p>"
+        "ListPartsOutput$IsTruncated": "<p>Indicates whether the returned list of parts is truncated.</p>",
+        "ListBucketsExtendedOutput$IsTruncated": "<p>Indicates whether the returned list of buckets is truncated.</p>"
       }
     },
     "JSONInput": {
@@ -1906,7 +1937,9 @@
       "base": null,
       "refs": {
         "ListObjectsOutput$Marker": "<p/>",
-        "ListObjectsRequest$Marker": "<p>Specifies the key to start with when listing objects in a bucket.</p>"
+        "ListObjectsRequest$Marker": "<p>Specifies the key to start with when listing objects in a bucket.</p>",
+        "ListBucketsExtendedRequest$Marker": "<p>Specifies the bucket to start with when listing all buckets.</p>",
+        "ListBucketsExtendedOutput$Marker": "<p>The bucket at or after which the listing began.</p>"
       }
     },
     "MaxAgeSeconds": {
@@ -1923,7 +1956,9 @@
         "ListObjectsOutput$MaxKeys": "<p/>",
         "ListObjectsRequest$MaxKeys": "<p>Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</p>",
         "ListObjectsV2Output$MaxKeys": "<p>Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</p>",
-        "ListObjectsV2Request$MaxKeys": "<p>Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</p>"
+        "ListObjectsV2Request$MaxKeys": "<p>Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</p>",
+        "ListBucketsExtendedOutput$MaxKeys": "<p/>",
+        "ListBucketsExtendedRequest$MaxKeys": "<p>Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</p>"
       }
     },
     "MaxParts": {
@@ -2112,7 +2147,7 @@
       }
     },
     "NoncurrentVersionTransition": {
-      "base": "<p>Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING or GLACIER storage class at a specific period in the object's lifetime.</p>",
+      "base": "<p>Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.</p>",
       "refs": {
         "NoncurrentVersionTransitionList$member": null,
         "Rule$NoncurrentVersionTransition": null
@@ -2318,7 +2353,8 @@
         "ListPartsOutput$Owner": "<p/>",
         "MultipartUpload$Owner": "<p/>",
         "Object$Owner": "<p/>",
-        "ObjectVersion$Owner": "<p/>"
+        "ObjectVersion$Owner": "<p/>",
+        "ListBucketsExtendedOutput$Owner": "<p/>"
       }
     },
     "OwnerOverride": {
@@ -2415,7 +2451,9 @@
         "ReplicationRule$Prefix": "<p>An object keyname prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. </p>",
         "ReplicationRuleAndOperator$Prefix": "<p/>",
         "ReplicationRuleFilter$Prefix": "<p>An object keyname prefix that identifies the subset of objects to which the rule applies.</p>",
-        "Rule$Prefix": "<p>Prefix identifying one or more objects to which the rule applies.</p>"
+        "Rule$Prefix": "<p>Prefix identifying one or more objects to which the rule applies.</p>",
+        "ListBucketsExtendedRequest$Prefix":"<p>Limits the response to buckets that begin with the specified prefix.</p>",
+        "ListBucketsExtendedOutput$Prefix":"<p>When a prefix is provided in the request, this field contains the specified prefix. The result contains only buckets starting with the specified prefix.</p>"
       }
     },
     "Priority": {
