@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "../../../../../../../../../service/kms"
+import "github.com/IBM/ibm-cos-sdk-go/service/kms"
 </div>
 
 
@@ -416,7 +416,7 @@ import "../../../../../../../../../service/kms"
     <p>Name-value pair that specifies the encryption context to be used for authenticated
 encryption. If used here, the same value must be supplied to the Decrypt
 API or decryption will fail. For more information, see Encryption Context
-(<a href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html</a>).</p>
+(<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>).</p>
 
 
   </div>
@@ -436,7 +436,7 @@ API or decryption will fail. For more information, see Encryption Context
   <div class="discussion">
     <p>A list of grant tokens.</p>
 
-<p>For more information, see Grant Tokens (<a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token</a>)
+<p>For more information, see Grant Tokens (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token</a>)
 in the AWS Key Management Service Developer Guide.</p>
 
 
@@ -547,12 +547,12 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7073
-7074
-7075</pre>
+7107
+7108
+7109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7073</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7107</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.EncryptInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -588,13 +588,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7100
-7101
-7102
-7103</pre>
+7134
+7135
+7136
+7137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7100</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7134</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#SetEncryptionContext-instance_method" title="kms.EncryptInput.SetEncryptionContext() (method)">SetEncryptionContext</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span> {
 	s.EncryptionContext = v
@@ -631,13 +631,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7106
-7107
-7108
-7109</pre>
+7140
+7141
+7142
+7143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7106</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7140</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.EncryptInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span> {
 	s.GrantTokens = v
@@ -674,13 +674,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7112
-7113
-7114
-7115</pre>
+7146
+7147
+7148
+7149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7112</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7146</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.EncryptInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span> {
 	s.KeyId = &v
@@ -717,13 +717,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7118
-7119
-7120
-7121</pre>
+7152
+7153
+7154
+7155</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7118</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7152</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#SetPlaintext-instance_method" title="kms.EncryptInput.SetPlaintext() (method)">SetPlaintext</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span> {
 	s.Plaintext = v
@@ -760,12 +760,12 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7068
-7069
-7070</pre>
+7102
+7103
+7104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7068</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7102</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.EncryptInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -801,29 +801,29 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7078
-7079
-7080
-7081
-7082
-7083
-7084
-7085
-7086
-7087
-7088
-7089
-7090
-7091
-7092
-7093
-7094
-7095
-7096
-7097</pre>
+7112
+7113
+7114
+7115
+7116
+7117
+7118
+7119
+7120
+7121
+7122
+7123
+7124
+7125
+7126
+7127
+7128
+7129
+7130
+7131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7078</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7112</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.EncryptInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>"</span>}
@@ -857,9 +857,9 @@ get the alias name and alias ARN, use ListAliases.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 28 13:40:00 2019 by
+  Generated on Mon Jun  3 16:29:00 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.19 (ruby-2.5.1).
 </div>
 
 <!-- BEGIN-SECTION -->

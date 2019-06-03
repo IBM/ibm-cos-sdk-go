@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "../../../../../../../../../service/kms"
+import "github.com/IBM/ibm-cos-sdk-go/service/kms"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -81,7 +81,7 @@ requests to AWS Key Management Service.</p>
 <p>AWS Key Management Service (AWS KMS) is an encryption and key management
 web service. This guide describes the AWS KMS operations that you can call
 programmatically. For general information about AWS KMS, see the AWS Key
-Management Service Developer Guide (<a href="http://docs.aws.amazon.com/kms/latest/developerguide/">http://docs.aws.amazon.com/kms/latest/developerguide/</a>).</p>
+Management Service Developer Guide (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/">https://docs.aws.amazon.com/kms/latest/developerguide/</a>).</p>
 
 <p>AWS provides SDKs that consist of libraries and sample code for various programming
 languages and platforms (Java, Ruby, .Net, macOS, Android, etc.). The SDKs
@@ -105,11 +105,11 @@ these modes.</p>
 <p>Requests must be signed by using an access key ID and a secret access key.
 We strongly recommend that you do not use your AWS account (root) access
 key ID and secret key for everyday work with AWS KMS. Instead, use the access
-key ID and secret access key for an IAM user, or you can use the AWS Security
+key ID and secret access key for an IAM user. You can also use the AWS Security
 Token Service to generate temporary security credentials that you can use
 to sign requests.</p>
 
-<p>All AWS KMS operations require Signature Version 4 (<a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>).</p>
+<p>All AWS KMS operations require Signature Version 4 (<a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>).</p>
 
 <p>Logging API Requests</p>
 
@@ -118,30 +118,30 @@ events for your AWS account and delivers them to an Amazon S3 bucket that
 you specify. By using the information collected by CloudTrail, you can determine
 what requests were made to AWS KMS, who made the request, when it was made,
 and so on. To learn more about CloudTrail, including how to turn it on and
-find your log files, see the AWS CloudTrail User Guide (<a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/">http://docs.aws.amazon.com/awscloudtrail/latest/userguide/</a>).</p>
+find your log files, see the AWS CloudTrail User Guide (<a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/">https://docs.aws.amazon.com/awscloudtrail/latest/userguide/</a>).</p>
 
 <p>Additional Resources</p>
 
 <p>For more information about credentials and request signing, see the following:</p>
 
 <ul>
-<li> AWS Security Credentials (<a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a>)</li>
-<li><p> This topic provides general information about the of credentials used
-for accessing AWS.</p></li>
-<li><p> Temporary Security Credentials (<a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html</a>)</p></li>
+<li> AWS Security Credentials (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a>)</li>
+<li><p> This topic provides general information about the types of credentials
+used for accessing AWS.</p></li>
+<li><p> Temporary Security Credentials (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html</a>)</p></li>
 <li><p> This section of the IAM User Guide describes how to create and use temporary
 security credentials.</p></li>
-<li><p> Signature Version 4 Signing Process (<a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>)</p></li>
+<li><p> Signature Version 4 Signing Process (<a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>)</p></li>
 <li> This set of topics walks you through the process of signing a request
 using an access key ID and a secret access key.</li>
 </ul>
 
 
-<p>Commonly Used APIs</p>
+<p>Commonly Used API Operations</p>
 
-<p>Of the APIs discussed in this guide, the following will prove the most useful
-for most applications. You will likely perform actions other than these,
-such as creating keys and assigning policies, by using the console.</p>
+<p>Of the API operations discussed in this guide, the following will prove the
+most useful for most applications. You will likely perform operations other
+than these, such as creating keys and assigning policies, by using the console.</p>
 
 <ul>
 <li><p> Encrypt</p></li>
@@ -344,6 +344,28 @@ information on creating client for this service.
           <dd>
             <h3>Value:</h3>
             <pre class="code"><div class="hljs"><span class="hljs-string">"NETWORK_ERRORS"</span></div></pre>
+          </dd>
+        
+          <dt id="ConnectionErrorCodeTypeInternalError-constant" class="">
+          <div class="defn">const <strong>ConnectionErrorCodeTypeInternalError</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    <p>ConnectionErrorCodeTypeInternalError is a ConnectionErrorCodeType enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"INTERNAL_ERROR"</span></div></pre>
           </dd>
         
           <dt id="ConnectionErrorCodeTypeInsufficientCloudhsmHsms-constant" class="">
@@ -1092,7 +1114,7 @@ that is associated with a custom key store. Each custom key store must be
 associated with a different AWS CloudHSM cluster.</p>
 
 <p>Clusters that share a backup history have the same cluster certificate. To
-view the cluster certificate of a cluster, use the DescribeClusters (<a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">http://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>)
+view the cluster certificate of a cluster, use the DescribeClusters (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>)
 operation.</p>
 
 
@@ -1119,21 +1141,38 @@ operation.</p>
 "CloudHsmClusterInvalidConfigurationException".</p>
 
 <p>The request was rejected because the associated AWS CloudHSM cluster did
-not meet the configuration requirements for a custom key store. The cluster
-must be configured with private subnets in at least two different Availability
-Zones in the Region. Also, it must contain at least as many HSMs as the operation
-requires.</p>
+not meet the configuration requirements for a custom key store.</p>
+
+<ul>
+<li><p> The cluster must be configured with private subnets in at least two
+different Availability Zones in the Region.</p></li>
+<li><p> The security group for the cluster (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>)
+(cloudhsm-cluster-<cluster-id>-sg) must include inbound rules and outbound
+rules that allow TCP traffic on ports 2223-2225. The Source in the inbound
+rules and the Destination in the outbound rules must match the security
+group ID. These rules are set by default when you create the cluster.
+Do not delete or change them. To get information about a particular security
+group, use the DescribeSecurityGroups (<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html</a>)
+operation.</p></li>
+<li><p> The cluster must contain at least as many HSMs as the operation requires.
+To add HSMs, use the AWS CloudHSM CreateHsm (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html</a>)
+operation.</p></li>
+</ul>
+
 
 <p>For the CreateCustomKeyStore, UpdateCustomKeyStore, and CreateKey operations,
-the AWS CloudHSM cluster must have at least two active HSMs, each in a different
-Availability Zone. For the ConnectCustomKeyStore operation, the AWS CloudHSM
-must contain at least one active HSM.</p>
+   the AWS CloudHSM cluster must have at least two active HSMs, each in a
+   different Availability Zone. For the ConnectCustomKeyStore operation,
+   the AWS CloudHSM must contain at least one active HSM.</p>
 
-<p>For information about creating a private subnet for a AWS CloudHSM cluster,
-see Create a Private Subnet (<a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">http://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html</a>)
-in the AWS CloudHSM User Guide. To add HSMs, use the AWS CloudHSM CreateHsm
-(<a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">http://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html</a>)
-operation.</p>
+<p>For information about the requirements for an AWS CloudHSM cluster that is
+associated with a custom key store, see Assemble the Prerequisites (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore</a>)
+in the AWS Key Management Service Developer Guide. For information about
+creating a private subnet for an AWS CloudHSM cluster, see Create a Private
+Subnet (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html</a>)
+in the AWS CloudHSM User Guide. For information about cluster security groups,
+see Configure a Default Security Group (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>)
+in the AWS CloudHSM User Guide.</p>
 
 
   </div>
@@ -1161,7 +1200,7 @@ operation.</p>
 <p>The request was rejected because the AWS CloudHSM cluster that is associated
 with the custom key store is not active. Initialize and activate the cluster
 and try the command again. For detailed instructions, see Getting Started
-(<a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">http://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html</a>)
+(<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html</a>)
 in the AWS CloudHSM User Guide.</p>
 
 
@@ -1224,7 +1263,7 @@ and clusters that were created from the same backup that produced the current
 cluster.</p>
 
 <p>Clusters that share a backup history have the same cluster certificate. To
-view the cluster certificate of a cluster, use the DescribeClusters (<a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">http://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>)
+view the cluster certificate of a cluster, use the DescribeClusters (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>)
 operation.</p>
 
 
@@ -1481,7 +1520,7 @@ master key (CMK).</p>
 <p>The request was rejected because the trust anchor certificate in the request
 is not the trust anchor certificate for the specified AWS CloudHSM cluster.</p>
 
-<p>When you initialize the cluster (<a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">http://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr</a>),
+<p>When you initialize the cluster (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr</a>),
 you create the trust anchor certificate and save it in the customerCA.crt
 file.</p>
 
@@ -1559,7 +1598,8 @@ can be retried.</p>
     <p>ErrCodeInvalidArnException for service response error code
 "InvalidArnException".</p>
 
-<p>The request was rejected because a specified ARN was not valid.</p>
+<p>The request was rejected because a specified ARN, or an ARN in a key policy,
+is not valid.</p>
 
 
   </div>
@@ -1742,7 +1782,7 @@ should next begin is not valid.</p>
 valid for this request.</p>
 
 <p>For more information about how key state affects the use of a CMK, see How
-Key State Affects Use of a Customer Master Key (<a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>)
+Key State Affects Use of a Customer Master Key (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>)
 in the AWS Key Management Service Developer Guide.</p>
 
 
@@ -1795,7 +1835,7 @@ request can be retried.</p>
 "LimitExceededException".</p>
 
 <p>The request was rejected because a limit was exceeded. For more information,
-see Limits (<a href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html">http://docs.aws.amazon.com/kms/latest/developerguide/limits.html</a>)
+see Limits (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">https://docs.aws.amazon.com/kms/latest/developerguide/limits.html</a>)
 in the AWS Key Management Service Developer Guide.</p>
 
 
@@ -3013,9 +3053,9 @@ a specified resource is not valid for this operation.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 28 13:39:53 2019 by
+  Generated on Mon Jun  3 16:28:54 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.19 (ruby-2.5.1).
 </div>
 
 <!-- BEGIN-SECTION -->

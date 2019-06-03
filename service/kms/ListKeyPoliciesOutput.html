@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "../../../../../../../../../service/kms"
+import "github.com/IBM/ibm-cos-sdk-go/service/kms"
 </div>
 
 
@@ -360,8 +360,7 @@ use for the Marker parameter in a subsequent request.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>A list of key policy names. Currently, there is only one key policy per CMK
-and it is always named default.</p>
+    <p>A list of key policy names. The only valid value is default.</p>
 
 
   </div>
@@ -381,7 +380,7 @@ and it is always named default.</p>
   <div class="discussion">
     <p>A flag that indicates whether there are more items in the list. When this
 value is true, the list in this response is truncated. To get more items,
-pass the value of the NextMarker element in this response to the Marker parameter
+pass the value of the NextMarker element in thisresponse to the Marker parameter
 in a subsequent request.</p>
 
 
@@ -433,12 +432,12 @@ in a subsequent request.</p>
       <pre class="lines">
 
 
-8693
-8694
-8695</pre>
+8741
+8742
+8743</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8693</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8741</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ListKeyPoliciesOutput (struct)">ListKeyPoliciesOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.ListKeyPoliciesOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -474,13 +473,13 @@ in a subsequent request.</p>
       <pre class="lines">
 
 
-8698
-8699
-8700
-8701</pre>
+8746
+8747
+8748
+8749</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8698</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8746</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListKeyPoliciesOutput (struct)">ListKeyPoliciesOutput</a></span>) <span class='object_link'><a href="#SetNextMarker-instance_method" title="kms.ListKeyPoliciesOutput.SetNextMarker() (method)">SetNextMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListKeyPoliciesOutput (struct)">ListKeyPoliciesOutput</a></span> {
 	s.NextMarker = &v
@@ -517,13 +516,13 @@ in a subsequent request.</p>
       <pre class="lines">
 
 
-8704
-8705
-8706
-8707</pre>
+8752
+8753
+8754
+8755</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8704</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8752</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListKeyPoliciesOutput (struct)">ListKeyPoliciesOutput</a></span>) <span class='object_link'><a href="#SetPolicyNames-instance_method" title="kms.ListKeyPoliciesOutput.SetPolicyNames() (method)">SetPolicyNames</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListKeyPoliciesOutput (struct)">ListKeyPoliciesOutput</a></span> {
 	s.PolicyNames = v
@@ -560,13 +559,13 @@ in a subsequent request.</p>
       <pre class="lines">
 
 
-8710
-8711
-8712
-8713</pre>
+8758
+8759
+8760
+8761</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8710</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8758</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListKeyPoliciesOutput (struct)">ListKeyPoliciesOutput</a></span>) <span class='object_link'><a href="#SetTruncated-instance_method" title="kms.ListKeyPoliciesOutput.SetTruncated() (method)">SetTruncated</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="kms.ListKeyPoliciesOutput (struct)">ListKeyPoliciesOutput</a></span> {
 	s.Truncated = &v
@@ -603,12 +602,12 @@ in a subsequent request.</p>
       <pre class="lines">
 
 
-8688
-8689
-8690</pre>
+8736
+8737
+8738</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8688</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8736</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ListKeyPoliciesOutput (struct)">ListKeyPoliciesOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.ListKeyPoliciesOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -625,9 +624,9 @@ in a subsequent request.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 28 13:40:01 2019 by
+  Generated on Mon Jun  3 16:29:01 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.19 (ruby-2.5.1).
 </div>
 
 <!-- BEGIN-SECTION -->

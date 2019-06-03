@@ -71,22 +71,40 @@
   
 </h1>
 <div class="package signature">
-import "../../../../../../../../../service/kms"
+import "github.com/IBM/ibm-cos-sdk-go/service/kms"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>A structure that you can use to allow certain operations in the grant only
-when the desired encryption context is present. For more information about
-encryption context, see Encryption Context (<a href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html</a>)
-in the AWS Key Management Service Developer Guide.</p>
+    <p>Use this structure to allow cryptographic operations in the grant only when
+the operation request includes the specified encryption context (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>).</p>
 
-<p>Grant constraints apply only to operations that accept encryption context
-as input. For example, the DescribeKey operation does not accept encryption
-context as input. A grant that allows the DescribeKey operation does so regardless
-of the grant constraints. In constrast, the Encrypt operation accepts encryption
-context as input. A grant that allows the Encrypt operation does so only
-when the encryption context of the Encrypt operation satisfies the grant
-constraints.</p>
+<p>AWS KMS applies the grant constraints only when the grant allows a cryptographic
+operation that accepts an encryption context as input, such as the following.</p>
+
+<ul>
+<li><p> Encrypt</p></li>
+<li><p> Decrypt</p></li>
+<li><p> GenerateDataKey</p></li>
+<li><p> GenerateDataKeyWithoutPlaintext</p></li>
+<li><p> ReEncrypt</p></li>
+</ul>
+
+
+<p>AWS KMS does not apply the grant constraints to other operations, such as
+DescribeKey or ScheduleKeyDeletion.</p>
+
+<p>In a cryptographic operation, the encryption context in the decryption operation
+must be an exact, case-sensitive match for the keys and values in the encryption
+context of the encryption operation. Only the order of the pairs can vary.</p>
+
+<p>However, in a grant constraint, the key in each key-value pair is not case
+sensitive, but the value is case sensitive.</p>
+
+<p>To avoid confusion, do not use multiple encryption context pairs that differ
+only by case. To require a fully case-sensitive encryption context, use the
+kms:EncryptionContext: and kms:EncryptionContextKeys conditions in an IAM
+or key policy. For details, see kms:EncryptionContext: (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context">https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context</a>)
+in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -134,7 +152,7 @@ constraints.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows.</p>
+    <span class="summary_desc"><div class='inline'><p>A list of key-value pairs that must match the encryption context in the cryptographic operation request.</p>
 </div></span>
   
 </li>
@@ -158,7 +176,7 @@ constraints.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A list of key-value pairs, all of which must be present in the encryption context of certain subsequent operations that the grant allows.</p>
+    <span class="summary_desc"><div class='inline'><p>A list of key-value pairs that must be included in the encryption context of the cryptographic operation request.</p>
 </div></span>
   
 </li>
@@ -314,11 +332,10 @@ constraints.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>A list of key-value pairs that must be present in the encryption context
-of certain subsequent operations that the grant allows. When certain subsequent
-operations allowed by the grant include encryption context that matches this
-list, the grant allows the operation. Otherwise, the grant does not allow
-the operation.</p>
+    <p>A list of key-value pairs that must match the encryption context in the cryptographic
+operation request. The grant allows the operation only when the encryption
+context in the request is the same as the encryption context specified in
+this constraint.</p>
 
 
   </div>
@@ -336,11 +353,11 @@ the operation.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>A list of key-value pairs, all of which must be present in the encryption
-context of certain subsequent operations that the grant allows. When certain
-subsequent operations allowed by the grant include encryption context that
-matches this list or is a superset of this list, the grant allows the operation.
-Otherwise, the grant does not allow the operation.</p>
+    <p>A list of key-value pairs that must be included in the encryption context
+of the cryptographic operation request. The grant allows the cryptographic
+operation only when the encryption context in the request includes the key-value
+pairs specified in this constraint, although it can include additional key-value
+pairs.</p>
 
 
   </div>
@@ -391,12 +408,12 @@ Otherwise, the grant does not allow the operation.</p>
       <pre class="lines">
 
 
-7880
-7881
-7882</pre>
+7928
+7929
+7930</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7880</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7928</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GrantConstraints.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -432,13 +449,13 @@ Otherwise, the grant does not allow the operation.</p>
       <pre class="lines">
 
 
-7885
-7886
-7887
-7888</pre>
+7933
+7934
+7935
+7936</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7885</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7933</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) <span class='object_link'><a href="#SetEncryptionContextEquals-instance_method" title="kms.GrantConstraints.SetEncryptionContextEquals() (method)">SetEncryptionContextEquals</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span> {
 	s.EncryptionContextEquals = v
@@ -475,13 +492,13 @@ Otherwise, the grant does not allow the operation.</p>
       <pre class="lines">
 
 
-7891
-7892
-7893
-7894</pre>
+7939
+7940
+7941
+7942</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7891</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7939</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) <span class='object_link'><a href="#SetEncryptionContextSubset-instance_method" title="kms.GrantConstraints.SetEncryptionContextSubset() (method)">SetEncryptionContextSubset</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span> {
 	s.EncryptionContextSubset = v
@@ -518,12 +535,12 @@ Otherwise, the grant does not allow the operation.</p>
       <pre class="lines">
 
 
-7875
-7876
-7877</pre>
+7923
+7924
+7925</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7875</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7923</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GrantConstraints.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -540,9 +557,9 @@ Otherwise, the grant does not allow the operation.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 28 13:40:00 2019 by
+  Generated on Mon Jun  3 16:29:01 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.19 (ruby-2.5.1).
 </div>
 
 <!-- BEGIN-SECTION -->

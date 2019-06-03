@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "../../../../../../../../../service/s3/s3crypto"
+import "github.com/IBM/ibm-cos-sdk-go/service/s3/s3crypto"
 </div>
 
   
@@ -1371,7 +1371,7 @@ for the master key</p>
 			}).decryptHandler,
 		},
 		CEKRegistry: <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]CEKEntry{
-			AESGCMNoPadding:                                          newAESGCMContentCipher,
+			AESGCMNoPadding: newAESGCMContentCipher,
 			strings.Join([]<span class="hljs-constant">string</span>{AESCBC, AESCBCPadder.Name()}, <span class="hljs-string">"/"</span>): newAESCBCContentCipher,
 		},
 		PadderRegistry: <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Padder{
@@ -1692,9 +1692,9 @@ the most secure data, use an authenticated crypto algorithm.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 28 13:39:53 2019 by
+  Generated on Mon Jun  3 16:28:54 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.19 (ruby-2.5.1).
 </div>
 
 <!-- BEGIN-SECTION -->

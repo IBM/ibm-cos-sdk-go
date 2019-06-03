@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "../../../../../../../../../service/s3"
+import "github.com/IBM/ibm-cos-sdk-go/service/s3"
 </div>
 
 
@@ -186,6 +186,54 @@ import "../../../../../../../../../service/s3"
 
   
     <span class="summary_desc"><div class='inline'><p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IBMSSEKPCrkId-field" title="s3.ListObjectsOutput.IBMSSEKPCrkId (field)"><strong>IBMSSEKPCrkId</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The root key used by Key Protect to encrypt this bucket.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IBMSSEKPEnabled-field" title="s3.ListObjectsOutput.IBMSSEKPEnabled (field)"><strong>IBMSSEKPEnabled</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Specifies whether the Bucket has Key Protect enabled.</p>
 </div></span>
   
 </li>
@@ -494,6 +542,54 @@ import "../../../../../../../../../service/s3"
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetIBMSSEKPCrkId-instance_method" title="s3.ListObjectsOutput.SetIBMSSEKPCrkId() (method)"><strong>SetIBMSSEKPCrkId</strong>(string)  *ListObjectsOutput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetIBMSSEKPCrkId sets the IBMSSEKPCrkId field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetIBMSSEKPEnabled-instance_method" title="s3.ListObjectsOutput.SetIBMSSEKPEnabled() (method)"><strong>SetIBMSSEKPEnabled</strong>(bool)  *ListObjectsOutput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetIBMSSEKPEnabled sets the IBMSSEKPEnabled field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetIsTruncated-instance_method" title="s3.ListObjectsOutput.SetIsTruncated() (method)"><strong>SetIsTruncated</strong>(bool)  *ListObjectsOutput </a></span></span>
   
   
@@ -713,6 +809,43 @@ import "../../../../../../../../../service/s3"
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="IBMSSEKPCrkId-field">
+  <strong>IBMSSEKPCrkId</strong> *string 
+  <code>`location:"header" locationName:"ibm-sse-kp-customer-root-key-crn" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The root key used by Key Protect to encrypt this bucket. This value must
+be the full CRN of the root key.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="IBMSSEKPEnabled-field">
+  <strong>IBMSSEKPEnabled</strong> *bool 
+  <code>`location:"header" locationName:"ibm-sse-kp-enabled" type:"boolean"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>Specifies whether the Bucket has Key Protect enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="IsTruncated-field">
   <strong>IsTruncated</strong> *bool 
   <code>`type:"boolean"`</code>
@@ -827,12 +960,12 @@ subsequent request to get the next set of object keys.</p>
       <pre class="lines">
 
 
-6628
-6629
-6630</pre>
+6961
+6962
+6963</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6628</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6961</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ListObjectsOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -868,13 +1001,13 @@ subsequent request to get the next set of object keys.</p>
       <pre class="lines">
 
 
-6633
-6634
-6635
-6636</pre>
+6966
+6967
+6968
+6969</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6633</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6966</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetCommonPrefixes-instance_method" title="s3.ListObjectsOutput.SetCommonPrefixes() (method)">SetCommonPrefixes</a></span>(v []*<span class='object_link'><a href="CommonPrefix.html" title="s3.CommonPrefix (struct)">CommonPrefix</a></span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.CommonPrefixes = v
@@ -911,13 +1044,13 @@ subsequent request to get the next set of object keys.</p>
       <pre class="lines">
 
 
-6639
-6640
-6641
-6642</pre>
+6972
+6973
+6974
+6975</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6639</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6972</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetContents-instance_method" title="s3.ListObjectsOutput.SetContents() (method)">SetContents</a></span>(v []*<span class='object_link'><a href="Object.html" title="s3.Object (struct)">Object</a></span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.Contents = v
@@ -954,13 +1087,13 @@ subsequent request to get the next set of object keys.</p>
       <pre class="lines">
 
 
-6645
-6646
-6647
-6648</pre>
+6978
+6979
+6980
+6981</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6645</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6978</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetDelimiter-instance_method" title="s3.ListObjectsOutput.SetDelimiter() (method)">SetDelimiter</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.Delimiter = &v
@@ -997,16 +1130,102 @@ subsequent request to get the next set of object keys.</p>
       <pre class="lines">
 
 
-6651
-6652
-6653
-6654</pre>
+6984
+6985
+6986
+6987</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6651</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6984</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetEncodingType-instance_method" title="s3.ListObjectsOutput.SetEncodingType() (method)">SetEncodingType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.EncodingType = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetIBMSSEKPCrkId-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <strong><span class='object_link'><a href="#SetIBMSSEKPCrkId-instance_method" title="s3.ListObjectsOutput.SetIBMSSEKPCrkId() (method)">SetIBMSSEKPCrkId</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetIBMSSEKPCrkId sets the IBMSSEKPCrkId field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6990
+6991
+6992
+6993</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6990</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetIBMSSEKPCrkId-instance_method" title="s3.ListObjectsOutput.SetIBMSSEKPCrkId() (method)">SetIBMSSEKPCrkId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
+	s.IBMSSEKPCrkId = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetIBMSSEKPEnabled-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <strong><span class='object_link'><a href="#SetIBMSSEKPEnabled-instance_method" title="s3.ListObjectsOutput.SetIBMSSEKPEnabled() (method)">SetIBMSSEKPEnabled</a></span></strong>(v bool) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetIBMSSEKPEnabled sets the IBMSSEKPEnabled field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6996
+6997
+6998
+6999</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6996</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetIBMSSEKPEnabled-instance_method" title="s3.ListObjectsOutput.SetIBMSSEKPEnabled() (method)">SetIBMSSEKPEnabled</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
+	s.IBMSSEKPEnabled = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -1040,13 +1259,13 @@ subsequent request to get the next set of object keys.</p>
       <pre class="lines">
 
 
-6657
-6658
-6659
-6660</pre>
+7002
+7003
+7004
+7005</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6657</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7002</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetIsTruncated-instance_method" title="s3.ListObjectsOutput.SetIsTruncated() (method)">SetIsTruncated</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.IsTruncated = &v
@@ -1083,13 +1302,13 @@ subsequent request to get the next set of object keys.</p>
       <pre class="lines">
 
 
-6663
-6664
-6665
-6666</pre>
+7008
+7009
+7010
+7011</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6663</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7008</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetMarker-instance_method" title="s3.ListObjectsOutput.SetMarker() (method)">SetMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.Marker = &v
@@ -1126,13 +1345,13 @@ subsequent request to get the next set of object keys.</p>
       <pre class="lines">
 
 
-6669
-6670
-6671
-6672</pre>
+7014
+7015
+7016
+7017</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6669</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7014</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetMaxKeys-instance_method" title="s3.ListObjectsOutput.SetMaxKeys() (method)">SetMaxKeys</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.MaxKeys = &v
@@ -1169,13 +1388,13 @@ subsequent request to get the next set of object keys.</p>
       <pre class="lines">
 
 
-6675
-6676
-6677
-6678</pre>
+7020
+7021
+7022
+7023</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6675</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7020</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetName-instance_method" title="s3.ListObjectsOutput.SetName() (method)">SetName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.Name = &v
@@ -1212,13 +1431,13 @@ subsequent request to get the next set of object keys.</p>
       <pre class="lines">
 
 
-6681
-6682
-6683
-6684</pre>
+7026
+7027
+7028
+7029</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6681</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7026</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetNextMarker-instance_method" title="s3.ListObjectsOutput.SetNextMarker() (method)">SetNextMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.NextMarker = &v
@@ -1255,13 +1474,13 @@ subsequent request to get the next set of object keys.</p>
       <pre class="lines">
 
 
-6687
-6688
-6689
-6690</pre>
+7032
+7033
+7034
+7035</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6687</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7032</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetPrefix-instance_method" title="s3.ListObjectsOutput.SetPrefix() (method)">SetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.Prefix = &v
@@ -1298,12 +1517,12 @@ subsequent request to get the next set of object keys.</p>
       <pre class="lines">
 
 
-6623
-6624
-6625</pre>
+6956
+6957
+6958</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6623</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6956</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ListObjectsOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1320,9 +1539,9 @@ subsequent request to get the next set of object keys.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 28 13:39:57 2019 by
+  Generated on Mon Jun  3 16:28:58 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.19 (ruby-2.5.1).
 </div>
 
 <!-- BEGIN-SECTION -->

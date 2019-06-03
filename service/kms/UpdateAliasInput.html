@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "../../../../../../../../../service/kms"
+import "github.com/IBM/ibm-cos-sdk-go/service/kms"
 </div>
 
 
@@ -113,7 +113,7 @@ import "../../../../../../../../../service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'><p>String that contains the name of the alias to be modified.</p>
+    <span class="summary_desc"><div class='inline'><p>Specifies the name of the alias to change.</p>
 </div></span>
   
 </li>
@@ -137,7 +137,7 @@ import "../../../../../../../../../service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Unique identifier of the customer master key to be mapped to the alias.</p>
+    <span class="summary_desc"><div class='inline'><p>Unique identifier of the customer master key (CMK) to be mapped to the alias.</p>
 </div></span>
   
 </li>
@@ -317,9 +317,8 @@ import "../../../../../../../../../service/kms"
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>String that contains the name of the alias to be modified. The name must
-start with the word "alias" followed by a forward slash (alias/). Aliases
-that begin with "alias/aws" are reserved.</p>
+    <p>Specifies the name of the alias to change. This value must begin with alias/
+followed by the alias name, such as alias/ExampleAlias.</p>
 
 <p>AliasName is a required field</p>
 
@@ -339,7 +338,8 @@ that begin with "alias/aws" are reserved.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>Unique identifier of the customer master key to be mapped to the alias.</p>
+    <p>Unique identifier of the customer master key (CMK) to be mapped to the alias.
+When the update operation completes, the alias will point to this CMK.</p>
 
 <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
 
@@ -406,12 +406,12 @@ that begin with "alias/aws" are reserved.</p>
       <pre class="lines">
 
 
-9842
-9843
-9844</pre>
+9890
+9891
+9892</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9842</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9890</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.UpdateAliasInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -447,13 +447,13 @@ that begin with "alias/aws" are reserved.</p>
       <pre class="lines">
 
 
-9869
-9870
-9871
-9872</pre>
+9917
+9918
+9919
+9920</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9869</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9917</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#SetAliasName-instance_method" title="kms.UpdateAliasInput.SetAliasName() (method)">SetAliasName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span> {
 	s.AliasName = &v
@@ -490,13 +490,13 @@ that begin with "alias/aws" are reserved.</p>
       <pre class="lines">
 
 
-9875
-9876
-9877
-9878</pre>
+9923
+9924
+9925
+9926</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9875</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9923</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#SetTargetKeyId-instance_method" title="kms.UpdateAliasInput.SetTargetKeyId() (method)">SetTargetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span> {
 	s.TargetKeyId = &v
@@ -533,12 +533,12 @@ that begin with "alias/aws" are reserved.</p>
       <pre class="lines">
 
 
-9837
-9838
-9839</pre>
+9885
+9886
+9887</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9837</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9885</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.UpdateAliasInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -574,29 +574,29 @@ that begin with "alias/aws" are reserved.</p>
       <pre class="lines">
 
 
-9847
-9848
-9849
-9850
-9851
-9852
-9853
-9854
-9855
-9856
-9857
-9858
-9859
-9860
-9861
-9862
-9863
-9864
-9865
-9866</pre>
+9895
+9896
+9897
+9898
+9899
+9900
+9901
+9902
+9903
+9904
+9905
+9906
+9907
+9908
+9909
+9910
+9911
+9912
+9913
+9914</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9847</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9895</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.UpdateAliasInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>"</span>}
@@ -630,9 +630,9 @@ that begin with "alias/aws" are reserved.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 28 13:40:01 2019 by
+  Generated on Mon Jun  3 16:29:02 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.19 (ruby-2.5.1).
 </div>
 
 <!-- BEGIN-SECTION -->

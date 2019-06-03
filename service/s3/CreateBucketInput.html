@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "../../../../../../../../../service/s3"
+import "github.com/IBM/ibm-cos-sdk-go/service/s3"
 </div>
 
 
@@ -282,6 +282,54 @@ import "../../../../../../../../../service/s3"
 
   
     <span class="summary_desc"><div class='inline'><p>Allows grantee to write the ACL for the applicable bucket.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IBMSSEKPCustomerRootKeyCrn-field" title="s3.CreateBucketInput.IBMSSEKPCustomerRootKeyCrn (field)"><strong>IBMSSEKPCustomerRootKeyCrn</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The root key used by Key Protect to encrypt this bucket.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#IBMSSEKPEncryptionAlgorithm-field" title="s3.CreateBucketInput.IBMSSEKPEncryptionAlgorithm (field)"><strong>IBMSSEKPEncryptionAlgorithm</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The algorithm and key size to use with the encryption key stored by using Key Protect.</p>
 </div></span>
   
 </li>
@@ -590,6 +638,54 @@ import "../../../../../../../../../service/s3"
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetIBMSSEKPCustomerRootKeyCrn-instance_method" title="s3.CreateBucketInput.SetIBMSSEKPCustomerRootKeyCrn() (method)"><strong>SetIBMSSEKPCustomerRootKeyCrn</strong>(string)  *CreateBucketInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetIBMSSEKPCustomerRootKeyCrn sets the IBMSSEKPCustomerRootKeyCrn field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetIBMSSEKPEncryptionAlgorithm-instance_method" title="s3.CreateBucketInput.SetIBMSSEKPEncryptionAlgorithm() (method)"><strong>SetIBMSSEKPEncryptionAlgorithm</strong>(string)  *CreateBucketInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>SetIBMSSEKPEncryptionAlgorithm sets the IBMSSEKPEncryptionAlgorithm field's value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#String-instance_method" title="s3.CreateBucketInput.String() (method)"><strong>String</strong>()  string </a></span></span>
   
   
@@ -782,6 +878,44 @@ bucket.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="IBMSSEKPCustomerRootKeyCrn-field">
+  <strong>IBMSSEKPCustomerRootKeyCrn</strong> *string 
+  <code>`location:"header" locationName:"ibm-sse-kp-customer-root-key-crn" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The root key used by Key Protect to encrypt this bucket. This value must
+be the full CRN of the root key.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="IBMSSEKPEncryptionAlgorithm-field">
+  <strong>IBMSSEKPEncryptionAlgorithm</strong> *string 
+  <code>`location:"header" locationName:"ibm-sse-kp-encryption-algorithm" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>The algorithm and key size to use with the encryption key stored by using
+Key Protect. This value must be set to the string "AES256".</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="IBMServiceInstanceId-field">
   <strong>IBMServiceInstanceId</strong> *string 
   <code>`location:"header" locationName:"ibm-service-instance-id" type:"string"`</code>
@@ -841,12 +975,12 @@ bucket.</p>
       <pre class="lines">
 
 
-3576
-3577
-3578</pre>
+3752
+3753
+3754</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3576</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3752</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.CreateBucketInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -882,13 +1016,13 @@ bucket.</p>
       <pre class="lines">
 
 
-3597
-3598
-3599
-3600</pre>
+3773
+3774
+3775
+3776</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3597</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3773</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#SetACL-instance_method" title="s3.CreateBucketInput.SetACL() (method)">SetACL</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span> {
 	s.ACL = &v
@@ -925,13 +1059,13 @@ bucket.</p>
       <pre class="lines">
 
 
-3603
-3604
-3605
-3606</pre>
+3779
+3780
+3781
+3782</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3603</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3779</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.CreateBucketInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span> {
 	s.Bucket = &v
@@ -968,13 +1102,13 @@ bucket.</p>
       <pre class="lines">
 
 
-3616
-3617
-3618
-3619</pre>
+3792
+3793
+3794
+3795</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3616</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3792</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#SetCreateBucketConfiguration-instance_method" title="s3.CreateBucketInput.SetCreateBucketConfiguration() (method)">SetCreateBucketConfiguration</a></span>(v *<span class='object_link'><a href="#CreateBucketConfiguration-field" title="s3.CreateBucketInput.CreateBucketConfiguration (field)">CreateBucketConfiguration</a></span>) *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span> {
 	s.CreateBucketConfiguration = v
@@ -1011,13 +1145,13 @@ bucket.</p>
       <pre class="lines">
 
 
-3622
-3623
-3624
-3625</pre>
+3798
+3799
+3800
+3801</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3622</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3798</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#SetGrantFullControl-instance_method" title="s3.CreateBucketInput.SetGrantFullControl() (method)">SetGrantFullControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span> {
 	s.GrantFullControl = &v
@@ -1054,13 +1188,13 @@ bucket.</p>
       <pre class="lines">
 
 
-3628
-3629
-3630
-3631</pre>
+3804
+3805
+3806
+3807</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3628</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3804</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#SetGrantRead-instance_method" title="s3.CreateBucketInput.SetGrantRead() (method)">SetGrantRead</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span> {
 	s.GrantRead = &v
@@ -1097,13 +1231,13 @@ bucket.</p>
       <pre class="lines">
 
 
-3634
-3635
-3636
-3637</pre>
+3810
+3811
+3812
+3813</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3634</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3810</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#SetGrantReadACP-instance_method" title="s3.CreateBucketInput.SetGrantReadACP() (method)">SetGrantReadACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span> {
 	s.GrantReadACP = &v
@@ -1140,13 +1274,13 @@ bucket.</p>
       <pre class="lines">
 
 
-3640
-3641
-3642
-3643</pre>
+3816
+3817
+3818
+3819</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3640</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3816</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#SetGrantWrite-instance_method" title="s3.CreateBucketInput.SetGrantWrite() (method)">SetGrantWrite</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span> {
 	s.GrantWrite = &v
@@ -1183,13 +1317,13 @@ bucket.</p>
       <pre class="lines">
 
 
-3646
-3647
-3648
-3649</pre>
+3822
+3823
+3824
+3825</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3646</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3822</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#SetGrantWriteACP-instance_method" title="s3.CreateBucketInput.SetGrantWriteACP() (method)">SetGrantWriteACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span> {
 	s.GrantWriteACP = &v
@@ -1226,16 +1360,102 @@ bucket.</p>
       <pre class="lines">
 
 
-3652
-3653
-3654
-3655</pre>
+3840
+3841
+3842
+3843</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3652</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3840</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#SetIBMServiceInstanceId-instance_method" title="s3.CreateBucketInput.SetIBMServiceInstanceId() (method)">SetIBMServiceInstanceId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span> {
 	s.IBMServiceInstanceId = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetIBMSSEKPCustomerRootKeyCrn-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <strong><span class='object_link'><a href="#SetIBMSSEKPCustomerRootKeyCrn-instance_method" title="s3.CreateBucketInput.SetIBMSSEKPCustomerRootKeyCrn() (method)">SetIBMSSEKPCustomerRootKeyCrn</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetIBMSSEKPCustomerRootKeyCrn sets the IBMSSEKPCustomerRootKeyCrn field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3828
+3829
+3830
+3831</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3828</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#SetIBMSSEKPCustomerRootKeyCrn-instance_method" title="s3.CreateBucketInput.SetIBMSSEKPCustomerRootKeyCrn() (method)">SetIBMSSEKPCustomerRootKeyCrn</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span> {
+	s.IBMSSEKPCustomerRootKeyCrn = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetIBMSSEKPEncryptionAlgorithm-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <strong><span class='object_link'><a href="#SetIBMSSEKPEncryptionAlgorithm-instance_method" title="s3.CreateBucketInput.SetIBMSSEKPEncryptionAlgorithm() (method)">SetIBMSSEKPEncryptionAlgorithm</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>SetIBMSSEKPEncryptionAlgorithm sets the IBMSSEKPEncryptionAlgorithm field's value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3834
+3835
+3836
+3837</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3834</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#SetIBMSSEKPEncryptionAlgorithm-instance_method" title="s3.CreateBucketInput.SetIBMSSEKPEncryptionAlgorithm() (method)">SetIBMSSEKPEncryptionAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span> {
+	s.IBMSSEKPEncryptionAlgorithm = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -1269,12 +1489,12 @@ bucket.</p>
       <pre class="lines">
 
 
-3571
-3572
-3573</pre>
+3747
+3748
+3749</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3571</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3747</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.CreateBucketInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1310,23 +1530,23 @@ bucket.</p>
       <pre class="lines">
 
 
-3581
-3582
-3583
-3584
-3585
-3586
-3587
-3588
-3589
-3590
-3591
-3592
-3593
-3594</pre>
+3757
+3758
+3759
+3760
+3761
+3762
+3763
+3764
+3765
+3766
+3767
+3768
+3769
+3770</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3581</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3757</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.CreateBucketInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.CreateBucketInput (struct)">CreateBucketInput</a></span>"</span>}
@@ -1354,9 +1574,9 @@ bucket.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 28 13:39:55 2019 by
+  Generated on Mon Jun  3 16:28:56 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.19 (ruby-2.5.1).
 </div>
 
 <!-- BEGIN-SECTION -->
