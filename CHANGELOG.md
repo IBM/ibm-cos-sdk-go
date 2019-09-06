@@ -1,5 +1,12 @@
 # CHANGELOG
 
+# 1.2.0
+## Content
+* Immutable Object Storage
+* Archive Tier Support
+### Defect Fixes
+* AWS Patches aligned to version 1.23.4 of the AWS SDK for Go
+
 # 1.1.0
 ## Content
 * Key Protect Support

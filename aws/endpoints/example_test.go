@@ -52,14 +52,4 @@ func ExampleResolverFunc() {
 		Bucket: aws.String("myBucket"),
 		Key:    aws.String("myObjectKey"),
 	})
-
-	//// Create the SQS service client with the shared session. This will
-	//// fallback to the default endpoint resolver because the customization
-	//// passes any non S3 service endpoint resolve to the default resolver.
-	//sqsSvc := sqs.New(sess)
-	//// Operation calls will be made to the default endpoint for SQS for the
-	//// region configured.
-	//sqsSvc.ReceiveMessage(&sqs.ReceiveMessageInput{
-	//	QueueUrl: aws.String("my-queue-url"),
-	//})
 }

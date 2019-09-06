@@ -33,6 +33,12 @@ const (
 	// The specified multipart upload does not exist.
 	ErrCodeNoSuchUpload = "NoSuchUpload"
 
+	// ErrCodeObjectAlreadyInActiveTierError for service response error code
+	// "ObjectAlreadyInActiveTierError".
+	//
+	// This operation is not allowed against this storage tier
+	ErrCodeObjectAlreadyInActiveTierError = "ObjectAlreadyInActiveTierError"
+
 	// ErrCodeObjectNotInActiveTierError for service response error code
 	// "ObjectNotInActiveTierError".
 	//

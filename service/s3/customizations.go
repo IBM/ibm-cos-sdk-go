@@ -17,7 +17,8 @@ func defaultInitClientFn(c *client.Client) {
 
 	// Require SSL when using SSE keys
 	c.Handlers.Validate.PushBack(validateSSERequiresSSL)
-	c.Handlers.Build.PushBack(computeSSEKeys)
+	c.Handlers.Build.PushBack(computeSSEKeyMD5)
+	c.Handlers.Build.PushBack(computeCopySourceSSEKeyMD5)
 
 	// S3 uses custom error unmarshaling logic
 	c.Handlers.UnmarshalError.Clear()
@@ -30,14 +31,14 @@ func defaultInitRequestFn(r *request.Request) {
 	// e.g. 100-continue support for PUT requests using Go 1.6
 	platformRequestHandlers(r)
 
+	// md5 required
 	switch r.Operation.Name {
-	case opPutBucketCors, opDeleteObjects:
-		//opPutBucketLifecycle, opPutBucketPolicy,
-		//opPutBucketTagging,  opPutBucketLifecycleConfiguration,
-		//opPutObjectLegalHold, opPutObjectRetention, opPutObjectLockConfiguration,
-		//opPutBucketReplication:
-		// These S3 operations require Content-MD5 to be set
+	case opPutBucketCors, opDeleteObjects, opPutBucketProtectionConfiguration,
+		opPutBucketLifecycleConfiguration, opCompleteMultipartUpload:
 		r.Handlers.Build.PushBack(contentMD5)
+	}
+	// everything else
+	switch r.Operation.Name {
 	case opGetBucketLocation:
 		// GetBucketLocation has custom parsing logic
 		r.Handlers.Unmarshal.PushFront(buildGetBucketLocation)

@@ -16,7 +16,9 @@ func TestRequestCancelRetry(t *testing.T) {
 	c := make(chan struct{})
 
 	reqNum := 0
-	s := mock.NewMockClient(aws.NewConfig().WithMaxRetries(10))
+	s := mock.NewMockClient(&aws.Config{
+		MaxRetries: aws.Int(1),
+	})
 	s.Handlers.Validate.Clear()
 	s.Handlers.Unmarshal.Clear()
 	s.Handlers.UnmarshalMeta.Clear()

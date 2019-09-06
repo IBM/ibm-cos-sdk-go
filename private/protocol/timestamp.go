@@ -70,3 +70,16 @@ func ParseTime(formatName, value string) (time.Time, error) {
 		panic("unknown timestamp format name, " + formatName)
 	}
 }
+
+// ParseIbmTime - checks to see if first character of date string is a letter
+// if so it tries to parse it as an RFC822 formatted date
+func ParseIbmTime(formatName, value string) (time.Time, error) {
+	if formatName == ISO8601TimeFormatName && len(value) != 0 {
+		ch := value[0]
+		if  ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z') {
+			formatName = RFC822TimeFormatName
+		}
+	}
+	return ParseTime(formatName, value)
+
+}

@@ -97,6 +97,86 @@ func (c *S3) AbortMultipartUploadWithContext(ctx aws.Context, input *AbortMultip
 	return out, req.Send()
 }
 
+const opAddLegalHold = "AddLegalHold"
+
+// AddLegalHoldRequest generates a "aws/request.Request" representing the
+// client's request for the AddLegalHold operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AddLegalHold for more information on using the AddLegalHold
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AddLegalHoldRequest method.
+//    req, resp := client.AddLegalHoldRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AddLegalHold
+func (c *S3) AddLegalHoldRequest(input *AddLegalHoldInput) (req *request.Request, output *AddLegalHoldOutput) {
+	op := &request.Operation{
+		Name:       opAddLegalHold,
+		HTTPMethod: "POST",
+		HTTPPath:   "/{Bucket}/{Key+}?legalHold",
+	}
+
+	if input == nil {
+		input = &AddLegalHoldInput{}
+	}
+
+	output = &AddLegalHoldOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restxml.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// AddLegalHold API operation for Amazon Simple Storage Service.
+//
+// Add a legal hold on an object. The legal hold identifiers are stored in the
+// object metadata along with the timestamp of when they are POSTed to the object.
+// The presence of any legal hold identifiers prevents the modification or deletion
+// of the object data, even if the retention period has expired. Legal Holds
+// can only be added to objects in a bucket with a protection policy. Otherwise
+// a 400 error will be returned.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation AddLegalHold for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AddLegalHold
+func (c *S3) AddLegalHold(input *AddLegalHoldInput) (*AddLegalHoldOutput, error) {
+	req, out := c.AddLegalHoldRequest(input)
+	return out, req.Send()
+}
+
+// AddLegalHoldWithContext is the same as AddLegalHold with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AddLegalHold for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) AddLegalHoldWithContext(ctx aws.Context, input *AddLegalHoldInput, opts ...request.Option) (*AddLegalHoldOutput, error) {
+	req, out := c.AddLegalHoldRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCompleteMultipartUpload = "CompleteMultipartUpload"
 
 // CompleteMultipartUploadRequest generates a "aws/request.Request" representing the
@@ -564,6 +644,159 @@ func (c *S3) DeleteBucketCorsWithContext(ctx aws.Context, input *DeleteBucketCor
 	return out, req.Send()
 }
 
+const opDeleteBucketLifecycle = "DeleteBucketLifecycle"
+
+// DeleteBucketLifecycleRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteBucketLifecycle operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteBucketLifecycle for more information on using the DeleteBucketLifecycle
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteBucketLifecycleRequest method.
+//    req, resp := client.DeleteBucketLifecycleRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle
+func (c *S3) DeleteBucketLifecycleRequest(input *DeleteBucketLifecycleInput) (req *request.Request, output *DeleteBucketLifecycleOutput) {
+	op := &request.Operation{
+		Name:       opDeleteBucketLifecycle,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/{Bucket}?lifecycle",
+	}
+
+	if input == nil {
+		input = &DeleteBucketLifecycleInput{}
+	}
+
+	output = &DeleteBucketLifecycleOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restxml.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteBucketLifecycle API operation for Amazon Simple Storage Service.
+//
+// Deletes the lifecycle configuration from the bucket.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation DeleteBucketLifecycle for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle
+func (c *S3) DeleteBucketLifecycle(input *DeleteBucketLifecycleInput) (*DeleteBucketLifecycleOutput, error) {
+	req, out := c.DeleteBucketLifecycleRequest(input)
+	return out, req.Send()
+}
+
+// DeleteBucketLifecycleWithContext is the same as DeleteBucketLifecycle with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteBucketLifecycle for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) DeleteBucketLifecycleWithContext(ctx aws.Context, input *DeleteBucketLifecycleInput, opts ...request.Option) (*DeleteBucketLifecycleOutput, error) {
+	req, out := c.DeleteBucketLifecycleRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteLegalHold = "DeleteLegalHold"
+
+// DeleteLegalHoldRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteLegalHold operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteLegalHold for more information on using the DeleteLegalHold
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteLegalHoldRequest method.
+//    req, resp := client.DeleteLegalHoldRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteLegalHold
+func (c *S3) DeleteLegalHoldRequest(input *DeleteLegalHoldInput) (req *request.Request, output *DeleteLegalHoldOutput) {
+	op := &request.Operation{
+		Name:       opDeleteLegalHold,
+		HTTPMethod: "POST",
+		HTTPPath:   "/{Bucket}/{Key+}?legalHold",
+	}
+
+	if input == nil {
+		input = &DeleteLegalHoldInput{}
+	}
+
+	output = &DeleteLegalHoldOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restxml.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteLegalHold API operation for Amazon Simple Storage Service.
+//
+// Remove Legal hold on an object. The legal hold identifiers are stored in
+// the object metadata along with the timestamp of when they are POSTed to the
+// object. The presence of any legal hold identifiers prevents the modification
+// or deletion of the object data, even if the retention period has expired.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation DeleteLegalHold for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteLegalHold
+func (c *S3) DeleteLegalHold(input *DeleteLegalHoldInput) (*DeleteLegalHoldOutput, error) {
+	req, out := c.DeleteLegalHoldRequest(input)
+	return out, req.Send()
+}
+
+// DeleteLegalHoldWithContext is the same as DeleteLegalHold with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteLegalHold for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) DeleteLegalHoldWithContext(ctx aws.Context, input *DeleteLegalHoldInput, opts ...request.Option) (*DeleteLegalHoldOutput, error) {
+	req, out := c.DeleteLegalHoldRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteObject = "DeleteObject"
 
 // DeleteObjectRequest generates a "aws/request.Request" representing the
@@ -710,6 +943,79 @@ func (c *S3) DeleteObjects(input *DeleteObjectsInput) (*DeleteObjectsOutput, err
 // for more information on using Contexts.
 func (c *S3) DeleteObjectsWithContext(ctx aws.Context, input *DeleteObjectsInput, opts ...request.Option) (*DeleteObjectsOutput, error) {
 	req, out := c.DeleteObjectsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opExtendObjectRetention = "ExtendObjectRetention"
+
+// ExtendObjectRetentionRequest generates a "aws/request.Request" representing the
+// client's request for the ExtendObjectRetention operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ExtendObjectRetention for more information on using the ExtendObjectRetention
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ExtendObjectRetentionRequest method.
+//    req, resp := client.ExtendObjectRetentionRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ExtendObjectRetention
+func (c *S3) ExtendObjectRetentionRequest(input *ExtendObjectRetentionInput) (req *request.Request, output *ExtendObjectRetentionOutput) {
+	op := &request.Operation{
+		Name:       opExtendObjectRetention,
+		HTTPMethod: "POST",
+		HTTPPath:   "/{Bucket}/{Key+}?extendRetention",
+	}
+
+	if input == nil {
+		input = &ExtendObjectRetentionInput{}
+	}
+
+	output = &ExtendObjectRetentionOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restxml.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ExtendObjectRetention API operation for Amazon Simple Storage Service.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation ExtendObjectRetention for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ExtendObjectRetention
+func (c *S3) ExtendObjectRetention(input *ExtendObjectRetentionInput) (*ExtendObjectRetentionOutput, error) {
+	req, out := c.ExtendObjectRetentionRequest(input)
+	return out, req.Send()
+}
+
+// ExtendObjectRetentionWithContext is the same as ExtendObjectRetention with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ExtendObjectRetention for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) ExtendObjectRetentionWithContext(ctx aws.Context, input *ExtendObjectRetentionInput, opts ...request.Option) (*ExtendObjectRetentionOutput, error) {
+	req, out := c.ExtendObjectRetentionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -863,6 +1169,80 @@ func (c *S3) GetBucketCorsWithContext(ctx aws.Context, input *GetBucketCorsInput
 	return out, req.Send()
 }
 
+const opGetBucketLifecycleConfiguration = "GetBucketLifecycleConfiguration"
+
+// GetBucketLifecycleConfigurationRequest generates a "aws/request.Request" representing the
+// client's request for the GetBucketLifecycleConfiguration operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetBucketLifecycleConfiguration for more information on using the GetBucketLifecycleConfiguration
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the GetBucketLifecycleConfigurationRequest method.
+//    req, resp := client.GetBucketLifecycleConfigurationRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLifecycleConfiguration
+func (c *S3) GetBucketLifecycleConfigurationRequest(input *GetBucketLifecycleConfigurationInput) (req *request.Request, output *GetBucketLifecycleConfigurationOutput) {
+	op := &request.Operation{
+		Name:       opGetBucketLifecycleConfiguration,
+		HTTPMethod: "GET",
+		HTTPPath:   "/{Bucket}?lifecycle",
+	}
+
+	if input == nil {
+		input = &GetBucketLifecycleConfigurationInput{}
+	}
+
+	output = &GetBucketLifecycleConfigurationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetBucketLifecycleConfiguration API operation for Amazon Simple Storage Service.
+//
+// Returns the lifecycle configuration for the bucket.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation GetBucketLifecycleConfiguration for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLifecycleConfiguration
+func (c *S3) GetBucketLifecycleConfiguration(input *GetBucketLifecycleConfigurationInput) (*GetBucketLifecycleConfigurationOutput, error) {
+	req, out := c.GetBucketLifecycleConfigurationRequest(input)
+	return out, req.Send()
+}
+
+// GetBucketLifecycleConfigurationWithContext is the same as GetBucketLifecycleConfiguration with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetBucketLifecycleConfiguration for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) GetBucketLifecycleConfigurationWithContext(ctx aws.Context, input *GetBucketLifecycleConfigurationInput, opts ...request.Option) (*GetBucketLifecycleConfigurationOutput, error) {
+	req, out := c.GetBucketLifecycleConfigurationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetBucketLocation = "GetBucketLocation"
 
 // GetBucketLocationRequest generates a "aws/request.Request" representing the
@@ -1004,6 +1384,81 @@ func (c *S3) GetBucketLogging(input *GetBucketLoggingInput) (*GetBucketLoggingOu
 // for more information on using Contexts.
 func (c *S3) GetBucketLoggingWithContext(ctx aws.Context, input *GetBucketLoggingInput, opts ...request.Option) (*GetBucketLoggingOutput, error) {
 	req, out := c.GetBucketLoggingRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opGetBucketProtectionConfiguration = "GetBucketProtectionConfiguration"
+
+// GetBucketProtectionConfigurationRequest generates a "aws/request.Request" representing the
+// client's request for the GetBucketProtectionConfiguration operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetBucketProtectionConfiguration for more information on using the GetBucketProtectionConfiguration
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the GetBucketProtectionConfigurationRequest method.
+//    req, resp := client.GetBucketProtectionConfigurationRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketProtectionConfiguration
+func (c *S3) GetBucketProtectionConfigurationRequest(input *GetBucketProtectionConfigurationInput) (req *request.Request, output *GetBucketProtectionConfigurationOutput) {
+	op := &request.Operation{
+		Name:       opGetBucketProtectionConfiguration,
+		HTTPMethod: "GET",
+		HTTPPath:   "/{Bucket}?protection",
+	}
+
+	if input == nil {
+		input = &GetBucketProtectionConfigurationInput{}
+	}
+
+	output = &GetBucketProtectionConfigurationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetBucketProtectionConfiguration API operation for Amazon Simple Storage Service.
+//
+// Returns the protection configuration of a bucket.EnablePermanentRetention
+// flag will only be returned if the flag is set to true for a bucket.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation GetBucketProtectionConfiguration for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketProtectionConfiguration
+func (c *S3) GetBucketProtectionConfiguration(input *GetBucketProtectionConfigurationInput) (*GetBucketProtectionConfigurationOutput, error) {
+	req, out := c.GetBucketProtectionConfigurationRequest(input)
+	return out, req.Send()
+}
+
+// GetBucketProtectionConfigurationWithContext is the same as GetBucketProtectionConfiguration with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetBucketProtectionConfiguration for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) GetBucketProtectionConfigurationWithContext(ctx aws.Context, input *GetBucketProtectionConfigurationInput, opts ...request.Option) (*GetBucketProtectionConfigurationOutput, error) {
+	req, out := c.GetBucketProtectionConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -1526,6 +1981,80 @@ func (c *S3) ListBucketsExtendedPagesWithContext(ctx aws.Context, input *ListBuc
 		cont = fn(p.Page().(*ListBucketsExtendedOutput), !p.HasNextPage())
 	}
 	return p.Err()
+}
+
+const opListLegalHolds = "ListLegalHolds"
+
+// ListLegalHoldsRequest generates a "aws/request.Request" representing the
+// client's request for the ListLegalHolds operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListLegalHolds for more information on using the ListLegalHolds
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ListLegalHoldsRequest method.
+//    req, resp := client.ListLegalHoldsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListLegalHolds
+func (c *S3) ListLegalHoldsRequest(input *ListLegalHoldsInput) (req *request.Request, output *ListLegalHoldsOutput) {
+	op := &request.Operation{
+		Name:       opListLegalHolds,
+		HTTPMethod: "GET",
+		HTTPPath:   "/{Bucket}/{Key+}?legalHold",
+	}
+
+	if input == nil {
+		input = &ListLegalHoldsInput{}
+	}
+
+	output = &ListLegalHoldsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListLegalHolds API operation for Amazon Simple Storage Service.
+//
+// Returns a list of legal holds on an object.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation ListLegalHolds for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListLegalHolds
+func (c *S3) ListLegalHolds(input *ListLegalHoldsInput) (*ListLegalHoldsOutput, error) {
+	req, out := c.ListLegalHoldsRequest(input)
+	return out, req.Send()
+}
+
+// ListLegalHoldsWithContext is the same as ListLegalHolds with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListLegalHolds for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) ListLegalHoldsWithContext(ctx aws.Context, input *ListLegalHoldsInput, opts ...request.Option) (*ListLegalHoldsOutput, error) {
+	req, out := c.ListLegalHoldsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
 }
 
 const opListMultipartUploads = "ListMultipartUploads"
@@ -2075,6 +2604,81 @@ func (c *S3) PutBucketCorsWithContext(ctx aws.Context, input *PutBucketCorsInput
 	return out, req.Send()
 }
 
+const opPutBucketLifecycleConfiguration = "PutBucketLifecycleConfiguration"
+
+// PutBucketLifecycleConfigurationRequest generates a "aws/request.Request" representing the
+// client's request for the PutBucketLifecycleConfiguration operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See PutBucketLifecycleConfiguration for more information on using the PutBucketLifecycleConfiguration
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the PutBucketLifecycleConfigurationRequest method.
+//    req, resp := client.PutBucketLifecycleConfigurationRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycleConfiguration
+func (c *S3) PutBucketLifecycleConfigurationRequest(input *PutBucketLifecycleConfigurationInput) (req *request.Request, output *PutBucketLifecycleConfigurationOutput) {
+	op := &request.Operation{
+		Name:       opPutBucketLifecycleConfiguration,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/{Bucket}?lifecycle",
+	}
+
+	if input == nil {
+		input = &PutBucketLifecycleConfigurationInput{}
+	}
+
+	output = &PutBucketLifecycleConfigurationOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restxml.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// PutBucketLifecycleConfiguration API operation for Amazon Simple Storage Service.
+//
+// Sets the lifecycle configuration for a bucket.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation PutBucketLifecycleConfiguration for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycleConfiguration
+func (c *S3) PutBucketLifecycleConfiguration(input *PutBucketLifecycleConfigurationInput) (*PutBucketLifecycleConfigurationOutput, error) {
+	req, out := c.PutBucketLifecycleConfigurationRequest(input)
+	return out, req.Send()
+}
+
+// PutBucketLifecycleConfigurationWithContext is the same as PutBucketLifecycleConfiguration with the addition of
+// the ability to pass a context and additional request options.
+//
+// See PutBucketLifecycleConfiguration for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) PutBucketLifecycleConfigurationWithContext(ctx aws.Context, input *PutBucketLifecycleConfigurationInput, opts ...request.Option) (*PutBucketLifecycleConfigurationOutput, error) {
+	req, out := c.PutBucketLifecycleConfigurationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opPutBucketLogging = "PutBucketLogging"
 
 // PutBucketLoggingRequest generates a "aws/request.Request" representing the
@@ -2143,6 +2747,84 @@ func (c *S3) PutBucketLogging(input *PutBucketLoggingInput) (*PutBucketLoggingOu
 // for more information on using Contexts.
 func (c *S3) PutBucketLoggingWithContext(ctx aws.Context, input *PutBucketLoggingInput, opts ...request.Option) (*PutBucketLoggingOutput, error) {
 	req, out := c.PutBucketLoggingRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opPutBucketProtectionConfiguration = "PutBucketProtectionConfiguration"
+
+// PutBucketProtectionConfigurationRequest generates a "aws/request.Request" representing the
+// client's request for the PutBucketProtectionConfiguration operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See PutBucketProtectionConfiguration for more information on using the PutBucketProtectionConfiguration
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the PutBucketProtectionConfigurationRequest method.
+//    req, resp := client.PutBucketProtectionConfigurationRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketProtectionConfiguration
+func (c *S3) PutBucketProtectionConfigurationRequest(input *PutBucketProtectionConfigurationInput) (req *request.Request, output *PutBucketProtectionConfigurationOutput) {
+	op := &request.Operation{
+		Name:       opPutBucketProtectionConfiguration,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/{Bucket}?protection",
+	}
+
+	if input == nil {
+		input = &PutBucketProtectionConfigurationInput{}
+	}
+
+	output = &PutBucketProtectionConfigurationOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restxml.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// PutBucketProtectionConfiguration API operation for Amazon Simple Storage Service.
+//
+// Sets the protection configuration of an existing bucket. EnablePermanentRetention
+// is optional and if not included is considered to be false. Once set to true,
+// must be included in any subsequent PUT Bucket?protection requests for that
+// bucket.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation PutBucketProtectionConfiguration for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketProtectionConfiguration
+func (c *S3) PutBucketProtectionConfiguration(input *PutBucketProtectionConfigurationInput) (*PutBucketProtectionConfigurationOutput, error) {
+	req, out := c.PutBucketProtectionConfigurationRequest(input)
+	return out, req.Send()
+}
+
+// PutBucketProtectionConfigurationWithContext is the same as PutBucketProtectionConfiguration with the addition of
+// the ability to pass a context and additional request options.
+//
+// See PutBucketProtectionConfiguration for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) PutBucketProtectionConfigurationWithContext(ctx aws.Context, input *PutBucketProtectionConfigurationInput, opts ...request.Option) (*PutBucketProtectionConfigurationOutput, error) {
+	req, out := c.PutBucketProtectionConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -2297,6 +2979,86 @@ func (c *S3) PutObjectAcl(input *PutObjectAclInput) (*PutObjectAclOutput, error)
 // for more information on using Contexts.
 func (c *S3) PutObjectAclWithContext(ctx aws.Context, input *PutObjectAclInput, opts ...request.Option) (*PutObjectAclOutput, error) {
 	req, out := c.PutObjectAclRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRestoreObject = "RestoreObject"
+
+// RestoreObjectRequest generates a "aws/request.Request" representing the
+// client's request for the RestoreObject operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See RestoreObject for more information on using the RestoreObject
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the RestoreObjectRequest method.
+//    req, resp := client.RestoreObjectRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject
+func (c *S3) RestoreObjectRequest(input *RestoreObjectInput) (req *request.Request, output *RestoreObjectOutput) {
+	op := &request.Operation{
+		Name:       opRestoreObject,
+		HTTPMethod: "POST",
+		HTTPPath:   "/{Bucket}/{Key+}?restore",
+	}
+
+	if input == nil {
+		input = &RestoreObjectInput{}
+	}
+
+	output = &RestoreObjectOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restxml.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// RestoreObject API operation for Amazon Simple Storage Service.
+//
+// Restores an archived copy of an object back into Amazon S3
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation RestoreObject for usage and error information.
+//
+// Returned Error Codes:
+//   * ErrCodeObjectAlreadyInActiveTierError "ObjectAlreadyInActiveTierError"
+//   This operation is not allowed against this storage tier
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject
+func (c *S3) RestoreObject(input *RestoreObjectInput) (*RestoreObjectOutput, error) {
+	req, out := c.RestoreObjectRequest(input)
+	return out, req.Send()
+}
+
+// RestoreObjectWithContext is the same as RestoreObject with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RestoreObject for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) RestoreObjectWithContext(ctx aws.Context, input *RestoreObjectInput, opts ...request.Option) (*RestoreObjectOutput, error) {
+	req, out := c.RestoreObjectRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -2616,6 +3378,93 @@ func (s *AccessControlPolicy) SetOwner(v *Owner) *AccessControlPolicy {
 	return s
 }
 
+type AddLegalHoldInput struct {
+	_ struct{} `type:"structure"`
+
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+
+	// Key is a required field
+	Key *string `location:"uri" locationName:"Key" min:"1" type:"string" required:"true"`
+
+	// RetentionLegalHoldId is a required field
+	RetentionLegalHoldId *string `location:"querystring" locationName:"add" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s AddLegalHoldInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AddLegalHoldInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AddLegalHoldInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AddLegalHoldInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+	if s.RetentionLegalHoldId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RetentionLegalHoldId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *AddLegalHoldInput) SetBucket(v string) *AddLegalHoldInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *AddLegalHoldInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+// SetKey sets the Key field's value.
+func (s *AddLegalHoldInput) SetKey(v string) *AddLegalHoldInput {
+	s.Key = &v
+	return s
+}
+
+// SetRetentionLegalHoldId sets the RetentionLegalHoldId field's value.
+func (s *AddLegalHoldInput) SetRetentionLegalHoldId(v string) *AddLegalHoldInput {
+	s.RetentionLegalHoldId = &v
+	return s
+}
+
+type AddLegalHoldOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s AddLegalHoldOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AddLegalHoldOutput) GoString() string {
+	return s.String()
+}
+
 type Bucket struct {
 	_ struct{} `type:"structure"`
 
@@ -2726,6 +3575,114 @@ func (s *BucketLoggingStatus) Validate() error {
 // SetLoggingEnabled sets the LoggingEnabled field's value.
 func (s *BucketLoggingStatus) SetLoggingEnabled(v *LoggingEnabled) *BucketLoggingStatus {
 	s.LoggingEnabled = v
+	return s
+}
+
+type BucketProtectionDefaultRetention struct {
+	_ struct{} `type:"structure"`
+
+	// Days is a required field
+	Days *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s BucketProtectionDefaultRetention) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BucketProtectionDefaultRetention) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *BucketProtectionDefaultRetention) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "BucketProtectionDefaultRetention"}
+	if s.Days == nil {
+		invalidParams.Add(request.NewErrParamRequired("Days"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDays sets the Days field's value.
+func (s *BucketProtectionDefaultRetention) SetDays(v int64) *BucketProtectionDefaultRetention {
+	s.Days = &v
+	return s
+}
+
+type BucketProtectionMaximumRetention struct {
+	_ struct{} `type:"structure"`
+
+	// Days is a required field
+	Days *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s BucketProtectionMaximumRetention) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BucketProtectionMaximumRetention) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *BucketProtectionMaximumRetention) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "BucketProtectionMaximumRetention"}
+	if s.Days == nil {
+		invalidParams.Add(request.NewErrParamRequired("Days"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDays sets the Days field's value.
+func (s *BucketProtectionMaximumRetention) SetDays(v int64) *BucketProtectionMaximumRetention {
+	s.Days = &v
+	return s
+}
+
+type BucketProtectionMinimumRetention struct {
+	_ struct{} `type:"structure"`
+
+	// Days is a required field
+	Days *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s BucketProtectionMinimumRetention) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BucketProtectionMinimumRetention) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *BucketProtectionMinimumRetention) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "BucketProtectionMinimumRetention"}
+	if s.Days == nil {
+		invalidParams.Add(request.NewErrParamRequired("Days"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDays sets the Days field's value.
+func (s *BucketProtectionMinimumRetention) SetDays(v int64) *BucketProtectionMinimumRetention {
+	s.Days = &v
 	return s
 }
 
@@ -2897,6 +3854,25 @@ type CompleteMultipartUploadInput struct {
 	// at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
 	RequestPayer *string `location:"header" locationName:"x-amz-request-payer" type:"string" enum:"RequestPayer"`
 
+	// Date on which it will be legal to delete or modify the object. This field
+	// can only be specified if Retention-Directive is REPLACE. You can only specify
+	// this or the Retention-Period header. If both are specified a 400 error will
+	// be returned. If neither is specified the bucket's DefaultRetention period
+	// will be used.
+	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp" timestampFormat:"iso8601"`
+
+	// A single legal hold to apply to the object. This field can only be specified
+	// if Retention-Directive is REPLACE. A legal hold is a character long string
+	// of max length 64. The object cannot be overwritten or deleted until all legal
+	// holds associated with the object are removed.
+	RetentionLegalHoldId *string `location:"header" locationName:"Retention-Legal-Hold-ID" type:"string"`
+
+	// Retention period to store on the object in seconds. If this field and Retention-Expiration-Date
+	// are specified a 400 error is returned. If neither is specified the bucket's
+	// DefaultRetention period will be used. 0 is a legal value assuming the bucket's
+	// minimum retention period is also 0.
+	RetentionPeriod *int64 `location:"header" locationName:"Retention-Period" type:"integer"`
+
 	// UploadId is a required field
 	UploadId *string `location:"querystring" locationName:"uploadId" type:"string" required:"true"`
 }
@@ -2964,6 +3940,24 @@ func (s *CompleteMultipartUploadInput) SetMultipartUpload(v *CompletedMultipartU
 // SetRequestPayer sets the RequestPayer field's value.
 func (s *CompleteMultipartUploadInput) SetRequestPayer(v string) *CompleteMultipartUploadInput {
 	s.RequestPayer = &v
+	return s
+}
+
+// SetRetentionExpirationDate sets the RetentionExpirationDate field's value.
+func (s *CompleteMultipartUploadInput) SetRetentionExpirationDate(v time.Time) *CompleteMultipartUploadInput {
+	s.RetentionExpirationDate = &v
+	return s
+}
+
+// SetRetentionLegalHoldId sets the RetentionLegalHoldId field's value.
+func (s *CompleteMultipartUploadInput) SetRetentionLegalHoldId(v string) *CompleteMultipartUploadInput {
+	s.RetentionLegalHoldId = &v
+	return s
+}
+
+// SetRetentionPeriod sets the RetentionPeriod field's value.
+func (s *CompleteMultipartUploadInput) SetRetentionPeriod(v int64) *CompleteMultipartUploadInput {
+	s.RetentionPeriod = &v
 	return s
 }
 
@@ -3182,7 +4176,7 @@ type CopyObjectInput struct {
 	// Specifies the customer-provided encryption key for Amazon S3 to use to decrypt
 	// the source object. The encryption key provided in this header must be one
 	// that was used when the source object was created.
-	CopySourceSSECustomerKey *string `location:"header" locationName:"x-amz-copy-source-server-side-encryption-customer-key" type:"string" sensitive:"true"`
+	CopySourceSSECustomerKey *string `marshal-as:"blob" location:"header" locationName:"x-amz-copy-source-server-side-encryption-customer-key" type:"string" sensitive:"true"`
 
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
 	// Amazon S3 uses this header for a message integrity check to ensure the encryption
@@ -3220,6 +4214,33 @@ type CopyObjectInput struct {
 	// at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
 	RequestPayer *string `location:"header" locationName:"x-amz-request-payer" type:"string" enum:"RequestPayer"`
 
+	// This header controls how the Protection state of the source object is copied
+	// to the destination object.If copied, the retention period and all legal holds
+	// are copied onto the new object. The legal hold date's is set to the date
+	// of the copy.
+	RetentionDirective *string `location:"header" locationName:"Retention-Directive" type:"string" enum:"RetentionDirective"`
+
+	// Date on which it will be legal to delete or modify the object. This field
+	// can only be specified if Retention-Directive is REPLACE. You can only specify
+	// this or the Retention-Period header. If both are specified a 400 error will
+	// be returned. If neither is specified the bucket's DefaultRetention period
+	// will be used.
+	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp" timestampFormat:"iso8601"`
+
+	// A single legal hold to apply to the object. This field can only be specified
+	// if Retention-Directive is REPLACE. A legal hold is a character long string
+	// of max length 64. The object cannot be overwritten or deleted until all legal
+	// holds associated with the object are removed.
+	RetentionLegalHoldId *string `location:"header" locationName:"Retention-Legal-Hold-ID" type:"string"`
+
+	// Retention period to store on the object in seconds. The object can be neither
+	// overwritten nor deleted until the amount of time specified in the retention
+	// period has elapsed. If this field and Retention-Expiration-Date are specified
+	// a 400 error is returned. If neither is specified the bucket's DefaultRetention
+	// period will be used. 0 is a legal value assuming the bucket's minimum retention
+	// period is also 0.
+	RetentionPeriod *int64 `location:"header" locationName:"Retention-Period" type:"integer"`
+
 	// Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 	SSECustomerAlgorithm *string `location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`
 
@@ -3228,7 +4249,7 @@ type CopyObjectInput struct {
 	// does not store the encryption key. The key must be appropriate for use with
 	// the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm
 	// header.
-	SSECustomerKey *string `location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
+	SSECustomerKey *string `marshal-as:"blob" location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
 
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
 	// Amazon S3 uses this header for a message integrity check to ensure the encryption
@@ -3453,6 +4474,30 @@ func (s *CopyObjectInput) SetMetadataDirective(v string) *CopyObjectInput {
 // SetRequestPayer sets the RequestPayer field's value.
 func (s *CopyObjectInput) SetRequestPayer(v string) *CopyObjectInput {
 	s.RequestPayer = &v
+	return s
+}
+
+// SetRetentionDirective sets the RetentionDirective field's value.
+func (s *CopyObjectInput) SetRetentionDirective(v string) *CopyObjectInput {
+	s.RetentionDirective = &v
+	return s
+}
+
+// SetRetentionExpirationDate sets the RetentionExpirationDate field's value.
+func (s *CopyObjectInput) SetRetentionExpirationDate(v time.Time) *CopyObjectInput {
+	s.RetentionExpirationDate = &v
+	return s
+}
+
+// SetRetentionLegalHoldId sets the RetentionLegalHoldId field's value.
+func (s *CopyObjectInput) SetRetentionLegalHoldId(v string) *CopyObjectInput {
+	s.RetentionLegalHoldId = &v
+	return s
+}
+
+// SetRetentionPeriod sets the RetentionPeriod field's value.
+func (s *CopyObjectInput) SetRetentionPeriod(v int64) *CopyObjectInput {
+	s.RetentionPeriod = &v
 	return s
 }
 
@@ -3926,7 +4971,7 @@ type CreateMultipartUploadInput struct {
 	// does not store the encryption key. The key must be appropriate for use with
 	// the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm
 	// header.
-	SSECustomerKey *string `location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
+	SSECustomerKey *string `marshal-as:"blob" location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
 
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
 	// Amazon S3 uses this header for a message integrity check to ensure the encryption
@@ -4420,6 +5465,66 @@ func (s *DeleteBucketInput) getBucket() (v string) {
 	return *s.Bucket
 }
 
+type DeleteBucketLifecycleInput struct {
+	_ struct{} `type:"structure"`
+
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteBucketLifecycleInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketLifecycleInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteBucketLifecycleInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteBucketLifecycleInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *DeleteBucketLifecycleInput) SetBucket(v string) *DeleteBucketLifecycleInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *DeleteBucketLifecycleInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+type DeleteBucketLifecycleOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteBucketLifecycleOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketLifecycleOutput) GoString() string {
+	return s.String()
+}
+
 type DeleteBucketOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -4431,6 +5536,93 @@ func (s DeleteBucketOutput) String() string {
 
 // GoString returns the string representation
 func (s DeleteBucketOutput) GoString() string {
+	return s.String()
+}
+
+type DeleteLegalHoldInput struct {
+	_ struct{} `type:"structure"`
+
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+
+	// Key is a required field
+	Key *string `location:"uri" locationName:"Key" min:"1" type:"string" required:"true"`
+
+	// RetentionLegalHoldId is a required field
+	RetentionLegalHoldId *string `location:"querystring" locationName:"remove" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteLegalHoldInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteLegalHoldInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteLegalHoldInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteLegalHoldInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+	if s.RetentionLegalHoldId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RetentionLegalHoldId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *DeleteLegalHoldInput) SetBucket(v string) *DeleteLegalHoldInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *DeleteLegalHoldInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+// SetKey sets the Key field's value.
+func (s *DeleteLegalHoldInput) SetKey(v string) *DeleteLegalHoldInput {
+	s.Key = &v
+	return s
+}
+
+// SetRetentionLegalHoldId sets the RetentionLegalHoldId field's value.
+func (s *DeleteLegalHoldInput) SetRetentionLegalHoldId(v string) *DeleteLegalHoldInput {
+	s.RetentionLegalHoldId = &v
+	return s
+}
+
+type DeleteLegalHoldOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteLegalHoldOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteLegalHoldOutput) GoString() string {
 	return s.String()
 }
 
@@ -4787,6 +5979,136 @@ func (s *Error) SetVersionId(v string) *Error {
 	return s
 }
 
+type ExtendObjectRetentionInput struct {
+	_ struct{} `type:"structure"`
+
+	// Additional time, in seconds, to add to the existing retention period for
+	// the object. If this field and New-Retention-Time and/or New-Retention-Expiration-Date
+	// are specified, a 400 error will be returned. If none of the Request Headers
+	// are specified, a 400 error will be returned to the user. The retention period
+	// of an object may be extended up to bucket maximum retention period from the
+	// time of the request.
+	AdditionalRetentionPeriod *int64 `location:"header" locationName:"Additional-Retention-Period" type:"integer"`
+
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+
+	// Retention Period in seconds for the object. The Retention will be enforced
+	// from the current time until current time + the value in this header. This
+	// value has to be within the ranges defined for the bucket.
+	ExtendRetentionFromCurrentTime *int64 `location:"header" locationName:"Extend-Retention-From-Current-Time" type:"integer"`
+
+	// Key is a required field
+	Key *string `location:"uri" locationName:"Key" min:"1" type:"string" required:"true"`
+
+	// A new retention date to use for the object in place of the existing retention
+	// date. If this value is less than the existing value stored for the object,
+	// a 400 error will be returned. If this field and Additional-Retention-Period
+	// and/or New-Retention-Period and/or Extend-Retention-From-Current-Time are
+	// specified, a 400 error will be returned. If none of the Request Headers are
+	// specified, a 400 error will be returned to the user. The retention period
+	// of an object may be extended up to bucket maximum retention period from the
+	// time of the request.
+	NewRetentionExpirationDate *time.Time `location:"header" locationName:"New-Retention-Expiration-Date" type:"timestamp" timestampFormat:"iso8601"`
+
+	// Retention period, in seconds, to use for the object in place of the existing
+	// retention period stored for the object. If this value is less than the existing
+	// value stored for the object, a 400 error will be returned. If this field
+	// and Additional-Retention-Period and/or New-Retention-Expiration-Date are
+	// specified, a 400 error will be returned. If none of the Request Headers are
+	// specified, a 400 error will be returned.
+	NewRetentionPeriod *int64 `location:"header" locationName:"New-Retention-Period" type:"integer"`
+}
+
+// String returns the string representation
+func (s ExtendObjectRetentionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExtendObjectRetentionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ExtendObjectRetentionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ExtendObjectRetentionInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAdditionalRetentionPeriod sets the AdditionalRetentionPeriod field's value.
+func (s *ExtendObjectRetentionInput) SetAdditionalRetentionPeriod(v int64) *ExtendObjectRetentionInput {
+	s.AdditionalRetentionPeriod = &v
+	return s
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *ExtendObjectRetentionInput) SetBucket(v string) *ExtendObjectRetentionInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *ExtendObjectRetentionInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+// SetExtendRetentionFromCurrentTime sets the ExtendRetentionFromCurrentTime field's value.
+func (s *ExtendObjectRetentionInput) SetExtendRetentionFromCurrentTime(v int64) *ExtendObjectRetentionInput {
+	s.ExtendRetentionFromCurrentTime = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *ExtendObjectRetentionInput) SetKey(v string) *ExtendObjectRetentionInput {
+	s.Key = &v
+	return s
+}
+
+// SetNewRetentionExpirationDate sets the NewRetentionExpirationDate field's value.
+func (s *ExtendObjectRetentionInput) SetNewRetentionExpirationDate(v time.Time) *ExtendObjectRetentionInput {
+	s.NewRetentionExpirationDate = &v
+	return s
+}
+
+// SetNewRetentionPeriod sets the NewRetentionPeriod field's value.
+func (s *ExtendObjectRetentionInput) SetNewRetentionPeriod(v int64) *ExtendObjectRetentionInput {
+	s.NewRetentionPeriod = &v
+	return s
+}
+
+type ExtendObjectRetentionOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ExtendObjectRetentionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExtendObjectRetentionOutput) GoString() string {
+	return s.String()
+}
+
 type GetBucketAclInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4932,6 +6254,75 @@ func (s *GetBucketCorsOutput) SetCORSRules(v []*CORSRule) *GetBucketCorsOutput {
 	return s
 }
 
+type GetBucketLifecycleConfigurationInput struct {
+	_ struct{} `type:"structure"`
+
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s GetBucketLifecycleConfigurationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketLifecycleConfigurationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetBucketLifecycleConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetBucketLifecycleConfigurationInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *GetBucketLifecycleConfigurationInput) SetBucket(v string) *GetBucketLifecycleConfigurationInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *GetBucketLifecycleConfigurationInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+type GetBucketLifecycleConfigurationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// Currently only one Rule allowed.
+	Rules []*LifecycleRule `locationName:"Rule" type:"list" flattened:"true"`
+}
+
+// String returns the string representation
+func (s GetBucketLifecycleConfigurationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketLifecycleConfigurationOutput) GoString() string {
+	return s.String()
+}
+
+// SetRules sets the Rules field's value.
+func (s *GetBucketLifecycleConfigurationOutput) SetRules(v []*LifecycleRule) *GetBucketLifecycleConfigurationOutput {
+	s.Rules = v
+	return s
+}
+
 type GetBucketLocationInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5068,6 +6459,75 @@ func (s GetBucketLoggingOutput) GoString() string {
 // SetLoggingEnabled sets the LoggingEnabled field's value.
 func (s *GetBucketLoggingOutput) SetLoggingEnabled(v *LoggingEnabled) *GetBucketLoggingOutput {
 	s.LoggingEnabled = v
+	return s
+}
+
+type GetBucketProtectionConfigurationInput struct {
+	_ struct{} `type:"structure"`
+
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s GetBucketProtectionConfigurationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketProtectionConfigurationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetBucketProtectionConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetBucketProtectionConfigurationInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *GetBucketProtectionConfigurationInput) SetBucket(v string) *GetBucketProtectionConfigurationInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *GetBucketProtectionConfigurationInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+type GetBucketProtectionConfigurationOutput struct {
+	_ struct{} `type:"structure" payload:"ProtectionConfiguration"`
+
+	// Bucket protection configuration
+	ProtectionConfiguration *ProtectionConfiguration `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetBucketProtectionConfigurationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketProtectionConfigurationOutput) GoString() string {
+	return s.String()
+}
+
+// SetProtectionConfiguration sets the ProtectionConfiguration field's value.
+func (s *GetBucketProtectionConfigurationOutput) SetProtectionConfiguration(v *ProtectionConfiguration) *GetBucketProtectionConfigurationOutput {
+	s.ProtectionConfiguration = v
 	return s
 }
 
@@ -5260,7 +6720,7 @@ type GetObjectInput struct {
 	// does not store the encryption key. The key must be appropriate for use with
 	// the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm
 	// header.
-	SSECustomerKey *string `location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
+	SSECustomerKey *string `marshal-as:"blob" location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
 
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
 	// Amazon S3 uses this header for a message integrity check to ensure the encryption
@@ -5479,6 +6939,14 @@ type GetObjectOutput struct {
 	// The date and time at which the object is no longer cacheable.
 	Expires *string `location:"header" locationName:"Expires" type:"string"`
 
+	IBMRestoredCopyStorageClass *string `location:"header" locationName:"x-ibm-restored-copy-storage-class" type:"string"`
+
+	// This header is only included if an object has transition metadata. This header
+	// will indicate the transition storage class and time of transition. If this
+	// header and the x-amz-restore header are both included, this header will indicate
+	// the time at which the object was originally archived.
+	IBMTransition *string `location:"header" locationName:"x-ibm-transition" type:"string"`
+
 	// Last modified date of the object
 	LastModified *time.Time `location:"header" locationName:"Last-Modified" type:"timestamp"`
 
@@ -5503,6 +6971,20 @@ type GetObjectOutput struct {
 	// Provides information about object restoration operation and expiration time
 	// of the restored object copy.
 	Restore *string `location:"header" locationName:"x-amz-restore" type:"string"`
+
+	// Date on which it will be legal to delete or modify the object. You can only
+	// specify this or the Retention-Period header. If both are specified a 400
+	// error will be returned. If neither is specified the bucket's DefaultRetention
+	// period will be used.
+	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp" timestampFormat:"iso8601"`
+
+	RetentionLegalHoldCount *int64 `location:"header" locationName:"Retention-Legal-Hold-Count" type:"integer"`
+
+	// Retention period to store on the object in seconds. If this field and Retention-Expiration-Date
+	// are specified a 400 error is returned. If neither is specified the bucket's
+	// DefaultRetention period will be used. 0 is a legal value assuming the bucket's
+	// minimum retention period is also 0.
+	RetentionPeriod *int64 `location:"header" locationName:"Retention-Period" type:"integer"`
 
 	// If server-side encryption with a customer-provided encryption key was requested,
 	// the response will include this header confirming the encryption algorithm
@@ -5624,6 +7106,18 @@ func (s *GetObjectOutput) SetExpires(v string) *GetObjectOutput {
 	return s
 }
 
+// SetIBMRestoredCopyStorageClass sets the IBMRestoredCopyStorageClass field's value.
+func (s *GetObjectOutput) SetIBMRestoredCopyStorageClass(v string) *GetObjectOutput {
+	s.IBMRestoredCopyStorageClass = &v
+	return s
+}
+
+// SetIBMTransition sets the IBMTransition field's value.
+func (s *GetObjectOutput) SetIBMTransition(v string) *GetObjectOutput {
+	s.IBMTransition = &v
+	return s
+}
+
 // SetLastModified sets the LastModified field's value.
 func (s *GetObjectOutput) SetLastModified(v time.Time) *GetObjectOutput {
 	s.LastModified = &v
@@ -5663,6 +7157,24 @@ func (s *GetObjectOutput) SetRequestCharged(v string) *GetObjectOutput {
 // SetRestore sets the Restore field's value.
 func (s *GetObjectOutput) SetRestore(v string) *GetObjectOutput {
 	s.Restore = &v
+	return s
+}
+
+// SetRetentionExpirationDate sets the RetentionExpirationDate field's value.
+func (s *GetObjectOutput) SetRetentionExpirationDate(v time.Time) *GetObjectOutput {
+	s.RetentionExpirationDate = &v
+	return s
+}
+
+// SetRetentionLegalHoldCount sets the RetentionLegalHoldCount field's value.
+func (s *GetObjectOutput) SetRetentionLegalHoldCount(v int64) *GetObjectOutput {
+	s.RetentionLegalHoldCount = &v
+	return s
+}
+
+// SetRetentionPeriod sets the RetentionPeriod field's value.
+func (s *GetObjectOutput) SetRetentionPeriod(v int64) *GetObjectOutput {
+	s.RetentionPeriod = &v
 	return s
 }
 
@@ -5711,6 +7223,44 @@ func (s *GetObjectOutput) SetVersionId(v string) *GetObjectOutput {
 // SetWebsiteRedirectLocation sets the WebsiteRedirectLocation field's value.
 func (s *GetObjectOutput) SetWebsiteRedirectLocation(v string) *GetObjectOutput {
 	s.WebsiteRedirectLocation = &v
+	return s
+}
+
+type GlacierJobParameters struct {
+	_ struct{} `type:"structure"`
+
+	// Glacier retrieval tier at which the restore will be processed.
+	//
+	// Tier is a required field
+	Tier *string `type:"string" required:"true" enum:"Tier"`
+}
+
+// String returns the string representation
+func (s GlacierJobParameters) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GlacierJobParameters) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GlacierJobParameters) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GlacierJobParameters"}
+	if s.Tier == nil {
+		invalidParams.Add(request.NewErrParamRequired("Tier"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetTier sets the Tier field's value.
+func (s *GlacierJobParameters) SetTier(v string) *GlacierJobParameters {
+	s.Tier = &v
 	return s
 }
 
@@ -5962,7 +7512,7 @@ type HeadObjectInput struct {
 	// does not store the encryption key. The key must be appropriate for use with
 	// the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm
 	// header.
-	SSECustomerKey *string `location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
+	SSECustomerKey *string `marshal-as:"blob" location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
 
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
 	// Amazon S3 uses this header for a message integrity check to ensure the encryption
@@ -6139,6 +7689,14 @@ type HeadObjectOutput struct {
 	// The date and time at which the object is no longer cacheable.
 	Expires *string `location:"header" locationName:"Expires" type:"string"`
 
+	IBMRestoredCopyStorageClass *string `location:"header" locationName:"x-ibm-restored-copy-storage-class" type:"string"`
+
+	// This header is only included if an object has transition metadata. This header
+	// will indicate the transition storage class and time of transition. If this
+	// header and the x-amz-restore header are both included, this header will indicate
+	// the time at which the object was originally archived.
+	IBMTransition *string `location:"header" locationName:"x-ibm-transition" type:"string"`
+
 	// Last modified date of the object
 	LastModified *time.Time `location:"header" locationName:"Last-Modified" type:"timestamp"`
 
@@ -6163,6 +7721,20 @@ type HeadObjectOutput struct {
 	// Provides information about object restoration operation and expiration time
 	// of the restored object copy.
 	Restore *string `location:"header" locationName:"x-amz-restore" type:"string"`
+
+	// Date on which it will be legal to delete or modify the object. You can only
+	// specify this or the Retention-Period header. If both are specified a 400
+	// error will be returned. If neither is specified the bucket's DefaultRetention
+	// period will be used.
+	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp" timestampFormat:"iso8601"`
+
+	RetentionLegalHoldCount *int64 `location:"header" locationName:"Retention-Legal-Hold-Count" type:"integer"`
+
+	// Retention period to store on the object in seconds. If this field and Retention-Expiration-Date
+	// are specified a 400 error is returned. If neither is specified the bucket's
+	// DefaultRetention period will be used. 0 is a legal value assuming the bucket's
+	// minimum retention period is also 0.
+	RetentionPeriod *int64 `location:"header" locationName:"Retention-Period" type:"integer"`
 
 	// If server-side encryption with a customer-provided encryption key was requested,
 	// the response will include this header confirming the encryption algorithm
@@ -6269,6 +7841,18 @@ func (s *HeadObjectOutput) SetExpires(v string) *HeadObjectOutput {
 	return s
 }
 
+// SetIBMRestoredCopyStorageClass sets the IBMRestoredCopyStorageClass field's value.
+func (s *HeadObjectOutput) SetIBMRestoredCopyStorageClass(v string) *HeadObjectOutput {
+	s.IBMRestoredCopyStorageClass = &v
+	return s
+}
+
+// SetIBMTransition sets the IBMTransition field's value.
+func (s *HeadObjectOutput) SetIBMTransition(v string) *HeadObjectOutput {
+	s.IBMTransition = &v
+	return s
+}
+
 // SetLastModified sets the LastModified field's value.
 func (s *HeadObjectOutput) SetLastModified(v time.Time) *HeadObjectOutput {
 	s.LastModified = &v
@@ -6308,6 +7892,24 @@ func (s *HeadObjectOutput) SetRequestCharged(v string) *HeadObjectOutput {
 // SetRestore sets the Restore field's value.
 func (s *HeadObjectOutput) SetRestore(v string) *HeadObjectOutput {
 	s.Restore = &v
+	return s
+}
+
+// SetRetentionExpirationDate sets the RetentionExpirationDate field's value.
+func (s *HeadObjectOutput) SetRetentionExpirationDate(v time.Time) *HeadObjectOutput {
+	s.RetentionExpirationDate = &v
+	return s
+}
+
+// SetRetentionLegalHoldCount sets the RetentionLegalHoldCount field's value.
+func (s *HeadObjectOutput) SetRetentionLegalHoldCount(v int64) *HeadObjectOutput {
+	s.RetentionLegalHoldCount = &v
+	return s
+}
+
+// SetRetentionPeriod sets the RetentionPeriod field's value.
+func (s *HeadObjectOutput) SetRetentionPeriod(v int64) *HeadObjectOutput {
+	s.RetentionPeriod = &v
 	return s
 }
 
@@ -6383,6 +7985,224 @@ func (s *Initiator) SetDisplayName(v string) *Initiator {
 // SetID sets the ID field's value.
 func (s *Initiator) SetID(v string) *Initiator {
 	s.ID = &v
+	return s
+}
+
+type LegalHold struct {
+	_ struct{} `type:"structure"`
+
+	Date *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+
+	ID *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LegalHold) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LegalHold) GoString() string {
+	return s.String()
+}
+
+// SetDate sets the Date field's value.
+func (s *LegalHold) SetDate(v time.Time) *LegalHold {
+	s.Date = &v
+	return s
+}
+
+// SetID sets the ID field's value.
+func (s *LegalHold) SetID(v string) *LegalHold {
+	s.ID = &v
+	return s
+}
+
+type LifecycleConfiguration struct {
+	_ struct{} `type:"structure"`
+
+	// Currently only one Rule allowed.
+	//
+	// Rules is a required field
+	Rules []*LifecycleRule `locationName:"Rule" type:"list" flattened:"true" required:"true"`
+}
+
+// String returns the string representation
+func (s LifecycleConfiguration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LifecycleConfiguration) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *LifecycleConfiguration) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "LifecycleConfiguration"}
+	if s.Rules == nil {
+		invalidParams.Add(request.NewErrParamRequired("Rules"))
+	}
+	if s.Rules != nil {
+		for i, v := range s.Rules {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Rules", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetRules sets the Rules field's value.
+func (s *LifecycleConfiguration) SetRules(v []*LifecycleRule) *LifecycleConfiguration {
+	s.Rules = v
+	return s
+}
+
+type LifecycleExpiration struct {
+	_ struct{} `type:"structure"`
+
+	// Indicates at what date the object is to be moved or deleted. Should be in
+	// GMT ISO 8601 Format.
+	Date *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+
+	// Indicates the lifetime, in days, of the objects that are subject to the rule.
+	// The value must be a non-zero positive integer.
+	Days *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s LifecycleExpiration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LifecycleExpiration) GoString() string {
+	return s.String()
+}
+
+// SetDate sets the Date field's value.
+func (s *LifecycleExpiration) SetDate(v time.Time) *LifecycleExpiration {
+	s.Date = &v
+	return s
+}
+
+// SetDays sets the Days field's value.
+func (s *LifecycleExpiration) SetDays(v int64) *LifecycleExpiration {
+	s.Days = &v
+	return s
+}
+
+type LifecycleRule struct {
+	_ struct{} `type:"structure"`
+
+	Expiration *LifecycleExpiration `type:"structure"`
+
+	// The Filter is used to identify objects that a Lifecycle Rule applies to.
+	// A Filter must have exactly one of Prefix, Tag, or And specified.
+	//
+	// Filter is a required field
+	Filter *LifecycleRuleFilter `type:"structure" required:"true"`
+
+	// Unique identifier for the rule. The value cannot be longer than 255 characters.
+	ID *string `type:"string"`
+
+	// If 'Enabled', the rule is currently being applied. If 'Disabled', the rule
+	// is not currently being applied.
+	//
+	// Status is a required field
+	Status *string `type:"string" required:"true" enum:"ExpirationStatus"`
+
+	// Currently only one Transition allowed, also Date and Days fields are mutually
+	// exclusive.
+	Transitions []*Transition `locationName:"Transition" type:"list" flattened:"true"`
+}
+
+// String returns the string representation
+func (s LifecycleRule) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LifecycleRule) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *LifecycleRule) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "LifecycleRule"}
+	if s.Filter == nil {
+		invalidParams.Add(request.NewErrParamRequired("Filter"))
+	}
+	if s.Status == nil {
+		invalidParams.Add(request.NewErrParamRequired("Status"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetExpiration sets the Expiration field's value.
+func (s *LifecycleRule) SetExpiration(v *LifecycleExpiration) *LifecycleRule {
+	s.Expiration = v
+	return s
+}
+
+// SetFilter sets the Filter field's value.
+func (s *LifecycleRule) SetFilter(v *LifecycleRuleFilter) *LifecycleRule {
+	s.Filter = v
+	return s
+}
+
+// SetID sets the ID field's value.
+func (s *LifecycleRule) SetID(v string) *LifecycleRule {
+	s.ID = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *LifecycleRule) SetStatus(v string) *LifecycleRule {
+	s.Status = &v
+	return s
+}
+
+// SetTransitions sets the Transitions field's value.
+func (s *LifecycleRule) SetTransitions(v []*Transition) *LifecycleRule {
+	s.Transitions = v
+	return s
+}
+
+// The Filter is used to identify objects that a Lifecycle Rule applies to.
+// A Filter must have exactly one of Prefix, Tag, or And specified.
+type LifecycleRuleFilter struct {
+	_ struct{} `type:"structure"`
+
+	// Empty prefix allowed only.
+	Prefix *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LifecycleRuleFilter) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LifecycleRuleFilter) GoString() string {
+	return s.String()
+}
+
+// SetPrefix sets the Prefix field's value.
+func (s *LifecycleRuleFilter) SetPrefix(v string) *LifecycleRuleFilter {
+	s.Prefix = &v
 	return s
 }
 
@@ -6557,6 +8377,119 @@ func (s *ListBucketsOutput) SetBuckets(v []*Bucket) *ListBucketsOutput {
 // SetOwner sets the Owner field's value.
 func (s *ListBucketsOutput) SetOwner(v *Owner) *ListBucketsOutput {
 	s.Owner = v
+	return s
+}
+
+type ListLegalHoldsInput struct {
+	_ struct{} `type:"structure"`
+
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+
+	// Key is a required field
+	Key *string `location:"uri" locationName:"Key" min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s ListLegalHoldsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListLegalHoldsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListLegalHoldsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListLegalHoldsInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *ListLegalHoldsInput) SetBucket(v string) *ListLegalHoldsInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *ListLegalHoldsInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+// SetKey sets the Key field's value.
+func (s *ListLegalHoldsInput) SetKey(v string) *ListLegalHoldsInput {
+	s.Key = &v
+	return s
+}
+
+type ListLegalHoldsOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+
+	LegalHolds []*LegalHold `type:"list"`
+
+	// Retention period to store on the object in seconds. The object can be neither
+	// overwritten nor deleted until the amount of time specified in the retention
+	// period has elapsed. If this field and Retention-Expiration-Date are specified
+	// a 400 error is returned. If neither is specified the bucket's DefaultRetention
+	// period will be used. 0 is a legal value assuming the bucket's minimum retention
+	// period is also 0.
+	RetentionPeriod *int64 `type:"integer"`
+
+	RetentionPeriodExpirationDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+}
+
+// String returns the string representation
+func (s ListLegalHoldsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListLegalHoldsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ListLegalHoldsOutput) SetCreateTime(v time.Time) *ListLegalHoldsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetLegalHolds sets the LegalHolds field's value.
+func (s *ListLegalHoldsOutput) SetLegalHolds(v []*LegalHold) *ListLegalHoldsOutput {
+	s.LegalHolds = v
+	return s
+}
+
+// SetRetentionPeriod sets the RetentionPeriod field's value.
+func (s *ListLegalHoldsOutput) SetRetentionPeriod(v int64) *ListLegalHoldsOutput {
+	s.RetentionPeriod = &v
+	return s
+}
+
+// SetRetentionPeriodExpirationDate sets the RetentionPeriodExpirationDate field's value.
+func (s *ListLegalHoldsOutput) SetRetentionPeriodExpirationDate(v time.Time) *ListLegalHoldsOutput {
+	s.RetentionPeriodExpirationDate = &v
 	return s
 }
 
@@ -7630,6 +9563,113 @@ func (s *Part) SetSize(v int64) *Part {
 	return s
 }
 
+type ProtectionConfiguration struct {
+	_ struct{} `type:"structure"`
+
+	// Default retention period for an object, if a PUT of an object does not specify
+	// a retention period this value will be converted to seconds and used.
+	//
+	// DefaultRetention is a required field
+	DefaultRetention *BucketProtectionDefaultRetention `type:"structure" required:"true"`
+
+	// Enable permanent retention for an object.
+	EnablePermanentRetention *bool `type:"boolean"`
+
+	// Maximum retention period for an object, if a PUT of an object specifies a
+	// longer retention period the PUT object will fail.
+	//
+	// MaximumRetention is a required field
+	MaximumRetention *BucketProtectionMaximumRetention `type:"structure" required:"true"`
+
+	// Minimum retention period for an object, if a PUT of an object specifies a
+	// shorter retention period the PUT object will fail.
+	//
+	// MinimumRetention is a required field
+	MinimumRetention *BucketProtectionMinimumRetention `type:"structure" required:"true"`
+
+	// Retention status of a bucket.
+	//
+	// Status is a required field
+	Status *string `type:"string" required:"true" enum:"BucketProtectionStatus"`
+}
+
+// String returns the string representation
+func (s ProtectionConfiguration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ProtectionConfiguration) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ProtectionConfiguration) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ProtectionConfiguration"}
+	if s.DefaultRetention == nil {
+		invalidParams.Add(request.NewErrParamRequired("DefaultRetention"))
+	}
+	if s.MaximumRetention == nil {
+		invalidParams.Add(request.NewErrParamRequired("MaximumRetention"))
+	}
+	if s.MinimumRetention == nil {
+		invalidParams.Add(request.NewErrParamRequired("MinimumRetention"))
+	}
+	if s.Status == nil {
+		invalidParams.Add(request.NewErrParamRequired("Status"))
+	}
+	if s.DefaultRetention != nil {
+		if err := s.DefaultRetention.Validate(); err != nil {
+			invalidParams.AddNested("DefaultRetention", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.MaximumRetention != nil {
+		if err := s.MaximumRetention.Validate(); err != nil {
+			invalidParams.AddNested("MaximumRetention", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.MinimumRetention != nil {
+		if err := s.MinimumRetention.Validate(); err != nil {
+			invalidParams.AddNested("MinimumRetention", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDefaultRetention sets the DefaultRetention field's value.
+func (s *ProtectionConfiguration) SetDefaultRetention(v *BucketProtectionDefaultRetention) *ProtectionConfiguration {
+	s.DefaultRetention = v
+	return s
+}
+
+// SetEnablePermanentRetention sets the EnablePermanentRetention field's value.
+func (s *ProtectionConfiguration) SetEnablePermanentRetention(v bool) *ProtectionConfiguration {
+	s.EnablePermanentRetention = &v
+	return s
+}
+
+// SetMaximumRetention sets the MaximumRetention field's value.
+func (s *ProtectionConfiguration) SetMaximumRetention(v *BucketProtectionMaximumRetention) *ProtectionConfiguration {
+	s.MaximumRetention = v
+	return s
+}
+
+// SetMinimumRetention sets the MinimumRetention field's value.
+func (s *ProtectionConfiguration) SetMinimumRetention(v *BucketProtectionMinimumRetention) *ProtectionConfiguration {
+	s.MinimumRetention = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *ProtectionConfiguration) SetStatus(v string) *ProtectionConfiguration {
+	s.Status = &v
+	return s
+}
+
 type PutBucketAclInput struct {
 	_ struct{} `type:"structure" payload:"AccessControlPolicy"`
 
@@ -7835,6 +9875,83 @@ func (s PutBucketCorsOutput) GoString() string {
 	return s.String()
 }
 
+type PutBucketLifecycleConfigurationInput struct {
+	_ struct{} `type:"structure" payload:"LifecycleConfiguration"`
+
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+
+	// LifecycleConfiguration is a required field
+	LifecycleConfiguration *LifecycleConfiguration `locationName:"LifecycleConfiguration" type:"structure" required:"true" xmlURI:"http://s3.amazonaws.com/doc/2006-03-01/"`
+}
+
+// String returns the string representation
+func (s PutBucketLifecycleConfigurationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketLifecycleConfigurationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *PutBucketLifecycleConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "PutBucketLifecycleConfigurationInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+	if s.LifecycleConfiguration == nil {
+		invalidParams.Add(request.NewErrParamRequired("LifecycleConfiguration"))
+	}
+	if s.LifecycleConfiguration != nil {
+		if err := s.LifecycleConfiguration.Validate(); err != nil {
+			invalidParams.AddNested("LifecycleConfiguration", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *PutBucketLifecycleConfigurationInput) SetBucket(v string) *PutBucketLifecycleConfigurationInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *PutBucketLifecycleConfigurationInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+// SetLifecycleConfiguration sets the LifecycleConfiguration field's value.
+func (s *PutBucketLifecycleConfigurationInput) SetLifecycleConfiguration(v *LifecycleConfiguration) *PutBucketLifecycleConfigurationInput {
+	s.LifecycleConfiguration = v
+	return s
+}
+
+type PutBucketLifecycleConfigurationOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketLifecycleConfigurationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketLifecycleConfigurationOutput) GoString() string {
+	return s.String()
+}
+
 type PutBucketLoggingInput struct {
 	_ struct{} `type:"structure" payload:"BucketLoggingStatus"`
 
@@ -7909,6 +10026,83 @@ func (s PutBucketLoggingOutput) String() string {
 
 // GoString returns the string representation
 func (s PutBucketLoggingOutput) GoString() string {
+	return s.String()
+}
+
+type PutBucketProtectionConfigurationInput struct {
+	_ struct{} `type:"structure" payload:"ProtectionConfiguration"`
+
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+
+	// ProtectionConfiguration is a required field
+	ProtectionConfiguration *ProtectionConfiguration `locationName:"ProtectionConfiguration" type:"structure" required:"true"`
+}
+
+// String returns the string representation
+func (s PutBucketProtectionConfigurationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketProtectionConfigurationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *PutBucketProtectionConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "PutBucketProtectionConfigurationInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+	if s.ProtectionConfiguration == nil {
+		invalidParams.Add(request.NewErrParamRequired("ProtectionConfiguration"))
+	}
+	if s.ProtectionConfiguration != nil {
+		if err := s.ProtectionConfiguration.Validate(); err != nil {
+			invalidParams.AddNested("ProtectionConfiguration", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *PutBucketProtectionConfigurationInput) SetBucket(v string) *PutBucketProtectionConfigurationInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *PutBucketProtectionConfigurationInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+// SetProtectionConfiguration sets the ProtectionConfiguration field's value.
+func (s *PutBucketProtectionConfigurationInput) SetProtectionConfiguration(v *ProtectionConfiguration) *PutBucketProtectionConfigurationInput {
+	s.ProtectionConfiguration = v
+	return s
+}
+
+type PutBucketProtectionConfigurationOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketProtectionConfigurationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketProtectionConfigurationOutput) GoString() string {
 	return s.String()
 }
 
@@ -8154,6 +10348,25 @@ type PutObjectInput struct {
 	// at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
 	RequestPayer *string `location:"header" locationName:"x-amz-request-payer" type:"string" enum:"RequestPayer"`
 
+	// Date on which it will be legal to delete or modify the object. This field
+	// can only be specified if Retention-Directive is REPLACE. You can only specify
+	// this or the Retention-Period header. If both are specified a 400 error will
+	// be returned. If neither is specified the bucket's DefaultRetention period
+	// will be used.
+	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp" timestampFormat:"iso8601"`
+
+	// A single legal hold to apply to the object. This field can only be specified
+	// if Retention-Directive is REPLACE. A legal hold is a character long string
+	// of max length 64. The object cannot be overwritten or deleted until all legal
+	// holds associated with the object are removed.
+	RetentionLegalHoldId *string `location:"header" locationName:"Retention-Legal-Hold-ID" type:"string"`
+
+	// Retention period to store on the object in seconds. If this field and Retention-Expiration-Date
+	// are specified a 400 error is returned. If neither is specified the bucket's
+	// DefaultRetention period will be used. 0 is a legal value assuming the bucket's
+	// minimum retention period is also 0.
+	RetentionPeriod *int64 `location:"header" locationName:"Retention-Period" type:"integer"`
+
 	// Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 	SSECustomerAlgorithm *string `location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`
 
@@ -8162,7 +10375,7 @@ type PutObjectInput struct {
 	// does not store the encryption key. The key must be appropriate for use with
 	// the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm
 	// header.
-	SSECustomerKey *string `location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
+	SSECustomerKey *string `marshal-as:"blob" location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
 
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
 	// Amazon S3 uses this header for a message integrity check to ensure the encryption
@@ -8339,6 +10552,24 @@ func (s *PutObjectInput) SetRequestPayer(v string) *PutObjectInput {
 	return s
 }
 
+// SetRetentionExpirationDate sets the RetentionExpirationDate field's value.
+func (s *PutObjectInput) SetRetentionExpirationDate(v time.Time) *PutObjectInput {
+	s.RetentionExpirationDate = &v
+	return s
+}
+
+// SetRetentionLegalHoldId sets the RetentionLegalHoldId field's value.
+func (s *PutObjectInput) SetRetentionLegalHoldId(v string) *PutObjectInput {
+	s.RetentionLegalHoldId = &v
+	return s
+}
+
+// SetRetentionPeriod sets the RetentionPeriod field's value.
+func (s *PutObjectInput) SetRetentionPeriod(v int64) *PutObjectInput {
+	s.RetentionPeriod = &v
+	return s
+}
+
 // SetSSECustomerAlgorithm sets the SSECustomerAlgorithm field's value.
 func (s *PutObjectInput) SetSSECustomerAlgorithm(v string) *PutObjectInput {
 	s.SSECustomerAlgorithm = &v
@@ -8488,6 +10719,148 @@ func (s *PutObjectOutput) SetVersionId(v string) *PutObjectOutput {
 	return s
 }
 
+type RestoreObjectInput struct {
+	_ struct{} `type:"structure" payload:"RestoreRequest"`
+
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+
+	// Key is a required field
+	Key *string `location:"uri" locationName:"Key" min:"1" type:"string" required:"true"`
+
+	// Container for restore job parameters.
+	RestoreRequest *RestoreRequest `locationName:"RestoreRequest" type:"structure" xmlURI:"http://s3.amazonaws.com/doc/2006-03-01/"`
+}
+
+// String returns the string representation
+func (s RestoreObjectInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RestoreObjectInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RestoreObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RestoreObjectInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+	if s.RestoreRequest != nil {
+		if err := s.RestoreRequest.Validate(); err != nil {
+			invalidParams.AddNested("RestoreRequest", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *RestoreObjectInput) SetBucket(v string) *RestoreObjectInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *RestoreObjectInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+// SetKey sets the Key field's value.
+func (s *RestoreObjectInput) SetKey(v string) *RestoreObjectInput {
+	s.Key = &v
+	return s
+}
+
+// SetRestoreRequest sets the RestoreRequest field's value.
+func (s *RestoreObjectInput) SetRestoreRequest(v *RestoreRequest) *RestoreObjectInput {
+	s.RestoreRequest = v
+	return s
+}
+
+type RestoreObjectOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s RestoreObjectOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RestoreObjectOutput) GoString() string {
+	return s.String()
+}
+
+// Container for restore job parameters.
+type RestoreRequest struct {
+	_ struct{} `type:"structure"`
+
+	// Lifetime of the active copy in days. Do not use with restores that specify
+	// OutputLocation.
+	//
+	// Days is a required field
+	Days *int64 `type:"integer" required:"true"`
+
+	GlacierJobParameters *GlacierJobParameters `type:"structure"`
+}
+
+// String returns the string representation
+func (s RestoreRequest) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RestoreRequest) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RestoreRequest) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RestoreRequest"}
+	if s.Days == nil {
+		invalidParams.Add(request.NewErrParamRequired("Days"))
+	}
+	if s.GlacierJobParameters != nil {
+		if err := s.GlacierJobParameters.Validate(); err != nil {
+			invalidParams.AddNested("GlacierJobParameters", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDays sets the Days field's value.
+func (s *RestoreRequest) SetDays(v int64) *RestoreRequest {
+	s.Days = &v
+	return s
+}
+
+// SetGlacierJobParameters sets the GlacierJobParameters field's value.
+func (s *RestoreRequest) SetGlacierJobParameters(v *GlacierJobParameters) *RestoreRequest {
+	s.GlacierJobParameters = v
+	return s
+}
+
 type TargetGrant struct {
 	_ struct{} `type:"structure"`
 
@@ -8534,6 +10907,49 @@ func (s *TargetGrant) SetPermission(v string) *TargetGrant {
 	return s
 }
 
+type Transition struct {
+	_ struct{} `type:"structure"`
+
+	// Indicates at what date the object is to be moved or deleted. Should be in
+	// GMT ISO 8601 Format.
+	Date *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+
+	// Indicates the lifetime, in days, of the objects that are subject to the rule.
+	// The value must be a non-zero positive integer.
+	Days *int64 `type:"integer"`
+
+	// The class of storage used to store the object.
+	StorageClass *string `type:"string" enum:"TransitionStorageClass"`
+}
+
+// String returns the string representation
+func (s Transition) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Transition) GoString() string {
+	return s.String()
+}
+
+// SetDate sets the Date field's value.
+func (s *Transition) SetDate(v time.Time) *Transition {
+	s.Date = &v
+	return s
+}
+
+// SetDays sets the Days field's value.
+func (s *Transition) SetDays(v int64) *Transition {
+	s.Days = &v
+	return s
+}
+
+// SetStorageClass sets the StorageClass field's value.
+func (s *Transition) SetStorageClass(v string) *Transition {
+	s.StorageClass = &v
+	return s
+}
+
 type UploadPartCopyInput struct {
 	_ struct{} `type:"structure"`
 
@@ -8572,7 +10988,7 @@ type UploadPartCopyInput struct {
 	// Specifies the customer-provided encryption key for Amazon S3 to use to decrypt
 	// the source object. The encryption key provided in this header must be one
 	// that was used when the source object was created.
-	CopySourceSSECustomerKey *string `location:"header" locationName:"x-amz-copy-source-server-side-encryption-customer-key" type:"string" sensitive:"true"`
+	CopySourceSSECustomerKey *string `marshal-as:"blob" location:"header" locationName:"x-amz-copy-source-server-side-encryption-customer-key" type:"string" sensitive:"true"`
 
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
 	// Amazon S3 uses this header for a message integrity check to ensure the encryption
@@ -8603,7 +11019,7 @@ type UploadPartCopyInput struct {
 	// the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm
 	// header. This must be the same encryption key specified in the initiate multipart
 	// upload request.
-	SSECustomerKey *string `location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
+	SSECustomerKey *string `marshal-as:"blob" location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
 
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
 	// Amazon S3 uses this header for a message integrity check to ensure the encryption
@@ -8908,7 +11324,7 @@ type UploadPartInput struct {
 	// the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm
 	// header. This must be the same encryption key specified in the initiate multipart
 	// upload request.
-	SSECustomerKey *string `location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
+	SSECustomerKey *string `marshal-as:"blob" location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
 
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
 	// Amazon S3 uses this header for a message integrity check to ensure the encryption
@@ -9174,6 +11590,11 @@ const (
 	BucketLogsPermissionWrite = "WRITE"
 )
 
+const (
+	// BucketProtectionStatusRetention is a BucketProtectionStatus enum value
+	BucketProtectionStatusRetention = "Retention"
+)
+
 // Requests Amazon S3 to encode the object keys in the response and specifies
 // the encoding method to use. An object key may contain any Unicode character;
 // however, XML 1.0 parser cannot parse some characters, such as characters
@@ -9183,6 +11604,14 @@ const (
 const (
 	// EncodingTypeUrl is a EncodingType enum value
 	EncodingTypeUrl = "url"
+)
+
+const (
+	// ExpirationStatusEnabled is a ExpirationStatus enum value
+	ExpirationStatusEnabled = "Enabled"
+
+	// ExpirationStatusDisabled is a ExpirationStatus enum value
+	ExpirationStatusDisabled = "Disabled"
 )
 
 const (
@@ -9287,6 +11716,14 @@ const (
 )
 
 const (
+	// RetentionDirectiveCopy is a RetentionDirective enum value
+	RetentionDirectiveCopy = "COPY"
+
+	// RetentionDirectiveReplace is a RetentionDirective enum value
+	RetentionDirectiveReplace = "REPLACE"
+)
+
+const (
 	// ServerSideEncryptionAes256 is a ServerSideEncryption enum value
 	ServerSideEncryptionAes256 = "AES256"
 
@@ -9323,6 +11760,16 @@ const (
 
 	// TaggingDirectiveReplace is a TaggingDirective enum value
 	TaggingDirectiveReplace = "REPLACE"
+)
+
+const (
+	// TierBulk is a Tier enum value
+	TierBulk = "Bulk"
+)
+
+const (
+	// TransitionStorageClassGlacier is a TransitionStorageClass enum value
+	TransitionStorageClassGlacier = "GLACIER"
 )
 
 const (

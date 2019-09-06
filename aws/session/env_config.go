@@ -98,11 +98,6 @@ type envConfig struct {
 	//  AWS_CA_BUNDLE=$HOME/my_custom_ca_bundle
 	CustomCABundle string
 
-	csmEnabled  string
-	CSMEnabled  bool
-	CSMPort     string
-	CSMClientID string
-
 	enableEndpointDiscovery string
 	// Enables endpoint discovery via environment variables.
 	//
@@ -111,15 +106,6 @@ type envConfig struct {
 }
 
 var (
-	csmEnabledEnvKey = []string{
-		"AWS_CSM_ENABLED",
-	}
-	csmPortEnvKey = []string{
-		"AWS_CSM_PORT",
-	}
-	csmClientIDEnvKey = []string{
-		"AWS_CSM_CLIENT_ID",
-	}
 	credAccessEnvKey = []string{
 		"AWS_ACCESS_KEY_ID",
 		"AWS_ACCESS_KEY",
@@ -178,15 +164,16 @@ func envConfigLoad(enableSharedConfig bool) envConfig {
 
 	cfg.EnableSharedConfig = enableSharedConfig
 
-	setFromEnvVal(&cfg.Creds.AccessKeyID, credAccessEnvKey)
-	setFromEnvVal(&cfg.Creds.SecretAccessKey, credSecretEnvKey)
-	setFromEnvVal(&cfg.Creds.SessionToken, credSessionEnvKey)
-
-	// CSM environment variables
-	setFromEnvVal(&cfg.csmEnabled, csmEnabledEnvKey)
-	setFromEnvVal(&cfg.CSMPort, csmPortEnvKey)
-	setFromEnvVal(&cfg.CSMClientID, csmClientIDEnvKey)
-	cfg.CSMEnabled = len(cfg.csmEnabled) > 0
+	// Static environment credentials
+	var creds credentials.Value
+	setFromEnvVal(&creds.AccessKeyID, credAccessEnvKey)
+	setFromEnvVal(&creds.SecretAccessKey, credSecretEnvKey)
+	setFromEnvVal(&creds.SessionToken, credSessionEnvKey)
+	if creds.HasKeys() {
+		// Require logical grouping of credentials
+		creds.ProviderName = EnvProviderName
+		cfg.Creds = creds
+	}
 
 	// Require logical grouping of credentials
 	if len(cfg.Creds.AccessKeyID) == 0 || len(cfg.Creds.SecretAccessKey) == 0 {

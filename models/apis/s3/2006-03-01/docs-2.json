@@ -3,29 +3,40 @@
   "service": "<p/>",
   "operations": {
     "AbortMultipartUpload": "<p>Aborts a multipart upload.</p> <p>To verify that all parts have been removed, so you don't get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.</p>",
+    "AddLegalHold": "<p>Add a legal hold on an object. The legal hold identifiers are stored in the object metadata along with the timestamp of when they are POSTed to the object. The presence of any legal hold identifiers prevents the modification or deletion of the object data, even if the retention period has expired. Legal Holds can only be added to objects in a bucket with a protection policy. Otherwise a 400 error will be returned.</p>",
     "CompleteMultipartUpload": "<p>Completes a multipart upload by assembling previously uploaded parts.</p>",
     "CopyObject": "<p>Creates a copy of an object that is already stored in Amazon S3.</p>",
     "CreateBucket": "<p>Creates a new bucket.</p>",
     "CreateMultipartUpload": "<p>Initiates a multipart upload and returns an upload ID.</p> <p> <b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>",
+    "CompleteMultipartUpload":"<p>Completes a multipart upload by assembling previously uploaded parts.</p>",
     "DeleteBucket": "<p>Deletes the bucket. All objects (including all object versions and Delete Markers) in the bucket must be deleted before the bucket itself can be deleted.</p>",
     "DeleteBucketCors": "<p>Deletes the cors configuration information set for the bucket.</p>",
+    "DeleteBucketLifecycle": "<p>Deletes the lifecycle configuration from the bucket.</p>",
+    "DeleteLegalHold": "<p>Remove Legal hold on an object. The legal hold identifiers are stored in the object metadata along with the timestamp of when they are POSTed to the object. The presence of any legal hold identifiers prevents the modification or deletion of the object data, even if the retention period has expired.</p>",
     "DeleteObject": "<p>Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.</p>",
     "DeleteObjects": "<p>This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.</p>",
+    "ExtendObjectRetention": "<p>This implementation of the POST operation uses the extendRetention sub-resource to extend the retention period of a protected object in a protected vault.<p>",
     "GetBucketAcl": "<p>Gets the access control policy for the bucket.</p>",
     "GetBucketCors": "<p>Returns the cors configuration for the bucket.</p>",
+    "GetBucketLifecycleConfiguration": "<p>Returns the lifecycle configuration for the bucket.</p>",
     "GetBucketLocation": "<p>Returns the region the bucket resides in.</p>",
+    "GetBucketProtectionConfiguration": "<p> Returns the protection configuration of a bucket.EnablePermanentRetention flag will only be returned if the flag is set to true for a bucket.</p>",
     "GetObject": "<p>Retrieves objects from Amazon S3.</p>",
     "GetObjectAcl": "<p>Returns the access control list (ACL) of an object.</p>",
     "HeadBucket": "<p>This operation is useful to determine if a bucket exists and you have permission to access it.</p>",
     "HeadObject": "<p>The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use HEAD, you must have READ access to the object.</p>",
     "ListBuckets": "<p>Returns a list of all buckets owned by the authenticated sender of the request.</p>",
+    "ListLegalHolds": "<p>Returns a list of legal holds on an object.</p>",
     "ListMultipartUploads": "<p>This operation lists in-progress multipart uploads.</p>",
     "ListObjects": "<p>Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket.</p>",
     "ListParts": "<p>Lists the parts that have been uploaded for a specific multipart upload.</p>",
     "PutBucketAcl": "<p>Sets the permissions on a bucket using access control lists (ACL).</p>",
     "PutBucketCors": "<p>Sets the cors configuration for a bucket.</p>",
+    "PutBucketProtectionConfiguration": "<p>Sets the protection configuration of an existing bucket. EnablePermanentRetention is optional and if not included is considered to be false. Once set to true, must be included in any subsequent PUT Bucket?protection requests for that bucket.</p>",
+    "PutBucketLifecycleConfiguration": "<p>Sets the lifecycle configuration for a bucket.</p>",
     "PutObject": "<p>Adds an object to a bucket.</p>",
     "PutObjectAcl": "<p>uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket</p>",
+    "RestoreObject": "<p>Restores an archived copy of an object back into Amazon S3</p>",
     "UploadPart": "<p>Uploads a part in a multipart upload.</p> <p> <b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>",
     "UploadPartCopy": "<p>Uploads a part by copying data from an existing object as data source.</p>"
   },
@@ -93,6 +104,12 @@
         "AnalyticsS3BucketDestination$BucketAccountId": "<p>The account ID that owns the destination bucket. If no account ID is provided, the owner will not be validated prior to exporting data.</p>",
         "Destination$Account": "<p>The account ID of the destination bucket. Currently, Amazon S3 verifies this value only if Access Control Translation is enabled. </p> <p>In a cross-account scenario, if you change replica ownership to the AWS account that owns the destination bucket by adding the <code>AccessControlTranslation</code> element, this is the account ID of the owner of the destination bucket. </p>",
         "InventoryS3BucketDestination$AccountId": "<p>The ID of the account that owns the destination bucket.</p>"
+      }
+    },
+    "AdditionalRetentionPeriod": {
+      "base": null,
+      "refs": {
+        "ExtendObjectRetentionRequest$AdditionalRetentionPeriod": "<p>Additional time, in seconds, to add to the existing retention period for the object. If this field and New-Retention-Time and/or New-Retention-Expiration-Date are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.</p>"
       }
     },
     "AllowQuotedRecordDelimiter": {
@@ -295,6 +312,7 @@
         "GetBucketLifecycleRequest$Bucket": "<p/>",
         "GetBucketLocationRequest$Bucket": "<p/>",
         "GetBucketLoggingRequest$Bucket": "<p/>",
+        "GetBucketProtectionConfigurationRequest$Bucket": "<p/>",
         "GetBucketMetricsConfigurationRequest$Bucket": "<p>The name of the bucket containing the metrics configuration to retrieve.</p>",
         "GetBucketNotificationConfigurationRequest$Bucket": "<p>Name of the bucket to get the notification configuration for.</p>",
         "GetBucketPolicyRequest$Bucket": "<p/>",
@@ -340,6 +358,7 @@
         "PutBucketMetricsConfigurationRequest$Bucket": "<p>The name of the bucket for which the metrics configuration is set.</p>",
         "PutBucketNotificationConfigurationRequest$Bucket": "<p/>",
         "PutBucketNotificationRequest$Bucket": "<p/>",
+        "PutBucketProtectionConfigurationRequest$Bucket": "<p/>",
         "PutBucketPolicyRequest$Bucket": "<p/>",
         "PutBucketReplicationRequest$Bucket": "<p/>",
         "PutBucketRequestPaymentRequest$Bucket": "<p/>",
@@ -359,6 +378,36 @@
         "UploadPartCopyRequest$Bucket": "<p/>",
         "UploadPartRequest$Bucket": "<p>Name of the bucket to which the multipart upload was initiated.</p>"
       }
+    },
+    "BucketProtectionStatus": {
+        "base": null,
+        "refs": {
+          "ProtectionConfiguration$Status": "<p>Retention status of a bucket.</p>"
+        }
+    },
+    "BucketProtectionMinimumRetention": {
+        "base": null,
+        "refs": {
+          "ProtectionConfiguration$MinimumRetention":"<p>Minimum retention period for an object, if a PUT of an object specifies a shorter retention period the PUT object will fail.</p>"
+        }
+    },
+    "BucketProtectionDefaultRetention": {
+        "base": null,
+        "refs": {
+          "ProtectionConfiguration$DefaultRetention":"<p>Default retention period for an object, if a PUT of an object does not specify a retention period this value will be converted to seconds and used.</p>"
+        }
+    },
+   "BucketProtectionMaximumRetention": {
+        "base": null,
+        "refs": {
+          "ProtectionConfiguration$MaximumRetention": "<p>Maximum retention period for an object, if a PUT of an object specifies a longer retention period the PUT object will fail.</p>"
+        }
+    },
+    "BucketProtectionEnablePermanentRetention": {
+        "base": null,
+        "refs": {
+          "ProtectionConfiguration$EnablePermanentRetention":"<p>Enable permanent retention for an object.</p>"
+        }
     },
     "BucketVersioningStatus": {
       "base": null,
@@ -1113,6 +1162,12 @@
         "SelectParameters$ExpressionType": "<p>The type of the provided expression (e.g., SQL).</p>"
       }
     },
+    "ExtendRetentionFromCurrentTime": {
+      "base":  "<p>Retention Period in seconds for the object.  The Retention will be enforced from the current time until current time + the value in this header.  This value has to be within the ranges defined for the bucket.</p>",
+      "refs": {
+        "ExtendObjectRetentionRequest$ExtendRetentionFromCurrentTime": "<p>Retention Period in seconds. The Retention will be enforced from the object creation time until current time + the value in this header. This value has to be within the ranges defined for the bucket. If this field and Additional-Retention-Period and/or New-Retention-Period and/or New-Retentiion-Expiration-Date are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.<p>"
+      }
+    },
     "FetchOwner": {
       "base": null,
       "refs": {
@@ -1141,7 +1196,7 @@
     "FilterRuleList": {
       "base": "<p>A list of containers for the key value pair that defines the criteria for the filter rule.</p>",
       "refs": {
-        "S3KeyFilter$FilterRules": null
+        "S3KeyFilter$FilterRules": "<p/>"
       }
     },
     "FilterRuleName": {
@@ -1281,6 +1336,17 @@
       "refs": {
       }
     },
+    "GetBucketProtectionConfigurationOutput": {
+      "base": null,
+      "refs": {
+
+      }
+    },
+    "GetBucketProtectionConfigurationRequest": {
+      "base": null,
+      "refs": {
+      }
+    },
     "GetBucketReplicationOutput": {
       "base": null,
       "refs": {
@@ -1380,6 +1446,12 @@
       "base": null,
       "refs": {
         "RestoreRequest$GlacierJobParameters": "<p>Glacier related parameters pertaining to this job. Do not use with restores that specify OutputLocation.</p>"
+      }
+    },
+    "GlacierJobParameters": {
+      "base": null,
+      "refs": {
+        "RestoreRequest$Days": "<p>Glacier related parameters pertaining to this job.</p>"
       }
     },
     "Grant": {
@@ -1516,6 +1588,20 @@
       "base" :"<p>The algorithm and key size to use with the encryption key stored by using Key Protect. This value must be set to the string \"AES256\".</p>",
       "refs" : {
         "CreateBucketRequest$IBMSSEKPEncryptionAlgorithm" : null
+      }
+    },
+    "IBMRestoreCopyStorageClass":{
+      "base": null,
+      "refs": {
+        "GetObjectOutput$IBMRestoreCopyStorageClass": "<p>This header is only included if an object has transition metadata.  This header will indicate the transition storage class and time of transition.  If this header and the x-amz-restore header are both included, this header will indicate the time at which the object was originally archived.</p>",
+        "HeadObjectOutput$IBMRestoreCopyStorageClass": "<p>This header is only included if an object has transition metadata.  This header will indicate the transition storage class and time of transition.  If this header and the x-amz-restore header are both included, this header will indicate the time at which the object was originally archived.</p>"
+      }
+    },
+    "IBMTransition":{
+      "base": null,
+      "refs": {
+        "GetObjectOutput$IBMTransition": "<p>This header is only included if an object has transition metadata.  This header will indicate the transition storage class and time of transition.  If this header and the x-amz-restore header are both included, this header will indicate the time at which the object was originally archived.</p>",
+        "HeadObjectOutput$IBMTransition": "<p>This header is only included if an object has transition metadata.  This header will indicate the transition storage class and time of transition.  If this header and the x-amz-restore header are both included, this header will indicate the time at which the object was originally archived.</p>"
       }
     },
     "ID": {
@@ -1802,7 +1888,7 @@
       }
     },
     "LifecycleRules": {
-      "base": null,
+      "base": "<p>Currently only one Rule allowed.</p>",
       "refs": {
         "BucketLifecycleConfiguration$Rules": "<p/>",
         "GetBucketLifecycleConfigurationOutput$Rules": "<p/>"
@@ -2082,6 +2168,18 @@
       "base": null,
       "refs": {
         "ListMultipartUploadsOutput$Uploads": "<p/>"
+      }
+    },
+    "NewRetentionPeriod":{
+      "base": null,
+      "refs": {
+        "ExtendObjectRetentionRequest$NewRetentionPeriod": "<p>Retention period, in seconds, to use for the object in place of the existing retention period stored for the object. If this value is less than the existing value stored for the object, a 400 error will be returned. If this field and Additional-Retention-Period and/or New-Retention-Expiration-Date are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned.</p>"
+      }
+    },
+    "NewRetentionExpirationDate": {
+      "base": null,
+      "refs": {
+        "ExtendObjectRetentionRequest$NewRetentionExpirationDate": "<p>A new retention date to use for the object in place of the existing retention date.  If this value is less than the existing value stored for the object, a 400 error will be returned.  If this field and Additional-Retention-Period and/or New-Retention-Period and/or Extend-Retention-From-Current-Time are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.</p>"
       }
     },
     "NextKeyMarker": {
@@ -2437,7 +2535,7 @@
         "InventoryS3BucketDestination$Prefix": "<p>The prefix that is prepended to all inventory results.</p>",
         "LifecycleRule$Prefix": "<p>Prefix identifying one or more objects to which the rule applies. This is No longer used; use Filter instead.</p>",
         "LifecycleRuleAndOperator$Prefix": "<p/>",
-        "LifecycleRuleFilter$Prefix": "<p>Prefix identifying one or more objects to which the rule applies.</p>",
+        "LifecycleRuleFilter$Prefix": "<p>Empty prefix allowed only.</p>",
         "ListMultipartUploadsOutput$Prefix": "<p>When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.</p>",
         "ListMultipartUploadsRequest$Prefix": "<p>Lists in-progress uploads only for those keys that begin with the specified prefix.</p>",
         "ListObjectVersionsOutput$Prefix": "<p/>",
@@ -2472,6 +2570,12 @@
       "base": "<p/>",
       "refs": {
         "SelectObjectContentEventStream$Progress": "<p>The Progress Event.</p>"
+      }
+    },
+    "ProtectionConfiguration":{
+      "base": "<p/>",
+      "refs": {
+        "GetBucketProtectionConfigurationOutput$ProtectionConfiguration": "<p>Bucket protection configuration</p>"
       }
     },
     "Protocol": {
@@ -2873,6 +2977,55 @@
       "base": null,
       "refs": {
         "RestoreRequest$Type": "<p>Type of restore request.</p>"
+      }
+    },
+    "RetentionDirective": {
+      "base": null,
+      "refs": {
+        "CopyObjectRequest$RetentionDirective": "<p>This header controls how the Protection state of the source object is copied to the destination object.If copied, the retention period and all legal holds are copied onto the new object. The legal hold date's is set to the date of the copy.</p>"
+      }
+    },
+    "RetentionExpirationDate": {
+      "base": null,
+      "refs": {
+        "CompleteMultipartUploadRequest$RetentionExpirationDate":"<p>Date on which it will be legal to delete or modify the object. This field can only be specified if Retention-Directive is REPLACE. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.</p>",
+        "CopyObjectRequest$RetentionExpirationDate":"<p>Date on which it will be legal to delete or modify the object. This field can only be specified if Retention-Directive is REPLACE. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.</p>",
+        "GetObjectOutput$RetentionExpirationDate":"<p>Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.</p>",
+        "HeadObjectOutput$RetentionExpirationDate":"<p>Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.</p>",
+        "PutObjectRequest$RetentionExpirationDate":"<p>Date on which it will be legal to delete or modify the object. This field can only be specified if Retention-Directive is REPLACE. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.</p>"
+      }
+    },
+    "RetentionPeriod": {
+      "base": "<p>Retention period to store on the object in seconds. The object can be neither overwritten nor deleted until the amount of time specified in the retention period has elapsed. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.</p>",
+      "refs": {
+        "ListLegalHolds$RetentionPeriod": "<p>Retention period in seconds.</p>",
+        "HeadObjectOutput$RetentionPeriod":"<p>Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.</p>",
+        "GetObjectOutput$RetentionPeriod":"<p>Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.</p>",
+        "CompleteMultipartUploadRequest$RetentionPeriod":"<p>Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.</p>",
+        "CopyObjectOutput$RetentionPeriod":"<p>Retention period to store on the object in seconds. This field can only be specified if Retention-Directive is REPLACE. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.</p>",
+        "PutObjectRequest$RetentionPeriod":"<p>Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.</p>"
+      }
+    },
+    "RetentionPeriodExpirationDate": {
+      "base": null,
+      "refs": {
+        "ListLegalHolds$RetentionPeriodExpirationDate": "<p>Date on which the retention period will expire.</p>"
+      }
+    },
+    "RetentionLegalholdCount": {
+      "base": null,
+      "refs": {
+        "HeadObjectOutput$RetentionLegalholdCount": "<p>Returns the count of legal holds on the object. If there are no legal holds, the header is not returned</p>",
+        "GetObjectOutput$RetentionLegalholdCount": "<p>Returns the count of legal holds on the object. If there are no legal holds, the header is not returned</p>"
+      }
+    },
+
+    "RetentionLegalHoldId": {
+      "base": null,
+      "refs": {
+        "CopyObjectRequest$RetentionLegalHoldId": "<p>A single legal hold to apply to the object. This field can only be specified if Retention-Directive is REPLACE. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.</p>",
+        "CompleteMultipartUploadRequest$RetentionLegalHoldId": "<p>A single legal hold to apply to the object. This field can only be specified if Retention-Directive is REPLACE. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.</p>",
+        "PutObjectRequest$RetentionLegalHoldId": "<p>A single legal hold to apply to the object. This field can only be specified if Retention-Directive is REPLACE. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.</p>"
       }
     },
     "Role": {
@@ -3280,7 +3433,7 @@
     "TransitionList": {
       "base": null,
       "refs": {
-        "LifecycleRule$Transitions": "<p/>"
+        "LifecycleRule$Transitions": "<p>Currently only one Transition allowed, also Date and Days fields are mutually exclusive.</p>"
       }
     },
     "TransitionStorageClass": {

@@ -28,6 +28,7 @@ const (
 
 	// endpoint discovery group
 	enableEndpointDiscoveryKey = `endpoint_discovery_enabled` // optional
+
 	// External Credential Process
 	credentialProcessKey = `credential_process`
 
@@ -48,11 +49,11 @@ type assumeRoleConfig struct {
 
 // sharedConfig represents the configuration fields of the SDK config files.
 type sharedConfig struct {
-	// Credentials values from the config file. Both aws_access_key_id
-	// and aws_secret_access_key must be provided together in the same file
-	// to be considered valid. The values will be ignored if not a complete group.
-	// aws_session_token is an optional field that can be provided if both of the
-	// other two fields are also provided.
+	// Credentials values from the config file. Both aws_access_key_id and
+	// aws_secret_access_key must be provided together in the same file to be
+	// considered valid. The values will be ignored if not a complete group.
+	// aws_session_token is an optional field that can be provided if both of
+	// the other two fields are also provided.
 	//
 	//	aws_access_key_id
 	//	aws_secret_access_key
@@ -64,6 +65,10 @@ type sharedConfig struct {
 
 	// An external process to request credentials
 	CredentialProcess string
+	CredentialSource  string
+
+	SourceProfileName string
+	SourceProfile     *sharedConfig
 
 	// Region is the region the SDK should use for looking up AWS service endpoints
 	// and signing requests.
@@ -83,17 +88,19 @@ type sharedConfigFile struct {
 	IniData  ini.Sections
 }
 
-// loadSharedConfig retrieves the configuration from the list of files
-// using the profile provided. The order the files are listed will determine
+// loadSharedConfig retrieves the configuration from the list of files using
+// the profile provided. The order the files are listed will determine
 // precedence. Values in subsequent files will overwrite values defined in
 // earlier files.
 //
 // For example, given two files A and B. Both define credentials. If the order
-// of the files are A then B, B's credential values will be used instead of A's.
+// of the files are A then B, B's credential values will be used instead of
+// A's.
 //
 // See sharedConfig.setFromFile for information how the config files
 // will be loaded.
-func loadSharedConfig(profile string, filenames []string) (sharedConfig, error) {
+func loadSharedConfig(profile string, filenames []string, exOpts bool) (sharedConfig, error) {
+
 	if len(profile) == 0 {
 		profile = DefaultSharedConfigProfile
 	}
@@ -104,14 +111,9 @@ func loadSharedConfig(profile string, filenames []string) (sharedConfig, error) 
 	}
 
 	cfg := sharedConfig{}
-	if err = cfg.setFromIniFiles(profile, files); err != nil {
+	profiles := map[string]struct{}{}
+	if err = cfg.setFromIniFiles(profiles, profile, files, exOpts); err != nil {
 		return sharedConfig{}, err
-	}
-
-	if len(cfg.AssumeRole.SourceProfile) > 0 {
-		if err := cfg.setAssumeRoleSource(profile, files); err != nil {
-			return sharedConfig{}, err
-		}
 	}
 
 	return cfg, nil
@@ -137,60 +139,59 @@ func loadSharedConfigIniFiles(filenames []string) ([]sharedConfigFile, error) {
 	return files, nil
 }
 
-func (cfg *sharedConfig) setAssumeRoleSource(origProfile string, files []sharedConfigFile) error {
-	var assumeRoleSrc sharedConfig
-
-	if len(cfg.AssumeRole.CredentialSource) > 0 {
-		// setAssumeRoleSource is only called when source_profile is found.
-		// If both source_profile and credential_source are set, then
-		// ErrSharedConfigSourceCollision will be returned
-		return ErrSharedConfigSourceCollision
-	}
-
-	// Multiple level assume role chains are not support
-	if cfg.AssumeRole.SourceProfile == origProfile {
-		assumeRoleSrc = *cfg
-		assumeRoleSrc.AssumeRole = assumeRoleConfig{}
-	} else {
-		err := assumeRoleSrc.setFromIniFiles(cfg.AssumeRole.SourceProfile, files)
-		if err != nil {
-			return err
-		}
-	}
-
-	if len(assumeRoleSrc.Creds.AccessKeyID) == 0 {
-		return SharedConfigAssumeRoleError{RoleARN: cfg.AssumeRole.RoleARN}
-	}
-
-	cfg.AssumeRoleSource = &assumeRoleSrc
-
-	return nil
-}
-
-func (cfg *sharedConfig) setFromIniFiles(profile string, files []sharedConfigFile) error {
+func (cfg *sharedConfig) setFromIniFiles(profiles map[string]struct{}, profile string, files []sharedConfigFile, exOpts bool) error {
 	// Trim files from the list that don't exist.
+	var skippedFiles int
+	var profileNotFoundErr error
 	for _, f := range files {
-		if err := cfg.setFromIniFile(profile, f); err != nil {
+		if err := cfg.setFromIniFile(profile, f, exOpts); err != nil {
 			if _, ok := err.(SharedConfigProfileNotExistsError); ok {
-				// Ignore proviles missings
+				// Ignore profiles not defined in individual files.
+				profileNotFoundErr = err
+				skippedFiles++
 				continue
 			}
 			return err
 		}
 	}
+	if skippedFiles == len(files) {
+		// If all files were skipped because the profile is not found, return
+		// the original profile not found error.
+		return profileNotFoundErr
+	}
+
+	profiles[profile] = struct{}{}
+
+	if err := cfg.validateCredentialType(); err != nil {
+		return err
+	}
+
+	// Link source profiles for assume roles
+	if len(cfg.SourceProfileName) != 0 {
+		// Linked profile via source_profile ignore credential provider
+		// options, the source profile must provide the credentials.
+		cfg.clearCredentialOptions()
+
+		srcCfg := &sharedConfig{}
+		err := srcCfg.setFromIniFiles(profiles, cfg.SourceProfileName, files, exOpts)
+		if err != nil {
+			return err
+		}
+
+		cfg.SourceProfile = srcCfg
+	}
 
 	return nil
 }
 
-// setFromFile loads the configuration from the file using
-// the profile provided. A sharedConfig pointer type value is used so that
-// multiple config file loadings can be chained.
+// setFromFile loads the configuration from the file using the profile
+// provided. A sharedConfig pointer type value is used so that multiple config
+// file loadings can be chained.
 //
-// Only loads complete logically grouped values, and will not set fields in cfg
-// for incomplete grouped values in the config. Such as credentials. For example
-// if a config file only includes aws_access_key_id but no aws_secret_access_key
-// the aws_access_key_id will be ignored.
-func (cfg *sharedConfig) setFromIniFile(profile string, file sharedConfigFile) error {
+// for incomplete grouped values in the config. Such as credentials. For
+// example if a config file only includes aws_access_key_id but no
+// aws_secret_access_key the aws_access_key_id will be ignored.
+func (cfg *sharedConfig) setFromIniFile(profile string, file sharedConfigFile, exOpts bool) error {
 	section, ok := file.IniData.GetSection(profile)
 	if !ok {
 		// Fallback to to alternate profile name: profile <name>
@@ -200,32 +201,17 @@ func (cfg *sharedConfig) setFromIniFile(profile string, file sharedConfigFile) e
 		}
 	}
 
-	// Shared Credentials
-	akid := section.String(accessKeyIDKey)
-	secret := section.String(secretAccessKey)
-	if len(akid) > 0 && len(secret) > 0 {
-		cfg.Creds = credentials.Value{
-			AccessKeyID:     akid,
-			SecretAccessKey: secret,
-			SessionToken:    section.String(sessionTokenKey),
-			ProviderName:    fmt.Sprintf("SharedConfigCredentials: %s", file.Filename),
-		}
-	}
+	updateString(&cfg.CredentialProcess, section, credentialProcessKey)
 
-	// Assume Role
-	roleArn := section.String(roleArnKey)
-	srcProfile := section.String(sourceProfileKey)
-	credentialSource := section.String(credentialSourceKey)
-	hasSource := len(srcProfile) > 0 || len(credentialSource) > 0
-	if len(roleArn) > 0 && hasSource {
-		cfg.AssumeRole = assumeRoleConfig{
-			RoleARN:          roleArn,
-			SourceProfile:    srcProfile,
-			CredentialSource: credentialSource,
-			ExternalID:       section.String(externalIDKey),
-			MFASerial:        section.String(mfaSerialKey),
-			RoleSessionName:  section.String(roleSessionNameKey),
-		}
+	// Shared Credentials
+	creds := credentials.Value{
+		AccessKeyID:     section.String(accessKeyIDKey),
+		SecretAccessKey: section.String(secretAccessKey),
+		SessionToken:    section.String(sessionTokenKey),
+		ProviderName:    fmt.Sprintf("SharedConfigCredentials: %s", file.Filename),
+	}
+	if creds.HasKeys() {
+		cfg.Creds = creds
 	}
 
 	// `credential_process`
@@ -245,6 +231,62 @@ func (cfg *sharedConfig) setFromIniFile(profile string, file sharedConfigFile) e
 	}
 
 	return nil
+}
+
+func (cfg *sharedConfig) validateCredentialType() error {
+	// Only one or no credential type can be defined.
+	if !oneOrNone(
+		len(cfg.SourceProfileName) != 0,
+		len(cfg.CredentialSource) != 0,
+		len(cfg.CredentialProcess) != 0,
+	) {
+		return ErrSharedConfigSourceCollision
+	}
+
+	return nil
+}
+
+func (cfg *sharedConfig) hasCredentials() bool {
+	switch {
+	case len(cfg.SourceProfileName) != 0:
+	case len(cfg.CredentialSource) != 0:
+	case len(cfg.CredentialProcess) != 0:
+	case cfg.Creds.HasKeys():
+	default:
+		return false
+	}
+
+	return true
+}
+
+func (cfg *sharedConfig) clearCredentialOptions() {
+	cfg.CredentialSource = ""
+	cfg.CredentialProcess = ""
+	cfg.Creds = credentials.Value{}
+}
+
+func oneOrNone(bs ...bool) bool {
+	var count int
+
+	for _, b := range bs {
+		if b {
+			count++
+			if count > 1 {
+				return false
+			}
+		}
+	}
+
+	return true
+}
+
+// updateString will only update the dst with the value in the section key, key
+// is present in the section.
+func updateString(dst *string, section ini.Section, key string) {
+	if !section.Has(key) {
+		return
+	}
+	*dst = section.String(key)
 }
 
 // SharedConfigLoadError is an error for the shared config file failed to load.

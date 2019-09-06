@@ -45,32 +45,7 @@ func (a *API) setServiceAliaseName() {
 // customizationPasses Executes customization logic for the API by package name.
 func (a *API) customizationPasses() {
 	var svcCustomizations = map[string]func(*API){
-		"s3":         s3Customizations,
-		"s3control":  s3ControlCustomizations,
-		"cloudfront": cloudfrontCustomizations,
-		"rds":        rdsCustomizations,
-
-		// Disable endpoint resolving for services that require customer
-		// to provide endpoint them selves.
-		"cloudsearchdomain": disableEndpointResolving,
-		"iotdataplane":      disableEndpointResolving,
-
-		// MTurk smoke test is invalid. The service requires AWS account to be
-		// linked to Amazon Mechanical Turk Account.
-		"mturk": supressSmokeTest,
-
-		// Backfill the authentication type for cognito identity and sts.
-		// Removes the need for the customizations in these services.
-		"cognitoidentity": backfillAuthType("none",
-			"GetId",
-			"GetOpenIdToken",
-			"UnlinkIdentity",
-			"GetCredentialsForIdentity",
-		),
-		"sts": backfillAuthType("none",
-			"AssumeRoleWithSAML",
-			"AssumeRoleWithWebIdentity",
-		),
+		"s3": s3Customizations,
 	}
 
 	for k := range mergeServices {
@@ -107,6 +82,22 @@ func s3Customizations(a *API) {
 		for _, refName := range []string{"Bucket", "SSECustomerKey", "CopySourceSSECustomerKey"} {
 			if ref, ok := s.MemberRefs[refName]; ok {
 				ref.GenerateGetter = true
+			}
+		}
+
+		// Decorate member references that are modeled with the wrong type.
+		// Specifically the case where a member was modeled as a string, but is
+		// expected to sent across the wire as a base64 value.
+		//
+		// e.g. S3's SSECustomerKey and CopySourceSSECustomerKey
+		for _, refName := range []string{
+			"SSECustomerKey",
+			"CopySourceSSECustomerKey",
+		} {
+			if ref, ok := s.MemberRefs[refName]; ok {
+				ref.CustomTags = append(ref.CustomTags, ShapeTag{
+					"marshal-as", "blob",
+				})
 			}
 		}
 
@@ -163,18 +154,6 @@ func s3ControlCustomizations(a *API) {
 	}
 }
 
-// cloudfrontCustomizations customized the API generation to replace values
-// specific to CloudFront.
-func cloudfrontCustomizations(a *API) {
-	// MaxItems members should always be integers
-	for _, s := range a.Shapes {
-		if ref, ok := s.MemberRefs["MaxItems"]; ok {
-			ref.ShapeName = "Integer"
-			ref.Shape = a.Shapes["Integer"]
-		}
-	}
-}
-
 // mergeServicesCustomizations references any duplicate shapes from DynamoDB
 func mergeServicesCustomizations(a *API) {
 	info := mergeServices[a.PackageName()]
@@ -203,36 +182,11 @@ func mergeServicesCustomizations(a *API) {
 	}
 }
 
-// rdsCustomizations are customization for the service/rds. This adds non-modeled fields used for presigning.
-func rdsCustomizations(a *API) {
-	inputs := []string{
-		"CopyDBSnapshotInput",
-		"CreateDBInstanceReadReplicaInput",
-		"CopyDBClusterSnapshotInput",
-		"CreateDBClusterInput",
-	}
-	for _, input := range inputs {
-		if ref, ok := a.Shapes[input]; ok {
-			ref.MemberRefs["SourceRegion"] = &ShapeRef{
-				Documentation: docstring(`SourceRegion is the source region where the resource exists. This is not sent over the wire and is only used for presigning. This value should always have the same region as the source ARN.`),
-				ShapeName:     "String",
-				Shape:         a.Shapes["String"],
-				Ignore:        true,
-			}
-			ref.MemberRefs["DestinationRegion"] = &ShapeRef{
-				Documentation: docstring(`DestinationRegion is used for presigning the request to a given region.`),
-				ShapeName:     "String",
-				Shape:         a.Shapes["String"],
-			}
-		}
-	}
-}
-
 func disableEndpointResolving(a *API) {
 	a.Metadata.NoResolveEndpoint = true
 }
 
-func backfillAuthType(typ string, opNames ...string) func(*API) {
+func backfillAuthType(typ AuthType, opNames ...string) func(*API) {
 	return func(a *API) {
 		for _, opName := range opNames {
 			op, ok := a.Operations[opName]

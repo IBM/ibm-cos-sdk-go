@@ -13,8 +13,8 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
 	"github.com/IBM/ibm-cos-sdk-go/aws/ec2metadata"
 	"github.com/IBM/ibm-cos-sdk-go/aws/request"
-	"github.com/IBM/ibm-cos-sdk-go/awstesting"
 	"github.com/IBM/ibm-cos-sdk-go/awstesting/unit"
+	"github.com/IBM/ibm-cos-sdk-go/internal/sdktesting"
 )
 
 func TestClientOverrideDefaultHTTPClientTimeout(t *testing.T) {
@@ -80,8 +80,8 @@ func TestClientOverrideDefaultHTTPClientTimeoutRaceWithTransport(t *testing.T) {
 }
 
 func TestClientDisableIMDS(t *testing.T) {
-	env := awstesting.StashEnv()
-	defer awstesting.PopEnv(env)
+	restoreEnvFn := sdktesting.StashEnv()
+	defer restoreEnvFn()
 
 	os.Setenv("AWS_EC2_METADATA_DISABLED", "true")
 

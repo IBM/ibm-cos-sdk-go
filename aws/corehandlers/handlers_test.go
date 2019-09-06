@@ -119,7 +119,7 @@ func TestAfterRetryWithContextCanceled(t *testing.T) {
 
 	req := c.NewRequest(&request.Operation{Name: "Operation"}, nil, nil)
 
-	ctx := &awstesting.FakeContext{DoneCh: make(chan struct{}, 0)}
+	ctx := &awstesting.FakeContext{DoneCh: make(chan struct{})}
 	req.SetContext(ctx)
 
 	req.Error = fmt.Errorf("some error")
@@ -149,7 +149,7 @@ func TestAfterRetryWithContext(t *testing.T) {
 
 	req := c.NewRequest(&request.Operation{Name: "Operation"}, nil, nil)
 
-	ctx := &awstesting.FakeContext{DoneCh: make(chan struct{}, 0)}
+	ctx := &awstesting.FakeContext{DoneCh: make(chan struct{})}
 	req.SetContext(ctx)
 
 	req.Error = fmt.Errorf("some error")
@@ -177,7 +177,7 @@ func TestSendWithContextCanceled(t *testing.T) {
 
 	req := c.NewRequest(&request.Operation{Name: "Operation"}, nil, nil)
 
-	ctx := &awstesting.FakeContext{DoneCh: make(chan struct{}, 0)}
+	ctx := &awstesting.FakeContext{DoneCh: make(chan struct{})}
 	req.SetContext(ctx)
 
 	req.Error = fmt.Errorf("some error")

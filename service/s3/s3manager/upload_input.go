@@ -75,6 +75,25 @@ type UploadInput struct {
 	// at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
 	RequestPayer *string `location:"header" locationName:"x-amz-request-payer" type:"string" enum:"RequestPayer"`
 
+	// Date on which it will be legal to delete or modify the object. This field
+	// can only be specified if Retention-Directive is REPLACE. You can only specify
+	// this or the Retention-Period header. If both are specified a 400 error will
+	// be returned. If neither is specified the bucket's DefaultRetention period
+	// will be used.
+	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp" timestampFormat:"iso8601"`
+
+	// A single legal hold to apply to the object. This field can only be specified
+	// if Retention-Directive is REPLACE. A legal hold is a character long string
+	// of max length 64. The object cannot be overwritten or deleted until all legal
+	// holds associated with the object are removed.
+	RetentionLegalHoldId *string `location:"header" locationName:"Retention-Legal-Hold-ID" type:"string"`
+
+	// Retention period to store on the object in seconds. If this field and Retention-Expiration-Date
+	// are specified a 400 error is returned. If neither is specified the bucket's
+	// DefaultRetention period will be used. 0 is a legal value assuming the bucket's
+	// minimum retention period is also 0.
+	RetentionPeriod *int64 `location:"header" locationName:"Retention-Period" type:"integer"`
+
 	// Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 	SSECustomerAlgorithm *string `location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`
 
@@ -83,7 +102,7 @@ type UploadInput struct {
 	// does not store the encryption key. The key must be appropriate for use with
 	// the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm
 	// header.
-	SSECustomerKey *string `location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
+	SSECustomerKey *string `marshal-as:"blob" location:"header" locationName:"x-amz-server-side-encryption-customer-key" type:"string" sensitive:"true"`
 
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
 	// Amazon S3 uses this header for a message integrity check to ensure the encryption

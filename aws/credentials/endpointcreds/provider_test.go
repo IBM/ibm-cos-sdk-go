@@ -29,7 +29,7 @@ func TestRetrieveRefreshableCredentials(t *testing.T) {
 		err := encoder.Encode(map[string]interface{}{
 			"AccessKeyID":     "AKID",
 			"SecretAccessKey": "SECRET",
-			"token":           "TOKEN",
+			"Token":           "TOKEN",
 			"Expiration":      time.Now().Add(1 * time.Hour),
 		})
 
@@ -173,7 +173,7 @@ func TestAuthorizationToken(t *testing.T) {
 		err := encoder.Encode(map[string]interface{}{
 			"AccessKeyID":     "AKID",
 			"SecretAccessKey": "SECRET",
-			"token":           "TOKEN",
+			"Token":           "TOKEN",
 			"Expiration":      time.Now().Add(1 * time.Hour),
 		})
 

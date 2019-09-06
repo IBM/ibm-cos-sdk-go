@@ -64,6 +64,10 @@ type S3API interface {
 	AbortMultipartUploadWithContext(aws.Context, *s3.AbortMultipartUploadInput, ...request.Option) (*s3.AbortMultipartUploadOutput, error)
 	AbortMultipartUploadRequest(*s3.AbortMultipartUploadInput) (*request.Request, *s3.AbortMultipartUploadOutput)
 
+	AddLegalHold(*s3.AddLegalHoldInput) (*s3.AddLegalHoldOutput, error)
+	AddLegalHoldWithContext(aws.Context, *s3.AddLegalHoldInput, ...request.Option) (*s3.AddLegalHoldOutput, error)
+	AddLegalHoldRequest(*s3.AddLegalHoldInput) (*request.Request, *s3.AddLegalHoldOutput)
+
 	CompleteMultipartUpload(*s3.CompleteMultipartUploadInput) (*s3.CompleteMultipartUploadOutput, error)
 	CompleteMultipartUploadWithContext(aws.Context, *s3.CompleteMultipartUploadInput, ...request.Option) (*s3.CompleteMultipartUploadOutput, error)
 	CompleteMultipartUploadRequest(*s3.CompleteMultipartUploadInput) (*request.Request, *s3.CompleteMultipartUploadOutput)
@@ -88,6 +92,14 @@ type S3API interface {
 	DeleteBucketCorsWithContext(aws.Context, *s3.DeleteBucketCorsInput, ...request.Option) (*s3.DeleteBucketCorsOutput, error)
 	DeleteBucketCorsRequest(*s3.DeleteBucketCorsInput) (*request.Request, *s3.DeleteBucketCorsOutput)
 
+	DeleteBucketLifecycle(*s3.DeleteBucketLifecycleInput) (*s3.DeleteBucketLifecycleOutput, error)
+	DeleteBucketLifecycleWithContext(aws.Context, *s3.DeleteBucketLifecycleInput, ...request.Option) (*s3.DeleteBucketLifecycleOutput, error)
+	DeleteBucketLifecycleRequest(*s3.DeleteBucketLifecycleInput) (*request.Request, *s3.DeleteBucketLifecycleOutput)
+
+	DeleteLegalHold(*s3.DeleteLegalHoldInput) (*s3.DeleteLegalHoldOutput, error)
+	DeleteLegalHoldWithContext(aws.Context, *s3.DeleteLegalHoldInput, ...request.Option) (*s3.DeleteLegalHoldOutput, error)
+	DeleteLegalHoldRequest(*s3.DeleteLegalHoldInput) (*request.Request, *s3.DeleteLegalHoldOutput)
+
 	DeleteObject(*s3.DeleteObjectInput) (*s3.DeleteObjectOutput, error)
 	DeleteObjectWithContext(aws.Context, *s3.DeleteObjectInput, ...request.Option) (*s3.DeleteObjectOutput, error)
 	DeleteObjectRequest(*s3.DeleteObjectInput) (*request.Request, *s3.DeleteObjectOutput)
@@ -95,6 +107,10 @@ type S3API interface {
 	DeleteObjects(*s3.DeleteObjectsInput) (*s3.DeleteObjectsOutput, error)
 	DeleteObjectsWithContext(aws.Context, *s3.DeleteObjectsInput, ...request.Option) (*s3.DeleteObjectsOutput, error)
 	DeleteObjectsRequest(*s3.DeleteObjectsInput) (*request.Request, *s3.DeleteObjectsOutput)
+
+	ExtendObjectRetention(*s3.ExtendObjectRetentionInput) (*s3.ExtendObjectRetentionOutput, error)
+	ExtendObjectRetentionWithContext(aws.Context, *s3.ExtendObjectRetentionInput, ...request.Option) (*s3.ExtendObjectRetentionOutput, error)
+	ExtendObjectRetentionRequest(*s3.ExtendObjectRetentionInput) (*request.Request, *s3.ExtendObjectRetentionOutput)
 
 	GetBucketAcl(*s3.GetBucketAclInput) (*s3.GetBucketAclOutput, error)
 	GetBucketAclWithContext(aws.Context, *s3.GetBucketAclInput, ...request.Option) (*s3.GetBucketAclOutput, error)
@@ -104,6 +120,10 @@ type S3API interface {
 	GetBucketCorsWithContext(aws.Context, *s3.GetBucketCorsInput, ...request.Option) (*s3.GetBucketCorsOutput, error)
 	GetBucketCorsRequest(*s3.GetBucketCorsInput) (*request.Request, *s3.GetBucketCorsOutput)
 
+	GetBucketLifecycleConfiguration(*s3.GetBucketLifecycleConfigurationInput) (*s3.GetBucketLifecycleConfigurationOutput, error)
+	GetBucketLifecycleConfigurationWithContext(aws.Context, *s3.GetBucketLifecycleConfigurationInput, ...request.Option) (*s3.GetBucketLifecycleConfigurationOutput, error)
+	GetBucketLifecycleConfigurationRequest(*s3.GetBucketLifecycleConfigurationInput) (*request.Request, *s3.GetBucketLifecycleConfigurationOutput)
+
 	GetBucketLocation(*s3.GetBucketLocationInput) (*s3.GetBucketLocationOutput, error)
 	GetBucketLocationWithContext(aws.Context, *s3.GetBucketLocationInput, ...request.Option) (*s3.GetBucketLocationOutput, error)
 	GetBucketLocationRequest(*s3.GetBucketLocationInput) (*request.Request, *s3.GetBucketLocationOutput)
@@ -111,6 +131,10 @@ type S3API interface {
 	GetBucketLogging(*s3.GetBucketLoggingInput) (*s3.GetBucketLoggingOutput, error)
 	GetBucketLoggingWithContext(aws.Context, *s3.GetBucketLoggingInput, ...request.Option) (*s3.GetBucketLoggingOutput, error)
 	GetBucketLoggingRequest(*s3.GetBucketLoggingInput) (*request.Request, *s3.GetBucketLoggingOutput)
+
+	GetBucketProtectionConfiguration(*s3.GetBucketProtectionConfigurationInput) (*s3.GetBucketProtectionConfigurationOutput, error)
+	GetBucketProtectionConfigurationWithContext(aws.Context, *s3.GetBucketProtectionConfigurationInput, ...request.Option) (*s3.GetBucketProtectionConfigurationOutput, error)
+	GetBucketProtectionConfigurationRequest(*s3.GetBucketProtectionConfigurationInput) (*request.Request, *s3.GetBucketProtectionConfigurationOutput)
 
 	GetObject(*s3.GetObjectInput) (*s3.GetObjectOutput, error)
 	GetObjectWithContext(aws.Context, *s3.GetObjectInput, ...request.Option) (*s3.GetObjectOutput, error)
@@ -138,6 +162,10 @@ type S3API interface {
 
 	ListBucketsExtendedPages(*s3.ListBucketsExtendedInput, func(*s3.ListBucketsExtendedOutput, bool) bool) error
 	ListBucketsExtendedPagesWithContext(aws.Context, *s3.ListBucketsExtendedInput, func(*s3.ListBucketsExtendedOutput, bool) bool, ...request.Option) error
+
+	ListLegalHolds(*s3.ListLegalHoldsInput) (*s3.ListLegalHoldsOutput, error)
+	ListLegalHoldsWithContext(aws.Context, *s3.ListLegalHoldsInput, ...request.Option) (*s3.ListLegalHoldsOutput, error)
+	ListLegalHoldsRequest(*s3.ListLegalHoldsInput) (*request.Request, *s3.ListLegalHoldsOutput)
 
 	ListMultipartUploads(*s3.ListMultipartUploadsInput) (*s3.ListMultipartUploadsOutput, error)
 	ListMultipartUploadsWithContext(aws.Context, *s3.ListMultipartUploadsInput, ...request.Option) (*s3.ListMultipartUploadsOutput, error)
@@ -168,9 +196,17 @@ type S3API interface {
 	PutBucketCorsWithContext(aws.Context, *s3.PutBucketCorsInput, ...request.Option) (*s3.PutBucketCorsOutput, error)
 	PutBucketCorsRequest(*s3.PutBucketCorsInput) (*request.Request, *s3.PutBucketCorsOutput)
 
+	PutBucketLifecycleConfiguration(*s3.PutBucketLifecycleConfigurationInput) (*s3.PutBucketLifecycleConfigurationOutput, error)
+	PutBucketLifecycleConfigurationWithContext(aws.Context, *s3.PutBucketLifecycleConfigurationInput, ...request.Option) (*s3.PutBucketLifecycleConfigurationOutput, error)
+	PutBucketLifecycleConfigurationRequest(*s3.PutBucketLifecycleConfigurationInput) (*request.Request, *s3.PutBucketLifecycleConfigurationOutput)
+
 	PutBucketLogging(*s3.PutBucketLoggingInput) (*s3.PutBucketLoggingOutput, error)
 	PutBucketLoggingWithContext(aws.Context, *s3.PutBucketLoggingInput, ...request.Option) (*s3.PutBucketLoggingOutput, error)
 	PutBucketLoggingRequest(*s3.PutBucketLoggingInput) (*request.Request, *s3.PutBucketLoggingOutput)
+
+	PutBucketProtectionConfiguration(*s3.PutBucketProtectionConfigurationInput) (*s3.PutBucketProtectionConfigurationOutput, error)
+	PutBucketProtectionConfigurationWithContext(aws.Context, *s3.PutBucketProtectionConfigurationInput, ...request.Option) (*s3.PutBucketProtectionConfigurationOutput, error)
+	PutBucketProtectionConfigurationRequest(*s3.PutBucketProtectionConfigurationInput) (*request.Request, *s3.PutBucketProtectionConfigurationOutput)
 
 	PutObject(*s3.PutObjectInput) (*s3.PutObjectOutput, error)
 	PutObjectWithContext(aws.Context, *s3.PutObjectInput, ...request.Option) (*s3.PutObjectOutput, error)
@@ -179,6 +215,10 @@ type S3API interface {
 	PutObjectAcl(*s3.PutObjectAclInput) (*s3.PutObjectAclOutput, error)
 	PutObjectAclWithContext(aws.Context, *s3.PutObjectAclInput, ...request.Option) (*s3.PutObjectAclOutput, error)
 	PutObjectAclRequest(*s3.PutObjectAclInput) (*request.Request, *s3.PutObjectAclOutput)
+
+	RestoreObject(*s3.RestoreObjectInput) (*s3.RestoreObjectOutput, error)
+	RestoreObjectWithContext(aws.Context, *s3.RestoreObjectInput, ...request.Option) (*s3.RestoreObjectOutput, error)
+	RestoreObjectRequest(*s3.RestoreObjectInput) (*request.Request, *s3.RestoreObjectOutput)
 
 	UploadPart(*s3.UploadPartInput) (*s3.UploadPartOutput, error)
 	UploadPartWithContext(aws.Context, *s3.UploadPartInput, ...request.Option) (*s3.UploadPartOutput, error)

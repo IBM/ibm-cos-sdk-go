@@ -12,7 +12,7 @@ import (
 const (
 	// Constants
 	// Default IBM IAM Authentication Server Endpoint
-	defaultAuthEndPoint = `https://iam.ng.bluemix.net/oidc/token`
+	defaultAuthEndPoint = `https://iam.cloud.ibm.com/identity/token`
 
 	// Logger constants
 	// Debug Log constant
@@ -66,7 +66,6 @@ func NewProvider(providerName string, config *aws.Config, apiKey, authEndPoint, 
 		provider.logger = config.Logger
 	}
 	provider.logLevel = logLevel
-
 
 	if apiKey == "" {
 		provider.ErrorStatus = awserr.New("IbmApiKeyIdNotFound", "IBM API Key Id not found", nil)
