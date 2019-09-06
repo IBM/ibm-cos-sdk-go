@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "service/s3/s3manager.DeleteListIterator";
   relpath = '../../../';
 </script>
@@ -71,38 +71,25 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
+import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-cos-sdk-go/service/s3/s3manager"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>DeleteListIterator is an alternative iterator for the BatchDelete client. This will
-iterate through a list of objects and delete the objects.</p>
+    
+<p>DeleteListIterator is an alternative iterator for the BatchDelete client.
+This will iterate through a list of objects and delete the objects.</p>
 
-<p>Example:
-    iter := &amp;s3manager.DeleteListIterator{
-        Client: svc,
-        Input: &amp;s3.ListObjectsInput{
-            Bucket:  aws.String("bucket"),
-            MaxKeys: aws.Int64(5),
-        },
-        Paginator: request.Pagination{
-            NewRequest: func() (<em>request.Request, error) {
-                var inCpy </em>ListObjectsInput
-                if input != nil {
-                    tmp := *input
-                    inCpy = &amp;tmp
-                }
-                req, _ := c.ListObjectsRequest(inCpy)
-                return req, nil
-            },
-        },
-    }</p>
+<p>Example:  iter := &amp;s3manager.DeleteListIterator{  Client: svc,  Input:
+&amp;s3.ListObjectsInput{  Bucket: aws.String(“bucket”),  MaxKeys:
+aws.Int64(5),  },  Paginator: request.Pagination{  NewRequest: func()
+(*request.Request, error) {  var inCpy *ListObjectsInput  if input != nil {
+tmp := *input  inCpy = &amp;tmp  }  req, _ := c.ListObjectsRequest(inCpy) 
+return req, nil  },  },  }</p>
 
 <pre class="code go"><code class="go"><div class="hljs">batcher := s3manager.NewBatchDeleteWithClient(svc)
 <span class="hljs-keyword">if</span> err := batcher.Delete(aws.BackgroundContext(), iter); err != <span class="hljs-constant">nil</span> {
-    <span class="hljs-keyword">return</span> err
-}
-</div></code></pre>
+	<span class="hljs-keyword">return</span> err
+}</div></code></pre>
 
 
   </div>
@@ -150,8 +137,7 @@ iterate through a list of objects and delete the objects.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -174,8 +160,7 @@ iterate through a list of objects and delete the objects.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -210,7 +195,8 @@ iterate through a list of objects and delete the objects.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>DeleteObject will return the current object to be deleted.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>DeleteObject will return the current object to be deleted.</p>
 </div></span>
   
 </li>
@@ -234,7 +220,8 @@ iterate through a list of objects and delete the objects.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Err will return the last known error from Next.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Err will return the last known error from Next.</p>
 </div></span>
   
 </li>
@@ -258,7 +245,8 @@ iterate through a list of objects and delete the objects.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Next will use the S3API client to iterate through a list of objects.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Next will use the S3API client to iterate through a list of objects.</p>
 </div></span>
   
 </li>
@@ -309,7 +297,8 @@ iterate through a list of objects and delete the objects.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>DeleteObject will return the current object to be deleted.</p>
+    
+<p>DeleteObject will return the current object to be deleted.</p>
 
 
   </div>
@@ -360,7 +349,8 @@ iterate through a list of objects and delete the objects.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Err will return the last known error from Next.</p>
+    
+<p>Err will return the last known error from Next.</p>
 
 
   </div>
@@ -401,7 +391,8 @@ iterate through a list of objects and delete the objects.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Next will use the S3API client to iterate through a list of objects.</p>
+    
+<p>Next will use the S3API client to iterate through a list of objects.</p>
 
 
   </div>
@@ -453,9 +444,9 @@ iterate through a list of objects and delete the objects.</p>
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:29:02 2019 by
+  Generated on Fri Sep  6 19:53:54 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

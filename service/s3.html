@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "service/s3";
   relpath = '../';
 </script>
@@ -71,117 +71,113 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/s3"
+import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-cos-sdk-go/service/s3"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Upload Managers</p>
+    
+<p>Upload Managers</p>
 
-<p>The s3manager package's Uploader provides concurrent upload of content to S3
-by taking advantage of S3's Multipart APIs. The Uploader also supports both
-io.Reader for streaming uploads, and will also take advantage of io.ReadSeeker
-for optimizations if the Body satisfies that type. Once the Uploader instance
-is created you can call Upload concurrently from multiple goroutines safely.</p>
+<p>The s3manager package&#39;s Uploader provides concurrent upload of content
+to S3 by taking advantage of S3&#39;s Multipart APIs. The Uploader also
+supports both io.Reader for streaming uploads, and will also take advantage
+of io.ReadSeeker for optimizations if the Body satisfies that type. Once
+the Uploader instance is created you can call Upload concurrently from
+multiple goroutines safely.</p>
 
-<p>  // The session the S3 Uploader will use
-  sess := session.Must(session.NewSession())</p>
+<p>// The session the S3 Uploader will use  sess :=
+session.Must(session.NewSession())</p>
 
-<p>  // Create an uploader with the session and default options
-  uploader := s3manager.NewUploader(sess)</p>
+<p>// Create an uploader with the session and default options  uploader :=
+s3manager.NewUploader(sess)</p>
 
-<p>  f, err  := os.Open(filename)
-  if err != nil {
-      return fmt.Errorf("failed to open file %q, %v", filename, err)
-  }</p>
+<p>f, err := os.Open(filename)  if err != nil {  return fmt.Errorf(“failed to
+open file %q, %v”, filename, err)  }</p>
 
-<p>  // Upload the file to S3.
-  result, err := uploader.Upload(&amp;s3manager.UploadInput{
-      Bucket: aws.String(myBucket),
-      Key:    aws.String(myString),
-      Body:   f,
-  })
-  if err != nil {
-      return fmt.Errorf("failed to upload file, %v", err)
-  }
-  fmt.Printf("file uploaded to, %s\n", aws.StringValue(result.Location))</p>
+<p>// Upload the file to S3.  result, err :=
+uploader.Upload(&amp;s3manager.UploadInput{  Bucket: aws.String(myBucket), 
+Key: aws.String(myString),  Body: f,  })  if err != nil {  return
+fmt.Errorf(“failed to upload file, %v”, err)  }  fmt.Printf(“file uploaded
+to, %sn”, aws.StringValue(result.Location))</p>
 
-<p>See the s3manager package's Uploader type documentation for more information.
-<a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader">https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader</a></p>
+<p>See the s3manager package&#39;s Uploader type documentation for more
+information. <a
+href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader</a></p>
 
 <p>Download Manager</p>
 
-<p>The s3manager package's Downloader provides concurrently downloading of Objects
-from S3. The Downloader will write S3 Object content with an io.WriterAt.
-Once the Downloader instance is created you can call Download concurrently from
-multiple goroutines safely.</p>
+<p>The s3manager package&#39;s Downloader provides concurrently downloading of
+Objects from S3. The Downloader will write S3 Object content with an
+io.WriterAt. Once the Downloader instance is created you can call Download
+concurrently from multiple goroutines safely.</p>
 
-<p>  // The session the S3 Downloader will use
-  sess := session.Must(session.NewSession())</p>
+<p>// The session the S3 Downloader will use  sess :=
+session.Must(session.NewSession())</p>
 
-<p>  // Create a downloader with the session and default options
-  downloader := s3manager.NewDownloader(sess)</p>
+<p>// Create a downloader with the session and default options  downloader :=
+s3manager.NewDownloader(sess)</p>
 
-<p>  // Create a file to write the S3 Object contents to.
-  f, err := os.Create(filename)
-  if err != nil {
-      return fmt.Errorf("failed to create file %q, %v", filename, err)
-  }</p>
+<p>// Create a file to write the S3 Object contents to.  f, err :=
+os.Create(filename)  if err != nil {  return fmt.Errorf(“failed to create
+file %q, %v”, filename, err)  }</p>
 
-<p>  // Write the contents of S3 Object to the file
-  n, err := downloader.Download(f, &amp;s3.GetObjectInput{
-      Bucket: aws.String(myBucket),
-      Key:    aws.String(myString),
-  })
-  if err != nil {
-      return fmt.Errorf("failed to download file, %v", err)
-  }
-  fmt.Printf("file downloaded, %d bytes\n", n)</p>
+<p>// Write the contents of S3 Object to the file  n, err :=
+downloader.Download(f, &amp;s3.GetObjectInput{  Bucket:
+aws.String(myBucket),  Key: aws.String(myString),  })  if err != nil { 
+return fmt.Errorf(“failed to download file, %v”, err)  }  fmt.Printf(“file
+downloaded, %d bytesn”, n)</p>
 
-<p>See the s3manager package's Downloader type documentation for more information.
-<a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader">https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader</a></p>
+<p>See the s3manager package&#39;s Downloader type documentation for more
+information. <a
+href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader</a></p>
+
+<p>Automatic URI cleaning</p>
+
+<p>Interacting with objects whose keys contain adjacent slashes (e.g.
+bucketname/foo//bar/objectname) requires setting
+DisableRestProtocolURICleaning to true in the aws.Config struct used by the
+service client.</p>
+
+<p>svc := s3.New(sess, &amp;aws.Config{  DisableRestProtocolURICleaning:
+aws.Bool(true),  })  out, err := svc.GetObject(&amp;s3.GetObjectInput { 
+Bucket: aws.String(“bucketname”),  Key: aws.String(“//foo//bar//moo”),  })</p>
 
 <p>Get Bucket Region</p>
 
 <p>GetBucketRegion will attempt to get the region for a bucket using a region
-hint to determine which AWS partition to perform the query on. Use this utility
-to determine the region a bucket is in.</p>
+hint to determine which AWS partition to perform the query on. Use this
+utility to determine the region a bucket is in.</p>
 
-<p>  sess := session.Must(session.NewSession())</p>
+<p>sess := session.Must(session.NewSession())</p>
 
-<p>  bucket := "my-bucket"
-  region, err := s3manager.GetBucketRegion(ctx, sess, bucket, "us-west-2")
-  if err != nil {
-      if aerr, ok := err.(awserr.Error); ok &amp;&amp; aerr.Code() == "NotFound" {
-           fmt.Fprintf(os.Stderr, "unable to find bucket %s's region not found\n", bucket)
-      }
-      return err
-  }
-  fmt.Printf("Bucket %s is in %s region\n", bucket, region)</p>
+<p>bucket := “my-bucket”  region, err := s3manager.GetBucketRegion(ctx, sess,
+bucket, “us-west-2”)  if err != nil {  if aerr, ok := err.(awserr.Error);
+ok &amp;&amp; aerr.Code() == “NotFound” {  fmt.Fprintf(os.Stderr, “unable
+to find bucket %s&#39;s region not foundn”, bucket)  }  return err  } 
+fmt.Printf(“Bucket %s is in %s regionn”, bucket, region)</p>
 
-<p>See the s3manager package's GetBucketRegion function documentation for more information
-<a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion">https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion</a></p>
+<p>See the s3manager package&#39;s GetBucketRegion function documentation for
+more information <a
+href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion</a></p>
 
 <p>S3 Crypto Client</p>
 
 <p>The s3crypto package provides the tools to upload and download encrypted
-content from S3. The Encryption and Decryption clients can be used concurrently
-once the client is created.</p>
+content from S3. The Encryption and Decryption clients can be used
+concurrently once the client is created.</p>
 
-<p>   sess := session.Must(session.NewSession())</p>
+<p>sess := session.Must(session.NewSession())</p>
 
-<p>   // Create the decryption client.
-   svc := s3crypto.NewDecryptionClient(sess)</p>
+<p>// Create the decryption client.  svc := s3crypto.NewDecryptionClient(sess)</p>
 
-<p>   // The object will be downloaded from S3 and decrypted locally. By metadata
-   // about the object's encryption will instruct the decryption client how
-   // decrypt the content of the object. By default KMS is used for keys.
-   result, err := svc.GetObject(&amp;s3.GetObjectInput {
-       Bucket: aws.String(myBucket),
-       Key: aws.String(myKey),
-   })</p>
+<p>// The object will be downloaded from S3 and decrypted locally. By metadata
+// about the object&#39;s encryption will instruct the decryption client
+how  // decrypt the content of the object. By default KMS is used for keys.
+result, err := svc.GetObject(&amp;s3.GetObjectInput {  Bucket:
+aws.String(myBucket),  Key: aws.String(myKey),  })</p>
 
-<p>See the s3crypto package documentation for more information.
-<a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto/">https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto/</a></p>
+<p>See the s3crypto package documentation for more information. <a
+href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto</a>/</p>
 
 
   </div>
@@ -212,7 +208,9 @@ once the client is created.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>WaitUntilBucketExists uses the Amazon S3 API operation HeadBucket to wait for a condition to be met before returning.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>WaitUntilBucketExists uses the Amazon S3 API operation HeadBucket to wait
+for a condition to be met before returning.</p>
 </div></span>
   
 </li>
@@ -232,7 +230,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketCannedACLPrivate is a BucketCannedACL enum value</p>
+    
+<p>BucketCannedACLPrivate is a BucketCannedACL enum value</p>
 
 
   </div>
@@ -254,7 +253,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketCannedACLPublicRead is a BucketCannedACL enum value</p>
+    
+<p>BucketCannedACLPublicRead is a BucketCannedACL enum value</p>
 
 
   </div>
@@ -276,7 +276,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketCannedACLPublicReadWrite is a BucketCannedACL enum value</p>
+    
+<p>BucketCannedACLPublicReadWrite is a BucketCannedACL enum value</p>
 
 
   </div>
@@ -298,7 +299,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketCannedACLAuthenticatedRead is a BucketCannedACL enum value</p>
+    
+<p>BucketCannedACLAuthenticatedRead is a BucketCannedACL enum value</p>
 
 
   </div>
@@ -320,7 +322,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLocationConstraintEu is a BucketLocationConstraint enum value</p>
+    
+<p>BucketLocationConstraintEu is a BucketLocationConstraint enum value</p>
 
 
   </div>
@@ -342,7 +345,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLocationConstraintEuWest1 is a BucketLocationConstraint enum value</p>
+    
+<p>BucketLocationConstraintEuWest1 is a BucketLocationConstraint enum value</p>
 
 
   </div>
@@ -364,7 +368,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLocationConstraintUsWest1 is a BucketLocationConstraint enum value</p>
+    
+<p>BucketLocationConstraintUsWest1 is a BucketLocationConstraint enum value</p>
 
 
   </div>
@@ -386,7 +391,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLocationConstraintUsWest2 is a BucketLocationConstraint enum value</p>
+    
+<p>BucketLocationConstraintUsWest2 is a BucketLocationConstraint enum value</p>
 
 
   </div>
@@ -408,7 +414,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLocationConstraintApSouth1 is a BucketLocationConstraint enum value</p>
+    
+<p>BucketLocationConstraintApSouth1 is a BucketLocationConstraint enum value</p>
 
 
   </div>
@@ -430,7 +437,9 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLocationConstraintApSoutheast1 is a BucketLocationConstraint enum value</p>
+    
+<p>BucketLocationConstraintApSoutheast1 is a BucketLocationConstraint enum
+value</p>
 
 
   </div>
@@ -452,7 +461,9 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLocationConstraintApSoutheast2 is a BucketLocationConstraint enum value</p>
+    
+<p>BucketLocationConstraintApSoutheast2 is a BucketLocationConstraint enum
+value</p>
 
 
   </div>
@@ -474,7 +485,9 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLocationConstraintApNortheast1 is a BucketLocationConstraint enum value</p>
+    
+<p>BucketLocationConstraintApNortheast1 is a BucketLocationConstraint enum
+value</p>
 
 
   </div>
@@ -496,7 +509,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLocationConstraintSaEast1 is a BucketLocationConstraint enum value</p>
+    
+<p>BucketLocationConstraintSaEast1 is a BucketLocationConstraint enum value</p>
 
 
   </div>
@@ -518,7 +532,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLocationConstraintCnNorth1 is a BucketLocationConstraint enum value</p>
+    
+<p>BucketLocationConstraintCnNorth1 is a BucketLocationConstraint enum value</p>
 
 
   </div>
@@ -540,7 +555,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLocationConstraintEuCentral1 is a BucketLocationConstraint enum value</p>
+    
+<p>BucketLocationConstraintEuCentral1 is a BucketLocationConstraint enum value</p>
 
 
   </div>
@@ -562,7 +578,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLogsPermissionFullControl is a BucketLogsPermission enum value</p>
+    
+<p>BucketLogsPermissionFullControl is a BucketLogsPermission enum value</p>
 
 
   </div>
@@ -584,7 +601,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLogsPermissionRead is a BucketLogsPermission enum value</p>
+    
+<p>BucketLogsPermissionRead is a BucketLogsPermission enum value</p>
 
 
   </div>
@@ -606,7 +624,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>BucketLogsPermissionWrite is a BucketLogsPermission enum value</p>
+    
+<p>BucketLogsPermissionWrite is a BucketLogsPermission enum value</p>
 
 
   </div>
@@ -621,6 +640,29 @@ once the client is created.</p>
             <pre class="code"><div class="hljs"><span class="hljs-string">"WRITE"</span></div></pre>
           </dd>
         
+          <dt id="BucketProtectionStatusRetention-constant" class="">
+          <div class="defn">const <strong>BucketProtectionStatusRetention</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>BucketProtectionStatusRetention is a BucketProtectionStatus enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Retention"</span></div></pre>
+          </dd>
+        
           <dt id="EncodingTypeUrl-constant" class="">
           <div class="defn">const <strong>EncodingTypeUrl</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -628,7 +670,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>EncodingTypeUrl is a EncodingType enum value</p>
+    
+<p>EncodingTypeUrl is a EncodingType enum value</p>
 
 
   </div>
@@ -643,6 +686,52 @@ once the client is created.</p>
             <pre class="code"><div class="hljs"><span class="hljs-string">"url"</span></div></pre>
           </dd>
         
+          <dt id="ExpirationStatusEnabled-constant" class="">
+          <div class="defn">const <strong>ExpirationStatusEnabled</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>ExpirationStatusEnabled is a ExpirationStatus enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Enabled"</span></div></pre>
+          </dd>
+        
+          <dt id="ExpirationStatusDisabled-constant" class="">
+          <div class="defn">const <strong>ExpirationStatusDisabled</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>ExpirationStatusDisabled is a ExpirationStatus enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Disabled"</span></div></pre>
+          </dd>
+        
           <dt id="MetadataDirectiveCopy-constant" class="">
           <div class="defn">const <strong>MetadataDirectiveCopy</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -650,7 +739,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>MetadataDirectiveCopy is a MetadataDirective enum value</p>
+    
+<p>MetadataDirectiveCopy is a MetadataDirective enum value</p>
 
 
   </div>
@@ -672,7 +762,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>MetadataDirectiveReplace is a MetadataDirective enum value</p>
+    
+<p>MetadataDirectiveReplace is a MetadataDirective enum value</p>
 
 
   </div>
@@ -694,7 +785,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectCannedACLPrivate is a ObjectCannedACL enum value</p>
+    
+<p>ObjectCannedACLPrivate is a ObjectCannedACL enum value</p>
 
 
   </div>
@@ -716,7 +808,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectCannedACLPublicRead is a ObjectCannedACL enum value</p>
+    
+<p>ObjectCannedACLPublicRead is a ObjectCannedACL enum value</p>
 
 
   </div>
@@ -738,7 +831,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectCannedACLPublicReadWrite is a ObjectCannedACL enum value</p>
+    
+<p>ObjectCannedACLPublicReadWrite is a ObjectCannedACL enum value</p>
 
 
   </div>
@@ -760,7 +854,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectCannedACLAuthenticatedRead is a ObjectCannedACL enum value</p>
+    
+<p>ObjectCannedACLAuthenticatedRead is a ObjectCannedACL enum value</p>
 
 
   </div>
@@ -782,7 +877,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectCannedACLAwsExecRead is a ObjectCannedACL enum value</p>
+    
+<p>ObjectCannedACLAwsExecRead is a ObjectCannedACL enum value</p>
 
 
   </div>
@@ -804,7 +900,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectCannedACLBucketOwnerRead is a ObjectCannedACL enum value</p>
+    
+<p>ObjectCannedACLBucketOwnerRead is a ObjectCannedACL enum value</p>
 
 
   </div>
@@ -826,7 +923,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectCannedACLBucketOwnerFullControl is a ObjectCannedACL enum value</p>
+    
+<p>ObjectCannedACLBucketOwnerFullControl is a ObjectCannedACL enum value</p>
 
 
   </div>
@@ -848,7 +946,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectStorageClassStandard is a ObjectStorageClass enum value</p>
+    
+<p>ObjectStorageClassStandard is a ObjectStorageClass enum value</p>
 
 
   </div>
@@ -870,7 +969,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectStorageClassReducedRedundancy is a ObjectStorageClass enum value</p>
+    
+<p>ObjectStorageClassReducedRedundancy is a ObjectStorageClass enum value</p>
 
 
   </div>
@@ -892,7 +992,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectStorageClassGlacier is a ObjectStorageClass enum value</p>
+    
+<p>ObjectStorageClassGlacier is a ObjectStorageClass enum value</p>
 
 
   </div>
@@ -914,7 +1015,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectStorageClassStandardIa is a ObjectStorageClass enum value</p>
+    
+<p>ObjectStorageClassStandardIa is a ObjectStorageClass enum value</p>
 
 
   </div>
@@ -936,7 +1038,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectStorageClassOnezoneIa is a ObjectStorageClass enum value</p>
+    
+<p>ObjectStorageClassOnezoneIa is a ObjectStorageClass enum value</p>
 
 
   </div>
@@ -958,7 +1061,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectStorageClassIntelligentTiering is a ObjectStorageClass enum value</p>
+    
+<p>ObjectStorageClassIntelligentTiering is a ObjectStorageClass enum value</p>
 
 
   </div>
@@ -980,7 +1084,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ObjectStorageClassDeepArchive is a ObjectStorageClass enum value</p>
+    
+<p>ObjectStorageClassDeepArchive is a ObjectStorageClass enum value</p>
 
 
   </div>
@@ -1002,7 +1107,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>PermissionFullControl is a Permission enum value</p>
+    
+<p>PermissionFullControl is a Permission enum value</p>
 
 
   </div>
@@ -1024,7 +1130,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>PermissionWrite is a Permission enum value</p>
+    
+<p>PermissionWrite is a Permission enum value</p>
 
 
   </div>
@@ -1046,7 +1153,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>PermissionWriteAcp is a Permission enum value</p>
+    
+<p>PermissionWriteAcp is a Permission enum value</p>
 
 
   </div>
@@ -1068,7 +1176,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>PermissionRead is a Permission enum value</p>
+    
+<p>PermissionRead is a Permission enum value</p>
 
 
   </div>
@@ -1090,7 +1199,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>PermissionReadAcp is a Permission enum value</p>
+    
+<p>PermissionReadAcp is a Permission enum value</p>
 
 
   </div>
@@ -1112,7 +1222,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ReplicationStatusComplete is a ReplicationStatus enum value</p>
+    
+<p>ReplicationStatusComplete is a ReplicationStatus enum value</p>
 
 
   </div>
@@ -1134,7 +1245,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ReplicationStatusPending is a ReplicationStatus enum value</p>
+    
+<p>ReplicationStatusPending is a ReplicationStatus enum value</p>
 
 
   </div>
@@ -1156,7 +1268,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ReplicationStatusFailed is a ReplicationStatus enum value</p>
+    
+<p>ReplicationStatusFailed is a ReplicationStatus enum value</p>
 
 
   </div>
@@ -1178,7 +1291,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ReplicationStatusReplica is a ReplicationStatus enum value</p>
+    
+<p>ReplicationStatusReplica is a ReplicationStatus enum value</p>
 
 
   </div>
@@ -1200,7 +1314,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>RequestChargedRequester is a RequestCharged enum value</p>
+    
+<p>RequestChargedRequester is a RequestCharged enum value</p>
 
 
   </div>
@@ -1222,7 +1337,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>RequestPayerRequester is a RequestPayer enum value</p>
+    
+<p>RequestPayerRequester is a RequestPayer enum value</p>
 
 
   </div>
@@ -1237,6 +1353,52 @@ once the client is created.</p>
             <pre class="code"><div class="hljs"><span class="hljs-string">"requester"</span></div></pre>
           </dd>
         
+          <dt id="RetentionDirectiveCopy-constant" class="">
+          <div class="defn">const <strong>RetentionDirectiveCopy</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>RetentionDirectiveCopy is a RetentionDirective enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"COPY"</span></div></pre>
+          </dd>
+        
+          <dt id="RetentionDirectiveReplace-constant" class="">
+          <div class="defn">const <strong>RetentionDirectiveReplace</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>RetentionDirectiveReplace is a RetentionDirective enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"REPLACE"</span></div></pre>
+          </dd>
+        
           <dt id="ServerSideEncryptionAes256-constant" class="">
           <div class="defn">const <strong>ServerSideEncryptionAes256</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -1244,7 +1406,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ServerSideEncryptionAes256 is a ServerSideEncryption enum value</p>
+    
+<p>ServerSideEncryptionAes256 is a ServerSideEncryption enum value</p>
 
 
   </div>
@@ -1266,7 +1429,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ServerSideEncryptionAwsKms is a ServerSideEncryption enum value</p>
+    
+<p>ServerSideEncryptionAwsKms is a ServerSideEncryption enum value</p>
 
 
   </div>
@@ -1288,7 +1452,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>StorageClassStandard is a StorageClass enum value</p>
+    
+<p>StorageClassStandard is a StorageClass enum value</p>
 
 
   </div>
@@ -1310,7 +1475,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>StorageClassReducedRedundancy is a StorageClass enum value</p>
+    
+<p>StorageClassReducedRedundancy is a StorageClass enum value</p>
 
 
   </div>
@@ -1332,7 +1498,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>StorageClassStandardIa is a StorageClass enum value</p>
+    
+<p>StorageClassStandardIa is a StorageClass enum value</p>
 
 
   </div>
@@ -1354,7 +1521,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>StorageClassOnezoneIa is a StorageClass enum value</p>
+    
+<p>StorageClassOnezoneIa is a StorageClass enum value</p>
 
 
   </div>
@@ -1376,7 +1544,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>StorageClassIntelligentTiering is a StorageClass enum value</p>
+    
+<p>StorageClassIntelligentTiering is a StorageClass enum value</p>
 
 
   </div>
@@ -1398,7 +1567,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>StorageClassGlacier is a StorageClass enum value</p>
+    
+<p>StorageClassGlacier is a StorageClass enum value</p>
 
 
   </div>
@@ -1420,7 +1590,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>StorageClassDeepArchive is a StorageClass enum value</p>
+    
+<p>StorageClassDeepArchive is a StorageClass enum value</p>
 
 
   </div>
@@ -1442,7 +1613,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>TaggingDirectiveCopy is a TaggingDirective enum value</p>
+    
+<p>TaggingDirectiveCopy is a TaggingDirective enum value</p>
 
 
   </div>
@@ -1464,7 +1636,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>TaggingDirectiveReplace is a TaggingDirective enum value</p>
+    
+<p>TaggingDirectiveReplace is a TaggingDirective enum value</p>
 
 
   </div>
@@ -1479,6 +1652,52 @@ once the client is created.</p>
             <pre class="code"><div class="hljs"><span class="hljs-string">"REPLACE"</span></div></pre>
           </dd>
         
+          <dt id="TierBulk-constant" class="">
+          <div class="defn">const <strong>TierBulk</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>TierBulk is a Tier enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Bulk"</span></div></pre>
+          </dd>
+        
+          <dt id="TransitionStorageClassGlacier-constant" class="">
+          <div class="defn">const <strong>TransitionStorageClassGlacier</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>TransitionStorageClassGlacier is a TransitionStorageClass enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"GLACIER"</span></div></pre>
+          </dd>
+        
           <dt id="TypeCanonicalUser-constant" class="">
           <div class="defn">const <strong>TypeCanonicalUser</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -1486,7 +1705,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>TypeCanonicalUser is a Type enum value</p>
+    
+<p>TypeCanonicalUser is a Type enum value</p>
 
 
   </div>
@@ -1508,7 +1728,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>TypeAmazonCustomerByEmail is a Type enum value</p>
+    
+<p>TypeAmazonCustomerByEmail is a Type enum value</p>
 
 
   </div>
@@ -1530,7 +1751,8 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>TypeGroup is a Type enum value</p>
+    
+<p>TypeGroup is a Type enum value</p>
 
 
   </div>
@@ -1552,8 +1774,9 @@ once the client is created.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ErrCodeBucketAlreadyExists for service response error code
-"BucketAlreadyExists".</p>
+    
+<p>ErrCodeBucketAlreadyExists for service response error code
+“BucketAlreadyExists”.</p>
 
 <p>The requested bucket name is not available. The bucket namespace is shared
 by all users of the system. Please select a different name and try again.</p>
@@ -1578,8 +1801,9 @@ by all users of the system. Please select a different name and try again.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ErrCodeBucketAlreadyOwnedByYou for service response error code
-"BucketAlreadyOwnedByYou".</p>
+    
+<p>ErrCodeBucketAlreadyOwnedByYou for service response error code
+“BucketAlreadyOwnedByYou”.</p>
 
 
   </div>
@@ -1601,8 +1825,8 @@ by all users of the system. Please select a different name and try again.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ErrCodeNoSuchBucket for service response error code
-"NoSuchBucket".</p>
+    
+<p>ErrCodeNoSuchBucket for service response error code “NoSuchBucket”.</p>
 
 <p>The specified bucket does not exist.</p>
 
@@ -1626,8 +1850,8 @@ by all users of the system. Please select a different name and try again.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ErrCodeNoSuchKey for service response error code
-"NoSuchKey".</p>
+    
+<p>ErrCodeNoSuchKey for service response error code “NoSuchKey”.</p>
 
 <p>The specified key does not exist.</p>
 
@@ -1651,8 +1875,8 @@ by all users of the system. Please select a different name and try again.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ErrCodeNoSuchUpload for service response error code
-"NoSuchUpload".</p>
+    
+<p>ErrCodeNoSuchUpload for service response error code “NoSuchUpload”.</p>
 
 <p>The specified multipart upload does not exist.</p>
 
@@ -1669,6 +1893,32 @@ by all users of the system. Please select a different name and try again.</p>
             <pre class="code"><div class="hljs"><span class="hljs-string">"NoSuchUpload"</span></div></pre>
           </dd>
         
+          <dt id="ErrCodeObjectAlreadyInActiveTierError-constant" class="">
+          <div class="defn">const <strong>ErrCodeObjectAlreadyInActiveTierError</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>ErrCodeObjectAlreadyInActiveTierError for service response error code
+“ObjectAlreadyInActiveTierError”.</p>
+
+<p>This operation is not allowed against this storage tier</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"ObjectAlreadyInActiveTierError"</span></div></pre>
+          </dd>
+        
           <dt id="ErrCodeObjectNotInActiveTierError-constant" class="">
           <div class="defn">const <strong>ErrCodeObjectNotInActiveTierError</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -1676,8 +1926,9 @@ by all users of the system. Please select a different name and try again.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>ErrCodeObjectNotInActiveTierError for service response error code
-"ObjectNotInActiveTierError".</p>
+    
+<p>ErrCodeObjectNotInActiveTierError for service response error code
+“ObjectNotInActiveTierError”.</p>
 
 <p>The source object of the COPY operation is not in the active tier and is
 only stored in Amazon Glacier.</p>
@@ -1746,20 +1997,22 @@ only stored in Amazon Glacier.</p>
           </div>
             <div class="docstring">
   <div class="discussion">
-    <p>NormalizeBucketLocationHandler is a request handler which will update the
-GetBucketLocation's result LocationConstraint value to always be a region ID.</p>
+    
+<p>NormalizeBucketLocationHandler is a request handler which will update the
+GetBucketLocation&#39;s result LocationConstraint value to always be a
+region ID.</p>
 
-<p>Replaces empty string with "us-east-1", and "EU" with "eu-west-1".</p>
+<p>Replaces empty string with “us-east-1”, and “EU” with “eu-west-1”.</p>
 
-<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a>
+<p>See <a
+href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a>
 for more information on the values that can be returned.</p>
 
 <pre class="code go"><code class="go"><div class="hljs">req, result := svc.GetBucketLocationRequest(&s3.GetBucketLocationInput{
     Bucket: aws.String(bucket),
 })
 req.Handlers.Unmarshal.PushBackNamed(NormalizeBucketLocationHandler)
-err := req.Send()
-</div></code></pre>
+err := req.Send()</div></code></pre>
 
 
   </div>
@@ -1804,6 +2057,29 @@ err := req.Send()
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-AddLegalHoldOutput" title="s3 (package)"><strong>AddLegalHoldOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#type-DeleteBucketCorsOutput" title="s3 (package)"><strong>DeleteBucketCorsOutput</strong></a></span></span>
   
   
@@ -1819,8 +2095,30 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-DeleteBucketLifecycleOutput" title="s3 (package)"><strong>DeleteBucketLifecycleOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1843,8 +2141,53 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-DeleteLegalHoldOutput" title="s3 (package)"><strong>DeleteLegalHoldOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-ExtendObjectRetentionOutput" title="s3 (package)"><strong>ExtendObjectRetentionOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1867,8 +2210,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1891,8 +2233,30 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-PutBucketLifecycleConfigurationOutput" title="s3 (package)"><strong>PutBucketLifecycleConfigurationOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1915,8 +2279,53 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-PutBucketProtectionConfigurationOutput" title="s3 (package)"><strong>PutBucketProtectionConfigurationOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-RestoreObjectOutput" title="s3 (package)"><strong>RestoreObjectOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1949,7 +2358,9 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A RequestFailure provides access to the S3 Request ID and Host ID values returned from API operation errors.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A RequestFailure provides access to the S3 Request ID and Host ID values
+returned from API operation errors.</p>
 </div></span>
   
 </li>
@@ -1984,7 +2395,9 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'><p>NormalizeBucketLocation is a utility function which will update the passed in value to always be a region ID.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>NormalizeBucketLocation is a utility function which will update the passed
+in value to always be a region ID.</p>
 </div></span>
   
 </li>
@@ -2008,7 +2421,10 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'><p>WithNormalizeBucketLocation is a request option which will update the GetBucketLocation's result LocationConstraint value to always be a region ID.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>WithNormalizeBucketLocation is a request option which will update the
+GetBucketLocation&#39;s result LocationConstraint value to always be a
+region ID.</p>
 </div></span>
   
 </li>
@@ -2026,7 +2442,36 @@ err := req.Send()
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="type-DeleteBucketCorsOutput">
+  <h3 class="signature first" id="type-AddLegalHoldOutput">
+  
+    <strong>AddLegalHoldOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-DeleteBucketCorsOutput">
   
     <strong>DeleteBucketCorsOutput</strong> struct
   
@@ -2044,7 +2489,35 @@ err := req.Send()
   </code></dt>
   <dd>
     
+    
+  </dd>
 
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-DeleteBucketLifecycleOutput">
+  
+    <strong>DeleteBucketLifecycleOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
     
   </dd>
 
@@ -2074,7 +2547,64 @@ err := req.Send()
   </code></dt>
   <dd>
     
+    
+  </dd>
 
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-DeleteLegalHoldOutput">
+  
+    <strong>DeleteLegalHoldOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-ExtendObjectRetentionOutput">
+  
+    <strong>ExtendObjectRetentionOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
     
   </dd>
 
@@ -2104,7 +2634,6 @@ err := req.Send()
   </code></dt>
   <dd>
     
-
     
   </dd>
 
@@ -2134,7 +2663,35 @@ err := req.Send()
   </code></dt>
   <dd>
     
+    
+  </dd>
 
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-PutBucketLifecycleConfigurationOutput">
+  
+    <strong>PutBucketLifecycleConfigurationOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
     
   </dd>
 
@@ -2164,7 +2721,64 @@ err := req.Send()
   </code></dt>
   <dd>
     
+    
+  </dd>
 
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-PutBucketProtectionConfigurationOutput">
+  
+    <strong>PutBucketProtectionConfigurationOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-RestoreObjectOutput">
+  
+    <strong>RestoreObjectOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
     
   </dd>
 
@@ -2193,13 +2807,15 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>NormalizeBucketLocation is a utility function which will update the
-passed in value to always be a region ID. Generally this would be used
-with GetBucketLocation API operation.</p>
+    
+<p>NormalizeBucketLocation is a utility function which will update the passed
+in value to always be a region ID. Generally this would be used with
+GetBucketLocation API operation.</p>
 
-<p>Replaces empty string with "us-east-1", and "EU" with "eu-west-1".</p>
+<p>Replaces empty string with “us-east-1”, and “EU” with “eu-west-1”.</p>
 
-<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a>
+<p>See <a
+href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a>
 for more information on the values that can be returned.</p>
 
 
@@ -2255,12 +2871,15 @@ for more information on the values that can be returned.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>WithNormalizeBucketLocation is a request option which will update the
-GetBucketLocation's result LocationConstraint value to always be a region ID.</p>
+    
+<p>WithNormalizeBucketLocation is a request option which will update the
+GetBucketLocation&#39;s result LocationConstraint value to always be a
+region ID.</p>
 
-<p>Replaces empty string with "us-east-1", and "EU" with "eu-west-1".</p>
+<p>Replaces empty string with “us-east-1”, and “EU” with “eu-west-1”.</p>
 
-<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a>
+<p>See <a
+href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a>
 for more information on the values that can be returned.</p>
 
 <pre class="code go"><code class="go"><div class="hljs">result, err := svc.GetBucketLocationWithContext(ctx,
@@ -2268,8 +2887,7 @@ for more information on the values that can be returned.</p>
         Bucket: aws.String(bucket),
     },
     s3.WithNormalizeBucketLocation,
-)
-</div></code></pre>
+)</div></code></pre>
 
 
   </div>
@@ -2305,9 +2923,9 @@ for more information on the values that can be returned.</p>
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:28:53 2019 by
+  Generated on Fri Sep  6 19:52:50 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

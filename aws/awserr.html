@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "aws/awserr";
   relpath = '../';
 </script>
@@ -71,11 +71,12 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/awserr"
+import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-cos-sdk-go/aws/awserr"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Package awserr represents API error interface accessors for the SDK.</p>
+    
+<p>Package awserr represents API error interface accessors for the SDK.</p>
 
 
   </div>
@@ -104,6 +105,32 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/awserr"
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="awserr/BatchError.html" title="awserr.BatchError (interface)"><strong>BatchError</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>BatchError is a batch of errors which also wraps lower level errors with
+code, message, and original errors.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="awserr/BatchedErrors.html" title="awserr.BatchedErrors (interface)"><strong>BatchedErrors</strong></a></span></span>
   
   
@@ -119,7 +146,9 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/awserr"
   
 
   
-    <span class="summary_desc"><div class='inline'><p>BatchedErrors is a batch of errors which also wraps lower level errors with code, message, and original errors.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>BatchedErrors is a batch of errors which also wraps lower level errors with
+code, message, and original errors.</p>
 </div></span>
   
 </li>
@@ -143,7 +172,8 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/awserr"
   
 
   
-    <span class="summary_desc"><div class='inline'><p>An Error wraps lower level errors with code, message and an original error.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>An Error wraps lower level errors with code, message and an original error.</p>
 </div></span>
   
 </li>
@@ -167,7 +197,36 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/awserr"
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A RequestFailure is an interface to extract request failure information from an Error such as the request ID of the failed request returned by a service.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A RequestFailure is an interface to extract request failure information
+from an Error such as the request ID of the failed request returned by a
+service.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="awserr/UnmarshalError.html" title="awserr.UnmarshalError (interface)"><strong>UnmarshalError</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>UnmarshalError provides the interface for the SDK failing to unmarshal
+data.</p>
 </div></span>
   
 </li>
@@ -202,7 +261,8 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/awserr"
   
 
   
-    <span class="summary_desc"><div class='inline'><p>New returns an Error object described by the code, message, and origErr.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>New returns an Error object described by the code, message, and origErr.</p>
 </div></span>
   
 </li>
@@ -226,7 +286,9 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/awserr"
   
 
   
-    <span class="summary_desc"><div class='inline'><p>NewBatchError returns an BatchedErrors with a collection of errors as an array of errors.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>NewBatchError returns an BatchedErrors with a collection of errors as an
+array of errors.</p>
 </div></span>
   
 </li>
@@ -250,7 +312,35 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/awserr"
   
 
   
-    <span class="summary_desc"><div class='inline'><p>NewRequestFailure returns a new request error wrapper for the given Error provided.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>NewRequestFailure returns a wrapped error with additional information for
+request status code, and service requestID.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#NewUnmarshalError-class_method" title="awserr.NewUnmarshalError() (method)">func <strong>NewUnmarshalError</strong>(err error, msg string, bytes []byte) UnmarshalError </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>NewUnmarshalError returns an initialized UnmarshalError error wrapper
+adding the bytes that fail to unmarshal to the error.</p>
 </div></span>
   
 </li>
@@ -274,7 +364,8 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/awserr"
   
 
   
-    <span class="summary_desc"><div class='inline'><p>SprintError returns a string of the formatted error code.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>SprintError returns a string of the formatted error code.</p>
 </div></span>
   
 </li>
@@ -303,10 +394,11 @@ import "github.com/IBM/ibm-cos-sdk-go/aws/awserr"
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>New returns an Error object described by the code, message, and origErr.</p>
+    
+<p>New returns an Error object described by the code, message, and origErr.</p>
 
-<p>If origErr satisfies the Error interface it will not be wrapped within a new
-Error object and will instead be returned.</p>
+<p>If origErr satisfies the Error interface it will not be wrapped within a
+new Error object and will instead be returned.</p>
 
 
   </div>
@@ -320,16 +412,16 @@ Error object and will instead be returned.</p>
       <pre class="lines">
 
 
-61
-62
-63
-64
-65
-66
-67</pre>
+81
+82
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 61</span>
+      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 81</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> New(code, message <span class="hljs-constant">string</span>, origErr <span class="hljs-constant">error</span>) Error {
 	<span class="hljs-keyword">var</span> errs []<span class="hljs-constant">error</span>
@@ -355,7 +447,8 @@ Error object and will instead be returned.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>NewBatchError returns an BatchedErrors with a collection of errors as an
+    
+<p>NewBatchError returns an BatchedErrors with a collection of errors as an
 array of errors.</p>
 
 
@@ -370,12 +463,12 @@ array of errors.</p>
       <pre class="lines">
 
 
-71
-72
-73</pre>
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 71</span>
+      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 91</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewBatchError(code, message <span class="hljs-constant">string</span>, errs []<span class="hljs-constant">error</span>) BatchedErrors {
 	<span class="hljs-keyword">return</span> newBaseError(code, message, errs)
@@ -397,8 +490,13 @@ array of errors.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>NewRequestFailure returns a new request error wrapper for the given Error
-provided.</p>
+    
+<p>NewRequestFailure returns a wrapped error with additional information for
+request status code, and service requestID.</p>
+
+<p>Should be used to wrap all request which involve service requests. Even if
+the request failed without a service response, but had an HTTP status code
+that may be meaningful.</p>
 
 
   </div>
@@ -412,15 +510,64 @@ provided.</p>
       <pre class="lines">
 
 
-122
-123
-124</pre>
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 122</span>
+      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 146</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewRequestFailure(err Error, statusCode <span class="hljs-constant">int</span>, reqID <span class="hljs-constant">string</span>) RequestFailure {
 	<span class="hljs-keyword">return</span> newRequestError(err, statusCode, reqID)
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NewUnmarshalError-class_method">
+  
+    func <strong><span class='object_link'><a href="#NewUnmarshalError-class_method" title="awserr.NewUnmarshalError() (method)">NewUnmarshalError</a></span></strong>(err error, msg string, bytes []byte) <span class='object_link'><a href="awserr/UnmarshalError.html" title="awserr.UnmarshalError (interface)">UnmarshalError</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>NewUnmarshalError returns an initialized UnmarshalError error wrapper
+adding the bytes that fail to unmarshal to the error.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+158
+159
+160
+161
+162
+163</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 158</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> NewUnmarshalError(err <span class="hljs-constant">error</span>, msg <span class="hljs-constant">string</span>, bytes []byte) UnmarshalError {
+	<span class="hljs-keyword">return</span> &unmarshalError{
+		awsError: New(<span class="hljs-string">"UnmarshalError"</span>, msg, err),
+		bytes:    bytes,
+	}
 }</div></pre>
     </td>
   </tr>
@@ -439,10 +586,11 @@ provided.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>SprintError returns a string of the formatted error code.</p>
+    
+<p>SprintError returns a string of the formatted error code.</p>
 
-<p>Both extra and origErr are optional.  If they are included their lines
-will be added, but if they are not included their lines will be ignored.</p>
+<p>Both extra and origErr are optional. If they are included their lines will
+be added, but if they are not included their lines will be ignored.</p>
 
 
   </div>
@@ -456,19 +604,19 @@ will be added, but if they are not included their lines will be ignored.</p>
       <pre class="lines">
 
 
-8
-9
-10
 11
 12
 13
 14
 15
 16
-17</pre>
+17
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/awserr/types.go', line 8</span>
+      <pre class="code"><span class="info file">// File 'aws/awserr/types.go', line 11</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> SprintError(code, message, extra <span class="hljs-constant">string</span>, origErr <span class="hljs-constant">error</span>) <span class="hljs-constant">string</span> {
 	msg := fmt.Sprintf(<span class="hljs-string">"%s: %s"</span>, code, message)
@@ -492,9 +640,9 @@ will be added, but if they are not included their lines will be ignored.</p>
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:28:53 2019 by
+  Generated on Fri Sep  6 19:52:45 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

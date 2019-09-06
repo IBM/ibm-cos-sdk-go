@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "aws/endpoints.Partition";
   relpath = '../../';
 </script>
@@ -71,11 +71,12 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/endpoints"
+import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-cos-sdk-go/aws/endpoints"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>A Partition provides the ability to enumerate the partition's regions
+    
+<p>A Partition provides the ability to enumerate the partition&#39;s regions
 and services.</p>
 
 
@@ -112,7 +113,7 @@ and services.</p>
       
         
 <li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#ID-instance_method" title="endpoints.Partition.ID() (method)">func (p Partition) <strong>ID</strong>() string { return p.id }</a></span></span>
+  <span class="summary_signature"><span class='object_link'><a href="#DNSSuffix-instance_method" title="endpoints.Partition.DNSSuffix() (method)">func (p Partition) <strong>DNSSuffix</strong>() string { return p.dnsSuffix }</a></span></span>
   
   
   
@@ -127,7 +128,8 @@ and services.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>ID returns the identifier of the partition.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>DNSSuffix returns the base domain name of the partition.</p>
 </div></span>
   
 </li>
@@ -151,7 +153,8 @@ and services.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Regions returns a map of Regions indexed by their ID.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Regions returns a map of Regions indexed by their ID.</p>
 </div></span>
   
 </li>
@@ -175,7 +178,8 @@ and services.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Services returns a map of Service indexed by their ID.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Services returns a map of Service indexed by their ID.</p>
 </div></span>
   
 </li>
@@ -194,9 +198,9 @@ and services.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="ID-instance_method">
+  <h3 class="signature first" id="DNSSuffix-instance_method">
   
-    func (p <span class='object_link'><a href="" title="endpoints.Partition (struct)">Partition</a></span>) <strong><span class='object_link'><a href="#ID-instance_method" title="endpoints.Partition.ID() (method)">ID</a></span></strong>() string { return p.id }
+    func (p <span class='object_link'><a href="" title="endpoints.Partition (struct)">Partition</a></span>) <strong><span class='object_link'><a href="#DNSSuffix-instance_method" title="endpoints.Partition.DNSSuffix() (method)">DNSSuffix</a></span></strong>() string { return p.dnsSuffix }
   
 
   
@@ -204,7 +208,8 @@ and services.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>ID returns the identifier of the partition.</p>
+    
+<p>DNSSuffix returns the base domain name of the partition.</p>
 
 
   </div>
@@ -243,12 +248,18 @@ and services.</p>
 199
 200
 201
-202</pre>
+202
+203
+204
+205</pre>
     </td>
     <td>
       <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 177</span>
 
-<div class="hljs"><span class="hljs-keyword">func</span> (p Partition) ID() <span class="hljs-constant">string</span> { <span class="hljs-keyword">return</span> p.id }
+<div class="hljs"><span class="hljs-keyword">func</span> (p Partition) DNSSuffix() <span class="hljs-constant">string</span> { <span class="hljs-keyword">return</span> p.dnsSuffix }
+
+<span class="hljs-comment">// ID returns the identifier of the partition.</span>
+<span class="hljs-keyword">func</span> (p Partition) ID() <span class="hljs-constant">string</span> { <span class="hljs-keyword">return</span> p.id }
 
 <span class="hljs-comment">// EndpointFor attempts to resolve the endpoint based on service and region.</span>
 <span class="hljs-comment">// See Options for information on configuring how the endpoint is resolved.</span>
@@ -291,7 +302,8 @@ and services.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Regions returns a map of Regions indexed by their ID. This is useful for
+    
+<p>Regions returns a map of Regions indexed by their ID. This is useful for
 enumerating over the regions in a partition.</p>
 
 
@@ -306,9 +318,6 @@ enumerating over the regions in a partition.</p>
       <pre class="lines">
 
 
-206
-207
-208
 209
 210
 211
@@ -317,10 +326,13 @@ enumerating over the regions in a partition.</p>
 214
 215
 216
-217</pre>
+217
+218
+219
+220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 206</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 209</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (p Partition) Regions() <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Region {
 	rs := <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Region{}
@@ -351,7 +363,8 @@ enumerating over the regions in a partition.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Services returns a map of Service indexed by their ID. This is useful for
+    
+<p>Services returns a map of Service indexed by their ID. This is useful for
 enumerating over the services in a partition.</p>
 
 
@@ -366,9 +379,6 @@ enumerating over the services in a partition.</p>
       <pre class="lines">
 
 
-221
-222
-223
 224
 225
 226
@@ -376,10 +386,13 @@ enumerating over the services in a partition.</p>
 228
 229
 230
-231</pre>
+231
+232
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 221</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 224</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (p Partition) Services() <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Service {
 	ss := <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Service{}
@@ -404,9 +417,9 @@ enumerating over the services in a partition.</p>
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:28:54 2019 by
+  Generated on Fri Sep  6 19:52:57 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

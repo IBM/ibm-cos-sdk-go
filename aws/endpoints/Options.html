@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "aws/endpoints.Options";
   relpath = '../../';
 </script>
@@ -71,12 +71,13 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/endpoints"
+import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-cos-sdk-go/aws/endpoints"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Options provide the configuration needed to direct how the
-endpoints will be resolved.</p>
+    
+<p>Options provide the configuration needed to direct how the endpoints will
+be resolved.</p>
 
 
   </div>
@@ -124,7 +125,8 @@ endpoints will be resolved.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>DisableSSL forces the endpoint to be resolved as HTTP.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>DisableSSL forces the endpoint to be resolved as HTTP.</p>
 </div></span>
   
 </li>
@@ -148,7 +150,9 @@ endpoints will be resolved.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Enables resolving a service endpoint based on the region provided if the service does not exist.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Enables resolving a service endpoint based on the region provided if the
+service does not exist.</p>
 </div></span>
   
 </li>
@@ -172,7 +176,8 @@ endpoints will be resolved.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Enables strict matching of services and regions resolved endpoints.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Enables strict matching of services and regions resolved endpoints.</p>
 </div></span>
   
 </li>
@@ -196,7 +201,9 @@ endpoints will be resolved.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Sets the resolver to resolve the endpoint as a dualstack endpoint for the service.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Sets the resolver to resolve the endpoint as a dualstack endpoint for the
+service.</p>
 </div></span>
   
 </li>
@@ -232,7 +239,8 @@ endpoints will be resolved.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Set combines all of the option functions together.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Set combines all of the option functions together.</p>
 </div></span>
   
 </li>
@@ -256,8 +264,9 @@ endpoints will be resolved.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>DisableSSL forces the endpoint to be resolved as HTTP.
-instead of HTTPS if the service supports it.</p>
+    
+<p>DisableSSL forces the endpoint to be resolved as HTTP. instead of HTTPS if
+the service supports it.</p>
 
 
   </div>
@@ -275,21 +284,23 @@ instead of HTTPS if the service supports it.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>Enables resolving a service endpoint based on the region provided if the
+    
+<p>Enables resolving a service endpoint based on the region provided if the
 service does not exist. The service endpoint ID will be used as the service
 domain name prefix. By default the endpoint resolver requires the service
 to be known when resolving endpoints.</p>
 
-<p>If resolving an endpoint on the partition list the provided region will
-be used to determine which partition's domain name pattern to the service
+<p>If resolving an endpoint on the partition list the provided region will be
+used to determine which partition&#39;s domain name pattern to the service
 endpoint ID with. If both the service and region are unknown and resolving
-the endpoint on partition list an UnknownEndpointError error will be returned.</p>
+the endpoint on partition list an UnknownEndpointError error will be
+returned.</p>
 
-<p>If resolving and endpoint on a partition specific resolver that partition's
-domain name pattern will be used with the service endpoint ID. If both
-region and service do not exist when resolving an endpoint on a specific
-partition the partition's domain pattern will be used to combine the
-endpoint and region together.</p>
+<p>If resolving and endpoint on a partition specific resolver that
+partition&#39;s domain name pattern will be used with the service endpoint
+ID. If both region and service do not exist when resolving an endpoint on a
+specific partition the partition&#39;s domain pattern will be used to
+combine the endpoint and region together.</p>
 
 <p>This option is ignored if StrictMatching is enabled.</p>
 
@@ -309,10 +320,11 @@ endpoint and region together.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>Enables strict matching of services and regions resolved endpoints.
-If the partition doesn't enumerate the exact service and region an
-error will be returned. This option will prevent returning endpoints
-that look valid, but may not resolve to any real endpoint.</p>
+    
+<p>Enables strict matching of services and regions resolved endpoints. If the
+partition doesn&#39;t enumerate the exact service and region an error will
+be returned. This option will prevent returning endpoints that look valid,
+but may not resolve to any real endpoint.</p>
 
 
   </div>
@@ -330,12 +342,12 @@ that look valid, but may not resolve to any real endpoint.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>Sets the resolver to resolve the endpoint as a dualstack endpoint
-for the service. If dualstack support for a service is not known and
-StrictMatching is not enabled a dualstack endpoint for the service will
-be returned. This endpoint may not be valid. If StrictMatching is
-enabled only services that are known to support dualstack will return
-dualstack endpoints.</p>
+    
+<p>Sets the resolver to resolve the endpoint as a dualstack endpoint for the
+service. If dualstack support for a service is not known and StrictMatching
+is not enabled a dualstack endpoint for the service will be returned. This
+endpoint may not be valid. If StrictMatching is enabled only services that
+are known to support dualstack will return dualstack endpoints.</p>
 
 
   </div>
@@ -364,7 +376,8 @@ dualstack endpoints.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Set combines all of the option functions together.</p>
+    
+<p>Set combines all of the option functions together.</p>
 
 
   </div>
@@ -404,9 +417,9 @@ dualstack endpoints.</p>
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:28:54 2019 by
+  Generated on Fri Sep  6 19:52:57 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

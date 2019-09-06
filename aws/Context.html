@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "aws.Context";
   relpath = '../';
 </script>
@@ -71,15 +71,18 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws"
+import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-cos-sdk-go/aws"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Context is an copy of the Go v1.7 stdlib's context.Context interface.
-It is represented as a SDK interface to enable you to use the "WithContext"
-API methods with Go v1.6 and a Context type such as golang.org/x/net/context.</p>
+    
+<p>Context is an copy of the Go v1.7 stdlib&#39;s context.Context interface.
+It is represented as a SDK interface to enable you to use the “WithContext”
+API methods with Go v1.6 and a Context type such as
+golang.org/x/net/context.</p>
 
-<p>See <a href="https://golang.org/pkg/context">https://golang.org/pkg/context</a> on how to use contexts.</p>
+<p>See <a href="https://golang.org/pkg/context">golang.org/pkg/context</a> on
+how to use contexts.</p>
 
 
   </div>
@@ -125,7 +128,9 @@ API methods with Go v1.6 and a Context type such as golang.org/x/net/context.</p
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Deadline returns the time when work done on behalf of this context should be canceled.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Deadline returns the time when work done on behalf of this context should
+be canceled.</p>
 </div></span>
   
 </li>
@@ -149,7 +154,9 @@ API methods with Go v1.6 and a Context type such as golang.org/x/net/context.</p
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Done returns a channel that's closed when work done on behalf of this context should be canceled.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Done returns a channel that&#39;s closed when work done on behalf of this
+context should be canceled.</p>
 </div></span>
   
 </li>
@@ -173,7 +180,8 @@ API methods with Go v1.6 and a Context type such as golang.org/x/net/context.</p
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Err returns a non-nil error value after Done is closed.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Err returns a non-nil error value after Done is closed.</p>
 </div></span>
   
 </li>
@@ -197,7 +205,9 @@ API methods with Go v1.6 and a Context type such as golang.org/x/net/context.</p
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Value returns the value associated with this context for key, or nil if no value is associated with key.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Value returns the value associated with this context for key, or nil if no
+value is associated with key.</p>
 </div></span>
   
 </li>
@@ -227,12 +237,12 @@ API methods with Go v1.6 and a Context type such as golang.org/x/net/context.</p
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-<p>Deadline returns the time when work done on behalf of this context
-should be canceled. Deadline returns ok==false when no deadline is
-set. Successive calls to Deadline return the same results.</p>
+
+<p>Deadline returns the time when work done on behalf of this context should
+be canceled. Deadline returns ok==false when no deadline is set. Successive
+calls to Deadline return the same results.</p>
 
 
   </div>
@@ -271,12 +281,12 @@ set. Successive calls to Deadline return the same results.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-<p>Done returns a channel that's closed when work done on behalf of this
-context should be canceled. Done may return nil if this context can
-never be canceled. Successive calls to Done return the same value.</p>
+
+<p>Done returns a channel that&#39;s closed when work done on behalf of this
+context should be canceled. Done may return nil if this context can never
+be canceled. Successive calls to Done return the same value.</p>
 
 
   </div>
@@ -315,13 +325,13 @@ never be canceled. Successive calls to Done return the same value.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
+
 <p>Err returns a non-nil error value after Done is closed. Err returns
 Canceled if the context was canceled or DeadlineExceeded if the
-context's deadline passed. No other values for Err are defined.
-After Done is closed, successive calls to Err return the same value.</p>
+context&#39;s deadline passed. No other values for Err are defined. After
+Done is closed, successive calls to Err return the same value.</p>
 
 
   </div>
@@ -360,16 +370,15 @@ After Done is closed, successive calls to Err return the same value.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-<p>Value returns the value associated with this context for key, or nil
-if no value is associated with key. Successive calls to Value with
-the same key returns the same result.</p>
 
-<p>Use context values only for request-scoped data that transits
-processes and API boundaries, not for passing optional parameters to
-functions.</p>
+<p>Value returns the value associated with this context for key, or nil if no
+value is associated with key. Successive calls to Value with the same key
+returns the same result.</p>
+
+<p>Use context values only for request-scoped data that transits processes and
+API boundaries, not for passing optional parameters to functions.</p>
 
 
   </div>
@@ -401,9 +410,9 @@ functions.</p>
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:29:02 2019 by
+  Generated on Fri Sep  6 19:53:56 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

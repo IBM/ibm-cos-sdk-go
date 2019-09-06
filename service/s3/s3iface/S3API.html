@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "service/s3/s3iface.S3API";
   relpath = '../../../';
 </script>
@@ -71,58 +71,53 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
+import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-cos-sdk-go/service/s3/s3iface"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>S3API provides an interface to enable mocking the
-s3.S3 service client's API operation,
-paginators, and waiters. This make unit testing your code that calls out
-to the SDK's service client's calls easier.</p>
+    
+<p>S3API provides an interface to enable mocking the s3.S3 service
+client&#39;s API operation, paginators, and waiters. This make unit testing
+your code that calls out to the SDK&#39;s service client&#39;s calls
+easier.</p>
 
-<p>The best way to use this interface is so the SDK's service client's calls
-can be stubbed out for unit testing your code with the SDK without needing
-to inject custom request handlers into the SDK's request pipeline.</p>
+<p>The best way to use this interface is so the SDK&#39;s service client&#39;s
+calls can be stubbed out for unit testing your code with the SDK without
+needing to inject custom request handlers into the SDK&#39;s request
+pipeline.</p>
 
-<p>   // myFunc uses an SDK service client to make a request to
-   // Amazon Simple Storage Service.
-   func myFunc(svc s3iface.S3API) bool {
-       // Make svc.AbortMultipartUpload request
-   }</p>
+<p>// myFunc uses an SDK service client to make a request to  // Amazon Simple
+Storage Service.  func myFunc(svc s3iface.S3API) bool {  // Make
+svc.AbortMultipartUpload request  }</p>
 
-<p>   func main() {
-       sess := session.Must(session.NewSession())
-       svc := s3.New(sess)</p>
+<p>func main() {  sess := session.Must(session.NewSession())  svc :=
+s3.New(sess)</p>
 
 <pre class="code go"><code class="go"><div class="hljs">   myFunc(svc)
 </div></code></pre>
 
-<p>   }</p>
+<p>}</p>
 
 <p>In your _test.go file:</p>
 
-<p>   // Define a mock struct to be used in your unit tests of myFunc.
-   type mockS3Client struct {
-       s3iface.S3API
-   }
-   func (m <em>mockS3Client) AbortMultipartUpload(input </em>s3.AbortMultipartUploadInput) (*s3.AbortMultipartUploadOutput, error) {
-       // mock response/functionality
-   }</p>
+<p>// Define a mock struct to be used in your unit tests of myFunc.  type
+mockS3Client struct {  s3iface.S3API  }  func (m *mockS3Client)
+AbortMultipartUpload(input <em>s3.AbortMultipartUploadInput)
+(</em>s3.AbortMultipartUploadOutput, error) {  // mock
+response/functionality  }</p>
 
-<p>   func TestMyFunc(t *testing.T) {
-       // Setup Test
-       mockSvc := &amp;mockS3Client{}</p>
+<p>func TestMyFunc(t *testing.T) {  // Setup Test  mockSvc :=
+&amp;mockS3Client{}</p>
 
 <pre class="code go"><code class="go"><div class="hljs">   my<span class="hljs-keyword">func</span>(mockSvc)
 
-   <span class="hljs-comment">// Verify myFunc's functionality</span>
-</div></code></pre>
+   <span class="hljs-comment">// Verify myFunc's functionality</span></div></code></pre>
 
-<p>   }</p>
+<p>}</p>
 
-<p>It is important to note that this interface will have breaking changes
-when the service model is updated and adds new API operations, paginators,
-and waiters. Its suggested to use the pattern above for testing, or using
+<p>It is important to note that this interface will have breaking changes when
+the service model is updated and adds new API operations, paginators, and
+waiters. Its suggested to use the pattern above for testing, or using
 tooling to generate mocks to satisfy the interfaces.</p>
 
 
@@ -172,8 +167,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -196,8 +190,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -220,8 +213,76 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#AddLegalHold-instance_method" title="s3iface.S3API.AddLegalHold() (method)"><strong>AddLegalHold</strong>(*s3.AddLegalHoldInput) (*s3.AddLegalHoldOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#AddLegalHoldRequest-instance_method" title="s3iface.S3API.AddLegalHoldRequest() (method)"><strong>AddLegalHoldRequest</strong>(*s3.AddLegalHoldInput) (*request.Request, *s3.AddLegalHoldOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#AddLegalHoldWithContext-instance_method" title="s3iface.S3API.AddLegalHoldWithContext() (method)"><strong>AddLegalHoldWithContext</strong>(aws.Context, *s3.AddLegalHoldInput, ...request.Option) (*s3.AddLegalHoldOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -244,8 +305,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -268,8 +328,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -292,8 +351,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -316,8 +374,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -340,8 +397,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -364,8 +420,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -388,8 +443,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -412,8 +466,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -436,8 +489,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -460,8 +512,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -484,8 +535,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -508,8 +558,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -532,8 +581,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -556,8 +604,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -580,8 +627,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -604,8 +650,76 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteBucketLifecycle-instance_method" title="s3iface.S3API.DeleteBucketLifecycle() (method)"><strong>DeleteBucketLifecycle</strong>(*s3.DeleteBucketLifecycleInput) (*s3.DeleteBucketLifecycleOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteBucketLifecycleRequest-instance_method" title="s3iface.S3API.DeleteBucketLifecycleRequest() (method)"><strong>DeleteBucketLifecycleRequest</strong>(*s3.DeleteBucketLifecycleInput) (*request.Request, *s3.DeleteBucketLifecycleOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteBucketLifecycleWithContext-instance_method" title="s3iface.S3API.DeleteBucketLifecycleWithContext() (method)"><strong>DeleteBucketLifecycleWithContext</strong>(aws.Context, *s3.DeleteBucketLifecycleInput, ...request.Option) (*s3.DeleteBucketLifecycleOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -628,8 +742,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -652,8 +765,76 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteLegalHold-instance_method" title="s3iface.S3API.DeleteLegalHold() (method)"><strong>DeleteLegalHold</strong>(*s3.DeleteLegalHoldInput) (*s3.DeleteLegalHoldOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteLegalHoldRequest-instance_method" title="s3iface.S3API.DeleteLegalHoldRequest() (method)"><strong>DeleteLegalHoldRequest</strong>(*s3.DeleteLegalHoldInput) (*request.Request, *s3.DeleteLegalHoldOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteLegalHoldWithContext-instance_method" title="s3iface.S3API.DeleteLegalHoldWithContext() (method)"><strong>DeleteLegalHoldWithContext</strong>(aws.Context, *s3.DeleteLegalHoldInput, ...request.Option) (*s3.DeleteLegalHoldOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -676,8 +857,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -700,8 +880,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -724,8 +903,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -748,8 +926,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -772,8 +949,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -796,8 +972,76 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExtendObjectRetention-instance_method" title="s3iface.S3API.ExtendObjectRetention() (method)"><strong>ExtendObjectRetention</strong>(*s3.ExtendObjectRetentionInput) (*s3.ExtendObjectRetentionOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExtendObjectRetentionRequest-instance_method" title="s3iface.S3API.ExtendObjectRetentionRequest() (method)"><strong>ExtendObjectRetentionRequest</strong>(*s3.ExtendObjectRetentionInput) (*request.Request, *s3.ExtendObjectRetentionOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExtendObjectRetentionWithContext-instance_method" title="s3iface.S3API.ExtendObjectRetentionWithContext() (method)"><strong>ExtendObjectRetentionWithContext</strong>(aws.Context, *s3.ExtendObjectRetentionInput, ...request.Option) (*s3.ExtendObjectRetentionOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -820,8 +1064,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -844,8 +1087,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -868,8 +1110,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -892,8 +1133,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -916,8 +1156,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -940,8 +1179,76 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketLifecycleConfiguration-instance_method" title="s3iface.S3API.GetBucketLifecycleConfiguration() (method)"><strong>GetBucketLifecycleConfiguration</strong>(*s3.GetBucketLifecycleConfigurationInput) (*s3.GetBucketLifecycleConfigurationOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketLifecycleConfigurationRequest-instance_method" title="s3iface.S3API.GetBucketLifecycleConfigurationRequest() (method)"><strong>GetBucketLifecycleConfigurationRequest</strong>(*s3.GetBucketLifecycleConfigurationInput) (*request.Request, *s3.GetBucketLifecycleConfigurationOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketLifecycleConfigurationWithContext-instance_method" title="s3iface.S3API.GetBucketLifecycleConfigurationWithContext() (method)"><strong>GetBucketLifecycleConfigurationWithContext</strong>(aws.Context, *s3.GetBucketLifecycleConfigurationInput, ...request.Option) (*s3.GetBucketLifecycleConfigurationOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -964,8 +1271,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -988,8 +1294,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1012,8 +1317,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1036,8 +1340,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1060,8 +1363,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1084,8 +1386,76 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketProtectionConfiguration-instance_method" title="s3iface.S3API.GetBucketProtectionConfiguration() (method)"><strong>GetBucketProtectionConfiguration</strong>(*s3.GetBucketProtectionConfigurationInput) (*s3.GetBucketProtectionConfigurationOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketProtectionConfigurationRequest-instance_method" title="s3iface.S3API.GetBucketProtectionConfigurationRequest() (method)"><strong>GetBucketProtectionConfigurationRequest</strong>(*s3.GetBucketProtectionConfigurationInput) (*request.Request, *s3.GetBucketProtectionConfigurationOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetBucketProtectionConfigurationWithContext-instance_method" title="s3iface.S3API.GetBucketProtectionConfigurationWithContext() (method)"><strong>GetBucketProtectionConfigurationWithContext</strong>(aws.Context, *s3.GetBucketProtectionConfigurationInput, ...request.Option) (*s3.GetBucketProtectionConfigurationOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1108,8 +1478,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1132,8 +1501,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1156,8 +1524,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1180,8 +1547,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1204,8 +1570,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1228,8 +1593,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1252,8 +1616,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1276,8 +1639,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1300,8 +1662,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1324,8 +1685,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1348,8 +1708,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1372,8 +1731,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1396,8 +1754,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1420,8 +1777,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1444,8 +1800,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1468,8 +1823,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1492,8 +1846,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1516,8 +1869,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1540,8 +1892,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1564,8 +1915,76 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListLegalHolds-instance_method" title="s3iface.S3API.ListLegalHolds() (method)"><strong>ListLegalHolds</strong>(*s3.ListLegalHoldsInput) (*s3.ListLegalHoldsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListLegalHoldsRequest-instance_method" title="s3iface.S3API.ListLegalHoldsRequest() (method)"><strong>ListLegalHoldsRequest</strong>(*s3.ListLegalHoldsInput) (*request.Request, *s3.ListLegalHoldsOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ListLegalHoldsWithContext-instance_method" title="s3iface.S3API.ListLegalHoldsWithContext() (method)"><strong>ListLegalHoldsWithContext</strong>(aws.Context, *s3.ListLegalHoldsInput, ...request.Option) (*s3.ListLegalHoldsOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1588,8 +2007,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1612,8 +2030,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1636,8 +2053,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1660,8 +2076,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1684,8 +2099,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1708,8 +2122,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1732,8 +2145,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1756,8 +2168,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1780,8 +2191,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1804,8 +2214,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1828,8 +2237,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1852,8 +2260,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1876,8 +2283,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1900,8 +2306,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1924,8 +2329,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1948,8 +2352,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1972,8 +2375,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1996,8 +2398,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2020,8 +2421,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2044,8 +2444,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2068,8 +2467,76 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketLifecycleConfiguration-instance_method" title="s3iface.S3API.PutBucketLifecycleConfiguration() (method)"><strong>PutBucketLifecycleConfiguration</strong>(*s3.PutBucketLifecycleConfigurationInput) (*s3.PutBucketLifecycleConfigurationOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketLifecycleConfigurationRequest-instance_method" title="s3iface.S3API.PutBucketLifecycleConfigurationRequest() (method)"><strong>PutBucketLifecycleConfigurationRequest</strong>(*s3.PutBucketLifecycleConfigurationInput) (*request.Request, *s3.PutBucketLifecycleConfigurationOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketLifecycleConfigurationWithContext-instance_method" title="s3iface.S3API.PutBucketLifecycleConfigurationWithContext() (method)"><strong>PutBucketLifecycleConfigurationWithContext</strong>(aws.Context, *s3.PutBucketLifecycleConfigurationInput, ...request.Option) (*s3.PutBucketLifecycleConfigurationOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2092,8 +2559,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2116,8 +2582,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2140,8 +2605,76 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketProtectionConfiguration-instance_method" title="s3iface.S3API.PutBucketProtectionConfiguration() (method)"><strong>PutBucketProtectionConfiguration</strong>(*s3.PutBucketProtectionConfigurationInput) (*s3.PutBucketProtectionConfigurationOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketProtectionConfigurationRequest-instance_method" title="s3iface.S3API.PutBucketProtectionConfigurationRequest() (method)"><strong>PutBucketProtectionConfigurationRequest</strong>(*s3.PutBucketProtectionConfigurationInput) (*request.Request, *s3.PutBucketProtectionConfigurationOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#PutBucketProtectionConfigurationWithContext-instance_method" title="s3iface.S3API.PutBucketProtectionConfigurationWithContext() (method)"><strong>PutBucketProtectionConfigurationWithContext</strong>(aws.Context, *s3.PutBucketProtectionConfigurationInput, ...request.Option) (*s3.PutBucketProtectionConfigurationOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2164,8 +2697,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2188,8 +2720,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2212,8 +2743,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2236,8 +2766,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2260,8 +2789,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2284,8 +2812,76 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#RestoreObject-instance_method" title="s3iface.S3API.RestoreObject() (method)"><strong>RestoreObject</strong>(*s3.RestoreObjectInput) (*s3.RestoreObjectOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#RestoreObjectRequest-instance_method" title="s3iface.S3API.RestoreObjectRequest() (method)"><strong>RestoreObjectRequest</strong>(*s3.RestoreObjectInput) (*request.Request, *s3.RestoreObjectOutput)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#RestoreObjectWithContext-instance_method" title="s3iface.S3API.RestoreObjectWithContext() (method)"><strong>RestoreObjectWithContext</strong>(aws.Context, *s3.RestoreObjectInput, ...request.Option) (*s3.RestoreObjectOutput, error)</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span class="abstract note title">interface</span>
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2308,8 +2904,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2332,8 +2927,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2356,8 +2950,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2380,8 +2973,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2404,8 +2996,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2428,8 +3019,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2452,8 +3042,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2476,8 +3065,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2500,8 +3088,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2524,8 +3111,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2548,8 +3134,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2572,8 +3157,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2596,8 +3180,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2620,8 +3203,7 @@ tooling to generate mocks to satisfy the interfaces.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -2650,10 +3232,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -2692,10 +3272,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -2734,10 +3312,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -2764,9 +3340,9 @@ tooling to generate mocks to satisfy the interfaces.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="CompleteMultipartUpload-instance_method">
+  <h3 class="signature " id="AddLegalHold-instance_method">
   
-    <strong><span class='object_link'><a href="#CompleteMultipartUpload-instance_method" title="s3iface.S3API.CompleteMultipartUpload() (method)">CompleteMultipartUpload</a></span></strong>(*<span class='object_link'><a href="../CompleteMultipartUploadInput.html" title="s3.CompleteMultipartUploadInput (struct)">s3.CompleteMultipartUploadInput</a></span>) (*<span class='object_link'><a href="../CompleteMultipartUploadOutput.html" title="s3.CompleteMultipartUploadOutput (struct)">s3.CompleteMultipartUploadOutput</a></span>, error)
+    <strong><span class='object_link'><a href="#AddLegalHold-instance_method" title="s3iface.S3API.AddLegalHold() (method)">AddLegalHold</a></span></strong>(*<span class='object_link'><a href="../AddLegalHoldInput.html" title="s3.AddLegalHoldInput (struct)">s3.AddLegalHoldInput</a></span>) (*<span class='object_link'><a href="../../s3.html#type-AddLegalHoldOutput" title="s3 (package)">s3.AddLegalHoldOutput</a></span>, error)
   
 
   
@@ -2776,10 +3352,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -2797,6 +3371,126 @@ tooling to generate mocks to satisfy the interfaces.</p>
     </td>
     <td>
       <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 66</span>
+
+<div class="hljs">AddLegalHold(*s3.AddLegalHoldInput) (*s3.AddLegalHoldOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="AddLegalHoldRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#AddLegalHoldRequest-instance_method" title="s3iface.S3API.AddLegalHoldRequest() (method)">AddLegalHoldRequest</a></span></strong>(*<span class='object_link'><a href="../AddLegalHoldInput.html" title="s3.AddLegalHoldInput (struct)">s3.AddLegalHoldInput</a></span>) (*request.Request, *<span class='object_link'><a href="../../s3.html#type-AddLegalHoldOutput" title="s3 (package)">s3.AddLegalHoldOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 68</span>
+
+<div class="hljs">AddLegalHoldRequest(*s3.AddLegalHoldInput) (*request.Request, *s3.AddLegalHoldOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="AddLegalHoldWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#AddLegalHoldWithContext-instance_method" title="s3iface.S3API.AddLegalHoldWithContext() (method)">AddLegalHoldWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../AddLegalHoldInput.html" title="s3.AddLegalHoldInput (struct)">s3.AddLegalHoldInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../../s3.html#type-AddLegalHoldOutput" title="s3 (package)">s3.AddLegalHoldOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 67</span>
+
+<div class="hljs">AddLegalHoldWithContext(aws.Context, *s3.AddLegalHoldInput, ...request.Option) (*s3.AddLegalHoldOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CompleteMultipartUpload-instance_method">
+  
+    <strong><span class='object_link'><a href="#CompleteMultipartUpload-instance_method" title="s3iface.S3API.CompleteMultipartUpload() (method)">CompleteMultipartUpload</a></span></strong>(*<span class='object_link'><a href="../CompleteMultipartUploadInput.html" title="s3.CompleteMultipartUploadInput (struct)">s3.CompleteMultipartUploadInput</a></span>) (*<span class='object_link'><a href="../CompleteMultipartUploadOutput.html" title="s3.CompleteMultipartUploadOutput (struct)">s3.CompleteMultipartUploadOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 70</span>
 
 <div class="hljs">CompleteMultipartUpload(*s3.CompleteMultipartUploadInput) (*s3.CompleteMultipartUploadOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -2818,10 +3512,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -2835,10 +3527,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-68</pre>
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 68</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 72</span>
 
 <div class="hljs">CompleteMultipartUploadRequest(*s3.CompleteMultipartUploadInput) (*request.Request, *s3.CompleteMultipartUploadOutput)</div></pre>
     </td>
@@ -2860,10 +3552,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -2877,10 +3567,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-67</pre>
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 67</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 71</span>
 
 <div class="hljs">CompleteMultipartUploadWithContext(aws.Context, *s3.CompleteMultipartUploadInput, ...request.Option) (*s3.CompleteMultipartUploadOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -2902,10 +3592,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -2919,10 +3607,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-70</pre>
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 70</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 74</span>
 
 <div class="hljs">CopyObject(*s3.CopyObjectInput) (*s3.CopyObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -2944,10 +3632,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -2961,10 +3647,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-72</pre>
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 72</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 76</span>
 
 <div class="hljs">CopyObjectRequest(*s3.CopyObjectInput) (*request.Request, *s3.CopyObjectOutput)</div></pre>
     </td>
@@ -2986,10 +3672,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3003,10 +3687,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-71</pre>
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 71</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 75</span>
 
 <div class="hljs">CopyObjectWithContext(aws.Context, *s3.CopyObjectInput, ...request.Option) (*s3.CopyObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -3028,10 +3712,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3045,10 +3727,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-74</pre>
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 74</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 78</span>
 
 <div class="hljs">CreateBucket(*s3.CreateBucketInput) (*s3.CreateBucketOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -3070,10 +3752,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3087,10 +3767,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-76</pre>
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 76</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 80</span>
 
 <div class="hljs">CreateBucketRequest(*s3.CreateBucketInput) (*request.Request, *s3.CreateBucketOutput)</div></pre>
     </td>
@@ -3112,10 +3792,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3129,10 +3807,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-75</pre>
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 75</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 79</span>
 
 <div class="hljs">CreateBucketWithContext(aws.Context, *s3.CreateBucketInput, ...request.Option) (*s3.CreateBucketOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -3154,10 +3832,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3171,10 +3847,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-78</pre>
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 78</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 82</span>
 
 <div class="hljs">CreateMultipartUpload(*s3.CreateMultipartUploadInput) (*s3.CreateMultipartUploadOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -3196,10 +3872,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3213,10 +3887,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-80</pre>
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 80</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 84</span>
 
 <div class="hljs">CreateMultipartUploadRequest(*s3.CreateMultipartUploadInput) (*request.Request, *s3.CreateMultipartUploadOutput)</div></pre>
     </td>
@@ -3238,10 +3912,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3255,10 +3927,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-79</pre>
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 79</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 83</span>
 
 <div class="hljs">CreateMultipartUploadWithContext(aws.Context, *s3.CreateMultipartUploadInput, ...request.Option) (*s3.CreateMultipartUploadOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -3280,10 +3952,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3297,10 +3967,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-82</pre>
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 82</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 86</span>
 
 <div class="hljs">DeleteBucket(*s3.DeleteBucketInput) (*s3.DeleteBucketOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -3322,10 +3992,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3339,10 +4007,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-86</pre>
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 86</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 90</span>
 
 <div class="hljs">DeleteBucketCors(*s3.DeleteBucketCorsInput) (*s3.DeleteBucketCorsOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -3364,10 +4032,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3381,10 +4047,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-88</pre>
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 88</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 92</span>
 
 <div class="hljs">DeleteBucketCorsRequest(*s3.DeleteBucketCorsInput) (*request.Request, *s3.DeleteBucketCorsOutput)</div></pre>
     </td>
@@ -3406,10 +4072,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3423,12 +4087,132 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-87</pre>
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 87</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 91</span>
 
 <div class="hljs">DeleteBucketCorsWithContext(aws.Context, *s3.DeleteBucketCorsInput, ...request.Option) (*s3.DeleteBucketCorsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteBucketLifecycle-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteBucketLifecycle-instance_method" title="s3iface.S3API.DeleteBucketLifecycle() (method)">DeleteBucketLifecycle</a></span></strong>(*<span class='object_link'><a href="../DeleteBucketLifecycleInput.html" title="s3.DeleteBucketLifecycleInput (struct)">s3.DeleteBucketLifecycleInput</a></span>) (*<span class='object_link'><a href="../../s3.html#type-DeleteBucketLifecycleOutput" title="s3 (package)">s3.DeleteBucketLifecycleOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 94</span>
+
+<div class="hljs">DeleteBucketLifecycle(*s3.DeleteBucketLifecycleInput) (*s3.DeleteBucketLifecycleOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteBucketLifecycleRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteBucketLifecycleRequest-instance_method" title="s3iface.S3API.DeleteBucketLifecycleRequest() (method)">DeleteBucketLifecycleRequest</a></span></strong>(*<span class='object_link'><a href="../DeleteBucketLifecycleInput.html" title="s3.DeleteBucketLifecycleInput (struct)">s3.DeleteBucketLifecycleInput</a></span>) (*request.Request, *<span class='object_link'><a href="../../s3.html#type-DeleteBucketLifecycleOutput" title="s3 (package)">s3.DeleteBucketLifecycleOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 96</span>
+
+<div class="hljs">DeleteBucketLifecycleRequest(*s3.DeleteBucketLifecycleInput) (*request.Request, *s3.DeleteBucketLifecycleOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteBucketLifecycleWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteBucketLifecycleWithContext-instance_method" title="s3iface.S3API.DeleteBucketLifecycleWithContext() (method)">DeleteBucketLifecycleWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../DeleteBucketLifecycleInput.html" title="s3.DeleteBucketLifecycleInput (struct)">s3.DeleteBucketLifecycleInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../../s3.html#type-DeleteBucketLifecycleOutput" title="s3 (package)">s3.DeleteBucketLifecycleOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 95</span>
+
+<div class="hljs">DeleteBucketLifecycleWithContext(aws.Context, *s3.DeleteBucketLifecycleInput, ...request.Option) (*s3.DeleteBucketLifecycleOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
   </tr>
 </table>
@@ -3448,10 +4232,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3465,10 +4247,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-84</pre>
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 84</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 88</span>
 
 <div class="hljs">DeleteBucketRequest(*s3.DeleteBucketInput) (*request.Request, *s3.DeleteBucketOutput)</div></pre>
     </td>
@@ -3490,10 +4272,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3507,12 +4287,132 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-83</pre>
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 83</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 87</span>
 
 <div class="hljs">DeleteBucketWithContext(aws.Context, *s3.DeleteBucketInput, ...request.Option) (*s3.DeleteBucketOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteLegalHold-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteLegalHold-instance_method" title="s3iface.S3API.DeleteLegalHold() (method)">DeleteLegalHold</a></span></strong>(*<span class='object_link'><a href="../DeleteLegalHoldInput.html" title="s3.DeleteLegalHoldInput (struct)">s3.DeleteLegalHoldInput</a></span>) (*<span class='object_link'><a href="../../s3.html#type-DeleteLegalHoldOutput" title="s3 (package)">s3.DeleteLegalHoldOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+98</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 98</span>
+
+<div class="hljs">DeleteLegalHold(*s3.DeleteLegalHoldInput) (*s3.DeleteLegalHoldOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteLegalHoldRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteLegalHoldRequest-instance_method" title="s3iface.S3API.DeleteLegalHoldRequest() (method)">DeleteLegalHoldRequest</a></span></strong>(*<span class='object_link'><a href="../DeleteLegalHoldInput.html" title="s3.DeleteLegalHoldInput (struct)">s3.DeleteLegalHoldInput</a></span>) (*request.Request, *<span class='object_link'><a href="../../s3.html#type-DeleteLegalHoldOutput" title="s3 (package)">s3.DeleteLegalHoldOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 100</span>
+
+<div class="hljs">DeleteLegalHoldRequest(*s3.DeleteLegalHoldInput) (*request.Request, *s3.DeleteLegalHoldOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteLegalHoldWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#DeleteLegalHoldWithContext-instance_method" title="s3iface.S3API.DeleteLegalHoldWithContext() (method)">DeleteLegalHoldWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../DeleteLegalHoldInput.html" title="s3.DeleteLegalHoldInput (struct)">s3.DeleteLegalHoldInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../../s3.html#type-DeleteLegalHoldOutput" title="s3 (package)">s3.DeleteLegalHoldOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 99</span>
+
+<div class="hljs">DeleteLegalHoldWithContext(aws.Context, *s3.DeleteLegalHoldInput, ...request.Option) (*s3.DeleteLegalHoldOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
   </tr>
 </table>
@@ -3532,10 +4432,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3549,10 +4447,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-90</pre>
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 90</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 102</span>
 
 <div class="hljs">DeleteObject(*s3.DeleteObjectInput) (*s3.DeleteObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -3574,10 +4472,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3591,10 +4487,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-92</pre>
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 92</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 104</span>
 
 <div class="hljs">DeleteObjectRequest(*s3.DeleteObjectInput) (*request.Request, *s3.DeleteObjectOutput)</div></pre>
     </td>
@@ -3616,10 +4512,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3633,10 +4527,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-94</pre>
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 94</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 106</span>
 
 <div class="hljs">DeleteObjects(*s3.DeleteObjectsInput) (*s3.DeleteObjectsOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -3658,10 +4552,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3675,10 +4567,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-96</pre>
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 96</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 108</span>
 
 <div class="hljs">DeleteObjectsRequest(*s3.DeleteObjectsInput) (*request.Request, *s3.DeleteObjectsOutput)</div></pre>
     </td>
@@ -3700,10 +4592,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3717,10 +4607,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-95</pre>
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 95</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 107</span>
 
 <div class="hljs">DeleteObjectsWithContext(aws.Context, *s3.DeleteObjectsInput, ...request.Option) (*s3.DeleteObjectsOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -3742,10 +4632,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3759,12 +4647,132 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-91</pre>
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 91</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 103</span>
 
 <div class="hljs">DeleteObjectWithContext(aws.Context, *s3.DeleteObjectInput, ...request.Option) (*s3.DeleteObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExtendObjectRetention-instance_method">
+  
+    <strong><span class='object_link'><a href="#ExtendObjectRetention-instance_method" title="s3iface.S3API.ExtendObjectRetention() (method)">ExtendObjectRetention</a></span></strong>(*<span class='object_link'><a href="../ExtendObjectRetentionInput.html" title="s3.ExtendObjectRetentionInput (struct)">s3.ExtendObjectRetentionInput</a></span>) (*<span class='object_link'><a href="../../s3.html#type-ExtendObjectRetentionOutput" title="s3 (package)">s3.ExtendObjectRetentionOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 110</span>
+
+<div class="hljs">ExtendObjectRetention(*s3.ExtendObjectRetentionInput) (*s3.ExtendObjectRetentionOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExtendObjectRetentionRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#ExtendObjectRetentionRequest-instance_method" title="s3iface.S3API.ExtendObjectRetentionRequest() (method)">ExtendObjectRetentionRequest</a></span></strong>(*<span class='object_link'><a href="../ExtendObjectRetentionInput.html" title="s3.ExtendObjectRetentionInput (struct)">s3.ExtendObjectRetentionInput</a></span>) (*request.Request, *<span class='object_link'><a href="../../s3.html#type-ExtendObjectRetentionOutput" title="s3 (package)">s3.ExtendObjectRetentionOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 112</span>
+
+<div class="hljs">ExtendObjectRetentionRequest(*s3.ExtendObjectRetentionInput) (*request.Request, *s3.ExtendObjectRetentionOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExtendObjectRetentionWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#ExtendObjectRetentionWithContext-instance_method" title="s3iface.S3API.ExtendObjectRetentionWithContext() (method)">ExtendObjectRetentionWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../ExtendObjectRetentionInput.html" title="s3.ExtendObjectRetentionInput (struct)">s3.ExtendObjectRetentionInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../../s3.html#type-ExtendObjectRetentionOutput" title="s3 (package)">s3.ExtendObjectRetentionOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 111</span>
+
+<div class="hljs">ExtendObjectRetentionWithContext(aws.Context, *s3.ExtendObjectRetentionInput, ...request.Option) (*s3.ExtendObjectRetentionOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
   </tr>
 </table>
@@ -3784,10 +4792,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3801,10 +4807,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-98</pre>
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 98</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 114</span>
 
 <div class="hljs">GetBucketAcl(*s3.GetBucketAclInput) (*s3.GetBucketAclOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -3826,10 +4832,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3843,10 +4847,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-100</pre>
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 100</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 116</span>
 
 <div class="hljs">GetBucketAclRequest(*s3.GetBucketAclInput) (*request.Request, *s3.GetBucketAclOutput)</div></pre>
     </td>
@@ -3868,10 +4872,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3885,10 +4887,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-99</pre>
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 99</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 115</span>
 
 <div class="hljs">GetBucketAclWithContext(aws.Context, *s3.GetBucketAclInput, ...request.Option) (*s3.GetBucketAclOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -3910,10 +4912,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3927,10 +4927,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-102</pre>
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 102</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 118</span>
 
 <div class="hljs">GetBucketCors(*s3.GetBucketCorsInput) (*s3.GetBucketCorsOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -3952,10 +4952,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -3969,10 +4967,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-104</pre>
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 104</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 120</span>
 
 <div class="hljs">GetBucketCorsRequest(*s3.GetBucketCorsInput) (*request.Request, *s3.GetBucketCorsOutput)</div></pre>
     </td>
@@ -3994,10 +4992,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4011,12 +5007,132 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-103</pre>
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 103</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 119</span>
 
 <div class="hljs">GetBucketCorsWithContext(aws.Context, *s3.GetBucketCorsInput, ...request.Option) (*s3.GetBucketCorsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketLifecycleConfiguration-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketLifecycleConfiguration-instance_method" title="s3iface.S3API.GetBucketLifecycleConfiguration() (method)">GetBucketLifecycleConfiguration</a></span></strong>(*<span class='object_link'><a href="../GetBucketLifecycleConfigurationInput.html" title="s3.GetBucketLifecycleConfigurationInput (struct)">s3.GetBucketLifecycleConfigurationInput</a></span>) (*<span class='object_link'><a href="../GetBucketLifecycleConfigurationOutput.html" title="s3.GetBucketLifecycleConfigurationOutput (struct)">s3.GetBucketLifecycleConfigurationOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 122</span>
+
+<div class="hljs">GetBucketLifecycleConfiguration(*s3.GetBucketLifecycleConfigurationInput) (*s3.GetBucketLifecycleConfigurationOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketLifecycleConfigurationRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketLifecycleConfigurationRequest-instance_method" title="s3iface.S3API.GetBucketLifecycleConfigurationRequest() (method)">GetBucketLifecycleConfigurationRequest</a></span></strong>(*<span class='object_link'><a href="../GetBucketLifecycleConfigurationInput.html" title="s3.GetBucketLifecycleConfigurationInput (struct)">s3.GetBucketLifecycleConfigurationInput</a></span>) (*request.Request, *<span class='object_link'><a href="../GetBucketLifecycleConfigurationOutput.html" title="s3.GetBucketLifecycleConfigurationOutput (struct)">s3.GetBucketLifecycleConfigurationOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+124</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 124</span>
+
+<div class="hljs">GetBucketLifecycleConfigurationRequest(*s3.GetBucketLifecycleConfigurationInput) (*request.Request, *s3.GetBucketLifecycleConfigurationOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketLifecycleConfigurationWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketLifecycleConfigurationWithContext-instance_method" title="s3iface.S3API.GetBucketLifecycleConfigurationWithContext() (method)">GetBucketLifecycleConfigurationWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../GetBucketLifecycleConfigurationInput.html" title="s3.GetBucketLifecycleConfigurationInput (struct)">s3.GetBucketLifecycleConfigurationInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../GetBucketLifecycleConfigurationOutput.html" title="s3.GetBucketLifecycleConfigurationOutput (struct)">s3.GetBucketLifecycleConfigurationOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 123</span>
+
+<div class="hljs">GetBucketLifecycleConfigurationWithContext(aws.Context, *s3.GetBucketLifecycleConfigurationInput, ...request.Option) (*s3.GetBucketLifecycleConfigurationOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
   </tr>
 </table>
@@ -4036,10 +5152,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4053,10 +5167,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-106</pre>
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 106</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 126</span>
 
 <div class="hljs">GetBucketLocation(*s3.GetBucketLocationInput) (*s3.GetBucketLocationOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -4078,10 +5192,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4095,10 +5207,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-108</pre>
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 108</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 128</span>
 
 <div class="hljs">GetBucketLocationRequest(*s3.GetBucketLocationInput) (*request.Request, *s3.GetBucketLocationOutput)</div></pre>
     </td>
@@ -4120,10 +5232,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4137,10 +5247,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-107</pre>
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 107</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 127</span>
 
 <div class="hljs">GetBucketLocationWithContext(aws.Context, *s3.GetBucketLocationInput, ...request.Option) (*s3.GetBucketLocationOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -4162,10 +5272,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4179,10 +5287,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-110</pre>
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 110</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 130</span>
 
 <div class="hljs">GetBucketLogging(*s3.GetBucketLoggingInput) (*s3.GetBucketLoggingOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -4204,10 +5312,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4221,10 +5327,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-112</pre>
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 112</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 132</span>
 
 <div class="hljs">GetBucketLoggingRequest(*s3.GetBucketLoggingInput) (*request.Request, *s3.GetBucketLoggingOutput)</div></pre>
     </td>
@@ -4246,10 +5352,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4263,12 +5367,132 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-111</pre>
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 111</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 131</span>
 
 <div class="hljs">GetBucketLoggingWithContext(aws.Context, *s3.GetBucketLoggingInput, ...request.Option) (*s3.GetBucketLoggingOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketProtectionConfiguration-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketProtectionConfiguration-instance_method" title="s3iface.S3API.GetBucketProtectionConfiguration() (method)">GetBucketProtectionConfiguration</a></span></strong>(*<span class='object_link'><a href="../GetBucketProtectionConfigurationInput.html" title="s3.GetBucketProtectionConfigurationInput (struct)">s3.GetBucketProtectionConfigurationInput</a></span>) (*<span class='object_link'><a href="../GetBucketProtectionConfigurationOutput.html" title="s3.GetBucketProtectionConfigurationOutput (struct)">s3.GetBucketProtectionConfigurationOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 134</span>
+
+<div class="hljs">GetBucketProtectionConfiguration(*s3.GetBucketProtectionConfigurationInput) (*s3.GetBucketProtectionConfigurationOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketProtectionConfigurationRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketProtectionConfigurationRequest-instance_method" title="s3iface.S3API.GetBucketProtectionConfigurationRequest() (method)">GetBucketProtectionConfigurationRequest</a></span></strong>(*<span class='object_link'><a href="../GetBucketProtectionConfigurationInput.html" title="s3.GetBucketProtectionConfigurationInput (struct)">s3.GetBucketProtectionConfigurationInput</a></span>) (*request.Request, *<span class='object_link'><a href="../GetBucketProtectionConfigurationOutput.html" title="s3.GetBucketProtectionConfigurationOutput (struct)">s3.GetBucketProtectionConfigurationOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 136</span>
+
+<div class="hljs">GetBucketProtectionConfigurationRequest(*s3.GetBucketProtectionConfigurationInput) (*request.Request, *s3.GetBucketProtectionConfigurationOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetBucketProtectionConfigurationWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#GetBucketProtectionConfigurationWithContext-instance_method" title="s3iface.S3API.GetBucketProtectionConfigurationWithContext() (method)">GetBucketProtectionConfigurationWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../GetBucketProtectionConfigurationInput.html" title="s3.GetBucketProtectionConfigurationInput (struct)">s3.GetBucketProtectionConfigurationInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../GetBucketProtectionConfigurationOutput.html" title="s3.GetBucketProtectionConfigurationOutput (struct)">s3.GetBucketProtectionConfigurationOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 135</span>
+
+<div class="hljs">GetBucketProtectionConfigurationWithContext(aws.Context, *s3.GetBucketProtectionConfigurationInput, ...request.Option) (*s3.GetBucketProtectionConfigurationOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
   </tr>
 </table>
@@ -4288,10 +5512,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4305,10 +5527,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-114</pre>
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 114</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 138</span>
 
 <div class="hljs">GetObject(*s3.GetObjectInput) (*s3.GetObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -4330,10 +5552,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4347,10 +5567,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-118</pre>
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 118</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 142</span>
 
 <div class="hljs">GetObjectAcl(*s3.GetObjectAclInput) (*s3.GetObjectAclOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -4372,10 +5592,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4389,10 +5607,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-120</pre>
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 120</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 144</span>
 
 <div class="hljs">GetObjectAclRequest(*s3.GetObjectAclInput) (*request.Request, *s3.GetObjectAclOutput)</div></pre>
     </td>
@@ -4414,10 +5632,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4431,10 +5647,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-119</pre>
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 119</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 143</span>
 
 <div class="hljs">GetObjectAclWithContext(aws.Context, *s3.GetObjectAclInput, ...request.Option) (*s3.GetObjectAclOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -4456,10 +5672,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4473,10 +5687,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-116</pre>
+140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 116</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 140</span>
 
 <div class="hljs">GetObjectRequest(*s3.GetObjectInput) (*request.Request, *s3.GetObjectOutput)</div></pre>
     </td>
@@ -4498,10 +5712,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4515,10 +5727,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-115</pre>
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 115</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 139</span>
 
 <div class="hljs">GetObjectWithContext(aws.Context, *s3.GetObjectInput, ...request.Option) (*s3.GetObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -4540,10 +5752,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4557,10 +5767,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-122</pre>
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 122</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 146</span>
 
 <div class="hljs">HeadBucket(*s3.HeadBucketInput) (*s3.HeadBucketOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -4582,10 +5792,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4599,10 +5807,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-124</pre>
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 124</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 148</span>
 
 <div class="hljs">HeadBucketRequest(*s3.HeadBucketInput) (*request.Request, *s3.HeadBucketOutput)</div></pre>
     </td>
@@ -4624,10 +5832,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4641,10 +5847,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-123</pre>
+147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 123</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 147</span>
 
 <div class="hljs">HeadBucketWithContext(aws.Context, *s3.HeadBucketInput, ...request.Option) (*s3.HeadBucketOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -4666,10 +5872,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4683,10 +5887,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-126</pre>
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 126</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 150</span>
 
 <div class="hljs">HeadObject(*s3.HeadObjectInput) (*s3.HeadObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -4708,10 +5912,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4725,10 +5927,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-128</pre>
+152</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 128</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 152</span>
 
 <div class="hljs">HeadObjectRequest(*s3.HeadObjectInput) (*request.Request, *s3.HeadObjectOutput)</div></pre>
     </td>
@@ -4750,10 +5952,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4767,10 +5967,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-127</pre>
+151</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 127</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 151</span>
 
 <div class="hljs">HeadObjectWithContext(aws.Context, *s3.HeadObjectInput, ...request.Option) (*s3.HeadObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -4792,10 +5992,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4809,10 +6007,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-130</pre>
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 130</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 154</span>
 
 <div class="hljs">ListBuckets(*s3.ListBucketsInput) (*s3.ListBucketsOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -4834,10 +6032,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4851,10 +6047,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-134</pre>
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 134</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 158</span>
 
 <div class="hljs">ListBucketsExtended(*s3.ListBucketsExtendedInput) (*s3.ListBucketsExtendedOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -4876,10 +6072,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4893,10 +6087,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-138</pre>
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 138</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 162</span>
 
 <div class="hljs">ListBucketsExtendedPages(*s3.ListBucketsExtendedInput, <span class="hljs-keyword">func</span>(*s3.ListBucketsExtendedOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -4918,10 +6112,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4935,10 +6127,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-139</pre>
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 139</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 163</span>
 
 <div class="hljs">ListBucketsExtendedPagesWithContext(aws.Context, *s3.ListBucketsExtendedInput, <span class="hljs-keyword">func</span>(*s3.ListBucketsExtendedOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>, ...request.Option) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -4960,10 +6152,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -4977,10 +6167,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-136</pre>
+160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 136</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 160</span>
 
 <div class="hljs">ListBucketsExtendedRequest(*s3.ListBucketsExtendedInput) (*request.Request, *s3.ListBucketsExtendedOutput)</div></pre>
     </td>
@@ -5002,10 +6192,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5019,10 +6207,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-135</pre>
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 135</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 159</span>
 
 <div class="hljs">ListBucketsExtendedWithContext(aws.Context, *s3.ListBucketsExtendedInput, ...request.Option) (*s3.ListBucketsExtendedOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -5044,10 +6232,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5061,10 +6247,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-132</pre>
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 132</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 156</span>
 
 <div class="hljs">ListBucketsRequest(*s3.ListBucketsInput) (*request.Request, *s3.ListBucketsOutput)</div></pre>
     </td>
@@ -5086,10 +6272,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5103,12 +6287,132 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-131</pre>
+155</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 131</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 155</span>
 
 <div class="hljs">ListBucketsWithContext(aws.Context, *s3.ListBucketsInput, ...request.Option) (*s3.ListBucketsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListLegalHolds-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListLegalHolds-instance_method" title="s3iface.S3API.ListLegalHolds() (method)">ListLegalHolds</a></span></strong>(*<span class='object_link'><a href="../ListLegalHoldsInput.html" title="s3.ListLegalHoldsInput (struct)">s3.ListLegalHoldsInput</a></span>) (*<span class='object_link'><a href="../ListLegalHoldsOutput.html" title="s3.ListLegalHoldsOutput (struct)">s3.ListLegalHoldsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+165</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 165</span>
+
+<div class="hljs">ListLegalHolds(*s3.ListLegalHoldsInput) (*s3.ListLegalHoldsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListLegalHoldsRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListLegalHoldsRequest-instance_method" title="s3iface.S3API.ListLegalHoldsRequest() (method)">ListLegalHoldsRequest</a></span></strong>(*<span class='object_link'><a href="../ListLegalHoldsInput.html" title="s3.ListLegalHoldsInput (struct)">s3.ListLegalHoldsInput</a></span>) (*request.Request, *<span class='object_link'><a href="../ListLegalHoldsOutput.html" title="s3.ListLegalHoldsOutput (struct)">s3.ListLegalHoldsOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 167</span>
+
+<div class="hljs">ListLegalHoldsRequest(*s3.ListLegalHoldsInput) (*request.Request, *s3.ListLegalHoldsOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ListLegalHoldsWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#ListLegalHoldsWithContext-instance_method" title="s3iface.S3API.ListLegalHoldsWithContext() (method)">ListLegalHoldsWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../ListLegalHoldsInput.html" title="s3.ListLegalHoldsInput (struct)">s3.ListLegalHoldsInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../ListLegalHoldsOutput.html" title="s3.ListLegalHoldsOutput (struct)">s3.ListLegalHoldsOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 166</span>
+
+<div class="hljs">ListLegalHoldsWithContext(aws.Context, *s3.ListLegalHoldsInput, ...request.Option) (*s3.ListLegalHoldsOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
   </tr>
 </table>
@@ -5128,10 +6432,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5145,10 +6447,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-141</pre>
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 141</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 169</span>
 
 <div class="hljs">ListMultipartUploads(*s3.ListMultipartUploadsInput) (*s3.ListMultipartUploadsOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -5170,10 +6472,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5187,10 +6487,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-145</pre>
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 145</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 173</span>
 
 <div class="hljs">ListMultipartUploadsPages(*s3.ListMultipartUploadsInput, <span class="hljs-keyword">func</span>(*s3.ListMultipartUploadsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -5212,10 +6512,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5229,10 +6527,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-146</pre>
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 146</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 174</span>
 
 <div class="hljs">ListMultipartUploadsPagesWithContext(aws.Context, *s3.ListMultipartUploadsInput, <span class="hljs-keyword">func</span>(*s3.ListMultipartUploadsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>, ...request.Option) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -5254,10 +6552,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5271,10 +6567,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-143</pre>
+171</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 143</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 171</span>
 
 <div class="hljs">ListMultipartUploadsRequest(*s3.ListMultipartUploadsInput) (*request.Request, *s3.ListMultipartUploadsOutput)</div></pre>
     </td>
@@ -5296,10 +6592,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5313,10 +6607,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-142</pre>
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 142</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 170</span>
 
 <div class="hljs">ListMultipartUploadsWithContext(aws.Context, *s3.ListMultipartUploadsInput, ...request.Option) (*s3.ListMultipartUploadsOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -5338,10 +6632,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5355,10 +6647,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-148</pre>
+176</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 148</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 176</span>
 
 <div class="hljs">ListObjects(*s3.ListObjectsInput) (*s3.ListObjectsOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -5380,10 +6672,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5397,10 +6687,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-152</pre>
+180</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 152</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 180</span>
 
 <div class="hljs">ListObjectsPages(*s3.ListObjectsInput, <span class="hljs-keyword">func</span>(*s3.ListObjectsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -5422,10 +6712,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5439,10 +6727,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-153</pre>
+181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 153</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 181</span>
 
 <div class="hljs">ListObjectsPagesWithContext(aws.Context, *s3.ListObjectsInput, <span class="hljs-keyword">func</span>(*s3.ListObjectsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>, ...request.Option) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -5464,10 +6752,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5481,10 +6767,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-150</pre>
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 150</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 178</span>
 
 <div class="hljs">ListObjectsRequest(*s3.ListObjectsInput) (*request.Request, *s3.ListObjectsOutput)</div></pre>
     </td>
@@ -5506,10 +6792,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5523,10 +6807,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-149</pre>
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 149</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 177</span>
 
 <div class="hljs">ListObjectsWithContext(aws.Context, *s3.ListObjectsInput, ...request.Option) (*s3.ListObjectsOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -5548,10 +6832,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5565,10 +6847,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-155</pre>
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 155</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 183</span>
 
 <div class="hljs">ListParts(*s3.ListPartsInput) (*s3.ListPartsOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -5590,10 +6872,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5607,10 +6887,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-159</pre>
+187</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 159</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 187</span>
 
 <div class="hljs">ListPartsPages(*s3.ListPartsInput, <span class="hljs-keyword">func</span>(*s3.ListPartsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -5632,10 +6912,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5649,10 +6927,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-160</pre>
+188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 160</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 188</span>
 
 <div class="hljs">ListPartsPagesWithContext(aws.Context, *s3.ListPartsInput, <span class="hljs-keyword">func</span>(*s3.ListPartsOutput, <span class="hljs-constant">bool</span>) <span class="hljs-constant">bool</span>, ...request.Option) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -5674,10 +6952,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5691,10 +6967,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-157</pre>
+185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 157</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 185</span>
 
 <div class="hljs">ListPartsRequest(*s3.ListPartsInput) (*request.Request, *s3.ListPartsOutput)</div></pre>
     </td>
@@ -5716,10 +6992,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5733,10 +7007,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-156</pre>
+184</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 156</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 184</span>
 
 <div class="hljs">ListPartsWithContext(aws.Context, *s3.ListPartsInput, ...request.Option) (*s3.ListPartsOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -5758,10 +7032,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5775,10 +7047,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-162</pre>
+190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 162</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 190</span>
 
 <div class="hljs">PutBucketAcl(*s3.PutBucketAclInput) (*s3.PutBucketAclOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -5800,10 +7072,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5817,10 +7087,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-164</pre>
+192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 164</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 192</span>
 
 <div class="hljs">PutBucketAclRequest(*s3.PutBucketAclInput) (*request.Request, *s3.PutBucketAclOutput)</div></pre>
     </td>
@@ -5842,10 +7112,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5859,10 +7127,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-163</pre>
+191</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 163</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 191</span>
 
 <div class="hljs">PutBucketAclWithContext(aws.Context, *s3.PutBucketAclInput, ...request.Option) (*s3.PutBucketAclOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -5884,10 +7152,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5901,10 +7167,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-166</pre>
+194</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 166</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 194</span>
 
 <div class="hljs">PutBucketCors(*s3.PutBucketCorsInput) (*s3.PutBucketCorsOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -5926,10 +7192,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5943,10 +7207,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-168</pre>
+196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 168</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 196</span>
 
 <div class="hljs">PutBucketCorsRequest(*s3.PutBucketCorsInput) (*request.Request, *s3.PutBucketCorsOutput)</div></pre>
     </td>
@@ -5968,10 +7232,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -5985,12 +7247,132 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-167</pre>
+195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 167</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 195</span>
 
 <div class="hljs">PutBucketCorsWithContext(aws.Context, *s3.PutBucketCorsInput, ...request.Option) (*s3.PutBucketCorsOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketLifecycleConfiguration-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketLifecycleConfiguration-instance_method" title="s3iface.S3API.PutBucketLifecycleConfiguration() (method)">PutBucketLifecycleConfiguration</a></span></strong>(*<span class='object_link'><a href="../PutBucketLifecycleConfigurationInput.html" title="s3.PutBucketLifecycleConfigurationInput (struct)">s3.PutBucketLifecycleConfigurationInput</a></span>) (*<span class='object_link'><a href="../../s3.html#type-PutBucketLifecycleConfigurationOutput" title="s3 (package)">s3.PutBucketLifecycleConfigurationOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+198</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 198</span>
+
+<div class="hljs">PutBucketLifecycleConfiguration(*s3.PutBucketLifecycleConfigurationInput) (*s3.PutBucketLifecycleConfigurationOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketLifecycleConfigurationRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketLifecycleConfigurationRequest-instance_method" title="s3iface.S3API.PutBucketLifecycleConfigurationRequest() (method)">PutBucketLifecycleConfigurationRequest</a></span></strong>(*<span class='object_link'><a href="../PutBucketLifecycleConfigurationInput.html" title="s3.PutBucketLifecycleConfigurationInput (struct)">s3.PutBucketLifecycleConfigurationInput</a></span>) (*request.Request, *<span class='object_link'><a href="../../s3.html#type-PutBucketLifecycleConfigurationOutput" title="s3 (package)">s3.PutBucketLifecycleConfigurationOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+200</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 200</span>
+
+<div class="hljs">PutBucketLifecycleConfigurationRequest(*s3.PutBucketLifecycleConfigurationInput) (*request.Request, *s3.PutBucketLifecycleConfigurationOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketLifecycleConfigurationWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketLifecycleConfigurationWithContext-instance_method" title="s3iface.S3API.PutBucketLifecycleConfigurationWithContext() (method)">PutBucketLifecycleConfigurationWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../PutBucketLifecycleConfigurationInput.html" title="s3.PutBucketLifecycleConfigurationInput (struct)">s3.PutBucketLifecycleConfigurationInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../../s3.html#type-PutBucketLifecycleConfigurationOutput" title="s3 (package)">s3.PutBucketLifecycleConfigurationOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+199</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 199</span>
+
+<div class="hljs">PutBucketLifecycleConfigurationWithContext(aws.Context, *s3.PutBucketLifecycleConfigurationInput, ...request.Option) (*s3.PutBucketLifecycleConfigurationOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
   </tr>
 </table>
@@ -6010,10 +7392,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6027,10 +7407,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-170</pre>
+202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 170</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 202</span>
 
 <div class="hljs">PutBucketLogging(*s3.PutBucketLoggingInput) (*s3.PutBucketLoggingOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -6052,10 +7432,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6069,10 +7447,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-172</pre>
+204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 172</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 204</span>
 
 <div class="hljs">PutBucketLoggingRequest(*s3.PutBucketLoggingInput) (*request.Request, *s3.PutBucketLoggingOutput)</div></pre>
     </td>
@@ -6094,10 +7472,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6111,12 +7487,132 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-171</pre>
+203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 171</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 203</span>
 
 <div class="hljs">PutBucketLoggingWithContext(aws.Context, *s3.PutBucketLoggingInput, ...request.Option) (*s3.PutBucketLoggingOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketProtectionConfiguration-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketProtectionConfiguration-instance_method" title="s3iface.S3API.PutBucketProtectionConfiguration() (method)">PutBucketProtectionConfiguration</a></span></strong>(*<span class='object_link'><a href="../PutBucketProtectionConfigurationInput.html" title="s3.PutBucketProtectionConfigurationInput (struct)">s3.PutBucketProtectionConfigurationInput</a></span>) (*<span class='object_link'><a href="../../s3.html#type-PutBucketProtectionConfigurationOutput" title="s3 (package)">s3.PutBucketProtectionConfigurationOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+206</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 206</span>
+
+<div class="hljs">PutBucketProtectionConfiguration(*s3.PutBucketProtectionConfigurationInput) (*s3.PutBucketProtectionConfigurationOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketProtectionConfigurationRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketProtectionConfigurationRequest-instance_method" title="s3iface.S3API.PutBucketProtectionConfigurationRequest() (method)">PutBucketProtectionConfigurationRequest</a></span></strong>(*<span class='object_link'><a href="../PutBucketProtectionConfigurationInput.html" title="s3.PutBucketProtectionConfigurationInput (struct)">s3.PutBucketProtectionConfigurationInput</a></span>) (*request.Request, *<span class='object_link'><a href="../../s3.html#type-PutBucketProtectionConfigurationOutput" title="s3 (package)">s3.PutBucketProtectionConfigurationOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+208</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 208</span>
+
+<div class="hljs">PutBucketProtectionConfigurationRequest(*s3.PutBucketProtectionConfigurationInput) (*request.Request, *s3.PutBucketProtectionConfigurationOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="PutBucketProtectionConfigurationWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#PutBucketProtectionConfigurationWithContext-instance_method" title="s3iface.S3API.PutBucketProtectionConfigurationWithContext() (method)">PutBucketProtectionConfigurationWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../PutBucketProtectionConfigurationInput.html" title="s3.PutBucketProtectionConfigurationInput (struct)">s3.PutBucketProtectionConfigurationInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../../s3.html#type-PutBucketProtectionConfigurationOutput" title="s3 (package)">s3.PutBucketProtectionConfigurationOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+207</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 207</span>
+
+<div class="hljs">PutBucketProtectionConfigurationWithContext(aws.Context, *s3.PutBucketProtectionConfigurationInput, ...request.Option) (*s3.PutBucketProtectionConfigurationOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
   </tr>
 </table>
@@ -6136,10 +7632,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6153,10 +7647,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-174</pre>
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 174</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 210</span>
 
 <div class="hljs">PutObject(*s3.PutObjectInput) (*s3.PutObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -6178,10 +7672,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6195,10 +7687,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-178</pre>
+214</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 178</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 214</span>
 
 <div class="hljs">PutObjectAcl(*s3.PutObjectAclInput) (*s3.PutObjectAclOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -6220,10 +7712,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6237,10 +7727,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-180</pre>
+216</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 180</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 216</span>
 
 <div class="hljs">PutObjectAclRequest(*s3.PutObjectAclInput) (*request.Request, *s3.PutObjectAclOutput)</div></pre>
     </td>
@@ -6262,10 +7752,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6279,10 +7767,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-179</pre>
+215</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 179</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 215</span>
 
 <div class="hljs">PutObjectAclWithContext(aws.Context, *s3.PutObjectAclInput, ...request.Option) (*s3.PutObjectAclOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -6304,10 +7792,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6321,10 +7807,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-176</pre>
+212</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 176</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 212</span>
 
 <div class="hljs">PutObjectRequest(*s3.PutObjectInput) (*request.Request, *s3.PutObjectOutput)</div></pre>
     </td>
@@ -6346,10 +7832,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6363,12 +7847,132 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-175</pre>
+211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 175</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 211</span>
 
 <div class="hljs">PutObjectWithContext(aws.Context, *s3.PutObjectInput, ...request.Option) (*s3.PutObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="RestoreObject-instance_method">
+  
+    <strong><span class='object_link'><a href="#RestoreObject-instance_method" title="s3iface.S3API.RestoreObject() (method)">RestoreObject</a></span></strong>(*<span class='object_link'><a href="../RestoreObjectInput.html" title="s3.RestoreObjectInput (struct)">s3.RestoreObjectInput</a></span>) (*<span class='object_link'><a href="../../s3.html#type-RestoreObjectOutput" title="s3 (package)">s3.RestoreObjectOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+218</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 218</span>
+
+<div class="hljs">RestoreObject(*s3.RestoreObjectInput) (*s3.RestoreObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="RestoreObjectRequest-instance_method">
+  
+    <strong><span class='object_link'><a href="#RestoreObjectRequest-instance_method" title="s3iface.S3API.RestoreObjectRequest() (method)">RestoreObjectRequest</a></span></strong>(*<span class='object_link'><a href="../RestoreObjectInput.html" title="s3.RestoreObjectInput (struct)">s3.RestoreObjectInput</a></span>) (*request.Request, *<span class='object_link'><a href="../../s3.html#type-RestoreObjectOutput" title="s3 (package)">s3.RestoreObjectOutput</a></span>)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+220</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 220</span>
+
+<div class="hljs">RestoreObjectRequest(*s3.RestoreObjectInput) (*request.Request, *s3.RestoreObjectOutput)</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="RestoreObjectWithContext-instance_method">
+  
+    <strong><span class='object_link'><a href="#RestoreObjectWithContext-instance_method" title="s3iface.S3API.RestoreObjectWithContext() (method)">RestoreObjectWithContext</a></span></strong>(<span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, *<span class='object_link'><a href="../RestoreObjectInput.html" title="s3.RestoreObjectInput (struct)">s3.RestoreObjectInput</a></span>, ...request.Option) (*<span class='object_link'><a href="../../s3.html#type-RestoreObjectOutput" title="s3 (package)">s3.RestoreObjectOutput</a></span>, error)
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This method is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+219</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 219</span>
+
+<div class="hljs">RestoreObjectWithContext(aws.Context, *s3.RestoreObjectInput, ...request.Option) (*s3.RestoreObjectOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
   </tr>
 </table>
@@ -6388,10 +7992,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6405,10 +8007,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-182</pre>
+222</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 182</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 222</span>
 
 <div class="hljs">UploadPart(*s3.UploadPartInput) (*s3.UploadPartOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -6430,10 +8032,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6447,10 +8047,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-186</pre>
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 186</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 226</span>
 
 <div class="hljs">UploadPartCopy(*s3.UploadPartCopyInput) (*s3.UploadPartCopyOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -6472,10 +8072,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6489,10 +8087,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-188</pre>
+228</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 188</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 228</span>
 
 <div class="hljs">UploadPartCopyRequest(*s3.UploadPartCopyInput) (*request.Request, *s3.UploadPartCopyOutput)</div></pre>
     </td>
@@ -6514,10 +8112,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6531,10 +8127,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-187</pre>
+227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 187</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 227</span>
 
 <div class="hljs">UploadPartCopyWithContext(aws.Context, *s3.UploadPartCopyInput, ...request.Option) (*s3.UploadPartCopyOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -6556,10 +8152,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6573,10 +8167,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-184</pre>
+224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 184</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 224</span>
 
 <div class="hljs">UploadPartRequest(*s3.UploadPartInput) (*request.Request, *s3.UploadPartOutput)</div></pre>
     </td>
@@ -6598,10 +8192,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6615,10 +8207,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-183</pre>
+223</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 183</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 223</span>
 
 <div class="hljs">UploadPartWithContext(aws.Context, *s3.UploadPartInput, ...request.Option) (*s3.UploadPartOutput, <span class="hljs-constant">error</span>)</div></pre>
     </td>
@@ -6640,10 +8232,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6657,10 +8247,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-190</pre>
+230</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 190</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 230</span>
 
 <div class="hljs">WaitUntilBucketExists(*s3.HeadBucketInput) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -6682,10 +8272,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6699,10 +8287,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-191</pre>
+231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 191</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 231</span>
 
 <div class="hljs">WaitUntilBucketExistsWithContext(aws.Context, *s3.HeadBucketInput, ...request.WaiterOption) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -6724,10 +8312,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6741,10 +8327,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-193</pre>
+233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 193</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 233</span>
 
 <div class="hljs">WaitUntilBucketNotExists(*s3.HeadBucketInput) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -6766,10 +8352,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6783,10 +8367,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-194</pre>
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 194</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 234</span>
 
 <div class="hljs">WaitUntilBucketNotExistsWithContext(aws.Context, *s3.HeadBucketInput, ...request.WaiterOption) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -6808,10 +8392,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6825,10 +8407,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-196</pre>
+236</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 196</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 236</span>
 
 <div class="hljs">WaitUntilObjectExists(*s3.HeadObjectInput) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -6850,10 +8432,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6867,10 +8447,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-197</pre>
+237</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 197</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 237</span>
 
 <div class="hljs">WaitUntilObjectExistsWithContext(aws.Context, *s3.HeadObjectInput, ...request.WaiterOption) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -6892,10 +8472,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6909,10 +8487,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-199</pre>
+239</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 199</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 239</span>
 
 <div class="hljs">WaitUntilObjectNotExists(*s3.HeadObjectInput) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -6934,10 +8512,8 @@ tooling to generate mocks to satisfy the interfaces.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-
 
 
   </div>
@@ -6951,10 +8527,10 @@ tooling to generate mocks to satisfy the interfaces.</p>
       <pre class="lines">
 
 
-200</pre>
+240</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 200</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3iface/interface.go', line 240</span>
 
 <div class="hljs">WaitUntilObjectNotExistsWithContext(aws.Context, *s3.HeadObjectInput, ...request.WaiterOption) <span class="hljs-constant">error</span></div></pre>
     </td>
@@ -6969,9 +8545,9 @@ tooling to generate mocks to satisfy the interfaces.</p>
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:29:03 2019 by
+  Generated on Fri Sep  6 19:53:58 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

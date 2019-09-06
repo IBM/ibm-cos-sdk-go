@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "aws/endpoints.ResolverFunc";
   relpath = '../../';
 </script>
@@ -71,11 +71,13 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/endpoints"
+import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-cos-sdk-go/aws/endpoints"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>EndpointFor wraps the ResolverFunc function to satisfy the Resolver interface.</p>
+    
+<p>EndpointFor wraps the ResolverFunc function to satisfy the Resolver
+interface.</p>
 
 
   </div>
@@ -110,17 +112,7 @@ s3Svc := s3.New(sess)
 s3Svc.GetObject(&s3.GetObjectInput{
 	Bucket: aws.String(<span class="hljs-string">"myBucket"</span>),
 	Key:    aws.String(<span class="hljs-string">"myObjectKey"</span>),
-})
-
-<span class="hljs-comment">//// Create the SQS service client with the shared session. This will</span>
-<span class="hljs-comment">//// fallback to the default endpoint resolver because the customization</span>
-<span class="hljs-comment">//// passes any non S3 service endpoint resolve to the default resolver.</span>
-<span class="hljs-comment">//sqsSvc := sqs.New(sess)</span>
-<span class="hljs-comment">//// Operation calls will be made to the default endpoint for SQS for the</span>
-<span class="hljs-comment">//// region configured.</span>
-<span class="hljs-comment">//sqsSvc.ReceiveMessage(&sqs.ReceiveMessageInput{</span>
-<span class="hljs-comment">//	QueueUrl: aws.String("my-queue-url"),</span>
-<span class="hljs-comment">//})</span></div></code></pre>
+})</div></code></pre>
     
   </div>
 
@@ -168,8 +160,7 @@ s3Svc.GetObject(&s3.GetObjectInput{
   
 
   
-    <span class="summary_desc"><div class='inline'>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -223,9 +214,9 @@ s3Svc.GetObject(&s3.GetObjectInput{
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:28:54 2019 by
+  Generated on Fri Sep  6 19:52:57 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

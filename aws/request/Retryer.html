@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "aws/request.Retryer";
   relpath = '../../';
 </script>
@@ -71,13 +71,18 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/request"
+import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-cos-sdk-go/aws/request"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Retryer is an interface to control retry logic for a given service.
-The default implementation used by most services is the client.DefaultRetryer
-structure, which contains basic retry logic using exponential backoff.</p>
+    
+<p>Retryer provides the interface drive the SDK&#39;s request retry behavior.
+The Retryer implementation is responsible for implementing exponential
+backoff, and determine if a request API error should be retried.</p>
+
+<p>client.DefaultRetryer is the SDK&#39;s default implementation of the
+Retryer. It uses the which uses the Request.IsErrorRetryable and
+Request.IsErrorThrottle methods to determine if the request is retried.</p>
 
 
   </div>
@@ -127,6 +132,7 @@ structure, which contains basic retry logic using exponential backoff.</p>
 
   
     <span class="summary_desc"><div class='inline'>
+<p>MaxRetries is the number of times a request may be retried before failing.</p>
 </div></span>
   
 </li>
@@ -151,6 +157,8 @@ structure, which contains basic retry logic using exponential backoff.</p>
 
   
     <span class="summary_desc"><div class='inline'>
+<p>RetryRules return the retry delay that should be used by the SDK before
+making another request attempt for the failed request.</p>
 </div></span>
   
 </li>
@@ -175,6 +183,7 @@ structure, which contains basic retry logic using exponential backoff.</p>
 
   
     <span class="summary_desc"><div class='inline'>
+<p>ShouldRetry returns if the failed request is retryable.</p>
 </div></span>
   
 </li>
@@ -204,10 +213,10 @@ structure, which contains basic retry logic using exponential backoff.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
-</div>
+  <div class='inline'></div>
 </div>
 
+<p>MaxRetries is the number of times a request may be retried before failing.</p>
 
 
   </div>
@@ -221,10 +230,10 @@ structure, which contains basic retry logic using exponential backoff.</p>
       <pre class="lines">
 
 
-15</pre>
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 15</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 33</span>
 
 <div class="hljs">MaxRetries() <span class="hljs-constant">int</span></div></pre>
     </td>
@@ -246,10 +255,11 @@ structure, which contains basic retry logic using exponential backoff.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
-</div>
+  <div class='inline'></div>
 </div>
 
+<p>RetryRules return the retry delay that should be used by the SDK before
+making another request attempt for the failed request.</p>
 
 
   </div>
@@ -263,10 +273,10 @@ structure, which contains basic retry logic using exponential backoff.</p>
       <pre class="lines">
 
 
-13</pre>
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 13</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 22</span>
 
 <div class="hljs">RetryRules(*Request) time.Duration</div></pre>
     </td>
@@ -288,10 +298,14 @@ structure, which contains basic retry logic using exponential backoff.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
-</div>
+  <div class='inline'></div>
 </div>
 
+<p>ShouldRetry returns if the failed request is retryable.</p>
+
+<p>Implementations may consider request attempt count when determining if a
+request is retryable, but the SDK will use MaxRetries to limit the number
+of attempts a request are made.</p>
 
 
   </div>
@@ -305,10 +319,10 @@ structure, which contains basic retry logic using exponential backoff.</p>
       <pre class="lines">
 
 
-14</pre>
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 14</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 29</span>
 
 <div class="hljs">ShouldRetry(*Request) <span class="hljs-constant">bool</span></div></pre>
     </td>
@@ -323,9 +337,9 @@ structure, which contains basic retry logic using exponential backoff.</p>
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:29:02 2019 by
+  Generated on Fri Sep  6 19:53:56 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

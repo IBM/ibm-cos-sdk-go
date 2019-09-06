@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "README";
   relpath = '';
 </script>
@@ -63,132 +63,184 @@
 
       <div id="content">
         <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
-        <div id='filecontents'><h1>IBM Cloud Object Storage - Go SDK</h1>
+        <div id='filecontents'>
+<h1 id="label-IBM+Cloud+Object+Storage+-+Go+SDK">IBM Cloud Object Storage - Go SDK</h1>
 
-<p>This package allows Go developers to write software that interacts with <a href="https://www.ibm.com/cloud/object-storage">IBM
-Cloud Object Storage</a>.  It is a fork of the <a href="https://github.com/aws/aws-sdk-go"><code>AWS SDK for Go</code></a> library and can stand as a drop-in replacement if the application needs to connect to object storage using an S3-like API and does not make use of other AWS services.</p>
+<p>This package allows Go developers to write software that interacts with <a
+href="https://www.ibm.com/cloud/object-storage">IBM Cloud Object
+Storage</a>. It is a fork of the <a
+href="https://github.com/aws/aws-sdk-go">AWS SDK for Go</a> library and can
+stand as a drop-in replacement if the application needs to connect to
+object storage using an S3-like API and does not make use of other AWS
+services.</p>
 
-<h2>Documentation</h2>
-
-<ul>
-<li><a href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started">Core documentation for IBM COS</a></li>
-<li><a href="https://ibm.github.io/ibm-cos-sdk-go">Go API reference documentation</a></li>
-<li><a href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api">REST API reference documentation</a></li>
-</ul>
-
+<h2 id="label-Documentation">Documentation</h2>
+<ul><li>
+<p><a
+href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started">Core
+documentation for IBM COS</a></p>
+</li><li>
+<p><a href="https://ibm.github.io/ibm-cos-sdk-go">Go API reference
+documentation</a></p>
+</li><li>
+<p><a
+href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api">REST
+API reference documentation</a></p>
+</li></ul>
 
 <p>For release notes, see the <a href="CHANGELOG.rst">CHANGELOG</a>.</p>
+<ul><li>
+<p><a href="#getting-the-sdk">Getting the SDK</a></p>
+</li><li>
+<p><a href="#example-code">Example code</a></p>
+</li><li>
+<p><a href="#getting-help">Getting help</a></p>
+</li></ul>
 
-<ul>
-<li><a href="#getting-the-sdk">Getting the SDK</a></li>
-<li><a href="#example-code">Example code</a></li>
-<li><a href="#getting-help">Getting help</a></li>
-</ul>
+<h2 id="label-Quick+start">Quick start</h2>
 
+<p>You&#39;ll need:  * An instance of COS.  * An API key from <a
+href="https://cloud.ibm.com/docs/iam?topic=iam-userroles#userroles">IBM
+Cloud Identity and Access Management</a> with at least <code>Writer</code>
+permissions.  * The ID of the instance of COS that you are working with.  *
+Token acquisition endpoint  * Service endpoint</p>
 
-<h2>Quick start</h2>
+<p>These values can be found in the IBM Cloud Console by <a
+href="https://cloud.ibm.com/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials#service-credentials">generating
+a ‘service credential’</a>.</p>
 
-<p>You'll need:
-  * An instance of COS.
-  * An API key from <a href="https://cloud.ibm.com/docs/iam?topic=iam-userroles#userroles">IBM Cloud Identity and Access Management</a> with at least <code>Writer</code> permissions.
-  * The ID of the instance of COS that you are working with.
-  * Token acquisition endpoint
-  * Service endpoint</p>
+<h2 id="label-Archive+Tier+Support">Archive Tier Support</h2>
 
-<p>These values can be found in the IBM Cloud Console by <a href="https://cloud.ibm.com/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials#service-credentials">generating a 'service credential'</a>.</p>
+<p>You can automatically archive objects after a specified length of time or
+after a specified date. Once archived, a temporary copy of an object can be
+restored for access as needed. Restore time may take up to 15 hours.</p>
 
-<h2>Getting the SDK</h2>
+<p>An archive policy is set at the bucket level by calling the
+<code>PutBucketLifecycleConfiguration</code> method on a client instance. A
+newly added or modified archive policy applies to new objects uploaded and
+does not affect existing objects. For more detail, see the <a
+href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go">documentation</a>.</p>
 
-<p>Use go get to retrieve the SDK to add it to your GOPATH workspace, or project's Go module dependencies.  The SDK requires a minimum version of Go 1.10.</p>
+<h2 id="label-Immutable+Object+Storage">Immutable Object Storage</h2>
 
-<pre class="code sh"><code class="sh">go get github.com/IBM/ibm-cos-sdk-go
+<p>Users can configure buckets with an Immutable Object Storage policy to
+prevent objects from being modified or deleted for a defined period of
+time. The retention period can be specified on a per-object basis, or
+objects can inherit a default retention period set on the bucket. It is
+also possible to set open-ended and permanent retention periods. Immutable
+Object Storage meets the rules set forth by the SEC governing record
+retention, and IBM Cloud administrators are unable to bypass these
+restrictions. For more detail, see the <a
+href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go">IBM
+Cloud documentation</a>.</p>
+
+<p>Note: Immutable Object Storage does not support Aspera transfers via the
+SDK to upload objects or directories at this stage.</p>
+
+<h2 id="label-Getting+the+SDK">Getting the SDK</h2>
+
+<p>Use go get to retrieve the SDK to add it to your GOPATH workspace, or
+project&#39;s Go module dependencies. The SDK requires a minimum version of
+Go 1.10.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_go'>go</span> <span class='id identifier rubyid_get'>get</span> <span class='id identifier rubyid_github'>github</span><span class='period'>.</span><span class='id identifier rubyid_com'>com</span><span class='op'>/</span><span class='const'>IBM</span><span class='op'>/</span><span class='id identifier rubyid_ibm'>ibm</span><span class='op'>-</span><span class='id identifier rubyid_cos'>cos</span><span class='op'>-</span><span class='id identifier rubyid_sdk'>sdk</span><span class='op'>-</span><span class='id identifier rubyid_go'>go</span>
 </code></pre>
 
 <p>To update the SDK use go get -u to retrieve the latest version of the SDK..</p>
 
-<pre class="code sh"><code class="sh">go get -u github.com/IBM/ibm-cos-sdk-go
-</code></pre>
+<pre class="code ruby"><code class="ruby">go get -u github.com/IBM/ibm-cos-sdk-go</code></pre>
 
-<h2>Example code</h2>
+<h2 id="label-Example+code">Example code</h2>
 
-<p>Create a file <code>main.go</code>, replacing your own values for API key, instance ID, and bucket name:</p>
+<p>Create a file <code>main.go</code>, replacing your own values for API key,
+instance ID, and bucket name:</p>
 
-<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-keyword">package</span> main
+<pre class="code ruby"><code class="ruby">package main
 
-<span class="hljs-keyword">import</span> (
-    <span class="hljs-string">"fmt"</span>
+import (
+	&quot;fmt&quot;
 
-    <span class="hljs-string">"github.com/IBM/ibm-cos-sdk-go/aws"</span>
-    <span class="hljs-string">"github.com/IBM/ibm-cos-sdk-go/aws/credentials/ibmiam"</span>
-    <span class="hljs-string">"github.com/IBM/ibm-cos-sdk-go/aws/session"</span>
-    <span class="hljs-string">"github.com/IBM/ibm-cos-sdk-go/service/s3"</span>
+	&quot;github.com/IBM/ibm-cos-sdk-go/aws&quot;
+	&quot;github.com/IBM/ibm-cos-sdk-go/aws/credentials/ibmiam&quot;
+	&quot;github.com/IBM/ibm-cos-sdk-go/aws/session&quot;
+	&quot;github.com/IBM/ibm-cos-sdk-go/service/s3&quot;
 )
 
-<span class="hljs-keyword">const</span> (
-    apiKey            = <span class="hljs-string">"<API_KEY>"</span>
-    serviceInstanceID = <span class="hljs-string">"<RESOURCE_INSTANCE_ID>"</span>
-    authEndpo<span class="hljs-constant">int</span>      = <span class="hljs-string">"https://iam.bluemix.net/oidc/token"</span>
-    serviceEndpo<span class="hljs-constant">int</span>   = <span class="hljs-string">"https://s3-api.us-geo.objectstorage.softlayer.net"</span>
+const (
+	apiKey            = &quot;&lt;API_KEY&gt;&quot;
+	serviceInstanceID = &quot;&lt;RESOURCE_INSTANCE_ID&gt;&quot;
+	authEndpoint      = &quot;https://iam.cloud.ibm.com/identity/token&quot;
+	serviceEndpoint   = &quot;https://s3-api.us-geo.objectstorage.softlayer.net&quot;
 )
 
-<span class="hljs-keyword">func</span> main() {
+func main() {
 
-    newBucket := <span class="hljs-string">"new-bucketee"</span>
-    newColdBucket := <span class="hljs-string">"new-cold-bucketee"</span>
+	newBucket := &quot;new-bucketee&quot;
+	newColdBucket := &quot;new-cold-bucketee&quot;
 
-    conf := aws.NewConfig().
-        WithEndpo<span class="hljs-constant">int</span>(serviceEndpo<span class="hljs-constant">int</span>).
-        WithCredentials(ibmiam.NewStaticCredentials(aws.NewConfig(),
-            authEndpo<span class="hljs-constant">int</span>, apiKey, serviceInstanceID)).
-        WithS3ForcePathStyle(<span class="hljs-constant">true</span>)
+	conf := aws.NewConfig().
+		WithEndpoint(serviceEndpoint).
+		WithCredentials(ibmiam.NewStaticCredentials(aws.NewConfig(),
+			authEndpoint, apiKey, serviceInstanceID)).
+		WithS3ForcePathStyle(true)
 
-    sess := session.Must(session.NewSession())
-    client := s3.New(sess, conf)
+	sess := session.Must(session.NewSession())
+	client := s3.New(sess, conf)
 
-    input := &s3.CreateBucketInput{
-        Bucket: aws.String(newBucket),
-    }
-    client.CreateBucket(input)
+	input := &amp;s3.CreateBucketInput{
+		Bucket: aws.String(newBucket),
+	}
+	client.CreateBucket(input)
 
-    input2 := &s3.CreateBucketInput{
-        Bucket: aws.String(newColdBucket),
-        CreateBucketConfiguration: &s3.CreateBucketConfiguration{
-            LocationConstra<span class="hljs-constant">int</span>: aws.String(<span class="hljs-string">"us-cold"</span>),
-        },
-    }
-    client.CreateBucket(input2)
+	input2 := &amp;s3.CreateBucketInput{
+		Bucket: aws.String(newColdBucket),
+		CreateBucketConfiguration: &amp;s3.CreateBucketConfiguration{
+			LocationConstraint: aws.String(&quot;us-cold&quot;),
+		},
+	}
+	client.CreateBucket(input2)
 
-    d, _ := client.ListBuckets(&s3.ListBucketsInput{})
-    fmt.Println(d)
-}
-</div></code></pre>
+	d, _ := client.ListBuckets(&amp;s3.ListBucketsInput{})
+	fmt.Println(d)
+}</code></pre>
 
-<p>From the command line, run <code>go run main.go</code>.  You should see a list of your buckets.</p>
+<p>From the command line, run <code>go run main.go</code>. You should see a
+list of your buckets.</p>
 
-<h2>Getting Help</h2>
+<h2 id="label-Getting+Help">Getting Help</h2>
 
-<p>Feel free to use GitHub issues for tracking bugs and feature requests, but for help please use one of the following resources:</p>
+<p>Feel free to use GitHub issues for tracking bugs and feature requests, but
+for help please use one of the following resources:</p>
+<ul><li>
+<p>Read a quick start guide in <a
+href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go">IBM
+Cloud Docs</a>.</p>
+</li><li>
+<p>Ask a question on <a
+href="https://stackoverflow.com/questions/tagged/object-storage+ibm">Stack
+Overflow</a> and tag it with <code>ibm</code> and
+<code>object-storage</code>.</p>
+</li><li>
+<p>Open a support ticket with <a
+href="https://cloud.ibm.com/unifiedsupport/supportcenter/">IBM Cloud
+Support</a></p>
+</li><li>
+<p>If it turns out that you may have found a bug, please <a
+href="https://github.com/ibm/ibm-cos-sdk-go/issues/new">open an issue</a>.</p>
+</li></ul>
 
-<ul>
-<li>Read a quick start guide in <a href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go">IBM Cloud Docs</a>.</li>
-<li>Ask a question on <a href="https://stackoverflow.com/questions/tagged/object-storage+ibm">Stack Overflow</a> and tag it with <code>ibm</code> and <code>object-storage</code>.</li>
-<li>Open a support ticket with <a href="https://cloud.ibm.com/unifiedsupport/supportcenter/">IBM Cloud Support</a></li>
-<li>If it turns out that you may have found a bug, please <a href="https://github.com/ibm/ibm-cos-sdk-go/issues/new">open an issue</a>.</li>
-</ul>
+<h2 id="label-License">License</h2>
 
-
-<h2>License</h2>
-
-<p>This SDK is distributed under the
-<a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>,
-see LICENSE.txt and NOTICE.txt for more information.</p>
+<p>This SDK is distributed under the <a
+href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version
+2.0</a>, see LICENSE.txt and NOTICE.txt for more information.</p>
 </div>
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:28:53 2019 by
+  Generated on Fri Sep  6 19:52:44 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

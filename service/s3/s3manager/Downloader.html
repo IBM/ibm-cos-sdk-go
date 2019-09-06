@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "service/s3/s3manager.Downloader";
   relpath = '../../../';
 </script>
@@ -71,13 +71,15 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
+import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-cos-sdk-go/service/s3/s3manager"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>The Downloader structure that calls Download(). It is safe to call Download()
-on this structure for multiple objects and across concurrent goroutines.
-Mutating the Downloader's properties is not safe to be done concurrently.</p>
+    
+<p>The Downloader structure that calls Download(). It is safe to call
+Download() on this structure for multiple objects and across concurrent
+goroutines. Mutating the Downloader&#39;s properties is not safe to be done
+concurrently.</p>
 
 
   </div>
@@ -88,7 +90,7 @@ Mutating the Downloader's properties is not safe to be done concurrently.</p>
 </div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="../s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manageriface/DownloaderAPI.html" title="s3manageriface.DownloaderAPI (interface)">s3manageriface.DownloaderAPI</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manageriface/DownloadWithIterator.html" title="s3manageriface.DownloadWithIterator (interface)">s3manageriface.DownloadWithIterator</a></span>, <span class='object_link'><a href="s3manageriface/DownloaderAPI.html" title="s3manageriface.DownloaderAPI (interface)">s3manageriface.DownloaderAPI</a></span></p>
 
 
   
@@ -125,7 +127,8 @@ Mutating the Downloader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The number of goroutines to spin up in parallel when sending parts.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The number of goroutines to spin up in parallel when sending parts.</p>
 </div></span>
   
 </li>
@@ -149,7 +152,9 @@ Mutating the Downloader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The buffer size (in bytes) to use when buffering data into chunks and sending them as parts to S3.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The buffer size (in bytes) to use when buffering data into chunks and
+sending them as parts to S3.</p>
 </div></span>
   
 </li>
@@ -173,7 +178,9 @@ Mutating the Downloader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List of request options that will be passed down to individual API operation requests made by the downloader.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List of request options that will be passed down to individual API
+operation requests made by the downloader.</p>
 </div></span>
   
 </li>
@@ -197,7 +204,8 @@ Mutating the Downloader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>An S3 client to use when performing downloads.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>An S3 client to use when performing downloads.</p>
 </div></span>
   
 </li>
@@ -233,7 +241,9 @@ Mutating the Downloader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Download downloads an object in S3 and writes the payload into w using concurrent GET requests.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Download downloads an object in S3 and writes the payload into w using
+concurrent GET requests.</p>
 </div></span>
   
 </li>
@@ -257,7 +267,9 @@ Mutating the Downloader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>DownloadWithContext downloads an object in S3 and writes the payload into w using concurrent GET requests.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>DownloadWithContext downloads an object in S3 and writes the payload into w
+using concurrent GET requests.</p>
 </div></span>
   
 </li>
@@ -281,7 +293,9 @@ Mutating the Downloader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>DownloadWithIterator will download a batched amount of objects in S3 and writes them to the io.WriterAt specificed in the iterator.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>DownloadWithIterator will download a batched amount of objects in S3 and
+writes them to the io.WriterAt specificed in the iterator.</p>
 </div></span>
   
 </li>
@@ -305,8 +319,9 @@ Mutating the Downloader's properties is not safe to be done concurrently.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>The number of goroutines to spin up in parallel when sending parts.
-If this is set to zero, the DefaultDownloadConcurrency value will be used.</p>
+    
+<p>The number of goroutines to spin up in parallel when sending parts. If this
+is set to zero, the DefaultDownloadConcurrency value will be used.</p>
 
 <p>Concurrency of 1 will download the parts sequentially.</p>
 
@@ -328,9 +343,10 @@ If this is set to zero, the DefaultDownloadConcurrency value will be used.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>The buffer size (in bytes) to use when buffering data into chunks and
-sending them as parts to S3. The minimum allowed part size is 5MB, and
-if this value is set to zero, the DefaultDownloadPartSize value will be used.</p>
+    
+<p>The buffer size (in bytes) to use when buffering data into chunks and
+sending them as parts to S3. The minimum allowed part size is 5MB, and if
+this value is set to zero, the DefaultDownloadPartSize value will be used.</p>
 
 <p>PartSize is ignored if the Range input parameter is provided.</p>
 
@@ -350,7 +366,8 @@ if this value is set to zero, the DefaultDownloadPartSize value will be used.</p
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>List of request options that will be passed down to individual API
+    
+<p>List of request options that will be passed down to individual API
 operation requests made by the downloader.</p>
 
 
@@ -369,7 +386,8 @@ operation requests made by the downloader.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>An S3 client to use when performing downloads.</p>
+    
+<p>An S3 client to use when performing downloads.</p>
 
 
   </div>
@@ -398,12 +416,15 @@ operation requests made by the downloader.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Download downloads an object in S3 and writes the payload into w using
-concurrent GET requests.</p>
+    
+<p>Download downloads an object in S3 and writes the payload into w using
+concurrent GET requests. The n int64 returned is the size of the object
+downloaded in bytes.</p>
 
 <p>Additional functional options can be provided to configure the individual
-download. These options are copies of the Downloader instance Download is called from.
-Modifying the options will not impact the original Downloader instance.</p>
+download. These options are copies of the Downloader instance Download is
+called from. Modifying the options will not impact the original Downloader
+instance.</p>
 
 <p>It is safe to call this method concurrently across goroutines.</p>
 
@@ -413,9 +434,10 @@ downloads, or in memory []byte wrapper using aws.WriteAtBuffer.</p>
 <p>Specifying a Downloader.Concurrency of 1 will cause the Downloader to
 download the parts from S3 sequentially.</p>
 
-<p>If the GetObjectInput's Range value is provided that will cause the downloader
-to perform a single GetObjectInput request for that object's range. This will
-caused the part size, and concurrency configurations to be ignored.</p>
+<p>If the GetObjectInput&#39;s Range value is provided that will cause the
+downloader to perform a single GetObjectInput request for that object&#39;s
+range. This will caused the part size, and concurrency configurations to be
+ignored.</p>
 
 
   </div>
@@ -429,12 +451,12 @@ caused the part size, and concurrency configurations to be ignored.</p>
       <pre class="lines">
 
 
-145
 146
-147</pre>
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 145</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 146</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) Download(w io.WriterAt, input *s3.GetObjectInput, options ...<span class="hljs-keyword">func</span>(*Downloader)) (n <span class="hljs-constant">int64</span>, err <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">return</span> d.DownloadWithContext(aws.BackgroundContext(), w, input, options...)
@@ -456,8 +478,10 @@ caused the part size, and concurrency configurations to be ignored.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>DownloadWithContext downloads an object in S3 and writes the payload into w
-using concurrent GET requests.</p>
+    
+<p>DownloadWithContext downloads an object in S3 and writes the payload into w
+using concurrent GET requests. The n int64 returned is the size of the
+object downloaded in bytes.</p>
 
 <p>DownloadWithContext is the same as Download with the additional support for
 Context input parameters. The Context must not be nil. A nil Context will
@@ -468,8 +492,9 @@ requests.</p>
 <p>Additional functional options can be provided to configure the individual
 download. These options are copies of the Downloader instance Download is
 called from. Modifying the options will not impact the original Downloader
-instance. Use the WithDownloaderRequestOptions helper function to pass in request
-options that will be applied to all API operations made with this downloader.</p>
+instance. Use the WithDownloaderRequestOptions helper function to pass in
+request options that will be applied to all API operations made with this
+downloader.</p>
 
 <p>The w io.WriterAt can be satisfied by an os.File to do multipart concurrent
 downloads, or in memory []byte wrapper using aws.WriteAtBuffer.</p>
@@ -479,9 +504,10 @@ download the parts from S3 sequentially.</p>
 
 <p>It is safe to call this method concurrently across goroutines.</p>
 
-<p>If the GetObjectInput's Range value is provided that will cause the downloader
-to perform a single GetObjectInput request for that object's range. This will
-caused the part size, and concurrency configurations to be ignored.</p>
+<p>If the GetObjectInput&#39;s Range value is provided that will cause the
+downloader to perform a single GetObjectInput request for that object&#39;s
+range. This will caused the part size, and concurrency configurations to be
+ignored.</p>
 
 
   </div>
@@ -495,8 +521,6 @@ caused the part size, and concurrency configurations to be ignored.</p>
       <pre class="lines">
 
 
-175
-176
 177
 178
 179
@@ -517,10 +541,12 @@ caused the part size, and concurrency configurations to be ignored.</p>
 194
 195
 196
-197</pre>
+197
+198
+199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 175</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 177</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) DownloadWithContext(ctx aws.Context, w io.WriterAt, input *s3.GetObjectInput, options ...<span class="hljs-keyword">func</span>(*Downloader)) (n <span class="hljs-constant">int64</span>, err <span class="hljs-constant">error</span>) {
 	impl := downloader{w: w, in: input, cfg: d, ctx: ctx}
@@ -562,44 +588,43 @@ caused the part size, and concurrency configurations to be ignored.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>DownloadWithIterator will download a batched amount of objects in S3 and writes them
-to the io.WriterAt specificed in the iterator.</p>
+    
+<p>DownloadWithIterator will download a batched amount of objects in S3 and
+writes them to the io.WriterAt specificed in the iterator.</p>
 
-<p>Example:
-    svc := s3manager.NewDownloader(session)</p>
+<p>Example:  svc := s3manager.NewDownloader(session)</p>
 
 <pre class="code go"><code class="go"><div class="hljs">fooFile, err := os.Open(<span class="hljs-string">"/tmp/foo.file"</span>)
 <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
-    <span class="hljs-keyword">return</span> err
+	<span class="hljs-keyword">return</span> err
 }
 
 barFile, err := os.Open(<span class="hljs-string">"/tmp/bar.file"</span>)
 <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
-    <span class="hljs-keyword">return</span> err
+	<span class="hljs-keyword">return</span> err
 }
 
 objects := []s3manager.BatchDownloadObject {
-    {
-        Object: &s3.GetObjectInput {
-            Bucket: aws.String(<span class="hljs-string">"bucket"</span>),
-            Key: aws.String(<span class="hljs-string">"foo"</span>),
-        },
-        Writer: fooFile,
-    },
-    {
-        Object: &s3.GetObjectInput {
-            Bucket: aws.String(<span class="hljs-string">"bucket"</span>),
-            Key: aws.String(<span class="hljs-string">"bar"</span>),
-        },
-        Writer: barFile,
-    },
+	{
+		Object: &s3.GetObjectInput {
+			Bucket: aws.String(<span class="hljs-string">"bucket"</span>),
+			Key: aws.String(<span class="hljs-string">"foo"</span>),
+		},
+		Writer: fooFile,
+	},
+	{
+		Object: &s3.GetObjectInput {
+			Bucket: aws.String(<span class="hljs-string">"bucket"</span>),
+			Key: aws.String(<span class="hljs-string">"bar"</span>),
+		},
+		Writer: barFile,
+	},
 }
 
 iter := &s3manager.DownloadObjectsIterator{Objects: objects}
 <span class="hljs-keyword">if</span> err := svc.DownloadWithIterator(aws.BackgroundContext(), iter); err != <span class="hljs-constant">nil</span> {
-    <span class="hljs-keyword">return</span> err
-}
-</div></code></pre>
+	<span class="hljs-keyword">return</span> err
+}</div></code></pre>
 
 
   </div>
@@ -613,8 +638,6 @@ iter := &s3manager.DownloadObjectsIterator{Objects: objects}
       <pre class="lines">
 
 
-236
-237
 238
 239
 240
@@ -634,10 +657,12 @@ iter := &s3manager.DownloadObjectsIterator{Objects: objects}
 254
 255
 256
-257</pre>
+257
+258
+259</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 236</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 238</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) DownloadWithIterator(ctx aws.Context, iter BatchDownloadIterator, opts ...<span class="hljs-keyword">func</span>(*Downloader)) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">var</span> errs []Error
@@ -673,9 +698,9 @@ iter := &s3manager.DownloadObjectsIterator{Objects: objects}
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:29:02 2019 by
+  Generated on Fri Sep  6 19:53:55 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

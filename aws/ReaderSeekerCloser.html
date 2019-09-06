@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "aws.ReaderSeekerCloser";
   relpath = '../';
 </script>
@@ -71,11 +71,12 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws"
+import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-cos-sdk-go/aws"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>ReaderSeekerCloser represents a reader that can also delegate io.Seeker and
+    
+<p>ReaderSeekerCloser represents a reader that can also delegate io.Seeker and
 io.Closer interfaces to the underlying object if they are available.</p>
 
 
@@ -127,7 +128,8 @@ io.Closer interfaces to the underlying object if they are available.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Close closes the ReaderSeekerCloser.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Close closes the ReaderSeekerCloser.</p>
 </div></span>
   
 </li>
@@ -151,7 +153,8 @@ io.Closer interfaces to the underlying object if they are available.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>GetLen returns the length of the bytes remaining in the underlying reader.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>GetLen returns the length of the bytes remaining in the underlying reader.</p>
 </div></span>
   
 </li>
@@ -175,7 +178,9 @@ io.Closer interfaces to the underlying object if they are available.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>HasLen returns the length of the underlying reader if the value implements the Len() int method.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>HasLen returns the length of the underlying reader if the value implements
+the Len() int method.</p>
 </div></span>
   
 </li>
@@ -199,7 +204,8 @@ io.Closer interfaces to the underlying object if they are available.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>IsSeeker returns if the underlying reader is also a seeker.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>IsSeeker returns if the underlying reader is also a seeker.</p>
 </div></span>
   
 </li>
@@ -223,7 +229,8 @@ io.Closer interfaces to the underlying object if they are available.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Read reads from the reader up to size of p.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Read reads from the reader up to size of p.</p>
 </div></span>
   
 </li>
@@ -247,7 +254,10 @@ io.Closer interfaces to the underlying object if they are available.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Seek sets the offset for the next Read to offset, interpreted according to whence: 0 means relative to the origin of the file, 1 means relative to the current offset, and 2 means relative to the end.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Seek sets the offset for the next Read to offset, interpreted according to
+whence: 0 means relative to the origin of the file, 1 means relative to the
+current offset, and 2 means relative to the end.</p>
 </div></span>
   
 </li>
@@ -276,7 +286,8 @@ io.Closer interfaces to the underlying object if they are available.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Close closes the ReaderSeekerCloser.</p>
+    
+<p>Close closes the ReaderSeekerCloser.</p>
 
 <p>If the ReaderSeekerCloser is not an io.Closer nothing will be done.</p>
 
@@ -292,16 +303,16 @@ io.Closer interfaces to the underlying object if they are available.</p>
       <pre class="lines">
 
 
-144
-145
-146
-147
-148
-149
-150</pre>
+150
+151
+152
+153
+154
+155
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 144</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 150</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r ReaderSeekerCloser) Close() <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">switch</span> t := r.r.(<span class="hljs-keyword">type</span>) {
@@ -327,7 +338,8 @@ io.Closer interfaces to the underlying object if they are available.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>GetLen returns the length of the bytes remaining in the underlying reader.
+    
+<p>GetLen returns the length of the bytes remaining in the underlying reader.
 Checks first for Len(), then io.Seeker to determine the size of the
 underlying reader.</p>
 
@@ -345,20 +357,20 @@ underlying reader.</p>
       <pre class="lines">
 
 
-95
-96
-97
-98
-99
-100
 101
 102
 103
 104
-105</pre>
+105
+106
+107
+108
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 95</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 101</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r ReaderSeekerCloser) GetLen() (<span class="hljs-constant">int64</span>, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">if</span> l, ok := r.HasLen(); ok {
@@ -388,7 +400,8 @@ underlying reader.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>HasLen returns the length of the underlying reader if the value implements
+    
+<p>HasLen returns the length of the underlying reader if the value implements
 the Len() int method.</p>
 
 
@@ -403,20 +416,20 @@ the Len() int method.</p>
       <pre class="lines">
 
 
-78
-79
-80
-81
-82
-83
 84
 85
 86
 87
-88</pre>
+88
+89
+90
+91
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 78</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 84</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r ReaderSeekerCloser) HasLen() (<span class="hljs-constant">int</span>, <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">type</span> lenner <span class="hljs-keyword">interface</span> {
@@ -446,7 +459,8 @@ the Len() int method.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>IsSeeker returns if the underlying reader is also a seeker.</p>
+    
+<p>IsSeeker returns if the underlying reader is also a seeker.</p>
 
 
   </div>
@@ -460,13 +474,13 @@ the Len() int method.</p>
       <pre class="lines">
 
 
-71
-72
-73
-74</pre>
+77
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 71</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 77</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r ReaderSeekerCloser) IsSeeker() <span class="hljs-constant">bool</span> {
 	_, ok := r.r.(io.Seeker)
@@ -489,10 +503,12 @@ the Len() int method.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Read reads from the reader up to size of p. The number of bytes read, and
+    
+<p>Read reads from the reader up to size of p. The number of bytes read, and
 error if it occurred will be returned.</p>
 
-<p>If the reader is not an io.Reader zero bytes read, and nil error will be returned.</p>
+<p>If the reader is not an io.Reader zero bytes read, and nil error will be
+returned.</p>
 
 <p>Performs the same functionality as io.Reader Read</p>
 
@@ -508,16 +524,16 @@ error if it occurred will be returned.</p>
       <pre class="lines">
 
 
-48
-49
-50
-51
-52
-53
-54</pre>
+54
+55
+56
+57
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 48</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 54</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r ReaderSeekerCloser) Read(p []byte) (<span class="hljs-constant">int</span>, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">switch</span> t := r.r.(<span class="hljs-keyword">type</span>) {
@@ -543,10 +559,11 @@ error if it occurred will be returned.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Seek sets the offset for the next Read to offset, interpreted according to
+    
+<p>Seek sets the offset for the next Read to offset, interpreted according to
 whence: 0 means relative to the origin of the file, 1 means relative to the
-current offset, and 2 means relative to the end. Seek returns the new offset
-and an error, if any.</p>
+current offset, and 2 means relative to the end. Seek returns the new
+offset and an error, if any.</p>
 
 <p>If the ReaderSeekerCloser is not an io.Seeker nothing will be done.</p>
 
@@ -562,16 +579,16 @@ and an error, if any.</p>
       <pre class="lines">
 
 
-62
-63
-64
-65
-66
-67
-68</pre>
+68
+69
+70
+71
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 62</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 68</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r ReaderSeekerCloser) Seek(offset <span class="hljs-constant">int64</span>, whence <span class="hljs-constant">int</span>) (<span class="hljs-constant">int64</span>, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">switch</span> t := r.r.(<span class="hljs-keyword">type</span>) {
@@ -592,9 +609,9 @@ and an error, if any.</p>
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:28:54 2019 by
+  Generated on Fri Sep  6 19:52:54 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

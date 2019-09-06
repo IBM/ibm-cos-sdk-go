@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "aws/awserr.RequestFailure";
   relpath = '../../';
 </script>
@@ -71,14 +71,15 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/aws/awserr"
+import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-cos-sdk-go/aws/awserr"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>A RequestFailure is an interface to extract request failure information from
-an Error such as the request ID of the failed request returned by a service.
-RequestFailures may not always have a requestID value if the request failed
-prior to reaching the service such as a connection error.</p>
+    
+<p>A RequestFailure is an interface to extract request failure information
+from an Error such as the request ID of the failed request returned by a
+service. RequestFailures may not always have a requestID value if the
+request failed prior to reaching the service such as a connection error.</p>
 
 <p>Example:</p>
 
@@ -89,16 +90,14 @@ prior to reaching the service such as a connection error.</p>
     } <span class="hljs-keyword">else</span> {
         log.Println(<span class="hljs-string">"Error:"</span>, err.Error())
     }
-}
-</div></code></pre>
+}</div></code></pre>
 
 <p>Combined with awserr.Error:</p>
 
-<p>   output, err := s3manage.Upload(svc, input, opts)
-   if err != nil {
-       if awsErr, ok := err.(awserr.Error); ok {
-           // Generic AWS Error with Code, Message, and original error (if any)
-           fmt.Println(awsErr.Code(), awsErr.Message(), awsErr.OrigErr())</p>
+<p>output, err := s3manage.Upload(svc, input, opts)  if err != nil {  if
+awsErr, ok := err.(awserr.Error); ok {  // Generic AWS Error with Code,
+Message, and original error (if any)  fmt.Println(awsErr.Code(),
+awsErr.Message(), awsErr.OrigErr())</p>
 
 <pre class="code go"><code class="go"><div class="hljs">       <span class="hljs-keyword">if</span> reqErr, ok := err.(awserr.RequestFailure); ok {
            <span class="hljs-comment">// A service error occurred</span>
@@ -106,10 +105,9 @@ prior to reaching the service such as a connection error.</p>
        }
    } <span class="hljs-keyword">else</span> {
        fmt.Println(err.Error())
-   }
-</div></code></pre>
+   }</div></code></pre>
 
-<p>   }</p>
+<p>}</p>
 
 
   </div>
@@ -155,7 +153,8 @@ prior to reaching the service such as a connection error.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The request ID returned by the service for a request failure.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The request ID returned by the service for a request failure.</p>
 </div></span>
   
 </li>
@@ -179,7 +178,8 @@ prior to reaching the service such as a connection error.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The status code of the HTTP response.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The status code of the HTTP response.</p>
 </div></span>
   
 </li>
@@ -221,12 +221,12 @@ prior to reaching the service such as a connection error.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
-<p>The request ID returned by the service for a request failure. This will
-be empty if no request ID is available such as the request failed due
-to a connection error.</p>
+
+<p>The request ID returned by the service for a request failure. This will be
+empty if no request ID is available such as the request failed due to a
+connection error.</p>
 
 
   </div>
@@ -240,10 +240,10 @@ to a connection error.</p>
       <pre class="lines">
 
 
-117</pre>
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 117</span>
+      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 137</span>
 
 <div class="hljs">RequestID() <span class="hljs-constant">string</span></div></pre>
     </td>
@@ -265,9 +265,9 @@ to a connection error.</p>
   <div class="discussion">
     <div class="note abstract">
   <strong>This method is abstract.</strong>
-  <div class='inline'>
+  <div class='inline'></div>
 </div>
-</div>
+
 <p>The status code of the HTTP response.</p>
 
 
@@ -282,10 +282,10 @@ to a connection error.</p>
       <pre class="lines">
 
 
-112</pre>
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 112</span>
+      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 132</span>
 
 <div class="hljs">StatusCode() <span class="hljs-constant">int</span></div></pre>
     </td>
@@ -300,9 +300,9 @@ to a connection error.</p>
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:29:02 2019 by
+  Generated on Fri Sep  6 19:53:56 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

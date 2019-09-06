@@ -10,13 +10,13 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "service/s3/s3manager.Uploader";
   relpath = '../../../';
 </script>
@@ -71,13 +71,14 @@
   
 </h1>
 <div class="package signature">
-import "github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
+import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-cos-sdk-go/service/s3/s3manager"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>The Uploader structure that calls Upload(). It is safe to call Upload()
-on this structure for multiple objects and across concurrent goroutines.
-Mutating the Uploader's properties is not safe to be done concurrently.</p>
+    
+<p>The Uploader structure that calls Upload(). It is safe to call Upload() on
+this structure for multiple objects and across concurrent goroutines.
+Mutating the Uploader&#39;s properties is not safe to be done concurrently.</p>
 
 
   </div>
@@ -88,7 +89,7 @@ Mutating the Uploader's properties is not safe to be done concurrently.</p>
 </div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="../s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manageriface/UploaderAPI.html" title="s3manageriface.UploaderAPI (interface)">s3manageriface.UploaderAPI</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manageriface/UploadWithIterator.html" title="s3manageriface.UploadWithIterator (interface)">s3manageriface.UploadWithIterator</a></span>, <span class='object_link'><a href="s3manageriface/UploaderAPI.html" title="s3manageriface.UploaderAPI (interface)">s3manageriface.UploaderAPI</a></span></p>
 
 
   
@@ -125,7 +126,9 @@ Mutating the Uploader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The number of goroutines to spin up in parallel per call to Upload when sending parts.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The number of goroutines to spin up in parallel per call to Upload when
+sending parts.</p>
 </div></span>
   
 </li>
@@ -149,7 +152,10 @@ Mutating the Uploader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Setting this value to true will cause the SDK to avoid calling
+AbortMultipartUpload on a failure, leaving all successfully uploaded parts
+on S3 for manual recovery.</p>
 </div></span>
   
 </li>
@@ -173,7 +179,8 @@ Mutating the Uploader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>MaxUploadParts is the max number of parts which will be uploaded to S3.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>MaxUploadParts is the max number of parts which will be uploaded to S3.</p>
 </div></span>
   
 </li>
@@ -197,7 +204,9 @@ Mutating the Uploader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The buffer size (in bytes) to use when buffering data into chunks and sending them as parts to S3.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The buffer size (in bytes) to use when buffering data into chunks and
+sending them as parts to S3.</p>
 </div></span>
   
 </li>
@@ -221,7 +230,9 @@ Mutating the Uploader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List of request options that will be passed down to individual API operation requests made by the uploader.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List of request options that will be passed down to individual API
+operation requests made by the uploader.</p>
 </div></span>
   
 </li>
@@ -245,7 +256,8 @@ Mutating the Uploader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The client to use when uploading to S3.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The client to use when uploading to S3.</p>
 </div></span>
   
 </li>
@@ -281,7 +293,9 @@ Mutating the Uploader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Upload uploads an object to S3, intelligently buffering large files into smaller chunks and sending them in parallel across multiple goroutines.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Upload uploads an object to S3, intelligently buffering large files into
+smaller chunks and sending them in parallel across multiple goroutines.</p>
 </div></span>
   
 </li>
@@ -305,7 +319,10 @@ Mutating the Uploader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>UploadWithContext uploads an object to S3, intelligently buffering large files into smaller chunks and sending them in parallel across multiple goroutines.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>UploadWithContext uploads an object to S3, intelligently buffering large
+files into smaller chunks and sending them in parallel across multiple
+goroutines.</p>
 </div></span>
   
 </li>
@@ -329,7 +346,8 @@ Mutating the Uploader's properties is not safe to be done concurrently.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>UploadWithIterator will upload a batched amount of objects to S3.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>UploadWithIterator will upload a batched amount of objects to S3.</p>
 </div></span>
   
 </li>
@@ -353,7 +371,8 @@ Mutating the Uploader's properties is not safe to be done concurrently.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>The number of goroutines to spin up in parallel per call to Upload when
+    
+<p>The number of goroutines to spin up in parallel per call to Upload when
 sending parts. If this is set to zero, the DefaultUploadConcurrency value
 will be used.</p>
 
@@ -375,9 +394,10 @@ will be used.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>Setting this value to true will cause the SDK to avoid calling
-AbortMultipartUpload on a failure, leaving all successfully uploaded
-parts on S3 for manual recovery.</p>
+    
+<p>Setting this value to true will cause the SDK to avoid calling
+AbortMultipartUpload on a failure, leaving all successfully uploaded parts
+on S3 for manual recovery.</p>
 
 <p>Note that storing parts of an incomplete multipart upload counts towards
 space usage on S3 and will add additional costs if not cleaned up.</p>
@@ -398,13 +418,20 @@ space usage on S3 and will add additional costs if not cleaned up.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>MaxUploadParts is the max number of parts which will be uploaded to S3.
-Will be used to calculate the partsize of the object to be uploaded.
-E.g: 5GB file, with MaxUploadParts set to 100, will upload the file
-as 100, 50MB parts.
-With a limited of s3.MaxUploadParts (10,000 parts).</p>
+    
+<p>MaxUploadParts is the max number of parts which will be uploaded to S3.
+Will be used to calculate the partsize of the object to be uploaded. E.g:
+5GB file, with MaxUploadParts set to 100, will upload the file as 100, 50MB
+parts. With a limited of s3.MaxUploadParts (10,000 parts).</p>
 
-<p>Defaults to package const's MaxUploadParts value.</p>
+<p>MaxUploadParts must not be used to limit the total number of bytes
+uploaded. Use a type like to io.LimitReader (<a
+href="https://golang.org/pkg/io/#LimitedReader">golang.org/pkg/io/#LimitedReader</a>)
+instead. An io.LimitReader is helpful when uploading an unbounded reader to
+S3, and you know its maximum size. Otherwise the reader&#39;s io.EOF
+returned error must be used to signal end of stream.</p>
+
+<p>Defaults to package const&#39;s MaxUploadParts value.</p>
 
 
   </div>
@@ -422,9 +449,10 @@ With a limited of s3.MaxUploadParts (10,000 parts).</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>The buffer size (in bytes) to use when buffering data into chunks and
-sending them as parts to S3. The minimum allowed part size is 5MB, and
-if this value is set to zero, the DefaultUploadPartSize value will be used.</p>
+    
+<p>The buffer size (in bytes) to use when buffering data into chunks and
+sending them as parts to S3. The minimum allowed part size is 5MB, and if
+this value is set to zero, the DefaultUploadPartSize value will be used.</p>
 
 
   </div>
@@ -442,7 +470,8 @@ if this value is set to zero, the DefaultUploadPartSize value will be used.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>List of request options that will be passed down to individual API
+    
+<p>List of request options that will be passed down to individual API
 operation requests made by the uploader.</p>
 
 
@@ -461,7 +490,8 @@ operation requests made by the uploader.</p>
 </h3>
 <div class="docstring">
   <div class="discussion">
-    <p>The client to use when uploading to S3.</p>
+    
+<p>The client to use when uploading to S3.</p>
 
 
   </div>
@@ -490,26 +520,24 @@ operation requests made by the uploader.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Upload uploads an object to S3, intelligently buffering large files into
+    
+<p>Upload uploads an object to S3, intelligently buffering large files into
 smaller chunks and sending them in parallel across multiple goroutines. You
-can configure the buffer size and concurrency through the Uploader's parameters.</p>
+can configure the buffer size and concurrency through the Uploader&#39;s
+parameters.</p>
 
 <p>Additional functional options can be provided to configure the individual
-upload. These options are copies of the Uploader instance Upload is called from.
-Modifying the options will not impact the original Uploader instance.</p>
+upload. These options are copies of the Uploader instance Upload is called
+from. Modifying the options will not impact the original Uploader instance.</p>
 
 <p>Use the WithUploaderRequestOptions helper function to pass in request
 options that will be applied to all API operations made with this uploader.</p>
 
 <p>It is safe to call this method concurrently across goroutines.</p>
 
-<p>Example:
-    // Upload input parameters
-    upParams := &amp;s3manager.UploadInput{
-        Bucket: &amp;bucketName,
-        Key:    &amp;keyName,
-        Body:   file,
-    }</p>
+<p>Example:  // Upload input parameters  upParams :=
+&amp;s3manager.UploadInput{  Bucket: &amp;bucketName,  Key: &amp;keyName, 
+Body: file,  }</p>
 
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Perform an upload.</span>
 result, err := uploader.Upload(upParams)
@@ -518,8 +546,7 @@ result, err := uploader.Upload(upParams)
 result, err := uploader.Upload(upParams, <span class="hljs-keyword">func</span>(u *s3manager.Uploader) {
      u.PartSize = 10 * 1024 * 1024 <span class="hljs-comment">// 10MB part size</span>
      u.LeavePartsOnError = <span class="hljs-constant">true</span>    <span class="hljs-comment">// Don't delete the parts if the upload fails.</span>
-})
-</div></code></pre>
+})</div></code></pre>
 
 
   </div>
@@ -533,12 +560,12 @@ result, err := uploader.Upload(upParams, <span class="hljs-keyword">func</span>(
       <pre class="lines">
 
 
-350
-351
-352</pre>
+261
+262
+263</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 350</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 261</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) Upload(input *UploadInput, options ...<span class="hljs-keyword">func</span>(*Uploader)) (*UploadOutput, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">return</span> u.UploadWithContext(aws.BackgroundContext(), input, options...)
@@ -560,19 +587,21 @@ result, err := uploader.Upload(upParams, <span class="hljs-keyword">func</span>(
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>UploadWithContext uploads an object to S3, intelligently buffering large
+    
+<p>UploadWithContext uploads an object to S3, intelligently buffering large
 files into smaller chunks and sending them in parallel across multiple
 goroutines. You can configure the buffer size and concurrency through the
-Uploader's parameters.</p>
+Uploader&#39;s parameters.</p>
 
 <p>UploadWithContext is the same as Upload with the additional support for
 Context input parameters. The Context must not be nil. A nil Context will
 cause a panic. Use the context to add deadlining, timeouts, etc. The
-UploadWithContext may create sub-contexts for individual underlying requests.</p>
+UploadWithContext may create sub-contexts for individual underlying
+requests.</p>
 
 <p>Additional functional options can be provided to configure the individual
-upload. These options are copies of the Uploader instance Upload is called from.
-Modifying the options will not impact the original Uploader instance.</p>
+upload. These options are copies of the Uploader instance Upload is called
+from. Modifying the options will not impact the original Uploader instance.</p>
 
 <p>Use the WithUploaderRequestOptions helper function to pass in request
 options that will be applied to all API operations made with this uploader.</p>
@@ -591,19 +620,19 @@ options that will be applied to all API operations made with this uploader.</p>
       <pre class="lines">
 
 
-372
-373
-374
-375
-376
-377
-378
-379
-380
-381</pre>
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 372</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 283</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) UploadWithContext(ctx aws.Context, input *UploadInput, opts ...<span class="hljs-keyword">func</span>(*Uploader)) (*UploadOutput, <span class="hljs-constant">error</span>) {
 	i := uploader{in: input, cfg: u, ctx: ctx}
@@ -632,27 +661,26 @@ options that will be applied to all API operations made with this uploader.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>UploadWithIterator will upload a batched amount of objects to S3. This operation uses
-the iterator pattern to know which object to upload next. Since this is an interface this
-allows for custom defined functionality.</p>
+    
+<p>UploadWithIterator will upload a batched amount of objects to S3. This
+operation uses the iterator pattern to know which object to upload next.
+Since this is an interface this allows for custom defined functionality.</p>
 
-<p>Example:
-    svc:= s3manager.NewUploader(sess)</p>
+<p>Example:  svc:= s3manager.NewUploader(sess)</p>
 
 <pre class="code go"><code class="go"><div class="hljs">objects := []BatchUploadObject{
-    {
-        Object: &s3manager.UploadInput {
-            Key: aws.String(<span class="hljs-string">"key"</span>),
-            Bucket: aws.String(<span class="hljs-string">"bucket"</span>),
-        },
-    },
+	{
+		Object:	&s3manager.UploadInput {
+			Key: aws.String(<span class="hljs-string">"key"</span>),
+			Bucket: aws.String(<span class="hljs-string">"bucket"</span>),
+		},
+	},
 }
 
 iter := &s3manager.UploadObjectsIterator{Objects: objects}
 <span class="hljs-keyword">if</span> err := svc.UploadWithIterator(aws.BackgroundContext(), iter); err != <span class="hljs-constant">nil</span> {
-    <span class="hljs-keyword">return</span> err
-}
-</div></code></pre>
+	<span class="hljs-keyword">return</span> err
+}</div></code></pre>
 
 
   </div>
@@ -666,43 +694,43 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
       <pre class="lines">
 
 
-403
-404
-405
-406
-407
-408
-409
-410
-411
-412
-413
-414
-415
-416
-417
-418
-419
-420
-421
-422
-423
-424
-425
-426
-427
-428
-429
-430
-431
-432
-433
-434
-435
-436</pre>
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 403</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 314</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) UploadWithIterator(ctx aws.Context, iter BatchUploadIterator, opts ...<span class="hljs-keyword">func</span>(*Uploader)) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">var</span> errs []Error
@@ -750,9 +778,9 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
       </div>
 
       <div id="footer">
-  Generated on Mon Jun  3 16:29:02 2019 by
+  Generated on Fri Sep  6 19:53:55 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.5.1).
+  0.9.20 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->
