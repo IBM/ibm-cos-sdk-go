@@ -79,6 +79,128 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 </div>
 
   
+    <h2>Constants</h2>
+    
+      <dl class="constants">
+        
+          <dt id="DefaultRetryerMaxNumRetries-constant" class="">
+          <div class="defn">const <strong>DefaultRetryerMaxNumRetries</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>DefaultRetryerMaxNumRetries sets maximum number of retries</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">3</div></pre>
+          </dd>
+        
+          <dt id="DefaultRetryerMinRetryDelay-constant" class="">
+          <div class="defn">const <strong>DefaultRetryerMinRetryDelay</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>DefaultRetryerMinRetryDelay sets minimum retry delay</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">30 * time.Millisecond</div></pre>
+          </dd>
+        
+          <dt id="DefaultRetryerMinThrottleDelay-constant" class="">
+          <div class="defn">const <strong>DefaultRetryerMinThrottleDelay</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>DefaultRetryerMinThrottleDelay sets minimum delay when throttled</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">500 * time.Millisecond</div></pre>
+          </dd>
+        
+          <dt id="DefaultRetryerMaxRetryDelay-constant" class="">
+          <div class="defn">const <strong>DefaultRetryerMaxRetryDelay</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>DefaultRetryerMaxRetryDelay sets maximum retry delay</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">300 * time.Second</div></pre>
+          </dd>
+        
+          <dt id="DefaultRetryerMaxThrottleDelay-constant" class="">
+          <div class="defn">const <strong>DefaultRetryerMaxThrottleDelay</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>DefaultRetryerMaxThrottleDelay sets maximum delay when throttled</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">300 * time.Second</div></pre>
+          </dd>
+        
+      </dl>
+    
+  
 
   
     <h2>Variables</h2>
@@ -287,6 +409,32 @@ most services.</p>
 
 
     
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="client/NoOpRetryer.html" title="client.NoOpRetryer (struct)"><strong>NoOpRetryer</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>MaxRetries returns the number of maximum returns the service will use to
+make an individual API; For NoOpRetryer the MaxRetries will always be zero.</p>
+</div></span>
+  
+</li>
+
+
+    
   </ul>
 
 
@@ -473,7 +621,7 @@ ClientConfig without circular dependencies.</p>
 	<span class="hljs-keyword">default</span>:
 		maxRetries := aws.IntValue(cfg.MaxRetries)
 		<span class="hljs-keyword">if</span> cfg.MaxRetries == <span class="hljs-constant">nil</span> || maxRetries == aws.UseServiceDefaultRetries {
-			maxRetries = 3
+			maxRetries = DefaultRetryerMaxNumRetries
 		}
 		svc.Retryer = DefaultRetryer{NumMaxRetries: maxRetries}
 	}
@@ -498,7 +646,7 @@ ClientConfig without circular dependencies.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:52:46 2019 by
+  Generated on Wed Nov  6 19:58:04 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

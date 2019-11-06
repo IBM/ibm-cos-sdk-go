@@ -188,6 +188,30 @@ sess := session.Must(session.NewSession(&aws.Config{
             <pre class="code"><div class="hljs"><span class="hljs-string">"aws-us-gov"</span> <span class="hljs-comment">// AWS GovCloud (US) partition.</span></div></pre>
           </dd>
         
+          <dt id="AwsIsoPartitionID-constant" class="">
+          <div class="defn">const <strong>AwsIsoPartitionID</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"aws-iso"</span>    <span class="hljs-comment">// AWS ISO (US) partition.</span></div></pre>
+          </dd>
+        
+          <dt id="AwsIsoBPartitionID-constant" class="">
+          <div class="defn">const <strong>AwsIsoBPartitionID</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"aws-iso-b"</span>  <span class="hljs-comment">// AWS ISOB (US) partition.</span></div></pre>
+          </dd>
+        
           <dt id="ApEast1RegionID-constant" class="">
           <div class="defn">const <strong>ApEast1RegionID</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -450,6 +474,30 @@ sess := session.Must(session.NewSession(&aws.Config{
           <dd>
             <h3>Value:</h3>
             <pre class="code"><div class="hljs"><span class="hljs-string">"us-gov-west-1"</span> <span class="hljs-comment">// AWS GovCloud (US).</span></div></pre>
+          </dd>
+        
+          <dt id="UsIsoEast1RegionID-constant" class="">
+          <div class="defn">const <strong>UsIsoEast1RegionID</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"us-iso-east-1"</span> <span class="hljs-comment">// US ISO East.</span></div></pre>
+          </dd>
+        
+          <dt id="UsIsobEast1RegionID-constant" class="">
+          <div class="defn">const <strong>UsIsobEast1RegionID</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"us-isob-east-1"</span> <span class="hljs-comment">// US ISOB East (Ohio).</span></div></pre>
           </dd>
         
           <dt id="A4bServiceID-constant" class="">
@@ -2507,6 +2555,56 @@ scheme.</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#AwsIsoBPartition-class_method" title="endpoints.AwsIsoBPartition() (method)">func <strong>AwsIsoBPartition</strong>() Partition </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>AwsIsoBPartition returns the Resolver for AWS ISOB (US).</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#AwsIsoPartition-class_method" title="endpoints.AwsIsoPartition() (method)">func <strong>AwsIsoPartition</strong>() Partition </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>AwsIsoPartition returns the Resolver for AWS ISO (US).</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#AwsPartition-class_method" title="endpoints.AwsPartition() (method)">func <strong>AwsPartition</strong>() Partition </a></span></span>
   
   
@@ -2651,7 +2749,8 @@ endpoint Resolver.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>DefaultResolver returns an Endpoint resolver that will be able to resolve
-endpoints for: AWS Standard, AWS China, and AWS GovCloud (US).</p>
+endpoints for: AWS Standard, AWS China, AWS GovCloud (US), AWS ISO (US),
+and AWS ISOB (US).</p>
 </div></span>
   
 </li>
@@ -3119,15 +3218,99 @@ not contain a scheme.</p>
       <pre class="lines">
 
 
-3671
-3672
-3673</pre>
+3859
+3860
+3861</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 3671</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 3859</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsCnPartition() Partition {
 	<span class="hljs-keyword">return</span> awscnPartition.Partition()
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="AwsIsoBPartition-class_method">
+  
+    func <strong><span class='object_link'><a href="#AwsIsoBPartition-class_method" title="endpoints.AwsIsoBPartition() (method)">AwsIsoBPartition</a></span></strong>() <span class='object_link'><a href="endpoints/Partition.html" title="endpoints.Partition (struct)">Partition</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>AwsIsoBPartition returns the Resolver for AWS ISOB (US).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5539
+5540
+5541</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 5539</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> AwsIsoBPartition() Partition {
+	<span class="hljs-keyword">return</span> awsisobPartition.Partition()
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="AwsIsoPartition-class_method">
+  
+    func <strong><span class='object_link'><a href="#AwsIsoPartition-class_method" title="endpoints.AwsIsoPartition() (method)">AwsIsoPartition</a></span></strong>() <span class='object_link'><a href="endpoints/Partition.html" title="endpoints.Partition (struct)">Partition</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>AwsIsoPartition returns the Resolver for AWS ISO (US).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5184
+5185
+5186</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 5184</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> AwsIsoPartition() Partition {
+	<span class="hljs-keyword">return</span> awsisoPartition.Partition()
 }</div></pre>
     </td>
   </tr>
@@ -3161,12 +3344,12 @@ not contain a scheme.</p>
       <pre class="lines">
 
 
-75
-76
-77</pre>
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 75</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 89</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsPartition() Partition {
 	<span class="hljs-keyword">return</span> awsPartition.Partition()
@@ -3203,12 +3386,12 @@ not contain a scheme.</p>
       <pre class="lines">
 
 
-4166
-4167
-4168</pre>
+4361
+4362
+4363</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 4166</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 4361</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsUsGovPartition() Partition {
 	<span class="hljs-keyword">return</span> awsusgovPartition.Partition()
@@ -3419,8 +3602,8 @@ range partitions {  // … inspect partitions  }</p>
   <div class="discussion">
     
 <p>DefaultPartitions returns a list of the partitions the SDK is bundled with.
-The available partitions are: AWS Standard, AWS China, and AWS GovCloud
-(US).</p>
+The available partitions are: AWS Standard, AWS China, AWS GovCloud (US),
+AWS ISO (US), and AWS ISOB (US).</p>
 
 <p>partitions := endpoints.DefaultPartitions  for _, p := range partitions { 
 // … inspect partitions  }</p>
@@ -3437,12 +3620,12 @@ The available partitions are: AWS Standard, AWS China, and AWS GovCloud
       <pre class="lines">
 
 
-64
-65
-66</pre>
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 64</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 76</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> DefaultPartitions() []Partition {
 	<span class="hljs-keyword">return</span> defaultPartitions.Partitions()
@@ -3466,7 +3649,8 @@ The available partitions are: AWS Standard, AWS China, and AWS GovCloud
   <div class="discussion">
     
 <p>DefaultResolver returns an Endpoint resolver that will be able to resolve
-endpoints for: AWS Standard, AWS China, and AWS GovCloud (US).</p>
+endpoints for: AWS Standard, AWS China, AWS GovCloud (US), AWS ISO (US),
+and AWS ISOB (US).</p>
 
 <p>Use DefaultPartitions() to get the list of the default partitions.</p>
 
@@ -3482,12 +3666,12 @@ endpoints for: AWS Standard, AWS China, and AWS GovCloud (US).</p>
       <pre class="lines">
 
 
-53
-54
-55</pre>
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 53</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 65</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> DefaultResolver() Resolver {
 	<span class="hljs-keyword">return</span> defaultPartitions
@@ -3926,7 +4110,7 @@ functional option when resolving endpoints.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:52:47 2019 by
+  Generated on Wed Nov  6 19:58:05 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

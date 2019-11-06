@@ -76,7 +76,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -619,12 +619,12 @@ shorter retention period the PUT object will fail.</p>
       <pre class="lines">
 
 
-9601
-9602
-9603</pre>
+10000
+10001
+10002</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9601</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10000</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ProtectionConfiguration.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -661,13 +661,13 @@ shorter retention period the PUT object will fail.</p>
       <pre class="lines">
 
 
-9643
-9644
-9645
-9646</pre>
+10042
+10043
+10044
+10045</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9643</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10042</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span>) <span class='object_link'><a href="#SetDefaultRetention-instance_method" title="s3.ProtectionConfiguration.SetDefaultRetention() (method)">SetDefaultRetention</a></span>(v *<span class='object_link'><a href="BucketProtectionDefaultRetention.html" title="s3.BucketProtectionDefaultRetention (struct)">BucketProtectionDefaultRetention</a></span>) *<span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span> {
 	s.DefaultRetention = v
@@ -706,13 +706,13 @@ value.</p>
       <pre class="lines">
 
 
-9649
-9650
-9651
-9652</pre>
+10048
+10049
+10050
+10051</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9649</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10048</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span>) <span class='object_link'><a href="#SetEnablePermanentRetention-instance_method" title="s3.ProtectionConfiguration.SetEnablePermanentRetention() (method)">SetEnablePermanentRetention</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span> {
 	s.EnablePermanentRetention = &v
@@ -750,13 +750,13 @@ value.</p>
       <pre class="lines">
 
 
-9655
-9656
-9657
-9658</pre>
+10054
+10055
+10056
+10057</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9655</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10054</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span>) <span class='object_link'><a href="#SetMaximumRetention-instance_method" title="s3.ProtectionConfiguration.SetMaximumRetention() (method)">SetMaximumRetention</a></span>(v *<span class='object_link'><a href="BucketProtectionMaximumRetention.html" title="s3.BucketProtectionMaximumRetention (struct)">BucketProtectionMaximumRetention</a></span>) *<span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span> {
 	s.MaximumRetention = v
@@ -794,13 +794,13 @@ value.</p>
       <pre class="lines">
 
 
-9661
-9662
-9663
-9664</pre>
+10060
+10061
+10062
+10063</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9661</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10060</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span>) <span class='object_link'><a href="#SetMinimumRetention-instance_method" title="s3.ProtectionConfiguration.SetMinimumRetention() (method)">SetMinimumRetention</a></span>(v *<span class='object_link'><a href="BucketProtectionMinimumRetention.html" title="s3.BucketProtectionMinimumRetention (struct)">BucketProtectionMinimumRetention</a></span>) *<span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span> {
 	s.MinimumRetention = v
@@ -838,13 +838,13 @@ value.</p>
       <pre class="lines">
 
 
-9667
-9668
-9669
-9670</pre>
+10066
+10067
+10068
+10069</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9667</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10066</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span>) <span class='object_link'><a href="#SetStatus-instance_method" title="s3.ProtectionConfiguration.SetStatus() (method)">SetStatus</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span> {
 	s.Status = &v
@@ -882,12 +882,12 @@ value.</p>
       <pre class="lines">
 
 
-9596
-9597
-9598</pre>
+9995
+9996
+9997</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9596</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9995</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ProtectionConfiguration.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -924,44 +924,44 @@ value.</p>
       <pre class="lines">
 
 
-9606
-9607
-9608
-9609
-9610
-9611
-9612
-9613
-9614
-9615
-9616
-9617
-9618
-9619
-9620
-9621
-9622
-9623
-9624
-9625
-9626
-9627
-9628
-9629
-9630
-9631
-9632
-9633
-9634
-9635
-9636
-9637
-9638
-9639
-9640</pre>
+10005
+10006
+10007
+10008
+10009
+10010
+10011
+10012
+10013
+10014
+10015
+10016
+10017
+10018
+10019
+10020
+10021
+10022
+10023
+10024
+10025
+10026
+10027
+10028
+10029
+10030
+10031
+10032
+10033
+10034
+10035
+10036
+10037
+10038
+10039</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9606</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10005</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.ProtectionConfiguration.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.ProtectionConfiguration (struct)">ProtectionConfiguration</a></span>"</span>}
@@ -1010,7 +1010,7 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:23 2019 by
+  Generated on Wed Nov  6 19:58:34 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

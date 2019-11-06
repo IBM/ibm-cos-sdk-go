@@ -76,7 +76,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -405,7 +405,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <div class="method_details ">
   <h3 class="signature " id="_-field">
   <strong>_</strong> struct{} 
-  <code>`type:"structure" payload:"RestoreRequest"`</code>
+  <code>`locationName:"RestoreObjectRequest" type:"structure" payload:"RestoreRequest"`</code>
 </h3>
 
 </div>
@@ -443,12 +443,12 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <pre class="lines">
 
 
-10740
-10741
-10742</pre>
+11139
+11140
+11141</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10740</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11139</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.RestoreObjectInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -485,13 +485,13 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <pre class="lines">
 
 
-10772
-10773
-10774
-10775</pre>
+11171
+11172
+11173
+11174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10772</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11171</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.RestoreObjectInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> {
 	s.Bucket = &v
@@ -529,13 +529,13 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <pre class="lines">
 
 
-10785
-10786
-10787
-10788</pre>
+11184
+11185
+11186
+11187</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10785</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11184</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.RestoreObjectInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> {
 	s.Key = &v
@@ -608,13 +608,13 @@ err := req.Send()
       <pre class="lines">
 
 
-10791
-10792
-10793
-10794</pre>
+11190
+11191
+11192
+11193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10791</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11190</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *RestoreObjectInput) SetRestoreRequest(v *RestoreRequest) *RestoreObjectInput {
 	s.RestoreRequest = v
@@ -652,12 +652,12 @@ err := req.Send()
       <pre class="lines">
 
 
-10735
-10736
-10737</pre>
+11134
+11135
+11136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10735</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11134</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.RestoreObjectInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -694,34 +694,34 @@ err := req.Send()
       <pre class="lines">
 
 
-10745
-10746
-10747
-10748
-10749
-10750
-10751
-10752
-10753
-10754
-10755
-10756
-10757
-10758
-10759
-10760
-10761
-10762
-10763
-10764
-10765
-10766
-10767
-10768
-10769</pre>
+11144
+11145
+11146
+11147
+11148
+11149
+11150
+11151
+11152
+11153
+11154
+11155
+11156
+11157
+11158
+11159
+11160
+11161
+11162
+11163
+11164
+11165
+11166
+11167
+11168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10745</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11144</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.RestoreObjectInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>"</span>}
@@ -760,7 +760,7 @@ err := req.Send()
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:26 2019 by
+  Generated on Wed Nov  6 19:58:36 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

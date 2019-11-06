@@ -76,7 +76,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -382,12 +382,12 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <pre class="lines">
 
 
-10878
-10879
-10880</pre>
+11277
+11278
+11279</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10878</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11277</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.TargetGrant (struct)">TargetGrant</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.TargetGrant.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -424,13 +424,13 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <pre class="lines">
 
 
-10898
-10899
-10900
-10901</pre>
+11297
+11298
+11299
+11300</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10898</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11297</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.TargetGrant (struct)">TargetGrant</a></span>) <span class='object_link'><a href="#SetGrantee-instance_method" title="s3.TargetGrant.SetGrantee() (method)">SetGrantee</a></span>(v *<span class='object_link'><a href="#Grantee-field" title="s3.TargetGrant.Grantee (field)">Grantee</a></span>) *<span class='object_link'><a href="" title="s3.TargetGrant (struct)">TargetGrant</a></span> {
 	s.Grantee = v
@@ -468,13 +468,13 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <pre class="lines">
 
 
-10904
-10905
-10906
-10907</pre>
+11303
+11304
+11305
+11306</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10904</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11303</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.TargetGrant (struct)">TargetGrant</a></span>) <span class='object_link'><a href="#SetPermission-instance_method" title="s3.TargetGrant.SetPermission() (method)">SetPermission</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.TargetGrant (struct)">TargetGrant</a></span> {
 	s.Permission = &v
@@ -512,12 +512,12 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <pre class="lines">
 
 
-10873
-10874
-10875</pre>
+11272
+11273
+11274</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10873</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11272</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.TargetGrant (struct)">TargetGrant</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.TargetGrant.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -554,22 +554,22 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <pre class="lines">
 
 
-10883
-10884
-10885
-10886
-10887
-10888
-10889
-10890
-10891
-10892
-10893
-10894
-10895</pre>
+11282
+11283
+11284
+11285
+11286
+11287
+11288
+11289
+11290
+11291
+11292
+11293
+11294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10883</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11282</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.TargetGrant (struct)">TargetGrant</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.TargetGrant.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.TargetGrant (struct)">TargetGrant</a></span>"</span>}
@@ -596,7 +596,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:26 2019 by
+  Generated on Wed Nov  6 19:58:37 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

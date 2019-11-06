@@ -88,7 +88,7 @@ data.</p>
 </div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="../../service/s3/s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../../service/s3/s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../service/s3/s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../service/s3/s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -1901,12 +1901,12 @@ Returns false if the request has no Error set.</p>
       <pre class="lines">
 
 
-263
-264
-265</pre>
+273
+274
+275</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 263</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 273</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) IsErrorExpired() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">return</span> IsErrorExpiredCreds(r.Error)
@@ -1932,6 +1932,7 @@ Returns false if the request has no Error set.</p>
       <pre class="lines">
 
 
+216
 217
 218
 219
@@ -1941,19 +1942,32 @@ Returns false if the request has no Error set.</p>
 223
 224
 225
-226</pre>
+226
+227
+228
+229
+230
+231
+232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 217</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 216</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) IsErrorRetryable() <span class="hljs-constant">bool</span> {
-	<span class="hljs-keyword">if</span> r.Error == <span class="hljs-constant">nil</span> {
-		<span class="hljs-keyword">return</span> <span class="hljs-constant">false</span>
-	}
 	<span class="hljs-keyword">if</span> isErrCode(r.Error, r.RetryErrorCodes) {
 		<span class="hljs-keyword">return</span> <span class="hljs-constant">true</span>
 	}
 
+	<span class="hljs-comment">// HTTP response status code 501 should not be retried.</span>
+	<span class="hljs-comment">// 501 represents Not Implemented which means the request method is not</span>
+	<span class="hljs-comment">// supported by the server and cannot be handled.</span>
+	<span class="hljs-keyword">if</span> r.HTTPResponse != <span class="hljs-constant">nil</span> {
+		<span class="hljs-comment">// HTTP response status code 500 represents internal server error and</span>
+		<span class="hljs-comment">// should be retried without any throttle.</span>
+		<span class="hljs-keyword">if</span> r.HTTPResponse.StatusCode == 500 {
+			<span class="hljs-keyword">return</span> <span class="hljs-constant">true</span>
+		}
+	}
 	<span class="hljs-keyword">return</span> IsErrorRetryable(r.Error)
 }</div></pre>
     </td>
@@ -1991,12 +2005,6 @@ code. Returns false if the request has no Error set.</p>
       <pre class="lines">
 
 
-232
-233
-234
-235
-236
-237
 238
 239
 240
@@ -2004,10 +2012,20 @@ code. Returns false if the request has no Error set.</p>
 242
 243
 244
-245</pre>
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 232</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 238</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) IsErrorThrottle() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> isErrCode(r.Error, r.ThrottleErrorCodes) {
@@ -2016,7 +2034,11 @@ code. Returns false if the request has no Error set.</p>
 
 	<span class="hljs-keyword">if</span> r.HTTPResponse != <span class="hljs-constant">nil</span> {
 		<span class="hljs-keyword">switch</span> r.HTTPResponse.StatusCode {
-		<span class="hljs-keyword">case</span> 429, 502, 503, 504:
+		<span class="hljs-keyword">case</span>
+			429, <span class="hljs-comment">// error caused due to too many requests</span>
+			502, <span class="hljs-comment">// Bad Gateway error should be throttled</span>
+			503, <span class="hljs-comment">// caused when service is unavailable</span>
+			504: <span class="hljs-comment">// error occurred due to gateway timeout</span>
 			<span class="hljs-keyword">return</span> <span class="hljs-constant">true</span>
 		}
 	}
@@ -2804,7 +2826,7 @@ executed in the order they were set.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:52:56 2019 by
+  Generated on Wed Nov  6 19:58:12 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

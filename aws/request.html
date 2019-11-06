@@ -2090,15 +2090,15 @@ error. Returns false if error is nil.</p>
       <pre class="lines">
 
 
+205
 206
 207
 208
 209
-210
-211</pre>
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 206</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 205</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsErrorExpiredCreds(err <span class="hljs-constant">error</span>) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> aerr, ok := err.(awserr.Error); ok && aerr != <span class="hljs-constant">nil</span> {
@@ -2139,14 +2139,20 @@ Returns false if error is nil.</p>
       <pre class="lines">
 
 
+123
+124
+125
+126
 127
-128
-129</pre>
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 127</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 123</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsErrorRetryable(err <span class="hljs-constant">error</span>) <span class="hljs-constant">bool</span> {
+	<span class="hljs-keyword">if</span> err == <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> <span class="hljs-constant">false</span>
+	}
 	<span class="hljs-keyword">return</span> shouldRetryError(err)
 }</div></pre>
     </td>
@@ -2182,15 +2188,15 @@ code. Returns false if error is nil.</p>
       <pre class="lines">
 
 
+196
 197
 198
 199
 200
-201
-202</pre>
+201</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 197</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 196</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsErrorThrottle(err <span class="hljs-constant">error</span>) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> aerr, ok := err.(awserr.Error); ok && aerr != <span class="hljs-constant">nil</span> {
@@ -2894,7 +2900,7 @@ options already set.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:52:47 2019 by
+  Generated on Wed Nov  6 19:58:05 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

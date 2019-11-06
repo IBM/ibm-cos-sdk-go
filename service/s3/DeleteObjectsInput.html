@@ -76,7 +76,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -502,7 +502,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <div class="method_details ">
   <h3 class="signature " id="_-field">
   <strong>_</strong> struct{} 
-  <code>`type:"structure" payload:"Delete"`</code>
+  <code>`locationName:"DeleteObjectsRequest" type:"structure" payload:"Delete"`</code>
 </h3>
 
 </div>
@@ -540,12 +540,12 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-5790
-5791
-5792</pre>
+5928
+5929
+5930</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5790</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5928</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteObjectsInput (struct)">DeleteObjectsInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.DeleteObjectsInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -582,13 +582,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-5819
-5820
-5821
-5822</pre>
+5957
+5958
+5959
+5960</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5819</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5957</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectsInput (struct)">DeleteObjectsInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.DeleteObjectsInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectsInput (struct)">DeleteObjectsInput</a></span> {
 	s.Bucket = &v
@@ -626,13 +626,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-5832
-5833
-5834
-5835</pre>
+5970
+5971
+5972
+5973</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5832</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5970</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectsInput (struct)">DeleteObjectsInput</a></span>) <span class='object_link'><a href="#SetDelete-instance_method" title="s3.DeleteObjectsInput.SetDelete() (method)">SetDelete</a></span>(v *<span class='object_link'><a href="#Delete-field" title="s3.DeleteObjectsInput.Delete (field)">Delete</a></span>) *<span class='object_link'><a href="" title="s3.DeleteObjectsInput (struct)">DeleteObjectsInput</a></span> {
 	s.Delete = v
@@ -670,13 +670,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-5838
-5839
-5840
-5841</pre>
+5976
+5977
+5978
+5979</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5838</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5976</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectsInput (struct)">DeleteObjectsInput</a></span>) <span class='object_link'><a href="#SetMFA-instance_method" title="s3.DeleteObjectsInput.SetMFA() (method)">SetMFA</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectsInput (struct)">DeleteObjectsInput</a></span> {
 	s.MFA = &v
@@ -714,13 +714,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-5844
-5845
-5846
-5847</pre>
+5982
+5983
+5984
+5985</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5844</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5982</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectsInput (struct)">DeleteObjectsInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.DeleteObjectsInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectsInput (struct)">DeleteObjectsInput</a></span> {
 	s.RequestPayer = &v
@@ -758,12 +758,12 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-5785
-5786
-5787</pre>
+5923
+5924
+5925</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5785</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5923</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteObjectsInput (struct)">DeleteObjectsInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.DeleteObjectsInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -800,31 +800,31 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-5795
-5796
-5797
-5798
-5799
-5800
-5801
-5802
-5803
-5804
-5805
-5806
-5807
-5808
-5809
-5810
-5811
-5812
-5813
-5814
-5815
-5816</pre>
+5933
+5934
+5935
+5936
+5937
+5938
+5939
+5940
+5941
+5942
+5943
+5944
+5945
+5946
+5947
+5948
+5949
+5950
+5951
+5952
+5953
+5954</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5795</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5933</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectsInput (struct)">DeleteObjectsInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.DeleteObjectsInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.DeleteObjectsInput (struct)">DeleteObjectsInput</a></span>"</span>}
@@ -860,7 +860,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:13 2019 by
+  Generated on Wed Nov  6 19:58:26 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

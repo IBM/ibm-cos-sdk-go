@@ -76,7 +76,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -774,7 +774,7 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
       <div class="method_details ">
   <h3 class="signature " id="_-field">
   <strong>_</strong> struct{} 
-  <code>`type:"structure" payload:"MultipartUpload"`</code>
+  <code>`locationName:"CompleteMultipartUploadRequest" type:"structure" payload:"MultipartUpload"`</code>
 </h3>
 
 </div>
@@ -812,12 +812,12 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
       <pre class="lines">
 
 
-3885
-3886
-3887</pre>
+4023
+4024
+4025</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3885</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4023</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.CompleteMultipartUploadInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -854,13 +854,13 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
       <pre class="lines">
 
 
-3915
-3916
-3917
-3918</pre>
+4053
+4054
+4055
+4056</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3915</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4053</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.CompleteMultipartUploadInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.Bucket = &v
@@ -898,13 +898,13 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
       <pre class="lines">
 
 
-3928
-3929
-3930
-3931</pre>
+4066
+4067
+4068
+4069</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3928</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4066</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.CompleteMultipartUploadInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.Key = &v
@@ -942,13 +942,13 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
       <pre class="lines">
 
 
-3934
-3935
-3936
-3937</pre>
+4072
+4073
+4074
+4075</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3934</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4072</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetMultipartUpload-instance_method" title="s3.CompleteMultipartUploadInput.SetMultipartUpload() (method)">SetMultipartUpload</a></span>(v *<span class='object_link'><a href="CompletedMultipartUpload.html" title="s3.CompletedMultipartUpload (struct)">CompletedMultipartUpload</a></span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.MultipartUpload = v
@@ -986,13 +986,13 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
       <pre class="lines">
 
 
-3940
-3941
-3942
-3943</pre>
+4078
+4079
+4080
+4081</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3940</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4078</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.CompleteMultipartUploadInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.RequestPayer = &v
@@ -1031,13 +1031,13 @@ value.</p>
       <pre class="lines">
 
 
-3946
-3947
-3948
-3949</pre>
+4084
+4085
+4086
+4087</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3946</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4084</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetRetentionExpirationDate-instance_method" title="s3.CompleteMultipartUploadInput.SetRetentionExpirationDate() (method)">SetRetentionExpirationDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.RetentionExpirationDate = &v
@@ -1075,13 +1075,13 @@ value.</p>
       <pre class="lines">
 
 
-3952
-3953
-3954
-3955</pre>
+4090
+4091
+4092
+4093</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3952</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4090</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetRetentionLegalHoldId-instance_method" title="s3.CompleteMultipartUploadInput.SetRetentionLegalHoldId() (method)">SetRetentionLegalHoldId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.RetentionLegalHoldId = &v
@@ -1119,13 +1119,13 @@ value.</p>
       <pre class="lines">
 
 
-3958
-3959
-3960
-3961</pre>
+4096
+4097
+4098
+4099</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3958</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4096</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetRetentionPeriod-instance_method" title="s3.CompleteMultipartUploadInput.SetRetentionPeriod() (method)">SetRetentionPeriod</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.RetentionPeriod = &v
@@ -1163,13 +1163,13 @@ value.</p>
       <pre class="lines">
 
 
-3964
-3965
-3966
-3967</pre>
+4102
+4103
+4104
+4105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3964</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4102</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetUploadId-instance_method" title="s3.CompleteMultipartUploadInput.SetUploadId() (method)">SetUploadId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.UploadId = &v
@@ -1207,12 +1207,12 @@ value.</p>
       <pre class="lines">
 
 
-3880
-3881
-3882</pre>
+4018
+4019
+4020</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3880</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4018</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.CompleteMultipartUploadInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1249,32 +1249,32 @@ value.</p>
       <pre class="lines">
 
 
-3890
-3891
-3892
-3893
-3894
-3895
-3896
-3897
-3898
-3899
-3900
-3901
-3902
-3903
-3904
-3905
-3906
-3907
-3908
-3909
-3910
-3911
-3912</pre>
+4028
+4029
+4030
+4031
+4032
+4033
+4034
+4035
+4036
+4037
+4038
+4039
+4040
+4041
+4042
+4043
+4044
+4045
+4046
+4047
+4048
+4049
+4050</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3890</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4028</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.CompleteMultipartUploadInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>"</span>}
@@ -1311,7 +1311,7 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:09 2019 by
+  Generated on Wed Nov  6 19:58:23 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

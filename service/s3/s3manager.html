@@ -439,6 +439,83 @@ operation once.</p>
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/BufferedReadSeeker.html" title="s3manager.BufferedReadSeeker (struct)"><strong>BufferedReadSeeker</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>BufferedReadSeeker is buffered io.ReadSeeker.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/BufferedReadSeekerWriteTo.html" title="s3manager.BufferedReadSeekerWriteTo (struct)"><strong>BufferedReadSeekerWriteTo</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>BufferedReadSeekerWriteTo wraps a BufferedReadSeeker with an io.WriteAt
+implementation.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/BufferedReadSeekerWriteToPool.html" title="s3manager.BufferedReadSeekerWriteToPool (struct)"><strong>BufferedReadSeekerWriteToPool</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>BufferedReadSeekerWriteToPool uses a sync.Pool to create and reuse []byte
+slices for buffering parts in memory.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="s3manager/DeleteListIterator.html" title="s3manager.DeleteListIterator (struct)"><strong>DeleteListIterator</strong></a></span></span>
   
   
@@ -583,6 +660,32 @@ that failed during batch operations.</p>
 
   
     <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/PooledBufferedReadFromProvider.html" title="s3manager.PooledBufferedReadFromProvider (struct)"><strong>PooledBufferedReadFromProvider</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>PooledBufferedReadFromProvider is a WriterReadFromProvider that uses a
+sync.Pool to manage allocation and reuse of *bufio.Writer structures.</p>
+</div></span>
   
 </li>
 
@@ -797,6 +900,110 @@ iterate through what needs to be uploaded.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>A MultiUploadFailure wraps a failed S3 multipart upload.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)"><strong>ReadSeekerWriteTo</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ReadSeekerWriteTo defines an interface implementing io.WriteTo and
+io.ReadSeeker.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/ReadSeekerWriteToProvider.html" title="s3manager.ReadSeekerWriteToProvider (interface)"><strong>ReadSeekerWriteToProvider</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ReadSeekerWriteToProvider provides an implementation of io.WriteTo for an
+io.ReadSeeker.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)"><strong>WriterReadFrom</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>WriterReadFrom defines an interface implementing io.Writer and
+io.ReaderFrom.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/WriterReadFromProvider.html" title="s3manager.WriterReadFromProvider (interface)"><strong>WriterReadFromProvider</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>WriterReadFromProvider provides an implementation of io.ReadFrom for the
+given io.Writer.</p>
 </div></span>
   
 </li>
@@ -2282,33 +2489,15 @@ downloader := s3manager.NewDownloader(sess, <span class="hljs-keyword">func</spa
       <pre class="lines">
 
 
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 78</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 98</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewDownloader(c client.ConfigProvider, options ...<span class="hljs-keyword">func</span>(*Downloader)) *Downloader {
-	d := &Downloader{
-		S3:          s3.New(c),
-		PartSize:    DefaultDownloadPartSize,
-		Concurrency: DefaultDownloadConcurrency,
-	}
-	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> options {
-		option(d)
-	}
-
-	<span class="hljs-keyword">return</span> d
+	<span class="hljs-keyword">return</span> newDownloader(s3.New(c), options...)
 }</div></pre>
     </td>
   </tr>
@@ -2359,33 +2548,15 @@ downloader := s3manager.NewDownloaderWithClient(s3Svc, <span class="hljs-keyword
       <pre class="lines">
 
 
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121</pre>
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 110</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 135</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewDownloaderWithClient(svc s3iface.S3API, options ...<span class="hljs-keyword">func</span>(*Downloader)) *Downloader {
-	d := &Downloader{
-		S3:          svc,
-		PartSize:    DefaultDownloadPartSize,
-		Concurrency: DefaultDownloadConcurrency,
-	}
-	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> options {
-		option(d)
-	}
-
-	<span class="hljs-keyword">return</span> d
+	<span class="hljs-keyword">return</span> newDownloader(svc, options...)
 }</div></pre>
     </td>
   </tr>
@@ -2433,39 +2604,15 @@ uploader := s3manager.NewUploader(session, <span class="hljs-keyword">func</span
       <pre class="lines">
 
 
-182
-183
-184
-185
-186
-187
 188
 189
-190
-191
-192
-193
-194
-195
-196</pre>
+190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 182</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 188</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewUploader(c client.ConfigProvider, options ...<span class="hljs-keyword">func</span>(*Uploader)) *Uploader {
-	u := &Uploader{
-		S3:                s3.New(c),
-		PartSize:          DefaultUploadPartSize,
-		Concurrency:       DefaultUploadConcurrency,
-		LeavePartsOnError: <span class="hljs-constant">false</span>,
-		MaxUploadParts:    MaxUploadParts,
-	}
-
-	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> options {
-		option(u)
-	}
-
-	<span class="hljs-keyword">return</span> u
+	<span class="hljs-keyword">return</span> newUploader(s3.New(c), options...)
 }</div></pre>
     </td>
   </tr>
@@ -2515,39 +2662,15 @@ uploader := s3manager.NewUploaderWithClient(s3Svc, <span class="hljs-keyword">fu
       <pre class="lines">
 
 
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
 229
-230</pre>
+230
+231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 216</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 229</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewUploaderWithClient(svc s3iface.S3API, options ...<span class="hljs-keyword">func</span>(*Uploader)) *Uploader {
-	u := &Uploader{
-		S3:                svc,
-		PartSize:          DefaultUploadPartSize,
-		Concurrency:       DefaultUploadConcurrency,
-		LeavePartsOnError: <span class="hljs-constant">false</span>,
-		MaxUploadParts:    MaxUploadParts,
-	}
-
-	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> options {
-		option(u)
-	}
-
-	<span class="hljs-keyword">return</span> u
+	<span class="hljs-keyword">return</span> newUploader(svc, options...)
 }</div></pre>
     </td>
   </tr>
@@ -2582,14 +2705,14 @@ options.</p>
       <pre class="lines">
 
 
-55
-56
-57
-58
-59</pre>
+75
+76
+77
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 55</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 75</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithDownloaderRequestOptions(opts ...request.Option) <span class="hljs-keyword">func</span>(*Downloader) {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(d *Downloader) {
@@ -2655,7 +2778,7 @@ options.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:52:53 2019 by
+  Generated on Wed Nov  6 19:58:09 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

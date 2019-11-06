@@ -93,7 +93,7 @@ safe to mutate the Session concurrently.</p>
 </div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="../../service/s3/s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../client/ConfigNoResolveEndpointProvider.html" title="client.ConfigNoResolveEndpointProvider (interface)">client.ConfigNoResolveEndpointProvider</a></span>, <span class='object_link'><a href="../client/ConfigProvider.html" title="client.ConfigProvider (interface)">client.ConfigProvider</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../../service/s3/s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../client/ConfigNoResolveEndpointProvider.html" title="client.ConfigNoResolveEndpointProvider (interface)">client.ConfigNoResolveEndpointProvider</a></span>, <span class='object_link'><a href="../client/ConfigProvider.html" title="client.ConfigProvider (interface)">client.ConfigProvider</a></span>, <span class='object_link'><a href="../../service/s3/s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../service/s3/s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -277,7 +277,7 @@ endpoint.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Copy creates and returns a copy of the current Session, coping the config
+<p>Copy creates and returns a copy of the current Session, copying the config
 and handlers.</p>
 </div></span>
   
@@ -351,16 +351,16 @@ Session and configuration at startup. Such as:</p>
       <pre class="lines">
 
 
-299
-300
-301
-302
-303
-304
-305</pre>
+318
+319
+320
+321
+322
+323
+324</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 299</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 318</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> Must(sess *Session, err <span class="hljs-constant">error</span>) *Session {
 	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
@@ -410,16 +410,16 @@ client.</p>
       <pre class="lines">
 
 
-537
-538
-539
-540
-541
-542
-543</pre>
+524
+525
+526
+527
+528
+529
+530</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 537</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 524</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *Session) ClientConfig(serviceName <span class="hljs-constant">string</span>, cfgs ...*aws.Config) client.Config {
 	<span class="hljs-comment">// Backwards compatibility, the error will be eaten if user calls ClientConfig</span>
@@ -463,6 +463,19 @@ field.</p>
       <pre class="lines">
 
 
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
 583
 584
 585
@@ -470,23 +483,10 @@ field.</p>
 587
 588
 589
-590
-591
-592
-593
-594
-595
-596
-597
-598
-599
-600
-601
-602
-603</pre>
+590</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 583</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 570</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *Session) ClientConfigNoResolveEndpo<span class="hljs-constant">int</span>(cfgs ...*aws.Config) client.Config {
 	s = s.Copy(cfgs...)
@@ -527,7 +527,7 @@ field.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Copy creates and returns a copy of the current Session, coping the config
+<p>Copy creates and returns a copy of the current Session, copying the config
 and handlers. If any additional configs are provided they will be merged on
 top of the Session&#39;s copied config.</p>
 
@@ -546,19 +546,19 @@ sess.Copy(&aws.Config{Region: aws.String(<span class="hljs-string">"us-west-2"</
       <pre class="lines">
 
 
-523
-524
-525
-526
-527
-528
-529
-530
-531
-532</pre>
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 523</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 510</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *Session) Copy(cfgs ...*aws.Config) *Session {
 	newSession := &Session{
@@ -582,7 +582,7 @@ sess.Copy(&aws.Config{Region: aws.String(<span class="hljs-string">"us-west-2"</
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:52:56 2019 by
+  Generated on Wed Nov  6 19:58:12 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

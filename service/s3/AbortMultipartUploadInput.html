@@ -76,7 +76,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -500,7 +500,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <div class="method_details ">
   <h3 class="signature " id="_-field">
   <strong>_</strong> struct{} 
-  <code>`type:"structure"`</code>
+  <code>`locationName:"AbortMultipartUploadRequest" type:"structure"`</code>
 </h3>
 
 </div>
@@ -538,12 +538,12 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3245
-3246
-3247</pre>
+3383
+3384
+3385</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3245</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3383</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.AbortMultipartUploadInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -580,13 +580,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3275
-3276
-3277
-3278</pre>
+3413
+3414
+3415
+3416</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3275</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3413</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.AbortMultipartUploadInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span> {
 	s.Bucket = &v
@@ -624,13 +624,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3288
-3289
-3290
-3291</pre>
+3426
+3427
+3428
+3429</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3288</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3426</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.AbortMultipartUploadInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span> {
 	s.Key = &v
@@ -668,13 +668,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3294
-3295
-3296
-3297</pre>
+3432
+3433
+3434
+3435</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3294</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3432</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.AbortMultipartUploadInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span> {
 	s.RequestPayer = &v
@@ -712,13 +712,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3300
-3301
-3302
-3303</pre>
+3438
+3439
+3440
+3441</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3300</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3438</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetUploadId-instance_method" title="s3.AbortMultipartUploadInput.SetUploadId() (method)">SetUploadId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span> {
 	s.UploadId = &v
@@ -756,12 +756,12 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3240
-3241
-3242</pre>
+3378
+3379
+3380</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3240</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3378</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.AbortMultipartUploadInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -798,32 +798,32 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3250
-3251
-3252
-3253
-3254
-3255
-3256
-3257
-3258
-3259
-3260
-3261
-3262
-3263
-3264
-3265
-3266
-3267
-3268
-3269
-3270
-3271
-3272</pre>
+3388
+3389
+3390
+3391
+3392
+3393
+3394
+3395
+3396
+3397
+3398
+3399
+3400
+3401
+3402
+3403
+3404
+3405
+3406
+3407
+3408
+3409
+3410</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3250</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3388</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.AbortMultipartUploadInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>"</span>}
@@ -860,7 +860,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:07 2019 by
+  Generated on Wed Nov  6 19:58:21 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

@@ -90,7 +90,7 @@ concurrently.</p>
 </div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="../s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manageriface/DownloadWithIterator.html" title="s3manageriface.DownloadWithIterator (interface)">s3manageriface.DownloadWithIterator</a></span>, <span class='object_link'><a href="s3manageriface/DownloaderAPI.html" title="s3manageriface.DownloaderAPI (interface)">s3manageriface.DownloaderAPI</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manageriface/DownloadWithIterator.html" title="s3manageriface.DownloadWithIterator (interface)">s3manageriface.DownloadWithIterator</a></span>, <span class='object_link'><a href="s3manageriface/DownloaderAPI.html" title="s3manageriface.DownloaderAPI (interface)">s3manageriface.DownloaderAPI</a></span>, <span class='object_link'><a href="ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -109,6 +109,31 @@ concurrently.</p>
   </h2>
 
   <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BufferProvider-field" title="s3manager.Downloader.BufferProvider (field)"><strong>BufferProvider</strong> WriterReadFromProvider</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Defines the buffer strategy used when downloading a part.</p>
+</div></span>
+  
+</li>
+
+
     
       
 <li class="public ">
@@ -153,8 +178,7 @@ concurrently.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The buffer size (in bytes) to use when buffering data into chunks and
-sending them as parts to S3.</p>
+<p>The size (in bytes) to request from S3 for each part.</p>
 </div></span>
   
 </li>
@@ -313,7 +337,31 @@ writes them to the io.WriterAt specificed in the iterator.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="Concurrency-field">
+  <h3 class="signature first" id="BufferProvider-field">
+  <strong>BufferProvider</strong> <span class='object_link'><a href="WriterReadFromProvider.html" title="s3manager.WriterReadFromProvider (interface)">WriterReadFromProvider</a></span> 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the buffer strategy used when downloading a part.</p>
+
+<p>If a WriterReadFromProvider is given the Download manager will pass the
+io.WriterAt of the Download request to the provider and will use the
+returned WriterReadFrom from the provider as the destination writer when
+copying from http response body.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Concurrency-field">
   <strong>Concurrency</strong> int 
   
 </h3>
@@ -344,9 +392,9 @@ is set to zero, the DefaultDownloadConcurrency value will be used.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The buffer size (in bytes) to use when buffering data into chunks and
-sending them as parts to S3. The minimum allowed part size is 5MB, and if
-this value is set to zero, the DefaultDownloadPartSize value will be used.</p>
+<p>The size (in bytes) to request from S3 for each part. The minimum allowed
+part size is 5MB, and if this value is set to zero, the
+DefaultDownloadPartSize value will be used.</p>
 
 <p>PartSize is ignored if the Range input parameter is provided.</p>
 
@@ -451,12 +499,12 @@ ignored.</p>
       <pre class="lines">
 
 
-146
-147
-148</pre>
+162
+163
+164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 146</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 162</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) Download(w io.WriterAt, input *s3.GetObjectInput, options ...<span class="hljs-keyword">func</span>(*Downloader)) (n <span class="hljs-constant">int64</span>, err <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">return</span> d.DownloadWithContext(aws.BackgroundContext(), w, input, options...)
@@ -521,32 +569,32 @@ ignored.</p>
       <pre class="lines">
 
 
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
 193
 194
 195
 196
 197
 198
-199</pre>
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 177</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 193</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) DownloadWithContext(ctx aws.Context, w io.WriterAt, input *s3.GetObjectInput, options ...<span class="hljs-keyword">func</span>(*Downloader)) (n <span class="hljs-constant">int64</span>, err <span class="hljs-constant">error</span>) {
 	impl := downloader{w: w, in: input, cfg: d, ctx: ctx}
@@ -638,31 +686,31 @@ iter := &s3manager.DownloadObjectsIterator{Objects: objects}
       <pre class="lines">
 
 
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
 254
 255
 256
 257
 258
-259</pre>
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 238</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 254</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) DownloadWithIterator(ctx aws.Context, iter BatchDownloadIterator, opts ...<span class="hljs-keyword">func</span>(*Downloader)) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">var</span> errs []Error
@@ -698,7 +746,7 @@ iter := &s3manager.DownloadObjectsIterator{Objects: objects}
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:55 2019 by
+  Generated on Wed Nov  6 19:58:55 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

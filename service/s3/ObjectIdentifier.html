@@ -76,7 +76,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -397,12 +397,12 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <pre class="lines">
 
 
-9452
-9453
-9454</pre>
+9851
+9852
+9853</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9452</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9851</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ObjectIdentifier.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -439,13 +439,13 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <pre class="lines">
 
 
-9473
-9474
-9475
-9476</pre>
+9872
+9873
+9874
+9875</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9473</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9872</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.ObjectIdentifier.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span> {
 	s.Key = &v
@@ -483,13 +483,13 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <pre class="lines">
 
 
-9479
-9480
-9481
-9482</pre>
+9878
+9879
+9880
+9881</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9479</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9878</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.ObjectIdentifier.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span> {
 	s.VersionId = &v
@@ -527,12 +527,12 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <pre class="lines">
 
 
-9447
-9448
-9449</pre>
+9846
+9847
+9848</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9447</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9846</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ObjectIdentifier.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -569,23 +569,23 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       <pre class="lines">
 
 
-9457
-9458
-9459
-9460
-9461
-9462
-9463
-9464
-9465
-9466
-9467
-9468
-9469
-9470</pre>
+9856
+9857
+9858
+9859
+9860
+9861
+9862
+9863
+9864
+9865
+9866
+9867
+9868
+9869</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9457</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9856</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.ObjectIdentifier.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span>"</span>}
@@ -613,7 +613,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:23 2019 by
+  Generated on Wed Nov  6 19:58:34 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

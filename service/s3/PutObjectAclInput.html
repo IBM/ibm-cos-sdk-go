@@ -76,7 +76,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -972,7 +972,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <div class="method_details ">
   <h3 class="signature " id="_-field">
   <strong>_</strong> struct{} 
-  <code>`type:"structure" payload:"AccessControlPolicy"`</code>
+  <code>`locationName:"PutObjectAclRequest" type:"structure" payload:"AccessControlPolicy"`</code>
 </h3>
 
 </div>
@@ -1010,12 +1010,12 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10154
-10155
-10156</pre>
+10553
+10554
+10555</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10154</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10553</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.PutObjectAclInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1052,13 +1052,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10192
-10193
-10194
-10195</pre>
+10591
+10592
+10593
+10594</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10192</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10591</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#SetAccessControlPolicy-instance_method" title="s3.PutObjectAclInput.SetAccessControlPolicy() (method)">SetAccessControlPolicy</a></span>(v *<span class='object_link'><a href="#AccessControlPolicy-field" title="s3.PutObjectAclInput.AccessControlPolicy (field)">AccessControlPolicy</a></span>) *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span> {
 	s.AccessControlPolicy = v
@@ -1096,13 +1096,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10186
-10187
-10188
-10189</pre>
+10585
+10586
+10587
+10588</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10186</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10585</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#SetACL-instance_method" title="s3.PutObjectAclInput.SetACL() (method)">SetACL</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span> {
 	s.ACL = &v
@@ -1140,13 +1140,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10198
-10199
-10200
-10201</pre>
+10597
+10598
+10599
+10600</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10198</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10597</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.PutObjectAclInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span> {
 	s.Bucket = &v
@@ -1184,13 +1184,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10211
-10212
-10213
-10214</pre>
+10610
+10611
+10612
+10613</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10211</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10610</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#SetGrantFullControl-instance_method" title="s3.PutObjectAclInput.SetGrantFullControl() (method)">SetGrantFullControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span> {
 	s.GrantFullControl = &v
@@ -1228,13 +1228,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10217
-10218
-10219
-10220</pre>
+10616
+10617
+10618
+10619</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10217</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10616</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#SetGrantRead-instance_method" title="s3.PutObjectAclInput.SetGrantRead() (method)">SetGrantRead</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span> {
 	s.GrantRead = &v
@@ -1272,13 +1272,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10223
-10224
-10225
-10226</pre>
+10622
+10623
+10624
+10625</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10223</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10622</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#SetGrantReadACP-instance_method" title="s3.PutObjectAclInput.SetGrantReadACP() (method)">SetGrantReadACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span> {
 	s.GrantReadACP = &v
@@ -1316,13 +1316,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10229
-10230
-10231
-10232</pre>
+10628
+10629
+10630
+10631</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10229</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10628</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#SetGrantWrite-instance_method" title="s3.PutObjectAclInput.SetGrantWrite() (method)">SetGrantWrite</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span> {
 	s.GrantWrite = &v
@@ -1360,13 +1360,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10235
-10236
-10237
-10238</pre>
+10634
+10635
+10636
+10637</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10235</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10634</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#SetGrantWriteACP-instance_method" title="s3.PutObjectAclInput.SetGrantWriteACP() (method)">SetGrantWriteACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span> {
 	s.GrantWriteACP = &v
@@ -1404,13 +1404,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10241
-10242
-10243
-10244</pre>
+10640
+10641
+10642
+10643</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10241</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10640</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.PutObjectAclInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span> {
 	s.Key = &v
@@ -1448,13 +1448,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10247
-10248
-10249
-10250</pre>
+10646
+10647
+10648
+10649</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10247</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10646</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.PutObjectAclInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span> {
 	s.RequestPayer = &v
@@ -1492,13 +1492,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10253
-10254
-10255
-10256</pre>
+10652
+10653
+10654
+10655</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10253</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10652</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.PutObjectAclInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span> {
 	s.VersionId = &v
@@ -1536,12 +1536,12 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10149
-10150
-10151</pre>
+10548
+10549
+10550</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10149</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10548</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.PutObjectAclInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1578,34 +1578,34 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-10159
-10160
-10161
-10162
-10163
-10164
-10165
-10166
-10167
-10168
-10169
-10170
-10171
-10172
-10173
-10174
-10175
-10176
-10177
-10178
-10179
-10180
-10181
-10182
-10183</pre>
+10558
+10559
+10560
+10561
+10562
+10563
+10564
+10565
+10566
+10567
+10568
+10569
+10570
+10571
+10572
+10573
+10574
+10575
+10576
+10577
+10578
+10579
+10580
+10581
+10582</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10159</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10558</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.PutObjectAclInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.PutObjectAclInput (struct)">PutObjectAclInput</a></span>"</span>}
@@ -1644,7 +1644,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:25 2019 by
+  Generated on Wed Nov  6 19:58:35 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

@@ -76,7 +76,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -641,7 +641,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <div class="method_details ">
   <h3 class="signature " id="_-field">
   <strong>_</strong> struct{} 
-  <code>`type:"structure"`</code>
+  <code>`locationName:"ListPartsRequest" type:"structure"`</code>
 </h3>
 
 </div>
@@ -679,12 +679,12 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-9004
-9005
-9006</pre>
+9403
+9404
+9405</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9004</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9403</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ListPartsInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -721,13 +721,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-9034
-9035
-9036
-9037</pre>
+9433
+9434
+9435
+9436</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9034</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9433</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.ListPartsInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span> {
 	s.Bucket = &v
@@ -765,13 +765,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-9047
-9048
-9049
-9050</pre>
+9446
+9447
+9448
+9449</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9047</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9446</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.ListPartsInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span> {
 	s.Key = &v
@@ -809,13 +809,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-9053
-9054
-9055
-9056</pre>
+9452
+9453
+9454
+9455</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9053</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9452</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span>) <span class='object_link'><a href="#SetMaxParts-instance_method" title="s3.ListPartsInput.SetMaxParts() (method)">SetMaxParts</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span> {
 	s.MaxParts = &v
@@ -853,13 +853,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-9059
-9060
-9061
-9062</pre>
+9458
+9459
+9460
+9461</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9059</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9458</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span>) <span class='object_link'><a href="#SetPartNumberMarker-instance_method" title="s3.ListPartsInput.SetPartNumberMarker() (method)">SetPartNumberMarker</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span> {
 	s.PartNumberMarker = &v
@@ -897,13 +897,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-9065
-9066
-9067
-9068</pre>
+9464
+9465
+9466
+9467</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9065</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9464</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.ListPartsInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span> {
 	s.RequestPayer = &v
@@ -941,13 +941,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-9071
-9072
-9073
-9074</pre>
+9470
+9471
+9472
+9473</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9071</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9470</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span>) <span class='object_link'><a href="#SetUploadId-instance_method" title="s3.ListPartsInput.SetUploadId() (method)">SetUploadId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span> {
 	s.UploadId = &v
@@ -985,12 +985,12 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-8999
-9000
-9001</pre>
+9398
+9399
+9400</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8999</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9398</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ListPartsInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1027,32 +1027,32 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-9009
-9010
-9011
-9012
-9013
-9014
-9015
-9016
-9017
-9018
-9019
-9020
-9021
-9022
-9023
-9024
-9025
-9026
-9027
-9028
-9029
-9030
-9031</pre>
+9408
+9409
+9410
+9411
+9412
+9413
+9414
+9415
+9416
+9417
+9418
+9419
+9420
+9421
+9422
+9423
+9424
+9425
+9426
+9427
+9428
+9429
+9430</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9009</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9408</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.ListPartsInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.ListPartsInput (struct)">ListPartsInput</a></span>"</span>}
@@ -1089,7 +1089,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:22 2019 by
+  Generated on Wed Nov  6 19:58:33 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

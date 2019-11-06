@@ -76,7 +76,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -1004,7 +1004,7 @@ the encryption key was transmitted without error.</p>
       <div class="method_details ">
   <h3 class="signature " id="_-field">
   <strong>_</strong> struct{} 
-  <code>`type:"structure" payload:"Body"`</code>
+  <code>`locationName:"UploadPartRequest" type:"structure" payload:"Body"`</code>
 </h3>
 
 </div>
@@ -1042,12 +1042,12 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11345
-11346
-11347</pre>
+11744
+11745
+11746</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11345</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11744</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.UploadPartInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1084,13 +1084,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11378
-11379
-11380
-11381</pre>
+11777
+11778
+11779
+11780</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11378</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11777</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetBody-instance_method" title="s3.UploadPartInput.SetBody() (method)">SetBody</a></span>(v io.ReadSeeker) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.Body = v
@@ -1128,13 +1128,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11384
-11385
-11386
-11387</pre>
+11783
+11784
+11785
+11786</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11384</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11783</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.UploadPartInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.Bucket = &v
@@ -1172,13 +1172,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11397
-11398
-11399
-11400</pre>
+11796
+11797
+11798
+11799</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11397</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11796</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetContentLength-instance_method" title="s3.UploadPartInput.SetContentLength() (method)">SetContentLength</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.ContentLength = &v
@@ -1216,13 +1216,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11403
-11404
-11405
-11406</pre>
+11802
+11803
+11804
+11805</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11403</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11802</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetContentMD5-instance_method" title="s3.UploadPartInput.SetContentMD5() (method)">SetContentMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.ContentMD5 = &v
@@ -1260,13 +1260,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11409
-11410
-11411
-11412</pre>
+11808
+11809
+11810
+11811</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11409</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11808</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.UploadPartInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.Key = &v
@@ -1304,13 +1304,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11415
-11416
-11417
-11418</pre>
+11814
+11815
+11816
+11817</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11415</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11814</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetPartNumber-instance_method" title="s3.UploadPartInput.SetPartNumber() (method)">SetPartNumber</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.PartNumber = &v
@@ -1348,13 +1348,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11421
-11422
-11423
-11424</pre>
+11820
+11821
+11822
+11823</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11421</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11820</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.UploadPartInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.RequestPayer = &v
@@ -1392,13 +1392,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11427
-11428
-11429
-11430</pre>
+11826
+11827
+11828
+11829</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11427</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11826</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.UploadPartInput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -1436,13 +1436,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11433
-11434
-11435
-11436</pre>
+11832
+11833
+11834
+11835</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11433</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11832</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.UploadPartInput.SetSSECustomerKey() (method)">SetSSECustomerKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.SSECustomerKey = &v
@@ -1480,13 +1480,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11446
-11447
-11448
-11449</pre>
+11845
+11846
+11847
+11848</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11446</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11845</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.UploadPartInput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -1524,13 +1524,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11452
-11453
-11454
-11455</pre>
+11851
+11852
+11853
+11854</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11452</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11851</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetUploadId-instance_method" title="s3.UploadPartInput.SetUploadId() (method)">SetUploadId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.UploadId = &v
@@ -1568,12 +1568,12 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11340
-11341
-11342</pre>
+11739
+11740
+11741</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11340</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11739</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.UploadPartInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1610,35 +1610,35 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-11350
-11351
-11352
-11353
-11354
-11355
-11356
-11357
-11358
-11359
-11360
-11361
-11362
-11363
-11364
-11365
-11366
-11367
-11368
-11369
-11370
-11371
-11372
-11373
-11374
-11375</pre>
+11749
+11750
+11751
+11752
+11753
+11754
+11755
+11756
+11757
+11758
+11759
+11760
+11761
+11762
+11763
+11764
+11765
+11766
+11767
+11768
+11769
+11770
+11771
+11772
+11773
+11774</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11350</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11749</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.UploadPartInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>"</span>}
@@ -1678,7 +1678,7 @@ the encryption key was transmitted without error.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:28 2019 by
+  Generated on Wed Nov  6 19:58:38 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

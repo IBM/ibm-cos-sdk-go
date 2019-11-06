@@ -76,7 +76,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -658,7 +658,7 @@ If none of the Request Headers are specified, a 400 error will be returned.</p>
       <div class="method_details ">
   <h3 class="signature " id="_-field">
   <strong>_</strong> struct{} 
-  <code>`type:"structure"`</code>
+  <code>`locationName:"ExtendObjectRetentionRequest" type:"structure"`</code>
 </h3>
 
 </div>
@@ -696,12 +696,12 @@ If none of the Request Headers are specified, a 400 error will be returned.</p>
       <pre class="lines">
 
 
-6028
-6029
-6030</pre>
+6166
+6167
+6168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6028</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6166</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ExtendObjectRetentionInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -739,13 +739,13 @@ value.</p>
       <pre class="lines">
 
 
-6055
-6056
-6057
-6058</pre>
+6193
+6194
+6195
+6196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6055</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6193</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span>) <span class='object_link'><a href="#SetAdditionalRetentionPeriod-instance_method" title="s3.ExtendObjectRetentionInput.SetAdditionalRetentionPeriod() (method)">SetAdditionalRetentionPeriod</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span> {
 	s.AdditionalRetentionPeriod = &v
@@ -783,13 +783,13 @@ value.</p>
       <pre class="lines">
 
 
-6061
-6062
-6063
-6064</pre>
+6199
+6200
+6201
+6202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6061</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6199</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.ExtendObjectRetentionInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span> {
 	s.Bucket = &v
@@ -828,13 +828,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-6074
-6075
-6076
-6077</pre>
+6212
+6213
+6214
+6215</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6074</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6212</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span>) <span class='object_link'><a href="#SetExtendRetentionFromCurrentTime-instance_method" title="s3.ExtendObjectRetentionInput.SetExtendRetentionFromCurrentTime() (method)">SetExtendRetentionFromCurrentTime</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span> {
 	s.ExtendRetentionFromCurrentTime = &v
@@ -872,13 +872,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-6080
-6081
-6082
-6083</pre>
+6218
+6219
+6220
+6221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6080</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6218</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.ExtendObjectRetentionInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span> {
 	s.Key = &v
@@ -917,13 +917,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-6086
-6087
-6088
-6089</pre>
+6224
+6225
+6226
+6227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6086</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6224</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span>) <span class='object_link'><a href="#SetNewRetentionExpirationDate-instance_method" title="s3.ExtendObjectRetentionInput.SetNewRetentionExpirationDate() (method)">SetNewRetentionExpirationDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span> {
 	s.NewRetentionExpirationDate = &v
@@ -961,13 +961,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-6092
-6093
-6094
-6095</pre>
+6230
+6231
+6232
+6233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6092</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6230</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span>) <span class='object_link'><a href="#SetNewRetentionPeriod-instance_method" title="s3.ExtendObjectRetentionInput.SetNewRetentionPeriod() (method)">SetNewRetentionPeriod</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span> {
 	s.NewRetentionPeriod = &v
@@ -1005,12 +1005,12 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-6023
-6024
-6025</pre>
+6161
+6162
+6163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6023</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6161</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ExtendObjectRetentionInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1047,29 +1047,29 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-6033
-6034
-6035
-6036
-6037
-6038
-6039
-6040
-6041
-6042
-6043
-6044
-6045
-6046
-6047
-6048
-6049
-6050
-6051
-6052</pre>
+6171
+6172
+6173
+6174
+6175
+6176
+6177
+6178
+6179
+6180
+6181
+6182
+6183
+6184
+6185
+6186
+6187
+6188
+6189
+6190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6033</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6171</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.ExtendObjectRetentionInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.ExtendObjectRetentionInput (struct)">ExtendObjectRetentionInput</a></span>"</span>}
@@ -1103,7 +1103,7 @@ field&#39;s value.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:14 2019 by
+  Generated on Wed Nov  6 19:58:27 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

@@ -76,7 +76,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -358,7 +358,7 @@ value.</p>
       <div class="method_details ">
   <h3 class="signature " id="_-field">
   <strong>_</strong> struct{} 
-  <code>`type:"structure" payload:"LifecycleConfiguration"`</code>
+  <code>`locationName:"PutBucketLifecycleConfigurationRequest" type:"structure" payload:"LifecycleConfiguration"`</code>
 </h3>
 
 </div>
@@ -396,12 +396,12 @@ value.</p>
       <pre class="lines">
 
 
-9893
-9894
-9895</pre>
+10292
+10293
+10294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9893</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10292</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.PutBucketLifecycleConfigurationInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -438,13 +438,13 @@ value.</p>
       <pre class="lines">
 
 
-9922
-9923
-9924
-9925</pre>
+10321
+10322
+10323
+10324</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9922</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10321</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.PutBucketLifecycleConfigurationInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span> {
 	s.Bucket = &v
@@ -483,13 +483,13 @@ value.</p>
       <pre class="lines">
 
 
-9935
-9936
-9937
-9938</pre>
+10334
+10335
+10336
+10337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9935</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10334</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#SetLifecycleConfiguration-instance_method" title="s3.PutBucketLifecycleConfigurationInput.SetLifecycleConfiguration() (method)">SetLifecycleConfiguration</a></span>(v *<span class='object_link'><a href="#LifecycleConfiguration-field" title="s3.PutBucketLifecycleConfigurationInput.LifecycleConfiguration (field)">LifecycleConfiguration</a></span>) *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span> {
 	s.LifecycleConfiguration = v
@@ -527,12 +527,12 @@ value.</p>
       <pre class="lines">
 
 
-9888
-9889
-9890</pre>
+10287
+10288
+10289</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9888</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10287</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.PutBucketLifecycleConfigurationInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -569,31 +569,31 @@ value.</p>
       <pre class="lines">
 
 
-9898
-9899
-9900
-9901
-9902
-9903
-9904
-9905
-9906
-9907
-9908
-9909
-9910
-9911
-9912
-9913
-9914
-9915
-9916
-9917
-9918
-9919</pre>
+10297
+10298
+10299
+10300
+10301
+10302
+10303
+10304
+10305
+10306
+10307
+10308
+10309
+10310
+10311
+10312
+10313
+10314
+10315
+10316
+10317
+10318</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9898</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10297</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.PutBucketLifecycleConfigurationInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>"</span>}
@@ -629,7 +629,7 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:24 2019 by
+  Generated on Wed Nov  6 19:58:35 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

@@ -89,7 +89,7 @@ in this case.</p>
 </div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -475,12 +475,12 @@ be stored under.</p>
       <pre class="lines">
 
 
-9256
-9257
-9258</pre>
+9655
+9656
+9657</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9256</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9655</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.LoggingEnabled.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -517,13 +517,13 @@ be stored under.</p>
       <pre class="lines">
 
 
-9287
-9288
-9289
-9290</pre>
+9686
+9687
+9688
+9689</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9287</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9686</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#SetTargetBucket-instance_method" title="s3.LoggingEnabled.SetTargetBucket() (method)">SetTargetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span> {
 	s.TargetBucket = &v
@@ -561,13 +561,13 @@ be stored under.</p>
       <pre class="lines">
 
 
-9293
-9294
-9295
-9296</pre>
+9692
+9693
+9694
+9695</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9293</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9692</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#SetTargetGrants-instance_method" title="s3.LoggingEnabled.SetTargetGrants() (method)">SetTargetGrants</a></span>(v []*<span class='object_link'><a href="TargetGrant.html" title="s3.TargetGrant (struct)">TargetGrant</a></span>) *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span> {
 	s.TargetGrants = v
@@ -605,13 +605,13 @@ be stored under.</p>
       <pre class="lines">
 
 
-9299
-9300
-9301
-9302</pre>
+9698
+9699
+9700
+9701</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9299</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9698</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#SetTargetPrefix-instance_method" title="s3.LoggingEnabled.SetTargetPrefix() (method)">SetTargetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span> {
 	s.TargetPrefix = &v
@@ -649,12 +649,12 @@ be stored under.</p>
       <pre class="lines">
 
 
-9251
-9252
-9253</pre>
+9650
+9651
+9652</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9251</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9650</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.LoggingEnabled.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -691,33 +691,33 @@ be stored under.</p>
       <pre class="lines">
 
 
-9261
-9262
-9263
-9264
-9265
-9266
-9267
-9268
-9269
-9270
-9271
-9272
-9273
-9274
-9275
-9276
-9277
-9278
-9279
-9280
-9281
-9282
-9283
-9284</pre>
+9660
+9661
+9662
+9663
+9664
+9665
+9666
+9667
+9668
+9669
+9670
+9671
+9672
+9673
+9674
+9675
+9676
+9677
+9678
+9679
+9680
+9681
+9682
+9683</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9261</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9660</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.LoggingEnabled.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>"</span>}
@@ -755,7 +755,7 @@ be stored under.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:22 2019 by
+  Generated on Wed Nov  6 19:58:34 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

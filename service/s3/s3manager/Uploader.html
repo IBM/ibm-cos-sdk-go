@@ -89,7 +89,7 @@ Mutating the Uploader&#39;s properties is not safe to be done concurrently.</p>
 </div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
-  <p class="inherited"><span class='object_link'><a href="../s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manageriface/UploadWithIterator.html" title="s3manageriface.UploadWithIterator (interface)">s3manageriface.UploadWithIterator</a></span>, <span class='object_link'><a href="s3manageriface/UploaderAPI.html" title="s3manageriface.UploaderAPI (interface)">s3manageriface.UploaderAPI</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="s3manageriface/UploadWithIterator.html" title="s3manageriface.UploadWithIterator (interface)">s3manageriface.UploadWithIterator</a></span>, <span class='object_link'><a href="s3manageriface/UploaderAPI.html" title="s3manageriface.UploaderAPI (interface)">s3manageriface.UploaderAPI</a></span>, <span class='object_link'><a href="WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
 
 
   
@@ -108,6 +108,31 @@ Mutating the Uploader&#39;s properties is not safe to be done concurrently.</p>
   </h2>
 
   <ul class="summary">
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BufferProvider-field" title="s3manager.Uploader.BufferProvider (field)"><strong>BufferProvider</strong> ReadSeekerWriteToProvider</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Defines the buffer strategy used when uploading a part.</p>
+</div></span>
+  
+</li>
+
+
     
       
 <li class="public ">
@@ -365,7 +390,26 @@ goroutines.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="Concurrency-field">
+  <h3 class="signature first" id="BufferProvider-field">
+  <strong>BufferProvider</strong> <span class='object_link'><a href="ReadSeekerWriteToProvider.html" title="s3manager.ReadSeekerWriteToProvider (interface)">ReadSeekerWriteToProvider</a></span> 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the buffer strategy used when uploading a part</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Concurrency-field">
   <strong>Concurrency</strong> int 
   
 </h3>
@@ -560,12 +604,12 @@ result, err := uploader.Upload(upParams, <span class="hljs-keyword">func</span>(
       <pre class="lines">
 
 
-261
 262
-263</pre>
+263
+264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 261</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 262</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) Upload(input *UploadInput, options ...<span class="hljs-keyword">func</span>(*Uploader)) (*UploadOutput, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">return</span> u.UploadWithContext(aws.BackgroundContext(), input, options...)
@@ -620,7 +664,6 @@ options that will be applied to all API operations made with this uploader.</p>
       <pre class="lines">
 
 
-283
 284
 285
 286
@@ -629,10 +672,12 @@ options that will be applied to all API operations made with this uploader.</p>
 289
 290
 291
-292</pre>
+292
+293
+294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 283</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 284</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) UploadWithContext(ctx aws.Context, input *UploadInput, opts ...<span class="hljs-keyword">func</span>(*Uploader)) (*UploadOutput, <span class="hljs-constant">error</span>) {
 	i := uploader{in: input, cfg: u, ctx: ctx}
@@ -640,6 +685,7 @@ options that will be applied to all API operations made with this uploader.</p>
 	<span class="hljs-keyword">for</span> _, opt := <span class="hljs-keyword">range</span> opts {
 		opt(&i.cfg)
 	}
+
 	i.cfg.RequestOptions = append(i.cfg.RequestOptions, request.WithAppendUserAgent(<span class="hljs-string">"S3Manager"</span>))
 
 	<span class="hljs-keyword">return</span> i.upload()
@@ -694,8 +740,6 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
       <pre class="lines">
 
 
-314
-315
 316
 317
 318
@@ -727,10 +771,12 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
 344
 345
 346
-347</pre>
+347
+348
+349</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 314</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 316</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) UploadWithIterator(ctx aws.Context, iter BatchUploadIterator, opts ...<span class="hljs-keyword">func</span>(*Uploader)) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">var</span> errs []Error
@@ -778,7 +824,7 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
       </div>
 
       <div id="footer">
-  Generated on Fri Sep  6 19:53:55 2019 by
+  Generated on Wed Nov  6 19:58:55 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>
