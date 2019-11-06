@@ -8,11 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/IBM/ibm-cos-sdk-go/aws/credentials"
-
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
 	"github.com/IBM/ibm-cos-sdk-go/aws/client"
+	"github.com/IBM/ibm-cos-sdk-go/aws/credentials"
 	"github.com/IBM/ibm-cos-sdk-go/aws/request"
 	"github.com/IBM/ibm-cos-sdk-go/awstesting"
 	"github.com/IBM/ibm-cos-sdk-go/awstesting/unit"

@@ -12,7 +12,7 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/signer"
 
 	"github.com/IBM/ibm-cos-sdk-go/aws"
-	"github.com/IBM/ibm-cos-sdk-go/aws/signer/v4"
+	v4 "github.com/IBM/ibm-cos-sdk-go/aws/signer/v4"
 	"github.com/IBM/ibm-cos-sdk-go/awstesting/unit"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 )

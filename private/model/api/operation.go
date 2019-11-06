@@ -220,7 +220,11 @@ func (c *{{ .API.StructName }}) {{ .ExportedName }}Request(` +
 				"op": aws.String(req.Operation.Name),
 				{{ range $key, $ref := .InputRef.Shape.MemberRefs -}}
 				{{ if $ref.EndpointDiscoveryID -}}
-				"{{ $ref.OrigShapeName }}": input.{{ $key }},
+				{{ if ne (len $ref.LocationName) 0 -}}
+				"{{ $ref.LocationName }}": input.{{ $key }},
+				{{ else -}}
+				"{{ $key }}": input.{{ $key }},
+				{{ end -}}
 				{{ end -}}
 				{{- end }}
 			},
@@ -316,7 +320,7 @@ func (c *{{ .API.StructName }}) {{ .ExportedName }}WithContext(` +
 //    // Example iterating over at most 3 pages of a {{ .ExportedName }} operation.
 //    pageNum := 0
 //    err := client.{{ .ExportedName }}Pages(params,
-//        func(page {{ .OutputRef.GoType }}, lastPage bool) bool {
+//        func(page {{ .OutputRef.Shape.GoTypeWithPkgName }}, lastPage bool) bool {
 //            pageNum++
 //            fmt.Println(page)
 //            return pageNum <= 3

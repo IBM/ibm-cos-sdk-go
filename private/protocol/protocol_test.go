@@ -9,7 +9,6 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/request"
 	"github.com/IBM/ibm-cos-sdk-go/awstesting"
 	"github.com/IBM/ibm-cos-sdk-go/private/protocol"
-	"github.com/IBM/ibm-cos-sdk-go/private/protocol/ec2query"
 	"github.com/IBM/ibm-cos-sdk-go/private/protocol/jsonrpc"
 	"github.com/IBM/ibm-cos-sdk-go/private/protocol/query"
 	"github.com/IBM/ibm-cos-sdk-go/private/protocol/rest"
@@ -196,12 +195,6 @@ func TestRestXML(t *testing.T) {
 	checkForLeak(nil, restxml.Build, restxml.Unmarshal, t, expected{xmlType, true, 0, false})
 	checkForLeak(nil, restxml.Build, restxml.UnmarshalMeta, t, expected{xmlType, false, 2048, false})
 	checkForLeak(nil, restxml.Build, restxml.UnmarshalError, t, expected{xmlType, true, 0, true})
-}
-
-func TestXML(t *testing.T) {
-	checkForLeak(nil, ec2query.Build, ec2query.Unmarshal, t, expected{jsonType, true, 0, false})
-	checkForLeak(nil, ec2query.Build, ec2query.UnmarshalMeta, t, expected{jsonType, false, 2048, false})
-	checkForLeak(nil, ec2query.Build, ec2query.UnmarshalError, t, expected{jsonType, true, 0, true})
 }
 
 func TestProtocol(t *testing.T) {

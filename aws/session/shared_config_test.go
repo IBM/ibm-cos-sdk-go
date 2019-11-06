@@ -1,3 +1,5 @@
+// +build go1.7
+
 package session
 
 import (
@@ -197,18 +199,20 @@ func TestLoadSharedConfigIniFiles(t *testing.T) {
 	}
 
 	for i, c := range cases {
-		files, err := loadSharedConfigIniFiles(c.Filenames)
-		if err != nil {
-			t.Errorf("%d, expect nil, %v", i, err)
-		}
-		if e, a := len(c.Expected), len(files); e != a {
-			t.Errorf("expect %v, got %v", e, a)
-		}
-
-		for i, expectedFile := range c.Expected {
-			if e, a := expectedFile.Filename, files[i].Filename; e != a {
+		t.Run(strconv.Itoa(i), func(t *testing.T) {
+			files, err := loadSharedConfigIniFiles(c.Filenames)
+			if err != nil {
+				t.Fatalf("expect no error, got %v", err)
+			}
+			if e, a := len(c.Expected), len(files); e != a {
 				t.Errorf("expect %v, got %v", e, a)
 			}
-		}
+
+			for i, expectedFile := range c.Expected {
+				if e, a := expectedFile.Filename, files[i].Filename; e != a {
+					t.Errorf("expect %v, got %v", e, a)
+				}
+			}
+		})
 	}
 }

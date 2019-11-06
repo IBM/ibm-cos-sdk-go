@@ -319,6 +319,18 @@
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGET.html",
       "alias":"GetBucket"
     },
+    "ListObjectsV2":{
+      "name":"ListObjectsV2",
+      "http":{
+        "method":"GET",
+        "requestUri":"/{Bucket}?list-type=2"
+      },
+      "input":{"shape":"ListObjectsV2Request"},
+      "output":{"shape":"ListObjectsV2Output"},
+      "errors":[
+        {"shape":"NoSuchBucket"}
+      ]
+    },
     "ListParts":{
       "name":"ListParts",
       "http":{
@@ -3101,6 +3113,73 @@
           "shape":"Prefix",
           "location":"querystring",
           "locationName":"prefix"
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
+        }
+      }
+    },"ListObjectsV2Output":{
+      "type":"structure",
+      "members":{
+        "IsTruncated":{"shape":"IsTruncated"},
+        "Contents":{"shape":"ObjectList"},
+        "Name":{"shape":"BucketName"},
+        "Prefix":{"shape":"Prefix"},
+        "Delimiter":{"shape":"Delimiter"},
+        "MaxKeys":{"shape":"MaxKeys"},
+        "CommonPrefixes":{"shape":"CommonPrefixList"},
+        "EncodingType":{"shape":"EncodingType"},
+        "KeyCount":{"shape":"KeyCount"},
+        "ContinuationToken":{"shape":"Token"},
+        "NextContinuationToken":{"shape":"NextToken"},
+        "StartAfter":{"shape":"StartAfter"}
+      }
+    },
+    "ListObjectsV2Request":{
+      "type":"structure",
+      "required":["Bucket"],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        },
+        "Delimiter":{
+          "shape":"Delimiter",
+          "location":"querystring",
+          "locationName":"delimiter"
+        },
+        "EncodingType":{
+          "shape":"EncodingType",
+          "location":"querystring",
+          "locationName":"encoding-type"
+        },
+        "MaxKeys":{
+          "shape":"MaxKeys",
+          "location":"querystring",
+          "locationName":"max-keys"
+        },
+        "Prefix":{
+          "shape":"Prefix",
+          "location":"querystring",
+          "locationName":"prefix"
+        },
+        "ContinuationToken":{
+          "shape":"Token",
+          "location":"querystring",
+          "locationName":"continuation-token"
+        },
+        "FetchOwner":{
+          "shape":"FetchOwner",
+          "location":"querystring",
+          "locationName":"fetch-owner"
+        },
+        "StartAfter":{
+          "shape":"StartAfter",
+          "location":"querystring",
+          "locationName":"start-after"
         },
         "RequestPayer":{
           "shape":"RequestPayer",

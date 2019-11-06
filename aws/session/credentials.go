@@ -7,9 +7,6 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
 	"github.com/IBM/ibm-cos-sdk-go/aws/credentials"
 	"github.com/IBM/ibm-cos-sdk-go/aws/credentials/processcreds"
-
-	//"github.com/IBM/ibm-cos-sdk-go/aws/credentials/stscreds"
-
 	"github.com/IBM/ibm-cos-sdk-go/aws/request"
 )
 

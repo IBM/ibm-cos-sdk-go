@@ -706,6 +706,37 @@ func ExampleS3_ListObjects_shared00() {
 	fmt.Println(result)
 }
 
+// To get object list
+//
+// The following example retrieves object list. The request specifies max keys to limit
+// response to include only 2 object keys.
+func ExampleS3_ListObjectsV2_shared00() {
+	svc := s3.New(session.Must(session.NewSession()))
+	input := &s3.ListObjectsV2Input{
+		Bucket:  aws.String("examplebucket"),
+		MaxKeys: aws.Int64(2),
+	}
+
+	result, err := svc.ListObjectsV2(input)
+	if err != nil {
+		if aerr, ok := err.(awserr.Error); ok {
+			switch aerr.Code() {
+			case s3.ErrCodeNoSuchBucket:
+				fmt.Println(s3.ErrCodeNoSuchBucket, aerr.Error())
+			default:
+				fmt.Println(aerr.Error())
+			}
+		} else {
+			// Print the error, cast err to awserr.Error to get the Code and
+			// Message from an error.
+			fmt.Println(err.Error())
+		}
+		return
+	}
+
+	fmt.Println(result)
+}
+
 // To list parts of a multipart upload.
 //
 // The following example lists parts uploaded for a specific multipart upload.

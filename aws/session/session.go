@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
@@ -48,66 +49,78 @@ type Session struct {
 	Handlers request.Handlers
 }
 
-//// New creates a new instance of the handlers merging in the provided configs
-//// on top of the SDK's default configurations. Once the Session is created it
-//// can be mutated to modify the Config or Handlers. The Session is safe to be
-//// read concurrently, but it should not be written to concurrently.
-////
-//// If the AWS_SDK_LOAD_CONFIG environment is set to a truthy value, the New
-//// method could now encounter an error when loading the configuration. When
-//// The environment variable is set, and an error occurs, New will return a
-//// session that will fail all requests reporting the error that occurred while
-//// loading the session. Use NewSession to get the error when creating the
-//// session.
-////
-//// If the AWS_SDK_LOAD_CONFIG environment variable is set to a truthy value
-//// the shared config file (~/.aws/config) will also be loaded, in addition to
-//// the shared credentials file (~/.aws/credentials). Values set in both the
-//// shared config, and shared credentials will be taken from the shared
-//// credentials file.
-////
-//// Deprecated: Use NewSession functions to create sessions instead. NewSession
-//// has the same functionality as New except an error can be returned when the
-//// func is called instead of waiting to receive an error until a request is made.
-//func New(cfgs ...*aws.Config) *Session {
-//	// load initial config from environment
-//	envCfg := loadEnvConfig()
+// New creates a new instance of the handlers merging in the provided configs
+// on top of the SDK's default configurations. Once the Session is created it
+// can be mutated to modify the Config or Handlers. The Session is safe to be
+// read concurrently, but it should not be written to concurrently.
 //
-//	if envCfg.EnableSharedConfig {
-//		var cfg aws.Config
-//		cfg.MergeIn(cfgs...)
-//		s, err := NewSessionWithOptions(Options{
-//			Config:            cfg,
-//			SharedConfigState: SharedConfigEnable,
-//		})
-//		if err != nil {
-//			// Old session.New expected all errors to be discovered when
-//			// a request is made, and would report the errors then. This
-//			// needs to be replicated if an error occurs while creating
-//			// the session.
-//			msg := "failed to create session with AWS_SDK_LOAD_CONFIG enabled. " +
-//				"Use session.NewSession to handle errors occurring during session creation."
+// If the AWS_SDK_LOAD_CONFIG environment is set to a truthy value, the New
+// method could now encounter an error when loading the configuration. When
+// The environment variable is set, and an error occurs, New will return a
+// session that will fail all requests reporting the error that occurred while
+// loading the session. Use NewSession to get the error when creating the
+// session.
 //
-//			// Session creation failed, need to report the error and prevent
-//			// any requests from succeeding.
-//			s = &Session{Config: defaults.Config()}
-//			s.Config.MergeIn(cfgs...)
-//			s.Config.Logger.Log("ERROR:", msg, "Error:", err)
-//			s.Handlers.Validate.PushBack(func(r *request.Request) {
-//				r.Error = err
-//			})
-//		}
+// If the AWS_SDK_LOAD_CONFIG environment variable is set to a truthy value
+// the shared config file (~/.aws/config) will also be loaded, in addition to
+// the shared credentials file (~/.aws/credentials). Values set in both the
+// shared config, and shared credentials will be taken from the shared
+// credentials file.
 //
-//		return s
-//	}
-//
-//	s := deprecatedNewSession(cfgs...)
-//	if envCfg.CSMEnabled {
-//		enableCSM(&s.Handlers, envCfg.CSMClientID, envCfg.CSMPort, s.Config.Logger)
-//	}
-//
-//	return s
-//}
+// Deprecated: Use NewSession functions to create sessions instead. NewSession
+// has the same functionality as New except an error can be returned when the
+// func is called instead of waiting to receive an error until a request is made.
+// func New(cfgs ...*aws.Config) *Session {
+// 	// load initial config from environment
+// 	envCfg := loadEnvConfig()
+
+// 	if envCfg.EnableSharedConfig {
+// 		var cfg aws.Config
+// 		cfg.MergeIn(cfgs...)
+// 		s, err := NewSessionWithOptions(Options{
+// 			Config:            cfg,
+// 			SharedConfigState: SharedConfigEnable,
+// 		})
+// 		if err != nil {
+// 			// Old session.New expected all errors to be discovered when
+// 			// a request is made, and would report the errors then. This
+// 			// needs to be replicated if an error occurs while creating
+// 			// the session.
+// 			msg := "failed to create session with AWS_SDK_LOAD_CONFIG enabled. " +
+// 				"Use session.NewSession to handle errors occurring during session creation."
+
+// 			// Session creation failed, need to report the error and prevent
+// 			// any requests from succeeding.
+// 			s = &Session{Config: defaults.Config()}
+// 			s.Config.MergeIn(cfgs...)
+// 			s.Config.Logger.Log("ERROR:", msg, "Error:", err)
+// 			s.Handlers.Validate.PushBack(func(r *request.Request) {
+// 				r.Error = err
+// 			})
+// 		}
+
+// 		return s
+// 	}
+
+// 	s := deprecatedNewSession(cfgs...)
+
+// 	if csmCfg, err := loadCSMConfig(envCfg, []string{}); err != nil {
+// 		if l := s.Config.Logger; l != nil {
+// 			l.Log(fmt.Sprintf("ERROR: failed to load CSM configuration, %v", err))
+// 		}
+// 	} else if csmCfg.Enabled {
+// 		err := enableCSM(&s.Handlers, csmCfg, s.Config.Logger)
+// 		if err != nil {
+// 			err = fmt.Errorf("failed to enable CSM, %v", err)
+// 			s.Config.Logger.Log("ERROR:", err.Error())
+// 			s.Handlers.Validate.PushBack(func(r *request.Request) {
+// 				r.Error = err
+// 			})
+// 		}
+// 	}
+
+// 	return s
+// }
 
 // NewSession returns a new Session created from SDK defaults, config files,
 // environment, and user provided config files. Once the Session is created
@@ -205,6 +218,12 @@ type Options struct {
 	// This field is only used if the shared configuration is enabled, and
 	// the config enables assume role wit MFA via the mfa_serial field.
 	AssumeRoleTokenProvider func() (string, error)
+
+	// When the SDK's shared config is configured to assume a role this option
+	// may be provided to set the expiry duration of the STS credentials.
+	// Defaults to 15 minutes if not set as documented in the
+	// stscreds.AssumeRoleProvider.
+	AssumeRoleDuration time.Duration
 
 	// Reader for a custom Credentials Authority (CA) bundle in PEM format that
 	// the SDK will use instead of the default system's root CA bundle. Use this
@@ -305,47 +324,9 @@ func Must(sess *Session, err error) *Session {
 	return sess
 }
 
-//func deprecatedNewSession(cfgs ...*aws.Config) *Session {
-//	cfg := defaults.Config()
-//	handlers := defaults.Handlers()
-//
-//	// Apply the passed in configs so the configuration can be applied to the
-//	// default credential chain
-//	cfg.MergeIn(cfgs...)
-//	if cfg.EndpointResolver == nil {
-//		// An endpoint resolver is required for a session to be able to provide
-//		// endpoints for service client configurations.
-//		cfg.EndpointResolver = endpoints.DefaultResolver()
-//	}
-//	cfg.Credentials = defaults.CredChain(cfg, handlers)
-//
-//	// Reapply any passed in configs to override credentials if set
-//	cfg.MergeIn(cfgs...)
-//
-//	s := &Session{
-//		Config:   cfg,
-//		Handlers: handlers,
-//	}
-//
-//	initHandlers(s)
-//	return s
-//}
-//
-//func enableCSM(handlers *request.Handlers, clientID string, port string, logger aws.Logger) {
-//	logger.Log("Enabling CSM")
-//	if len(port) == 0 {
-//		port = csm.DefaultPort
-//	}
-//
-//	r, err := csm.Start(clientID, "127.0.0.1:"+port)
-//	if err != nil {
-//		return
-//	}
-//	r.InjectHandlers(handlers)
-//}
-
 func newSession(opts Options, envCfg envConfig, cfgs ...*aws.Config) (*Session, error) {
 	cfg := defaults.Config()
+
 	handlers := opts.Handlers
 	if handlers.IsEmpty() {
 		handlers = defaults.Handlers()
@@ -374,7 +355,13 @@ func newSession(opts Options, envCfg envConfig, cfgs ...*aws.Config) (*Session, 
 	// Load additional config from file(s)
 	sharedCfg, err := loadSharedConfig(envCfg.Profile, cfgFiles, envCfg.EnableSharedConfig)
 	if err != nil {
-		if _, ok := err.(SharedConfigProfileNotExistsError); !ok {
+		if len(envCfg.Profile) == 0 && !envCfg.EnableSharedConfig && (envCfg.Creds.HasKeys() || userCfg.Credentials != nil) {
+			// Special case where the user has not explicitly specified an AWS_PROFILE,
+			// or session.Options.profile, shared config is not enabled, and the
+			// environment has credentials, allow the shared config file to fail to
+			// load since the user has already provided credentials, and nothing else
+			// is required to be read file. Github(aws/aws-sdk-go#2455)
+		} else if _, ok := err.(SharedConfigProfileNotExistsError); !ok {
 			return nil, err
 		}
 	}
@@ -486,10 +473,10 @@ func mergeConfigSrcs(cfg, userCfg *aws.Config,
 			cfg.Credentials = creds
 		}
 	}
-
 	return nil
 }
 
+// getIBMIAMCredentials retrieve token manager creds or ibm based credentials
 func getIBMIAMCredentials(config *aws.Config) *credentials.Credentials {
 
 	if provider := ibmiam.NewEnvProvider(config); provider.IsValid() {
@@ -515,7 +502,7 @@ func initHandlers(s *Session) {
 	}
 }
 
-// Copy creates and returns a copy of the current Session, coping the config
+// Copy creates and returns a copy of the current Session, copying the config
 // and handlers. If any additional configs are provided they will be merged
 // on top of the Session's copied config.
 //

@@ -1,5 +1,12 @@
 # CHANGELOG
 
+# 1.3.0
+## Content
+* GET Bucket (List Objects) Version 2
+* Support for Golang 1.13
+### Defect Fixes
+* AWS Patches aligned to version 1.25.16 of the AWS SDK for Go
+
 # 1.2.0
 ## Content
 * Immutable Object Storage

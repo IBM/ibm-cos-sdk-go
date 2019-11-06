@@ -1,3 +1,5 @@
+// +build go1.7
+
 package session
 
 import (
@@ -13,9 +15,6 @@ import (
 )
 
 func TestLoadEnvConfig_Creds(t *testing.T) {
-	env := awstesting.StashEnv()
-	defer awstesting.PopEnv(env)
-
 	cases := []struct {
 		Env map[string]string
 		Val credentials.Value

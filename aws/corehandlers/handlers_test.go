@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
-	"os"
 	"strings"
 	"testing"
 	"time"
@@ -18,12 +17,13 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/request"
 	"github.com/IBM/ibm-cos-sdk-go/awstesting"
 	"github.com/IBM/ibm-cos-sdk-go/awstesting/unit"
+	"github.com/IBM/ibm-cos-sdk-go/internal/sdktesting"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 )
 
 func TestValidateEndpointHandler(t *testing.T) {
-	os.Clearenv()
-
+	restoreEnvFn := sdktesting.StashEnv()
+	defer restoreEnvFn()
 	svc := awstesting.NewClient(aws.NewConfig().WithRegion("us-west-2").WithCredentials(credentials.AnonymousCredentials))
 	svc.Handlers.Clear()
 	svc.Handlers.Validate.PushBackNamed(corehandlers.ValidateEndpointHandler)
@@ -37,8 +37,8 @@ func TestValidateEndpointHandler(t *testing.T) {
 }
 
 func TestValidateEndpointHandlerErrorRegion(t *testing.T) {
-	os.Clearenv()
-
+	restoreEnvFn := sdktesting.StashEnv()
+	defer restoreEnvFn()
 	svc := awstesting.NewClient()
 	svc.Config.Credentials = credentials.AnonymousCredentials
 	svc.Handlers.Clear()
@@ -70,7 +70,9 @@ func (m *mockCredsProvider) IsExpired() bool {
 }
 
 func TestAfterRetryRefreshCreds(t *testing.T) {
-	os.Clearenv()
+	restoreEnvFn := sdktesting.StashEnv()
+	defer restoreEnvFn()
+
 	credProvider := &mockCredsProvider{}
 
 	svc := awstesting.NewClient(&aws.Config{
@@ -238,6 +240,7 @@ func TestSendWithoutFollowRedirects(t *testing.T) {
 			t.Fatalf("expect not to redirect, but was")
 		}
 	}))
+	defer server.Close()
 
 	svc := awstesting.NewClient(&aws.Config{
 		DisableSSL: aws.Bool(true),
@@ -343,6 +346,7 @@ func setupContentLengthTestServer(t *testing.T, hasContentLength bool, contentLe
 
 func TestBuildContentLength_ZeroBody(t *testing.T) {
 	server := setupContentLengthTestServer(t, false, 0)
+	defer server.Close()
 
 	svc := s3.New(unit.Session, &aws.Config{
 		Endpoint:         aws.String(server.URL),
@@ -361,6 +365,7 @@ func TestBuildContentLength_ZeroBody(t *testing.T) {
 
 func TestBuildContentLength_NegativeBody(t *testing.T) {
 	server := setupContentLengthTestServer(t, false, 0)
+	defer server.Close()
 
 	svc := s3.New(unit.Session, &aws.Config{
 		Endpoint:         aws.String(server.URL),
@@ -381,6 +386,7 @@ func TestBuildContentLength_NegativeBody(t *testing.T) {
 
 func TestBuildContentLength_WithBody(t *testing.T) {
 	server := setupContentLengthTestServer(t, true, 1024)
+	defer server.Close()
 
 	svc := s3.New(unit.Session, &aws.Config{
 		Endpoint:         aws.String(server.URL),

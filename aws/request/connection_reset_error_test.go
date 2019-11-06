@@ -1,4 +1,4 @@
-// +build !appengine,!plan9
+// +build go1.7
 
 package request_test
 

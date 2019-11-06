@@ -1,4 +1,4 @@
-// +build 1.6,codegen
+// +build go1.10,codegen
 
 package api
 
@@ -132,7 +132,7 @@ func buildAPI() *API {
 	}
 	outputRef := ShapeRef{
 		API:       a,
-		ShapeName: "Foooutput",
+		ShapeName: "FooOutput",
 		Shape:     output,
 	}
 
@@ -148,12 +148,21 @@ func buildAPI() *API {
 
 	a.Operations = operations
 	a.Shapes = map[string]*Shape{
-		"FooInput":  input,
-		"FooOutput": output,
+		"FooInput":           input,
+		"FooOutput":          output,
+		"string":             stringShape,
+		"int":                intShape,
+		"NestedComplexShape": nestedComplexShape,
+		"NestedListShape":    nestedListShape,
+		"ComplexShape":       complexShape,
+		"ListShape":          listShape,
+		"ListsShape":         listsShape,
 	}
 	a.Metadata = Metadata{
 		ServiceAbbreviation: "FooService",
 	}
+
+	a.BaseImportPath = "github.com/IBM/ibm-cos-sdk-go/service/"
 
 	a.Setup()
 	return a
@@ -224,6 +233,7 @@ import (
 	"` + SDKImportRoot + `/aws/awserr"
 	"` + SDKImportRoot + `/aws/session"
 	"` + SDKImportRoot + `/service/fooservice"
+	
 )
 
 var _ time.Duration

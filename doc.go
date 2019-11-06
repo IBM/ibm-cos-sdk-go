@@ -13,6 +13,23 @@
 // Manager will automatically split up large objects into multiple parts and
 // transfer them concurrently.
 //
+// See the s3manager package documentation for more information.
+// https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/
+//
+// Getting More Information
+//
+// Checkout the Getting Started Guide and API Reference Docs detailed the SDK's
+// components and details on each AWS client the SDK supports.
+//
+// The Getting Started Guide provides examples and detailed description of how
+// to get setup with the SDK.
+// https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/welcome.html
+//
+// The API Reference Docs include a detailed breakdown of the SDK's components
+// such as utilities and AWS clients. Use this as a reference of the Go types
+// included with the SDK, such as AWS clients, API operations, and API parameters.
+// https://docs.aws.amazon.com/sdk-for-go/api/
+//
 // Overview of SDK's Packages
 //
 // The SDK is composed of two main components, SDK core, and service clients.

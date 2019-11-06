@@ -9,7 +9,6 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
 	"github.com/IBM/ibm-cos-sdk-go/aws/request"
 	"github.com/IBM/ibm-cos-sdk-go/private/protocol"
-	"github.com/IBM/ibm-cos-sdk-go/private/protocol/ec2query"
 	"github.com/IBM/ibm-cos-sdk-go/private/protocol/jsonrpc"
 	"github.com/IBM/ibm-cos-sdk-go/private/protocol/query"
 	"github.com/IBM/ibm-cos-sdk-go/private/protocol/restjson"
@@ -78,22 +77,6 @@ func TestUnmarshalSeriaizationError(t *testing.T) {
 			expectedError: awserr.NewRequestFailure(
 				awserr.New(request.ErrCodeSerialization, "", nil),
 				502,
-				"",
-			),
-		},
-		{
-			name: "ec2query",
-			r: request.Request{
-				Data: &testOutput{},
-				HTTPResponse: &http.Response{
-					StatusCode: 111,
-					Body:       ioutil.NopCloser(strings.NewReader("<<>>>>>>")),
-				},
-			},
-			unmarshalFn: ec2query.Unmarshal,
-			expectedError: awserr.NewRequestFailure(
-				awserr.New(request.ErrCodeSerialization, "", nil),
-				111,
 				"",
 			),
 		},

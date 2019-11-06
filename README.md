@@ -9,7 +9,7 @@ Cloud Object Storage](https://www.ibm.com/cloud/object-storage).  It is a fork o
 * [Go API reference documentation](https://ibm.github.io/ibm-cos-sdk-go)
 * [REST API reference documentation](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api)
 
-For release notes, see the [CHANGELOG](CHANGELOG.rst).
+For release notes, see the [CHANGELOG](CHANGELOG.md).
 
 * [Getting the SDK](#getting-the-sdk)
 * [Example code](#example-code)
@@ -38,13 +38,13 @@ Note: Immutable Object Storage does not support Aspera transfers via the SDK to 
 
 ## Getting the SDK
 
-Use go get to retrieve the SDK to add it to your GOPATH workspace, or project's Go module dependencies.  The SDK requires a minimum version of Go 1.10.
+Use go get to retrieve the SDK to add it to your GOPATH workspace, or project's Go module dependencies.  The SDK requires a minimum version of Go 1.11.
 
 ```sh
 go get github.com/IBM/ibm-cos-sdk-go
 ```
 
-To update the SDK use go get -u to retrieve the latest version of the SDK..
+To update the SDK use ```go get -u``` to retrieve the latest version of the SDK.
 
 ```sh
 go get -u github.com/IBM/ibm-cos-sdk-go

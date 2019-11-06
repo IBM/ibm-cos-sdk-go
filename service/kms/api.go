@@ -3372,7 +3372,7 @@ func (c *KMS) ListAliasesWithContext(ctx aws.Context, input *ListAliasesInput, o
 //    // Example iterating over at most 3 pages of a ListAliases operation.
 //    pageNum := 0
 //    err := client.ListAliasesPages(params,
-//        func(page *ListAliasesOutput, lastPage bool) bool {
+//        func(page *kms.ListAliasesOutput, lastPage bool) bool {
 //            pageNum++
 //            fmt.Println(page)
 //            return pageNum <= 3
@@ -3535,7 +3535,7 @@ func (c *KMS) ListGrantsWithContext(ctx aws.Context, input *ListGrantsInput, opt
 //    // Example iterating over at most 3 pages of a ListGrants operation.
 //    pageNum := 0
 //    err := client.ListGrantsPages(params,
-//        func(page *ListGrantsResponse, lastPage bool) bool {
+//        func(page *kms.ListGrantsResponse, lastPage bool) bool {
 //            pageNum++
 //            fmt.Println(page)
 //            return pageNum <= 3
@@ -3694,7 +3694,7 @@ func (c *KMS) ListKeyPoliciesWithContext(ctx aws.Context, input *ListKeyPolicies
 //    // Example iterating over at most 3 pages of a ListKeyPolicies operation.
 //    pageNum := 0
 //    err := client.ListKeyPoliciesPages(params,
-//        func(page *ListKeyPoliciesOutput, lastPage bool) bool {
+//        func(page *kms.ListKeyPoliciesOutput, lastPage bool) bool {
 //            pageNum++
 //            fmt.Println(page)
 //            return pageNum <= 3
@@ -3839,7 +3839,7 @@ func (c *KMS) ListKeysWithContext(ctx aws.Context, input *ListKeysInput, opts ..
 //    // Example iterating over at most 3 pages of a ListKeys operation.
 //    pageNum := 0
 //    err := client.ListKeysPages(params,
-//        func(page *ListKeysOutput, lastPage bool) bool {
+//        func(page *kms.ListKeysOutput, lastPage bool) bool {
 //            pageNum++
 //            fmt.Println(page)
 //            return pageNum <= 3

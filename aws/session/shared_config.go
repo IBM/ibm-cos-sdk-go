@@ -5,7 +5,6 @@ import (
 
 	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
 	"github.com/IBM/ibm-cos-sdk-go/aws/credentials"
-
 	"github.com/IBM/ibm-cos-sdk-go/internal/ini"
 )
 
@@ -30,22 +29,13 @@ const (
 	enableEndpointDiscoveryKey = `endpoint_discovery_enabled` // optional
 
 	// External Credential Process
-	credentialProcessKey = `credential_process`
+	credentialProcessKey = `credential_process` // optional
 
 	// DefaultSharedConfigProfile is the default profile to be used when
 	// loading configuration from the config files if another profile name
 	// is not provided.
 	DefaultSharedConfigProfile = `default`
 )
-
-type assumeRoleConfig struct {
-	RoleARN          string
-	SourceProfile    string
-	CredentialSource string
-	ExternalID       string
-	MFASerial        string
-	RoleSessionName  string
-}
 
 // sharedConfig represents the configuration fields of the SDK config files.
 type sharedConfig struct {
@@ -60,18 +50,20 @@ type sharedConfig struct {
 	//	aws_session_token
 	Creds credentials.Value
 
-	AssumeRole       assumeRoleConfig
-	AssumeRoleSource *sharedConfig
-
 	// An external process to request credentials
-	CredentialProcess string
 	CredentialSource  string
+	CredentialProcess string
+
+	RoleARN         string
+	RoleSessionName string
+	ExternalID      string
+	MFASerial       string
 
 	SourceProfileName string
 	SourceProfile     *sharedConfig
 
-	// Region is the region the SDK should use for looking up AWS service endpoints
-	// and signing requests.
+	// Region is the region the SDK should use for looking up AWS service
+	// endpoints and signing requests.
 	//
 	//	region
 	Region string
@@ -188,6 +180,7 @@ func (cfg *sharedConfig) setFromIniFiles(profiles map[string]struct{}, profile s
 // provided. A sharedConfig pointer type value is used so that multiple config
 // file loadings can be chained.
 //
+// Only loads complete logically grouped values, and will not set fields in cfg
 // for incomplete grouped values in the config. Such as credentials. For
 // example if a config file only includes aws_access_key_id but no
 // aws_secret_access_key the aws_access_key_id will be ignored.

@@ -10,9 +10,8 @@ import (
 	"testing"
 
 	"github.com/IBM/ibm-cos-sdk-go/aws"
-	"github.com/IBM/ibm-cos-sdk-go/awstesting/integration"
-	//s3integ "github.com/IBM/ibm-cos-sdk-go/awstesting/integration/customizations/s3"
 	"github.com/IBM/ibm-cos-sdk-go/aws/session"
+	"github.com/IBM/ibm-cos-sdk-go/awstesting/integration"
 	"github.com/IBM/ibm-cos-sdk-go/awstesting/integration/s3integ"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"

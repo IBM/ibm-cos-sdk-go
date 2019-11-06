@@ -18,7 +18,7 @@ const EnvProviderName = "EnvConfigCredentials"
 // will be ignored.
 type envConfig struct {
 	// Environment configuration values. If set both Access Key ID and Secret Access
-	// Key must be provided. Session token and optionally also be provided, but is
+	// Key must be provided. Session Token and optionally also be provided, but is
 	// not required.
 	//
 	//	# Access Key ID
@@ -29,7 +29,7 @@ type envConfig struct {
 	//	AWS_SECRET_ACCESS_KEY=SECRET
 	//	AWS_SECRET_KEY=SECRET=SECRET # only read if AWS_SECRET_ACCESS_KEY is not set.
 	//
-	//	# Session token
+	//	# Session Token
 	//	AWS_SESSION_TOKEN=TOKEN
 	Creds credentials.Value
 
