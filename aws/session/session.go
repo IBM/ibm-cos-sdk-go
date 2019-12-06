@@ -3,6 +3,7 @@ package session
 import (
 	"crypto/tls"
 	"crypto/x509"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -135,7 +136,7 @@ type Session struct {
 // to be built with retrieving credentials with AssumeRole set in the config.
 //
 // See the NewSessionWithOptions func for information on how to override or
-// control through code how the Session will be created. Such as specifying the
+// control through code how the Session will be created, such as specifying the
 // config profile, and controlling if shared config is enabled or not.
 func NewSession(cfgs ...*aws.Config) (*Session, error) {
 	opts := Options{}
@@ -278,10 +279,17 @@ type Options struct {
 //     }))
 func NewSessionWithOptions(opts Options) (*Session, error) {
 	var envCfg envConfig
+	var err error
 	if opts.SharedConfigState == SharedConfigEnable {
-		envCfg = loadSharedEnvConfig()
+		envCfg, err = loadSharedEnvConfig()
+		if err != nil {
+			return nil, fmt.Errorf("failed to load shared config, %v", err)
+		}
 	} else {
-		envCfg = loadEnvConfig()
+		envCfg, err = loadEnvConfig()
+		if err != nil {
+			return nil, fmt.Errorf("failed to load environment config, %v", err)
+		}
 	}
 
 	if len(opts.Profile) != 0 {
@@ -460,6 +468,14 @@ func mergeConfigSrcs(cfg, userCfg *aws.Config,
 		}
 	}
 
+	// Regional Endpoint flag for S3 endpoint resolving
+	mergeS3UsEast1RegionalEndpointConfig(cfg, []endpoints.S3UsEast1RegionalEndpoint{
+		userCfg.S3UsEast1RegionalEndpoint,
+		envCfg.S3UsEast1RegionalEndpoint,
+		sharedCfg.S3UsEast1RegionalEndpoint,
+		endpoints.LegacyS3UsEast1Endpoint,
+	})
+
 	// Configure credentials if not already set by the user when creating the
 	// Session.
 	if cfg.Credentials == credentials.AnonymousCredentials && userCfg.Credentials == nil {
@@ -473,7 +489,25 @@ func mergeConfigSrcs(cfg, userCfg *aws.Config,
 			cfg.Credentials = creds
 		}
 	}
+
+	cfg.S3UseARNRegion = userCfg.S3UseARNRegion
+	if cfg.S3UseARNRegion == nil {
+		cfg.S3UseARNRegion = &envCfg.S3UseARNRegion
+	}
+	if cfg.S3UseARNRegion == nil {
+		cfg.S3UseARNRegion = &sharedCfg.S3UseARNRegion
+	}
+
 	return nil
+}
+
+func mergeS3UsEast1RegionalEndpointConfig(cfg *aws.Config, values []endpoints.S3UsEast1RegionalEndpoint) {
+	for _, v := range values {
+		if v != endpoints.UnsetS3UsEast1Endpoint {
+			cfg.S3UsEast1RegionalEndpoint = v
+			break
+		}
+	}
 }
 
 // getIBMIAMCredentials retrieve token manager creds or ibm based credentials
@@ -522,47 +556,57 @@ func (s *Session) Copy(cfgs ...*aws.Config) *Session {
 // ClientConfig satisfies the client.ConfigProvider interface and is used to
 // configure the service client instances. Passing the Session to the service
 // client's constructor (New) will use this method to configure the client.
-func (s *Session) ClientConfig(serviceName string, cfgs ...*aws.Config) client.Config {
-	// Backwards compatibility, the error will be eaten if user calls ClientConfig
-	// directly. All SDK services will use ClientconfigWithError.
-	cfg, _ := s.clientConfigWithErr(serviceName, cfgs...)
-
-	return cfg
-}
-
-func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*aws.Config) (client.Config, error) {
+func (s *Session) ClientConfig(service string, cfgs ...*aws.Config) client.Config {
 	s = s.Copy(cfgs...)
 
-	var resolved endpoints.ResolvedEndpoint
-	var err error
-
 	region := aws.StringValue(s.Config.Region)
-
-	if endpoint := aws.StringValue(s.Config.Endpoint); len(endpoint) != 0 {
-		resolved.URL = endpoints.AddScheme(endpoint, aws.BoolValue(s.Config.DisableSSL))
-		resolved.SigningRegion = region
-	} else {
-		resolved, err = s.Config.EndpointResolver.EndpointFor(
-			serviceName, region,
-			func(opt *endpoints.Options) {
-				opt.DisableSSL = aws.BoolValue(s.Config.DisableSSL)
-				opt.UseDualStack = aws.BoolValue(s.Config.UseDualStack)
-
-				// Support the condition where the service is modeled but its
-				// endpoint metadata is not available.
-				opt.ResolveUnknownService = true
-			},
-		)
+	resolved, err := s.resolveEndpoint(service, region, s.Config)
+	if err != nil && s.Config.Logger != nil {
+		s.Config.Logger.Log(fmt.Sprintf(
+			"ERROR: unable to resolve endpoint for service %q, region %q, err: %v",
+			service, region, err))
 	}
 
 	return client.Config{
 		Config:             s.Config,
 		Handlers:           s.Handlers,
+		PartitionID:        resolved.PartitionID,
 		Endpoint:           resolved.URL,
 		SigningRegion:      resolved.SigningRegion,
 		SigningNameDerived: resolved.SigningNameDerived,
 		SigningName:        resolved.SigningName,
-	}, err
+	}
+}
+
+func (s *Session) resolveEndpoint(service, region string, cfg *aws.Config) (endpoints.ResolvedEndpoint, error) {
+
+	if ep := aws.StringValue(cfg.Endpoint); len(ep) != 0 {
+		return endpoints.ResolvedEndpoint{
+			URL:           endpoints.AddScheme(ep, aws.BoolValue(cfg.DisableSSL)),
+			SigningRegion: region,
+		}, nil
+	}
+
+	resolved, err := cfg.EndpointResolver.EndpointFor(service, region,
+		func(opt *endpoints.Options) {
+			opt.DisableSSL = aws.BoolValue(cfg.DisableSSL)
+			opt.UseDualStack = aws.BoolValue(cfg.UseDualStack)
+
+			// Support for S3UsEast1RegionalEndpoint where the S3UsEast1RegionalEndpoint is
+			// provided in envConfig or sharedConfig with envConfig getting
+			// precedence.
+			opt.S3UsEast1RegionalEndpoint = cfg.S3UsEast1RegionalEndpoint
+
+			// Support the condition where the service is modeled but its
+			// endpoint metadata is not available.
+			opt.ResolveUnknownService = true
+		},
+	)
+	if err != nil {
+		return endpoints.ResolvedEndpoint{}, err
+	}
+
+	return resolved, nil
 }
 
 // ClientConfigNoResolveEndpoint is the same as ClientConfig with the exception
@@ -572,12 +616,9 @@ func (s *Session) ClientConfigNoResolveEndpoint(cfgs ...*aws.Config) client.Conf
 	s = s.Copy(cfgs...)
 
 	var resolved endpoints.ResolvedEndpoint
-
-	region := aws.StringValue(s.Config.Region)
-
 	if ep := aws.StringValue(s.Config.Endpoint); len(ep) > 0 {
 		resolved.URL = endpoints.AddScheme(ep, aws.BoolValue(s.Config.DisableSSL))
-		resolved.SigningRegion = region
+		resolved.SigningRegion = aws.StringValue(s.Config.Region)
 	}
 
 	return client.Config{

@@ -733,6 +733,7 @@ func (u *multiuploader) fail() {
 	}
 }
 
+// complete successfully completes a multipart upload and returns the response.
 func (u *multiuploader) complete() *s3.CompleteMultipartUploadOutput {
 	if u.geterr() != nil {
 		u.fail()

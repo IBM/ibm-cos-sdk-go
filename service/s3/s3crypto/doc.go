@@ -15,7 +15,7 @@ ciphers.
 Creating an S3 cryptography client
 
 	cmkID := "<some key ID>"
-	sess := session.Must(session.NewSession())
+	sess := session.New()
 	// Create the KeyProvider
 	handler := s3crypto.NewKMSKeyGenerator(kms.New(sess), cmkID)
 
@@ -29,7 +29,7 @@ Configuration of the S3 cryptography client
 
 	cfg := s3crypto.EncryptionConfig{
 		// Save instruction files to separate objects
-		SaveStrategy: NewS3SaveStrategy(session.Must(session.NewSession()), ""),
+		SaveStrategy: NewS3SaveStrategy(session.New(), ""),
 		// Change instruction file suffix to .example
 		InstructionFileSuffix: ".example",
 		// Set temp folder path

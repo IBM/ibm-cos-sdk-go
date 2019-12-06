@@ -5,6 +5,7 @@ import (
 
 	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
 	"github.com/IBM/ibm-cos-sdk-go/aws/credentials"
+	"github.com/IBM/ibm-cos-sdk-go/aws/endpoints"
 	"github.com/IBM/ibm-cos-sdk-go/internal/ini"
 )
 
@@ -31,10 +32,19 @@ const (
 	// External Credential Process
 	credentialProcessKey = `credential_process` // optional
 
+	// Additional config fields for regional or legacy endpoints
+	stsRegionalEndpointSharedKey = `sts_regional_endpoints`
+
+	// Additional config fields for regional or legacy endpoints
+	s3UsEast1RegionalSharedKey = `s3_us_east_1_regional_endpoint`
+
 	// DefaultSharedConfigProfile is the default profile to be used when
 	// loading configuration from the config files if another profile name
 	// is not provided.
 	DefaultSharedConfigProfile = `default`
+
+	// S3 ARN Region Usage
+	s3UseARNRegionKey = "s3_use_arn_region"
 )
 
 // sharedConfig represents the configuration fields of the SDK config files.
@@ -73,6 +83,18 @@ type sharedConfig struct {
 	//
 	//	endpoint_discovery_enabled = true
 	EnableEndpointDiscovery *bool
+
+	// Specifies the Regional Endpoint flag for the SDK to resolve the endpoint for a service
+	//
+	// s3_us_east_1_regional_endpoint = regional
+	// This can take value as `LegacyS3UsEast1Endpoint` or `RegionalS3UsEast1Endpoint`
+	S3UsEast1RegionalEndpoint endpoints.S3UsEast1RegionalEndpoint
+
+	// Specifies if the S3 service should allow ARNs to direct the region
+	// the client's requests are sent to.
+	//
+	// s3_use_arn_region=true
+	S3UseARNRegion bool
 }
 
 type sharedConfigFile struct {
@@ -92,7 +114,6 @@ type sharedConfigFile struct {
 // See sharedConfig.setFromFile for information how the config files
 // will be loaded.
 func loadSharedConfig(profile string, filenames []string, exOpts bool) (sharedConfig, error) {
-
 	if len(profile) == 0 {
 		profile = DefaultSharedConfigProfile
 	}
@@ -194,6 +215,26 @@ func (cfg *sharedConfig) setFromIniFile(profile string, file sharedConfigFile, e
 		}
 	}
 
+	if exOpts {
+		// Assume Role Parameters
+		updateString(&cfg.RoleARN, section, roleArnKey)
+		updateString(&cfg.ExternalID, section, externalIDKey)
+		updateString(&cfg.MFASerial, section, mfaSerialKey)
+		updateString(&cfg.RoleSessionName, section, roleSessionNameKey)
+		updateString(&cfg.SourceProfileName, section, sourceProfileKey)
+		updateString(&cfg.CredentialSource, section, credentialSourceKey)
+		updateString(&cfg.Region, section, regionKey)
+
+		if v := section.String(s3UsEast1RegionalSharedKey); len(v) != 0 {
+			sre, err := endpoints.GetS3UsEast1RegionalEndpoint(v)
+			if err != nil {
+				return fmt.Errorf("failed to load %s from shared config, %s, %v",
+					s3UsEast1RegionalSharedKey, file.Filename, err)
+			}
+			cfg.S3UsEast1RegionalEndpoint = sre
+		}
+	}
+
 	updateString(&cfg.CredentialProcess, section, credentialProcessKey)
 
 	// Shared Credentials
@@ -218,10 +259,9 @@ func (cfg *sharedConfig) setFromIniFile(profile string, file sharedConfigFile, e
 	}
 
 	// Endpoint discovery
-	if section.Has(enableEndpointDiscoveryKey) {
-		v := section.Bool(enableEndpointDiscoveryKey)
-		cfg.EnableEndpointDiscovery = &v
-	}
+	updateBoolPtr(&cfg.EnableEndpointDiscovery, section, enableEndpointDiscoveryKey)
+
+	updateBool(&cfg.S3UseARNRegion, section, s3UseARNRegionKey)
 
 	return nil
 }
@@ -282,6 +322,25 @@ func updateString(dst *string, section ini.Section, key string) {
 	*dst = section.String(key)
 }
 
+// updateBool will only update the dst with the value in the section key, key
+// is present in the section.
+func updateBool(dst *bool, section ini.Section, key string) {
+	if !section.Has(key) {
+		return
+	}
+	*dst = section.Bool(key)
+}
+
+// updateBoolPtr will only update the dst with the value in the section key,
+// key is present in the section.
+func updateBoolPtr(dst **bool, section ini.Section, key string) {
+	if !section.Has(key) {
+		return
+	}
+	*dst = new(bool)
+	**dst = section.Bool(key)
+}
+
 // SharedConfigLoadError is an error for the shared config file failed to load.
 type SharedConfigLoadError struct {
 	Filename string
@@ -339,7 +398,8 @@ func (e SharedConfigProfileNotExistsError) Error() string {
 // profile contains assume role information, but that information is invalid
 // or not complete.
 type SharedConfigAssumeRoleError struct {
-	RoleARN string
+	RoleARN       string
+	SourceProfile string
 }
 
 // Code is the short id of the error.
@@ -349,8 +409,10 @@ func (e SharedConfigAssumeRoleError) Code() string {
 
 // Message is the description of the error
 func (e SharedConfigAssumeRoleError) Message() string {
-	return fmt.Sprintf("failed to load assume role for %s, source profile has no shared credentials",
-		e.RoleARN)
+	return fmt.Sprintf(
+		"failed to load assume role for %s, source profile %s has no shared credentials",
+		e.RoleARN, e.SourceProfile,
+	)
 }
 
 // OrigErr is the underlying error that caused the failure.

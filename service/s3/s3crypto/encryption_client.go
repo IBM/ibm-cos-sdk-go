@@ -39,7 +39,7 @@ type EncryptionClient struct {
 //
 // Example:
 //	cmkID := "arn:aws:kms:region:000000000000:key/00000000-0000-0000-0000-000000000000"
-//	sess := session.Must(session.NewSession())
+//	sess := session.New()
 //	handler := s3crypto.NewKMSKeyGenerator(kms.New(sess), cmkID)
 //	svc := s3crypto.New(sess, s3crypto.AESGCMContentCipherBuilder(handler))
 func NewEncryptionClient(prov client.ConfigProvider, builder ContentCipherBuilder, options ...func(*EncryptionClient)) *EncryptionClient {
@@ -61,7 +61,7 @@ func NewEncryptionClient(prov client.ConfigProvider, builder ContentCipherBuilde
 // that data to S3.
 //
 // Example:
-//	svc := s3crypto.New(session.Must(session.NewSession()), s3crypto.AESGCMContentCipherBuilder(handler))
+//	svc := s3crypto.New(session.New(), s3crypto.AESGCMContentCipherBuilder(handler))
 //	req, out := svc.PutObjectRequest(&s3.PutObjectInput {
 //	  Key: aws.String("testKey"),
 //	  Bucket: aws.String("testBucket"),

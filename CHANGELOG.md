@@ -1,5 +1,10 @@
 # CHANGELOG
 
+# 1.3.1
+## Content
+### Defect Fixes
+* AWS Patches aligned to version 1.25.47 of the AWS SDK for Go
+
 # 1.3.0
 ## Content
 * GET Bucket (List Objects) Version 2

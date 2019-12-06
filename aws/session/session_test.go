@@ -1,3 +1,5 @@
+// +build go1.7
+
 package session
 
 import (
@@ -37,6 +39,7 @@ func TestNewDefaultSession(t *testing.T) {
 func TestNew_WithCustomCreds(t *testing.T) {
 	restoreEnvFn := initSessionTestEnv()
 	defer restoreEnvFn()
+
 	customCreds := credentials.NewStaticCredentials("AKID", "SECRET", "TOKEN")
 	s, _ := NewSession(&aws.Config{Credentials: customCreds})
 
@@ -113,8 +116,8 @@ func TestSessionClientConfig(t *testing.T) {
 func TestNewSession_NoCredentials(t *testing.T) {
 	restoreEnvFn := initSessionTestEnv()
 	defer restoreEnvFn()
-	s, err := NewSession()
 
+	s, err := NewSession()
 	if err != nil {
 		t.Errorf("expect nil, %v", err)
 	}

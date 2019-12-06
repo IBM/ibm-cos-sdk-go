@@ -8,14 +8,13 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"strings"
+
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/aws/session"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
-	"strings"
 
 	"os"
-
-
 )
 
 var clientCfg ClientConfig
@@ -77,13 +76,13 @@ func main() {
 
 // publishMessage will send the message to the SNS topic returning an request
 // trace for metrics.
-func publishMessage(ctx context.Context, svc *s3.S3, bucket,key, msg string) (*RequestTrace, error) {
+func publishMessage(ctx context.Context, svc *s3.S3, bucket, key, msg string) (*RequestTrace, error) {
 	traceCtx := NewRequestTrace(ctx)
 	defer traceCtx.RequestDone()
 
 	input := new(s3.PutObjectInput).SetBucket(bucket).SetKey(key).SetBody(strings.NewReader(msg))
 
-	_, err := svc.PutObjectWithContext(traceCtx,input)
+	_, err := svc.PutObjectWithContext(traceCtx, input)
 	if err != nil {
 		return nil, err
 	}
