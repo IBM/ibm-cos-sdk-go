@@ -98,6 +98,31 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#EncryptionAlgorithm-field" title="kms.DecryptOutput.EncryptionAlgorithm (field)"><strong>EncryptionAlgorithm</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The encryption algorithm that was used to decrypt the ciphertext.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#KeyId-field" title="kms.DecryptOutput.KeyId (field)"><strong>KeyId</strong> *string</a></span></span>
   
   
@@ -114,7 +139,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
   
     <span class="summary_desc"><div class='inline'>
-<p>ARN of the key used to perform the decryption.</p>
+<p>The ARN of the customer master key that was used to perform the decryption.</p>
 </div></span>
   
 </li>
@@ -208,6 +233,31 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.DecryptOutput.SetEncryptionAlgorithm() (method)"><strong>SetEncryptionAlgorithm</strong>(string)  *DecryptOutput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetEncryptionAlgorithm sets the EncryptionAlgorithm field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetKeyId-instance_method" title="kms.DecryptOutput.SetKeyId() (method)"><strong>SetKeyId</strong>(string)  *DecryptOutput </a></span></span>
   
   
@@ -292,15 +342,33 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="KeyId-field">
+  <h3 class="signature first" id="EncryptionAlgorithm-field">
+  <strong>EncryptionAlgorithm</strong> *string 
+  <code>`type:"string" enum:"EncryptionAlgorithmSpec"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The encryption algorithm that was used to decrypt the ciphertext.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="KeyId-field">
   <strong>KeyId</strong> *string 
   <code>`min:"1" type:"string"`</code>
 </h3>
 <div class="docstring">
   <div class="discussion">
     
-<p>ARN of the key used to perform the decryption. This value is returned if no
-errors are encountered during the operation.</p>
+<p>The ARN of the customer master key that was used to perform the decryption.</p>
 
 
   </div>
@@ -320,7 +388,7 @@ errors are encountered during the operation.</p>
   <div class="discussion">
     
 <p>Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the
-value is Base64-encoded. Otherwise, it is not encoded.</p>
+value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
 
 <p>Plaintext is automatically base64 encoded/decoded by the SDK.</p>
 
@@ -374,15 +442,59 @@ value is Base64-encoded. Otherwise, it is not encoded.</p>
       <pre class="lines">
 
 
-6311
-6312
-6313</pre>
+7569
+7570
+7571</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 6311</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7569</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.DecryptOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetEncryptionAlgorithm-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span>) <strong><span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.DecryptOutput.SetEncryptionAlgorithm() (method)">SetEncryptionAlgorithm</a></span></strong>(v string) *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetEncryptionAlgorithm sets the EncryptionAlgorithm field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7574
+7575
+7576
+7577</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7574</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span>) <span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.DecryptOutput.SetEncryptionAlgorithm() (method)">SetEncryptionAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span> {
+	s.EncryptionAlgorithm = &v
+	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
   </tr>
@@ -416,13 +528,13 @@ value is Base64-encoded. Otherwise, it is not encoded.</p>
       <pre class="lines">
 
 
-6316
-6317
-6318
-6319</pre>
+7580
+7581
+7582
+7583</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 6316</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7580</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.DecryptOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span> {
 	s.KeyId = &v
@@ -460,13 +572,13 @@ value is Base64-encoded. Otherwise, it is not encoded.</p>
       <pre class="lines">
 
 
-6322
-6323
-6324
-6325</pre>
+7586
+7587
+7588
+7589</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 6322</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7586</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span>) <span class='object_link'><a href="#SetPlaintext-instance_method" title="kms.DecryptOutput.SetPlaintext() (method)">SetPlaintext</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span> {
 	s.Plaintext = v
@@ -504,12 +616,12 @@ value is Base64-encoded. Otherwise, it is not encoded.</p>
       <pre class="lines">
 
 
-6306
-6307
-6308</pre>
+7564
+7565
+7566</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 6306</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7564</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.DecryptOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -526,7 +638,7 @@ value is Base64-encoded. Otherwise, it is not encoded.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:48 2019 by
+  Generated on Fri Dec  6 16:55:51 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

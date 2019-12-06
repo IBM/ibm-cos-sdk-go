@@ -240,7 +240,10 @@ instance.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>GetMetadata uses the path provided to request information from the EC2
+instance metadata service.</p>
+</div></span>
   
 </li>
 
@@ -366,13 +369,13 @@ svc := ec2metadata.New(mySession, aws.NewConfig().WithLogLevel(aws.LogDebugHTTPB
       <pre class="lines">
 
 
-45
-46
-47
-48</pre>
+62
+63
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/ec2metadata/service.go', line 45</span>
+      <pre class="code"><span class="info file">// File 'aws/ec2metadata/service.go', line 62</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> New(p client.ConfigProvider, cfgs ...*aws.Config) *EC2Metadata {
 	c := p.ClientConfig(ServiceName, cfgs...)
@@ -418,16 +421,16 @@ Instance and the metadata service is available.</p>
       <pre class="lines">
 
 
-134
-135
-136
-137
-138
-139
-140</pre>
+163
+164
+165
+166
+167
+168
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 134</span>
+      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 163</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EC2Metadata) Available() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> _, err := c.GetMetadata(<span class="hljs-string">"instance-id"</span>); err != <span class="hljs-constant">nil</span> {
@@ -470,22 +473,22 @@ a string, or error if the request failed.</p>
       <pre class="lines">
 
 
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68</pre>
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 56</span>
+      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 85</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EC2Metadata) GetDynamicData(p <span class="hljs-constant">string</span>) (<span class="hljs-constant">string</span>, <span class="hljs-constant">error</span>) {
 	op := &request.Operation{
@@ -496,8 +499,8 @@ a string, or error if the request failed.</p>
 
 	output := &metadataOutput{}
 	req := c.NewRequest(op, <span class="hljs-constant">nil</span>, output)
-	err := req.Send()
 
+	err := req.Send()
 	<span class="hljs-keyword">return</span> output.Content, err
 }</div></pre>
     </td>
@@ -534,26 +537,26 @@ response.</p>
       <pre class="lines">
 
 
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89</pre>
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 73</span>
+      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 102</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EC2Metadata) GetInstanceIdentityDocument() (EC2InstanceIdentityDocument, <span class="hljs-constant">error</span>) {
 	resp, err := c.GetDynamicData(<span class="hljs-string">"instance-identity/document"</span>)
@@ -587,28 +590,41 @@ response.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>GetMetadata uses the path provided to request information from the EC2
+instance metadata service. The content will be returned as a string, or
+error if the request failed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29</pre>
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 17</span>
+      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 51</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EC2Metadata) GetMetadata(p <span class="hljs-constant">string</span>) (<span class="hljs-constant">string</span>, <span class="hljs-constant">error</span>) {
 	op := &request.Operation{
@@ -616,11 +632,11 @@ response.</p>
 		HTTPMethod: <span class="hljs-string">"GET"</span>,
 		HTTPPath:   sdkuri.PathJoin(<span class="hljs-string">"/meta-data"</span>, p),
 	}
-
 	output := &metadataOutput{}
-	req := c.NewRequest(op, <span class="hljs-constant">nil</span>, output)
-	err := req.Send()
 
+	req := c.NewRequest(op, <span class="hljs-constant">nil</span>, output)
+
+	err := req.Send()
 	<span class="hljs-keyword">return</span> output.Content, err
 }</div></pre>
     </td>
@@ -657,27 +673,22 @@ code will be returned.</p>
       <pre class="lines">
 
 
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51</pre>
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 34</span>
+      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 68</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EC2Metadata) GetUserData() (<span class="hljs-constant">string</span>, <span class="hljs-constant">error</span>) {
 	op := &request.Operation{
@@ -688,13 +699,8 @@ code will be returned.</p>
 
 	output := &metadataOutput{}
 	req := c.NewRequest(op, <span class="hljs-constant">nil</span>, output)
-	req.Handlers.UnmarshalError.PushBack(<span class="hljs-keyword">func</span>(r *request.Request) {
-		<span class="hljs-keyword">if</span> r.HTTPResponse.StatusCode == http.StatusNotFound {
-			r.Error = awserr.New(<span class="hljs-string">"NotFoundError"</span>, <span class="hljs-string">"user-data not found"</span>, r.Error)
-		}
-	})
-	err := req.Send()
 
+	err := req.Send()
 	<span class="hljs-keyword">return</span> output.Content, err
 }</div></pre>
     </td>
@@ -729,32 +735,32 @@ code will be returned.</p>
       <pre class="lines">
 
 
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114</pre>
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 92</span>
+      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 121</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EC2Metadata) IAMInfo() (EC2IAMInfo, <span class="hljs-constant">error</span>) {
 	resp, err := c.GetMetadata(<span class="hljs-string">"iam/info"</span>)
@@ -811,35 +817,35 @@ code will be returned.</p>
       <pre class="lines">
 
 
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129</pre>
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 117</span>
+      <pre class="code"><span class="info file">// File 'aws/ec2metadata/api.go', line 146</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EC2Metadata) Region() (<span class="hljs-constant">string</span>, <span class="hljs-constant">error</span>) {
-	resp, err := c.GetMetadata(<span class="hljs-string">"placement/availability-zone"</span>)
+	ec2InstanceIdentityDocument, err := c.GetInstanceIdentityDocument()
 	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
 		<span class="hljs-keyword">return</span> <span class="hljs-string">""</span>, err
 	}
-
-	<span class="hljs-keyword">if</span> len(resp) == 0 {
-		<span class="hljs-keyword">return</span> <span class="hljs-string">""</span>, awserr.New(<span class="hljs-string">"EC2MetadataError"</span>, <span class="hljs-string">"invalid Region response"</span>, <span class="hljs-constant">nil</span>)
+	<span class="hljs-comment">// extract region from the ec2InstanceIdentityDocument</span>
+	region := ec2InstanceIdentityDocument.Region
+	<span class="hljs-keyword">if</span> len(region) == 0 {
+		<span class="hljs-keyword">return</span> <span class="hljs-string">""</span>, awserr.New(<span class="hljs-string">"EC2MetadataError"</span>, <span class="hljs-string">"invalid region received for ec2metadata instance"</span>, <span class="hljs-constant">nil</span>)
 	}
-
-	<span class="hljs-comment">// returns region without the suffix. Eg: us-west-2a becomes us-west-2</span>
-	<span class="hljs-keyword">return</span> resp[:len(resp)-1], <span class="hljs-constant">nil</span>
+	<span class="hljs-comment">// returns region</span>
+	<span class="hljs-keyword">return</span> region, <span class="hljs-constant">nil</span>
 }</div></pre>
     </td>
   </tr>
@@ -853,7 +859,7 @@ code will be returned.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:11 2019 by
+  Generated on Fri Dec  6 16:55:02 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

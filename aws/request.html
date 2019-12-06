@@ -1891,16 +1891,16 @@ agent.</p>
       <pre class="lines">
 
 
-594
-595
-596
-597
-598
-599
-600</pre>
+602
+603
+604
+605
+606
+607
+608</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 594</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 602</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AddToUserAgent(r *Request, s <span class="hljs-constant">string</span>) {
 	curUA := r.HTTPRequest.Header.Get(<span class="hljs-string">"User-Agent"</span>)
@@ -2090,15 +2090,15 @@ error. Returns false if error is nil.</p>
       <pre class="lines">
 
 
-205
-206
-207
-208
-209
-210</pre>
+236
+237
+238
+239
+240
+241</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 205</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 236</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsErrorExpiredCreds(err <span class="hljs-constant">error</span>) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> aerr, ok := err.(awserr.Error); ok && aerr != <span class="hljs-constant">nil</span> {
@@ -2139,15 +2139,15 @@ Returns false if error is nil.</p>
       <pre class="lines">
 
 
-123
-124
-125
-126
-127
-128</pre>
+154
+155
+156
+157
+158
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 123</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 154</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsErrorRetryable(err <span class="hljs-constant">error</span>) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> err == <span class="hljs-constant">nil</span> {
@@ -2188,15 +2188,15 @@ code. Returns false if error is nil.</p>
       <pre class="lines">
 
 
-196
-197
-198
-199
-200
-201</pre>
+227
+228
+229
+230
+231
+232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 196</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 227</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsErrorThrottle(err <span class="hljs-constant">error</span>) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> aerr, ok := err.(awserr.Error); ok && aerr != <span class="hljs-constant">nil</span> {
@@ -2343,16 +2343,16 @@ request.Host</p>
       <pre class="lines">
 
 
-603
-604
-605
-606
-607
-608
-609</pre>
+611
+612
+613
+614
+615
+616
+617</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 603</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 611</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> SanitizeHostForHeader(r *http.Request) {
 	host := getHost(r)
@@ -2453,16 +2453,16 @@ request.WithGetResponseHeader(“x-amz-version-id”, &amp;versionID),  )</p>
       <pre class="lines">
 
 
-162
-163
-164
-165
-166
-167
-168</pre>
+170
+171
+172
+173
+174
+175
+176</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 162</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 170</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithGetResponseHeader(key <span class="hljs-constant">string</span>, val *<span class="hljs-constant">string</span>) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2508,16 +2508,16 @@ request.WithGetResponseHeaders(&amp;headers))</p>
       <pre class="lines">
 
 
-176
-177
-178
-179
-180
-181
-182</pre>
+184
+185
+186
+187
+188
+189
+190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 176</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 184</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithGetResponseHeaders(headers *http.Header) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2561,14 +2561,14 @@ specific log level when the request is made.</p>
       <pre class="lines">
 
 
-188
-189
-190
-191
-192</pre>
+196
+197
+198
+199
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 188</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 196</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithLogLevel(l aws.LogLevelType) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2674,7 +2674,7 @@ occurred, we will return the ErrCodeResponseTimeout.</p>
   <div class="discussion">
     
 <p>WithRetryer sets a Retryer value to the given Config returning the Config
-value for chaining.</p>
+value for chaining. The value must not be nil.</p>
 
 
   </div>
@@ -2691,14 +2691,28 @@ value for chaining.</p>
 38
 39
 40
-41</pre>
+41
+42
+43
+44
+45
+46
+47
+48</pre>
     </td>
     <td>
       <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 38</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithRetryer(cfg *aws.Config, retryer Retryer) *aws.Config {
+	<span class="hljs-keyword">if</span> retryer == <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">if</span> cfg.Logger != <span class="hljs-constant">nil</span> {
+			cfg.Logger.Log(<span class="hljs-string">"ERROR: Request.WithRetryer called with nil retryer. Replacing with retry disabled Retryer."</span>)
+		}
+		retryer = noOpRetryer{}
+	}
 	cfg.Retryer = retryer
 	<span class="hljs-keyword">return</span> cfg
+
 }</div></pre>
     </td>
   </tr>
@@ -2900,7 +2914,7 @@ options already set.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:05 2019 by
+  Generated on Fri Dec  6 16:54:52 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

@@ -555,23 +555,6 @@ to false. Enabled by default.</p>
       <pre class="lines">
 
 
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
 74
 75
 76
@@ -609,10 +592,40 @@ to false. Enabled by default.</p>
 108
 109
 110
-111</pre>
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/ec2metadata/service.go', line 57</span>
+      <pre class="code"><span class="info file">// File 'aws/ec2metadata/service.go', line 74</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewClient(cfg aws.Config, handlers request.Handlers, endpo<span class="hljs-constant">int</span>, signingRegion <span class="hljs-constant">string</span>, opts ...<span class="hljs-keyword">func</span>(*client.Client)) *EC2Metadata {
 	<span class="hljs-keyword">if</span> !aws.BoolValue(cfg.EC2MetadataDisableTimeoutOverride) && httpClientZero(cfg.HTTPClient) {
@@ -639,13 +652,27 @@ to false. Enabled by default.</p>
 		),
 	}
 
-	svc.Handlers.Unmarshal.PushBack(unmarshalHandler)
+	<span class="hljs-comment">// token provider instance</span>
+	tp := newTokenProvider(svc, defaultTTL)
+
+	<span class="hljs-comment">// NamedHandler for fetching token</span>
+	svc.Handlers.Sign.PushBackNamed(request.NamedHandler{
+		Name: fetchTokenHandlerName,
+		Fn:   tp.fetchTokenHandler,
+	})
+	<span class="hljs-comment">// NamedHandler for enabling token provider</span>
+	svc.Handlers.Complete.PushBackNamed(request.NamedHandler{
+		Name: enableTokenProviderHandlerName,
+		Fn:   tp.enableTokenProviderHandler,
+	})
+
+	svc.Handlers.Unmarshal.PushBackNamed(unmarshalHandler)
 	svc.Handlers.UnmarshalError.PushBack(unmarshalError)
 	svc.Handlers.Validate.Clear()
 	svc.Handlers.Validate.PushBack(validateEndpointHandler)
 
 	<span class="hljs-comment">// Disable the EC2 Metadata service if the environment variable is set.</span>
-	<span class="hljs-comment">// This shortcirctes the service's functionality to always fail to send</span>
+	<span class="hljs-comment">// This short-circuits the service's functionality to always fail to send</span>
 	<span class="hljs-comment">// requests.</span>
 	<span class="hljs-keyword">if</span> strings.ToLower(os.Getenv(disableServiceEnvVar)) == <span class="hljs-string">"true"</span> {
 		svc.Handlers.Send.SwapNamed(request.NamedHandler{
@@ -666,7 +693,6 @@ to false. Enabled by default.</p>
 	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> opts {
 		option(svc.Client)
 	}
-
 	<span class="hljs-keyword">return</span> svc
 }</div></pre>
     </td>
@@ -681,7 +707,7 @@ to false. Enabled by default.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:06 2019 by
+  Generated on Fri Dec  6 16:54:53 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

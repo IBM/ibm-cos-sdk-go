@@ -123,6 +123,31 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#EncryptionAlgorithm-field" title="kms.EncryptOutput.EncryptionAlgorithm (field)"><strong>EncryptionAlgorithm</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The encryption algorithm that was used to encrypt the plaintext.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#KeyId-field" title="kms.EncryptOutput.KeyId (field)"><strong>KeyId</strong> *string</a></span></span>
   
   
@@ -233,6 +258,31 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.EncryptOutput.SetEncryptionAlgorithm() (method)"><strong>SetEncryptionAlgorithm</strong>(string)  *EncryptOutput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetEncryptionAlgorithm sets the EncryptionAlgorithm field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetKeyId-instance_method" title="kms.EncryptOutput.SetKeyId() (method)"><strong>SetKeyId</strong>(string)  *EncryptOutput </a></span></span>
   
   
@@ -300,9 +350,28 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
   <div class="discussion">
     
 <p>The encrypted plaintext. When you use the HTTP API or the AWS CLI, the
-value is Base64-encoded. Otherwise, it is not encoded.</p>
+value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
 
 <p>CiphertextBlob is automatically base64 encoded/decoded by the SDK.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="EncryptionAlgorithm-field">
+  <strong>EncryptionAlgorithm</strong> *string 
+  <code>`type:"string" enum:"EncryptionAlgorithmSpec"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The encryption algorithm that was used to encrypt the plaintext.</p>
 
 
   </div>
@@ -373,12 +442,12 @@ value is Base64-encoded. Otherwise, it is not encoded.</p>
       <pre class="lines">
 
 
-7171
-7172
-7173</pre>
+8466
+8467
+8468</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7171</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8466</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.EncryptOutput (struct)">EncryptOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.EncryptOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -415,16 +484,60 @@ value is Base64-encoded. Otherwise, it is not encoded.</p>
       <pre class="lines">
 
 
-7176
-7177
-7178
-7179</pre>
+8471
+8472
+8473
+8474</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7176</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8471</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptOutput (struct)">EncryptOutput</a></span>) <span class='object_link'><a href="#SetCiphertextBlob-instance_method" title="kms.EncryptOutput.SetCiphertextBlob() (method)">SetCiphertextBlob</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.EncryptOutput (struct)">EncryptOutput</a></span> {
 	s.CiphertextBlob = v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetEncryptionAlgorithm-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="kms.EncryptOutput (struct)">EncryptOutput</a></span>) <strong><span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.EncryptOutput.SetEncryptionAlgorithm() (method)">SetEncryptionAlgorithm</a></span></strong>(v string) *<span class='object_link'><a href="" title="kms.EncryptOutput (struct)">EncryptOutput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetEncryptionAlgorithm sets the EncryptionAlgorithm field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8477
+8478
+8479
+8480</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8477</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptOutput (struct)">EncryptOutput</a></span>) <span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.EncryptOutput.SetEncryptionAlgorithm() (method)">SetEncryptionAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.EncryptOutput (struct)">EncryptOutput</a></span> {
+	s.EncryptionAlgorithm = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -459,13 +572,13 @@ value is Base64-encoded. Otherwise, it is not encoded.</p>
       <pre class="lines">
 
 
-7182
-7183
-7184
-7185</pre>
+8483
+8484
+8485
+8486</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7182</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8483</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptOutput (struct)">EncryptOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.EncryptOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.EncryptOutput (struct)">EncryptOutput</a></span> {
 	s.KeyId = &v
@@ -503,12 +616,12 @@ value is Base64-encoded. Otherwise, it is not encoded.</p>
       <pre class="lines">
 
 
-7166
-7167
-7168</pre>
+8461
+8462
+8463</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7166</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8461</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.EncryptOutput (struct)">EncryptOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.EncryptOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -525,7 +638,7 @@ value is Base64-encoded. Otherwise, it is not encoded.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:49 2019 by
+  Generated on Fri Dec  6 16:55:53 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

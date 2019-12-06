@@ -123,6 +123,31 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DestinationEncryptionAlgorithm-field" title="kms.ReEncryptOutput.DestinationEncryptionAlgorithm (field)"><strong>DestinationEncryptionAlgorithm</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The encryption algorithm that was used to reencrypt the data.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#KeyId-field" title="kms.ReEncryptOutput.KeyId (field)"><strong>KeyId</strong> *string</a></span></span>
   
   
@@ -140,6 +165,32 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
   
     <span class="summary_desc"><div class='inline'>
 <p>Unique identifier of the CMK used to reencrypt the data.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SourceEncryptionAlgorithm-field" title="kms.ReEncryptOutput.SourceEncryptionAlgorithm (field)"><strong>SourceEncryptionAlgorithm</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The encryption algorithm that was used to decrypt the ciphertext before it
+was reencrypted.</p>
 </div></span>
   
 </li>
@@ -258,6 +309,32 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetDestinationEncryptionAlgorithm-instance_method" title="kms.ReEncryptOutput.SetDestinationEncryptionAlgorithm() (method)"><strong>SetDestinationEncryptionAlgorithm</strong>(string)  *ReEncryptOutput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetDestinationEncryptionAlgorithm sets the DestinationEncryptionAlgorithm
+field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetKeyId-instance_method" title="kms.ReEncryptOutput.SetKeyId() (method)"><strong>SetKeyId</strong>(string)  *ReEncryptOutput </a></span></span>
   
   
@@ -275,6 +352,32 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
   
     <span class="summary_desc"><div class='inline'>
 <p>SetKeyId sets the KeyId field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetSourceEncryptionAlgorithm-instance_method" title="kms.ReEncryptOutput.SetSourceEncryptionAlgorithm() (method)"><strong>SetSourceEncryptionAlgorithm</strong>(string)  *ReEncryptOutput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetSourceEncryptionAlgorithm sets the SourceEncryptionAlgorithm field&#39;s
+value.</p>
 </div></span>
   
 </li>
@@ -350,9 +453,28 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
   <div class="discussion">
     
 <p>The reencrypted data. When you use the HTTP API or the AWS CLI, the value
-is Base64-encoded. Otherwise, it is not encoded.</p>
+is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
 
 <p>CiphertextBlob is automatically base64 encoded/decoded by the SDK.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DestinationEncryptionAlgorithm-field">
+  <strong>DestinationEncryptionAlgorithm</strong> *string 
+  <code>`type:"string" enum:"EncryptionAlgorithmSpec"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The encryption algorithm that was used to reencrypt the data.</p>
 
 
   </div>
@@ -372,6 +494,26 @@ is Base64-encoded. Otherwise, it is not encoded.</p>
   <div class="discussion">
     
 <p>Unique identifier of the CMK used to reencrypt the data.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SourceEncryptionAlgorithm-field">
+  <strong>SourceEncryptionAlgorithm</strong> *string 
+  <code>`type:"string" enum:"EncryptionAlgorithmSpec"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The encryption algorithm that was used to decrypt the ciphertext before it
+was reencrypted.</p>
 
 
   </div>
@@ -442,12 +584,12 @@ is Base64-encoded. Otherwise, it is not encoded.</p>
       <pre class="lines">
 
 
-9338
-9339
-9340</pre>
+11307
+11308
+11309</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9338</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11307</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.ReEncryptOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -484,16 +626,61 @@ is Base64-encoded. Otherwise, it is not encoded.</p>
       <pre class="lines">
 
 
-9343
-9344
-9345
-9346</pre>
+11312
+11313
+11314
+11315</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9343</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11312</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span>) <span class='object_link'><a href="#SetCiphertextBlob-instance_method" title="kms.ReEncryptOutput.SetCiphertextBlob() (method)">SetCiphertextBlob</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span> {
 	s.CiphertextBlob = v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetDestinationEncryptionAlgorithm-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span>) <strong><span class='object_link'><a href="#SetDestinationEncryptionAlgorithm-instance_method" title="kms.ReEncryptOutput.SetDestinationEncryptionAlgorithm() (method)">SetDestinationEncryptionAlgorithm</a></span></strong>(v string) *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetDestinationEncryptionAlgorithm sets the DestinationEncryptionAlgorithm
+field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11318
+11319
+11320
+11321</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11318</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span>) <span class='object_link'><a href="#SetDestinationEncryptionAlgorithm-instance_method" title="kms.ReEncryptOutput.SetDestinationEncryptionAlgorithm() (method)">SetDestinationEncryptionAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span> {
+	s.DestinationEncryptionAlgorithm = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -528,16 +715,61 @@ is Base64-encoded. Otherwise, it is not encoded.</p>
       <pre class="lines">
 
 
-9349
-9350
-9351
-9352</pre>
+11324
+11325
+11326
+11327</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9349</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11324</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.ReEncryptOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span> {
 	s.KeyId = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetSourceEncryptionAlgorithm-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span>) <strong><span class='object_link'><a href="#SetSourceEncryptionAlgorithm-instance_method" title="kms.ReEncryptOutput.SetSourceEncryptionAlgorithm() (method)">SetSourceEncryptionAlgorithm</a></span></strong>(v string) *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetSourceEncryptionAlgorithm sets the SourceEncryptionAlgorithm field&#39;s
+value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11330
+11331
+11332
+11333</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11330</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span>) <span class='object_link'><a href="#SetSourceEncryptionAlgorithm-instance_method" title="kms.ReEncryptOutput.SetSourceEncryptionAlgorithm() (method)">SetSourceEncryptionAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span> {
+	s.SourceEncryptionAlgorithm = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -572,13 +804,13 @@ is Base64-encoded. Otherwise, it is not encoded.</p>
       <pre class="lines">
 
 
-9355
-9356
-9357
-9358</pre>
+11336
+11337
+11338
+11339</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9355</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11336</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span>) <span class='object_link'><a href="#SetSourceKeyId-instance_method" title="kms.ReEncryptOutput.SetSourceKeyId() (method)">SetSourceKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span> {
 	s.SourceKeyId = &v
@@ -616,12 +848,12 @@ is Base64-encoded. Otherwise, it is not encoded.</p>
       <pre class="lines">
 
 
-9333
-9334
-9335</pre>
+11302
+11303
+11304</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9333</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11302</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ReEncryptOutput (struct)">ReEncryptOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.ReEncryptOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -638,7 +870,7 @@ is Base64-encoded. Otherwise, it is not encoded.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:53 2019 by
+  Generated on Fri Dec  6 16:56:01 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

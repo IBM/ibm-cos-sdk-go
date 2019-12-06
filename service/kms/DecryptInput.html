@@ -123,6 +123,32 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#EncryptionAlgorithm-field" title="kms.DecryptInput.EncryptionAlgorithm (field)"><strong>EncryptionAlgorithm</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Specifies the encryption algorithm that will be used to decrypt the
+ciphertext.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#EncryptionContext-field" title="kms.DecryptInput.EncryptionContext (field)"><strong>EncryptionContext</strong> map[string]*string</a></span></span>
   
   
@@ -139,7 +165,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The encryption context.</p>
+<p>Specifies the encryption context to use when decrypting the data.</p>
 </div></span>
   
 </li>
@@ -165,6 +191,32 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
   
     <span class="summary_desc"><div class='inline'>
 <p>A list of grant tokens.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#KeyId-field" title="kms.DecryptInput.KeyId (field)"><strong>KeyId</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt
+the ciphertext.</p>
 </div></span>
   
 </li>
@@ -258,6 +310,31 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.DecryptInput.SetEncryptionAlgorithm() (method)"><strong>SetEncryptionAlgorithm</strong>(string)  *DecryptInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetEncryptionAlgorithm sets the EncryptionAlgorithm field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetEncryptionContext-instance_method" title="kms.DecryptInput.SetEncryptionContext() (method)"><strong>SetEncryptionContext</strong>(map[string]*string)  *DecryptInput </a></span></span>
   
   
@@ -300,6 +377,31 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
   
     <span class="summary_desc"><div class='inline'>
 <p>SetGrantTokens sets the GrantTokens field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetKeyId-instance_method" title="kms.DecryptInput.SetKeyId() (method)"><strong>SetKeyId</strong>(string)  *DecryptInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetKeyId sets the KeyId field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -390,6 +492,31 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="EncryptionAlgorithm-field">
+  <strong>EncryptionAlgorithm</strong> *string 
+  <code>`type:"string" enum:"EncryptionAlgorithmSpec"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Specifies the encryption algorithm that will be used to decrypt the
+ciphertext. Specify the same algorithm that was used to encrypt the data.
+If you specify a different algorithm, the Decrypt operation fails.</p>
+
+<p>This parameter is required only when the ciphertext was encrypted under an
+asymmetric CMK. The default value, SYMMETRIC_DEFAULT, represents the only
+supported algorithm that is valid for symmetric CMKs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="EncryptionContext-field">
   <strong>EncryptionContext</strong> map[string]*string 
   <code>`type:"map"`</code>
@@ -397,10 +524,21 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 <div class="docstring">
   <div class="discussion">
     
-<p>The encryption context. If this was specified in the Encrypt function, it
-must be specified here or the decryption operation will fail. For more
-information, see Encryption Context (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>).</p>
+<p>Specifies the encryption context to use when decrypting the data. An
+encryption context is valid only for cryptographic operations with a
+symmetric CMK. The standard asymmetric encryption algorithms that AWS KMS
+uses do not support an encryption context.</p>
+
+<p>An encryption context is a collection of non-secret key-value pairs that
+represents additional authenticated data. When you use an encryption
+context to encrypt data, you must specify the same (an exact case-sensitive
+match) encryption context to decrypt the data. An encryption context is
+optional when encrypting with a symmetric CMK, but it is highly
+recommended.</p>
+
+<p>For more information, see Encryption Context (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>)
+in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -424,6 +562,54 @@ href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encryp
 <p>For more information, see Grant Tokens (<a
 href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token</a>)
 in the AWS Key Management Service Developer Guide.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="KeyId-field">
+  <strong>KeyId</strong> *string 
+  <code>`min:"1" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt
+the ciphertext. Enter a key ID of the CMK that was used to encrypt the
+ciphertext.</p>
+
+<p>If you specify a KeyId value, the Decrypt operation succeeds only if the
+specified CMK was used to encrypt the ciphertext.</p>
+
+<p>This parameter is required only when the ciphertext was encrypted under an
+asymmetric CMK. Otherwise, AWS KMS uses the metadata that it adds to the
+ciphertext blob to determine which CMK was used to encrypt the ciphertext.
+However, you can use this parameter to ensure that a particular CMK (of any
+kind) is used to decrypt the ciphertext.</p>
+
+<p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name,
+or alias ARN. When using an alias name, prefix it with “alias/”.</p>
+
+<p>For example:</p>
+<ul><li>
+<p>Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</p>
+</li><li>
+<p>Key ARN:
+arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
+</li><li>
+<p>Alias name: alias/ExampleAlias</p>
+</li><li>
+<p>Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</p>
+</li></ul>
+
+<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
+get the alias name and alias ARN, use ListAliases.</p>
 
 
   </div>
@@ -475,12 +661,12 @@ in the AWS Key Management Service Developer Guide.</p>
       <pre class="lines">
 
 
-6253
-6254
-6255</pre>
+7494
+7495
+7496</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 6253</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7494</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.DecryptInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -517,16 +703,60 @@ in the AWS Key Management Service Developer Guide.</p>
       <pre class="lines">
 
 
-6274
-6275
-6276
-6277</pre>
+7518
+7519
+7520
+7521</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 6274</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7518</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#SetCiphertextBlob-instance_method" title="kms.DecryptInput.SetCiphertextBlob() (method)">SetCiphertextBlob</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span> {
 	s.CiphertextBlob = v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetEncryptionAlgorithm-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <strong><span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.DecryptInput.SetEncryptionAlgorithm() (method)">SetEncryptionAlgorithm</a></span></strong>(v string) *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetEncryptionAlgorithm sets the EncryptionAlgorithm field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7524
+7525
+7526
+7527</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7524</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.DecryptInput.SetEncryptionAlgorithm() (method)">SetEncryptionAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span> {
+	s.EncryptionAlgorithm = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -561,13 +791,13 @@ in the AWS Key Management Service Developer Guide.</p>
       <pre class="lines">
 
 
-6280
-6281
-6282
-6283</pre>
+7530
+7531
+7532
+7533</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 6280</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7530</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#SetEncryptionContext-instance_method" title="kms.DecryptInput.SetEncryptionContext() (method)">SetEncryptionContext</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span> {
 	s.EncryptionContext = v
@@ -605,16 +835,60 @@ in the AWS Key Management Service Developer Guide.</p>
       <pre class="lines">
 
 
-6286
-6287
-6288
-6289</pre>
+7536
+7537
+7538
+7539</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 6286</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7536</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.DecryptInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span> {
 	s.GrantTokens = v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetKeyId-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <strong><span class='object_link'><a href="#SetKeyId-instance_method" title="kms.DecryptInput.SetKeyId() (method)">SetKeyId</a></span></strong>(v string) *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetKeyId sets the KeyId field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7542
+7543
+7544
+7545</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7542</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.DecryptInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span> {
+	s.KeyId = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -649,12 +923,12 @@ in the AWS Key Management Service Developer Guide.</p>
       <pre class="lines">
 
 
-6248
-6249
-6250</pre>
+7489
+7490
+7491</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 6248</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7489</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.DecryptInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -691,23 +965,26 @@ in the AWS Key Management Service Developer Guide.</p>
       <pre class="lines">
 
 
-6258
-6259
-6260
-6261
-6262
-6263
-6264
-6265
-6266
-6267
-6268
-6269
-6270
-6271</pre>
+7499
+7500
+7501
+7502
+7503
+7504
+7505
+7506
+7507
+7508
+7509
+7510
+7511
+7512
+7513
+7514
+7515</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 6258</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7499</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.DecryptInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>"</span>}
@@ -716,6 +993,9 @@ in the AWS Key Management Service Developer Guide.</p>
 	}
 	<span class="hljs-keyword">if</span> s.CiphertextBlob != <span class="hljs-constant">nil</span> && len(s.CiphertextBlob) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen(<span class="hljs-string">"<span class='object_link'><a href="#CiphertextBlob-field" title="kms.DecryptInput.CiphertextBlob (field)">CiphertextBlob</a></span>"</span>, 1))
+	}
+	<span class="hljs-keyword">if</span> s.KeyId != <span class="hljs-constant">nil</span> && len(*s.KeyId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen(<span class="hljs-string">"<span class='object_link'><a href="#KeyId-field" title="kms.DecryptInput.KeyId (field)">KeyId</a></span>"</span>, 1))
 	}
 
 	<span class="hljs-keyword">if</span> invalidParams.Len() > 0 {
@@ -735,7 +1015,7 @@ in the AWS Key Management Service Developer Guide.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:47 2019 by
+  Generated on Fri Dec  6 16:55:51 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

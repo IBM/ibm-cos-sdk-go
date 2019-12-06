@@ -659,6 +659,59 @@ addressing, i.e., <code>http://s3.amazonaws.com/BUCKET/KEY</code>.</p>
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#S3UsEast1RegionalEndpoint-field" title="aws.Config.S3UsEast1RegionalEndpoint (field)"><strong>S3UsEast1RegionalEndpoint</strong> endpoints.S3UsEast1RegionalEndpoint</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>S3UsEast1RegionalEndpoint will enable regional or legacy endpoint
+resolving.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#S3UseARNRegion-field" title="aws.Config.S3UseARNRegion (field)"><strong>S3UseARNRegion</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set this to <code>true</code> to have the S3 service client to use the
+region specified in the ARN, when an ARN is provided as an argument to a
+bucket parameter.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#S3UseAccelerate-field" title="aws.Config.S3UseAccelerate (field)"><strong>S3UseAccelerate</strong> *bool</a></span></span>
   
   
@@ -1328,6 +1381,58 @@ pointer for chaining.</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithS3UseARNRegion-instance_method" title="aws.Config.WithS3UseARNRegion() (method)">func (c *Config) <strong>WithS3UseARNRegion</strong>(enable bool) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>WithS3UseARNRegion sets a config S3UseARNRegion value and returning a
+Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithS3UsEast1RegionalEndpoint-instance_method" title="aws.Config.WithS3UsEast1RegionalEndpoint() (method)">func (c *Config) <strong>WithS3UsEast1RegionalEndpoint</strong>(sre endpoints.S3UsEast1RegionalEndpoint) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>WithS3UsEast1RegionalEndpoint will set whether or not to use regional
+endpoint flag when resolving the endpoint for a service.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#WithSleepDelay-instance_method" title="aws.Config.WithSleepDelay() (method)">func (c *Config) <strong>WithSleepDelay</strong>(fn func(time.Duration)) *Config </a></span></span>
   
   
@@ -1893,6 +1998,46 @@ for Amazon S3: Virtual Hosting of Buckets</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="S3UsEast1RegionalEndpoint-field">
+  <strong>S3UsEast1RegionalEndpoint</strong> <span class='object_link'><a href="endpoints.html#type-S3UsEast1RegionalEndpoint" title="endpoints (package)">endpoints.S3UsEast1RegionalEndpoint</a></span> 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>S3UsEast1RegionalEndpoint will enable regional or legacy endpoint resolving</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="S3UseARNRegion-field">
+  <strong>S3UseARNRegion</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Set this to <code>true</code> to have the S3 service client to use the
+region specified in the ARN, when an ARN is provided as an argument to a
+bucket parameter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="S3UseAccelerate-field">
   <strong>S3UseAccelerate</strong> *bool 
   
@@ -2027,12 +2172,12 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-263
-264
-265</pre>
+270
+271
+272</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 263</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 270</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewConfig() *Config {
 	<span class="hljs-keyword">return</span> &Config{}
@@ -2077,19 +2222,19 @@ returned.</p>
       <pre class="lines">
 
 
-526
-527
-528
-529
-530
-531
-532
-533
-534
-535</pre>
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 526</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 555</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) Copy(cfgs ...*Config) *Config {
 	dst := &Config{}
@@ -2133,14 +2278,14 @@ returned.</p>
       <pre class="lines">
 
 
-416
-417
-418
-419
-420</pre>
+430
+431
+432
+433
+434</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 416</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 430</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) MergeIn(cfgs ...*Config) {
 	<span class="hljs-keyword">for</span> _, other := <span class="hljs-keyword">range</span> cfgs {
@@ -2180,13 +2325,13 @@ for chaining.</p>
       <pre class="lines">
 
 
-276
-277
-278
-279</pre>
+283
+284
+285
+286</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 276</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 283</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithCredentials(creds *credentials.Credentials) *Config {
 	c.Credentials = creds
@@ -2225,13 +2370,13 @@ returning a Config pointer.</p>
       <pre class="lines">
 
 
-269
-270
-271
-272</pre>
+276
+277
+278
+279</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 269</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 276</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithCredentialsChainVerboseErrors(verboseErrs <span class="hljs-constant">bool</span>) *Config {
 	c.CredentialsChainVerboseErrors = &verboseErrs
@@ -2270,13 +2415,13 @@ returning a Config pointer for chaining.</p>
       <pre class="lines">
 
 
-332
-333
-334
-335</pre>
+339
+340
+341
+342</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 332</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 339</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableComputeChecksums(disable <span class="hljs-constant">bool</span>) *Config {
 	c.DisableComputeChecksums = &disable
@@ -2315,13 +2460,13 @@ prefix when making requests.</p>
       <pre class="lines">
 
 
-410
-411
-412
-413</pre>
+424
+425
+426
+427</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 410</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 424</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableEndpointHostPrefix(t <span class="hljs-constant">bool</span>) *Config {
 	c.DisableEndpointHostPrefix = &t
@@ -2360,13 +2505,13 @@ returning a Config pointer for chaining.</p>
       <pre class="lines">
 
 
-325
-326
-327
-328</pre>
+332
+333
+334
+335</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 325</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 332</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableParamValidation(disable <span class="hljs-constant">bool</span>) *Config {
 	c.DisableParamValidation = &disable
@@ -2405,13 +2550,13 @@ for chaining.</p>
       <pre class="lines">
 
 
-304
-305
-306
-307</pre>
+311
+312
+313
+314</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 304</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 311</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableSSL(disable <span class="hljs-constant">bool</span>) *Config {
 	c.DisableSSL = &disable
@@ -2451,13 +2596,13 @@ chaining.</p>
       <pre class="lines">
 
 
-390
-391
-392
-393</pre>
+404
+405
+406
+407</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 390</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 404</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEC2MetadataDisableTimeoutOverride(enable <span class="hljs-constant">bool</span>) *Config {
 	c.EC2MetadataDisableTimeoutOverride = &enable
@@ -2496,13 +2641,13 @@ chaining.</p>
       <pre class="lines">
 
 
-283
-284
-285
-286</pre>
+290
+291
+292
+293</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 283</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 290</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEndpo<span class="hljs-constant">int</span>(endpo<span class="hljs-constant">int</span> <span class="hljs-constant">string</span>) *Config {
 	c.Endpo<span class="hljs-constant">int</span> = &endpo<span class="hljs-constant">int</span>
@@ -2540,13 +2685,13 @@ chaining.</p>
       <pre class="lines">
 
 
-403
-404
-405
-406</pre>
+417
+418
+419
+420</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 403</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 417</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEndpointDiscovery(t <span class="hljs-constant">bool</span>) *Config {
 	c.EnableEndpointDiscovery = &t
@@ -2585,13 +2730,13 @@ Config pointer for chaining.</p>
       <pre class="lines">
 
 
-290
-291
-292
-293</pre>
+297
+298
+299
+300</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 290</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 297</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEndpointResolver(resolver endpoints.Resolver) *Config {
 	c.EndpointResolver = resolver
@@ -2630,13 +2775,13 @@ for chaining.</p>
       <pre class="lines">
 
 
-311
-312
-313
-314</pre>
+318
+319
+320
+321</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 311</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 318</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithHTTPClient(client *http.Client) *Config {
 	c.HTTPClient = client
@@ -2675,13 +2820,13 @@ chaining.</p>
       <pre class="lines">
 
 
-346
-347
-348
-349</pre>
+353
+354
+355
+356</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 346</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 353</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithLogger(logger Logger) *Config {
 	c.Logger = logger
@@ -2720,13 +2865,13 @@ chaining.</p>
       <pre class="lines">
 
 
-339
-340
-341
-342</pre>
+346
+347
+348
+349</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 339</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 346</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithLogLevel(level LogLevelType) *Config {
 	c.LogLevel = &level
@@ -2765,13 +2910,13 @@ for chaining.</p>
       <pre class="lines">
 
 
-318
-319
-320
-321</pre>
+325
+326
+327
+328</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 318</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 325</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithMaxRetries(max <span class="hljs-constant">int</span>) *Config {
 	c.MaxRetries = &max
@@ -2810,13 +2955,13 @@ chaining.</p>
       <pre class="lines">
 
 
-297
-298
-299
-300</pre>
+304
+305
+306
+307</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 297</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 304</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithRegion(region <span class="hljs-constant">string</span>) *Config {
 	c.Region = &region
@@ -2855,13 +3000,13 @@ a Config pointer for chaining.</p>
       <pre class="lines">
 
 
-360
-361
-362
-363</pre>
+367
+368
+369
+370</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 360</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 367</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3Disable100Continue(disable <span class="hljs-constant">bool</span>) *Config {
 	c.S3Disable100Continue = &disable
@@ -2901,14 +3046,14 @@ chaining.</p>
       <pre class="lines">
 
 
-375
-376
-377
-378
-379</pre>
+382
+383
+384
+385
+386</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 375</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 382</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3DisableContentMD5Validation(enable <span class="hljs-constant">bool</span>) *Config {
 	c.S3DisableContentMD5Validation = &enable
@@ -2948,13 +3093,13 @@ Config pointer for chaining.</p>
       <pre class="lines">
 
 
-353
-354
-355
-356</pre>
+360
+361
+362
+363</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 353</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 360</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3ForcePathStyle(force <span class="hljs-constant">bool</span>) *Config {
 	c.S3ForcePathStyle = &force
@@ -2993,19 +3138,109 @@ pointer for chaining.</p>
       <pre class="lines">
 
 
-367
-368
-369
-370
-371</pre>
+374
+375
+376
+377
+378</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 367</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 374</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3UseAccelerate(enable <span class="hljs-constant">bool</span>) *Config {
 	c.S3UseAccelerate = &enable
 	<span class="hljs-keyword">return</span> c
 
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithS3UseARNRegion-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithS3UseARNRegion-instance_method" title="aws.Config.WithS3UseARNRegion() (method)">WithS3UseARNRegion</a></span></strong>(enable bool) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>WithS3UseARNRegion sets a config S3UseARNRegion value and returning a
+Config pointer for chaining</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+390
+391
+392
+393</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 390</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3UseARNRegion(enable <span class="hljs-constant">bool</span>) *Config {
+	c.S3UseARNRegion = &enable
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithS3UsEast1RegionalEndpoint-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithS3UsEast1RegionalEndpoint-instance_method" title="aws.Config.WithS3UsEast1RegionalEndpoint() (method)">WithS3UsEast1RegionalEndpoint</a></span></strong>(sre <span class='object_link'><a href="endpoints.html#type-S3UsEast1RegionalEndpoint" title="endpoints (package)">endpoints.S3UsEast1RegionalEndpoint</a></span>) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>WithS3UsEast1RegionalEndpoint will set whether or not to use regional
+endpoint flag when resolving the endpoint for a service</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+438
+439
+440
+441</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 438</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3UsEast1RegionalEndpo<span class="hljs-constant">int</span>(sre endpoints.S3UsEast1RegionalEndpo<span class="hljs-constant">int</span>) *Config {
+	c.S3UsEast1RegionalEndpo<span class="hljs-constant">int</span> = sre
+	<span class="hljs-keyword">return</span> c
 }</div></pre>
     </td>
   </tr>
@@ -3040,13 +3275,13 @@ next retry. Defaults to time.Sleep.</p>
       <pre class="lines">
 
 
-397
-398
-399
-400</pre>
+411
+412
+413
+414</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 397</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 411</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithSleepDelay(fn <span class="hljs-keyword">func</span>(time.Duration)) *Config {
 	c.SleepDelay = fn
@@ -3085,13 +3320,13 @@ pointer for chaining.</p>
       <pre class="lines">
 
 
-383
-384
-385
-386</pre>
+397
+398
+399
+400</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 383</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 397</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithUseDualStack(enable <span class="hljs-constant">bool</span>) *Config {
 	c.UseDualStack = &enable
@@ -3109,7 +3344,7 @@ pointer for chaining.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:11 2019 by
+  Generated on Fri Dec  6 16:55:01 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

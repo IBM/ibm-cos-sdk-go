@@ -114,7 +114,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A unique identifier for the customer master key (CMK).</p>
+<p>Identifies a symmetric customer master key (CMK).</p>
 </div></span>
   
 </li>
@@ -274,7 +274,10 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 <div class="docstring">
   <div class="discussion">
     
-<p>A unique identifier for the customer master key (CMK).</p>
+<p>Identifies a symmetric customer master key (CMK). You cannot enable
+automatic rotation of asymmetric CMKs, CMKs with imported key material, or
+CMKs in a custom key store (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>).</p>
 
 <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
 
@@ -340,12 +343,12 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-7011
-7012
-7013</pre>
+8280
+8281
+8282</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7011</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8280</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.EnableKeyRotationInput (struct)">EnableKeyRotationInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.EnableKeyRotationInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -382,13 +385,13 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-7032
-7033
-7034
-7035</pre>
+8301
+8302
+8303
+8304</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7032</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8301</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EnableKeyRotationInput (struct)">EnableKeyRotationInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.EnableKeyRotationInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.EnableKeyRotationInput (struct)">EnableKeyRotationInput</a></span> {
 	s.KeyId = &v
@@ -426,12 +429,12 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-7006
-7007
-7008</pre>
+8275
+8276
+8277</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7006</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8275</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.EnableKeyRotationInput (struct)">EnableKeyRotationInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.EnableKeyRotationInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -468,23 +471,23 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-7016
-7017
-7018
-7019
-7020
-7021
-7022
-7023
-7024
-7025
-7026
-7027
-7028
-7029</pre>
+8285
+8286
+8287
+8288
+8289
+8290
+8291
+8292
+8293
+8294
+8295
+8296
+8297
+8298</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7016</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8285</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EnableKeyRotationInput (struct)">EnableKeyRotationInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.EnableKeyRotationInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.EnableKeyRotationInput (struct)">EnableKeyRotationInput</a></span>"</span>}
@@ -512,7 +515,7 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:49 2019 by
+  Generated on Fri Dec  6 16:55:53 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

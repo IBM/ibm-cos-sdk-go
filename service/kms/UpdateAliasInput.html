@@ -114,7 +114,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the name of the alias to change.</p>
+<p>Identifies the alias that is changing its CMK.</p>
 </div></span>
   
 </li>
@@ -139,8 +139,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Unique identifier of the customer master key (CMK) to be mapped to the
-alias.</p>
+<p>Identifies the CMK to associate with the alias.</p>
 </div></span>
   
 </li>
@@ -325,8 +324,9 @@ alias.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the name of the alias to change. This value must begin with
-alias/ followed by the alias name, such as alias/ExampleAlias.</p>
+<p>Identifies the alias that is changing its CMK. This value must begin with
+alias/ followed by the alias name, such as alias/ExampleAlias. You cannot
+use UpdateAlias to change the alias name.</p>
 
 <p>AliasName is a required field</p>
 
@@ -347,9 +347,12 @@ alias/ followed by the alias name, such as alias/ExampleAlias.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Unique identifier of the customer master key (CMK) to be mapped to the
-alias. When the update operation completes, the alias will point to this
-CMK.</p>
+<p>Identifies the CMK to associate with the alias. When the update operation
+completes, the alias will point to this CMK.</p>
+
+<p>The CMK must be in the same AWS account and Region as the alias. Also, the
+new target CMK must be the same type as the current target CMK (both
+symmetric or both asymmetric) and they must have the same key usage.</p>
 
 <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
 
@@ -417,12 +420,12 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-9885
-9886
-9887</pre>
+12038
+12039
+12040</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9885</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12038</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.UpdateAliasInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -459,13 +462,13 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-9912
-9913
-9914
-9915</pre>
+12065
+12066
+12067
+12068</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9912</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12065</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#SetAliasName-instance_method" title="kms.UpdateAliasInput.SetAliasName() (method)">SetAliasName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span> {
 	s.AliasName = &v
@@ -503,13 +506,13 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-9918
-9919
-9920
-9921</pre>
+12071
+12072
+12073
+12074</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9918</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12071</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#SetTargetKeyId-instance_method" title="kms.UpdateAliasInput.SetTargetKeyId() (method)">SetTargetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span> {
 	s.TargetKeyId = &v
@@ -547,12 +550,12 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-9880
-9881
-9882</pre>
+12033
+12034
+12035</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9880</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12033</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.UpdateAliasInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -589,29 +592,29 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-9890
-9891
-9892
-9893
-9894
-9895
-9896
-9897
-9898
-9899
-9900
-9901
-9902
-9903
-9904
-9905
-9906
-9907
-9908
-9909</pre>
+12043
+12044
+12045
+12046
+12047
+12048
+12049
+12050
+12051
+12052
+12053
+12054
+12055
+12056
+12057
+12058
+12059
+12060
+12061
+12062</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9890</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12043</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.UpdateAliasInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>"</span>}
@@ -645,7 +648,7 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:54 2019 by
+  Generated on Fri Dec  6 16:56:02 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

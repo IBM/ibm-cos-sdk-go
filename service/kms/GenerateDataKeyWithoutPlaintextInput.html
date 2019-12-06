@@ -114,7 +114,8 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A set of key-value pairs that represents additional authenticated data.</p>
+<p>Specifies the encryption context that will be used when encrypting the data
+key.</p>
 </div></span>
   
 </li>
@@ -164,7 +165,8 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The identifier of the customer master key (CMK) that encrypts the data key.</p>
+<p>The identifier of the symmetric customer master key (CMK) that encrypts the
+data key.</p>
 </div></span>
   
 </li>
@@ -474,7 +476,15 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 <div class="docstring">
   <div class="discussion">
     
-<p>A set of key-value pairs that represents additional authenticated data.</p>
+<p>Specifies the encryption context that will be used when encrypting the data
+key.</p>
+
+<p>An encryption context is a collection of non-secret key-value pairs that
+represents additional authenticated data. When you use an encryption
+context to encrypt data, you must specify the same (an exact case-sensitive
+match) encryption context to decrypt the data. An encryption context is
+optional when encrypting with a symmetric CMK, but it is highly
+recommended.</p>
 
 <p>For more information, see Encryption Context (<a
 href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>)
@@ -520,7 +530,8 @@ in the AWS Key Management Service Developer Guide.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The identifier of the customer master key (CMK) that encrypts the data key.</p>
+<p>The identifier of the symmetric customer master key (CMK) that encrypts the
+data key.</p>
 
 <p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name,
 or alias ARN. When using an alias name, prefix it with “alias/”. To specify
@@ -635,12 +646,12 @@ field instead of this one.</p>
       <pre class="lines">
 
 
-7396
-7397
-7398</pre>
+9074
+9075
+9076</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7396</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9074</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GenerateDataKeyWithoutPlaintextInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -677,13 +688,13 @@ field instead of this one.</p>
       <pre class="lines">
 
 
-7420
-7421
-7422
-7423</pre>
+9098
+9099
+9100
+9101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7420</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9098</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#SetEncryptionContext-instance_method" title="kms.GenerateDataKeyWithoutPlaintextInput.SetEncryptionContext() (method)">SetEncryptionContext</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span> {
 	s.EncryptionContext = v
@@ -721,13 +732,13 @@ field instead of this one.</p>
       <pre class="lines">
 
 
-7426
-7427
-7428
-7429</pre>
+9104
+9105
+9106
+9107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7426</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9104</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.GenerateDataKeyWithoutPlaintextInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span> {
 	s.GrantTokens = v
@@ -765,13 +776,13 @@ field instead of this one.</p>
       <pre class="lines">
 
 
-7432
-7433
-7434
-7435</pre>
+9110
+9111
+9112
+9113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7432</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9110</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.GenerateDataKeyWithoutPlaintextInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span> {
 	s.KeyId = &v
@@ -809,13 +820,13 @@ field instead of this one.</p>
       <pre class="lines">
 
 
-7438
-7439
-7440
-7441</pre>
+9116
+9117
+9118
+9119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7438</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9116</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#SetKeySpec-instance_method" title="kms.GenerateDataKeyWithoutPlaintextInput.SetKeySpec() (method)">SetKeySpec</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span> {
 	s.KeySpec = &v
@@ -853,13 +864,13 @@ field instead of this one.</p>
       <pre class="lines">
 
 
-7444
-7445
-7446
-7447</pre>
+9122
+9123
+9124
+9125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7444</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9122</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#SetNumberOfBytes-instance_method" title="kms.GenerateDataKeyWithoutPlaintextInput.SetNumberOfBytes() (method)">SetNumberOfBytes</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span> {
 	s.NumberOfBytes = &v
@@ -897,12 +908,12 @@ field instead of this one.</p>
       <pre class="lines">
 
 
-7391
-7392
-7393</pre>
+9069
+9070
+9071</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7391</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9069</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GenerateDataKeyWithoutPlaintextInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -939,26 +950,26 @@ field instead of this one.</p>
       <pre class="lines">
 
 
-7401
-7402
-7403
-7404
-7405
-7406
-7407
-7408
-7409
-7410
-7411
-7412
-7413
-7414
-7415
-7416
-7417</pre>
+9079
+9080
+9081
+9082
+9083
+9084
+9085
+9086
+9087
+9088
+9089
+9090
+9091
+9092
+9093
+9094
+9095</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7401</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9079</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.GenerateDataKeyWithoutPlaintextInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.GenerateDataKeyWithoutPlaintextInput (struct)">GenerateDataKeyWithoutPlaintextInput</a></span>"</span>}
@@ -989,7 +1000,7 @@ field instead of this one.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:50 2019 by
+  Generated on Fri Dec  6 16:55:55 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

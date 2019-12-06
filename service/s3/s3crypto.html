@@ -1350,9 +1350,8 @@ with a specific cipher for the master key</p>
     
 <p>NewDecryptionClient instantiates a new S3 crypto client</p>
 
-<p>Example:  sess := session.Must(session.NewSession())  svc :=
-s3crypto.NewDecryptionClient(sess, func(svc *s3crypto.DecryptionClient{  //
-Custom client options here  }))</p>
+<p>Example:  sess := session.New()  svc := s3crypto.NewDecryptionClient(sess,
+func(svc *s3crypto.DecryptionClient{  // Custom client options here  }))</p>
 
 
   </div>
@@ -1446,7 +1445,7 @@ Custom client options here  }))</p>
 
 <p>Example:  cmkID :=
 “arn:aws:kms:region:000000000000:key/00000000-0000-0000-0000-000000000000” 
-sess := session.Must(session.NewSession())  handler :=
+sess := session.New()  handler :=
 s3crypto.NewKMSKeyGenerator(kms.New(sess), cmkID)  svc :=
 s3crypto.New(sess, s3crypto.AESGCMContentCipherBuilder(handler))</p>
 
@@ -1731,7 +1730,7 @@ the most secure data, use an authenticated crypto algorithm.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:10 2019 by
+  Generated on Fri Dec  6 16:54:59 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

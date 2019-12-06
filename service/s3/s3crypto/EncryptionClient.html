@@ -473,7 +473,7 @@ Temporary files are needed to compute the X-Amz-Content-Sha256 header.</p>
 <p>PutObjectRequest creates a temp file to encrypt the contents into. It then
 streams that data to S3.</p>
 
-<p>Example:  svc := s3crypto.New(session.Must(session.NewSession()),
+<p>Example:  svc := s3crypto.New(session.New(),
 s3crypto.AESGCMContentCipherBuilder(handler))  req, out :=
 svc.PutObjectRequest(&amp;s3.PutObjectInput {  Key: aws.String(“testKey”), 
 Bucket: aws.String(“testBucket”),  Body: strings.NewReader(“test data”), 
@@ -673,7 +673,7 @@ the future this may create sub-contexts for individual underlying requests.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:55 2019 by
+  Generated on Fri Dec  6 16:56:05 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

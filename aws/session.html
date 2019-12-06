@@ -663,7 +663,7 @@ credentials file. Enabling the Shared Config will also allow the Session to
 be built with retrieving credentials with AssumeRole set in the config.</p>
 
 <p>See the NewSessionWithOptions func for information on how to override or
-control through code how the Session will be created. Such as specifying
+control through code how the Session will be created, such as specifying
 the config profile, and controlling if shared config is enabled or not.</p>
 
 
@@ -678,15 +678,15 @@ the config profile, and controlling if shared config is enabled or not.</p>
       <pre class="lines">
 
 
-139
 140
 141
 142
 143
-144</pre>
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 139</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 140</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewSession(cfgs ...*aws.Config) (*Session, <span class="hljs-constant">error</span>) {
 	opts := Options{}
@@ -754,7 +754,6 @@ sess := session.Must(session.NewSessionWithOptions(session.Options{
       <pre class="lines">
 
 
-278
 279
 280
 281
@@ -785,17 +784,32 @@ sess := session.Must(session.NewSessionWithOptions(session.Options{
 306
 307
 308
-309</pre>
+309
+310
+311
+312
+313
+314
+315
+316
+317</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 278</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 279</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewSessionWithOptions(opts Options) (*Session, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">var</span> envCfg envConfig
+	<span class="hljs-keyword">var</span> err <span class="hljs-constant">error</span>
 	<span class="hljs-keyword">if</span> opts.SharedConfigState == SharedConfigEnable {
-		envCfg = loadSharedEnvConfig()
+		envCfg, err = loadSharedEnvConfig()
+		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+			<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>, fmt.Errorf(<span class="hljs-string">"failed to load shared config, %v"</span>, err)
+		}
 	} <span class="hljs-keyword">else</span> {
-		envCfg = loadEnvConfig()
+		envCfg, err = loadEnvConfig()
+		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+			<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>, fmt.Errorf(<span class="hljs-string">"failed to load environment config, %v"</span>, err)
+		}
 	}
 
 	<span class="hljs-keyword">if</span> len(opts.Profile) != 0 {
@@ -834,7 +848,7 @@ sess := session.Must(session.NewSessionWithOptions(session.Options{
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:06 2019 by
+  Generated on Fri Dec  6 16:54:53 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

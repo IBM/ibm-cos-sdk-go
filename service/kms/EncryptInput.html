@@ -98,6 +98,32 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#EncryptionAlgorithm-field" title="kms.EncryptInput.EncryptionAlgorithm (field)"><strong>EncryptionAlgorithm</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Specifies the encryption algorithm that AWS KMS will use to encrypt the
+plaintext message.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#EncryptionContext-field" title="kms.EncryptInput.EncryptionContext (field)"><strong>EncryptionContext</strong> map[string]*string</a></span></span>
   
   
@@ -114,8 +140,7 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Name-value pair that specifies the encryption context to be used for
-authenticated encryption.</p>
+<p>Specifies the encryption context that will be used to encrypt the data.</p>
 </div></span>
   
 </li>
@@ -251,6 +276,31 @@ authenticated encryption.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>GoString returns the string representation.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.EncryptInput.SetEncryptionAlgorithm() (method)"><strong>SetEncryptionAlgorithm</strong>(string)  *EncryptInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetEncryptionAlgorithm sets the EncryptionAlgorithm field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -418,18 +468,53 @@ authenticated encryption.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="EncryptionContext-field">
+  <h3 class="signature first" id="EncryptionAlgorithm-field">
+  <strong>EncryptionAlgorithm</strong> *string 
+  <code>`type:"string" enum:"EncryptionAlgorithmSpec"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Specifies the encryption algorithm that AWS KMS will use to encrypt the
+plaintext message. The algorithm must be compatible with the CMK that you
+specify.</p>
+
+<p>This parameter is required only for asymmetric CMKs. The default value,
+SYMMETRIC_DEFAULT, is the algorithm used for symmetric CMKs. If you are
+using an asymmetric CMK, we recommend RSAES_OAEP_SHA_256.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="EncryptionContext-field">
   <strong>EncryptionContext</strong> map[string]*string 
   <code>`type:"map"`</code>
 </h3>
 <div class="docstring">
   <div class="discussion">
     
-<p>Name-value pair that specifies the encryption context to be used for
-authenticated encryption. If used here, the same value must be supplied to
-the Decrypt API or decryption will fail. For more information, see
-Encryption Context (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>).</p>
+<p>Specifies the encryption context that will be used to encrypt the data. An
+encryption context is valid only for cryptographic operations with a
+symmetric CMK. The standard asymmetric encryption algorithms that AWS KMS
+uses do not support an encryption context.</p>
+
+<p>An encryption context is a collection of non-secret key-value pairs that
+represents additional authenticated data. When you use an encryption
+context to encrypt data, you must specify the same (an exact case-sensitive
+match) encryption context to decrypt the data. An encryption context is
+optional when encrypting with a symmetric CMK, but it is highly
+recommended.</p>
+
+<p>For more information, see Encryption Context (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>)
+in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -567,15 +652,59 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7102
-7103
-7104</pre>
+8388
+8389
+8390</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7102</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8388</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.EncryptInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetEncryptionAlgorithm-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <strong><span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.EncryptInput.SetEncryptionAlgorithm() (method)">SetEncryptionAlgorithm</a></span></strong>(v string) *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetEncryptionAlgorithm sets the EncryptionAlgorithm field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8415
+8416
+8417
+8418</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8415</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.EncryptInput.SetEncryptionAlgorithm() (method)">SetEncryptionAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span> {
+	s.EncryptionAlgorithm = &v
+	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
   </tr>
@@ -609,13 +738,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7129
-7130
-7131
-7132</pre>
+8421
+8422
+8423
+8424</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7129</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8421</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#SetEncryptionContext-instance_method" title="kms.EncryptInput.SetEncryptionContext() (method)">SetEncryptionContext</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span> {
 	s.EncryptionContext = v
@@ -653,13 +782,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7135
-7136
-7137
-7138</pre>
+8427
+8428
+8429
+8430</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7135</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8427</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.EncryptInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span> {
 	s.GrantTokens = v
@@ -697,13 +826,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7141
-7142
-7143
-7144</pre>
+8433
+8434
+8435
+8436</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7141</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8433</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.EncryptInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span> {
 	s.KeyId = &v
@@ -741,13 +870,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7147
-7148
-7149
-7150</pre>
+8439
+8440
+8441
+8442</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7147</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8439</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#SetPlaintext-instance_method" title="kms.EncryptInput.SetPlaintext() (method)">SetPlaintext</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span> {
 	s.Plaintext = v
@@ -785,12 +914,12 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7097
-7098
-7099</pre>
+8383
+8384
+8385</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7097</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8383</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.EncryptInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -827,29 +956,29 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-7107
-7108
-7109
-7110
-7111
-7112
-7113
-7114
-7115
-7116
-7117
-7118
-7119
-7120
-7121
-7122
-7123
-7124
-7125
-7126</pre>
+8393
+8394
+8395
+8396
+8397
+8398
+8399
+8400
+8401
+8402
+8403
+8404
+8405
+8406
+8407
+8408
+8409
+8410
+8411
+8412</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7107</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8393</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.EncryptInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.EncryptInput (struct)">EncryptInput</a></span>"</span>}
@@ -883,7 +1012,7 @@ get the alias name and alias ARN, use ListAliases.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:49 2019 by
+  Generated on Fri Dec  6 16:55:53 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

@@ -448,10 +448,10 @@ object or from a separate file in s3.</p>
 process decryption will be done. The SDK only supports V2 reads of KMS and
 GCM.</p>
 
-<p>Example:  sess := session.Must(session.NewSession())  svc :=
-s3crypto.NewDecryptionClient(sess)  req, out :=
-svc.GetObjectRequest(&amp;s3.GetObjectInput {  Key: aws.String(“testKey”), 
-Bucket: aws.String(“testBucket”),  })  err := req.Send()</p>
+<p>Example:  sess := session.New()  svc := s3crypto.NewDecryptionClient(sess) 
+req, out := svc.GetObjectRequest(&amp;s3.GetObjectInput {  Key:
+aws.String(“testKey”),  Bucket: aws.String(“testBucket”),  })  err :=
+req.Send()</p>
 
 
   </div>
@@ -593,7 +593,7 @@ the future this may create sub-contexts for individual underlying requests.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:55 2019 by
+  Generated on Fri Dec  6 16:56:05 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>

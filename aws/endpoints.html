@@ -500,6 +500,30 @@ sess := session.Must(session.NewSession(&aws.Config{
             <pre class="code"><div class="hljs"><span class="hljs-string">"us-isob-east-1"</span> <span class="hljs-comment">// US ISOB East (Ohio).</span></div></pre>
           </dd>
         
+          <dt id="UnsetS3UsEast1Endpoint-constant" class="">
+          <div class="defn">const <strong>UnsetS3UsEast1Endpoint</strong> <span class='object_link'><a href="#type-S3UsEast1RegionalEndpoint" title="endpoints (package)">S3UsEast1RegionalEndpoint</a></span> = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>UnsetS3UsEast1Endpoint represents that S3 Regional Endpoint flag is not
+specified.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">iota</div></pre>
+          </dd>
+        
           <dt id="A4bServiceID-constant" class="">
           <div class="defn">const <strong>A4bServiceID</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -2353,6 +2377,29 @@ interface.</p>
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-S3UsEast1RegionalEndpoint" title="endpoints (package)"><strong>S3UsEast1RegionalEndpoint</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="endpoints/Service.html" title="endpoints.Service (struct)"><strong>Service</strong></a></span></span>
   
   
@@ -2784,6 +2831,33 @@ and AWS ISOB (US).</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetS3UsEast1RegionalEndpoint-class_method" title="endpoints.GetS3UsEast1RegionalEndpoint() (method)">func <strong>GetS3UsEast1RegionalEndpoint</strong>(s string) (S3UsEast1RegionalEndpoint, error) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>GetS3UsEast1RegionalEndpoint function returns the
+S3UsEast1RegionalEndpointFlag based on the input string provided in env
+config or shared config by the user.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#NewUnknownEndpointError-class_method" title="endpoints.NewUnknownEndpointError() (method)">func <strong>NewUnknownEndpointError</strong>(p, s, r string, known []string) UnknownEndpointError </a></span></span>
   
   
@@ -3067,6 +3141,18 @@ partition service, and region.</p>
   </dd>
 
   <dt><code>
+    <strong>PartitionID</strong> string 
+    
+    
+  </code></dt>
+  <dd>
+    
+<p>The endpoint partition</p>
+
+    
+  </dd>
+
+  <dt><code>
     <strong>SigningRegion</strong> string 
     
     
@@ -3122,6 +3208,27 @@ passed in, but was not explicitly modeled.</p>
 
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="type-S3UsEast1RegionalEndpoint">
+  
+    <strong>S3UsEast1RegionalEndpoint</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+
+  <dt><em>(empty struct)</em></dt>
+
+</dl>
+</div>
+
+
+</div>
+    
   </div>
 
 
@@ -3160,20 +3267,20 @@ not contain a scheme.</p>
       <pre class="lines">
 
 
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114</pre>
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 104</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 157</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AddScheme(endpo<span class="hljs-constant">int</span> <span class="hljs-constant">string</span>, disableSSL <span class="hljs-constant">bool</span>) <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">if</span> !schemeRE.MatchString(endpo<span class="hljs-constant">int</span>) {
@@ -3218,12 +3325,12 @@ not contain a scheme.</p>
       <pre class="lines">
 
 
-3859
-3860
-3861</pre>
+4172
+4173
+4174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 3859</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 4172</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsCnPartition() Partition {
 	<span class="hljs-keyword">return</span> awscnPartition.Partition()
@@ -3260,12 +3367,12 @@ not contain a scheme.</p>
       <pre class="lines">
 
 
-5539
-5540
-5541</pre>
+5892
+5893
+5894</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 5539</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 5892</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsIsoBPartition() Partition {
 	<span class="hljs-keyword">return</span> awsisobPartition.Partition()
@@ -3302,12 +3409,12 @@ not contain a scheme.</p>
       <pre class="lines">
 
 
-5184
-5185
-5186</pre>
+5540
+5541
+5542</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 5184</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 5540</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsIsoPartition() Partition {
 	<span class="hljs-keyword">return</span> awsisoPartition.Partition()
@@ -3386,12 +3493,12 @@ not contain a scheme.</p>
       <pre class="lines">
 
 
-4361
-4362
-4363</pre>
+4707
+4708
+4709</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 4361</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 4707</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsUsGovPartition() Partition {
 	<span class="hljs-keyword">return</span> awsusgovPartition.Partition()
@@ -3709,15 +3816,78 @@ option when resolving endpoints.</p>
       <pre class="lines">
 
 
-59
-60
-61</pre>
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 59</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 112</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> DisableSSLOption(o *Options) {
 	o.DisableSSL = <span class="hljs-constant">true</span>
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetS3UsEast1RegionalEndpoint-class_method">
+  
+    func <strong><span class='object_link'><a href="#GetS3UsEast1RegionalEndpoint-class_method" title="endpoints.GetS3UsEast1RegionalEndpoint() (method)">GetS3UsEast1RegionalEndpoint</a></span></strong>(s string) (<span class='object_link'><a href="#type-S3UsEast1RegionalEndpoint" title="endpoints (package)">S3UsEast1RegionalEndpoint</a></span>, error) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>GetS3UsEast1RegionalEndpoint function returns the
+S3UsEast1RegionalEndpointFlag based on the input string provided in env
+config or shared config by the user.</p>
+
+<p><code>legacy</code>, <code>regional</code> are the only case-insensitive
+valid strings for resolving the S3 regional Endpoint flag.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 91</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> GetS3UsEast1RegionalEndpo<span class="hljs-constant">int</span>(s <span class="hljs-constant">string</span>) (S3UsEast1RegionalEndpo<span class="hljs-constant">int</span>, <span class="hljs-constant">error</span>) {
+	<span class="hljs-keyword">switch</span> {
+	<span class="hljs-keyword">case</span> strings.EqualFold(s, <span class="hljs-string">"legacy"</span>):
+		<span class="hljs-keyword">return</span> LegacyS3UsEast1Endpo<span class="hljs-constant">int</span>, <span class="hljs-constant">nil</span>
+	<span class="hljs-keyword">case</span> strings.EqualFold(s, <span class="hljs-string">"regional"</span>):
+		<span class="hljs-keyword">return</span> RegionalS3UsEast1Endpo<span class="hljs-constant">int</span>, <span class="hljs-constant">nil</span>
+	<span class="hljs-keyword">default</span>:
+		<span class="hljs-keyword">return</span> UnsetS3UsEast1Endpo<span class="hljs-constant">int</span>,
+			fmt.Errorf(<span class="hljs-string">"unable to resolve the value of S3UsEast1RegionalEndpoint for %v"</span>, s)
+	}
 }</div></pre>
     </td>
   </tr>
@@ -3751,19 +3921,19 @@ option when resolving endpoints.</p>
       <pre class="lines">
 
 
-427
-428
-429
-430
-431
-432
-433
-434
-435
-436</pre>
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 427</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 483</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewUnknownEndpointError(p, s, r <span class="hljs-constant">string</span>, known []<span class="hljs-constant">string</span>) UnknownEndpointError {
 	<span class="hljs-keyword">return</span> UnknownEndpointError{
@@ -3807,18 +3977,18 @@ option when resolving endpoints.</p>
       <pre class="lines">
 
 
-390
-391
-392
-393
-394
-395
-396
-397
-398</pre>
+446
+447
+448
+449
+450
+451
+452
+453
+454</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 390</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 446</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewUnknownServiceError(p, s <span class="hljs-constant">string</span>, known []<span class="hljs-constant">string</span>) UnknownServiceError {
 	<span class="hljs-keyword">return</span> UnknownServiceError{
@@ -3865,18 +4035,18 @@ Partition if explicit support is needed.</p>
       <pre class="lines">
 
 
-159
-160
-161
-162
-163
-164
-165
-166
-167</pre>
+212
+213
+214
+215
+216
+217
+218
+219
+220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 159</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 212</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> PartitionForRegion(ps []Partition, regionID <span class="hljs-constant">string</span>) (Partition, <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">for</span> _, p := <span class="hljs-keyword">range</span> ps {
@@ -3929,27 +4099,27 @@ href="endpoints.DynamodbServiceID">endpoints.AwsPartition().Services()</a>.Regio
       <pre class="lines">
 
 
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152</pre>
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 135</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 188</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RegionsForService(ps []Partition, partitionID, serviceID <span class="hljs-constant">string</span>) (<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Region, <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">for</span> _, p := <span class="hljs-keyword">range</span> ps {
@@ -4002,12 +4172,12 @@ used as a functional option when resolving endpoints.</p>
       <pre class="lines">
 
 
-77
-78
-79</pre>
+130
+131
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 77</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 130</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ResolveUnknownServiceOption(o *Options) {
 	o.ResolveUnknownService = <span class="hljs-constant">true</span>
@@ -4045,12 +4215,12 @@ functional option when resolving endpoints.</p>
       <pre class="lines">
 
 
-71
-72
-73</pre>
+124
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 71</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 124</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> StrictMatchingOption(o *Options) {
 	o.StrictMatching = <span class="hljs-constant">true</span>
@@ -4088,12 +4258,12 @@ functional option when resolving endpoints.</p>
       <pre class="lines">
 
 
-65
-66
-67</pre>
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 65</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 118</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> UseDualStackOption(o *Options) {
 	o.UseDualStack = <span class="hljs-constant">true</span>
@@ -4110,7 +4280,7 @@ functional option when resolving endpoints.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  6 19:58:05 2019 by
+  Generated on Fri Dec  6 16:54:52 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.3.1).
 </div>
