@@ -1,5 +1,11 @@
 # CHANGELOG
 
+# 1.3.2
+## Content
+### Defect Fixes
+* AWS Patches aligned to version 1.29.16 of the AWS SDK for Go
+* Support for Golang 1.14
+
 # 1.3.1
 ## Content
 ### Defect Fixes
