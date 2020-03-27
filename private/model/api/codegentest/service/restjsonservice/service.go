@@ -8,6 +8,7 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/client/metadata"
 	"github.com/IBM/ibm-cos-sdk-go/aws/request"
 	"github.com/IBM/ibm-cos-sdk-go/aws/signer"
+	"github.com/IBM/ibm-cos-sdk-go/private/protocol"
 	"github.com/IBM/ibm-cos-sdk-go/private/protocol/restjson"
 )
 
@@ -31,7 +32,7 @@ var initRequest func(*request.Request)
 const (
 	ServiceName = "RESTJSONService" // Name of service.
 	EndpointsID = "restjsonservice" // ID to lookup a service endpoint with.
-	ServiceID   = "RESTJSONService" // ServiceID is a unique identifer of a specific service.
+	ServiceID   = "RESTJSONService" // ServiceID is a unique identifier of a specific service.
 )
 
 // New creates a new instance of the RESTJSONService client with a session.
@@ -74,8 +75,11 @@ func newClient(cfg aws.Config, handlers request.Handlers, partitionID, endpoint,
 	svc.Handlers.Build.PushBackNamed(restjson.BuildHandler)
 	svc.Handlers.Unmarshal.PushBackNamed(restjson.UnmarshalHandler)
 	svc.Handlers.UnmarshalMeta.PushBackNamed(restjson.UnmarshalMetaHandler)
-	svc.Handlers.UnmarshalError.PushBackNamed(restjson.UnmarshalErrorHandler)
+	svc.Handlers.UnmarshalError.PushBackNamed(
+		protocol.NewUnmarshalErrorHandler(restjson.NewUnmarshalTypedError(exceptionFromCode)).NamedHandler(),
+	)
 
+	svc.Handlers.BuildStream.PushBackNamed(restjson.BuildHandler)
 	svc.Handlers.UnmarshalStream.PushBackNamed(restjson.UnmarshalHandler)
 
 	// Run custom client initialization if present

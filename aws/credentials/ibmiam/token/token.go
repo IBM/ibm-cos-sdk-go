@@ -2,7 +2,7 @@ package token
 
 import "encoding/json"
 
-// Token holder for the IBM IAM token details
+// IBMIAMToken holder for the IBM IAM token details
 type Token struct {
 
 	// Sets the access token

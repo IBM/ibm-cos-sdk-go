@@ -161,7 +161,7 @@ func handleSendError(r *request.Request, err error) {
 	}
 	// Catch all request errors, and let the default retrier determine
 	// if the error is retryable.
-	r.Error = awserr.New("RequestError", "send request failed", err)
+	r.Error = awserr.New(request.ErrCodeRequestError, "send request failed", err)
 
 	// Override the error with a context canceled error, if that was canceled.
 	ctx := r.Context()
@@ -225,6 +225,7 @@ var ValidateEndpointHandler = request.NamedHandler{Name: "core.ValidateEndpointH
 
 	checkIfRegionPresent := true
 
+	// IBM COS SDK: Anonymous Creds support
 	if r.Config.Credentials != credentials.AnonymousCredentials {
 		value, err := r.Config.Credentials.Get()
 		if err != nil {

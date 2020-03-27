@@ -54,6 +54,7 @@ func BuildNewMockRequest(c *mockClient, in *MockInput) func([]request.Option) (*
 	}
 }
 
+// Mock AWS Client with IBM COS SDK Anonymous creds
 func TestWaiterPathAll(t *testing.T) {
 	svc := &mockClient{Client: awstesting.NewClient(&aws.Config{
 		Region:      aws.String("mock-region"),

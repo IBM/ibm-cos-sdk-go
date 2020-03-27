@@ -8,13 +8,12 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"os"
 	"strings"
 
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/aws/session"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
-
-	"os"
 )
 
 var clientCfg ClientConfig

@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
+	"net/url"
 	"strings"
 	"testing"
 	"time"
@@ -24,6 +25,7 @@ import (
 func TestValidateEndpointHandler(t *testing.T) {
 	restoreEnvFn := sdktesting.StashEnv()
 	defer restoreEnvFn()
+	// IBM COS SDK: Added AnonymousCreds support
 	svc := awstesting.NewClient(aws.NewConfig().WithRegion("us-west-2").WithCredentials(credentials.AnonymousCredentials))
 	svc.Handlers.Clear()
 	svc.Handlers.Validate.PushBackNamed(corehandlers.ValidateEndpointHandler)
@@ -40,6 +42,7 @@ func TestValidateEndpointHandlerErrorRegion(t *testing.T) {
 	restoreEnvFn := sdktesting.StashEnv()
 	defer restoreEnvFn()
 	svc := awstesting.NewClient()
+	// IBM COS SDK: Added AnonymousCreds support
 	svc.Config.Credentials = credentials.AnonymousCredentials
 	svc.Handlers.Clear()
 	svc.Handlers.Validate.PushBackNamed(corehandlers.ValidateEndpointHandler)
@@ -291,6 +294,8 @@ func TestValidateReqSigHandler(t *testing.T) {
 	}
 
 	for i, c := range cases {
+		c.Req.HTTPRequest = &http.Request{URL: &url.URL{}}
+
 		resigned := false
 		c.Req.Handlers.Sign.PushBack(func(r *request.Request) {
 			resigned = true

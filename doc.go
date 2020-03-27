@@ -130,7 +130,8 @@
 // and configures the S3 service client to use that role for API requests.
 //
 //   // Initial credentials loaded from SDK's default credential chain. Such as
-//   // the environment, shared credentials (~/.aws/credentials).
+//   // the environment, shared credentials (~/.aws/credentials), or EC2 Instance
+//   // Role. These credentials will be used to to make the STS Assume Role API.
 //   sess := session.Must(session.NewSession())
 //
 //   // Create service client value configured for credentials
@@ -386,3 +387,9 @@
 //   	fmt.Printf("successfully uploaded file to %s/%s\n", bucket, key)
 //   }
 package sdk
+
+import (
+	"github.com/jmespath/go-jmespath"
+)
+
+const _ = jmespath.ASTEmpty
