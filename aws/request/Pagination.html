@@ -86,11 +86,13 @@ methods.</p>
 that does the pagination between API operations, and Paginator defines the
 configuration that will be used per page request.</p>
 
-<pre class="code go"><code class="go"><div class="hljs">cont := <span class="hljs-constant">true</span>
-<span class="hljs-keyword">for</span> p.Next() && cont {
+<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-keyword">for</span> p.Next() {
     data := p.Page().(*s3.ListObjectsOutput)
     <span class="hljs-comment">// process the page's data</span>
+    <span class="hljs-comment">// ...</span>
+    <span class="hljs-comment">// break out of loop to stop fetching additional pages</span>
 }
+
 <span class="hljs-keyword">return</span> p.Err()</div></code></pre>
 
 <p>See service client API operation Pages methods for examples how the SDK
@@ -327,12 +329,12 @@ that are the same as its previous tokens.</p>
       <pre class="lines">
 
 
-67
-68
-69</pre>
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 67</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 69</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (p *Pagination) Err() <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">return</span> p.err
@@ -373,8 +375,6 @@ more pages remaining.</p>
       <pre class="lines">
 
 
-54
-55
 56
 57
 58
@@ -383,10 +383,12 @@ more pages remaining.</p>
 61
 62
 63
-64</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 54</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 56</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (p *Pagination) HasNextPage() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> !p.started {
@@ -438,8 +440,6 @@ to be cast to the API operation&#39;s output type.</p>
       <pre class="lines">
 
 
-86
-87
 88
 89
 90
@@ -467,10 +467,12 @@ to be cast to the API operation&#39;s output type.</p>
 112
 113
 114
-115</pre>
+115
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 86</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 88</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (p *Pagination) Next() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> !p.HasNextPage() {
@@ -536,12 +538,12 @@ called after Next returns false.</p>
       <pre class="lines">
 
 
-74
-75
-76</pre>
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 74</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 76</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (p *Pagination) Page() <span class="hljs-keyword">interface</span>{} {
 	<span class="hljs-keyword">return</span> p.curPage
@@ -558,9 +560,9 @@ called after Next returns false.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:55:06 2019 by
+  Generated on Tue Apr  7 17:12:49 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

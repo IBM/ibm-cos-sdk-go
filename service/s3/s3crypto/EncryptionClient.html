@@ -440,13 +440,13 @@ Temporary files are needed to compute the X-Amz-Content-Sha256 header.</p>
       <pre class="lines">
 
 
-128
-129
-130
-131</pre>
+136
+137
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 128</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 136</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EncryptionClient) PutObject(input *s3.PutObjectInput) (*s3.PutObjectOutput, <span class="hljs-constant">error</span>) {
 	req, out := c.PutObjectRequest(input)
@@ -546,7 +546,15 @@ Bucket: aws.String(“testBucket”),  Body: strings.NewReader(“test data”),
 122
 123
 124
-125</pre>
+125
+126
+127
+128
+129
+130
+131
+132
+133</pre>
     </td>
     <td>
       <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 70</span>
@@ -567,11 +575,19 @@ Bucket: aws.String(“testBucket”),  Body: strings.NewReader(“test data”),
 		<span class="hljs-keyword">return</span> req, out
 	}
 
-	encryptor, err := c.ContentCipherBuilder.ContentCipher()
 	req.Handlers.Build.PushFront(<span class="hljs-keyword">func</span>(r *request.Request) {
 		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
 			r.Error = err
 			<span class="hljs-keyword">return</span>
+		}
+		<span class="hljs-keyword">var</span> encryptor ContentCipher
+		<span class="hljs-keyword">if</span> v, ok := c.ContentCipherBuilder.(ContentCipherBuilderWithContext); ok {
+			encryptor, err = v.ContentCipherWithContext(r.Context())
+		} <span class="hljs-keyword">else</span> {
+			encryptor, err = c.ContentCipherBuilder.ContentCipher()
+		}
+		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+			r.Error = err
 		}
 
 		md5 := newMD5Reader(input.Body)
@@ -645,15 +661,15 @@ the future this may create sub-contexts for individual underlying requests.</p>
       <pre class="lines">
 
 
-140
-141
-142
-143
-144
-145</pre>
+148
+149
+150
+151
+152
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 140</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 148</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EncryptionClient) PutObjectWithContext(ctx aws.Context, input *s3.PutObjectInput, opts ...request.Option) (*s3.PutObjectOutput, <span class="hljs-constant">error</span>) {
 	req, out := c.PutObjectRequest(input)
@@ -673,9 +689,9 @@ the future this may create sub-contexts for individual underlying requests.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:56:05 2019 by
+  Generated on Tue Apr  7 17:13:57 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

@@ -475,12 +475,12 @@ passed in NamedHandler returning true if handlers were swapped.</p>
       <pre class="lines">
 
 
-150
-151
-152</pre>
+156
+157
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 150</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 156</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) Clear() {
 	l.list = l.list[0:0]
@@ -517,12 +517,12 @@ passed in NamedHandler returning true if handlers were swapped.</p>
       <pre class="lines">
 
 
-155
-156
-157</pre>
+161
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 155</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 161</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) Len() <span class="hljs-constant">int</span> {
 	<span class="hljs-keyword">return</span> len(l.list)
@@ -559,12 +559,12 @@ passed in NamedHandler returning true if handlers were swapped.</p>
       <pre class="lines">
 
 
-160
-161
-162</pre>
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 160</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 166</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) PushBack(f <span class="hljs-keyword">func</span>(*Request)) {
 	l.PushBackNamed(NamedHandler{<span class="hljs-string">"__anonymous"</span>, f})
@@ -601,15 +601,15 @@ passed in NamedHandler returning true if handlers were swapped.</p>
       <pre class="lines">
 
 
-165
-166
-167
-168
-169
-170</pre>
+171
+172
+173
+174
+175
+176</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 165</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 171</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) PushBackNamed(n NamedHandler) {
 	<span class="hljs-keyword">if</span> cap(l.list) == 0 {
@@ -649,12 +649,12 @@ passed in NamedHandler returning true if handlers were swapped.</p>
       <pre class="lines">
 
 
-173
-174
-175</pre>
+179
+180
+181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 173</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 179</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) PushFront(f <span class="hljs-keyword">func</span>(*Request)) {
 	l.PushFrontNamed(NamedHandler{<span class="hljs-string">"__anonymous"</span>, f})
@@ -691,20 +691,20 @@ passed in NamedHandler returning true if handlers were swapped.</p>
       <pre class="lines">
 
 
-178
-179
-180
-181
-182
-183
 184
 185
 186
 187
-188</pre>
+188
+189
+190
+191
+192
+193
+194</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 178</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 184</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) PushFrontNamed(n NamedHandler) {
 	<span class="hljs-keyword">if</span> cap(l.list) == len(l.list) {
@@ -749,12 +749,12 @@ passed in NamedHandler returning true if handlers were swapped.</p>
       <pre class="lines">
 
 
-191
-192
-193</pre>
+197
+198
+199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 191</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 197</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) Remove(n NamedHandler) {
 	l.RemoveByName(n.Name)
@@ -791,12 +791,6 @@ passed in NamedHandler returning true if handlers were swapped.</p>
       <pre class="lines">
 
 
-196
-197
-198
-199
-200
-201
 202
 203
 204
@@ -804,10 +798,16 @@ passed in NamedHandler returning true if handlers were swapped.</p>
 206
 207
 208
-209</pre>
+209
+210
+211
+212
+213
+214
+215</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 196</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 202</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) RemoveByName(name <span class="hljs-constant">string</span>) {
 	<span class="hljs-keyword">for</span> i := 0; i < len(l.list); i++ {
@@ -855,20 +855,20 @@ passed in NamedHandler returning true if handlers were swapped.</p>
       <pre class="lines">
 
 
-258
-259
-260
-261
-262
-263
 264
 265
 266
 267
-268</pre>
+268
+269
+270
+271
+272
+273
+274</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 258</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 264</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) Run(r *Request) {
 	<span class="hljs-keyword">for</span> i, h := <span class="hljs-keyword">range</span> l.list {
@@ -915,14 +915,14 @@ the list.</p>
       <pre class="lines">
 
 
-242
-243
-244
-245
-246</pre>
+248
+249
+250
+251
+252</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 242</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 248</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) SetBackNamed(n NamedHandler) {
 	<span class="hljs-keyword">if</span> !l.SwapNamed(n) {
@@ -963,14 +963,14 @@ beginning of the list.</p>
       <pre class="lines">
 
 
-251
-252
-253
-254
-255</pre>
+257
+258
+259
+260
+261</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 251</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 257</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) SetFrontNamed(n NamedHandler) {
 	<span class="hljs-keyword">if</span> !l.SwapNamed(n) {
@@ -1010,21 +1010,21 @@ handlers will be swapped in. True is returned if the handlers were swapped.</p>
       <pre class="lines">
 
 
-227
-228
-229
-230
-231
-232
 233
 234
 235
 236
 237
-238</pre>
+238
+239
+240
+241
+242
+243
+244</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 227</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 233</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) Swap(name <span class="hljs-constant">string</span>, replace NamedHandler) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">var</span> swapped <span class="hljs-constant">bool</span>
@@ -1072,19 +1072,19 @@ returned otherwise.</p>
       <pre class="lines">
 
 
-214
-215
-216
-217
-218
-219
 220
 221
 222
-223</pre>
+223
+224
+225
+226
+227
+228
+229</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 214</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 220</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (l *HandlerList) SwapNamed(n NamedHandler) (swapped <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">for</span> i := 0; i < len(l.list); i++ {
@@ -1108,9 +1108,9 @@ returned otherwise.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:55:03 2019 by
+  Generated on Tue Apr  7 17:12:47 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

@@ -568,8 +568,8 @@ and then signs it.</p>
   <div class="discussion">
     
 <p>Tells AWS KMS whether the value of the Message parameter is a message or
-message digest. To indicate a message, enter RAW. To indicate a message
-digest, enter DIGEST.</p>
+message digest. The default value, RAW, indicates a message. To indicate a
+message digest, enter DIGEST.</p>
 
 
   </div>
@@ -645,12 +645,12 @@ specified asymmetric CMK.</p>
       <pre class="lines">
 
 
-11667
-11668
-11669</pre>
+13584
+13585
+13586</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11667</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13584</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.SignInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -687,13 +687,13 @@ specified asymmetric CMK.</p>
       <pre class="lines">
 
 
-11697
-11698
-11699
-11700</pre>
+13614
+13615
+13616
+13617</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11697</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13614</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.SignInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span> {
 	s.GrantTokens = v
@@ -731,13 +731,13 @@ specified asymmetric CMK.</p>
       <pre class="lines">
 
 
-11703
-11704
-11705
-11706</pre>
+13620
+13621
+13622
+13623</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11703</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13620</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.SignInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span> {
 	s.KeyId = &v
@@ -775,13 +775,13 @@ specified asymmetric CMK.</p>
       <pre class="lines">
 
 
-11709
-11710
-11711
-11712</pre>
+13626
+13627
+13628
+13629</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11709</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13626</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#SetMessage-instance_method" title="kms.SignInput.SetMessage() (method)">SetMessage</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span> {
 	s.Message = v
@@ -819,13 +819,13 @@ specified asymmetric CMK.</p>
       <pre class="lines">
 
 
-11715
-11716
-11717
-11718</pre>
+13632
+13633
+13634
+13635</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11715</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13632</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#SetMessageType-instance_method" title="kms.SignInput.SetMessageType() (method)">SetMessageType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span> {
 	s.MessageType = &v
@@ -863,13 +863,13 @@ specified asymmetric CMK.</p>
       <pre class="lines">
 
 
-11721
-11722
-11723
-11724</pre>
+13638
+13639
+13640
+13641</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11721</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13638</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#SetSigningAlgorithm-instance_method" title="kms.SignInput.SetSigningAlgorithm() (method)">SetSigningAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span> {
 	s.SigningAlgorithm = &v
@@ -907,12 +907,12 @@ specified asymmetric CMK.</p>
       <pre class="lines">
 
 
-11662
-11663
-11664</pre>
+13579
+13580
+13581</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11662</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13579</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.SignInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -949,32 +949,32 @@ specified asymmetric CMK.</p>
       <pre class="lines">
 
 
-11672
-11673
-11674
-11675
-11676
-11677
-11678
-11679
-11680
-11681
-11682
-11683
-11684
-11685
-11686
-11687
-11688
-11689
-11690
-11691
-11692
-11693
-11694</pre>
+13589
+13590
+13591
+13592
+13593
+13594
+13595
+13596
+13597
+13598
+13599
+13600
+13601
+13602
+13603
+13604
+13605
+13606
+13607
+13608
+13609
+13610
+13611</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11672</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13589</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.SignInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>"</span>}
@@ -1011,9 +1011,9 @@ specified asymmetric CMK.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:56:01 2019 by
+  Generated on Tue Apr  7 17:13:53 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

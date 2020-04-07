@@ -2153,6 +2153,12 @@ will indicate the time at which the object was originally archived.</p>
     
 <p>A map of metadata to store with the object in S3.</p>
 
+<p>By default unmarshaled keys are written as a map keys in following
+canonicalized format: the first letter and any letter following a hyphen
+will be capitalized, and the rest as lowercase. Set
+<code>aws.Config.LowerCaseHeaderMaps</code> to <code>true</code> to write
+unmarshaled keys to the map as lowercase.</p>
+
 
   </div>
 </div>
@@ -2493,12 +2499,12 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7174
-7175
-7176</pre>
+7178
+7179
+7180</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7174</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7178</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetObjectOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -2535,13 +2541,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7179
-7180
-7181
-7182</pre>
+7183
+7184
+7185
+7186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7179</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7183</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetAcceptRanges-instance_method" title="s3.GetObjectOutput.SetAcceptRanges() (method)">SetAcceptRanges</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.AcceptRanges = &v
@@ -2579,13 +2585,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7185
-7186
-7187
-7188</pre>
+7189
+7190
+7191
+7192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7185</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7189</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetBody-instance_method" title="s3.GetObjectOutput.SetBody() (method)">SetBody</a></span>(v io.ReadCloser) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.Body = v
@@ -2623,13 +2629,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7191
-7192
-7193
-7194</pre>
+7195
+7196
+7197
+7198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7191</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7195</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetCacheControl-instance_method" title="s3.GetObjectOutput.SetCacheControl() (method)">SetCacheControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.CacheControl = &v
@@ -2667,13 +2673,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7197
-7198
-7199
-7200</pre>
+7201
+7202
+7203
+7204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7197</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7201</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetContentDisposition-instance_method" title="s3.GetObjectOutput.SetContentDisposition() (method)">SetContentDisposition</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.ContentDisposition = &v
@@ -2711,13 +2717,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7203
-7204
-7205
-7206</pre>
+7207
+7208
+7209
+7210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7203</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7207</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetContentEncoding-instance_method" title="s3.GetObjectOutput.SetContentEncoding() (method)">SetContentEncoding</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.ContentEncoding = &v
@@ -2755,13 +2761,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7209
-7210
-7211
-7212</pre>
+7213
+7214
+7215
+7216</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7209</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7213</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetContentLanguage-instance_method" title="s3.GetObjectOutput.SetContentLanguage() (method)">SetContentLanguage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.ContentLanguage = &v
@@ -2799,13 +2805,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7215
-7216
-7217
-7218</pre>
+7219
+7220
+7221
+7222</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7215</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7219</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetContentLength-instance_method" title="s3.GetObjectOutput.SetContentLength() (method)">SetContentLength</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.ContentLength = &v
@@ -2843,13 +2849,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7221
-7222
-7223
-7224</pre>
+7225
+7226
+7227
+7228</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7221</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7225</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetContentRange-instance_method" title="s3.GetObjectOutput.SetContentRange() (method)">SetContentRange</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.ContentRange = &v
@@ -2887,13 +2893,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7227
-7228
-7229
-7230</pre>
+7231
+7232
+7233
+7234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7227</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7231</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetContentType-instance_method" title="s3.GetObjectOutput.SetContentType() (method)">SetContentType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.ContentType = &v
@@ -2931,13 +2937,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7233
-7234
-7235
-7236</pre>
+7237
+7238
+7239
+7240</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7233</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7237</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetDeleteMarker-instance_method" title="s3.GetObjectOutput.SetDeleteMarker() (method)">SetDeleteMarker</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.DeleteMarker = &v
@@ -2975,13 +2981,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7239
-7240
-7241
-7242</pre>
+7243
+7244
+7245
+7246</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7239</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7243</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetETag-instance_method" title="s3.GetObjectOutput.SetETag() (method)">SetETag</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.ETag = &v
@@ -3019,13 +3025,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7245
-7246
-7247
-7248</pre>
+7249
+7250
+7251
+7252</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7245</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7249</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetExpiration-instance_method" title="s3.GetObjectOutput.SetExpiration() (method)">SetExpiration</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.Expiration = &v
@@ -3063,13 +3069,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-7251
-7252
-7253
-7254</pre>
+7255
+7256
+7257
+7258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7251</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7255</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetExpires-instance_method" title="s3.GetObjectOutput.SetExpires() (method)">SetExpires</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.Expires = &v
@@ -3108,13 +3114,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7257
-7258
-7259
-7260</pre>
+7261
+7262
+7263
+7264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7257</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7261</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetIBMRestoredCopyStorageClass-instance_method" title="s3.GetObjectOutput.SetIBMRestoredCopyStorageClass() (method)">SetIBMRestoredCopyStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.IBMRestoredCopyStorageClass = &v
@@ -3152,13 +3158,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7263
-7264
-7265
-7266</pre>
+7267
+7268
+7269
+7270</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7263</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7267</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetIBMTransition-instance_method" title="s3.GetObjectOutput.SetIBMTransition() (method)">SetIBMTransition</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.IBMTransition = &v
@@ -3196,13 +3202,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7269
-7270
-7271
-7272</pre>
+7273
+7274
+7275
+7276</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7269</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7273</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetLastModified-instance_method" title="s3.GetObjectOutput.SetLastModified() (method)">SetLastModified</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.LastModified = &v
@@ -3240,13 +3246,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7275
-7276
-7277
-7278</pre>
+7279
+7280
+7281
+7282</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7275</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7279</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetMetadata-instance_method" title="s3.GetObjectOutput.SetMetadata() (method)">SetMetadata</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.Metadata = v
@@ -3284,13 +3290,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7281
-7282
-7283
-7284</pre>
+7285
+7286
+7287
+7288</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7281</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7285</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetMissingMeta-instance_method" title="s3.GetObjectOutput.SetMissingMeta() (method)">SetMissingMeta</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.MissingMeta = &v
@@ -3328,13 +3334,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7287
-7288
-7289
-7290</pre>
+7291
+7292
+7293
+7294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7287</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7291</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetPartsCount-instance_method" title="s3.GetObjectOutput.SetPartsCount() (method)">SetPartsCount</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.PartsCount = &v
@@ -3372,13 +3378,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7293
-7294
-7295
-7296</pre>
+7297
+7298
+7299
+7300</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7293</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7297</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetReplicationStatus-instance_method" title="s3.GetObjectOutput.SetReplicationStatus() (method)">SetReplicationStatus</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.ReplicationStatus = &v
@@ -3416,13 +3422,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7299
-7300
-7301
-7302</pre>
+7303
+7304
+7305
+7306</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7299</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7303</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.GetObjectOutput.SetRequestCharged() (method)">SetRequestCharged</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.RequestCharged = &v
@@ -3460,13 +3466,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7305
-7306
-7307
-7308</pre>
+7309
+7310
+7311
+7312</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7305</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7309</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetRestore-instance_method" title="s3.GetObjectOutput.SetRestore() (method)">SetRestore</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.Restore = &v
@@ -3505,13 +3511,13 @@ value.</p>
       <pre class="lines">
 
 
-7311
-7312
-7313
-7314</pre>
+7315
+7316
+7317
+7318</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7311</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7315</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetRetentionExpirationDate-instance_method" title="s3.GetObjectOutput.SetRetentionExpirationDate() (method)">SetRetentionExpirationDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.RetentionExpirationDate = &v
@@ -3550,13 +3556,13 @@ value.</p>
       <pre class="lines">
 
 
-7317
-7318
-7319
-7320</pre>
+7321
+7322
+7323
+7324</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7317</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7321</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetRetentionLegalHoldCount-instance_method" title="s3.GetObjectOutput.SetRetentionLegalHoldCount() (method)">SetRetentionLegalHoldCount</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.RetentionLegalHoldCount = &v
@@ -3594,13 +3600,13 @@ value.</p>
       <pre class="lines">
 
 
-7323
-7324
-7325
-7326</pre>
+7327
+7328
+7329
+7330</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7323</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7327</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetRetentionPeriod-instance_method" title="s3.GetObjectOutput.SetRetentionPeriod() (method)">SetRetentionPeriod</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.RetentionPeriod = &v
@@ -3638,13 +3644,13 @@ value.</p>
       <pre class="lines">
 
 
-7347
-7348
-7349
-7350</pre>
+7351
+7352
+7353
+7354</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7347</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7351</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.GetObjectOutput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.ServerSideEncryption = &v
@@ -3682,13 +3688,13 @@ value.</p>
       <pre class="lines">
 
 
-7329
-7330
-7331
-7332</pre>
+7333
+7334
+7335
+7336</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7329</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7333</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.GetObjectOutput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -3726,13 +3732,13 @@ value.</p>
       <pre class="lines">
 
 
-7335
-7336
-7337
-7338</pre>
+7339
+7340
+7341
+7342</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7335</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7339</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.GetObjectOutput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -3770,13 +3776,13 @@ value.</p>
       <pre class="lines">
 
 
-7341
-7342
-7343
-7344</pre>
+7345
+7346
+7347
+7348</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7341</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7345</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.GetObjectOutput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -3814,13 +3820,13 @@ value.</p>
       <pre class="lines">
 
 
-7353
-7354
-7355
-7356</pre>
+7357
+7358
+7359
+7360</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7353</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7357</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetStorageClass-instance_method" title="s3.GetObjectOutput.SetStorageClass() (method)">SetStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.StorageClass = &v
@@ -3858,13 +3864,13 @@ value.</p>
       <pre class="lines">
 
 
-7359
-7360
-7361
-7362</pre>
+7363
+7364
+7365
+7366</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7359</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7363</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetTagCount-instance_method" title="s3.GetObjectOutput.SetTagCount() (method)">SetTagCount</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.TagCount = &v
@@ -3902,13 +3908,13 @@ value.</p>
       <pre class="lines">
 
 
-7365
-7366
-7367
-7368</pre>
+7369
+7370
+7371
+7372</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7365</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7369</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.GetObjectOutput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.VersionId = &v
@@ -3947,13 +3953,13 @@ value.</p>
       <pre class="lines">
 
 
-7371
-7372
-7373
-7374</pre>
+7375
+7376
+7377
+7378</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7371</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7375</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#SetWebsiteRedirectLocation-instance_method" title="s3.GetObjectOutput.SetWebsiteRedirectLocation() (method)">SetWebsiteRedirectLocation</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span> {
 	s.WebsiteRedirectLocation = &v
@@ -3991,12 +3997,12 @@ value.</p>
       <pre class="lines">
 
 
-7169
-7170
-7171</pre>
+7173
+7174
+7175</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7169</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7173</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectOutput (struct)">GetObjectOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetObjectOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -4013,9 +4019,9 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:55:22 2019 by
+  Generated on Tue Apr  7 17:13:09 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

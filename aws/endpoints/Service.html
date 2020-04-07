@@ -245,7 +245,7 @@ URL that can be resolved to a instance of a service.</p>
       <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 364</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s Service) Endpoints() <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Endpo<span class="hljs-constant">int</span> {
-	es := <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Endpo<span class="hljs-constant">int</span>{}
+	es := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Endpo<span class="hljs-constant">int</span>, len(s.p.Services[s.id].Endpoints))
 	<span class="hljs-keyword">for</span> id := <span class="hljs-keyword">range</span> s.p.Services[s.id].Endpoints {
 		es[id] = Endpo<span class="hljs-constant">int</span>{
 			id:        id,
@@ -385,9 +385,9 @@ URL that can be resolved to a instance of a service.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:55:04 2019 by
+  Generated on Tue Apr  7 17:12:48 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

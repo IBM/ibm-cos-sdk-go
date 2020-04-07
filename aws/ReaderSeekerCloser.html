@@ -303,16 +303,16 @@ current offset, and 2 means relative to the end.</p>
       <pre class="lines">
 
 
-150
 151
 152
 153
 154
 155
-156</pre>
+156
+157</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 150</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 151</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r ReaderSeekerCloser) Close() <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">switch</span> t := r.r.(<span class="hljs-keyword">type</span>) {
@@ -357,7 +357,6 @@ underlying reader.</p>
       <pre class="lines">
 
 
-101
 102
 103
 104
@@ -367,10 +366,11 @@ underlying reader.</p>
 108
 109
 110
-111</pre>
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 101</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 102</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r ReaderSeekerCloser) GetLen() (<span class="hljs-constant">int64</span>, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">if</span> l, ok := r.HasLen(); ok {
@@ -416,7 +416,6 @@ the Len() int method.</p>
       <pre class="lines">
 
 
-84
 85
 86
 87
@@ -426,10 +425,11 @@ the Len() int method.</p>
 91
 92
 93
-94</pre>
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 84</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 85</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r ReaderSeekerCloser) HasLen() (<span class="hljs-constant">int</span>, <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">type</span> lenner <span class="hljs-keyword">interface</span> {
@@ -474,13 +474,13 @@ the Len() int method.</p>
       <pre class="lines">
 
 
-77
 78
 79
-80</pre>
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 77</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 78</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r ReaderSeekerCloser) IsSeeker() <span class="hljs-constant">bool</span> {
 	_, ok := r.r.(io.Seeker)
@@ -524,16 +524,16 @@ returned.</p>
       <pre class="lines">
 
 
-54
 55
 56
 57
 58
 59
-60</pre>
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 54</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 55</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r ReaderSeekerCloser) Read(p []byte) (<span class="hljs-constant">int</span>, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">switch</span> t := r.r.(<span class="hljs-keyword">type</span>) {
@@ -579,16 +579,16 @@ offset and an error, if any.</p>
       <pre class="lines">
 
 
-68
 69
 70
 71
 72
 73
-74</pre>
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 68</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 69</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r ReaderSeekerCloser) Seek(offset <span class="hljs-constant">int64</span>, whence <span class="hljs-constant">int</span>) (<span class="hljs-constant">int64</span>, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">switch</span> t := r.r.(<span class="hljs-keyword">type</span>) {
@@ -609,9 +609,9 @@ offset and an error, if any.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:54:59 2019 by
+  Generated on Tue Apr  7 17:12:38 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

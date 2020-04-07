@@ -247,6 +247,30 @@ canceled.</p>
             <pre class="code"><div class="hljs"><span class="hljs-string">"RequestCanceled"</span></div></pre>
           </dd>
         
+          <dt id="ErrCodeRequestError-constant" class="">
+          <div class="defn">const <strong>ErrCodeRequestError</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>ErrCodeRequestError is an error preventing the SDK from continuing to
+process the request.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"RequestError"</span></div></pre>
+          </dd>
+        
           <dt id="InvalidParameterErrCode-constant" class="">
           <div class="defn">const <strong>InvalidParameterErrCode</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -1434,6 +1458,32 @@ value for chaining.</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithSetRequestHeaders-class_method" title="request.WithSetRequestHeaders() (method)">func <strong>WithSetRequestHeaders</strong>(h map[string]string) Option </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>WithSetRequestHeaders updates the operation request&#39;s HTTP header to
+contain the header key value pairs provided.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#WithWaiterDelay-class_method" title="request.WithWaiterDelay() (method)">func <strong>WithWaiterDelay</strong>(delayer WaiterDelay) WaiterOption </a></span></span>
   
   
@@ -1891,16 +1941,16 @@ agent.</p>
       <pre class="lines">
 
 
-602
-603
-604
-605
-606
-607
-608</pre>
+618
+619
+620
+621
+622
+623
+624</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 602</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 618</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AddToUserAgent(r *Request, s <span class="hljs-constant">string</span>) {
 	curUA := r.HTTPRequest.Header.Get(<span class="hljs-string">"User-Agent"</span>)
@@ -1991,18 +2041,18 @@ request handlers in a HandlerList.</p>
       <pre class="lines">
 
 
-273
-274
-275
-276
-277
-278
 279
 280
-281</pre>
+281
+282
+283
+284
+285
+286
+287</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 273</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 279</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> HandlerListLogItem(item HandlerListRunItem) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> item.Request.Config.Logger == <span class="hljs-constant">nil</span> {
@@ -2047,12 +2097,12 @@ iterating.</p>
       <pre class="lines">
 
 
-286
-287
-288</pre>
+292
+293
+294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 286</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 292</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> HandlerListStopOnError(item HandlerListRunItem) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">return</span> item.Request.Error == <span class="hljs-constant">nil</span>
@@ -2090,15 +2140,15 @@ error. Returns false if error is nil.</p>
       <pre class="lines">
 
 
-236
-237
 238
 239
 240
-241</pre>
+241
+242
+243</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 236</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 238</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsErrorExpiredCreds(err <span class="hljs-constant">error</span>) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> aerr, ok := err.(awserr.Error); ok && aerr != <span class="hljs-constant">nil</span> {
@@ -2139,15 +2189,15 @@ Returns false if error is nil.</p>
       <pre class="lines">
 
 
-154
-155
 156
 157
 158
-159</pre>
+159
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 154</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 156</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsErrorRetryable(err <span class="hljs-constant">error</span>) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> err == <span class="hljs-constant">nil</span> {
@@ -2188,15 +2238,15 @@ code. Returns false if error is nil.</p>
       <pre class="lines">
 
 
-227
-228
 229
 230
 231
-232</pre>
+232
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 227</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 229</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsErrorThrottle(err <span class="hljs-constant">error</span>) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> aerr, ok := err.(awserr.Error); ok && aerr != <span class="hljs-constant">nil</span> {
@@ -2238,14 +2288,14 @@ request&#39;s user agent string.</p>
       <pre class="lines">
 
 
-317
-318
-319
-320
-321</pre>
+323
+324
+325
+326
+327</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 317</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 323</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> MakeAddToUserAgentFreeFormHandler(s <span class="hljs-constant">string</span>) <span class="hljs-keyword">func</span>(*Request) {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2288,18 +2338,18 @@ with this current request&#39;s user agent string.</p>
       <pre class="lines">
 
 
-305
-306
-307
-308
-309
-310
 311
 312
-313</pre>
+313
+314
+315
+316
+317
+318
+319</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 305</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 311</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> MakeAddToUserAgentHandler(name, version <span class="hljs-constant">string</span>, extra ...<span class="hljs-constant">string</span>) <span class="hljs-keyword">func</span>(*Request) {
 	ua := fmt.Sprintf(<span class="hljs-string">"%s/%s"</span>, name, version)
@@ -2343,16 +2393,16 @@ request.Host</p>
       <pre class="lines">
 
 
-611
-612
-613
-614
-615
-616
-617</pre>
+627
+628
+629
+630
+631
+632
+633</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 611</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 627</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> SanitizeHostForHeader(r *http.Request) {
 	host := getHost(r)
@@ -2394,16 +2444,16 @@ single white space.</p>
       <pre class="lines">
 
 
-292
-293
-294
-295
-296
-297
-298</pre>
+298
+299
+300
+301
+302
+303
+304</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 292</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 298</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithAppendUserAgent(s <span class="hljs-constant">string</span>) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2453,16 +2503,16 @@ request.WithGetResponseHeader(“x-amz-version-id”, &amp;versionID),  )</p>
       <pre class="lines">
 
 
-170
-171
-172
 173
 174
 175
-176</pre>
+176
+177
+178
+179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 170</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 173</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithGetResponseHeader(key <span class="hljs-constant">string</span>, val *<span class="hljs-constant">string</span>) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2508,16 +2558,16 @@ request.WithGetResponseHeaders(&amp;headers))</p>
       <pre class="lines">
 
 
-184
-185
-186
 187
 188
 189
-190</pre>
+190
+191
+192
+193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 184</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 187</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithGetResponseHeaders(headers *http.Header) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2561,14 +2611,14 @@ specific log level when the request is made.</p>
       <pre class="lines">
 
 
-196
-197
-198
 199
-200</pre>
+200
+201
+202
+203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 196</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 199</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithLogLevel(l aws.LogLevelType) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2713,6 +2763,51 @@ value for chaining. The value must not be nil.</p>
 	cfg.Retryer = retryer
 	<span class="hljs-keyword">return</span> cfg
 
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithSetRequestHeaders-class_method">
+  
+    func <strong><span class='object_link'><a href="#WithSetRequestHeaders-class_method" title="request.WithSetRequestHeaders() (method)">WithSetRequestHeaders</a></span></strong>(h map[string]string) Option 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>WithSetRequestHeaders updates the operation request&#39;s HTTP header to
+contain the header key value pairs provided. If the header key already
+exists in the request&#39;s HTTP header set, the existing value(s) will be
+replaced.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+332
+333
+334</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 332</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> WithSetRequestHeaders(h <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">string</span>) Option {
+	<span class="hljs-keyword">return</span> withRequestHeader(h).SetRequestHeaders
 }</div></pre>
     </td>
   </tr>
@@ -2914,9 +3009,9 @@ options already set.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:54:52 2019 by
+  Generated on Tue Apr  7 17:12:32 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

@@ -480,7 +480,8 @@ in the AWS Key Management Service Developer Guide.</p>
   <div class="discussion">
     
 <p>Specifies the CMK that encrypts the private key in the data key pair. You
-must specify a symmetric CMK. You cannot use an asymmetric CMK.</p>
+must specify a symmetric CMK. You cannot use an asymmetric CMK. To get the
+type of your CMK, use the DescribeKey operation.</p>
 
 <p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name,
 or alias ARN. When using an alias name, prefix it with “alias/”.</p>
@@ -578,12 +579,12 @@ AWS KMS.</p>
       <pre class="lines">
 
 
-8893
-8894
-8895</pre>
+9755
+9756
+9757</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8893</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9755</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -620,13 +621,13 @@ AWS KMS.</p>
       <pre class="lines">
 
 
-8917
-8918
-8919
-8920</pre>
+9779
+9780
+9781
+9782</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8917</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9779</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#SetEncryptionContext-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.SetEncryptionContext() (method)">SetEncryptionContext</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span> {
 	s.EncryptionContext = v
@@ -664,13 +665,13 @@ AWS KMS.</p>
       <pre class="lines">
 
 
-8923
-8924
-8925
-8926</pre>
+9785
+9786
+9787
+9788</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8923</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9785</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span> {
 	s.GrantTokens = v
@@ -708,13 +709,13 @@ AWS KMS.</p>
       <pre class="lines">
 
 
-8929
-8930
-8931
-8932</pre>
+9791
+9792
+9793
+9794</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8929</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9791</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span> {
 	s.KeyId = &v
@@ -752,13 +753,13 @@ AWS KMS.</p>
       <pre class="lines">
 
 
-8935
-8936
-8937
-8938</pre>
+9797
+9798
+9799
+9800</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8935</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9797</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#SetKeyPairSpec-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.SetKeyPairSpec() (method)">SetKeyPairSpec</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span> {
 	s.KeyPairSpec = &v
@@ -796,12 +797,12 @@ AWS KMS.</p>
       <pre class="lines">
 
 
-8888
-8889
-8890</pre>
+9750
+9751
+9752</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8888</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9750</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -838,26 +839,26 @@ AWS KMS.</p>
       <pre class="lines">
 
 
-8898
-8899
-8900
-8901
-8902
-8903
-8904
-8905
-8906
-8907
-8908
-8909
-8910
-8911
-8912
-8913
-8914</pre>
+9760
+9761
+9762
+9763
+9764
+9765
+9766
+9767
+9768
+9769
+9770
+9771
+9772
+9773
+9774
+9775
+9776</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8898</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9760</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>"</span>}
@@ -888,9 +889,9 @@ AWS KMS.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:55:54 2019 by
+  Generated on Tue Apr  7 17:13:41 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

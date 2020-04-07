@@ -156,6 +156,29 @@ handling requests.</p>
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BuildStream-field" title="request.Handlers.BuildStream (field)"><strong>BuildStream</strong> HandlerList</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#Complete-field" title="request.Handlers.Complete (field)"><strong>Complete</strong> HandlerList</a></span></span>
   
   
@@ -521,6 +544,14 @@ handling requests.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="BuildStream-field">
+  <strong>BuildStream</strong> <span class='object_link'><a href="HandlerList.html" title="request.HandlerList (struct)">HandlerList</a></span> 
+  
+</h3>
+
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="Complete-field">
   <strong>Complete</strong> <span class='object_link'><a href="HandlerList.html" title="request.HandlerList (struct)">HandlerList</a></span> 
   
@@ -641,8 +672,6 @@ handling requests.</p>
       <pre class="lines">
 
 
-45
-46
 47
 48
 49
@@ -655,14 +684,18 @@ handling requests.</p>
 56
 57
 58
-59</pre>
+59
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 45</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 47</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (h *Handlers) Clear() {
 	h.Validate.Clear()
 	h.Build.Clear()
+	h.BuildStream.Clear()
 	h.Send.Clear()
 	h.Sign.Clear()
 	h.Unmarshal.Clear()
@@ -707,7 +740,6 @@ handling requests.</p>
       <pre class="lines">
 
 
-26
 27
 28
 29
@@ -723,15 +755,18 @@ handling requests.</p>
 39
 40
 41
-42</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 26</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 27</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (h *Handlers) Copy() Handlers {
 	<span class="hljs-keyword">return</span> Handlers{
 		Validate:         h.Validate.copy(),
 		Build:            h.Build.copy(),
+		BuildStream:      h.BuildStream.copy(),
 		Sign:             h.Sign.copy(),
 		Send:             h.Send.copy(),
 		ValidateResponse: h.ValidateResponse.copy(),
@@ -777,9 +812,6 @@ handling requests.</p>
       <pre class="lines">
 
 
-62
-63
-64
 65
 66
 67
@@ -819,16 +851,25 @@ handling requests.</p>
 101
 102
 103
-104</pre>
+104
+105
+106
+107
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 62</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 65</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (h *Handlers) IsEmpty() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> h.Validate.Len() != 0 {
 		<span class="hljs-keyword">return</span> <span class="hljs-constant">false</span>
 	}
 	<span class="hljs-keyword">if</span> h.Build.Len() != 0 {
+		<span class="hljs-keyword">return</span> <span class="hljs-constant">false</span>
+	}
+	<span class="hljs-keyword">if</span> h.BuildStream.Len() != 0 {
 		<span class="hljs-keyword">return</span> <span class="hljs-constant">false</span>
 	}
 	<span class="hljs-keyword">if</span> h.Send.Len() != 0 {
@@ -879,9 +920,9 @@ handling requests.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:55:03 2019 by
+  Generated on Tue Apr  7 17:12:47 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

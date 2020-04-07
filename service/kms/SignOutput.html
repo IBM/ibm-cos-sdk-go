@@ -371,6 +371,21 @@ the message.</p>
   <div class="discussion">
     
 <p>The cryptographic signature that was generated for the message.</p>
+<ul><li>
+<p>When used with the supported RSA signing algorithms, the encoding of  this
+value is defined by PKCS #1 in RFC 8017 (<a
+href="https://tools.ietf.org/html/rfc8017">tools.ietf.org/html/rfc8017</a>).</p>
+</li><li>
+<p>When used with the ECDSA_SHA_256, ECDSA_SHA_384, or ECDSA_SHA_512 signing 
+algorithms, this value is a DER-encoded object as defined by ANS X9.62–2005
+and RFC 3279 Section 2.2.3 (<a
+href="https://tools.ietf.org/html/rfc3279#section-2.2.3">tools.ietf.org/html/rfc3279#section-2.2.3</a>).
+This is the most commonly used signature format and is appropriate for 
+most uses.</p>
+</li></ul>
+
+<p>When you use the HTTP API or the AWS CLI, the value is Base64-encoded.
+Otherwise, it is not Base64-encoded.</p>
 
 <p>Signature is automatically base64 encoded/decoded by the SDK.</p>
 
@@ -443,12 +458,12 @@ the message.</p>
       <pre class="lines">
 
 
-11748
-11749
-11750</pre>
+13677
+13678
+13679</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11748</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13677</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.SignOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -485,13 +500,13 @@ the message.</p>
       <pre class="lines">
 
 
-11753
-11754
-11755
-11756</pre>
+13682
+13683
+13684
+13685</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11753</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13682</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.SignOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span> {
 	s.KeyId = &v
@@ -529,13 +544,13 @@ the message.</p>
       <pre class="lines">
 
 
-11759
-11760
-11761
-11762</pre>
+13688
+13689
+13690
+13691</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11759</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13688</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span>) <span class='object_link'><a href="#SetSignature-instance_method" title="kms.SignOutput.SetSignature() (method)">SetSignature</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span> {
 	s.Signature = v
@@ -573,13 +588,13 @@ the message.</p>
       <pre class="lines">
 
 
-11765
-11766
-11767
-11768</pre>
+13694
+13695
+13696
+13697</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11765</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13694</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span>) <span class='object_link'><a href="#SetSigningAlgorithm-instance_method" title="kms.SignOutput.SetSigningAlgorithm() (method)">SetSigningAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span> {
 	s.SigningAlgorithm = &v
@@ -617,12 +632,12 @@ the message.</p>
       <pre class="lines">
 
 
-11743
-11744
-11745</pre>
+13672
+13673
+13674</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11743</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13672</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.SignOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -639,9 +654,9 @@ the message.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:56:02 2019 by
+  Generated on Tue Apr  7 17:13:54 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

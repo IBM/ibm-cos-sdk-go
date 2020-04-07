@@ -335,7 +335,7 @@ enumerating over the regions in a partition.</p>
       <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 262</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (p Partition) Regions() <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Region {
-	rs := <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Region{}
+	rs := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Region, len(p.p.Regions))
 	<span class="hljs-keyword">for</span> id, r := <span class="hljs-keyword">range</span> p.p.Regions {
 		rs[id] = Region{
 			id:   id,
@@ -395,7 +395,7 @@ enumerating over the services in a partition.</p>
       <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 277</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (p Partition) Services() <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Service {
-	ss := <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Service{}
+	ss := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Service, len(p.p.Services))
 	<span class="hljs-keyword">for</span> id := <span class="hljs-keyword">range</span> p.p.Services {
 		ss[id] = Service{
 			id: id,
@@ -417,9 +417,9 @@ enumerating over the services in a partition.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:55:04 2019 by
+  Generated on Tue Apr  7 17:12:48 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

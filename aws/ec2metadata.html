@@ -622,7 +622,9 @@ to false. Enabled by default.</p>
 138
 139
 140
-141</pre>
+141
+142
+143</pre>
     </td>
     <td>
       <pre class="code"><span class="info file">// File 'aws/ec2metadata/service.go', line 74</span>
@@ -635,8 +637,10 @@ to false. Enabled by default.</p>
 			<span class="hljs-comment">// use a shorter timeout than default because the metadata</span>
 			<span class="hljs-comment">// service is local if it is running, and to fail faster</span>
 			<span class="hljs-comment">// if not running on an ec2 instance.</span>
-			Timeout: 5 * time.Second,
+			Timeout: 1 * time.Second,
 		}
+		<span class="hljs-comment">// max number of retries on the client operation</span>
+		cfg.MaxRetries = aws.Int(2)
 	}
 
 	svc := &EC2Metadata{
@@ -707,9 +711,9 @@ to false. Enabled by default.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:54:53 2019 by
+  Generated on Tue Apr  7 17:12:32 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

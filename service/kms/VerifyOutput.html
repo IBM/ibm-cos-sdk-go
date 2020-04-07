@@ -372,9 +372,9 @@ signature.</p>
     
 <p>A Boolean value that indicates whether the signature was verified. A value
 of True indicates that the Signature was produced by signing the Message
-with the specified KeyID and SigningAlgorithm. A value of False indicates
-that the message, the algorithm, or the key changed since the message was
-signed.</p>
+with the specified KeyID and SigningAlgorithm. If the signature is not
+verified, the Verify operation fails with a KMSInvalidSignatureException
+exception.</p>
 
 
   </div>
@@ -445,12 +445,12 @@ signed.</p>
       <pre class="lines">
 
 
-12445
-12446
-12447</pre>
+14488
+14489
+14490</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12445</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14488</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.VerifyOutput (struct)">VerifyOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.VerifyOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -487,13 +487,13 @@ signed.</p>
       <pre class="lines">
 
 
-12450
-12451
-12452
-12453</pre>
+14493
+14494
+14495
+14496</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12450</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14493</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.VerifyOutput (struct)">VerifyOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.VerifyOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.VerifyOutput (struct)">VerifyOutput</a></span> {
 	s.KeyId = &v
@@ -531,13 +531,13 @@ signed.</p>
       <pre class="lines">
 
 
-12456
-12457
-12458
-12459</pre>
+14499
+14500
+14501
+14502</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12456</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14499</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.VerifyOutput (struct)">VerifyOutput</a></span>) <span class='object_link'><a href="#SetSignatureValid-instance_method" title="kms.VerifyOutput.SetSignatureValid() (method)">SetSignatureValid</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="kms.VerifyOutput (struct)">VerifyOutput</a></span> {
 	s.SignatureValid = &v
@@ -575,13 +575,13 @@ signed.</p>
       <pre class="lines">
 
 
-12462
-12463
-12464
-12465</pre>
+14505
+14506
+14507
+14508</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12462</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14505</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.VerifyOutput (struct)">VerifyOutput</a></span>) <span class='object_link'><a href="#SetSigningAlgorithm-instance_method" title="kms.VerifyOutput.SetSigningAlgorithm() (method)">SetSigningAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.VerifyOutput (struct)">VerifyOutput</a></span> {
 	s.SigningAlgorithm = &v
@@ -619,12 +619,12 @@ signed.</p>
       <pre class="lines">
 
 
-12440
-12441
-12442</pre>
+14483
+14484
+14485</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12440</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14483</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.VerifyOutput (struct)">VerifyOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.VerifyOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -641,9 +641,9 @@ signed.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:56:03 2019 by
+  Generated on Tue Apr  7 17:13:55 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

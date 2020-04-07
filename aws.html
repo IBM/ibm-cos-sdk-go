@@ -212,7 +212,7 @@ requests for debugging. Will also enable LogDebug.</p>
           </dt>
           <dd>
             <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"1.3.1"</span></div></pre>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"1.3.2"</span></div></pre>
           </dd>
         
       </dl>
@@ -357,6 +357,31 @@ LogLevel is nil.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Log calls the wrapped function with the arguments provided.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="aws/MultiCloser.html" title="aws.MultiCloser (struct)"><strong>MultiCloser</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Close closes all of the io.Closers making up the MultiClosers.</p>
 </div></span>
   
 </li>
@@ -5585,7 +5610,6 @@ type.</p>
       <pre class="lines">
 
 
-34
 35
 36
 37
@@ -5596,10 +5620,11 @@ type.</p>
 42
 43
 44
-45</pre>
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 34</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 35</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsReaderSeekable(r io.Reader) <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">switch</span> v := r.(<span class="hljs-keyword">type</span>) {
@@ -5752,12 +5777,12 @@ the ability to retry network errors.</p>
       <pre class="lines">
 
 
-21
 22
-23</pre>
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 21</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 22</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ReadSeekCloser(r io.Reader) ReaderSeekerCloser {
 	<span class="hljs-keyword">return</span> ReaderSeekerCloser{r}
@@ -5844,7 +5869,6 @@ current position. Returns the number of bytes remaining or error.</p>
       <pre class="lines">
 
 
-115
 116
 117
 118
@@ -5855,10 +5879,11 @@ current position. Returns the number of bytes remaining or error.</p>
 123
 124
 125
-126</pre>
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/types.go', line 115</span>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 116</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> SeekerLen(s io.Seeker) (<span class="hljs-constant">int64</span>, <span class="hljs-constant">error</span>) {
 	<span class="hljs-comment">// Determine if the seeker is actually seekable. ReaderSeekerCloser</span>
@@ -8180,9 +8205,9 @@ values</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:54:50 2019 by
+  Generated on Tue Apr  7 17:12:29 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

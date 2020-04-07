@@ -1166,6 +1166,32 @@ a in-flight request.</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetStreamingBody-instance_method" title="request.Request.SetStreamingBody() (method)">func (r *Request) <strong>SetStreamingBody</strong>(reader io.ReadCloser) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetStreamingBody set the reader to be used for the request that will stream
+bytes to the server.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetStringBody-instance_method" title="request.Request.SetStringBody() (method)">func (r *Request) <strong>SetStringBody</strong>(s string) </a></span></span>
   
   
@@ -1506,14 +1532,14 @@ order the were provided.</p>
       <pre class="lines">
 
 
-204
-205
-206
 207
-208</pre>
+208
+209
+210
+211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 204</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 207</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) ApplyOptions(opts ...Option) {
 	<span class="hljs-keyword">for</span> _, opt := <span class="hljs-keyword">range</span> opts {
@@ -1561,26 +1587,26 @@ which occurred will be returned.</p>
       <pre class="lines">
 
 
-387
-388
-389
-390
-391
-392
-393
-394
-395
-396
 397
 398
 399
 400
 401
 402
-403</pre>
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 387</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 397</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) Build() <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">if</span> !r.built {
@@ -1632,15 +1658,15 @@ context aws.BackgroundContext will be returned.</p>
       <pre class="lines">
 
 
-212
-213
-214
 215
 216
-217</pre>
+217
+218
+219
+220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 212</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 215</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) Context() aws.Context {
 	<span class="hljs-keyword">if</span> r.context != <span class="hljs-constant">nil</span> {
@@ -1682,12 +1708,12 @@ data is not set, or is invalid.</p>
       <pre class="lines">
 
 
-264
-265
-266</pre>
+267
+268
+269</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 264</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 267</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) DataFilled() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">return</span> r.Data != <span class="hljs-constant">nil</span> && reflect.ValueOf(r.Data).Elem().IsValid()
@@ -1738,8 +1764,6 @@ operations</p>
       <pre class="lines">
 
 
-249
-250
 251
 252
 253
@@ -1752,10 +1776,12 @@ operations</p>
 260
 261
 262
-263</pre>
+263
+264
+265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 249</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 251</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) EachPage(fn <span class="hljs-keyword">func</span>(data <span class="hljs-keyword">interface</span>{}, isLastPage <span class="hljs-constant">bool</span>) (shouldContinue <span class="hljs-constant">bool</span>)) <span class="hljs-constant">error</span> {
 	logDeprecatedf(r.Config.Logger, &logDeprecatedEachPage,
@@ -1805,12 +1831,12 @@ body with a concurrency safe wrapper.</p>
       <pre class="lines">
 
 
-477
-478
-479</pre>
+493
+494
+495</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 477</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 493</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) GetBody() io.ReadSeeker {
 	<span class="hljs-keyword">return</span> r.safeBody
@@ -1850,15 +1876,15 @@ operations</p>
       <pre class="lines">
 
 
-206
-207
 208
 209
 210
-211</pre>
+211
+212
+213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 206</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 208</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) HasNextPage() <span class="hljs-constant">bool</span> {
 	logDeprecatedf(r.Config.Logger, &logDeprecatedHasNextPage,
@@ -1901,12 +1927,12 @@ Returns false if the request has no Error set.</p>
       <pre class="lines">
 
 
-304
-305
-306</pre>
+306
+307
+308</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 304</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 306</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) IsErrorExpired() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">return</span> IsErrorExpiredCreds(r.Error)
@@ -1932,8 +1958,6 @@ Returns false if the request has no Error set.</p>
       <pre class="lines">
 
 
-247
-248
 249
 250
 251
@@ -1948,10 +1972,12 @@ Returns false if the request has no Error set.</p>
 260
 261
 262
-263</pre>
+263
+264
+265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 247</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 249</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) IsErrorRetryable() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> isErrCode(r.Error, r.RetryErrorCodes) {
@@ -2005,8 +2031,6 @@ code. Returns false if the request has no Error set.</p>
       <pre class="lines">
 
 
-269
-270
 271
 272
 273
@@ -2022,10 +2046,12 @@ code. Returns false if the request has no Error set.</p>
 283
 284
 285
-286</pre>
+286
+287
+288</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 269</span>
+      <pre class="code"><span class="info file">// File 'aws/request/retryer.go', line 271</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) IsErrorThrottle() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> isErrCode(r.Error, r.ThrottleErrorCodes) {
@@ -2077,12 +2103,12 @@ code. Returns false if the request has no Error set.</p>
       <pre class="lines">
 
 
-336
-337
-338</pre>
+346
+347
+348</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 336</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 346</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) IsPresigned() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">return</span> r.ExpireTime != 0
@@ -2123,8 +2149,6 @@ operations</p>
       <pre class="lines">
 
 
-217
-218
 219
 220
 221
@@ -2138,10 +2162,12 @@ operations</p>
 229
 230
 231
-232</pre>
+232
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 217</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request_pagination.go', line 219</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) NextPage() *Request {
 	logDeprecatedf(r.Config.Logger, &logDeprecatedNextPage,
@@ -2193,12 +2219,12 @@ provided or invalid.</p>
       <pre class="lines">
 
 
-257
-258
-259</pre>
+260
+261
+262</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 257</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 260</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) ParamsFilled() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">return</span> r.Params != <span class="hljs-constant">nil</span> && reflect.ValueOf(r.Params).Elem().IsValid()
@@ -2241,20 +2267,20 @@ An error is returned if expire duration is 0 or less.</p>
       <pre class="lines">
 
 
-304
-305
-306
-307
-308
-309
-310
-311
-312
-313
-314</pre>
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 304</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 314</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) Presign(expire time.Duration) (<span class="hljs-constant">string</span>, <span class="hljs-constant">error</span>) {
 	r = r.copy()
@@ -2312,13 +2338,13 @@ this Request value prior to calling PresignRequest.</p>
       <pre class="lines">
 
 
-330
-331
-332
-333</pre>
+340
+341
+342
+343</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 330</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 340</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) PresignRequest(expire time.Duration) (<span class="hljs-constant">string</span>, http.Header, <span class="hljs-constant">error</span>) {
 	r = r.copy()
@@ -2415,22 +2441,6 @@ href="https://github.com/golang/go/blob/master/src/net/http/transport.go">github
       <pre class="lines">
 
 
-494
-495
-496
-497
-498
-499
-500
-501
-502
-503
-504
-505
-506
-507
-508
-509
 510
 511
 512
@@ -2450,10 +2460,26 @@ href="https://github.com/golang/go/blob/master/src/net/http/transport.go">github
 526
 527
 528
-529</pre>
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 494</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 510</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) Send() <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">defer</span> <span class="hljs-keyword">func</span>() {
@@ -2524,12 +2550,12 @@ the service API.</p>
       <pre class="lines">
 
 
-270
-271
-272</pre>
+273
+274
+275</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 270</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 273</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) SetBufferBody(buf []byte) {
 	r.SetReaderBody(bytes.NewReader(buf))
@@ -2581,15 +2607,15 @@ requests such as retries.</p>
       <pre class="lines">
 
 
-235
-236
-237
 238
 239
-240</pre>
+240
+241
+242
+243</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 235</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 238</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) SetContext(ctx aws.Context) {
 	<span class="hljs-keyword">if</span> ctx == <span class="hljs-constant">nil</span> {
@@ -2629,9 +2655,6 @@ requests such as retries.</p>
       <pre class="lines">
 
 
-280
-281
-282
 283
 284
 285
@@ -2644,10 +2667,13 @@ requests such as retries.</p>
 292
 293
 294
-295</pre>
+295
+296
+297
+298</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 280</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 283</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) SetReaderBody(reader io.ReadSeeker) {
 	r.Body = reader
@@ -2664,6 +2690,51 @@ requests such as retries.</p>
 		}
 	}
 	r.ResetBody()
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetStreamingBody-instance_method">
+  
+    func (r *<span class='object_link'><a href="" title="request.Request (struct)">Request</a></span>) <strong><span class='object_link'><a href="#SetStreamingBody-instance_method" title="request.Request.SetStreamingBody() (method)">SetStreamingBody</a></span></strong>(reader io.ReadCloser) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetStreamingBody set the reader to be used for the request that will stream
+bytes to the server. Request&#39;s Body must not be set to any reader.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+302
+303
+304
+305</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 302</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (r *Request) SetStreamingBody(reader io.ReadCloser) {
+	r.streamingBody = reader
+	r.SetReaderBody(aws.ReadSeekCloser(reader))
 }</div></pre>
     </td>
   </tr>
@@ -2697,12 +2768,12 @@ requests such as retries.</p>
       <pre class="lines">
 
 
-275
-276
-277</pre>
+278
+279
+280</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 275</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 278</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) SetStringBody(s <span class="hljs-constant">string</span>) {
 	r.SetReaderBody(strings.NewReader(s))
@@ -2742,19 +2813,21 @@ executed in the order they were set.</p>
       <pre class="lines">
 
 
-409
-410
-411
-412
-413
-414
-415
-416
-417
-418</pre>
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 409</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 419</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) Sign() <span class="hljs-constant">error</span> {
 	r.Build()
@@ -2762,6 +2835,8 @@ executed in the order they were set.</p>
 		debugLogReqError(r, <span class="hljs-string">"Build Request"</span>, notRetrying, r.Error)
 		<span class="hljs-keyword">return</span> r.Error
 	}
+
+	SanitizeHostForHeader(r.HTTPRequest)
 
 	r.Handlers.Sign.Run(r)
 	<span class="hljs-keyword">return</span> r.Error
@@ -2798,15 +2873,15 @@ executed in the order they were set.</p>
       <pre class="lines">
 
 
-243
-244
-245
 246
 247
-248</pre>
+248
+249
+250
+251</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 243</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 246</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r *Request) WillRetry() <span class="hljs-constant">bool</span> {
 	<span class="hljs-keyword">if</span> !aws.IsReaderSeekable(r.Body) && r.HTTPRequest.Body != NoBody {
@@ -2826,9 +2901,9 @@ executed in the order they were set.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:55:02 2019 by
+  Generated on Tue Apr  7 17:12:41 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

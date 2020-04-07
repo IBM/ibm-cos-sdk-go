@@ -157,8 +157,9 @@ import "../home/jenkins/workspace/cs-developer-enablement/release/publish/ibm-co
 
   
     <span class="summary_desc"><div class='inline'>
-<p>IsARN returns whether the given string is an arn by looking for whether the
-string starts with arn:.</p>
+<p>IsARN returns whether the given string is an ARN by looking for whether the
+string starts with “arn:” and contains the correct number of sections
+delimited by colons(:).</p>
 </div></span>
   
 </li>
@@ -324,8 +325,9 @@ href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>IsARN returns whether the given string is an arn by looking for whether the
-string starts with arn:</p>
+<p>IsARN returns whether the given string is an ARN by looking for whether the
+string starts with “arn:” and contains the correct number of sections
+delimited by colons(:).</p>
 
 
   </div>
@@ -339,15 +341,15 @@ string starts with arn:</p>
       <pre class="lines">
 
 
-79
 80
-81</pre>
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/arn/arn.go', line 79</span>
+      <pre class="code"><span class="info file">// File 'aws/arn/arn.go', line 80</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IsARN(arn <span class="hljs-constant">string</span>) <span class="hljs-constant">bool</span> {
-	<span class="hljs-keyword">return</span> strings.HasPrefix(arn, arnPrefix) && strings.Count(arn, <span class="hljs-string">":"</span>) > arnSections-1
+	<span class="hljs-keyword">return</span> strings.HasPrefix(arn, arnPrefix) && strings.Count(arn, <span class="hljs-string">":"</span>) >= arnSections-1
 }</div></pre>
     </td>
   </tr>
@@ -435,9 +437,9 @@ arn:aws:s3:::my_corporate_bucket/exampleobject.png</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:54:50 2019 by
+  Generated on Tue Apr  7 17:12:29 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

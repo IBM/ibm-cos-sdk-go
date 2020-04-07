@@ -505,6 +505,32 @@ ShouldRetry regardless of whether or not if request.Retryable is set.</p>
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#LowerCaseHeaderMaps-field" title="aws.Config.LowerCaseHeaderMaps (field)"><strong>LowerCaseHeaderMaps</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set this to <code>true</code> to enable the SDK to unmarshal API response
+header maps to normalized lower case map keys.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#MaxRetries-field" title="aws.Config.MaxRetries (field)"><strong>MaxRetries</strong> *int</a></span></span>
   
   
@@ -1833,6 +1859,30 @@ standard out.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="LowerCaseHeaderMaps-field">
+  <strong>LowerCaseHeaderMaps</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Set this to <code>true</code> to enable the SDK to unmarshal API response
+header maps to normalized lower case map keys.</p>
+
+<p>For example S3&#39;s X-Amz-Meta prefixed header will be unmarshaled to
+lower case Metadata member&#39;s map keys. The value of the header in the
+map is unaffected.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="MaxRetries-field">
   <strong>MaxRetries</strong> *int 
   
@@ -2172,12 +2222,12 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-270
-271
-272</pre>
+277
+278
+279</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 270</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 277</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewConfig() *Config {
 	<span class="hljs-keyword">return</span> &Config{}
@@ -2222,19 +2272,19 @@ returned.</p>
       <pre class="lines">
 
 
-555
-556
-557
-558
-559
-560
-561
 562
 563
-564</pre>
+564
+565
+566
+567
+568
+569
+570
+571</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 555</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 562</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) Copy(cfgs ...*Config) *Config {
 	dst := &Config{}
@@ -2278,14 +2328,14 @@ returned.</p>
       <pre class="lines">
 
 
-430
-431
-432
-433
-434</pre>
+437
+438
+439
+440
+441</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 430</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 437</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) MergeIn(cfgs ...*Config) {
 	<span class="hljs-keyword">for</span> _, other := <span class="hljs-keyword">range</span> cfgs {
@@ -2325,13 +2375,13 @@ for chaining.</p>
       <pre class="lines">
 
 
-283
-284
-285
-286</pre>
+290
+291
+292
+293</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 283</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 290</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithCredentials(creds *credentials.Credentials) *Config {
 	c.Credentials = creds
@@ -2370,13 +2420,13 @@ returning a Config pointer.</p>
       <pre class="lines">
 
 
-276
-277
-278
-279</pre>
+283
+284
+285
+286</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 276</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 283</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithCredentialsChainVerboseErrors(verboseErrs <span class="hljs-constant">bool</span>) *Config {
 	c.CredentialsChainVerboseErrors = &verboseErrs
@@ -2415,13 +2465,13 @@ returning a Config pointer for chaining.</p>
       <pre class="lines">
 
 
-339
-340
-341
-342</pre>
+346
+347
+348
+349</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 339</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 346</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableComputeChecksums(disable <span class="hljs-constant">bool</span>) *Config {
 	c.DisableComputeChecksums = &disable
@@ -2460,13 +2510,13 @@ prefix when making requests.</p>
       <pre class="lines">
 
 
-424
-425
-426
-427</pre>
+431
+432
+433
+434</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 424</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 431</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableEndpointHostPrefix(t <span class="hljs-constant">bool</span>) *Config {
 	c.DisableEndpointHostPrefix = &t
@@ -2505,13 +2555,13 @@ returning a Config pointer for chaining.</p>
       <pre class="lines">
 
 
-332
-333
-334
-335</pre>
+339
+340
+341
+342</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 332</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 339</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableParamValidation(disable <span class="hljs-constant">bool</span>) *Config {
 	c.DisableParamValidation = &disable
@@ -2550,13 +2600,13 @@ for chaining.</p>
       <pre class="lines">
 
 
-311
-312
-313
-314</pre>
+318
+319
+320
+321</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 311</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 318</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableSSL(disable <span class="hljs-constant">bool</span>) *Config {
 	c.DisableSSL = &disable
@@ -2596,13 +2646,13 @@ chaining.</p>
       <pre class="lines">
 
 
-404
-405
-406
-407</pre>
+411
+412
+413
+414</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 404</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 411</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEC2MetadataDisableTimeoutOverride(enable <span class="hljs-constant">bool</span>) *Config {
 	c.EC2MetadataDisableTimeoutOverride = &enable
@@ -2641,13 +2691,13 @@ chaining.</p>
       <pre class="lines">
 
 
-290
-291
-292
-293</pre>
+297
+298
+299
+300</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 290</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 297</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEndpo<span class="hljs-constant">int</span>(endpo<span class="hljs-constant">int</span> <span class="hljs-constant">string</span>) *Config {
 	c.Endpo<span class="hljs-constant">int</span> = &endpo<span class="hljs-constant">int</span>
@@ -2685,13 +2735,13 @@ chaining.</p>
       <pre class="lines">
 
 
-417
-418
-419
-420</pre>
+424
+425
+426
+427</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 417</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 424</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEndpointDiscovery(t <span class="hljs-constant">bool</span>) *Config {
 	c.EnableEndpointDiscovery = &t
@@ -2730,13 +2780,13 @@ Config pointer for chaining.</p>
       <pre class="lines">
 
 
-297
-298
-299
-300</pre>
+304
+305
+306
+307</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 297</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 304</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEndpointResolver(resolver endpoints.Resolver) *Config {
 	c.EndpointResolver = resolver
@@ -2775,13 +2825,13 @@ for chaining.</p>
       <pre class="lines">
 
 
-318
-319
-320
-321</pre>
+325
+326
+327
+328</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 318</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 325</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithHTTPClient(client *http.Client) *Config {
 	c.HTTPClient = client
@@ -2820,13 +2870,13 @@ chaining.</p>
       <pre class="lines">
 
 
-353
-354
-355
-356</pre>
+360
+361
+362
+363</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 353</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 360</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithLogger(logger Logger) *Config {
 	c.Logger = logger
@@ -2865,13 +2915,13 @@ chaining.</p>
       <pre class="lines">
 
 
-346
-347
-348
-349</pre>
+353
+354
+355
+356</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 346</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 353</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithLogLevel(level LogLevelType) *Config {
 	c.LogLevel = &level
@@ -2910,13 +2960,13 @@ for chaining.</p>
       <pre class="lines">
 
 
-325
-326
-327
-328</pre>
+332
+333
+334
+335</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 325</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 332</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithMaxRetries(max <span class="hljs-constant">int</span>) *Config {
 	c.MaxRetries = &max
@@ -2955,13 +3005,13 @@ chaining.</p>
       <pre class="lines">
 
 
-304
-305
-306
-307</pre>
+311
+312
+313
+314</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 304</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 311</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithRegion(region <span class="hljs-constant">string</span>) *Config {
 	c.Region = &region
@@ -3000,13 +3050,13 @@ a Config pointer for chaining.</p>
       <pre class="lines">
 
 
-367
-368
-369
-370</pre>
+374
+375
+376
+377</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 367</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 374</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3Disable100Continue(disable <span class="hljs-constant">bool</span>) *Config {
 	c.S3Disable100Continue = &disable
@@ -3046,14 +3096,14 @@ chaining.</p>
       <pre class="lines">
 
 
-382
-383
-384
-385
-386</pre>
+389
+390
+391
+392
+393</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 382</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 389</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3DisableContentMD5Validation(enable <span class="hljs-constant">bool</span>) *Config {
 	c.S3DisableContentMD5Validation = &enable
@@ -3093,13 +3143,13 @@ Config pointer for chaining.</p>
       <pre class="lines">
 
 
-360
-361
-362
-363</pre>
+367
+368
+369
+370</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 360</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 367</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3ForcePathStyle(force <span class="hljs-constant">bool</span>) *Config {
 	c.S3ForcePathStyle = &force
@@ -3138,14 +3188,14 @@ pointer for chaining.</p>
       <pre class="lines">
 
 
-374
-375
-376
-377
-378</pre>
+381
+382
+383
+384
+385</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 374</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 381</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3UseAccelerate(enable <span class="hljs-constant">bool</span>) *Config {
 	c.S3UseAccelerate = &enable
@@ -3185,13 +3235,13 @@ Config pointer for chaining</p>
       <pre class="lines">
 
 
-390
-391
-392
-393</pre>
+397
+398
+399
+400</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 390</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 397</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3UseARNRegion(enable <span class="hljs-constant">bool</span>) *Config {
 	c.S3UseARNRegion = &enable
@@ -3230,13 +3280,13 @@ endpoint flag when resolving the endpoint for a service</p>
       <pre class="lines">
 
 
-438
-439
-440
-441</pre>
+445
+446
+447
+448</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 438</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 445</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3UsEast1RegionalEndpo<span class="hljs-constant">int</span>(sre endpoints.S3UsEast1RegionalEndpo<span class="hljs-constant">int</span>) *Config {
 	c.S3UsEast1RegionalEndpo<span class="hljs-constant">int</span> = sre
@@ -3275,13 +3325,13 @@ next retry. Defaults to time.Sleep.</p>
       <pre class="lines">
 
 
-411
-412
-413
-414</pre>
+418
+419
+420
+421</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 411</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 418</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithSleepDelay(fn <span class="hljs-keyword">func</span>(time.Duration)) *Config {
 	c.SleepDelay = fn
@@ -3320,13 +3370,13 @@ pointer for chaining.</p>
       <pre class="lines">
 
 
-397
-398
-399
-400</pre>
+404
+405
+406
+407</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 397</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 404</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithUseDualStack(enable <span class="hljs-constant">bool</span>) *Config {
 	c.UseDualStack = &enable
@@ -3344,9 +3394,9 @@ pointer for chaining.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:55:01 2019 by
+  Generated on Tue Apr  7 17:12:40 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

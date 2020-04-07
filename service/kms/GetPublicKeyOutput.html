@@ -590,11 +590,11 @@ encrypts data outside of AWS KMS, the ciphertext cannot be decrypted.</p>
     
 <p>The exported public key.</p>
 
-<p>This value is returned as a binary Distinguished Encoding Rules (<a
-href="https://www.itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf">www.itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf</a>)
-(DER)-encoded object. To decode it, use an ASN.1 parsing tool, such as
-OpenSSL asn1parse (<a
-href="https://www.openssl.org/docs/man1.0.2/man1/asn1parse.html">www.openssl.org/docs/man1.0.2/man1/asn1parse.html</a>).</p>
+<p>The value is a DER-encoded X.509 public key, also known as
+SubjectPublicKeyInfo (SPKI), as defined in RFC 5280 (<a
+href="https://tools.ietf.org/html/rfc5280">tools.ietf.org/html/rfc5280</a>).
+When you use the HTTP API or the AWS CLI, the value is Base64-encoded.
+Otherwise, it is not Base64-encoded.</p>
 
 <p>PublicKey is automatically base64 encoded/decoded by the SDK.</p>
 
@@ -670,12 +670,12 @@ is SIGN_VERIFY.</p>
       <pre class="lines">
 
 
-9665
-9666
-9667</pre>
+10529
+10530
+10531</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9665</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10529</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GetPublicKeyOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -712,13 +712,13 @@ is SIGN_VERIFY.</p>
       <pre class="lines">
 
 
-9670
-9671
-9672
-9673</pre>
+10534
+10535
+10536
+10537</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9670</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10534</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#SetCustomerMasterKeySpec-instance_method" title="kms.GetPublicKeyOutput.SetCustomerMasterKeySpec() (method)">SetCustomerMasterKeySpec</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span> {
 	s.CustomerMasterKeySpec = &v
@@ -756,13 +756,13 @@ is SIGN_VERIFY.</p>
       <pre class="lines">
 
 
-9676
-9677
-9678
-9679</pre>
+10540
+10541
+10542
+10543</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9676</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10540</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#SetEncryptionAlgorithms-instance_method" title="kms.GetPublicKeyOutput.SetEncryptionAlgorithms() (method)">SetEncryptionAlgorithms</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span> {
 	s.EncryptionAlgorithms = v
@@ -800,13 +800,13 @@ is SIGN_VERIFY.</p>
       <pre class="lines">
 
 
-9682
-9683
-9684
-9685</pre>
+10546
+10547
+10548
+10549</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9682</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10546</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.GetPublicKeyOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span> {
 	s.KeyId = &v
@@ -844,13 +844,13 @@ is SIGN_VERIFY.</p>
       <pre class="lines">
 
 
-9688
-9689
-9690
-9691</pre>
+10552
+10553
+10554
+10555</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9688</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10552</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#SetKeyUsage-instance_method" title="kms.GetPublicKeyOutput.SetKeyUsage() (method)">SetKeyUsage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span> {
 	s.KeyUsage = &v
@@ -888,13 +888,13 @@ is SIGN_VERIFY.</p>
       <pre class="lines">
 
 
-9694
-9695
-9696
-9697</pre>
+10558
+10559
+10560
+10561</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9694</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10558</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#SetPublicKey-instance_method" title="kms.GetPublicKeyOutput.SetPublicKey() (method)">SetPublicKey</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span> {
 	s.PublicKey = v
@@ -932,13 +932,13 @@ is SIGN_VERIFY.</p>
       <pre class="lines">
 
 
-9700
-9701
-9702
-9703</pre>
+10564
+10565
+10566
+10567</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9700</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10564</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#SetSigningAlgorithms-instance_method" title="kms.GetPublicKeyOutput.SetSigningAlgorithms() (method)">SetSigningAlgorithms</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span> {
 	s.SigningAlgorithms = v
@@ -976,12 +976,12 @@ is SIGN_VERIFY.</p>
       <pre class="lines">
 
 
-9660
-9661
-9662</pre>
+10524
+10525
+10526</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9660</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10524</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GetPublicKeyOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -998,9 +998,9 @@ is SIGN_VERIFY.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:55:56 2019 by
+  Generated on Tue Apr  7 17:13:44 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

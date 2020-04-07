@@ -582,6 +582,32 @@ AES GCM.</p>
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/CipherDataDecrypterWithContext.html" title="s3crypto.CipherDataDecrypterWithContext (interface)"><strong>CipherDataDecrypterWithContext</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>CipherDataDecrypterWithContext is a handler to decrypt keys from the
+envelope with request context.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="s3crypto/CipherDataGenerator.html" title="s3crypto.CipherDataGenerator (interface)"><strong>CipherDataGenerator</strong></a></span></span>
   
   
@@ -600,6 +626,32 @@ AES GCM.</p>
     <span class="summary_desc"><div class='inline'>
 <p>CipherDataGenerator handles generating proper key and IVs of proper size
 for the content cipher.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/CipherDataGeneratorWithContext.html" title="s3crypto.CipherDataGeneratorWithContext (interface)"><strong>CipherDataGeneratorWithContext</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>CipherDataGeneratorWithContext handles generating proper key and IVs of
+proper size for the content cipher.</p>
 </div></span>
   
 </li>
@@ -651,6 +703,32 @@ for the content cipher.</p>
     <span class="summary_desc"><div class='inline'>
 <p>ContentCipherBuilder is a builder interface that builds ciphers for each
 request.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3crypto/ContentCipherBuilderWithContext.html" title="s3crypto.ContentCipherBuilderWithContext (interface)"><strong>ContentCipherBuilderWithContext</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ContentCipherBuilderWithContext is a builder interface that builds ciphers
+for each request.</p>
 </div></span>
   
 </li>
@@ -1320,12 +1398,12 @@ with a specific cipher for the master key</p>
       <pre class="lines">
 
 
-17
-18
-19</pre>
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/aes_gcm_content_cipher.go', line 17</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/aes_gcm_content_cipher.go', line 19</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AESGCMContentCipherBuilder(generator CipherDataGenerator) ContentCipherBuilder {
 	<span class="hljs-keyword">return</span> gcmContentCipherBuilder{generator}
@@ -1730,9 +1808,9 @@ the most secure data, use an authenticated crypto algorithm.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:54:59 2019 by
+  Generated on Tue Apr  7 17:12:38 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

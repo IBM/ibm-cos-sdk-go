@@ -216,6 +216,31 @@ service client request with using the V4 signature.</p>
 
 
     
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="v4/StreamSigner.html" title="v4.StreamSigner (struct)"><strong>StreamSigner</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>StreamSigner implements signing of event stream encoded payloads.</p>
+</div></span>
+  
+</li>
+
+
+    
   </ul>
 
 
@@ -247,6 +272,31 @@ service client request with using the V4 signature.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>BuildNamedHandler will build a generic handler for signing.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetSignedRequestSignature-class_method" title="v4.GetSignedRequestSignature() (method)">func <strong>GetSignedRequestSignature</strong>(r *http.Request) ([]byte, error) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>GetSignedRequestSignature attempts to extract the signature of the request.</p>
 </div></span>
   
 </li>
@@ -393,17 +443,17 @@ of the signer.</p>
       <pre class="lines">
 
 
-428
-429
-430
 431
 432
 433
 434
-435</pre>
+435
+436
+437
+438</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 428</span>
+      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 431</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> BuildNamedHandler(name <span class="hljs-constant">string</span>, opts ...<span class="hljs-keyword">func</span>(*Signer)) request.NamedHandler {
 	<span class="hljs-keyword">return</span> request.NamedHandler{
@@ -412,6 +462,86 @@ of the signer.</p>
 			SignSDKRequestWithCurrentTime(req, time.Now, opts...)
 		},
 	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetSignedRequestSignature-class_method">
+  
+    func <strong><span class='object_link'><a href="#GetSignedRequestSignature-class_method" title="v4.GetSignedRequestSignature() (method)">GetSignedRequestSignature</a></span></strong>(r *http.Request) ([]byte, error) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>GetSignedRequestSignature attempts to extract the signature of the request.
+Returning an error if the request is unsigned, or unable to extract the
+signature.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 553</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> GetSignedRequestSignature(r *http.Request) ([]byte, <span class="hljs-constant">error</span>) {
+
+	<span class="hljs-keyword">if</span> auth := r.Header.Get(authorizationHeader); len(auth) != 0 {
+		ps := strings.Split(auth, <span class="hljs-string">", "</span>)
+		<span class="hljs-keyword">for</span> _, p := <span class="hljs-keyword">range</span> ps {
+			<span class="hljs-keyword">if</span> idx := strings.Index(p, authHeaderSignatureElem); idx >= 0 {
+				sig := p[len(authHeaderSignatureElem):]
+				<span class="hljs-keyword">if</span> len(sig) == 0 {
+					<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>, fmt.Errorf(<span class="hljs-string">"invalid request signature authorization header"</span>)
+				}
+				<span class="hljs-keyword">return</span> hex.DecodeString(sig)
+			}
+		}
+	}
+
+	<span class="hljs-keyword">if</span> sig := r.URL.Query().Get(<span class="hljs-string">"X-Amz-Signature"</span>); len(sig) != 0 {
+		<span class="hljs-keyword">return</span> hex.DecodeString(sig)
+	}
+
+	<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>, fmt.Errorf(<span class="hljs-string">"request not signed"</span>)
 }</div></pre>
     </td>
   </tr>
@@ -447,20 +577,20 @@ will use its default configuration.</p>
       <pre class="lines">
 
 
-207
-208
-209
-210
-211
 212
 213
 214
 215
 216
-217</pre>
+217
+218
+219
+220
+221
+222</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 207</span>
+      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 212</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewSigner(credentials *credentials.Credentials, options ...<span class="hljs-keyword">func</span>(*Signer)) *Signer {
 	v4 := &Signer{
@@ -515,12 +645,12 @@ credentials.AnonymousCredentials the request will not be signed.</p>
       <pre class="lines">
 
 
-423
-424
-425</pre>
+426
+427
+428</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 423</span>
+      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 426</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> SignSDKRequest(req *request.Request) {
 	SignSDKRequestWithCurrentTime(req, time.Now)
@@ -560,9 +690,6 @@ function.</p>
       <pre class="lines">
 
 
-440
-441
-442
 443
 444
 445
@@ -608,10 +735,13 @@ function.</p>
 485
 486
 487
-488</pre>
+488
+489
+490
+491</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 440</span>
+      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 443</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> SignSDKRequestWithCurrentTime(req *request.Request, curTimeFn <span class="hljs-keyword">func</span>() time.Time, opts ...<span class="hljs-keyword">func</span>(*Signer)) {
 	<span class="hljs-comment">// If the request does not need to be signed ignore the signing of the</span>
@@ -717,9 +847,9 @@ of the signer.</p>
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:54:51 2019 by
+  Generated on Tue Apr  7 17:12:30 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->

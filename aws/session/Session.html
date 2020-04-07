@@ -351,16 +351,16 @@ Session and configuration at startup. Such as:</p>
       <pre class="lines">
 
 
-326
-327
-328
-329
 330
 331
-332</pre>
+332
+333
+334
+335
+336</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 326</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 330</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> Must(sess *Session, err <span class="hljs-constant">error</span>) *Session {
 	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
@@ -410,10 +410,6 @@ client.</p>
       <pre class="lines">
 
 
-558
-559
-560
-561
 562
 563
 564
@@ -430,20 +426,36 @@ client.</p>
 575
 576
 577
-578</pre>
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 558</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 562</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *Session) ClientConfig(service <span class="hljs-constant">string</span>, cfgs ...*aws.Config) client.Config {
 	s = s.Copy(cfgs...)
 
 	region := aws.StringValue(s.Config.Region)
 	resolved, err := s.resolveEndpo<span class="hljs-constant">int</span>(service, region, s.Config)
-	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> && s.Config.Logger != <span class="hljs-constant">nil</span> {
-		s.Config.Logger.Log(fmt.Sprintf(
-			<span class="hljs-string">"ERROR: unable to resolve endpoint for service %q, region %q, err: %v"</span>,
-			service, region, err))
+	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+		s.Handlers.Validate.PushBack(<span class="hljs-keyword">func</span>(r *request.Request) {
+			<span class="hljs-keyword">if</span> len(r.ClientInfo.Endpo<span class="hljs-constant">int</span>) != 0 {
+				<span class="hljs-comment">// Error occurred while resolving endpoint, but the request</span>
+				<span class="hljs-comment">// being invoked has had an endpoint specified after the client</span>
+				<span class="hljs-comment">// was created.</span>
+				<span class="hljs-keyword">return</span>
+			}
+			r.Error = err
+		})
 	}
 
 	<span class="hljs-keyword">return</span> client.Config{
@@ -491,16 +503,6 @@ field.</p>
       <pre class="lines">
 
 
-614
-615
-616
-617
-618
-619
-620
-621
-622
-623
 624
 625
 626
@@ -508,10 +510,20 @@ field.</p>
 628
 629
 630
-631</pre>
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 614</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 624</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *Session) ClientConfigNoResolveEndpo<span class="hljs-constant">int</span>(cfgs ...*aws.Config) client.Config {
 	s = s.Copy(cfgs...)
@@ -568,19 +580,19 @@ sess.Copy(&aws.Config{Region: aws.String(<span class="hljs-string">"us-west-2"</
       <pre class="lines">
 
 
-544
-545
-546
-547
 548
 549
 550
 551
 552
-553</pre>
+553
+554
+555
+556
+557</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 544</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 548</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *Session) Copy(cfgs ...*aws.Config) *Session {
 	newSession := &Session{
@@ -604,9 +616,9 @@ sess.Copy(&aws.Config{Region: aws.String(<span class="hljs-string">"us-west-2"</
       </div>
 
       <div id="footer">
-  Generated on Fri Dec  6 16:55:03 2019 by
+  Generated on Tue Apr  7 17:12:47 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.3.1).
+  0.9.24 (ruby-2.3.1).
 </div>
 
 <!-- BEGIN-SECTION -->
