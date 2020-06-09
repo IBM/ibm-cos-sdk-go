@@ -83,6 +83,8 @@ func ParseTime(formatName, value string) (time.Time, error) {
 	}
 }
 
+// IBM COS SDK Code -- START
+
 // ParseIbmTime - checks to see if first character of date string is a letter
 // if so it tries to parse it as an RFC822 formatted date
 func ParseIbmTime(formatName, value string) (time.Time, error) {
@@ -94,3 +96,5 @@ func ParseIbmTime(formatName, value string) (time.Time, error) {
 	}
 	return ParseTime(formatName, value)
 }
+
+// IBM COS SDK Code -- END

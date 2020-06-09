@@ -91,6 +91,7 @@ func TestWithNormalizeBucketLocation(t *testing.T) {
 	}
 }
 
+// IBM COS SDK Code -- START
 // func TestPopulateLocationConstraint(t *testing.T) {
 // 	s := s3.New(unit.Session)
 // 	in := &s3.CreateBucketInput{
@@ -110,6 +111,7 @@ func TestWithNormalizeBucketLocation(t *testing.T) {
 // 		t.Errorf("expect create bucket Configuration to be nil, got %s", *v)
 // 	}
 // }
+// IBM COS SDK Code -- END
 
 func TestNoPopulateLocationConstraintIfProvided(t *testing.T) {
 	s := s3.New(unit.Session)

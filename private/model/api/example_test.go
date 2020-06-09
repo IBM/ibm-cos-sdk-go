@@ -168,6 +168,7 @@ func buildAPI() *API {
 	return a
 }
 
+// IBM COS SDK Code -- START
 func TestExampleGeneration(t *testing.T) {
 	example := `
 {
@@ -299,6 +300,8 @@ func ExampleFooService_Foo_shared00() {
 		t.Errorf("Expected:\n%s\nReceived:\n%s\n", expected, a.ExamplesGoCode())
 	}
 }
+
+// IBM COS SDK Code -- END
 
 func TestBuildShape(t *testing.T) {
 	a := buildAPI()

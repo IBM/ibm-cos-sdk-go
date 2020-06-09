@@ -354,6 +354,7 @@ func TestMakeAddtoUserAgentFreeFormHandler(t *testing.T) {
 	}
 }
 
+// IBM COS SDK Code -- START
 // IBM COS SDK's requests with User Agent differs from AWS
 // func TestRequestUserAgent(t *testing.T) {
 // 	s := awstesting.NewClient(&aws.Config{
@@ -372,6 +373,7 @@ func TestMakeAddtoUserAgentFreeFormHandler(t *testing.T) {
 // 		t.Errorf("expect %q user agent, got %q", e, a)
 // 	}
 // }
+// IBM COS SDK Code -- END
 
 func TestRequestThrottleRetries(t *testing.T) {
 	var delays []time.Duration
@@ -784,8 +786,10 @@ func TestRequest_TemporaryRetry(t *testing.T) {
 		HTTPClient: client,
 		DisableSSL: aws.Bool(true),
 		Endpoint:   aws.String(server.URL),
-		// IBM COS SDK Anonymous support
+		// IBM COS SDK Code -- START
+		// Anonymous support
 		Credentials: credentials.AnonymousCredentials,
+		// IBM COS SDK Code -- START
 	})
 
 	req := svc.NewRequest(&request.Operation{

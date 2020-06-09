@@ -29,12 +29,14 @@ import (
 //        // Make svc.AbortMultipartUpload request
 //    }
 //
+// IBM COS SDK Code -- START
 //    func main() {
 //        sess := session.Must(session.NewSession())
 //        svc := s3.New(sess)
 //
 //        myFunc(svc)
 //    }
+// IBM COS SDK Code -- END
 //
 // In your _test.go file:
 //

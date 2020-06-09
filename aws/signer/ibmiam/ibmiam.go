@@ -1,5 +1,6 @@
 package ibmiam
 
+// IBM COS SDK Code -- START
 import (
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
@@ -90,3 +91,5 @@ func Sign(req *request.Request) {
 		logger.Log(debugLog, signRequestHandlerLog, "Set Header Authorization", authString)
 	}
 }
+
+// IBM COS SDK Code -- END

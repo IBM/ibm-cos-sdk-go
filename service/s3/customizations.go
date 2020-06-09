@@ -32,6 +32,7 @@ func defaultInitRequestFn(r *request.Request) {
 	// e.g. 100-continue support for PUT requests using Go 1.6
 	platformRequestHandlers(r)
 
+	// IBM COS SDK Code -- START
 	// md5 required
 	switch r.Operation.Name {
 	case opPutBucketCors, opDeleteObjects, opPutBucketProtectionConfiguration,
@@ -56,6 +57,7 @@ func defaultInitRequestFn(r *request.Request) {
 		//		r.Handlers.Build.PushBack(askForTxEncodingAppendMD5)
 		//		r.Handlers.Unmarshal.PushBack(useMD5ValidationReader)
 	}
+	// IBM COS SDK Code -- END
 }
 
 // bucketGetter is an accessor interface to grab the "Bucket" field from

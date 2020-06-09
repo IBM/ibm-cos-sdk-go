@@ -457,6 +457,7 @@ func ServiceID(a *API) string {
 	return name
 }
 
+// IBM COS SDK Code -- START
 // A tplService defines the template for the service generated code.
 var tplService = template.Must(template.New("service").Funcs(template.FuncMap{
 	"ServiceNameConstValue": ServiceName,
@@ -644,6 +645,8 @@ func (c *{{ .StructName }}) newRequest(op *request.Operation, params, data inter
 }
 `))
 
+// IBM COS SDK Code -- END
+
 // ServicePackageDoc generates the contents of the doc file for the service.
 //
 // Will also read in the custom doc templates for the service if found.
@@ -735,12 +738,14 @@ var tplInterface = template.Must(template.New("interface").Parse(`
 //        // Make svc.{{ $opt.ExportedName }} request
 //    }
 //
+// IBM COS SDK Code -- START
 //    func main() {
 //        sess := session.Must(session.NewSession())
 //        svc := {{ .PackageName }}.New(sess)
 //
 //        myFunc(svc)
 //    }
+// IBM COS SDK Code -- END
 //
 // In your _test.go file:
 //

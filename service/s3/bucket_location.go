@@ -92,6 +92,7 @@ func buildGetBucketLocation(r *request.Request) {
 	}
 }
 
+// IBM COS SDK Code -- START
 // func populateLocationConstraint(r *request.Request) {
 // 	if r.ParamsFilled() && aws.StringValue(r.Config.Region) != "us-east-1" {
 // 		in := r.Params.(*CreateBucketInput)
@@ -104,3 +105,4 @@ func buildGetBucketLocation(r *request.Request) {
 // 		}
 // 	}
 // }
+// IBM COS SDK Code -- END

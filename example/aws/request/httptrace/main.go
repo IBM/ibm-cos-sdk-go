@@ -2,6 +2,7 @@
 
 package main
 
+// IBM COS SDK Code -- START
 import (
 	"bufio"
 	"context"
@@ -93,3 +94,5 @@ func exitErrorf(err error, msg string, args ...interface{}) {
 	fmt.Fprintf(os.Stderr, "FAILED: %v\n"+msg+"\n", append([]interface{}{err}, args...)...)
 	os.Exit(1)
 }
+
+// IBM COS SDK Code -- END

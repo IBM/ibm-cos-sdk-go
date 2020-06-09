@@ -102,6 +102,7 @@ func CredChain(cfg *aws.Config, handlers request.Handlers) *credentials.Credenti
 // different  environment variables for legacy reasons) but still fall back
 // on the default chain of providers. This allows that default chain to be
 // automatically updated
+// IBM COS SDK Code -- START
 func CredProviders(cfg *aws.Config, handlers request.Handlers) []credentials.Provider {
 	return []credentials.Provider{
 		ibmiam.NewEnvProvider(cfg),
@@ -111,6 +112,8 @@ func CredProviders(cfg *aws.Config, handlers request.Handlers) []credentials.Pro
 		&credentials.SharedCredentialsProvider{Filename: "", Profile: ""},
 	}
 }
+
+// IBM COS SDK Code -- END
 
 const (
 	httpProviderAuthorizationEnvVar = "AWS_CONTAINER_AUTHORIZATION_TOKEN"

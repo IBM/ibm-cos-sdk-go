@@ -29,12 +29,14 @@ import (
 //        // Make svc.EmptyStream request
 //    }
 //
+// IBM COS SDK Code -- START
 //    func main() {
 //        sess := session.Must(session.NewSession())
 //        svc := rpcservice.New(sess)
 //
 //        myFunc(svc)
 //    }
+// IBM COS SDK Code -- END
 //
 // In your _test.go file:
 //

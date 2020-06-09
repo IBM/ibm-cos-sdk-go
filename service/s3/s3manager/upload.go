@@ -749,6 +749,7 @@ func (u *multiuploader) complete() *s3.CompleteMultipartUploadOutput {
 	sort.Sort(u.parts)
 	params := &s3.CompleteMultipartUploadInput{}
 
+	// IBM COS SDK Code -- START
 	// Function restored from AWS version 1.25.16 --
 	// IBM COS has WORM parameters set in the CompleteMultipartRequest whereas AWS does not
 	// thus we have to retain the following copy function to pass in the values of:
@@ -757,6 +758,7 @@ func (u *multiuploader) complete() *s3.CompleteMultipartUploadOutput {
 
 	params.UploadId = &u.uploadID
 	params.MultipartUpload = &s3.CompletedMultipartUpload{Parts: u.parts}
+	// IBM COS SDK Code -- END
 	resp, err := u.cfg.S3.CompleteMultipartUploadWithContext(u.ctx, params, u.cfg.RequestOptions...)
 	if err != nil {
 		u.seterr(err)

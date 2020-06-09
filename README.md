@@ -38,16 +38,10 @@ Note: Immutable Object Storage does not support Aspera transfers via the SDK to 
 
 ## Getting the SDK
 
-Use go get to retrieve the SDK to add it to your GOPATH workspace, or project's Go module dependencies.  The SDK requires a minimum version of Go 1.12.
+Use go build to add the SDK to your project's Go module dependencies.  The SDK requires a minimum version of Go 1.12.
 
 ```sh
-go get github.com/IBM/ibm-cos-sdk-go
-```
-
-To update the SDK use ```go get -u``` to retrieve the latest version of the SDK.
-
-```sh
-go get -u github.com/IBM/ibm-cos-sdk-go
+go build ./...
 ```
 
 ## Example code

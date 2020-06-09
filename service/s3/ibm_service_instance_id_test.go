@@ -1,5 +1,6 @@
 package s3_test
 
+// IBM COS SDK Code -- START
 import (
 	"crypto/rand"
 	"encoding/hex"
@@ -107,3 +108,5 @@ func genRandomID() string {
 	}
 	return hex.EncodeToString(u)
 }
+
+// IBM COS SDK Code -- END

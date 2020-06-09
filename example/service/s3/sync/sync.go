@@ -102,10 +102,12 @@ func main() {
 	pathPtr := flag.String("path", "", "path of directory to be synced")
 	flag.Parse()
 
+	// IBM COS SDK Code -- START
 	sess := session.Must(session.NewSession(&aws.Config{
 		Region: regionPtr,
 	}))
 	uploader := s3manager.NewUploader(sess)
+	// IBM COS SDK Code -- END
 
 	iter := NewSyncFolderIterator(*pathPtr, *bucketPtr)
 	if err := uploader.UploadWithIterator(aws.BackgroundContext(), iter); err != nil {

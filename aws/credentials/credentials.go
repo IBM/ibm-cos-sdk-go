@@ -56,7 +56,9 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
 	"github.com/IBM/ibm-cos-sdk-go/internal/sync/singleflight"
 
+	// IBM COS SDK Code -- START
 	"github.com/IBM/ibm-cos-sdk-go/aws/credentials/ibmiam/token"
+	// IBM COS SDK Code -- END
 )
 
 // AnonymousCredentials is an empty Credential object that can be used as
@@ -89,11 +91,13 @@ type Value struct {
 	// Provider Type
 	ProviderType string
 
+	// IBM COS SDK Code -- START
 	// IBM IAM token value
 	token.Token
 
 	// Service Intance ID
 	ServiceInstanceID string
+	// IBM COS SDK Code -- END
 }
 
 // HasKeys returns if the credentials Value has both AccessKeyID and

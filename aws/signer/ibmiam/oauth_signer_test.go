@@ -14,6 +14,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// IBM COS SDK Code -- START
 // Mock for Provider using oauth sign
 type mockProv struct {
 	// IBM IAM Credentials Object
@@ -138,3 +139,5 @@ func TestSignedBadCredentials(t *testing.T) {
 	require.NotNil(t, err, errorExpectedNotFound)
 	assert.Equal(t, true, strings.Contains(err.Error(), `Bad Credentials /|\`), errorNotMatch)
 }
+
+// IBM COS SDK Code -- END

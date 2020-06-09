@@ -10,8 +10,12 @@ import (
 
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/aws/request"
+
+	// IBM COS SDK Code -- START
 	"github.com/IBM/ibm-cos-sdk-go/aws/signer"
 	v4 "github.com/IBM/ibm-cos-sdk-go/aws/signer/v4"
+
+	// IBM COS SDK Code -- END
 	"github.com/IBM/ibm-cos-sdk-go/awstesting/unit"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 )
@@ -39,7 +43,9 @@ func TestPresignHandler(t *testing.T) {
 	svc.Handlers.Sign.SwapNamed(request.NamedHandler{
 		Name: signer.SignRequestHandler.Name,
 		Fn: func(r *request.Request) {
+			// IBM COS SDK Code -- START
 			v4.SignSDKRequestWithCurrentTime(r, epochTime)
+			// IBM COS SDK Code -- END
 		},
 	})
 
@@ -96,7 +102,9 @@ func TestPresignRequest(t *testing.T) {
 	svc.Handlers.Sign.SwapNamed(request.NamedHandler{
 		Name: signer.SignRequestHandler.Name,
 		Fn: func(r *request.Request) {
+			// IBM COS SDK Code -- START
 			v4.SignSDKRequestWithCurrentTime(r, epochTime)
+			// IBM COS SDK Code -- END
 		},
 	})
 

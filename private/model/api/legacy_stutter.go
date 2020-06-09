@@ -60,6 +60,7 @@ var legacyStutterNames = map[string]stutterNames{
 			"SnowballCapacity": "Capacity",
 		},
 	},
+	// IBM COS SDK Code -- START
 	// S3 legacy shapes don't work on IBM COS SDK
 	// "S3": {
 	// 	Shapes: map[string]string{
@@ -67,6 +68,7 @@ var legacyStutterNames = map[string]stutterNames{
 	// 		"S3Location":  "Location",
 	// 	},
 	// },
+	// IBM COS SDK Code -- END
 	"Rekognition": {
 		Shapes: map[string]string{
 			"RekognitionUniqueId": "UniqueId",

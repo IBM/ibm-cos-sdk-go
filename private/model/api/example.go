@@ -52,6 +52,7 @@ var exampleFuncMap = template.FuncMap{
 
 var exampleCustomizations = map[string]template.FuncMap{}
 
+// IBM COS SDK Code -- START
 var exampleTmpls = template.Must(template.New("example").Funcs(exampleFuncMap).Parse(`
 {{ generateTypes . }}
 {{ commentify (wrap .Title 80) }}
@@ -85,6 +86,8 @@ func Example{{ .API.StructName }}_{{ .MethodName }}() {
 	fmt.Println(result)
 }
 `))
+
+// IBM COS SDK Code -- END
 
 // Names will return the name of the example. This will also be the name of the operation
 // that is to be tested.

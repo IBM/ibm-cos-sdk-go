@@ -8,7 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/IBM/ibm-cos-sdk-go/aws/signer/v4"
+	// IBM COS SDK Code -- START
+	v4 "github.com/IBM/ibm-cos-sdk-go/aws/signer/v4"
+	// IBM COS SDK Code -- END
 	"github.com/IBM/ibm-cos-sdk-go/awstesting/unit"
 )
 

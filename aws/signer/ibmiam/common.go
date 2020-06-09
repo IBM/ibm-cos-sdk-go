@@ -1,5 +1,6 @@
 package ibmiam
 
+// IBM COS SDK Code -- START
 const (
 	// LOGGER constants
 	debugLog              = "<DEBUG>"
@@ -12,3 +13,5 @@ const (
 	// Global constant
 	operation = "Operation"
 )
+
+// IBM COS SDK Code -- END

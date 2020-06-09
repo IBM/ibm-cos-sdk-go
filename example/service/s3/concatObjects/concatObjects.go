@@ -57,7 +57,9 @@ func main() {
 	key1 := os.Args[2]
 	key2 := os.Args[3]
 	key3 := os.Args[4]
+	// IBM COS SDK Code -- START
 	sess := session.Must(session.NewSession(&aws.Config{}))
+	// IBM COS SDK Code -- END
 	svc := s3.New(sess)
 
 	c := client{svc, &bucket}

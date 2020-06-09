@@ -223,9 +223,10 @@ var AfterRetryHandler = request.NamedHandler{
 // region is not valid.
 var ValidateEndpointHandler = request.NamedHandler{Name: "core.ValidateEndpointHandler", Fn: func(r *request.Request) {
 
+	// IBM COS SDK Code -- START
 	checkIfRegionPresent := true
 
-	// IBM COS SDK: Anonymous Creds support
+	// Anonymous Creds support
 	if r.Config.Credentials != credentials.AnonymousCredentials {
 		value, err := r.Config.Credentials.Get()
 		if err != nil {
@@ -240,4 +241,5 @@ var ValidateEndpointHandler = request.NamedHandler{Name: "core.ValidateEndpointH
 	} else if r.ClientInfo.Endpoint == "" {
 		r.Error = aws.ErrMissingEndpoint
 	}
+	// IBM COS SDK Code -- END
 }}

@@ -483,6 +483,7 @@ func mergeConfigSrcs(cfg, userCfg *aws.Config,
 	// Configure credentials if not already set by the user when creating the
 	// Session.
 	if cfg.Credentials == credentials.AnonymousCredentials && userCfg.Credentials == nil {
+		// IBM COS SDK Code -- START
 		if iBmIamCreds := getIBMIAMCredentials(userCfg); iBmIamCreds != nil {
 			cfg.Credentials = iBmIamCreds
 		} else {
@@ -492,6 +493,7 @@ func mergeConfigSrcs(cfg, userCfg *aws.Config,
 			}
 			cfg.Credentials = creds
 		}
+		// IBM COS SDK Code -- END
 	}
 
 	cfg.S3UseARNRegion = userCfg.S3UseARNRegion
@@ -514,6 +516,7 @@ func mergeS3UsEast1RegionalEndpointConfig(cfg *aws.Config, values []endpoints.S3
 	}
 }
 
+// IBM COS SDK Code -- START
 // getIBMIAMCredentials retrieve token manager creds or ibm based credentials
 func getIBMIAMCredentials(config *aws.Config) *credentials.Credentials {
 
@@ -531,6 +534,8 @@ func getIBMIAMCredentials(config *aws.Config) *credentials.Credentials {
 
 	return nil
 }
+
+// IBM COS SDK Code -- END
 
 func initHandlers(s *Session) {
 	// Add the Validate parameter handler if it is not disabled.

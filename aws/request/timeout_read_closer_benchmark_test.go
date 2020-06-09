@@ -10,7 +10,7 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/client"
 	"github.com/IBM/ibm-cos-sdk-go/aws/client/metadata"
 	"github.com/IBM/ibm-cos-sdk-go/aws/request"
-	"github.com/IBM/ibm-cos-sdk-go/aws/signer/v4"
+	v4 "github.com/IBM/ibm-cos-sdk-go/aws/signer/v4"
 	"github.com/IBM/ibm-cos-sdk-go/awstesting/unit"
 	"github.com/IBM/ibm-cos-sdk-go/private/protocol/jsonrpc"
 )

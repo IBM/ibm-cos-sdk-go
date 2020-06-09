@@ -61,9 +61,11 @@ func main() {
 		return
 	}
 
+	// IBM COS SDK Code -- START
 	sess := session.Must(session.NewSession(&aws.Config{
 		Credentials: creds,
 	}))
+	// IBM COS SDK Code -- END
 
 	file, err := os.Open(fileName)
 	if err != nil {

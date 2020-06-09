@@ -20,7 +20,9 @@ func TestNewDefaultSession(t *testing.T) {
 	restoreEnvFn := initSessionTestEnv()
 	defer restoreEnvFn()
 
+	// IBM COS SDK Code -- START
 	s, _ := NewSession(&aws.Config{Region: aws.String("region")})
+	// IBM COS SDK Code -- END
 
 	if e, a := "region", *s.Config.Region; e != a {
 		t.Errorf("expect %v, got %v", e, a)
@@ -41,7 +43,9 @@ func TestNew_WithCustomCreds(t *testing.T) {
 	defer restoreEnvFn()
 
 	customCreds := credentials.NewStaticCredentials("AKID", "SECRET", "TOKEN")
+	// IBM COS SDK Code -- START
 	s, _ := NewSession(&aws.Config{Credentials: customCreds})
+	// IBM COS SDK Code -- END
 
 	if e, a := customCreds, s.Config.Credentials; e != a {
 		t.Errorf("expect %v, got %v", e, a)

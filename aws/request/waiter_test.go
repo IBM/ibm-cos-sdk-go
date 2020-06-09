@@ -57,8 +57,10 @@ func BuildNewMockRequest(c *mockClient, in *MockInput) func([]request.Option) (*
 // Mock AWS Client with IBM COS SDK Anonymous creds
 func TestWaiterPathAll(t *testing.T) {
 	svc := &mockClient{Client: awstesting.NewClient(&aws.Config{
-		Region:      aws.String("mock-region"),
+		Region: aws.String("mock-region"),
+		// IBM COS SDK Code -- START
 		Credentials: credentials.AnonymousCredentials,
+		// IBM COS SDK Code -- END
 	})}
 	svc.Handlers.Send.Clear() // mock sending
 	svc.Handlers.Unmarshal.Clear()
@@ -129,8 +131,10 @@ func TestWaiterPathAll(t *testing.T) {
 
 func TestWaiterPath(t *testing.T) {
 	svc := &mockClient{Client: awstesting.NewClient(&aws.Config{
-		Region:      aws.String("mock-region"),
+		Region: aws.String("mock-region"),
+		// IBM COS SDK Code -- START
 		Credentials: credentials.AnonymousCredentials,
+		// IBM COS SDK Code -- END
 	})}
 	svc.Handlers.Send.Clear() // mock sending
 	svc.Handlers.Unmarshal.Clear()
@@ -201,8 +205,10 @@ func TestWaiterPath(t *testing.T) {
 
 func TestWaiterFailure(t *testing.T) {
 	svc := &mockClient{Client: awstesting.NewClient(&aws.Config{
-		Region:      aws.String("mock-region"),
+		Region: aws.String("mock-region"),
+		// IBM COS SDK Code -- START
 		Credentials: credentials.AnonymousCredentials,
+		// IBM COS SDK Code -- END
 	})}
 	svc.Handlers.Send.Clear() // mock sending
 	svc.Handlers.Unmarshal.Clear()
@@ -285,8 +291,10 @@ func TestWaiterFailure(t *testing.T) {
 
 func TestWaiterError(t *testing.T) {
 	svc := &mockClient{Client: awstesting.NewClient(&aws.Config{
-		Region:      aws.String("mock-region"),
+		Region: aws.String("mock-region"),
+		// IBM COS SDK Code -- START
 		Credentials: credentials.AnonymousCredentials,
+		// IBM COS SDK Code -- END
 	})}
 	svc.Handlers.Send.Clear() // mock sending
 	svc.Handlers.Unmarshal.Clear()
@@ -394,8 +402,10 @@ func TestWaiterError(t *testing.T) {
 
 func TestWaiterStatus(t *testing.T) {
 	svc := &mockClient{Client: awstesting.NewClient(&aws.Config{
-		Region:      aws.String("mock-region"),
+		Region: aws.String("mock-region"),
+		// IBM COS SDK Code -- START
 		Credentials: credentials.AnonymousCredentials,
+		// IBM COS SDK Code -- END
 	})}
 	svc.Handlers.Send.Clear() // mock sending
 	svc.Handlers.Unmarshal.Clear()
