@@ -7087,7 +7087,7 @@ type GetObjectOutput struct {
 	// The date and time at which the object is no longer cacheable.
 	Expires *string `location:"header" locationName:"Expires" type:"string"`
 
-	IBMRestoredCopyStorageClass *string `location:"header" locationName:"x-ibm-restored-copy-storage-class" type:"string"`
+	IBMRestoredCopyStorageClass *string `location:"header" locationName:"x-ibm-restored-copy-storage-class" type:"string" enum:"StorageClass"`
 
 	// This header is only included if an object has transition metadata. This header
 	// will indicate the transition storage class and time of transition. If this
@@ -7841,7 +7841,7 @@ type HeadObjectOutput struct {
 	// The date and time at which the object is no longer cacheable.
 	Expires *string `location:"header" locationName:"Expires" type:"string"`
 
-	IBMRestoredCopyStorageClass *string `location:"header" locationName:"x-ibm-restored-copy-storage-class" type:"string"`
+	IBMRestoredCopyStorageClass *string `location:"header" locationName:"x-ibm-restored-copy-storage-class" type:"string" enum:"StorageClass"`
 
 	// This header is only included if an object has transition metadata. This header
 	// will indicate the transition storage class and time of transition. If this
@@ -12072,6 +12072,9 @@ const (
 	// ObjectStorageClassGlacier is a ObjectStorageClass enum value
 	ObjectStorageClassGlacier = "GLACIER"
 
+	// ObjectStorageClassAccelerated is a ObjectStorageClass enum value
+	ObjectStorageClassAccelerated = "ACCELERATED"
+
 	// ObjectStorageClassStandardIa is a ObjectStorageClass enum value
 	ObjectStorageClassStandardIa = "STANDARD_IA"
 
@@ -12167,6 +12170,9 @@ const (
 	// StorageClassGlacier is a StorageClass enum value
 	StorageClassGlacier = "GLACIER"
 
+	// StorageClassAccelerated is a StorageClass enum value
+	StorageClassAccelerated = "ACCELERATED"
+
 	// StorageClassDeepArchive is a StorageClass enum value
 	StorageClassDeepArchive = "DEEP_ARCHIVE"
 )
@@ -12180,13 +12186,37 @@ const (
 )
 
 const (
+	// TierAccelerated is a Tier enum value
+	TierAccelerated = "Accelerated"
+
+	// TierStandard is a Tier enum value
+	TierStandard = "Standard"
+
 	// TierBulk is a Tier enum value
 	TierBulk = "Bulk"
+
+	// TierExpedited is a Tier enum value
+	TierExpedited = "Expedited"
 )
 
 const (
 	// TransitionStorageClassGlacier is a TransitionStorageClass enum value
 	TransitionStorageClassGlacier = "GLACIER"
+
+	// TransitionStorageClassAccelerated is a TransitionStorageClass enum value
+	TransitionStorageClassAccelerated = "ACCELERATED"
+
+	// TransitionStorageClassStandardIa is a TransitionStorageClass enum value
+	TransitionStorageClassStandardIa = "STANDARD_IA"
+
+	// TransitionStorageClassOnezoneIa is a TransitionStorageClass enum value
+	TransitionStorageClassOnezoneIa = "ONEZONE_IA"
+
+	// TransitionStorageClassIntelligentTiering is a TransitionStorageClass enum value
+	TransitionStorageClassIntelligentTiering = "INTELLIGENT_TIERING"
+
+	// TransitionStorageClassDeepArchive is a TransitionStorageClass enum value
+	TransitionStorageClassDeepArchive = "DEEP_ARCHIVE"
 )
 
 const (

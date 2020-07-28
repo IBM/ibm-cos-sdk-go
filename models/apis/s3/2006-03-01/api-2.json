@@ -2213,15 +2213,15 @@
           "location":"header",
           "locationName":"x-amz-tagging-count"
         },
+        "IBMRestoredCopyStorageClass":{
+          "shape":"StorageClass",
+          "location":"header",
+          "locationName":"x-ibm-restored-copy-storage-class"
+        },
         "IBMTransition":{
           "shape":"IBMTransition",
           "location":"header",
           "locationName":"x-ibm-transition"
-        },
-        "IBMRestoredCopyStorageClass":{
-          "shape":"IBMRestoredCopyStorageClass",
-          "location":"header",
-          "locationName":"x-ibm-restored-copy-storage-class"
         }
       },
       "payload":"Body"
@@ -2544,15 +2544,15 @@
           "location":"header",
           "locationName":"x-amz-mp-parts-count"
         },
+        "IBMRestoredCopyStorageClass":{
+          "shape":"StorageClass",
+          "location":"header",
+          "locationName":"x-ibm-restored-copy-storage-class"
+        },
         "IBMTransition":{
           "shape":"IBMTransition",
           "location":"header",
           "locationName":"x-ibm-transition"
-        },
-        "IBMRestoredCopyStorageClass":{
-          "shape":"IBMRestoredCopyStorageClass",
-          "location":"header",
-          "locationName":"x-ibm-restored-copy-storage-class"
         }
       }
     },
@@ -2633,7 +2633,6 @@
     "HostName":{"type":"string"},
     "HttpErrorCodeReturnedEquals":{"type":"string"},
     "HttpRedirectCode":{"type":"string"},
-    "IBMRestoredCopyStorageClass":{"type":"string"},
     "IBMServiceInstanceId":{"type":"string"},
     "IBMSSEKPCustomerRootKeyCrn":{"type":"string"},
     "IBMSSEKPEncryptionAlgorithm":{"type":"string"},
@@ -3516,6 +3515,7 @@
         "STANDARD",
         "REDUCED_REDUNDANCY",
         "GLACIER",
+        "ACCELERATED",
         "STANDARD_IA",
         "ONEZONE_IA",
         "INTELLIGENT_TIERING",
@@ -4551,6 +4551,7 @@
         "ONEZONE_IA",
         "INTELLIGENT_TIERING",
         "GLACIER",
+        "ACCELERATED",
         "DEEP_ARCHIVE"
       ]
     },
@@ -4629,7 +4630,10 @@
     "Tier":{
       "type":"string",
       "enum":[
-        "Bulk"
+        "Accelerated",
+        "Standard",
+        "Bulk",
+        "Expedited"
       ]
     },
     "Token":{"type":"string"},
@@ -4689,7 +4693,12 @@
     "TransitionStorageClass":{
       "type":"string",
       "enum":[
-        "GLACIER"
+        "GLACIER",
+        "ACCELERATED",
+        "STANDARD_IA",
+        "ONEZONE_IA",
+        "INTELLIGENT_TIERING",
+        "DEEP_ARCHIVE"
       ]
     },
     "Type":{
