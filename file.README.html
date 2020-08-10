@@ -99,11 +99,21 @@ API reference documentation</a></p>
 
 <h2 id="label-Quick+start">Quick start</h2>
 
-<p>You&#39;ll need:  * An instance of COS.  * An API key from <a
+<p>You&#39;ll need:</p>
+<ul><li>
+<p>An instance of COS.</p>
+</li><li>
+<p>An API key from <a
 href="https://cloud.ibm.com/docs/iam?topic=iam-userroles#userroles">IBM
 Cloud Identity and Access Management</a> with at least <code>Writer</code>
-permissions.  * The ID of the instance of COS that you are working with.  *
-Token acquisition endpoint  * Service endpoint</p>
+permissions.</p>
+</li><li>
+<p>The ID of the instance of COS that you are working with.</p>
+</li><li>
+<p>Token acquisition endpoint</p>
+</li><li>
+<p>Service endpoint</p>
+</li></ul>
 
 <p>These values can be found in the IBM Cloud Console by <a
 href="https://cloud.ibm.com/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials#service-credentials">generating
@@ -137,19 +147,17 @@ Cloud documentation</a>.</p>
 <p>Note: Immutable Object Storage does not support Aspera transfers via the
 SDK to upload objects or directories at this stage.</p>
 
+<h2 id="label-Accelerated+Archive">Accelerated Archive</h2>
+
+<p>Users can set an archive rule that would allow data restore from an archive
+in 2 hours or 12 hours.</p>
+
 <h2 id="label-Getting+the+SDK">Getting the SDK</h2>
 
-<p>Use go get to retrieve the SDK to add it to your GOPATH workspace, or
-project&#39;s Go module dependencies. The SDK requires a minimum version of
-Go 1.12.</p>
+<p>Use go build to add the SDK to your project&#39;s Go module dependencies.
+The SDK requires a minimum version of Go 1.12.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_go'>go</span> <span class='id identifier rubyid_get'>get</span> <span class='id identifier rubyid_github'>github</span><span class='period'>.</span><span class='id identifier rubyid_com'>com</span><span class='op'>/</span><span class='const'>IBM</span><span class='op'>/</span><span class='id identifier rubyid_ibm'>ibm</span><span class='op'>-</span><span class='id identifier rubyid_cos'>cos</span><span class='op'>-</span><span class='id identifier rubyid_sdk'>sdk</span><span class='op'>-</span><span class='id identifier rubyid_go'>go</span>
-</code></pre>
-
-<p>To update the SDK use <code>go get -u</code> to retrieve the latest version
-of the SDK.</p>
-
-<pre class="code ruby"><code class="ruby">go get -u github.com/IBM/ibm-cos-sdk-go</code></pre>
+<pre class="code ruby"><code class="ruby">go build ./...</code></pre>
 
 <h2 id="label-Example+code">Example code</h2>
 
@@ -159,50 +167,50 @@ instance ID, and bucket name:</p>
 <pre class="code ruby"><code class="ruby">package main
 
 import (
-	&quot;fmt&quot;
+ &quot;fmt&quot;
 
-	&quot;github.com/IBM/ibm-cos-sdk-go/aws&quot;
-	&quot;github.com/IBM/ibm-cos-sdk-go/aws/credentials/ibmiam&quot;
-	&quot;github.com/IBM/ibm-cos-sdk-go/aws/session&quot;
-	&quot;github.com/IBM/ibm-cos-sdk-go/service/s3&quot;
+ &quot;github.com/IBM/ibm-cos-sdk-go/aws&quot;
+ &quot;github.com/IBM/ibm-cos-sdk-go/aws/credentials/ibmiam&quot;
+ &quot;github.com/IBM/ibm-cos-sdk-go/aws/session&quot;
+ &quot;github.com/IBM/ibm-cos-sdk-go/service/s3&quot;
 )
 
 const (
-	apiKey            = &quot;&lt;API_KEY&gt;&quot;
-	serviceInstanceID = &quot;&lt;RESOURCE_INSTANCE_ID&gt;&quot;
-	authEndpoint      = &quot;https://iam.cloud.ibm.com/identity/token&quot;
-	serviceEndpoint   = &quot;https://s3-api.us-geo.objectstorage.softlayer.net&quot;
+ apiKey            = &quot;&lt;API_KEY&gt;&quot;
+ serviceInstanceID = &quot;&lt;RESOURCE_INSTANCE_ID&gt;&quot;
+ authEndpoint      = &quot;https://iam.cloud.ibm.com/identity/token&quot;
+ serviceEndpoint   = &quot;https://s3-api.us-geo.objectstorage.softlayer.net&quot;
 )
 
 func main() {
 
-	newBucket := &quot;new-bucketee&quot;
-	newColdBucket := &quot;new-cold-bucketee&quot;
+ newBucket := &quot;new-bucketee&quot;
+ newColdBucket := &quot;new-cold-bucketee&quot;
 
-	conf := aws.NewConfig().
-		WithEndpoint(serviceEndpoint).
-		WithCredentials(ibmiam.NewStaticCredentials(aws.NewConfig(),
-			authEndpoint, apiKey, serviceInstanceID)).
-		WithS3ForcePathStyle(true)
+ conf := aws.NewConfig().
+  WithEndpoint(serviceEndpoint).
+  WithCredentials(ibmiam.NewStaticCredentials(aws.NewConfig(),
+   authEndpoint, apiKey, serviceInstanceID)).
+  WithS3ForcePathStyle(true)
 
-	sess := session.Must(session.NewSession())
-	client := s3.New(sess, conf)
+ sess := session.Must(session.NewSession())
+ client := s3.New(sess, conf)
 
-	input := &amp;s3.CreateBucketInput{
-		Bucket: aws.String(newBucket),
-	}
-	client.CreateBucket(input)
+ input := &amp;s3.CreateBucketInput{
+  Bucket: aws.String(newBucket),
+ }
+ client.CreateBucket(input)
 
-	input2 := &amp;s3.CreateBucketInput{
-		Bucket: aws.String(newColdBucket),
-		CreateBucketConfiguration: &amp;s3.CreateBucketConfiguration{
-			LocationConstraint: aws.String(&quot;us-cold&quot;),
-		},
-	}
-	client.CreateBucket(input2)
+ input2 := &amp;s3.CreateBucketInput{
+  Bucket: aws.String(newColdBucket),
+  CreateBucketConfiguration: &amp;s3.CreateBucketConfiguration{
+   LocationConstraint: aws.String(&quot;us-cold&quot;),
+  },
+ }
+ client.CreateBucket(input2)
 
-	d, _ := client.ListBuckets(&amp;s3.ListBucketsInput{})
-	fmt.Println(d)
+ d, _ := client.ListBuckets(&amp;s3.ListBucketsInput{})
+ fmt.Println(d)
 }</code></pre>
 
 <p>From the command line, run <code>go run main.go</code>. You should see a
@@ -239,7 +247,7 @@ href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version
       </div>
 
       <div id="footer">
-  Generated on Mon Aug 10 17:15:18 2020 by
+  Generated on Mon Aug 10 18:24:00 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.3.1).
 </div>

@@ -339,9 +339,10 @@ region is not valid.</p>
             <h3>Value:</h3>
             <pre class="code"><div class="hljs"><span class='object_link'><a href="request.html#type-NamedHandler" title="request (package)">request.NamedHandler</a></span>{Name: <span class="hljs-string">"core.ValidateEndpointHandler"</span>, Fn: <span class="hljs-keyword">func</span>(r *<span class='object_link'><a href="request/Request.html" title="request.Request (struct)">request.Request</a></span>) {
 
+	<span class="hljs-comment">// IBM COS SDK Code -- START</span>
 	checkIfRegionPresent := <span class="hljs-constant">true</span>
 
-	<span class="hljs-comment">// IBM COS SDK: Anonymous Creds support</span>
+	<span class="hljs-comment">// Anonymous Creds support</span>
 	<span class="hljs-keyword">if</span> r.Config.Credentials != <span class='object_link'><a href="credentials.html#AnonymousCredentials-constant" title="aws/credentials.AnonymousCredentials (constant)">credentials.AnonymousCredentials</a></span> {
 		value, err := r.Config.Credentials.Get()
 		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
@@ -356,6 +357,7 @@ region is not valid.</p>
 	} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> r.ClientInfo.Endpo<span class="hljs-constant">int</span> == <span class="hljs-string">""</span> {
 		r.Error = aws.ErrMissingEndpo<span class="hljs-constant">int</span>
 	}
+	<span class="hljs-comment">// IBM COS SDK Code -- END</span>
 }}</div></pre>
           </dd>
         
@@ -476,7 +478,7 @@ request being sent.</p>
       </div>
 
       <div id="footer">
-  Generated on Mon Aug 10 17:15:22 2020 by
+  Generated on Mon Aug 10 18:24:05 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.3.1).
 </div>
