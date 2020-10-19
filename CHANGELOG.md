@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 1.5.0
+
+### Content
+
+#### Features
+
+* Static Website
+
+#### Defect Fixes
+
+* Add language support policy
+
 ## 1.4.0
 
 ### Content

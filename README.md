@@ -3,6 +3,10 @@
 This package allows Go developers to write software that interacts with [IBM
 Cloud Object Storage](https://www.ibm.com/cloud/object-storage).  It is a fork of the [``AWS SDK for Go``](https://github.com/aws/aws-sdk-go) library and can stand as a drop-in replacement if the application needs to connect to object storage using an S3-like API and does not make use of other AWS services.
 
+## Notice
+
+IBM has added a [Language Support Policy](#language-support-policy). Language versions will be deprecated on the published schedule without additional notice.
+
 ## Documentation
 
 * [Core documentation for IBM COS](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started)
@@ -116,6 +120,10 @@ Feel free to use GitHub issues for tracking bugs and feature requests, but for h
 * Ask a question on [Stack Overflow](https://stackoverflow.com/questions/tagged/object-storage+ibm) and tag it with `ibm` and `object-storage`.
 * Open a support ticket with [IBM Cloud Support](https://cloud.ibm.com/unifiedsupport/supportcenter/)
 * If it turns out that you may have found a bug, please [open an issue](https://github.com/ibm/ibm-cos-sdk-go/issues/new).
+
+## Language Support Policy
+
+IBM supports [current public releases](https://golang.org/doc/devel/release.html). IBM will deprecate language versions 90 days after a version reaches end-of-life. All clients will need to upgrade to a supported version before the end of the grace period.
 
 ## License
 
