@@ -122,6 +122,16 @@
       },
       "input":{"shape":"DeleteLegalHoldRequest"}
     },
+    "DeleteBucketWebsite":{
+      "name":"DeleteBucketWebsite",
+      "http":{
+        "method":"DELETE",
+        "requestUri":"/{Bucket}?website",
+        "responseCode":204
+      },
+      "input":{"shape":"DeleteBucketWebsiteRequest"},
+      "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETEwebsite.html"
+    },
     "DeleteObject":{
       "name":"DeleteObject",
       "http":{
@@ -211,7 +221,16 @@
       "input":{"shape":"GetBucketProtectionConfigurationRequest"},
       "output":{"shape":"GetBucketProtectionConfigurationOutput"}
     },
-    
+    "GetBucketWebsite":{
+      "name":"GetBucketWebsite",
+      "http":{
+        "method":"GET",
+        "requestUri":"/{Bucket}?website"
+      },
+      "input":{"shape":"GetBucketWebsiteRequest"},
+      "output":{"shape":"GetBucketWebsiteOutput"},
+      "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETwebsite.html"
+    },
     "GetObject":{
       "name":"GetObject",
       "http":{
@@ -384,6 +403,16 @@
         "requestUri":"/{Bucket}?protection"
       },
       "input":{"shape":"PutBucketProtectionConfigurationRequest"}
+    },
+    "PutBucketWebsite":{
+      "name":"PutBucketWebsite",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/{Bucket}?website"
+      },
+      "input":{"shape":"PutBucketWebsiteRequest"},
+      "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTwebsite.html",
+      "httpChecksumRequired":true
     },
     "PutObject":{
       "name":"PutObject",
@@ -1581,6 +1610,17 @@
         }
       }
     },
+    "DeleteBucketWebsiteRequest":{
+      "type":"structure",
+      "required":["Bucket"],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        }
+      }
+    },
     "DeleteMarker":{"type":"boolean"},
     "DeleteMarkerEntry":{
       "type":"structure",
@@ -2002,6 +2042,26 @@
       "payload":"ProtectionConfiguration"
     },
     "GetBucketProtectionConfigurationRequest":{
+      "type":"structure",
+      "required":["Bucket"],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        }
+      }
+    },
+    "GetBucketWebsiteOutput":{
+      "type":"structure",
+      "members":{
+        "RedirectAllRequestsTo":{"shape":"RedirectAllRequestsTo"},
+        "IndexDocument":{"shape":"IndexDocument"},
+        "ErrorDocument":{"shape":"ErrorDocument"},
+        "RoutingRules":{"shape":"RoutingRules"}
+      }
+    },
+    "GetBucketWebsiteRequest":{
       "type":"structure",
       "required":["Bucket"],
       "members":{
@@ -3829,6 +3889,33 @@
       },
       "payload":"ProtectionConfiguration"
     },
+    "PutBucketWebsiteRequest":{
+      "type":"structure",
+      "required":[
+        "Bucket",
+        "WebsiteConfiguration"
+      ],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        },
+        "ContentMD5":{
+          "shape":"ContentMD5",
+          "deprecated":true,
+          "deprecatedMessage":"Content-MD5 header will now be automatically computed and injected in associated operation's Http request.",
+          "location":"header",
+          "locationName":"Content-MD5"
+        },
+        "WebsiteConfiguration":{
+          "shape":"WebsiteConfiguration",
+          "locationName":"WebsiteConfiguration",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}
+        }
+      },
+      "payload":"WebsiteConfiguration"
+    },
     "PutObjectAclOutput":{
       "type":"structure",
       "members":{
@@ -4963,6 +5050,15 @@
           "locationName":"MfaDelete"
         },
         "Status":{"shape":"BucketVersioningStatus"}
+      }
+    },
+    "WebsiteConfiguration":{
+      "type":"structure",
+      "members":{
+        "ErrorDocument":{"shape":"ErrorDocument"},
+        "IndexDocument":{"shape":"IndexDocument"},
+        "RedirectAllRequestsTo":{"shape":"RedirectAllRequestsTo"},
+        "RoutingRules":{"shape":"RoutingRules"}
       }
     },
     "WebsiteRedirectLocation":{"type":"string"}

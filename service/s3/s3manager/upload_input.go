@@ -128,6 +128,21 @@ type UploadInput struct {
 
 	// If the bucket is configured as a website, redirects requests for this object
 	// to another object in the same bucket or to an external URL. Amazon S3 stores
-	// the value of this header in the object metadata.
+	// the value of this header in the object metadata. For information about object
+	// metadata, see Object Key and Metadata (https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html).
+	//
+	// In the following example, the request header sets the redirect to an object
+	// (anotherPage.html) in the same bucket:
+	//
+	// x-amz-website-redirect-location: /anotherPage.html
+	//
+	// In the following example, the request header sets the object redirect to
+	// another website:
+	//
+	// x-amz-website-redirect-location: http://www.example.com/
+	//
+	// For more information about website hosting in Amazon S3, see Hosting Websites
+	// on Amazon S3 (https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)
+	// and How to Configure Website Page Redirects (https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	WebsiteRedirectLocation *string `location:"header" locationName:"x-amz-website-redirect-location" type:"string"`
 }

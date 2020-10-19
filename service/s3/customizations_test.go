@@ -47,6 +47,21 @@ func TestMD5InPutBucketCors(t *testing.T) {
 	assertMD5(t, req)
 }
 
+func TestMD5InPutBucketWebsite(t *testing.T) {
+	t.Skip() // CSAFE-72760 See issue for more info on why this is skipped.
+	svc := s3.New(unit.Session)
+	req, _ := svc.PutBucketWebsiteRequest(&s3.PutBucketWebsiteInput{
+		Bucket: aws.String("bucket name"),
+		WebsiteConfiguration: &s3.WebsiteConfiguration{
+			ErrorDocument: &s3.ErrorDocument{
+				Key: aws.String("error"),
+			},
+		},
+	})
+
+	assertMD5(t, req)
+}
+
 // func TestMD5InPutBucketLifecycle(t *testing.T) {
 // 	svc := s3.New(unit.Session)
 // 	req, _ := svc.PutBucketLifecycleRequest(&s3.PutBucketLifecycleInput{

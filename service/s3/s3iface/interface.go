@@ -98,6 +98,10 @@ type S3API interface {
 	DeleteBucketLifecycleWithContext(aws.Context, *s3.DeleteBucketLifecycleInput, ...request.Option) (*s3.DeleteBucketLifecycleOutput, error)
 	DeleteBucketLifecycleRequest(*s3.DeleteBucketLifecycleInput) (*request.Request, *s3.DeleteBucketLifecycleOutput)
 
+	DeleteBucketWebsite(*s3.DeleteBucketWebsiteInput) (*s3.DeleteBucketWebsiteOutput, error)
+	DeleteBucketWebsiteWithContext(aws.Context, *s3.DeleteBucketWebsiteInput, ...request.Option) (*s3.DeleteBucketWebsiteOutput, error)
+	DeleteBucketWebsiteRequest(*s3.DeleteBucketWebsiteInput) (*request.Request, *s3.DeleteBucketWebsiteOutput)
+
 	DeleteLegalHold(*s3.DeleteLegalHoldInput) (*s3.DeleteLegalHoldOutput, error)
 	DeleteLegalHoldWithContext(aws.Context, *s3.DeleteLegalHoldInput, ...request.Option) (*s3.DeleteLegalHoldOutput, error)
 	DeleteLegalHoldRequest(*s3.DeleteLegalHoldInput) (*request.Request, *s3.DeleteLegalHoldOutput)
@@ -137,6 +141,10 @@ type S3API interface {
 	GetBucketProtectionConfiguration(*s3.GetBucketProtectionConfigurationInput) (*s3.GetBucketProtectionConfigurationOutput, error)
 	GetBucketProtectionConfigurationWithContext(aws.Context, *s3.GetBucketProtectionConfigurationInput, ...request.Option) (*s3.GetBucketProtectionConfigurationOutput, error)
 	GetBucketProtectionConfigurationRequest(*s3.GetBucketProtectionConfigurationInput) (*request.Request, *s3.GetBucketProtectionConfigurationOutput)
+
+	GetBucketWebsite(*s3.GetBucketWebsiteInput) (*s3.GetBucketWebsiteOutput, error)
+	GetBucketWebsiteWithContext(aws.Context, *s3.GetBucketWebsiteInput, ...request.Option) (*s3.GetBucketWebsiteOutput, error)
+	GetBucketWebsiteRequest(*s3.GetBucketWebsiteInput) (*request.Request, *s3.GetBucketWebsiteOutput)
 
 	GetObject(*s3.GetObjectInput) (*s3.GetObjectOutput, error)
 	GetObjectWithContext(aws.Context, *s3.GetObjectInput, ...request.Option) (*s3.GetObjectOutput, error)
@@ -216,6 +224,10 @@ type S3API interface {
 	PutBucketProtectionConfiguration(*s3.PutBucketProtectionConfigurationInput) (*s3.PutBucketProtectionConfigurationOutput, error)
 	PutBucketProtectionConfigurationWithContext(aws.Context, *s3.PutBucketProtectionConfigurationInput, ...request.Option) (*s3.PutBucketProtectionConfigurationOutput, error)
 	PutBucketProtectionConfigurationRequest(*s3.PutBucketProtectionConfigurationInput) (*request.Request, *s3.PutBucketProtectionConfigurationOutput)
+
+	PutBucketWebsite(*s3.PutBucketWebsiteInput) (*s3.PutBucketWebsiteOutput, error)
+	PutBucketWebsiteWithContext(aws.Context, *s3.PutBucketWebsiteInput, ...request.Option) (*s3.PutBucketWebsiteOutput, error)
+	PutBucketWebsiteRequest(*s3.PutBucketWebsiteInput) (*request.Request, *s3.PutBucketWebsiteOutput)
 
 	PutObject(*s3.PutObjectInput) (*s3.PutObjectOutput, error)
 	PutObjectWithContext(aws.Context, *s3.PutObjectInput, ...request.Option) (*s3.PutObjectOutput, error)

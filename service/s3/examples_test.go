@@ -276,6 +276,33 @@ func ExampleS3_DeleteBucketCors_shared00() {
 	fmt.Println(result)
 }
 
+// To delete bucket website configuration
+//
+// The following example deletes bucket website configuration.
+func ExampleS3_DeleteBucketWebsite_shared00() {
+	svc := s3.New(session.Must(session.NewSession()))
+	input := &s3.DeleteBucketWebsiteInput{
+		Bucket: aws.String("examplebucket"),
+	}
+
+	result, err := svc.DeleteBucketWebsite(input)
+	if err != nil {
+		if aerr, ok := err.(awserr.Error); ok {
+			switch aerr.Code() {
+			default:
+				fmt.Println(aerr.Error())
+			}
+		} else {
+			// Print the error, cast err to awserr.Error to get the Code and
+			// Message from an error.
+			fmt.Println(err.Error())
+		}
+		return
+	}
+
+	fmt.Println(result)
+}
+
 // To delete an object (from a non-versioned bucket)
 //
 // The following example deletes an object from a non-versioned bucket.
@@ -424,6 +451,33 @@ func ExampleS3_GetBucketLocation_shared00() {
 	}
 
 	result, err := svc.GetBucketLocation(input)
+	if err != nil {
+		if aerr, ok := err.(awserr.Error); ok {
+			switch aerr.Code() {
+			default:
+				fmt.Println(aerr.Error())
+			}
+		} else {
+			// Print the error, cast err to awserr.Error to get the Code and
+			// Message from an error.
+			fmt.Println(err.Error())
+		}
+		return
+	}
+
+	fmt.Println(result)
+}
+
+// To get bucket website configuration
+//
+// The following example retrieves website configuration of a bucket.
+func ExampleS3_GetBucketWebsite_shared00() {
+	svc := s3.New(session.Must(session.NewSession()))
+	input := &s3.GetBucketWebsiteInput{
+		Bucket: aws.String("examplebucket"),
+	}
+
+	result, err := svc.GetBucketWebsite(input)
 	if err != nil {
 		if aerr, ok := err.(awserr.Error); ok {
 			switch aerr.Code() {

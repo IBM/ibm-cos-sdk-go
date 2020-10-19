@@ -719,6 +719,100 @@ func (c *S3) DeleteBucketLifecycleWithContext(ctx aws.Context, input *DeleteBuck
 	return out, req.Send()
 }
 
+const opDeleteBucketWebsite = "DeleteBucketWebsite"
+
+// DeleteBucketWebsiteRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteBucketWebsite operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteBucketWebsite for more information on using the DeleteBucketWebsite
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteBucketWebsiteRequest method.
+//    req, resp := client.DeleteBucketWebsiteRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketWebsite
+func (c *S3) DeleteBucketWebsiteRequest(input *DeleteBucketWebsiteInput) (req *request.Request, output *DeleteBucketWebsiteOutput) {
+	op := &request.Operation{
+		Name:       opDeleteBucketWebsite,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/{Bucket}?website",
+	}
+
+	if input == nil {
+		input = &DeleteBucketWebsiteInput{}
+	}
+
+	output = &DeleteBucketWebsiteOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restxml.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteBucketWebsite API operation for Amazon Simple Storage Service.
+//
+// This operation removes the website configuration for a bucket. Amazon S3
+// returns a 200 OK response upon successfully deleting a website configuration
+// on the specified bucket. You will get a 200 OK response if the website configuration
+// you are trying to delete does not exist on the bucket. Amazon S3 returns
+// a 404 response if the bucket specified in the request does not exist.
+//
+// This DELETE operation requires the S3:DeleteBucketWebsite permission. By
+// default, only the bucket owner can delete the website configuration attached
+// to a bucket. However, bucket owners can grant other users permission to delete
+// the website configuration by writing a bucket policy granting them the S3:DeleteBucketWebsite
+// permission.
+//
+// For more information about hosting websites, see Hosting Websites on Amazon
+// S3 (https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
+//
+// The following operations are related to DeleteBucketWebsite:
+//
+//    * GetBucketWebsite
+//
+//    * PutBucketWebsite
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation DeleteBucketWebsite for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketWebsite
+func (c *S3) DeleteBucketWebsite(input *DeleteBucketWebsiteInput) (*DeleteBucketWebsiteOutput, error) {
+	req, out := c.DeleteBucketWebsiteRequest(input)
+	return out, req.Send()
+}
+
+// DeleteBucketWebsiteWithContext is the same as DeleteBucketWebsite with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteBucketWebsite for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) DeleteBucketWebsiteWithContext(ctx aws.Context, input *DeleteBucketWebsiteInput, opts ...request.Option) (*DeleteBucketWebsiteOutput, error) {
+	req, out := c.DeleteBucketWebsiteRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteLegalHold = "DeleteLegalHold"
 
 // DeleteLegalHoldRequest generates a "aws/request.Request" representing the
@@ -1459,6 +1553,94 @@ func (c *S3) GetBucketProtectionConfiguration(input *GetBucketProtectionConfigur
 // for more information on using Contexts.
 func (c *S3) GetBucketProtectionConfigurationWithContext(ctx aws.Context, input *GetBucketProtectionConfigurationInput, opts ...request.Option) (*GetBucketProtectionConfigurationOutput, error) {
 	req, out := c.GetBucketProtectionConfigurationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opGetBucketWebsite = "GetBucketWebsite"
+
+// GetBucketWebsiteRequest generates a "aws/request.Request" representing the
+// client's request for the GetBucketWebsite operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetBucketWebsite for more information on using the GetBucketWebsite
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the GetBucketWebsiteRequest method.
+//    req, resp := client.GetBucketWebsiteRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketWebsite
+func (c *S3) GetBucketWebsiteRequest(input *GetBucketWebsiteInput) (req *request.Request, output *GetBucketWebsiteOutput) {
+	op := &request.Operation{
+		Name:       opGetBucketWebsite,
+		HTTPMethod: "GET",
+		HTTPPath:   "/{Bucket}?website",
+	}
+
+	if input == nil {
+		input = &GetBucketWebsiteInput{}
+	}
+
+	output = &GetBucketWebsiteOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetBucketWebsite API operation for Amazon Simple Storage Service.
+//
+// Returns the website configuration for a bucket. To host website on Amazon
+// S3, you can configure a bucket as website by adding a website configuration.
+// For more information about hosting websites, see Hosting Websites on Amazon
+// S3 (https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
+//
+// This GET operation requires the S3:GetBucketWebsite permission. By default,
+// only the bucket owner can read the bucket website configuration. However,
+// bucket owners can allow other users to read the website configuration by
+// writing a bucket policy granting them the S3:GetBucketWebsite permission.
+//
+// The following operations are related to DeleteBucketWebsite:
+//
+//    * DeleteBucketWebsite
+//
+//    * PutBucketWebsite
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation GetBucketWebsite for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketWebsite
+func (c *S3) GetBucketWebsite(input *GetBucketWebsiteInput) (*GetBucketWebsiteOutput, error) {
+	req, out := c.GetBucketWebsiteRequest(input)
+	return out, req.Send()
+}
+
+// GetBucketWebsiteWithContext is the same as GetBucketWebsite with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetBucketWebsite for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) GetBucketWebsiteWithContext(ctx aws.Context, input *GetBucketWebsiteInput, opts ...request.Option) (*GetBucketWebsiteOutput, error) {
+	req, out := c.GetBucketWebsiteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -2978,6 +3160,146 @@ func (c *S3) PutBucketProtectionConfigurationWithContext(ctx aws.Context, input 
 	return out, req.Send()
 }
 
+const opPutBucketWebsite = "PutBucketWebsite"
+
+// PutBucketWebsiteRequest generates a "aws/request.Request" representing the
+// client's request for the PutBucketWebsite operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See PutBucketWebsite for more information on using the PutBucketWebsite
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the PutBucketWebsiteRequest method.
+//    req, resp := client.PutBucketWebsiteRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite
+func (c *S3) PutBucketWebsiteRequest(input *PutBucketWebsiteInput) (req *request.Request, output *PutBucketWebsiteOutput) {
+	op := &request.Operation{
+		Name:       opPutBucketWebsite,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/{Bucket}?website",
+	}
+
+	if input == nil {
+		input = &PutBucketWebsiteInput{}
+	}
+
+	output = &PutBucketWebsiteOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restxml.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// PutBucketWebsite API operation for Amazon Simple Storage Service.
+//
+// Sets the configuration of the website that is specified in the website subresource.
+// To configure a bucket as a website, you can add this subresource on the bucket
+// with website configuration information such as the file name of the index
+// document and any redirect rules. For more information, see Hosting Websites
+// on Amazon S3 (https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
+//
+// This PUT operation requires the S3:PutBucketWebsite permission. By default,
+// only the bucket owner can configure the website attached to a bucket; however,
+// bucket owners can allow other users to set the website configuration by writing
+// a bucket policy that grants them the S3:PutBucketWebsite permission.
+//
+// To redirect all website requests sent to the bucket's website endpoint, you
+// add a website configuration with the following elements. Because all requests
+// are sent to another website, you don't need to provide index document name
+// for the bucket.
+//
+//    * WebsiteConfiguration
+//
+//    * RedirectAllRequestsTo
+//
+//    * HostName
+//
+//    * Protocol
+//
+// If you want granular control over redirects, you can use the following elements
+// to add routing rules that describe conditions for redirecting requests and
+// information about the redirect destination. In this case, the website configuration
+// must provide an index document for the bucket, because some requests might
+// not be redirected.
+//
+//    * WebsiteConfiguration
+//
+//    * IndexDocument
+//
+//    * Suffix
+//
+//    * ErrorDocument
+//
+//    * Key
+//
+//    * RoutingRules
+//
+//    * RoutingRule
+//
+//    * Condition
+//
+//    * HttpErrorCodeReturnedEquals
+//
+//    * KeyPrefixEquals
+//
+//    * Redirect
+//
+//    * Protocol
+//
+//    * HostName
+//
+//    * ReplaceKeyPrefixWith
+//
+//    * ReplaceKeyWith
+//
+//    * HttpRedirectCode
+//
+// Amazon S3 has a limitation of 50 routing rules per website configuration.
+// If you require more than 50 routing rules, you can use object redirect. For
+// more information, see Configuring an Object Redirect (https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html)
+// in the Amazon Simple Storage Service Developer Guide.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation PutBucketWebsite for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite
+func (c *S3) PutBucketWebsite(input *PutBucketWebsiteInput) (*PutBucketWebsiteOutput, error) {
+	req, out := c.PutBucketWebsiteRequest(input)
+	return out, req.Send()
+}
+
+// PutBucketWebsiteWithContext is the same as PutBucketWebsite with the addition of
+// the ability to pass a context and additional request options.
+//
+// See PutBucketWebsite for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) PutBucketWebsiteWithContext(ctx aws.Context, input *PutBucketWebsiteInput, opts ...request.Option) (*PutBucketWebsiteOutput, error) {
+	req, out := c.PutBucketWebsiteRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opPutObject = "PutObject"
 
 // PutObjectRequest generates a "aws/request.Request" representing the
@@ -4270,6 +4592,48 @@ func (s *CompletedPart) SetETag(v string) *CompletedPart {
 // SetPartNumber sets the PartNumber field's value.
 func (s *CompletedPart) SetPartNumber(v int64) *CompletedPart {
 	s.PartNumber = &v
+	return s
+}
+
+type Condition struct {
+	_ struct{} `type:"structure"`
+
+	// The HTTP error code when the redirect is applied. In the event of an error,
+	// if the error code equals this value, then the specified redirect is applied.
+	// Required when parent element Condition is specified and sibling KeyPrefixEquals
+	// is not specified. If both are specified, then both must be true for the redirect
+	// to be applied.
+	HttpErrorCodeReturnedEquals *string `type:"string"`
+
+	// The object key name prefix when the redirect is applied. For example, to
+	// redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html.
+	// To redirect request for all pages with the prefix docs/, the key prefix will
+	// be /docs, which identifies all objects in the docs/ folder. Required when
+	// the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals
+	// is not specified. If both conditions are specified, both must be true for
+	// the redirect to be applied.
+	KeyPrefixEquals *string `type:"string"`
+}
+
+// String returns the string representation
+func (s Condition) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Condition) GoString() string {
+	return s.String()
+}
+
+// SetHttpErrorCodeReturnedEquals sets the HttpErrorCodeReturnedEquals field's value.
+func (s *Condition) SetHttpErrorCodeReturnedEquals(v string) *Condition {
+	s.HttpErrorCodeReturnedEquals = &v
+	return s
+}
+
+// SetKeyPrefixEquals sets the KeyPrefixEquals field's value.
+func (s *Condition) SetKeyPrefixEquals(v string) *Condition {
+	s.KeyPrefixEquals = &v
 	return s
 }
 
@@ -5687,6 +6051,68 @@ func (s DeleteBucketOutput) GoString() string {
 	return s.String()
 }
 
+type DeleteBucketWebsiteInput struct {
+	_ struct{} `locationName:"DeleteBucketWebsiteRequest" type:"structure"`
+
+	// The bucket name for which you want to remove the website configuration.
+	//
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteBucketWebsiteInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketWebsiteInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteBucketWebsiteInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteBucketWebsiteInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *DeleteBucketWebsiteInput) SetBucket(v string) *DeleteBucketWebsiteInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *DeleteBucketWebsiteInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+type DeleteBucketWebsiteOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteBucketWebsiteOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketWebsiteOutput) GoString() string {
+	return s.String()
+}
+
 type DeleteLegalHoldInput struct {
 	_ struct{} `locationName:"DeleteLegalHoldRequest" type:"structure"`
 
@@ -6124,6 +6550,47 @@ func (s *Error) SetMessage(v string) *Error {
 // SetVersionId sets the VersionId field's value.
 func (s *Error) SetVersionId(v string) *Error {
 	s.VersionId = &v
+	return s
+}
+
+type ErrorDocument struct {
+	_ struct{} `type:"structure"`
+
+	// The object key name to use when a 4XX class error occurs.
+	//
+	// Key is a required field
+	Key *string `min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s ErrorDocument) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorDocument) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ErrorDocument) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ErrorDocument"}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetKey sets the Key field's value.
+func (s *ErrorDocument) SetKey(v string) *ErrorDocument {
+	s.Key = &v
 	return s
 }
 
@@ -6676,6 +7143,105 @@ func (s GetBucketProtectionConfigurationOutput) GoString() string {
 // SetProtectionConfiguration sets the ProtectionConfiguration field's value.
 func (s *GetBucketProtectionConfigurationOutput) SetProtectionConfiguration(v *ProtectionConfiguration) *GetBucketProtectionConfigurationOutput {
 	s.ProtectionConfiguration = v
+	return s
+}
+
+type GetBucketWebsiteInput struct {
+	_ struct{} `locationName:"GetBucketWebsiteRequest" type:"structure"`
+
+	// The bucket name for which to get the website configuration.
+	//
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s GetBucketWebsiteInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketWebsiteInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetBucketWebsiteInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetBucketWebsiteInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *GetBucketWebsiteInput) SetBucket(v string) *GetBucketWebsiteInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *GetBucketWebsiteInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+type GetBucketWebsiteOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The object key name of the website error document to use for 4XX class errors.
+	ErrorDocument *ErrorDocument `type:"structure"`
+
+	// The name of the index document for the website (for example index.html).
+	IndexDocument *IndexDocument `type:"structure"`
+
+	// Specifies the redirect behavior of all requests to a website endpoint of
+	// an Amazon S3 bucket.
+	RedirectAllRequestsTo *RedirectAllRequestsTo `type:"structure"`
+
+	// Rules that define when a redirect is applied and the redirect behavior.
+	RoutingRules []*RoutingRule `locationNameList:"RoutingRule" type:"list"`
+}
+
+// String returns the string representation
+func (s GetBucketWebsiteOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketWebsiteOutput) GoString() string {
+	return s.String()
+}
+
+// SetErrorDocument sets the ErrorDocument field's value.
+func (s *GetBucketWebsiteOutput) SetErrorDocument(v *ErrorDocument) *GetBucketWebsiteOutput {
+	s.ErrorDocument = v
+	return s
+}
+
+// SetIndexDocument sets the IndexDocument field's value.
+func (s *GetBucketWebsiteOutput) SetIndexDocument(v *IndexDocument) *GetBucketWebsiteOutput {
+	s.IndexDocument = v
+	return s
+}
+
+// SetRedirectAllRequestsTo sets the RedirectAllRequestsTo field's value.
+func (s *GetBucketWebsiteOutput) SetRedirectAllRequestsTo(v *RedirectAllRequestsTo) *GetBucketWebsiteOutput {
+	s.RedirectAllRequestsTo = v
+	return s
+}
+
+// SetRoutingRules sets the RoutingRules field's value.
+func (s *GetBucketWebsiteOutput) SetRoutingRules(v []*RoutingRule) *GetBucketWebsiteOutput {
+	s.RoutingRules = v
 	return s
 }
 
@@ -8108,6 +8674,49 @@ func (s *HeadObjectOutput) SetVersionId(v string) *HeadObjectOutput {
 // SetWebsiteRedirectLocation sets the WebsiteRedirectLocation field's value.
 func (s *HeadObjectOutput) SetWebsiteRedirectLocation(v string) *HeadObjectOutput {
 	s.WebsiteRedirectLocation = &v
+	return s
+}
+
+// Container for the Suffix element.
+type IndexDocument struct {
+	_ struct{} `type:"structure"`
+
+	// A suffix that is appended to a request that is for a directory on the website
+	// endpoint (for example,if the suffix is index.html and you make a request
+	// to samplebucket/images/ the data that is returned will be for the object
+	// with the key name images/index.html) The suffix must not be empty and must
+	// not include a slash character.
+	//
+	// Suffix is a required field
+	Suffix *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s IndexDocument) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IndexDocument) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *IndexDocument) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "IndexDocument"}
+	if s.Suffix == nil {
+		invalidParams.Add(request.NewErrParamRequired("Suffix"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSuffix sets the Suffix field's value.
+func (s *IndexDocument) SetSuffix(v string) *IndexDocument {
+	s.Suffix = &v
 	return s
 }
 
@@ -10523,6 +11132,87 @@ func (s PutBucketProtectionConfigurationOutput) GoString() string {
 	return s.String()
 }
 
+type PutBucketWebsiteInput struct {
+	_ struct{} `locationName:"PutBucketWebsiteRequest" type:"structure" payload:"WebsiteConfiguration"`
+
+	// The bucket name.
+	//
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+
+	// Container for the request.
+	//
+	// WebsiteConfiguration is a required field
+	WebsiteConfiguration *WebsiteConfiguration `locationName:"WebsiteConfiguration" type:"structure" required:"true" xmlURI:"http://s3.amazonaws.com/doc/2006-03-01/"`
+}
+
+// String returns the string representation
+func (s PutBucketWebsiteInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketWebsiteInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *PutBucketWebsiteInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "PutBucketWebsiteInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+	if s.WebsiteConfiguration == nil {
+		invalidParams.Add(request.NewErrParamRequired("WebsiteConfiguration"))
+	}
+	if s.WebsiteConfiguration != nil {
+		if err := s.WebsiteConfiguration.Validate(); err != nil {
+			invalidParams.AddNested("WebsiteConfiguration", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *PutBucketWebsiteInput) SetBucket(v string) *PutBucketWebsiteInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *PutBucketWebsiteInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+// SetWebsiteConfiguration sets the WebsiteConfiguration field's value.
+func (s *PutBucketWebsiteInput) SetWebsiteConfiguration(v *WebsiteConfiguration) *PutBucketWebsiteInput {
+	s.WebsiteConfiguration = v
+	return s
+}
+
+type PutBucketWebsiteOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketWebsiteOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketWebsiteOutput) GoString() string {
+	return s.String()
+}
+
 type PutObjectAclInput struct {
 	_ struct{} `locationName:"PutObjectAclRequest" type:"structure" payload:"AccessControlPolicy"`
 
@@ -10818,7 +11508,22 @@ type PutObjectInput struct {
 
 	// If the bucket is configured as a website, redirects requests for this object
 	// to another object in the same bucket or to an external URL. Amazon S3 stores
-	// the value of this header in the object metadata.
+	// the value of this header in the object metadata. For information about object
+	// metadata, see Object Key and Metadata (https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html).
+	//
+	// In the following example, the request header sets the redirect to an object
+	// (anotherPage.html) in the same bucket:
+	//
+	// x-amz-website-redirect-location: /anotherPage.html
+	//
+	// In the following example, the request header sets the object redirect to
+	// another website:
+	//
+	// x-amz-website-redirect-location: http://www.example.com/
+	//
+	// For more information about website hosting in Amazon S3, see Hosting Websites
+	// on Amazon S3 (https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)
+	// and How to Configure Website Page Redirects (https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	WebsiteRedirectLocation *string `location:"header" locationName:"x-amz-website-redirect-location" type:"string"`
 }
 
@@ -11136,6 +11841,124 @@ func (s *PutObjectOutput) SetVersionId(v string) *PutObjectOutput {
 	return s
 }
 
+type Redirect struct {
+	_ struct{} `type:"structure"`
+
+	// The host name to use in the redirect request.
+	HostName *string `type:"string"`
+
+	// The HTTP redirect code to use on the response. Not required if one of the
+	// siblings is present.
+	HttpRedirectCode *string `type:"string"`
+
+	// Protocol to use (http, https) when redirecting requests. The default is the
+	// protocol that is used in the original request.
+	Protocol *string `type:"string" enum:"Protocol"`
+
+	// The object key prefix to use in the redirect request. For example, to redirect
+	// requests for all pages with prefix docs/ (objects in the docs/ folder) to
+	// documents/, you can set a condition block with KeyPrefixEquals set to docs/
+	// and in the Redirect set ReplaceKeyPrefixWith to /documents. Not required
+	// if one of the siblings is present. Can be present only if ReplaceKeyWith
+	// is not provided.
+	ReplaceKeyPrefixWith *string `type:"string"`
+
+	// The specific object key to use in the redirect request. For example, redirect
+	// request to error.html. Not required if one of the sibling is present. Can
+	// be present only if ReplaceKeyPrefixWith is not provided.
+	ReplaceKeyWith *string `type:"string"`
+}
+
+// String returns the string representation
+func (s Redirect) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Redirect) GoString() string {
+	return s.String()
+}
+
+// SetHostName sets the HostName field's value.
+func (s *Redirect) SetHostName(v string) *Redirect {
+	s.HostName = &v
+	return s
+}
+
+// SetHttpRedirectCode sets the HttpRedirectCode field's value.
+func (s *Redirect) SetHttpRedirectCode(v string) *Redirect {
+	s.HttpRedirectCode = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *Redirect) SetProtocol(v string) *Redirect {
+	s.Protocol = &v
+	return s
+}
+
+// SetReplaceKeyPrefixWith sets the ReplaceKeyPrefixWith field's value.
+func (s *Redirect) SetReplaceKeyPrefixWith(v string) *Redirect {
+	s.ReplaceKeyPrefixWith = &v
+	return s
+}
+
+// SetReplaceKeyWith sets the ReplaceKeyWith field's value.
+func (s *Redirect) SetReplaceKeyWith(v string) *Redirect {
+	s.ReplaceKeyWith = &v
+	return s
+}
+
+// Specifies the redirect behavior of all requests to a website endpoint of
+// an Amazon S3 bucket.
+type RedirectAllRequestsTo struct {
+	_ struct{} `type:"structure"`
+
+	// Name of the host where requests will be redirected.
+	//
+	// HostName is a required field
+	HostName *string `type:"string" required:"true"`
+
+	// Protocol to use (http, https) when redirecting requests. The default is the
+	// protocol that is used in the original request.
+	Protocol *string `type:"string" enum:"Protocol"`
+}
+
+// String returns the string representation
+func (s RedirectAllRequestsTo) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RedirectAllRequestsTo) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RedirectAllRequestsTo) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RedirectAllRequestsTo"}
+	if s.HostName == nil {
+		invalidParams.Add(request.NewErrParamRequired("HostName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetHostName sets the HostName field's value.
+func (s *RedirectAllRequestsTo) SetHostName(v string) *RedirectAllRequestsTo {
+	s.HostName = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *RedirectAllRequestsTo) SetProtocol(v string) *RedirectAllRequestsTo {
+	s.Protocol = &v
+	return s
+}
+
 type RestoreObjectInput struct {
 	_ struct{} `locationName:"RestoreObjectRequest" type:"structure" payload:"RestoreRequest"`
 
@@ -11275,6 +12098,58 @@ func (s *RestoreRequest) SetDays(v int64) *RestoreRequest {
 // SetGlacierJobParameters sets the GlacierJobParameters field's value.
 func (s *RestoreRequest) SetGlacierJobParameters(v *GlacierJobParameters) *RestoreRequest {
 	s.GlacierJobParameters = v
+	return s
+}
+
+type RoutingRule struct {
+	_ struct{} `type:"structure"`
+
+	// A container for describing a condition that must be met for the specified
+	// redirect to apply. For example, 1. If request is for pages in the /docs folder,
+	// redirect to the /documents folder. 2. If request results in HTTP error 4xx,
+	// redirect request to another host where you might process the error.
+	Condition *Condition `type:"structure"`
+
+	// Container for redirect information. You can redirect requests to another
+	// host, to another page, or with another protocol. In the event of an error,
+	// you can specify a different error code to return.
+	//
+	// Redirect is a required field
+	Redirect *Redirect `type:"structure" required:"true"`
+}
+
+// String returns the string representation
+func (s RoutingRule) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RoutingRule) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RoutingRule) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RoutingRule"}
+	if s.Redirect == nil {
+		invalidParams.Add(request.NewErrParamRequired("Redirect"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCondition sets the Condition field's value.
+func (s *RoutingRule) SetCondition(v *Condition) *RoutingRule {
+	s.Condition = v
+	return s
+}
+
+// SetRedirect sets the Redirect field's value.
+func (s *RoutingRule) SetRedirect(v *Redirect) *RoutingRule {
+	s.Redirect = v
 	return s
 }
 
@@ -11947,6 +12822,94 @@ func (s *UploadPartOutput) SetServerSideEncryption(v string) *UploadPartOutput {
 	return s
 }
 
+// Specifies website configuration parameters for an Amazon S3 bucket.
+type WebsiteConfiguration struct {
+	_ struct{} `type:"structure"`
+
+	// The name of the error document for the website.
+	ErrorDocument *ErrorDocument `type:"structure"`
+
+	// The name of the index document for the website.
+	IndexDocument *IndexDocument `type:"structure"`
+
+	// The redirect behavior for every request to this bucket's website endpoint.
+	//
+	// If you specify this property, you can't specify any other property.
+	RedirectAllRequestsTo *RedirectAllRequestsTo `type:"structure"`
+
+	// Rules that define when a redirect is applied and the redirect behavior.
+	RoutingRules []*RoutingRule `locationNameList:"RoutingRule" type:"list"`
+}
+
+// String returns the string representation
+func (s WebsiteConfiguration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s WebsiteConfiguration) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *WebsiteConfiguration) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "WebsiteConfiguration"}
+	if s.ErrorDocument != nil {
+		if err := s.ErrorDocument.Validate(); err != nil {
+			invalidParams.AddNested("ErrorDocument", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.IndexDocument != nil {
+		if err := s.IndexDocument.Validate(); err != nil {
+			invalidParams.AddNested("IndexDocument", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.RedirectAllRequestsTo != nil {
+		if err := s.RedirectAllRequestsTo.Validate(); err != nil {
+			invalidParams.AddNested("RedirectAllRequestsTo", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.RoutingRules != nil {
+		for i, v := range s.RoutingRules {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "RoutingRules", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetErrorDocument sets the ErrorDocument field's value.
+func (s *WebsiteConfiguration) SetErrorDocument(v *ErrorDocument) *WebsiteConfiguration {
+	s.ErrorDocument = v
+	return s
+}
+
+// SetIndexDocument sets the IndexDocument field's value.
+func (s *WebsiteConfiguration) SetIndexDocument(v *IndexDocument) *WebsiteConfiguration {
+	s.IndexDocument = v
+	return s
+}
+
+// SetRedirectAllRequestsTo sets the RedirectAllRequestsTo field's value.
+func (s *WebsiteConfiguration) SetRedirectAllRequestsTo(v *RedirectAllRequestsTo) *WebsiteConfiguration {
+	s.RedirectAllRequestsTo = v
+	return s
+}
+
+// SetRoutingRules sets the RoutingRules field's value.
+func (s *WebsiteConfiguration) SetRoutingRules(v []*RoutingRule) *WebsiteConfiguration {
+	s.RoutingRules = v
+	return s
+}
+
 const (
 	// BucketCannedACLPrivate is a BucketCannedACL enum value
 	BucketCannedACLPrivate = "private"
@@ -12103,6 +13066,14 @@ const (
 
 	// PermissionReadAcp is a Permission enum value
 	PermissionReadAcp = "READ_ACP"
+)
+
+const (
+	// ProtocolHttp is a Protocol enum value
+	ProtocolHttp = "http"
+
+	// ProtocolHttps is a Protocol enum value
+	ProtocolHttps = "https"
 )
 
 const (
