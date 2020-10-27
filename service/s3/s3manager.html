@@ -71,7 +71,7 @@
   
 </h1>
 <div class="package signature">
-import "../../ibm-cos-sdk-go/service/s3/s3manager"
+import "../ibm-cos-sdk-go/service/s3/s3manager"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -1909,7 +1909,26 @@ parameters. (For example, “Key1=Value1”)</p>
     
 <p>If the bucket is configured as a website, redirects requests for this
 object to another object in the same bucket or to an external URL. Amazon
-S3 stores the value of this header in the object metadata.</p>
+S3 stores the value of this header in the object metadata. For information
+about object metadata, see Object Key and Metadata (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html">docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html</a>).</p>
+
+<p>In the following example, the request header sets the redirect to an object
+(anotherPage.html) in the same bucket:</p>
+
+<p>x-amz-website-redirect-location: /anotherPage.html</p>
+
+<p>In the following example, the request header sets the object redirect to
+another website:</p>
+
+<p>x-amz-website-redirect-location: <a
+href="http://www.example.com">www.example.com</a>/</p>
+
+<p>For more information about website hosting in Amazon S3, see Hosting
+Websites on Amazon S3 (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html</a>)
+and How to Configure Website Page Redirects (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html</a>).</p>
 
     
   </dd>
@@ -2778,7 +2797,7 @@ options.</p>
       </div>
 
       <div id="footer">
-  Generated on Mon Aug 10 18:24:08 2020 by
+  Generated on Tue Oct 27 16:29:05 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.3.1).
 </div>
