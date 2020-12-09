@@ -967,6 +967,78 @@ func (c *S3) DeleteObjectWithContext(ctx aws.Context, input *DeleteObjectInput, 
 	return out, req.Send()
 }
 
+const opDeleteObjectTagging = "DeleteObjectTagging"
+
+// DeleteObjectTaggingRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteObjectTagging operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteObjectTagging for more information on using the DeleteObjectTagging
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteObjectTaggingRequest method.
+//    req, resp := client.DeleteObjectTaggingRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjectTagging
+func (c *S3) DeleteObjectTaggingRequest(input *DeleteObjectTaggingInput) (req *request.Request, output *DeleteObjectTaggingOutput) {
+	op := &request.Operation{
+		Name:       opDeleteObjectTagging,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/{Bucket}/{Key+}?tagging",
+	}
+
+	if input == nil {
+		input = &DeleteObjectTaggingInput{}
+	}
+
+	output = &DeleteObjectTaggingOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DeleteObjectTagging API operation for Amazon Simple Storage Service.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation DeleteObjectTagging for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjectTagging
+func (c *S3) DeleteObjectTagging(input *DeleteObjectTaggingInput) (*DeleteObjectTaggingOutput, error) {
+	req, out := c.DeleteObjectTaggingRequest(input)
+	return out, req.Send()
+}
+
+// DeleteObjectTaggingWithContext is the same as DeleteObjectTagging with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteObjectTagging for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) DeleteObjectTaggingWithContext(ctx aws.Context, input *DeleteObjectTaggingInput, opts ...request.Option) (*DeleteObjectTaggingOutput, error) {
+	req, out := c.DeleteObjectTaggingRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteObjects = "DeleteObjects"
 
 // DeleteObjectsRequest generates a "aws/request.Request" representing the
@@ -1799,6 +1871,78 @@ func (c *S3) GetObjectAcl(input *GetObjectAclInput) (*GetObjectAclOutput, error)
 // for more information on using Contexts.
 func (c *S3) GetObjectAclWithContext(ctx aws.Context, input *GetObjectAclInput, opts ...request.Option) (*GetObjectAclOutput, error) {
 	req, out := c.GetObjectAclRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opGetObjectTagging = "GetObjectTagging"
+
+// GetObjectTaggingRequest generates a "aws/request.Request" representing the
+// client's request for the GetObjectTagging operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetObjectTagging for more information on using the GetObjectTagging
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the GetObjectTaggingRequest method.
+//    req, resp := client.GetObjectTaggingRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTagging
+func (c *S3) GetObjectTaggingRequest(input *GetObjectTaggingInput) (req *request.Request, output *GetObjectTaggingOutput) {
+	op := &request.Operation{
+		Name:       opGetObjectTagging,
+		HTTPMethod: "GET",
+		HTTPPath:   "/{Bucket}/{Key+}?tagging",
+	}
+
+	if input == nil {
+		input = &GetObjectTaggingInput{}
+	}
+
+	output = &GetObjectTaggingOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetObjectTagging API operation for Amazon Simple Storage Service.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation GetObjectTagging for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTagging
+func (c *S3) GetObjectTagging(input *GetObjectTaggingInput) (*GetObjectTaggingOutput, error) {
+	req, out := c.GetObjectTaggingRequest(input)
+	return out, req.Send()
+}
+
+// GetObjectTaggingWithContext is the same as GetObjectTagging with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetObjectTagging for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) GetObjectTaggingWithContext(ctx aws.Context, input *GetObjectTaggingInput, opts ...request.Option) (*GetObjectTaggingOutput, error) {
+	req, out := c.GetObjectTaggingRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -3454,6 +3598,78 @@ func (c *S3) PutObjectAclWithContext(ctx aws.Context, input *PutObjectAclInput, 
 	return out, req.Send()
 }
 
+const opPutObjectTagging = "PutObjectTagging"
+
+// PutObjectTaggingRequest generates a "aws/request.Request" representing the
+// client's request for the PutObjectTagging operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See PutObjectTagging for more information on using the PutObjectTagging
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the PutObjectTaggingRequest method.
+//    req, resp := client.PutObjectTaggingRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectTagging
+func (c *S3) PutObjectTaggingRequest(input *PutObjectTaggingInput) (req *request.Request, output *PutObjectTaggingOutput) {
+	op := &request.Operation{
+		Name:       opPutObjectTagging,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/{Bucket}/{Key+}?tagging",
+	}
+
+	if input == nil {
+		input = &PutObjectTaggingInput{}
+	}
+
+	output = &PutObjectTaggingOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// PutObjectTagging API operation for Amazon Simple Storage Service.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Storage Service's
+// API operation PutObjectTagging for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectTagging
+func (c *S3) PutObjectTagging(input *PutObjectTaggingInput) (*PutObjectTaggingOutput, error) {
+	req, out := c.PutObjectTaggingRequest(input)
+	return out, req.Send()
+}
+
+// PutObjectTaggingWithContext is the same as PutObjectTagging with the addition of
+// the ability to pass a context and additional request options.
+//
+// See PutObjectTagging for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *S3) PutObjectTaggingWithContext(ctx aws.Context, input *PutObjectTaggingInput, opts ...request.Option) (*PutObjectTaggingOutput, error) {
+	req, out := c.PutObjectTaggingRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opRestoreObject = "RestoreObject"
 
 // RestoreObjectRequest generates a "aws/request.Request" representing the
@@ -4329,7 +4545,7 @@ type CompleteMultipartUploadInput struct {
 	// this or the Retention-Period header. If both are specified a 400 error will
 	// be returned. If neither is specified the bucket's DefaultRetention period
 	// will be used.
-	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp" timestampFormat:"iso8601"`
+	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp"`
 
 	// A single legal hold to apply to the object. This field can only be specified
 	// if Retention-Directive is REPLACE. A legal hold is a character long string
@@ -4737,7 +4953,7 @@ type CopyObjectInput struct {
 	// this or the Retention-Period header. If both are specified a 400 error will
 	// be returned. If neither is specified the bucket's DefaultRetention period
 	// will be used.
-	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp" timestampFormat:"iso8601"`
+	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp"`
 
 	// A single legal hold to apply to the object. This field can only be specified
 	// if Retention-Directive is REPLACE. A legal hold is a character long string
@@ -6336,6 +6552,107 @@ func (s *DeleteObjectOutput) SetVersionId(v string) *DeleteObjectOutput {
 	return s
 }
 
+type DeleteObjectTaggingInput struct {
+	_ struct{} `locationName:"DeleteObjectTaggingRequest" type:"structure"`
+
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+
+	ExpectedBucketOwner *string `location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`
+
+	// Key is a required field
+	Key *string `location:"uri" locationName:"Key" min:"1" type:"string" required:"true"`
+
+	// The versionId of the object that the tag-set will be removed from.
+	VersionId *string `location:"querystring" locationName:"versionId" type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteObjectTaggingInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteObjectTaggingInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteObjectTaggingInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteObjectTaggingInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *DeleteObjectTaggingInput) SetBucket(v string) *DeleteObjectTaggingInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *DeleteObjectTaggingInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+// SetExpectedBucketOwner sets the ExpectedBucketOwner field's value.
+func (s *DeleteObjectTaggingInput) SetExpectedBucketOwner(v string) *DeleteObjectTaggingInput {
+	s.ExpectedBucketOwner = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *DeleteObjectTaggingInput) SetKey(v string) *DeleteObjectTaggingInput {
+	s.Key = &v
+	return s
+}
+
+// SetVersionId sets the VersionId field's value.
+func (s *DeleteObjectTaggingInput) SetVersionId(v string) *DeleteObjectTaggingInput {
+	s.VersionId = &v
+	return s
+}
+
+type DeleteObjectTaggingOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The versionId of the object the tag-set was removed from.
+	VersionId *string `location:"header" locationName:"x-amz-version-id" type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteObjectTaggingOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteObjectTaggingOutput) GoString() string {
+	return s.String()
+}
+
+// SetVersionId sets the VersionId field's value.
+func (s *DeleteObjectTaggingOutput) SetVersionId(v string) *DeleteObjectTaggingOutput {
+	s.VersionId = &v
+	return s
+}
+
 type DeleteObjectsInput struct {
 	_ struct{} `locationName:"DeleteObjectsRequest" type:"structure" payload:"Delete"`
 
@@ -7694,7 +8011,7 @@ type GetObjectOutput struct {
 	// specify this or the Retention-Period header. If both are specified a 400
 	// error will be returned. If neither is specified the bucket's DefaultRetention
 	// period will be used.
-	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp" timestampFormat:"iso8601"`
+	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp"`
 
 	RetentionLegalHoldCount *int64 `location:"header" locationName:"Retention-Legal-Hold-Count" type:"integer"`
 
@@ -7941,6 +8258,114 @@ func (s *GetObjectOutput) SetVersionId(v string) *GetObjectOutput {
 // SetWebsiteRedirectLocation sets the WebsiteRedirectLocation field's value.
 func (s *GetObjectOutput) SetWebsiteRedirectLocation(v string) *GetObjectOutput {
 	s.WebsiteRedirectLocation = &v
+	return s
+}
+
+type GetObjectTaggingInput struct {
+	_ struct{} `locationName:"GetObjectTaggingRequest" type:"structure"`
+
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+
+	ExpectedBucketOwner *string `location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`
+
+	// Key is a required field
+	Key *string `location:"uri" locationName:"Key" min:"1" type:"string" required:"true"`
+
+	VersionId *string `location:"querystring" locationName:"versionId" type:"string"`
+}
+
+// String returns the string representation
+func (s GetObjectTaggingInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GetObjectTaggingInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetObjectTaggingInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetObjectTaggingInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *GetObjectTaggingInput) SetBucket(v string) *GetObjectTaggingInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *GetObjectTaggingInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+// SetExpectedBucketOwner sets the ExpectedBucketOwner field's value.
+func (s *GetObjectTaggingInput) SetExpectedBucketOwner(v string) *GetObjectTaggingInput {
+	s.ExpectedBucketOwner = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *GetObjectTaggingInput) SetKey(v string) *GetObjectTaggingInput {
+	s.Key = &v
+	return s
+}
+
+// SetVersionId sets the VersionId field's value.
+func (s *GetObjectTaggingInput) SetVersionId(v string) *GetObjectTaggingInput {
+	s.VersionId = &v
+	return s
+}
+
+type GetObjectTaggingOutput struct {
+	_ struct{} `type:"structure"`
+
+	// TagSet is a required field
+	TagSet []*Tag `locationNameList:"Tag" type:"list" required:"true"`
+
+	VersionId *string `location:"header" locationName:"x-amz-version-id" type:"string"`
+}
+
+// String returns the string representation
+func (s GetObjectTaggingOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GetObjectTaggingOutput) GoString() string {
+	return s.String()
+}
+
+// SetTagSet sets the TagSet field's value.
+func (s *GetObjectTaggingOutput) SetTagSet(v []*Tag) *GetObjectTaggingOutput {
+	s.TagSet = v
+	return s
+}
+
+// SetVersionId sets the VersionId field's value.
+func (s *GetObjectTaggingOutput) SetVersionId(v string) *GetObjectTaggingOutput {
+	s.VersionId = &v
 	return s
 }
 
@@ -8448,7 +8873,7 @@ type HeadObjectOutput struct {
 	// specify this or the Retention-Period header. If both are specified a 400
 	// error will be returned. If neither is specified the bucket's DefaultRetention
 	// period will be used.
-	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp" timestampFormat:"iso8601"`
+	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp"`
 
 	RetentionLegalHoldCount *int64 `location:"header" locationName:"Retention-Legal-Hold-Count" type:"integer"`
 
@@ -11460,7 +11885,7 @@ type PutObjectInput struct {
 	// this or the Retention-Period header. If both are specified a 400 error will
 	// be returned. If neither is specified the bucket's DefaultRetention period
 	// will be used.
-	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp" timestampFormat:"iso8601"`
+	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp"`
 
 	// A single legal hold to apply to the object. This field can only be specified
 	// if Retention-Directive is REPLACE. A legal hold is a character long string
@@ -11841,6 +12266,122 @@ func (s *PutObjectOutput) SetVersionId(v string) *PutObjectOutput {
 	return s
 }
 
+type PutObjectTaggingInput struct {
+	_ struct{} `locationName:"PutObjectTaggingRequest" type:"structure" payload:"Tagging"`
+
+	// Bucket is a required field
+	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
+
+	ExpectedBucketOwner *string `location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`
+
+	// Key is a required field
+	Key *string `location:"uri" locationName:"Key" min:"1" type:"string" required:"true"`
+
+	// Tagging is a required field
+	Tagging *Tagging `locationName:"Tagging" type:"structure" required:"true" xmlURI:"http://s3.amazonaws.com/doc/2006-03-01/"`
+
+	VersionId *string `location:"querystring" locationName:"versionId" type:"string"`
+}
+
+// String returns the string representation
+func (s PutObjectTaggingInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PutObjectTaggingInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *PutObjectTaggingInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "PutObjectTaggingInput"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Bucket != nil && len(*s.Bucket) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Bucket", 1))
+	}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+	if s.Tagging == nil {
+		invalidParams.Add(request.NewErrParamRequired("Tagging"))
+	}
+	if s.Tagging != nil {
+		if err := s.Tagging.Validate(); err != nil {
+			invalidParams.AddNested("Tagging", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *PutObjectTaggingInput) SetBucket(v string) *PutObjectTaggingInput {
+	s.Bucket = &v
+	return s
+}
+
+func (s *PutObjectTaggingInput) getBucket() (v string) {
+	if s.Bucket == nil {
+		return v
+	}
+	return *s.Bucket
+}
+
+// SetExpectedBucketOwner sets the ExpectedBucketOwner field's value.
+func (s *PutObjectTaggingInput) SetExpectedBucketOwner(v string) *PutObjectTaggingInput {
+	s.ExpectedBucketOwner = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *PutObjectTaggingInput) SetKey(v string) *PutObjectTaggingInput {
+	s.Key = &v
+	return s
+}
+
+// SetTagging sets the Tagging field's value.
+func (s *PutObjectTaggingInput) SetTagging(v *Tagging) *PutObjectTaggingInput {
+	s.Tagging = v
+	return s
+}
+
+// SetVersionId sets the VersionId field's value.
+func (s *PutObjectTaggingInput) SetVersionId(v string) *PutObjectTaggingInput {
+	s.VersionId = &v
+	return s
+}
+
+type PutObjectTaggingOutput struct {
+	_ struct{} `type:"structure"`
+
+	VersionId *string `location:"header" locationName:"x-amz-version-id" type:"string"`
+}
+
+// String returns the string representation
+func (s PutObjectTaggingOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PutObjectTaggingOutput) GoString() string {
+	return s.String()
+}
+
+// SetVersionId sets the VersionId field's value.
+func (s *PutObjectTaggingOutput) SetVersionId(v string) *PutObjectTaggingOutput {
+	s.VersionId = &v
+	return s
+}
+
 type Redirect struct {
 	_ struct{} `type:"structure"`
 
@@ -12150,6 +12691,107 @@ func (s *RoutingRule) SetCondition(v *Condition) *RoutingRule {
 // SetRedirect sets the Redirect field's value.
 func (s *RoutingRule) SetRedirect(v *Redirect) *RoutingRule {
 	s.Redirect = v
+	return s
+}
+
+type Tag struct {
+	_ struct{} `type:"structure"`
+
+	// Name of the tag.
+	//
+	// Key is a required field
+	Key *string `min:"1" type:"string" required:"true"`
+
+	// Value of the tag.
+	//
+	// Value is a required field
+	Value *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s Tag) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Tag) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *Tag) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "Tag"}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+	if s.Value == nil {
+		invalidParams.Add(request.NewErrParamRequired("Value"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetKey sets the Key field's value.
+func (s *Tag) SetKey(v string) *Tag {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *Tag) SetValue(v string) *Tag {
+	s.Value = &v
+	return s
+}
+
+type Tagging struct {
+	_ struct{} `type:"structure"`
+
+	// TagSet is a required field
+	TagSet []*Tag `locationNameList:"Tag" type:"list" required:"true"`
+}
+
+// String returns the string representation
+func (s Tagging) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Tagging) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *Tagging) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "Tagging"}
+	if s.TagSet == nil {
+		invalidParams.Add(request.NewErrParamRequired("TagSet"))
+	}
+	if s.TagSet != nil {
+		for i, v := range s.TagSet {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "TagSet", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetTagSet sets the TagSet field's value.
+func (s *Tagging) SetTagSet(v []*Tag) *Tagging {
+	s.TagSet = v
 	return s
 }
 

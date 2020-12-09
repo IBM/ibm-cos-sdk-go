@@ -143,6 +143,16 @@
       "output":{"shape":"DeleteObjectOutput"},
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectDELETE.html"
     },
+    "DeleteObjectTagging":{
+      "name":"DeleteObjectTagging",
+      "http":{
+        "method":"DELETE",
+        "requestUri":"/{Bucket}/{Key+}?tagging",
+        "responseCode":204
+      },
+      "input":{"shape":"DeleteObjectTaggingRequest"},
+      "output":{"shape":"DeleteObjectTaggingOutput"}
+    },
     "DeleteObjects":{
       "name":"DeleteObjects",
       "http":{
@@ -256,6 +266,15 @@
         {"shape":"NoSuchKey"}
       ],
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectGETacl.html"
+    },
+    "GetObjectTagging":{
+      "name":"GetObjectTagging",
+      "http":{
+        "method":"GET",
+        "requestUri":"/{Bucket}/{Key+}?tagging"
+      },
+      "input":{"shape":"GetObjectTaggingRequest"},
+      "output":{"shape":"GetObjectTaggingOutput"}
     },
     "HeadBucket":{
       "name":"HeadBucket",
@@ -436,6 +455,16 @@
         {"shape":"NoSuchKey"}
       ],
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectPUTacl.html"
+    },
+    "PutObjectTagging":{
+      "name":"PutObjectTagging",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/{Bucket}/{Key+}?tagging"
+      },
+      "input":{"shape":"PutObjectTaggingRequest"},
+      "output":{"shape":"PutObjectTaggingOutput"},
+      "httpChecksumRequired":true
     },
     "RestoreObject":{
       "name":"RestoreObject",
@@ -1705,6 +1734,45 @@
         }
       }
     },
+    "DeleteObjectTaggingOutput":{
+      "type":"structure",
+      "members":{
+        "VersionId":{
+          "shape":"ObjectVersionId",
+          "location":"header",
+          "locationName":"x-amz-version-id"
+        }
+      }
+    },
+    "DeleteObjectTaggingRequest":{
+      "type":"structure",
+      "required":[
+        "Bucket",
+        "Key"
+      ],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        },
+        "Key":{
+          "shape":"ObjectKey",
+          "location":"uri",
+          "locationName":"Key"
+        },
+        "VersionId":{
+          "shape":"ObjectVersionId",
+          "location":"querystring",
+          "locationName":"versionId"
+        },
+        "ExpectedBucketOwner":{
+          "shape":"AccountId",
+          "location":"header",
+          "locationName":"x-amz-expected-bucket-owner"
+        }
+      }
+    },
     "DeleteObjectsOutput":{
       "type":"structure",
       "members":{
@@ -2387,6 +2455,47 @@
           "shape":"PartNumber",
           "location":"querystring",
           "locationName":"partNumber"
+        }
+      }
+    },
+    "GetObjectTaggingOutput":{
+      "type":"structure",
+      "required":["TagSet"],
+      "members":{
+        "VersionId":{
+          "shape":"ObjectVersionId",
+          "location":"header",
+          "locationName":"x-amz-version-id"
+        },
+        "TagSet":{"shape":"TagSet"}
+      }
+    },
+    "GetObjectTaggingRequest":{
+      "type":"structure",
+      "required":[
+        "Bucket",
+        "Key"
+      ],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        },
+        "Key":{
+          "shape":"ObjectKey",
+          "location":"uri",
+          "locationName":"Key"
+        },
+        "VersionId":{
+          "shape":"ObjectVersionId",
+          "location":"querystring",
+          "locationName":"versionId"
+        },
+        "ExpectedBucketOwner":{
+          "shape":"AccountId",
+          "location":"header",
+          "locationName":"x-amz-expected-bucket-owner"
         }
       }
     },
@@ -4195,6 +4304,59 @@
       },
       "payload":"Body"
     },
+    "PutObjectTaggingOutput":{
+      "type":"structure",
+      "members":{
+        "VersionId":{
+          "shape":"ObjectVersionId",
+          "location":"header",
+          "locationName":"x-amz-version-id"
+        }
+      }
+    },
+    "PutObjectTaggingRequest":{
+      "type":"structure",
+      "required":[
+        "Bucket",
+        "Key",
+        "Tagging"
+      ],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        },
+        "Key":{
+          "shape":"ObjectKey",
+          "location":"uri",
+          "locationName":"Key"
+        },
+        "VersionId":{
+          "shape":"ObjectVersionId",
+          "location":"querystring",
+          "locationName":"versionId"
+        },
+        "ContentMD5":{
+          "shape":"ContentMD5",
+          "deprecated":true,
+          "deprecatedMessage":"Content-MD5 header will now be automatically computed and injected in associated operation's Http request.",
+          "location":"header",
+          "locationName":"Content-MD5"
+        },
+        "Tagging":{
+          "shape":"Tagging",
+          "locationName":"Tagging",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}
+        },
+        "ExpectedBucketOwner":{
+          "shape":"AccountId",
+          "location":"header",
+          "locationName":"x-amz-expected-bucket-owner"
+        }
+      },
+      "payload":"Tagging"
+    },
     "QueueArn":{"type":"string"},
     "QueueConfiguration":{
       "type":"structure",
@@ -4425,8 +4587,7 @@
       ]
     },
     "RetentionExpirationDate":{
-      "type":"timestamp",
-      "timestampFormat":"iso8601"
+      "type":"timestamp"
     },
     "RetentionPeriodExpirationDate":{
       "type":"timestamp",

@@ -80,7 +80,7 @@ type UploadInput struct {
 	// this or the Retention-Period header. If both are specified a 400 error will
 	// be returned. If neither is specified the bucket's DefaultRetention period
 	// will be used.
-	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp" timestampFormat:"iso8601"`
+	RetentionExpirationDate *time.Time `location:"header" locationName:"Retention-Expiration-Date" type:"timestamp"`
 
 	// A single legal hold to apply to the object. This field can only be specified
 	// if Retention-Directive is REPLACE. A legal hold is a character long string

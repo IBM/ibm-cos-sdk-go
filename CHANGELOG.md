@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.6.0
+
+### Content
+
+#### Features
+
+* Object Tagging
+
 ## 1.5.0
 
 ### Content
