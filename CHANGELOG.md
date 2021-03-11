@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.6.1
+
+### Content
+
+#### Defect Fixes
+
+* Support for Golang 1.15, 1.16
+
 ## 1.6.0
 
 ### Content
