@@ -65,6 +65,10 @@ type API struct {
 
 	HasEndpointARN bool `json:"-"`
 
+	HasOutpostID bool `json:"-"`
+
+	HasAccountIdWithARN bool `json:"-"`
+
 	WithGeneratedTypedErrors bool
 }
 
@@ -856,7 +860,7 @@ func resolveShapeValidations(s *Shape, ancestry ...*Shape) {
 		ref := s.MemberRefs[name]
 		// Since this is a grab bag we will just continue since
 		// we can't validate because we don't know the valued shape.
-		if ref.JSONValue {
+		if ref.JSONValue || (s.UsedAsInput && ref.Shape.IsEventStream) {
 			continue
 		}
 

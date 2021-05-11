@@ -29,19 +29,23 @@ func TestLoadSharedConfig(t *testing.T) {
 		{
 			Filenames: []string{"file_not_exists"},
 			Profile:   "default",
-			Expected:  sharedConfig{},
+			Expected: sharedConfig{
+				Profile: "default",
+			},
 		},
 		{
 			Filenames: []string{testConfigFilename},
 			Expected: sharedConfig{
-				Region: "default_region",
+				Profile: "default",
+				Region:  "default_region",
 			},
 		},
 		{
 			Filenames: []string{testConfigOtherFilename, testConfigFilename},
 			Profile:   "config_file_load_order",
 			Expected: sharedConfig{
-				Region: "shared_config_region",
+				Profile: "config_file_load_order",
+				Region:  "shared_config_region",
 				Creds: credentials.Value{
 					AccessKeyID:     "shared_config_akid",
 					SecretAccessKey: "shared_config_secret",
@@ -53,7 +57,8 @@ func TestLoadSharedConfig(t *testing.T) {
 			Filenames: []string{testConfigFilename, testConfigOtherFilename},
 			Profile:   "config_file_load_order",
 			Expected: sharedConfig{
-				Region: "shared_config_other_region",
+				Profile: "config_file_load_order",
+				Region:  "shared_config_other_region",
 				Creds: credentials.Value{
 					AccessKeyID:     "shared_config_other_akid",
 					SecretAccessKey: "shared_config_other_secret",

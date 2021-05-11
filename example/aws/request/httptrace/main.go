@@ -9,6 +9,7 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"log"
 	"os"
 	"strings"
 
@@ -41,10 +42,6 @@ func main() {
 	httpClient := NewClient(clientCfg)
 	sess, err := session.NewSession(&aws.Config{
 		HTTPClient: httpClient,
-
-		// Disable Retries to prevent the httptrace's getting mixed up on
-		// retries.
-		MaxRetries: aws.Int(0),
 	})
 	if err != nil {
 		exitErrorf(err, "failed to load config")
@@ -62,9 +59,9 @@ func main() {
 		trace, err := publishMessage(ctx, svc, bucket, fmt.Sprintf("%06d", keyN), scanner.Text())
 		keyN++
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "failed to publish message, %v", err)
+			fmt.Fprintf(os.Stderr, "failed to publish message, %v\n", err)
 		}
-		RecordTrace(os.Stdout, trace)
+		log.Println(trace)
 
 		fmt.Println()
 		fmt.Printf("Message: ")
@@ -77,17 +74,16 @@ func main() {
 // publishMessage will send the message to the SNS topic returning an request
 // trace for metrics.
 func publishMessage(ctx context.Context, svc *s3.S3, bucket, key, msg string) (*RequestTrace, error) {
-	traceCtx := NewRequestTrace(ctx)
-	defer traceCtx.RequestDone()
+	trace := &RequestTrace{}
 
 	input := new(s3.PutObjectInput).SetBucket(bucket).SetKey(key).SetBody(strings.NewReader(msg))
 
-	_, err := svc.PutObjectWithContext(traceCtx, input)
+	_, err := svc.PutObjectWithContext(ctx, input)
 	if err != nil {
-		return nil, err
+		return trace, err
 	}
 
-	return traceCtx, nil
+	return trace, nil
 }
 
 func exitErrorf(err error, msg string, args ...interface{}) {

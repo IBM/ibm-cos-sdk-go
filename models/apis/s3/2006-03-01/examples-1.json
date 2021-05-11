@@ -44,7 +44,7 @@
           "Bucket": "acexamplebucket",
           "ETag": "\"4d9031c7644d8081c2829f4ea23c55f7-2\"",
           "Key": "bigobject",
-          "Location": "https://examplebucket.s3.amazonaws.com/bigobject"
+          "Location": "https://examplebucket.s3.<Region>.amazonaws.com/bigobject"
         },
         "comments": {
           "input": {
@@ -90,7 +90,7 @@
           }
         },
         "output": {
-          "Location": "http://examplebucket.s3.amazonaws.com/"
+          "Location": "http://examplebucket.<Region>.s3.amazonaws.com/"
         },
         "comments": {
           "input": {
@@ -205,9 +205,44 @@
         "description": "The following example deletes an object from a non-versioned bucket.",
         "id": "to-delete-an-object-from-a-non-versioned-bucket-1481588533089",
         "title": "To delete an object (from a non-versioned bucket)"
+      },
+      {
+        "input": {
+          "Bucket": "examplebucket",
+          "Key": "objectkey.jpg"
+        },
+        "output": {
+        },
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "The following example deletes an object from an S3 bucket.",
+        "id": "to-delete-an-object-1472850136595",
+        "title": "To delete an object"
       }
     ],
-    "DeleteObjects": [
+    "DeleteObjectTagging": [
+      {
+        "input": {
+          "Bucket": "examplebucket",
+          "Key": "HappyFace.jpg"
+        },
+        "output": {
+          "VersionId": "null"
+        },
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "The following example removes tag set associated with the specified object. If the bucket is versioning enabled, the operation removes tag set from the latest object version.",
+        "id": "to-remove-tag-set-from-an-object-1483145342862",
+        "title": "To remove tag set from an object"
+      },
       {
         "input": {
           "Bucket": "examplebucket",
@@ -226,66 +261,9 @@
         "description": "The following example removes tag set associated with the specified object version. The request specifies both the object key and object version.",
         "id": "to-remove-tag-set-from-an-object-version-1483145285913",
         "title": "To remove tag set from an object version"
-      },
-      {
-        "input": {
-          "Bucket": "examplebucket",
-          "Key": "HappyFace.jpg"
-        },
-        "output": {
-          "VersionId": "null"
-        },
-        "comments": {
-          "input": {
-          },
-          "output": {
-          }
-        },
-        "description": "The following example removes tag set associated with the specified object. If the bucket is versioning enabled, the operation removes tag set from the latest object version.",
-        "id": "to-remove-tag-set-from-an-object-1483145342862",
-        "title": "To remove tag set from an object"
       }
     ],
     "DeleteObjects": [
-      {
-        "input": {
-          "Bucket": "examplebucket",
-          "Delete": {
-            "Objects": [
-              {
-                "Key": "objectkey1"
-              },
-              {
-                "Key": "objectkey2"
-              }
-            ],
-            "Quiet": false
-          }
-        },
-        "output": {
-          "Deleted": [
-            {
-              "DeleteMarker": "true",
-              "DeleteMarkerVersionId": "A._w1z6EFiCF5uhtQMDal9JDkID9tQ7F",
-              "Key": "objectkey1"
-            },
-            {
-              "DeleteMarker": "true",
-              "DeleteMarkerVersionId": "iOd_ORxhkKe_e8G8_oSGxt2PjsCZKlkt",
-              "Key": "objectkey2"
-            }
-          ]
-        },
-        "comments": {
-          "input": {
-          },
-          "output": {
-          }
-        },
-        "description": "The following example deletes objects from a bucket. The bucket is versioned, and the request does not specify the object version to delete. In this case, all versions remain in the bucket and S3 adds a delete marker.",
-        "id": "to-delete-multiple-objects-from-a-versioned-bucket-1483146248805",
-        "title": "To delete multiple objects from a versioned bucket"
-      },
       {
         "input": {
           "Bucket": "examplebucket",
@@ -324,6 +302,45 @@
         "description": "The following example deletes objects from a bucket. The request specifies object versions. S3 deletes specific object versions and returns the key and versions of deleted objects in the response.",
         "id": "to-delete-multiple-object-versions-from-a-versioned-bucket-1483147087737",
         "title": "To delete multiple object versions from a versioned bucket"
+      },
+      {
+        "input": {
+          "Bucket": "examplebucket",
+          "Delete": {
+            "Objects": [
+              {
+                "Key": "objectkey1"
+              },
+              {
+                "Key": "objectkey2"
+              }
+            ],
+            "Quiet": false
+          }
+        },
+        "output": {
+          "Deleted": [
+            {
+              "DeleteMarker": "true",
+              "DeleteMarkerVersionId": "A._w1z6EFiCF5uhtQMDal9JDkID9tQ7F",
+              "Key": "objectkey1"
+            },
+            {
+              "DeleteMarker": "true",
+              "DeleteMarkerVersionId": "iOd_ORxhkKe_e8G8_oSGxt2PjsCZKlkt",
+              "Key": "objectkey2"
+            }
+          ]
+        },
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "The following example deletes objects from a bucket. The bucket is versioned, and the request does not specify the object version to delete. In this case, all versions remain in the bucket and S3 adds a delete marker.",
+        "id": "to-delete-multiple-objects-from-a-versioned-bucket-1483146248805",
+        "title": "To delete multiple objects from a versioned bucket"
       }
     ],
     "GetBucketCors": [
@@ -356,6 +373,37 @@
         "description": "The following example returns cross-origin resource sharing (CORS) configuration set on a bucket.",
         "id": "to-get-cors-configuration-set-on-a-bucket-1481596855475",
         "title": "To get cors configuration set on a bucket"
+      }
+    ],
+    "GetBucketLifecycleConfiguration": [
+      {
+        "input": {
+          "Bucket": "examplebucket"
+        },
+        "output": {
+          "Rules": [
+            {
+              "ID": "Rule for TaxDocs/",
+              "Prefix": "TaxDocs",
+              "Status": "Enabled",
+              "Transitions": [
+                {
+                  "Days": 365,
+                  "StorageClass": "STANDARD_IA"
+                }
+              ]
+            }
+          ]
+        },
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "The following example retrieves lifecycle configuration on set on a bucket. ",
+        "id": "to-get-lifecycle-configuration-on-a-bucket-1481666063200",
+        "title": "To get lifecycle configuration on a bucket"
       }
     ],
     "GetBucketLocation": [
@@ -511,6 +559,61 @@
         "description": "The following example retrieves access control list (ACL) of an object.",
         "id": "to-retrieve-object-acl-1481833557740",
         "title": "To retrieve object ACL"
+      }
+    ],
+    "GetObjectTagging": [
+      {
+        "input": {
+          "Bucket": "examplebucket",
+          "Key": "exampleobject",
+          "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+        },
+        "output": {
+          "TagSet": [
+            {
+              "Key": "Key1",
+              "Value": "Value1"
+            }
+          ],
+          "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+        },
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "The following example retrieves tag set of an object. The request specifies object version.",
+        "id": "to-retrieve-tag-set-of-a-specific-object-version-1483400283663",
+        "title": "To retrieve tag set of a specific object version"
+      },
+      {
+        "input": {
+          "Bucket": "examplebucket",
+          "Key": "HappyFace.jpg"
+        },
+        "output": {
+          "TagSet": [
+            {
+              "Key": "Key4",
+              "Value": "Value4"
+            },
+            {
+              "Key": "Key3",
+              "Value": "Value3"
+            }
+          ],
+          "VersionId": "null"
+        },
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "The following example retrieves tag set of an object.",
+        "id": "to-retrieve-tag-set-of-an-object-1481833847896",
+        "title": "To retrieve tag set of an object"
       }
     ],
     "HeadBucket": [
@@ -691,6 +794,53 @@
         "description": "The following example specifies the upload-id-marker and key-marker from previous truncated response to retrieve next setup of multipart uploads.",
         "id": "list-next-set-of-multipart-uploads-when-previous-result-is-truncated-1482428106748",
         "title": "List next set of multipart uploads when previous result is truncated"
+      }
+    ],
+    "ListObjectVersions": [
+      {
+        "input": {
+          "Bucket": "examplebucket",
+          "Prefix": "HappyFace.jpg"
+        },
+        "output": {
+          "Versions": [
+            {
+              "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+              "IsLatest": true,
+              "Key": "HappyFace.jpg",
+              "LastModified": "2016-12-15T01:19:41.000Z",
+              "Owner": {
+                "DisplayName": "owner-display-name",
+                "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+              },
+              "Size": 3191,
+              "StorageClass": "STANDARD",
+              "VersionId": "null"
+            },
+            {
+              "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+              "IsLatest": false,
+              "Key": "HappyFace.jpg",
+              "LastModified": "2016-12-13T00:58:26.000Z",
+              "Owner": {
+                "DisplayName": "owner-display-name",
+                "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+              },
+              "Size": 3191,
+              "StorageClass": "STANDARD",
+              "VersionId": "PHtexPGjH2y.zBgT8LmB7wwLI2mpbz.k"
+            }
+          ]
+        },
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "The following example return versions of an object with specific key name prefix. The request limits the number of items returned to two. If there are are more than two object version, S3 returns NextToken in the response. You can specify this token value in your next request to fetch next set of object versions.",
+        "id": "to-list-object-versions-1481910996058",
+        "title": "To list object versions"
       }
     ],
     "ListObjects": [
@@ -889,17 +1039,19 @@
         "title": "To set cors configuration on a bucket."
       }
     ],
-    "PutObject": [
+    "PutBucketWebsite": [
       {
         "input": {
-          "ACL": "authenticated-read",
-          "Body": "filetoupload",
           "Bucket": "examplebucket",
-          "Key": "exampleobject"
-        },
-        "output": {
-          "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
-          "VersionId": "Kirh.unyZwjQ69YxcQLA8z4F5j3kJJKr"
+          "ContentMD5": "",
+          "WebsiteConfiguration": {
+            "ErrorDocument": {
+              "Key": "error.html"
+            },
+            "IndexDocument": {
+              "Suffix": "index.html"
+            }
+          }
         },
         "comments": {
           "input": {
@@ -907,9 +1059,32 @@
           "output": {
           }
         },
-        "description": "The following example uploads and object. The request specifies optional canned ACL (access control list) to all READ access to authenticated users. If the bucket is versioning enabled, S3 returns version ID in response.",
-        "id": "to-upload-an-object-and-specify-canned-acl-1483397779571",
-        "title": "To upload an object and specify canned ACL."
+        "description": "The following example adds website configuration to a bucket.",
+        "id": "set-website-configuration-on-a-bucket-1482346836261",
+        "title": "Set website configuration on a bucket"
+      }
+    ],
+    "PutObject": [
+      {
+        "input": {
+          "Body": "c:\\HappyFace.jpg",
+          "Bucket": "examplebucket",
+          "Key": "HappyFace.jpg",
+          "Tagging": "key1=value1&key2=value2"
+        },
+        "output": {
+          "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+          "VersionId": "psM2sYY4.o1501dSx8wMvnkOzSBB.V4a"
+        },
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "The following example uploads an object. The request specifies optional object tags. The bucket is versioned, therefore S3 returns version ID of the newly created object.",
+        "id": "to-upload-an-object-and-specify-optional-tags-1481762310955",
+        "title": "To upload an object and specify optional tags"
       },
       {
         "input": {
@@ -930,49 +1105,6 @@
         "description": "The following example creates an object. If the bucket is versioning enabled, S3 returns version ID in response.",
         "id": "to-create-an-object-1483147613675",
         "title": "To create an object."
-      },
-      {
-        "input": {
-          "Body": "HappyFace.jpg",
-          "Bucket": "examplebucket",
-          "Key": "HappyFace.jpg",
-          "ServerSideEncryption": "AES256",
-          "StorageClass": "STANDARD_IA"
-        },
-        "output": {
-          "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
-          "ServerSideEncryption": "AES256",
-          "VersionId": "CG612hodqujkf8FaaNfp8U..FIhLROcp"
-        },
-        "comments": {
-          "input": {
-          },
-          "output": {
-          }
-        },
-        "description": "The following example uploads an object. The request specifies optional request headers to directs S3 to use specific storage class and use server-side encryption.",
-        "id": "to-upload-an-object-(specify-optional-headers)",
-        "title": "To upload an object (specify optional headers)"
-      },
-      {
-        "input": {
-          "Body": "HappyFace.jpg",
-          "Bucket": "examplebucket",
-          "Key": "HappyFace.jpg"
-        },
-        "output": {
-          "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
-          "VersionId": "tpf3zF08nBplQK1XLOefGskR7mGDwcDk"
-        },
-        "comments": {
-          "input": {
-          },
-          "output": {
-          }
-        },
-        "description": "The following example uploads an object to a versioning-enabled bucket. The source file is specified using Windows file syntax. S3 returns VersionId of the newly created object.",
-        "id": "to-upload-an-object-1481760101010",
-        "title": "To upload an object"
       },
       {
         "input": {
@@ -1000,6 +1132,26 @@
       },
       {
         "input": {
+          "Body": "HappyFace.jpg",
+          "Bucket": "examplebucket",
+          "Key": "HappyFace.jpg"
+        },
+        "output": {
+          "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+          "VersionId": "tpf3zF08nBplQK1XLOefGskR7mGDwcDk"
+        },
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "The following example uploads an object to a versioning-enabled bucket. The source file is specified using Windows file syntax. S3 returns VersionId of the newly created object.",
+        "id": "to-upload-an-object-1481760101010",
+        "title": "To upload an object"
+      },
+      {
+        "input": {
           "Body": "filetoupload",
           "Bucket": "examplebucket",
           "Key": "exampleobject",
@@ -1020,6 +1172,50 @@
         "description": "The following example uploads and object. The request specifies the optional server-side encryption option. The request also specifies optional object tags. If the bucket is versioning enabled, S3 returns version ID in response.",
         "id": "to-upload-an-object-and-specify-server-side-encryption-and-object-tags-1483398331831",
         "title": "To upload an object and specify server-side encryption and object tags"
+      },
+      {
+        "input": {
+          "ACL": "authenticated-read",
+          "Body": "filetoupload",
+          "Bucket": "examplebucket",
+          "Key": "exampleobject"
+        },
+        "output": {
+          "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+          "VersionId": "Kirh.unyZwjQ69YxcQLA8z4F5j3kJJKr"
+        },
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "The following example uploads and object. The request specifies optional canned ACL (access control list) to all READ access to authenticated users. If the bucket is versioning enabled, S3 returns version ID in response.",
+        "id": "to-upload-an-object-and-specify-canned-acl-1483397779571",
+        "title": "To upload an object and specify canned ACL."
+      },
+      {
+        "input": {
+          "Body": "HappyFace.jpg",
+          "Bucket": "examplebucket",
+          "Key": "HappyFace.jpg",
+          "ServerSideEncryption": "AES256",
+          "StorageClass": "STANDARD_IA"
+        },
+        "output": {
+          "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+          "ServerSideEncryption": "AES256",
+          "VersionId": "CG612hodqujkf8FaaNfp8U..FIhLROcp"
+        },
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "The following example uploads an object. The request specifies optional request headers to directs S3 to use specific storage class and use server-side encryption.",
+        "id": "to-upload-an-object-(specify-optional-headers)",
+        "title": "To upload an object (specify optional headers)"
       }
     ],
     "PutObjectAcl": [
@@ -1043,6 +1239,63 @@
         "description": "The following example adds grants to an object ACL. The first permission grants user1 and user2 FULL_CONTROL and the AllUsers group READ permission.",
         "id": "to-grant-permissions-using-object-acl-1481835549285",
         "title": "To grant permissions using object ACL"
+      }
+    ],
+    "PutObjectTagging": [
+      {
+        "input": {
+          "Bucket": "examplebucket",
+          "Key": "HappyFace.jpg",
+          "Tagging": {
+            "TagSet": [
+              {
+                "Key": "Key3",
+                "Value": "Value3"
+              },
+              {
+                "Key": "Key4",
+                "Value": "Value4"
+              }
+            ]
+          }
+        },
+        "output": {
+          "VersionId": "null"
+        },
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "The following example adds tags to an existing object.",
+        "id": "to-add-tags-to-an-existing-object-1481764668793",
+        "title": "To add tags to an existing object"
+      }
+    ],
+    "RestoreObject": [
+      {
+        "input": {
+          "Bucket": "examplebucket",
+          "Key": "archivedobjectkey",
+          "RestoreRequest": {
+            "Days": 1,
+            "GlacierJobParameters": {
+              "Tier": "Expedited"
+            }
+          }
+        },
+        "output": {
+        },
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "The following example restores for one day an archived copy of an object back into Amazon S3 bucket.",
+        "id": "to-restore-an-archived-object-1483049329953",
+        "title": "To restore an archived object"
       }
     ],
     "UploadPart": [

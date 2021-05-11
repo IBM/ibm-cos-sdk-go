@@ -45,7 +45,7 @@ func (a *API) setServiceAliaseName() {
 // customizationPasses Executes customization logic for the API by package name.
 func (a *API) customizationPasses() error {
 	var svcCustomizations = map[string]func(*API) error{
-		"s3": s3Customizations,
+		"s3":         s3Customizations,
 	}
 
 	for k := range mergeServices {
@@ -69,6 +69,10 @@ func supressSmokeTest(a *API) error {
 
 // Customizes the API generation to replace values specific to S3.
 func s3Customizations(a *API) error {
+
+	// back-fill signing name as 's3'
+	a.Metadata.SigningName = "s3"
+
 	var strExpires *Shape
 
 	var keepContentMD5Ref = map[string]struct{}{
@@ -149,18 +153,8 @@ func s3CustRemoveHeadObjectModeledErrors(a *API) {
 // S3 service operations with an AccountId need accessors to be generated for
 // them so the fields can be dynamically accessed without reflection.
 func s3ControlCustomizations(a *API) error {
-	for opName, op := range a.Operations {
-		// Add moving AccountId into the hostname instead of header.
-		if ref, ok := op.InputRef.Shape.MemberRefs["AccountId"]; ok {
-			if op.Endpoint != nil {
-				fmt.Fprintf(os.Stderr, "S3 Control, %s, model already defining endpoint trait, remove this customization.\n", opName)
-			}
-
-			op.Endpoint = &EndpointTrait{HostPrefix: "{AccountId}."}
-			ref.HostLabel = true
-		}
-	}
-
+	// IBM does not support AWS ARN, so it's not necessary to
+	// Generate a endpointARN method for the BucketName shape if this is used as an operation input
 	return nil
 }
 

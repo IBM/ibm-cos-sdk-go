@@ -208,9 +208,12 @@ func TestEndpointResolve(t *testing.T) {
 		SSLCommonName:     "new sslCommonName",
 	}
 
-	resolved := e.resolve("service", "partitionID", "region", "dnsSuffix",
+	resolved, err := e.resolve("service", "partitionID", "region", "dnsSuffix",
 		defs, Options{},
 	)
+	if err != nil {
+		t.Errorf("expected no error, got %v", err)
+	}
 
 	if e, a := "https://service.region.dnsSuffix", resolved.URL; e != a {
 		t.Errorf("expect %v, got %v", e, a)
@@ -223,6 +226,14 @@ func TestEndpointResolve(t *testing.T) {
 	}
 	if e, a := "v4", resolved.SigningMethod; e != a {
 		t.Errorf("expect %v, got %v", e, a)
+	}
+
+	// Check Invalid Region Identifier Format
+	_, err = e.resolve("service", "partitionID", "notvalid.com", "dnsSuffix",
+		defs, Options{},
+	)
+	if err == nil {
+		t.Errorf("expected err, got nil")
 	}
 }
 

@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 1.7.0
+
+### Content
+
+#### Features
+
+* Block Public Anonymous Access
+* Object Versioning
+* IBM Cloud Security and Compliance Center Support
+
+#### Defect Fixes
+
+* AWS Patches aligned to version 1.38.26 of the AWS SDK for Go
+
 ## 1.6.1
 
 ### Content
