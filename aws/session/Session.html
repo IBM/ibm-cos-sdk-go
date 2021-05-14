@@ -351,16 +351,16 @@ Session and configuration at startup. Such as:</p>
       <pre class="lines">
 
 
-330
-331
-332
-333
-334
-335
-336</pre>
+303
+304
+305
+306
+307
+308
+309</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 330</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 303</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> Must(sess *Session, err <span class="hljs-constant">error</span>) *Session {
 	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
@@ -410,36 +410,36 @@ client.</p>
       <pre class="lines">
 
 
-567
-568
-569
-570
-571
-572
-573
-574
-575
-576
-577
-578
-579
-580
-581
-582
-583
-584
-585
-586
-587
-588
-589
-590
-591
-592
-593</pre>
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 567</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 638</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *Session) ClientConfig(service <span class="hljs-constant">string</span>, cfgs ...*aws.Config) client.Config {
 	s = s.Copy(cfgs...)
@@ -503,27 +503,27 @@ field.</p>
       <pre class="lines">
 
 
-629
-630
-631
-632
-633
-634
-635
-636
-637
-638
-639
-640
-641
-642
-643
-644
-645
-646</pre>
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 629</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 700</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *Session) ClientConfigNoResolveEndpo<span class="hljs-constant">int</span>(cfgs ...*aws.Config) client.Config {
 	s = s.Copy(cfgs...)
@@ -580,24 +580,26 @@ sess.Copy(&aws.Config{Region: aws.String(<span class="hljs-string">"us-west-2"</
       <pre class="lines">
 
 
-553
-554
-555
-556
-557
-558
-559
-560
-561
-562</pre>
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 553</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 623</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *Session) Copy(cfgs ...*aws.Config) *Session {
 	newSession := &Session{
 		Config:   s.Config.Copy(cfgs...),
 		Handlers: s.Handlers.Copy(),
+		options:  s.options,
 	}
 
 	initHandlers(newSession)
@@ -616,7 +618,7 @@ sess.Copy(&aws.Config{Region: aws.String(<span class="hljs-string">"us-west-2"</
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:34 2021 by
+  Generated on Mon May 10 21:14:29 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

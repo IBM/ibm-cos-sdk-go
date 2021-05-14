@@ -76,27 +76,19 @@ import "../ibm-cos-sdk-go/service/kms"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Use this structure to allow cryptographic operations in the grant only when
-the operation request includes the specified encryption context (<a
+<p>Use this structure to allow cryptographic operations (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
+in the grant only when the operation request includes the specified
+encryption context (<a
 href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>).</p>
 
-<p>AWS KMS applies the grant constraints only when the grant allows a
-cryptographic operation that accepts an encryption context as input, such
-as the following.</p>
-<ul><li>
-<p>Encrypt</p>
-</li><li>
-<p>Decrypt</p>
-</li><li>
-<p>GenerateDataKey</p>
-</li><li>
-<p>GenerateDataKeyWithoutPlaintext</p>
-</li><li>
-<p>ReEncrypt</p>
-</li></ul>
-
-<p>AWS KMS does not apply the grant constraints to other operations, such as
-DescribeKey or ScheduleKeyDeletion.</p>
+<p>AWS KMS applies the grant constraints only to cryptographic operations that
+support an encryption context, that is, all cryptographic operations with a
+symmetric CMK (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks">docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks</a>).
+Grant constraints are not applied to operations that do not support an
+encryption context, such as cryptographic operations with asymmetric CMKs
+and management operations, such as DescribeKey or RetireGrant.</p>
 
 <p>In a cryptographic operation, the encryption context in the decryption
 operation must be an exact, case-sensitive match for the keys and values in
@@ -161,7 +153,9 @@ in the AWS Key Management Service Developer Guide .</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>A list of key-value pairs that must match the encryption context in the
-cryptographic operation request.</p>
+cryptographic operation (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
+request.</p>
 </div></span>
   
 </li>
@@ -187,7 +181,9 @@ cryptographic operation request.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>A list of key-value pairs that must be included in the encryption context
-of the cryptographic operation request.</p>
+of the cryptographic operation (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
+request.</p>
 </div></span>
   
 </li>
@@ -350,9 +346,11 @@ value.</p>
   <div class="discussion">
     
 <p>A list of key-value pairs that must match the encryption context in the
-cryptographic operation request. The grant allows the operation only when
-the encryption context in the request is the same as the encryption context
-specified in this constraint.</p>
+cryptographic operation (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
+request. The grant allows the operation only when the encryption context in
+the request is the same as the encryption context specified in this
+constraint.</p>
 
 
   </div>
@@ -372,10 +370,11 @@ specified in this constraint.</p>
   <div class="discussion">
     
 <p>A list of key-value pairs that must be included in the encryption context
-of the cryptographic operation request. The grant allows the cryptographic
-operation only when the encryption context in the request includes the
-key-value pairs specified in this constraint, although it can include
-additional key-value pairs.</p>
+of the cryptographic operation (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
+request. The grant allows the cryptographic operation only when the
+encryption context in the request includes the key-value pairs specified in
+this constraint, although it can include additional key-value pairs.</p>
 
 
   </div>
@@ -427,12 +426,12 @@ additional key-value pairs.</p>
       <pre class="lines">
 
 
-10623
-10624
-10625</pre>
+11306
+11307
+11308</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10623</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11306</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GrantConstraints.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -470,13 +469,13 @@ value.</p>
       <pre class="lines">
 
 
-10628
-10629
-10630
-10631</pre>
+11311
+11312
+11313
+11314</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10628</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11311</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) <span class='object_link'><a href="#SetEncryptionContextEquals-instance_method" title="kms.GrantConstraints.SetEncryptionContextEquals() (method)">SetEncryptionContextEquals</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span> {
 	s.EncryptionContextEquals = v
@@ -515,13 +514,13 @@ value.</p>
       <pre class="lines">
 
 
-10634
-10635
-10636
-10637</pre>
+11317
+11318
+11319
+11320</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10634</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11317</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) <span class='object_link'><a href="#SetEncryptionContextSubset-instance_method" title="kms.GrantConstraints.SetEncryptionContextSubset() (method)">SetEncryptionContextSubset</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span> {
 	s.EncryptionContextSubset = v
@@ -559,12 +558,12 @@ value.</p>
       <pre class="lines">
 
 
-10618
-10619
-10620</pre>
+11301
+11302
+11303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10618</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11301</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GrantConstraints.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -581,7 +580,7 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:22 2021 by
+  Generated on Mon May 10 21:15:28 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

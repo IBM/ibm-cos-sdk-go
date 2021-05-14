@@ -114,7 +114,32 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The bucket name to which the upload was taking place.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.AbortMultipartUploadInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
 </div></span>
   
 </li>
@@ -139,7 +164,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Key is a required field.</p>
+<p>Key of the object for which the multipart upload was initiated.</p>
 </div></span>
   
 </li>
@@ -164,7 +189,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Confirms that the requester knows that she or he will be charged for the
+<p>Confirms that the requester knows that they will be charged for the
 request.</p>
 </div></span>
   
@@ -190,7 +215,7 @@ request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>UploadId is a required field.</p>
+<p>Upload ID that identifies the multipart upload.</p>
 </div></span>
   
 </li>
@@ -276,6 +301,31 @@ request.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>SetBucket sets the Bucket field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.AbortMultipartUploadInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *AbortMultipartUploadInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -425,7 +475,48 @@ request.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>The bucket name to which the upload was taking place.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
+
 <p>Bucket is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
 
 
   </div>
@@ -444,6 +535,8 @@ request.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>Key of the object for which the multipart upload was initiated.</p>
+
 <p>Key is a required field</p>
 
 
@@ -463,11 +556,12 @@ request.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that she or he will be charged for the
+<p>Confirms that the requester knows that they will be charged for the
 request. Bucket owners need not specify this parameter in their requests.
-Documentation on downloading objects from requester pays buckets can be
-found at <a
-href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a></p>
+For information about downloading objects from requester pays buckets, see
+Downloading Objects in Requestor Pays Buckets (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
+in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -486,6 +580,8 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
 <div class="docstring">
   <div class="discussion">
     
+<p>Upload ID that identifies the multipart upload.</p>
+
 <p>UploadId is a required field</p>
 
 
@@ -538,12 +634,12 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3931
-3932
-3933</pre>
+6290
+6291
+6292</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3931</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6290</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.AbortMultipartUploadInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -580,16 +676,60 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3961
-3962
-3963
-3964</pre>
+6320
+6321
+6322
+6323</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3961</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6320</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.AbortMultipartUploadInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span> {
 	s.Bucket = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.AbortMultipartUploadInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6333
+6334
+6335
+6336</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6333</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.AbortMultipartUploadInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -624,13 +764,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3974
-3975
-3976
-3977</pre>
+6339
+6340
+6341
+6342</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3974</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6339</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.AbortMultipartUploadInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span> {
 	s.Key = &v
@@ -668,13 +808,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3980
-3981
-3982
-3983</pre>
+6345
+6346
+6347
+6348</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3980</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6345</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.AbortMultipartUploadInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span> {
 	s.RequestPayer = &v
@@ -712,13 +852,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3986
-3987
-3988
-3989</pre>
+6351
+6352
+6353
+6354</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3986</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6351</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetUploadId-instance_method" title="s3.AbortMultipartUploadInput.SetUploadId() (method)">SetUploadId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span> {
 	s.UploadId = &v
@@ -756,12 +896,12 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3926
-3927
-3928</pre>
+6285
+6286
+6287</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3926</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6285</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.AbortMultipartUploadInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -798,32 +938,32 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-3936
-3937
-3938
-3939
-3940
-3941
-3942
-3943
-3944
-3945
-3946
-3947
-3948
-3949
-3950
-3951
-3952
-3953
-3954
-3955
-3956
-3957
-3958</pre>
+6295
+6296
+6297
+6298
+6299
+6300
+6301
+6302
+6303
+6304
+6305
+6306
+6307
+6308
+6309
+6310
+6311
+6312
+6313
+6314
+6315
+6316
+6317</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 3936</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6295</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.AbortMultipartUploadInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.AbortMultipartUploadInput (struct)">AbortMultipartUploadInput</a></span>"</span>}
@@ -860,7 +1000,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:43 2021 by
+  Generated on Mon May 10 21:14:42 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

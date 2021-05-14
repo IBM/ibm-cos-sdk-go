@@ -114,7 +114,32 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>Specifies the S3 bucket whose ACL is being requested.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.GetBucketAclInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
 </div></span>
   
 </li>
@@ -208,6 +233,31 @@ import "../ibm-cos-sdk-go/service/s3"
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetBucketAclInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *GetBucketAclInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#String-instance_method" title="s3.GetBucketAclInput.String() (method)"><strong>String</strong>()  string </a></span></span>
   
   
@@ -274,7 +324,30 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
+<p>Specifies the S3 bucket whose ACL is being requested.</p>
+
 <p>Bucket is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
 
 
   </div>
@@ -326,12 +399,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-7056
-7057
-7058</pre>
+10301
+10302
+10303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7056</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10301</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetBucketAclInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -368,16 +441,60 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-7077
-7078
-7079
-7080</pre>
+10322
+10323
+10324
+10325</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7077</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10322</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetBucketAclInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span> {
 	s.Bucket = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetBucketAclInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10335
+10336
+10337
+10338</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10335</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetBucketAclInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -412,12 +529,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-7051
-7052
-7053</pre>
+10296
+10297
+10298</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7051</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10296</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetBucketAclInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -454,23 +571,23 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-7061
-7062
-7063
-7064
-7065
-7066
-7067
-7068
-7069
-7070
-7071
-7072
-7073
-7074</pre>
+10306
+10307
+10308
+10309
+10310
+10311
+10312
+10313
+10314
+10315
+10316
+10317
+10318
+10319</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7061</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10306</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.GetBucketAclInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span>"</span>}
@@ -498,7 +615,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:50 2021 by
+  Generated on Mon May 10 21:14:51 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

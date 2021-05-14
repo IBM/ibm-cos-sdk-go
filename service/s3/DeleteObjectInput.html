@@ -114,7 +114,32 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The bucket name of the bucket containing the object.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.DeleteObjectInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
 </div></span>
   
 </li>
@@ -139,7 +164,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Key is a required field.</p>
+<p>Key name of the object to delete.</p>
 </div></span>
   
 </li>
@@ -190,7 +215,7 @@ space, and the value that is displayed on your authentication device.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Confirms that the requester knows that she or he will be charged for the
+<p>Confirms that the requester knows that they will be charged for the
 request.</p>
 </div></span>
   
@@ -302,6 +327,31 @@ request.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>SetBucket sets the Bucket field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.DeleteObjectInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *DeleteObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -476,7 +526,48 @@ request.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>The bucket name of the bucket containing the object.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
+
 <p>Bucket is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
 
 
   </div>
@@ -495,6 +586,8 @@ request.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>Key name of the object to delete.</p>
+
 <p>Key is a required field</p>
 
 
@@ -515,7 +608,9 @@ request.</p>
   <div class="discussion">
     
 <p>The concatenation of the authentication device&#39;s serial number, a
-space, and the value that is displayed on your authentication device.</p>
+space, and the value that is displayed on your authentication device.
+Required to permanently delete a versioned object if versioning is
+configured with MFA delete enabled.</p>
 
 
   </div>
@@ -534,11 +629,12 @@ space, and the value that is displayed on your authentication device.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that she or he will be charged for the
+<p>Confirms that the requester knows that they will be charged for the
 request. Bucket owners need not specify this parameter in their requests.
-Documentation on downloading objects from requester pays buckets can be
-found at <a
-href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a></p>
+For information about downloading objects from requester pays buckets, see
+Downloading Objects in Requestor Pays Buckets (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
+in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -609,12 +705,12 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-6447
-6448
-6449</pre>
+9186
+9187
+9188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6447</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9186</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.DeleteObjectInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -651,16 +747,60 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-6474
-6475
-6476
-6477</pre>
+9213
+9214
+9215
+9216</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6474</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9213</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.DeleteObjectInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.Bucket = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.DeleteObjectInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9226
+9227
+9228
+9229</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9226</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.DeleteObjectInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -695,13 +835,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-6487
-6488
-6489
-6490</pre>
+9232
+9233
+9234
+9235</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6487</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9232</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.DeleteObjectInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.Key = &v
@@ -739,13 +879,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-6493
-6494
-6495
-6496</pre>
+9238
+9239
+9240
+9241</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6493</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9238</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetMFA-instance_method" title="s3.DeleteObjectInput.SetMFA() (method)">SetMFA</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.MFA = &v
@@ -783,13 +923,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-6499
-6500
-6501
-6502</pre>
+9244
+9245
+9246
+9247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6499</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9244</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.DeleteObjectInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.RequestPayer = &v
@@ -827,13 +967,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-6505
-6506
-6507
-6508</pre>
+9250
+9251
+9252
+9253</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6505</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9250</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.DeleteObjectInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.VersionId = &v
@@ -871,12 +1011,12 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-6442
-6443
-6444</pre>
+9181
+9182
+9183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6442</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9181</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.DeleteObjectInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -913,29 +1053,29 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       <pre class="lines">
 
 
-6452
-6453
-6454
-6455
-6456
-6457
-6458
-6459
-6460
-6461
-6462
-6463
-6464
-6465
-6466
-6467
-6468
-6469
-6470
-6471</pre>
+9191
+9192
+9193
+9194
+9195
+9196
+9197
+9198
+9199
+9200
+9201
+9202
+9203
+9204
+9205
+9206
+9207
+9208
+9209
+9210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6452</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9191</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.DeleteObjectInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>"</span>}
@@ -969,7 +1109,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:49 2021 by
+  Generated on Mon May 10 21:14:49 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

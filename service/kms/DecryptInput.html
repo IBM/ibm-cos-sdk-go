@@ -215,8 +215,8 @@ ciphertext.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt
-the ciphertext.</p>
+<p>Specifies the customer master key (CMK) that AWS KMS uses to decrypt the
+ciphertext.</p>
 </div></span>
   
 </li>
@@ -525,9 +525,10 @@ supported algorithm that is valid for symmetric CMKs.</p>
   <div class="discussion">
     
 <p>Specifies the encryption context to use when decrypting the data. An
-encryption context is valid only for cryptographic operations with a
-symmetric CMK. The standard asymmetric encryption algorithms that AWS KMS
-uses do not support an encryption context.</p>
+encryption context is valid only for cryptographic operations (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
+with a symmetric CMK. The standard asymmetric encryption algorithms that
+AWS KMS uses do not support an encryption context.</p>
 
 <p>An encryption context is a collection of non-secret key-value pairs that
 represents additional authenticated data. When you use an encryption
@@ -580,21 +581,19 @@ in the AWS Key Management Service Developer Guide.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt
-the ciphertext. Enter a key ID of the CMK that was used to encrypt the
+<p>Specifies the customer master key (CMK) that AWS KMS uses to decrypt the
+ciphertext. Enter a key ID of the CMK that was used to encrypt the
 ciphertext.</p>
 
-<p>If you specify a KeyId value, the Decrypt operation succeeds only if the
-specified CMK was used to encrypt the ciphertext.</p>
-
 <p>This parameter is required only when the ciphertext was encrypted under an
-asymmetric CMK. Otherwise, AWS KMS uses the metadata that it adds to the
-ciphertext blob to determine which CMK was used to encrypt the ciphertext.
-However, you can use this parameter to ensure that a particular CMK (of any
-kind) is used to decrypt the ciphertext.</p>
+asymmetric CMK. If you used a symmetric CMK, AWS KMS can get the CMK from
+metadata that it adds to the symmetric ciphertext blob. However, it is
+always recommended as a best practice. This practice ensures that you use
+the CMK that you intend.</p>
 
 <p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name,
-or alias ARN. When using an alias name, prefix it with “alias/”.</p>
+or alias ARN. When using an alias name, prefix it with “alias/”. To specify
+a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -661,12 +660,12 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-8184
-8185
-8186</pre>
+8882
+8883
+8884</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8184</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8882</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.DecryptInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -703,13 +702,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-8208
-8209
-8210
-8211</pre>
+8906
+8907
+8908
+8909</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8208</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8906</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#SetCiphertextBlob-instance_method" title="kms.DecryptInput.SetCiphertextBlob() (method)">SetCiphertextBlob</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span> {
 	s.CiphertextBlob = v
@@ -747,13 +746,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-8214
-8215
-8216
-8217</pre>
+8912
+8913
+8914
+8915</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8214</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8912</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.DecryptInput.SetEncryptionAlgorithm() (method)">SetEncryptionAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span> {
 	s.EncryptionAlgorithm = &v
@@ -791,13 +790,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-8220
-8221
-8222
-8223</pre>
+8918
+8919
+8920
+8921</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8220</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8918</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#SetEncryptionContext-instance_method" title="kms.DecryptInput.SetEncryptionContext() (method)">SetEncryptionContext</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span> {
 	s.EncryptionContext = v
@@ -835,13 +834,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-8226
-8227
-8228
-8229</pre>
+8924
+8925
+8926
+8927</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8226</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8924</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.DecryptInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span> {
 	s.GrantTokens = v
@@ -879,13 +878,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-8232
-8233
-8234
-8235</pre>
+8930
+8931
+8932
+8933</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8232</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8930</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.DecryptInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span> {
 	s.KeyId = &v
@@ -923,12 +922,12 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-8179
-8180
-8181</pre>
+8877
+8878
+8879</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8179</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8877</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.DecryptInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -965,26 +964,26 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-8189
-8190
-8191
-8192
-8193
-8194
-8195
-8196
-8197
-8198
-8199
-8200
-8201
-8202
-8203
-8204
-8205</pre>
+8887
+8888
+8889
+8890
+8891
+8892
+8893
+8894
+8895
+8896
+8897
+8898
+8899
+8900
+8901
+8902
+8903</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8189</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8887</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.DecryptInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.DecryptInput (struct)">DecryptInput</a></span>"</span>}
@@ -1015,7 +1014,7 @@ get the alias name and alias ARN, use ListAliases.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:17 2021 by
+  Generated on Mon May 10 21:15:23 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

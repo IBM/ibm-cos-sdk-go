@@ -73,7 +73,18 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Container for the person being granted permissions.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -495,6 +506,31 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>Email address of the grantee.</p>
 
+<p>Using email addresses to specify a grantee is only supported in the
+following AWS Regions:</p>
+<ul><li>
+<p>US East (N. Virginia)</p>
+</li><li>
+<p>US West (N. California)</p>
+</li><li>
+<p>US West (Oregon)</p>
+</li><li>
+<p>Asia Pacific (Singapore)</p>
+</li><li>
+<p>Asia Pacific (Sydney)</p>
+</li><li>
+<p>Asia Pacific (Tokyo)</p>
+</li><li>
+<p>Europe (Ireland)</p>
+</li><li>
+<p>South America (São Paulo)</p>
+</li></ul>
+
+<p>For a list of all the Amazon S3 supported Regions and endpoints, see
+Regions and Endpoints (<a
+href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">docs.aws.amazon.com/general/latest/gr/rande.html#s3_region</a>)
+in the AWS General Reference.</p>
+
 
   </div>
 </div>
@@ -604,12 +640,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8482
-8483
-8484</pre>
+12111
+12112
+12113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8482</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12111</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.Grantee.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -646,13 +682,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8500
-8501
-8502
-8503</pre>
+12129
+12130
+12131
+12132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8500</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12129</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span>) <span class='object_link'><a href="#SetDisplayName-instance_method" title="s3.Grantee.SetDisplayName() (method)">SetDisplayName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span> {
 	s.DisplayName = &v
@@ -690,13 +726,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8506
-8507
-8508
-8509</pre>
+12135
+12136
+12137
+12138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8506</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12135</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span>) <span class='object_link'><a href="#SetEmailAddress-instance_method" title="s3.Grantee.SetEmailAddress() (method)">SetEmailAddress</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span> {
 	s.EmailAddress = &v
@@ -734,13 +770,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8512
-8513
-8514
-8515</pre>
+12141
+12142
+12143
+12144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8512</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12141</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span>) <span class='object_link'><a href="#SetID-instance_method" title="s3.Grantee.SetID() (method)">SetID</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span> {
 	s.ID = &v
@@ -778,13 +814,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8518
-8519
-8520
-8521</pre>
+12147
+12148
+12149
+12150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8518</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12147</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span>) <span class='object_link'><a href="#SetType-instance_method" title="s3.Grantee.SetType() (method)">SetType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span> {
 	s.Type = &v
@@ -822,13 +858,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8524
-8525
-8526
-8527</pre>
+12153
+12154
+12155
+12156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8524</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12153</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span>) <span class='object_link'><a href="#SetURI-instance_method" title="s3.Grantee.SetURI() (method)">SetURI</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span> {
 	s.URI = &v
@@ -866,12 +902,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8477
-8478
-8479</pre>
+12106
+12107
+12108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8477</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12106</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.Grantee.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -908,20 +944,20 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8487
-8488
-8489
-8490
-8491
-8492
-8493
-8494
-8495
-8496
-8497</pre>
+12116
+12117
+12118
+12119
+12120
+12121
+12122
+12123
+12124
+12125
+12126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8487</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12116</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.Grantee.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.Grantee (struct)">Grantee</a></span>"</span>}
@@ -946,7 +982,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:53 2021 by
+  Generated on Mon May 10 21:14:54 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

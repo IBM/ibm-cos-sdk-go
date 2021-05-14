@@ -285,20 +285,12 @@ request debug information.</p>
 89
 90
 91
-92
-93
-94
-95
-96</pre>
+92</pre>
     </td>
     <td>
       <pre class="code"><span class="info file">// File 'aws/client/client.go', line 89</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Client) AddDebugHandlers() {
-	<span class="hljs-keyword">if</span> !c.Config.LogLevel.AtLeast(aws.LogDebug) {
-		<span class="hljs-keyword">return</span>
-	}
-
 	c.Handlers.Send.PushFrontNamed(LogHTTPRequestHandler)
 	c.Handlers.Send.PushBackNamed(LogHTTPResponseHandler)
 }</div></pre>
@@ -357,7 +349,7 @@ parameters.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:33 2021 by
+  Generated on Mon May 10 21:14:28 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

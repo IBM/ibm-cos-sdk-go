@@ -126,7 +126,7 @@ Filter must have exactly one of Prefix, Tag, or And specified.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Empty prefix allowed only.</p>
+<p>Prefix identifying one or more objects to which the rule applies.</p>
 </div></span>
   
 </li>
@@ -261,7 +261,12 @@ Filter must have exactly one of Prefix, Tag, or And specified.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Empty prefix allowed only.</p>
+<p>Prefix identifying one or more objects to which the rule applies.</p>
+
+<p>Replacement must be made for object keys containing special characters
+(such as carriage returns) when using XML requests. For more information,
+see XML related object key constraints (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints</a>).</p>
 
 
   </div>
@@ -313,12 +318,12 @@ Filter must have exactly one of Prefix, Tag, or And specified.</p>
       <pre class="lines">
 
 
-9388
-9389
-9390</pre>
+13145
+13146
+13147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9388</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13145</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LifecycleRuleFilter (struct)">LifecycleRuleFilter</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.LifecycleRuleFilter.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -355,13 +360,13 @@ Filter must have exactly one of Prefix, Tag, or And specified.</p>
       <pre class="lines">
 
 
-9393
-9394
-9395
-9396</pre>
+13150
+13151
+13152
+13153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9393</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13150</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRuleFilter (struct)">LifecycleRuleFilter</a></span>) <span class='object_link'><a href="#SetPrefix-instance_method" title="s3.LifecycleRuleFilter.SetPrefix() (method)">SetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.LifecycleRuleFilter (struct)">LifecycleRuleFilter</a></span> {
 	s.Prefix = &v
@@ -399,12 +404,12 @@ Filter must have exactly one of Prefix, Tag, or And specified.</p>
       <pre class="lines">
 
 
-9383
-9384
-9385</pre>
+13140
+13141
+13142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9383</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13140</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LifecycleRuleFilter (struct)">LifecycleRuleFilter</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.LifecycleRuleFilter.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -421,7 +426,7 @@ Filter must have exactly one of Prefix, Tag, or And specified.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:55 2021 by
+  Generated on Mon May 10 21:14:56 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The bucket name containing the objects from which to remove the tags.</p>
 </div></span>
   
 </li>
@@ -138,7 +138,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
+</div></span>
   
 </li>
 
@@ -162,7 +164,8 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Key is a required field.</p>
+<p>The key that identifies the object in the bucket from which to remove all
+tags.</p>
 </div></span>
   
 </li>
@@ -422,6 +425,26 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
+<p>The bucket name containing the objects from which to remove the tags.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
+
 <p>Bucket is a required field</p>
 
 
@@ -438,7 +461,20 @@ import "../ibm-cos-sdk-go/service/s3"
   <strong>ExpectedBucketOwner</strong> *string 
   <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -449,6 +485,9 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
+<p>The key that identifies the object in the bucket from which to remove all
+tags.</p>
+
 <p>Key is a required field</p>
 
 
@@ -520,12 +559,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6575
-6576
-6577</pre>
+9343
+9344
+9345</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6575</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9343</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteObjectTaggingInput (struct)">DeleteObjectTaggingInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.DeleteObjectTaggingInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -562,13 +601,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6602
-6603
-6604
-6605</pre>
+9370
+9371
+9372
+9373</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6602</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9370</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectTaggingInput (struct)">DeleteObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.DeleteObjectTaggingInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectTaggingInput (struct)">DeleteObjectTaggingInput</a></span> {
 	s.Bucket = &v
@@ -606,13 +645,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6615
-6616
-6617
-6618</pre>
+9383
+9384
+9385
+9386</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6615</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9383</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectTaggingInput (struct)">DeleteObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.DeleteObjectTaggingInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectTaggingInput (struct)">DeleteObjectTaggingInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -650,13 +689,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6621
-6622
-6623
-6624</pre>
+9389
+9390
+9391
+9392</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6621</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9389</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectTaggingInput (struct)">DeleteObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.DeleteObjectTaggingInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectTaggingInput (struct)">DeleteObjectTaggingInput</a></span> {
 	s.Key = &v
@@ -694,13 +733,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6627
-6628
-6629
-6630</pre>
+9395
+9396
+9397
+9398</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6627</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9395</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectTaggingInput (struct)">DeleteObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.DeleteObjectTaggingInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectTaggingInput (struct)">DeleteObjectTaggingInput</a></span> {
 	s.VersionId = &v
@@ -738,12 +777,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6570
-6571
-6572</pre>
+9338
+9339
+9340</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6570</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9338</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteObjectTaggingInput (struct)">DeleteObjectTaggingInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.DeleteObjectTaggingInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -780,29 +819,29 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6580
-6581
-6582
-6583
-6584
-6585
-6586
-6587
-6588
-6589
-6590
-6591
-6592
-6593
-6594
-6595
-6596
-6597
-6598
-6599</pre>
+9348
+9349
+9350
+9351
+9352
+9353
+9354
+9355
+9356
+9357
+9358
+9359
+9360
+9361
+9362
+9363
+9364
+9365
+9366
+9367</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6580</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9348</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectTaggingInput (struct)">DeleteObjectTaggingInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.DeleteObjectTaggingInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.DeleteObjectTaggingInput (struct)">DeleteObjectTaggingInput</a></span>"</span>}
@@ -836,7 +875,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:49 2021 by
+  Generated on Mon May 10 21:14:49 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

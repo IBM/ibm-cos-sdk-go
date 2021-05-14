@@ -73,7 +73,18 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Container for logging status information.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -114,7 +125,8 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Container for logging information.</p>
+<p>Describes where logs are stored and the prefix that Amazon S3 assigns to
+all log object keys for a bucket.</p>
 </div></span>
   
 </li>
@@ -274,9 +286,11 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Container for logging information. Presence of this element indicates that
-logging is enabled. Parameters TargetBucket and TargetPrefix are required
-in this case.</p>
+<p>Describes where logs are stored and the prefix that Amazon S3 assigns to
+all log object keys for a bucket. For more information, see PUT Bucket
+logging (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html</a>)
+in the Amazon Simple Storage Service API Reference.</p>
 
 
   </div>
@@ -328,12 +342,12 @@ in this case.</p>
       <pre class="lines">
 
 
-4241
-4242
-4243</pre>
+6620
+6621
+6622</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4241</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6620</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.BucketLoggingStatus (struct)">BucketLoggingStatus</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.BucketLoggingStatus.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -370,13 +384,13 @@ in this case.</p>
       <pre class="lines">
 
 
-4261
-4262
-4263
-4264</pre>
+6640
+6641
+6642
+6643</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4261</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6640</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.BucketLoggingStatus (struct)">BucketLoggingStatus</a></span>) <span class='object_link'><a href="#SetLoggingEnabled-instance_method" title="s3.BucketLoggingStatus.SetLoggingEnabled() (method)">SetLoggingEnabled</a></span>(v *<span class='object_link'><a href="#LoggingEnabled-field" title="s3.BucketLoggingStatus.LoggingEnabled (field)">LoggingEnabled</a></span>) *<span class='object_link'><a href="" title="s3.BucketLoggingStatus (struct)">BucketLoggingStatus</a></span> {
 	s.LoggingEnabled = v
@@ -414,12 +428,12 @@ in this case.</p>
       <pre class="lines">
 
 
-4236
-4237
-4238</pre>
+6615
+6616
+6617</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4236</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6615</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.BucketLoggingStatus (struct)">BucketLoggingStatus</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.BucketLoggingStatus.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -456,22 +470,22 @@ in this case.</p>
       <pre class="lines">
 
 
-4246
-4247
-4248
-4249
-4250
-4251
-4252
-4253
-4254
-4255
-4256
-4257
-4258</pre>
+6625
+6626
+6627
+6628
+6629
+6630
+6631
+6632
+6633
+6634
+6635
+6636
+6637</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4246</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6625</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.BucketLoggingStatus (struct)">BucketLoggingStatus</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.BucketLoggingStatus.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.BucketLoggingStatus (struct)">BucketLoggingStatus</a></span>"</span>}
@@ -498,7 +512,7 @@ in this case.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:44 2021 by
+  Generated on Mon May 10 21:14:43 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

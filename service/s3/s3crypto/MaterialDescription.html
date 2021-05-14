@@ -73,7 +73,18 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3/s3crypto"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Clone returns a copy of the MaterialDescription</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="../s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -91,15 +102,100 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 
 
 
+  
+    <h2>
+      Method  Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Clone-instance_method" title="s3crypto.MaterialDescription.Clone() (method)">func (md MaterialDescription) <strong>Clone</strong>() (clone MaterialDescription) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+      
+    </ul>
+  
 
 
 
+
+
+  <div id="Method_method_details" class="method_details_list">
+    <h2>Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="Clone-instance_method">
+  
+    func (md <span class='object_link'><a href="" title="s3crypto.MaterialDescription (struct)">MaterialDescription</a></span>) <strong><span class='object_link'><a href="#Clone-instance_method" title="s3crypto.MaterialDescription.Clone() (method)">Clone</a></span></strong>() (clone <span class='object_link'><a href="" title="s3crypto.MaterialDescription (struct)">MaterialDescription</a></span>) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/mat_desc.go', line 11</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (md MaterialDescription) Clone() (clone MaterialDescription) {
+	<span class="hljs-keyword">if</span> md == <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
+	}
+	clone = make(MaterialDescription, len(md))
+	<span class="hljs-keyword">for</span> k, v := <span class="hljs-keyword">range</span> md {
+		clone[k] = copyPtrString(v)
+	}
+	<span class="hljs-keyword">return</span> clone
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+  </div>
 
 
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:29 2021 by
+  Generated on Mon May 10 21:15:36 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

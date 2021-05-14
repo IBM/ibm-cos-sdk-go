@@ -76,7 +76,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Contains information about an entry in a list of grants.</p>
+<p>Contains information about a grant.</p>
 
 
   </div>
@@ -201,7 +201,7 @@ certain subsequent operations that the grant allows.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The principal that receives the grant&#39;s permissions.</p>
+<p>The identity that gets the permissions in the grant.</p>
 </div></span>
   
 </li>
@@ -720,7 +720,14 @@ certain subsequent operations that the grant allows.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The principal that receives the grant&#39;s permissions.</p>
+<p>The identity that gets the permissions in the grant.</p>
+
+<p>The GranteePrincipal field in the ListGrants response usually contains the
+user or role designated as the grantee principal in the grant. However,
+when the grantee principal in the grant is an AWS service, the
+GranteePrincipal field contains the service principal (<a
+href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services</a>),
+which might represent several different grantee principals.</p>
 
 
   </div>
@@ -869,12 +876,12 @@ CreateGrant request, that name is returned. Otherwise this value is null.</p>
       <pre class="lines">
 
 
-10680
-10681
-10682</pre>
+11369
+11370
+11371</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10680</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11369</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GrantListEntry.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -911,13 +918,13 @@ CreateGrant request, that name is returned. Otherwise this value is null.</p>
       <pre class="lines">
 
 
-10685
-10686
-10687
-10688</pre>
+11374
+11375
+11376
+11377</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10685</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11374</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetConstraints-instance_method" title="kms.GrantListEntry.SetConstraints() (method)">SetConstraints</a></span>(v *<span class='object_link'><a href="GrantConstraints.html" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.Constraints = v
@@ -955,13 +962,13 @@ CreateGrant request, that name is returned. Otherwise this value is null.</p>
       <pre class="lines">
 
 
-10691
-10692
-10693
-10694</pre>
+11380
+11381
+11382
+11383</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10691</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11380</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetCreationDate-instance_method" title="kms.GrantListEntry.SetCreationDate() (method)">SetCreationDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.CreationDate = &v
@@ -999,13 +1006,13 @@ CreateGrant request, that name is returned. Otherwise this value is null.</p>
       <pre class="lines">
 
 
-10703
-10704
-10705
-10706</pre>
+11392
+11393
+11394
+11395</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10703</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11392</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetGranteePrincipal-instance_method" title="kms.GrantListEntry.SetGranteePrincipal() (method)">SetGranteePrincipal</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.GranteePrincipal = &v
@@ -1043,13 +1050,13 @@ CreateGrant request, that name is returned. Otherwise this value is null.</p>
       <pre class="lines">
 
 
-10697
-10698
-10699
-10700</pre>
+11386
+11387
+11388
+11389</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10697</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11386</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetGrantId-instance_method" title="kms.GrantListEntry.SetGrantId() (method)">SetGrantId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.GrantId = &v
@@ -1087,13 +1094,13 @@ CreateGrant request, that name is returned. Otherwise this value is null.</p>
       <pre class="lines">
 
 
-10709
-10710
-10711
-10712</pre>
+11398
+11399
+11400
+11401</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10709</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11398</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetIssuingAccount-instance_method" title="kms.GrantListEntry.SetIssuingAccount() (method)">SetIssuingAccount</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.IssuingAccount = &v
@@ -1131,13 +1138,13 @@ CreateGrant request, that name is returned. Otherwise this value is null.</p>
       <pre class="lines">
 
 
-10715
-10716
-10717
-10718</pre>
+11404
+11405
+11406
+11407</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10715</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11404</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.GrantListEntry.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.KeyId = &v
@@ -1175,13 +1182,13 @@ CreateGrant request, that name is returned. Otherwise this value is null.</p>
       <pre class="lines">
 
 
-10721
-10722
-10723
-10724</pre>
+11410
+11411
+11412
+11413</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10721</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11410</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetName-instance_method" title="kms.GrantListEntry.SetName() (method)">SetName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.Name = &v
@@ -1219,13 +1226,13 @@ CreateGrant request, that name is returned. Otherwise this value is null.</p>
       <pre class="lines">
 
 
-10727
-10728
-10729
-10730</pre>
+11416
+11417
+11418
+11419</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10727</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11416</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetOperations-instance_method" title="kms.GrantListEntry.SetOperations() (method)">SetOperations</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.Operations = v
@@ -1263,13 +1270,13 @@ CreateGrant request, that name is returned. Otherwise this value is null.</p>
       <pre class="lines">
 
 
-10733
-10734
-10735
-10736</pre>
+11422
+11423
+11424
+11425</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10733</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11422</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetRetiringPrincipal-instance_method" title="kms.GrantListEntry.SetRetiringPrincipal() (method)">SetRetiringPrincipal</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.RetiringPrincipal = &v
@@ -1307,12 +1314,12 @@ CreateGrant request, that name is returned. Otherwise this value is null.</p>
       <pre class="lines">
 
 
-10675
-10676
-10677</pre>
+11364
+11365
+11366</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10675</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11364</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GrantListEntry.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1329,7 +1336,7 @@ CreateGrant request, that name is returned. Otherwise this value is null.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:22 2021 by
+  Generated on Mon May 10 21:15:28 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

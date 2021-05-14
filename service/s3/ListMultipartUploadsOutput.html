@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Name of the bucket to which the multipart upload was initiated.</p>
+<p>The name of the bucket to which the multipart upload was initiated.</p>
 </div></span>
   
 </li>
@@ -138,7 +138,10 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>If you specify a delimiter in the request, then the result returns each
+distinct key prefix containing the delimiter in a CommonPrefixes element.</p>
+</div></span>
   
 </li>
 
@@ -161,7 +164,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Contains the delimiter you specified in the request.</p>
+</div></span>
   
 </li>
 
@@ -388,7 +393,9 @@ prefix.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Container for elements related to a particular multipart upload.</p>
+</div></span>
   
 </li>
 
@@ -797,7 +804,7 @@ prefix.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Name of the bucket to which the multipart upload was initiated.</p>
+<p>The name of the bucket to which the multipart upload was initiated.</p>
 
 
   </div>
@@ -813,7 +820,20 @@ prefix.</p>
   <strong>CommonPrefixes</strong> []*<span class='object_link'><a href="CommonPrefix.html" title="s3.CommonPrefix (struct)">CommonPrefix</a></span> 
   <code>`type:"list" flattened:"true"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>If you specify a delimiter in the request, then the result returns each
+distinct key prefix containing the delimiter in a CommonPrefixes element.
+The distinct key prefixes are returned in the Prefix child element.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -821,7 +841,20 @@ prefix.</p>
   <strong>Delimiter</strong> *string 
   <code>`type:"string"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Contains the delimiter you specified in the request. If you don&#39;t
+specify a delimiter in your request, this element is absent from the
+response.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -833,6 +866,12 @@ prefix.</p>
   <div class="discussion">
     
 <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
+
+<p>If you specify encoding-type request parameter, Amazon S3 includes this
+element in the response, and returns encoded key name values in the
+following response elements:</p>
+
+<p>Delimiter, KeyMarker, Prefix, NextKeyMarker, Key.</p>
 
 
   </div>
@@ -988,7 +1027,19 @@ prefix. The result contains only keys starting with the specified prefix.</p>
   <strong>Uploads</strong> []*<span class='object_link'><a href="MultipartUpload.html" title="s3.MultipartUpload (struct)">MultipartUpload</a></span> 
   <code>`locationName:"Upload" type:"list" flattened:"true"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Container for elements related to a particular multipart upload. A response
+can contain zero or more Upload elements.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -1032,12 +1083,12 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9846
-9847
-9848</pre>
+13665
+13666
+13667</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9846</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13665</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ListMultipartUploadsOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1074,13 +1125,13 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9851
-9852
-9853
-9854</pre>
+13670
+13671
+13672
+13673</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9851</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13670</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.ListMultipartUploadsOutput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.Bucket = &v
@@ -1118,13 +1169,13 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9864
-9865
-9866
-9867</pre>
+13683
+13684
+13685
+13686</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9864</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13683</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetCommonPrefixes-instance_method" title="s3.ListMultipartUploadsOutput.SetCommonPrefixes() (method)">SetCommonPrefixes</a></span>(v []*<span class='object_link'><a href="CommonPrefix.html" title="s3.CommonPrefix (struct)">CommonPrefix</a></span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.CommonPrefixes = v
@@ -1162,13 +1213,13 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9870
-9871
-9872
-9873</pre>
+13689
+13690
+13691
+13692</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9870</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13689</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetDelimiter-instance_method" title="s3.ListMultipartUploadsOutput.SetDelimiter() (method)">SetDelimiter</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.Delimiter = &v
@@ -1206,13 +1257,13 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9876
-9877
-9878
-9879</pre>
+13695
+13696
+13697
+13698</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9876</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13695</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetEncodingType-instance_method" title="s3.ListMultipartUploadsOutput.SetEncodingType() (method)">SetEncodingType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.EncodingType = &v
@@ -1250,13 +1301,13 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9882
-9883
-9884
-9885</pre>
+13701
+13702
+13703
+13704</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9882</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13701</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetIsTruncated-instance_method" title="s3.ListMultipartUploadsOutput.SetIsTruncated() (method)">SetIsTruncated</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.IsTruncated = &v
@@ -1294,13 +1345,13 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9888
-9889
-9890
-9891</pre>
+13707
+13708
+13709
+13710</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9888</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13707</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetKeyMarker-instance_method" title="s3.ListMultipartUploadsOutput.SetKeyMarker() (method)">SetKeyMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.KeyMarker = &v
@@ -1338,13 +1389,13 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9894
-9895
-9896
-9897</pre>
+13713
+13714
+13715
+13716</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9894</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13713</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetMaxUploads-instance_method" title="s3.ListMultipartUploadsOutput.SetMaxUploads() (method)">SetMaxUploads</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.MaxUploads = &v
@@ -1382,13 +1433,13 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9900
-9901
-9902
-9903</pre>
+13719
+13720
+13721
+13722</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9900</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13719</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetNextKeyMarker-instance_method" title="s3.ListMultipartUploadsOutput.SetNextKeyMarker() (method)">SetNextKeyMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.NextKeyMarker = &v
@@ -1426,13 +1477,13 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9906
-9907
-9908
-9909</pre>
+13725
+13726
+13727
+13728</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9906</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13725</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetNextUploadIdMarker-instance_method" title="s3.ListMultipartUploadsOutput.SetNextUploadIdMarker() (method)">SetNextUploadIdMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.NextUploadIdMarker = &v
@@ -1470,13 +1521,13 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9912
-9913
-9914
-9915</pre>
+13731
+13732
+13733
+13734</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9912</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13731</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetPrefix-instance_method" title="s3.ListMultipartUploadsOutput.SetPrefix() (method)">SetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.Prefix = &v
@@ -1514,13 +1565,13 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9918
-9919
-9920
-9921</pre>
+13737
+13738
+13739
+13740</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9918</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13737</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetUploadIdMarker-instance_method" title="s3.ListMultipartUploadsOutput.SetUploadIdMarker() (method)">SetUploadIdMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.UploadIdMarker = &v
@@ -1558,13 +1609,13 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9924
-9925
-9926
-9927</pre>
+13743
+13744
+13745
+13746</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9924</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13743</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetUploads-instance_method" title="s3.ListMultipartUploadsOutput.SetUploads() (method)">SetUploads</a></span>(v []*<span class='object_link'><a href="MultipartUpload.html" title="s3.MultipartUpload (struct)">MultipartUpload</a></span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.Uploads = v
@@ -1602,12 +1653,12 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       <pre class="lines">
 
 
-9841
-9842
-9843</pre>
+13660
+13661
+13662</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9841</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13660</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ListMultipartUploadsOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1624,7 +1675,7 @@ prefix. The result contains only keys starting with the specified prefix.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:56 2021 by
+  Generated on Mon May 10 21:14:58 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

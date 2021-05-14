@@ -123,6 +123,31 @@ import "../ibm-cos-sdk-go/service/s3"
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.DeleteBucketWebsiteInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#_-field" title="s3.DeleteBucketWebsiteInput._ (field)"><strong>_</strong> struct{}</a></span></span>
   
   
@@ -200,6 +225,31 @@ import "../ibm-cos-sdk-go/service/s3"
   
     <span class="summary_desc"><div class='inline'>
 <p>SetBucket sets the Bucket field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.DeleteBucketWebsiteInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *DeleteBucketWebsiteInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -288,6 +338,27 @@ import "../ibm-cos-sdk-go/service/s3"
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="_-field">
   <strong>_</strong> struct{} 
   <code>`locationName:"DeleteBucketWebsiteRequest" type:"structure"`</code>
@@ -328,12 +399,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6284
-6285
-6286</pre>
+8929
+8930
+8931</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6284</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8929</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteBucketWebsiteInput (struct)">DeleteBucketWebsiteInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.DeleteBucketWebsiteInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -370,16 +441,60 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6305
-6306
-6307
-6308</pre>
+8950
+8951
+8952
+8953</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6305</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8950</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteBucketWebsiteInput (struct)">DeleteBucketWebsiteInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.DeleteBucketWebsiteInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteBucketWebsiteInput (struct)">DeleteBucketWebsiteInput</a></span> {
 	s.Bucket = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.DeleteBucketWebsiteInput (struct)">DeleteBucketWebsiteInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.DeleteBucketWebsiteInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.DeleteBucketWebsiteInput (struct)">DeleteBucketWebsiteInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8963
+8964
+8965
+8966</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8963</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteBucketWebsiteInput (struct)">DeleteBucketWebsiteInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.DeleteBucketWebsiteInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteBucketWebsiteInput (struct)">DeleteBucketWebsiteInput</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -414,12 +529,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6279
-6280
-6281</pre>
+8924
+8925
+8926</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6279</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8924</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteBucketWebsiteInput (struct)">DeleteBucketWebsiteInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.DeleteBucketWebsiteInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -456,23 +571,23 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6289
-6290
-6291
-6292
-6293
-6294
-6295
-6296
-6297
-6298
-6299
-6300
-6301
-6302</pre>
+8934
+8935
+8936
+8937
+8938
+8939
+8940
+8941
+8942
+8943
+8944
+8945
+8946
+8947</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6289</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8934</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteBucketWebsiteInput (struct)">DeleteBucketWebsiteInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.DeleteBucketWebsiteInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.DeleteBucketWebsiteInput (struct)">DeleteBucketWebsiteInput</a></span>"</span>}
@@ -500,7 +615,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:48 2021 by
+  Generated on Mon May 10 21:14:48 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

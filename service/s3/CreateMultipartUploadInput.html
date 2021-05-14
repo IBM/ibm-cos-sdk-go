@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The name of the bucket to which to initiate the upload.</p>
 </div></span>
   
 </li>
@@ -416,7 +416,7 @@ referenced by the Content-Type header field.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Key is a required field.</p>
+<p>Object key for which the multipart upload is to be initiated.</p>
 </div></span>
   
 </li>
@@ -466,7 +466,7 @@ referenced by the Content-Type header field.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Confirms that the requester knows that she or he will be charged for the
+<p>Confirms that the requester knows that they will be charged for the
 request.</p>
 </div></span>
   
@@ -492,7 +492,7 @@ request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the algorithm to use to when encrypting the object (e.g.,
+<p>Specifies the algorithm to use to when encrypting the object (for example,
 AES256).</p>
 </div></span>
   
@@ -570,7 +570,8 @@ encrypting data.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the AWS KMS key ID to use for object encryption.</p>
+<p>Specifies the ID of the symmetric customer managed AWS KMS CMK to use for
+object encryption.</p>
 </div></span>
   
 </li>
@@ -595,8 +596,8 @@ encrypting data.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Server-side encryption algorithm used when storing this object in S3
-(e.g., AES256, aws:kms).</p>
+<p>The server-side encryption algorithm used when storing this object in
+Amazon S3 (for example, AES256, aws:kms).</p>
 </div></span>
   
 </li>
@@ -621,7 +622,8 @@ encrypting data.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The type of storage to use for the object.</p>
+<p>By default, Amazon S3 uses the STANDARD Storage Class to store newly
+created objects.</p>
 </div></span>
   
 </li>
@@ -1385,6 +1387,8 @@ value.</p>
     
 <p>The canned ACL to apply to the object.</p>
 
+<p>This action is not supported by Amazon S3 on Outposts.</p>
+
 
   </div>
 </div>
@@ -1402,6 +1406,26 @@ value.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>The name of the bucket to which to initiate the upload</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
+
 <p>Bucket is a required field</p>
 
 
@@ -1539,6 +1563,8 @@ referenced by the Content-Type header field.</p>
     
 <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
 
+<p>This action is not supported by Amazon S3 on Outposts.</p>
+
 
   </div>
 </div>
@@ -1557,6 +1583,8 @@ referenced by the Content-Type header field.</p>
   <div class="discussion">
     
 <p>Allows grantee to read the object data and its metadata.</p>
+
+<p>This action is not supported by Amazon S3 on Outposts.</p>
 
 
   </div>
@@ -1577,6 +1605,8 @@ referenced by the Content-Type header field.</p>
     
 <p>Allows grantee to read the object ACL.</p>
 
+<p>This action is not supported by Amazon S3 on Outposts.</p>
+
 
   </div>
 </div>
@@ -1596,6 +1626,8 @@ referenced by the Content-Type header field.</p>
     
 <p>Allows grantee to write the ACL for the applicable object.</p>
 
+<p>This action is not supported by Amazon S3 on Outposts.</p>
+
 
   </div>
 </div>
@@ -1613,6 +1645,8 @@ referenced by the Content-Type header field.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>Object key for which the multipart upload is to be initiated.</p>
+
 <p>Key is a required field</p>
 
 
@@ -1651,11 +1685,12 @@ referenced by the Content-Type header field.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that she or he will be charged for the
+<p>Confirms that the requester knows that they will be charged for the
 request. Bucket owners need not specify this parameter in their requests.
-Documentation on downloading objects from requester pays buckets can be
-found at <a
-href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a></p>
+For information about downloading objects from requester pays buckets, see
+Downloading Objects in Requestor Pays Buckets (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
+in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -1674,7 +1709,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the algorithm to use to when encrypting the object (e.g.,
+<p>Specifies the algorithm to use to when encrypting the object (for example,
 AES256).</p>
 
 
@@ -1696,9 +1731,9 @@ AES256).</p>
     
 <p>Specifies the customer-provided encryption key for Amazon S3 to use in
 encrypting data. This value is used to store the object and then it is
-discarded; Amazon does not store the encryption key. The key must be
+discarded; Amazon S3 does not store the encryption key. The key must be
 appropriate for use with the algorithm specified in the
-x-amz-server-side​-encryption​-customer-algorithm header.</p>
+x-amz-server-side-encryption-customer-algorithm header.</p>
 
 
   </div>
@@ -1719,7 +1754,7 @@ x-amz-server-side​-encryption​-customer-algorithm header.</p>
     
 <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC
 1321. Amazon S3 uses this header for a message integrity check to ensure
-the encryption key was transmitted without error.</p>
+that the encryption key was transmitted without error.</p>
 
 
   </div>
@@ -1738,11 +1773,13 @@ the encryption key was transmitted without error.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the AWS KMS key ID to use for object encryption. All GET and PUT
-requests for an object protected by AWS KMS will fail if not made via SSL
-or using SigV4. Documentation on configuring any of the officially
-supported AWS SDKs and CLI can be found at <a
-href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</a></p>
+<p>Specifies the ID of the symmetric customer managed AWS KMS CMK to use for
+object encryption. All GET and PUT requests for an object protected by AWS
+KMS will fail if not made via SSL or using SigV4. For information about
+configuring using any of the officially supported AWS SDKs and AWS CLI, see
+Specifying the Signature Version in Request Authentication (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</a>)
+in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -1761,8 +1798,8 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-si
 <div class="docstring">
   <div class="discussion">
     
-<p>The Server-side encryption algorithm used when storing this object in S3
-(e.g., AES256, aws:kms).</p>
+<p>The server-side encryption algorithm used when storing this object in
+Amazon S3 (for example, AES256, aws:kms).</p>
 
 
   </div>
@@ -1781,7 +1818,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-si
 <div class="docstring">
   <div class="discussion">
     
-<p>The type of storage to use for the object. Defaults to &#39;STANDARD&#39;.</p>
+<p>By default, Amazon S3 uses the STANDARD Storage Class to store newly
+created objects. The STANDARD storage class provides high durability and
+high availability. Depending on performance needs, you can specify a
+different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS
+Storage Class. For more information, see Storage Classes (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html</a>)
+in the Amazon S3 Service Developer Guide.</p>
 
 
   </div>
@@ -1801,7 +1844,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-si
   <div class="discussion">
     
 <p>The tag-set for the object. The tag-set must be encoded as URL Query
-parameters</p>
+parameters.</p>
 
 
   </div>
@@ -1874,12 +1917,12 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5736
-5737
-5738</pre>
+8309
+8310
+8311</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5736</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8309</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.CreateMultipartUploadInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1916,13 +1959,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5763
-5764
-5765
-5766</pre>
+8336
+8337
+8338
+8339</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5763</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8336</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetACL-instance_method" title="s3.CreateMultipartUploadInput.SetACL() (method)">SetACL</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.ACL = &v
@@ -1960,13 +2003,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5769
-5770
-5771
-5772</pre>
+8342
+8343
+8344
+8345</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5769</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8342</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.CreateMultipartUploadInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.Bucket = &v
@@ -2004,13 +2047,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5782
-5783
-5784
-5785</pre>
+8355
+8356
+8357
+8358</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5782</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8355</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetCacheControl-instance_method" title="s3.CreateMultipartUploadInput.SetCacheControl() (method)">SetCacheControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.CacheControl = &v
@@ -2048,13 +2091,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5788
-5789
-5790
-5791</pre>
+8361
+8362
+8363
+8364</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5788</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8361</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetContentDisposition-instance_method" title="s3.CreateMultipartUploadInput.SetContentDisposition() (method)">SetContentDisposition</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.ContentDisposition = &v
@@ -2092,13 +2135,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5794
-5795
-5796
-5797</pre>
+8367
+8368
+8369
+8370</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5794</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8367</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetContentEncoding-instance_method" title="s3.CreateMultipartUploadInput.SetContentEncoding() (method)">SetContentEncoding</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.ContentEncoding = &v
@@ -2136,13 +2179,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5800
-5801
-5802
-5803</pre>
+8373
+8374
+8375
+8376</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5800</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8373</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetContentLanguage-instance_method" title="s3.CreateMultipartUploadInput.SetContentLanguage() (method)">SetContentLanguage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.ContentLanguage = &v
@@ -2180,13 +2223,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5806
-5807
-5808
-5809</pre>
+8379
+8380
+8381
+8382</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5806</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8379</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetContentType-instance_method" title="s3.CreateMultipartUploadInput.SetContentType() (method)">SetContentType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.ContentType = &v
@@ -2224,13 +2267,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5812
-5813
-5814
-5815</pre>
+8385
+8386
+8387
+8388</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5812</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8385</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetExpires-instance_method" title="s3.CreateMultipartUploadInput.SetExpires() (method)">SetExpires</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.Expires = &v
@@ -2268,13 +2311,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5818
-5819
-5820
-5821</pre>
+8391
+8392
+8393
+8394</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5818</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8391</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetGrantFullControl-instance_method" title="s3.CreateMultipartUploadInput.SetGrantFullControl() (method)">SetGrantFullControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.GrantFullControl = &v
@@ -2312,13 +2355,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5824
-5825
-5826
-5827</pre>
+8397
+8398
+8399
+8400</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5824</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8397</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetGrantRead-instance_method" title="s3.CreateMultipartUploadInput.SetGrantRead() (method)">SetGrantRead</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.GrantRead = &v
@@ -2356,13 +2399,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5830
-5831
-5832
-5833</pre>
+8403
+8404
+8405
+8406</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5830</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8403</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetGrantReadACP-instance_method" title="s3.CreateMultipartUploadInput.SetGrantReadACP() (method)">SetGrantReadACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.GrantReadACP = &v
@@ -2400,13 +2443,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5836
-5837
-5838
-5839</pre>
+8409
+8410
+8411
+8412</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5836</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8409</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetGrantWriteACP-instance_method" title="s3.CreateMultipartUploadInput.SetGrantWriteACP() (method)">SetGrantWriteACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.GrantWriteACP = &v
@@ -2444,13 +2487,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5842
-5843
-5844
-5845</pre>
+8415
+8416
+8417
+8418</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5842</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8415</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.CreateMultipartUploadInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.Key = &v
@@ -2488,13 +2531,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5848
-5849
-5850
-5851</pre>
+8421
+8422
+8423
+8424</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5848</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8421</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetMetadata-instance_method" title="s3.CreateMultipartUploadInput.SetMetadata() (method)">SetMetadata</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.Metadata = v
@@ -2532,13 +2575,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5854
-5855
-5856
-5857</pre>
+8427
+8428
+8429
+8430</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5854</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8427</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.CreateMultipartUploadInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.RequestPayer = &v
@@ -2576,13 +2619,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5891
-5892
-5893
-5894</pre>
+8464
+8465
+8466
+8467</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5891</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8464</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.CreateMultipartUploadInput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.ServerSideEncryption = &v
@@ -2620,13 +2663,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5860
-5861
-5862
-5863</pre>
+8433
+8434
+8435
+8436</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5860</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8433</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.CreateMultipartUploadInput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -2664,13 +2707,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5866
-5867
-5868
-5869</pre>
+8439
+8440
+8441
+8442</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5866</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8439</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.CreateMultipartUploadInput.SetSSECustomerKey() (method)">SetSSECustomerKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.SSECustomerKey = &v
@@ -2708,13 +2751,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5879
-5880
-5881
-5882</pre>
+8452
+8453
+8454
+8455</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5879</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8452</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.CreateMultipartUploadInput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -2752,13 +2795,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5885
-5886
-5887
-5888</pre>
+8458
+8459
+8460
+8461</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5885</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8458</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.CreateMultipartUploadInput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -2796,13 +2839,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5897
-5898
-5899
-5900</pre>
+8470
+8471
+8472
+8473</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5897</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8470</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetStorageClass-instance_method" title="s3.CreateMultipartUploadInput.SetStorageClass() (method)">SetStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.StorageClass = &v
@@ -2840,13 +2883,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-5903
-5904
-5905
-5906</pre>
+8476
+8477
+8478
+8479</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5903</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8476</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetTagging-instance_method" title="s3.CreateMultipartUploadInput.SetTagging() (method)">SetTagging</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.Tagging = &v
@@ -2885,13 +2928,13 @@ value.</p>
       <pre class="lines">
 
 
-5909
-5910
-5911
-5912</pre>
+8482
+8483
+8484
+8485</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5909</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8482</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetWebsiteRedirectLocation-instance_method" title="s3.CreateMultipartUploadInput.SetWebsiteRedirectLocation() (method)">SetWebsiteRedirectLocation</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.WebsiteRedirectLocation = &v
@@ -2929,12 +2972,12 @@ value.</p>
       <pre class="lines">
 
 
-5731
-5732
-5733</pre>
+8304
+8305
+8306</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5731</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8304</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.CreateMultipartUploadInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -2971,29 +3014,29 @@ value.</p>
       <pre class="lines">
 
 
-5741
-5742
-5743
-5744
-5745
-5746
-5747
-5748
-5749
-5750
-5751
-5752
-5753
-5754
-5755
-5756
-5757
-5758
-5759
-5760</pre>
+8314
+8315
+8316
+8317
+8318
+8319
+8320
+8321
+8322
+8323
+8324
+8325
+8326
+8327
+8328
+8329
+8330
+8331
+8332
+8333</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5741</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8314</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.CreateMultipartUploadInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>"</span>}
@@ -3027,7 +3070,7 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:48 2021 by
+  Generated on Mon May 10 21:14:47 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

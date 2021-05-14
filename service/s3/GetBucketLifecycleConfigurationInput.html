@@ -114,7 +114,32 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The name of the bucket for which to get the lifecycle information.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.GetBucketLifecycleConfigurationInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
 </div></span>
   
 </li>
@@ -208,6 +233,31 @@ import "../ibm-cos-sdk-go/service/s3"
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetBucketLifecycleConfigurationInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *GetBucketLifecycleConfigurationInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#String-instance_method" title="s3.GetBucketLifecycleConfigurationInput.String() (method)"><strong>String</strong>()  string </a></span></span>
   
   
@@ -274,7 +324,30 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
+<p>The name of the bucket for which to get the lifecycle information.</p>
+
 <p>Bucket is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
 
 
   </div>
@@ -326,12 +399,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-7201
-7202
-7203</pre>
+10475
+10476
+10477</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7201</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10475</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetBucketLifecycleConfigurationInput (struct)">GetBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetBucketLifecycleConfigurationInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -368,16 +441,60 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-7222
-7223
-7224
-7225</pre>
+10496
+10497
+10498
+10499</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7222</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10496</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketLifecycleConfigurationInput (struct)">GetBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetBucketLifecycleConfigurationInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetBucketLifecycleConfigurationInput (struct)">GetBucketLifecycleConfigurationInput</a></span> {
 	s.Bucket = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetBucketLifecycleConfigurationInput (struct)">GetBucketLifecycleConfigurationInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetBucketLifecycleConfigurationInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetBucketLifecycleConfigurationInput (struct)">GetBucketLifecycleConfigurationInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10509
+10510
+10511
+10512</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10509</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketLifecycleConfigurationInput (struct)">GetBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetBucketLifecycleConfigurationInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetBucketLifecycleConfigurationInput (struct)">GetBucketLifecycleConfigurationInput</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -412,12 +529,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-7196
-7197
-7198</pre>
+10470
+10471
+10472</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7196</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10470</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetBucketLifecycleConfigurationInput (struct)">GetBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetBucketLifecycleConfigurationInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -454,23 +571,23 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-7206
-7207
-7208
-7209
-7210
-7211
-7212
-7213
-7214
-7215
-7216
-7217
-7218
-7219</pre>
+10480
+10481
+10482
+10483
+10484
+10485
+10486
+10487
+10488
+10489
+10490
+10491
+10492
+10493</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7206</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10480</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketLifecycleConfigurationInput (struct)">GetBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.GetBucketLifecycleConfigurationInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.GetBucketLifecycleConfigurationInput (struct)">GetBucketLifecycleConfigurationInput</a></span>"</span>}
@@ -498,7 +615,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:50 2021 by
+  Generated on Mon May 10 21:14:51 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

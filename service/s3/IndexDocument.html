@@ -295,6 +295,11 @@ request to samplebucket/images/ the data that is returned will be for the
 object with the key name images/index.html) The suffix must not be empty
 and must not include a slash character.</p>
 
+<p>Replacement must be made for object keys containing special characters
+(such as carriage returns) when using XML requests. For more information,
+see XML related object key constraints (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints</a>).</p>
+
 <p>Suffix is a required field</p>
 
 
@@ -347,12 +352,12 @@ and must not include a slash character.</p>
       <pre class="lines">
 
 
-9124
-9125
-9126</pre>
+12873
+12874
+12875</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9124</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12873</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.IndexDocument (struct)">IndexDocument</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.IndexDocument.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -389,13 +394,13 @@ and must not include a slash character.</p>
       <pre class="lines">
 
 
-9142
-9143
-9144
-9145</pre>
+12891
+12892
+12893
+12894</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9142</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12891</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.IndexDocument (struct)">IndexDocument</a></span>) <span class='object_link'><a href="#SetSuffix-instance_method" title="s3.IndexDocument.SetSuffix() (method)">SetSuffix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.IndexDocument (struct)">IndexDocument</a></span> {
 	s.Suffix = &v
@@ -433,12 +438,12 @@ and must not include a slash character.</p>
       <pre class="lines">
 
 
-9119
-9120
-9121</pre>
+12868
+12869
+12870</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9119</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12868</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.IndexDocument (struct)">IndexDocument</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.IndexDocument.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -475,20 +480,20 @@ and must not include a slash character.</p>
       <pre class="lines">
 
 
-9129
-9130
-9131
-9132
-9133
-9134
-9135
-9136
-9137
-9138
-9139</pre>
+12878
+12879
+12880
+12881
+12882
+12883
+12884
+12885
+12886
+12887
+12888</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9129</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12878</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.IndexDocument (struct)">IndexDocument</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.IndexDocument.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.IndexDocument (struct)">IndexDocument</a></span>"</span>}
@@ -513,7 +518,7 @@ and must not include a slash character.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:54 2021 by
+  Generated on Mon May 10 21:14:56 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

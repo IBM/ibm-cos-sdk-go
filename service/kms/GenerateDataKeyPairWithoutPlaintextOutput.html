@@ -114,7 +114,9 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the CMK that encrypted the private key in the data key pair.</p>
+<p>The Amazon Resource Name (key ARN (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>))
+of the CMK that encrypted the private key.</p>
 </div></span>
   
 </li>
@@ -400,27 +402,9 @@ value.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the CMK that encrypted the private key in the data key pair. You
-must specify a symmetric CMK. You cannot use an asymmetric CMK. To get the
-type of your CMK, use the DescribeKey operation.</p>
-
-<p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name,
-or alias ARN. When using an alias name, prefix it with “alias/”.</p>
-
-<p>For example:</p>
-<ul><li>
-<p>Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</p>
-</li><li>
-<p>Key ARN:
-arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
-</li><li>
-<p>Alias name: alias/ExampleAlias</p>
-</li><li>
-<p>Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</p>
-</li></ul>
-
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
-get the alias name and alias ARN, use ListAliases.</p>
+<p>The Amazon Resource Name (key ARN (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>))
+of the CMK that encrypted the private key.</p>
 
 
   </div>
@@ -535,12 +519,12 @@ SDK.</p>
       <pre class="lines">
 
 
-9847
-9848
-9849</pre>
+10535
+10536
+10537</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9847</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10535</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextOutput (struct)">GenerateDataKeyPairWithoutPlaintextOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -577,13 +561,13 @@ SDK.</p>
       <pre class="lines">
 
 
-9852
-9853
-9854
-9855</pre>
+10540
+10541
+10542
+10543</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9852</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10540</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextOutput (struct)">GenerateDataKeyPairWithoutPlaintextOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextOutput (struct)">GenerateDataKeyPairWithoutPlaintextOutput</a></span> {
 	s.KeyId = &v
@@ -621,13 +605,13 @@ SDK.</p>
       <pre class="lines">
 
 
-9858
-9859
-9860
-9861</pre>
+10546
+10547
+10548
+10549</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9858</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10546</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextOutput (struct)">GenerateDataKeyPairWithoutPlaintextOutput</a></span>) <span class='object_link'><a href="#SetKeyPairSpec-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextOutput.SetKeyPairSpec() (method)">SetKeyPairSpec</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextOutput (struct)">GenerateDataKeyPairWithoutPlaintextOutput</a></span> {
 	s.KeyPairSpec = &v
@@ -666,13 +650,13 @@ value.</p>
       <pre class="lines">
 
 
-9864
-9865
-9866
-9867</pre>
+10552
+10553
+10554
+10555</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9864</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10552</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextOutput (struct)">GenerateDataKeyPairWithoutPlaintextOutput</a></span>) <span class='object_link'><a href="#SetPrivateKeyCiphertextBlob-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextOutput.SetPrivateKeyCiphertextBlob() (method)">SetPrivateKeyCiphertextBlob</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextOutput (struct)">GenerateDataKeyPairWithoutPlaintextOutput</a></span> {
 	s.PrivateKeyCiphertextBlob = v
@@ -710,13 +694,13 @@ value.</p>
       <pre class="lines">
 
 
-9870
-9871
-9872
-9873</pre>
+10558
+10559
+10560
+10561</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9870</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10558</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextOutput (struct)">GenerateDataKeyPairWithoutPlaintextOutput</a></span>) <span class='object_link'><a href="#SetPublicKey-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextOutput.SetPublicKey() (method)">SetPublicKey</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextOutput (struct)">GenerateDataKeyPairWithoutPlaintextOutput</a></span> {
 	s.PublicKey = v
@@ -754,12 +738,12 @@ value.</p>
       <pre class="lines">
 
 
-9842
-9843
-9844</pre>
+10530
+10531
+10532</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9842</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10530</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextOutput (struct)">GenerateDataKeyPairWithoutPlaintextOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -776,7 +760,7 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:20 2021 by
+  Generated on Mon May 10 21:15:26 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

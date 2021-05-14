@@ -114,8 +114,8 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>CommonPrefixes contains all (if there are any) keys between Prefix and the
-next occurrence of the string specified by delimiter.</p>
+<p>All of the keys (up to 1,000) rolled up into a common prefix count as a
+single return when calculating the number of returns.</p>
 </div></span>
   
 </li>
@@ -165,8 +165,8 @@ next occurrence of the string specified by delimiter.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>ContinuationToken indicates Amazon S3 that the list is being continued on
-this bucket with a token.</p>
+<p>If ContinuationToken was sent with the request, it is included in the
+response.</p>
 </div></span>
   
 </li>
@@ -191,7 +191,9 @@ this bucket with a token.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A delimiter is a character you use to group keys.</p>
+<p>Causes keys that contain the same string between the prefix and the first
+occurrence of the delimiter to be rolled up into a single result element in
+the CommonPrefixes collection.</p>
 </div></span>
   
 </li>
@@ -216,7 +218,8 @@ this bucket with a token.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
+<p>Encoding type used by Amazon S3 to encode object key names in the XML
+response.</p>
 </div></span>
   
 </li>
@@ -241,8 +244,7 @@ this bucket with a token.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A flag that indicates whether or not Amazon S3 returned all of the results
-that satisfied the search criteria.</p>
+<p>Set to false if all of the results were returned.</p>
 </div></span>
   
 </li>
@@ -317,7 +319,7 @@ that satisfied the search criteria.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Name of the bucket to list.</p>
+<p>The bucket name.</p>
 </div></span>
   
 </li>
@@ -342,7 +344,7 @@ that satisfied the search criteria.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>NextContinuationToken is sent when isTruncated is true which means there
+<p>NextContinuationToken is sent when isTruncated is true, which means there
 are more keys in the bucket that can be listed.</p>
 </div></span>
   
@@ -368,7 +370,7 @@ are more keys in the bucket that can be listed.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Limits the response to keys that begin with the specified prefix.</p>
+<p>Keys that begin with the indicated prefix.</p>
 </div></span>
   
 </li>
@@ -393,7 +395,7 @@ are more keys in the bucket that can be listed.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>StartAfter is where you want Amazon S3 to start listing from.</p>
+<p>If StartAfter was sent with the request, it is included in the response.</p>
 </div></span>
   
 </li>
@@ -803,8 +805,21 @@ are more keys in the bucket that can be listed.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>All of the keys (up to 1,000) rolled up into a common prefix count as a
+single return when calculating the number of returns.</p>
+
+<p>A response can contain CommonPrefixes only if you specify a delimiter.</p>
+
 <p>CommonPrefixes contains all (if there are any) keys between Prefix and the
-next occurrence of the string specified by delimiter</p>
+next occurrence of the string specified by a delimiter.</p>
+
+<p>CommonPrefixes lists keys that act like subdirectories in the directory
+specified by Prefix.</p>
+
+<p>For example, if the prefix is notes/ and the delimiter is a slash (/) as in
+notes/summer/july, the common prefix is notes/summer/. All of the keys that
+roll up into a common prefix count as a single return when calculating the
+number of returns.</p>
 
 
   </div>
@@ -842,9 +857,8 @@ next occurrence of the string specified by delimiter</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>ContinuationToken indicates Amazon S3 that the list is being continued on
-this bucket with a token. ContinuationToken is obfuscated and is not a real
-key</p>
+<p>If ContinuationToken was sent with the request, it is included in the
+response.</p>
 
 
   </div>
@@ -863,7 +877,11 @@ key</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>A delimiter is a character you use to group keys.</p>
+<p>Causes keys that contain the same string between the prefix and the first
+occurrence of the delimiter to be rolled up into a single result element in
+the CommonPrefixes collection. These rolled-up keys are not returned
+elsewhere in the response. Each rolled-up result counts as only one return
+against the MaxKeys value.</p>
 
 
   </div>
@@ -882,7 +900,14 @@ key</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
+<p>Encoding type used by Amazon S3 to encode object key names in the XML
+response.</p>
+
+<p>If you specify the encoding-type request parameter, Amazon S3 includes this
+element in the response, and returns encoded key name values in the
+following response elements:</p>
+
+<p>Delimiter, Prefix, Key, and StartAfter.</p>
 
 
   </div>
@@ -901,8 +926,9 @@ key</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>A flag that indicates whether or not Amazon S3 returned all of the results
-that satisfied the search criteria.</p>
+<p>Set to false if all of the results were returned. Set to true if more keys
+are available to return. If the number of results exceeds that specified by
+MaxKeys, all of the results might not be returned.</p>
 
 
   </div>
@@ -922,8 +948,8 @@ that satisfied the search criteria.</p>
   <div class="discussion">
     
 <p>KeyCount is the number of keys returned with this request. KeyCount will
-always be less than equals to MaxKeys field. Say you ask for 50 keys, your
-result will include less than equals 50 keys</p>
+always be less than or equals to MaxKeys field. Say you ask for 50 keys,
+your result will include less than equals 50 keys</p>
 
 
   </div>
@@ -942,8 +968,9 @@ result will include less than equals 50 keys</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Sets the maximum number of keys returned in the response. The response
-might contain fewer keys but will never contain more.</p>
+<p>Sets the maximum number of keys returned in the response. By default the
+action returns up to 1,000 key names. The response might contain fewer keys
+but will never contain more.</p>
 
 
   </div>
@@ -962,7 +989,25 @@ might contain fewer keys but will never contain more.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Name of the bucket to list.</p>
+<p>The bucket name.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
 
 
   </div>
@@ -981,7 +1026,7 @@ might contain fewer keys but will never contain more.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>NextContinuationToken is sent when isTruncated is true which means there
+<p>NextContinuationToken is sent when isTruncated is true, which means there
 are more keys in the bucket that can be listed. The next list requests to
 Amazon S3 can be continued with this NextContinuationToken.
 NextContinuationToken is obfuscated and is not a real key</p>
@@ -1003,7 +1048,7 @@ NextContinuationToken is obfuscated and is not a real key</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Limits the response to keys that begin with the specified prefix.</p>
+<p>Keys that begin with the indicated prefix.</p>
 
 
   </div>
@@ -1022,9 +1067,7 @@ NextContinuationToken is obfuscated and is not a real key</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3
-starts listing after this specified key. StartAfter can be any key in the
-bucket</p>
+<p>If StartAfter was sent with the request, it is included in the response.</p>
 
 
   </div>
@@ -1076,12 +1119,12 @@ bucket</p>
       <pre class="lines">
 
 
-10345
-10346
-10347</pre>
+14566
+14567
+14568</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10345</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14566</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ListObjectsV2Output.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1118,13 +1161,13 @@ bucket</p>
       <pre class="lines">
 
 
-10350
-10351
-10352
-10353</pre>
+14571
+14572
+14573
+14574</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10350</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14571</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#SetCommonPrefixes-instance_method" title="s3.ListObjectsV2Output.SetCommonPrefixes() (method)">SetCommonPrefixes</a></span>(v []*<span class='object_link'><a href="CommonPrefix.html" title="s3.CommonPrefix (struct)">CommonPrefix</a></span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span> {
 	s.CommonPrefixes = v
@@ -1162,13 +1205,13 @@ bucket</p>
       <pre class="lines">
 
 
-10356
-10357
-10358
-10359</pre>
+14577
+14578
+14579
+14580</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10356</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14577</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#SetContents-instance_method" title="s3.ListObjectsV2Output.SetContents() (method)">SetContents</a></span>(v []*<span class='object_link'><a href="Object.html" title="s3.Object (struct)">Object</a></span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span> {
 	s.Contents = v
@@ -1206,13 +1249,13 @@ bucket</p>
       <pre class="lines">
 
 
-10362
-10363
-10364
-10365</pre>
+14583
+14584
+14585
+14586</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10362</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14583</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#SetContinuationToken-instance_method" title="s3.ListObjectsV2Output.SetContinuationToken() (method)">SetContinuationToken</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span> {
 	s.ContinuationToken = &v
@@ -1250,13 +1293,13 @@ bucket</p>
       <pre class="lines">
 
 
-10368
-10369
-10370
-10371</pre>
+14589
+14590
+14591
+14592</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10368</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14589</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#SetDelimiter-instance_method" title="s3.ListObjectsV2Output.SetDelimiter() (method)">SetDelimiter</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span> {
 	s.Delimiter = &v
@@ -1294,13 +1337,13 @@ bucket</p>
       <pre class="lines">
 
 
-10374
-10375
-10376
-10377</pre>
+14595
+14596
+14597
+14598</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10374</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14595</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#SetEncodingType-instance_method" title="s3.ListObjectsV2Output.SetEncodingType() (method)">SetEncodingType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span> {
 	s.EncodingType = &v
@@ -1338,13 +1381,13 @@ bucket</p>
       <pre class="lines">
 
 
-10380
-10381
-10382
-10383</pre>
+14601
+14602
+14603
+14604</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10380</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14601</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#SetIsTruncated-instance_method" title="s3.ListObjectsV2Output.SetIsTruncated() (method)">SetIsTruncated</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span> {
 	s.IsTruncated = &v
@@ -1382,13 +1425,13 @@ bucket</p>
       <pre class="lines">
 
 
-10386
-10387
-10388
-10389</pre>
+14607
+14608
+14609
+14610</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10386</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14607</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#SetKeyCount-instance_method" title="s3.ListObjectsV2Output.SetKeyCount() (method)">SetKeyCount</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span> {
 	s.KeyCount = &v
@@ -1426,13 +1469,13 @@ bucket</p>
       <pre class="lines">
 
 
-10392
-10393
-10394
-10395</pre>
+14613
+14614
+14615
+14616</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10392</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14613</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#SetMaxKeys-instance_method" title="s3.ListObjectsV2Output.SetMaxKeys() (method)">SetMaxKeys</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span> {
 	s.MaxKeys = &v
@@ -1470,13 +1513,13 @@ bucket</p>
       <pre class="lines">
 
 
-10398
-10399
-10400
-10401</pre>
+14619
+14620
+14621
+14622</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10398</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14619</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#SetName-instance_method" title="s3.ListObjectsV2Output.SetName() (method)">SetName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span> {
 	s.Name = &v
@@ -1514,13 +1557,13 @@ bucket</p>
       <pre class="lines">
 
 
-10404
-10405
-10406
-10407</pre>
+14625
+14626
+14627
+14628</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10404</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14625</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#SetNextContinuationToken-instance_method" title="s3.ListObjectsV2Output.SetNextContinuationToken() (method)">SetNextContinuationToken</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span> {
 	s.NextContinuationToken = &v
@@ -1558,13 +1601,13 @@ bucket</p>
       <pre class="lines">
 
 
-10410
-10411
-10412
-10413</pre>
+14631
+14632
+14633
+14634</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10410</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14631</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#SetPrefix-instance_method" title="s3.ListObjectsV2Output.SetPrefix() (method)">SetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span> {
 	s.Prefix = &v
@@ -1602,13 +1645,13 @@ bucket</p>
       <pre class="lines">
 
 
-10416
-10417
-10418
-10419</pre>
+14637
+14638
+14639
+14640</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10416</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14637</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#SetStartAfter-instance_method" title="s3.ListObjectsV2Output.SetStartAfter() (method)">SetStartAfter</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span> {
 	s.StartAfter = &v
@@ -1646,12 +1689,12 @@ bucket</p>
       <pre class="lines">
 
 
-10340
-10341
-10342</pre>
+14561
+14562
+14563</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10340</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14561</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListObjectsV2Output (struct)">ListObjectsV2Output</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ListObjectsV2Output.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1668,7 +1711,7 @@ bucket</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:57 2021 by
+  Generated on Mon May 10 21:15:00 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

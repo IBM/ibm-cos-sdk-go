@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Name of the bucket to which the multipart upload was initiated.</p>
+<p>The name of the bucket to which the multipart upload was initiated.</p>
 </div></span>
   
 </li>
@@ -190,6 +190,31 @@ import "../ibm-cos-sdk-go/service/s3"
   
     <span class="summary_desc"><div class='inline'>
 <p>The base64-encoded 128-bit MD5 digest of the part data.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.UploadPartInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
 </div></span>
   
 </li>
@@ -264,7 +289,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Confirms that the requester knows that she or he will be charged for the
+<p>Confirms that the requester knows that they will be charged for the
 request.</p>
 </div></span>
   
@@ -290,7 +315,7 @@ request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the algorithm to use to when encrypting the object (e.g.,
+<p>Specifies the algorithm to use to when encrypting the object (for example,
 AES256).</p>
 </div></span>
   
@@ -529,6 +554,31 @@ encrypting data.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>SetContentMD5 sets the ContentMD5 field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.UploadPartInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *UploadPartInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -797,7 +847,25 @@ encrypting data.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Name of the bucket to which the multipart upload was initiated.</p>
+<p>The name of the bucket to which the multipart upload was initiated.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -838,7 +906,30 @@ body cannot be determined automatically.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The base64-encoded 128-bit MD5 digest of the part data.</p>
+<p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is
+auto-populated when using the command from the CLI. This parameter is
+required if object lock parameters are specified.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
 
 
   </div>
@@ -900,11 +991,12 @@ and 10,000.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that she or he will be charged for the
+<p>Confirms that the requester knows that they will be charged for the
 request. Bucket owners need not specify this parameter in their requests.
-Documentation on downloading objects from requester pays buckets can be
-found at <a
-href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a></p>
+For information about downloading objects from requester pays buckets, see
+Downloading Objects in Requestor Pays Buckets (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
+in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -923,7 +1015,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the algorithm to use to when encrypting the object (e.g.,
+<p>Specifies the algorithm to use to when encrypting the object (for example,
 AES256).</p>
 
 
@@ -945,9 +1037,9 @@ AES256).</p>
     
 <p>Specifies the customer-provided encryption key for Amazon S3 to use in
 encrypting data. This value is used to store the object and then it is
-discarded; Amazon does not store the encryption key. The key must be
+discarded; Amazon S3 does not store the encryption key. The key must be
 appropriate for use with the algorithm specified in the
-x-amz-server-side​-encryption​-customer-algorithm header. This must be the
+x-amz-server-side-encryption-customer-algorithm header. This must be the
 same encryption key specified in the initiate multipart upload request.</p>
 
 
@@ -969,7 +1061,7 @@ same encryption key specified in the initiate multipart upload request.</p>
     
 <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC
 1321. Amazon S3 uses this header for a message integrity check to ensure
-the encryption key was transmitted without error.</p>
+that the encryption key was transmitted without error.</p>
 
 
   </div>
@@ -1042,12 +1134,12 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13279
-13280
-13281</pre>
+18309
+18310
+18311</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13279</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18309</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.UploadPartInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1084,13 +1176,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13312
-13313
-13314
-13315</pre>
+18342
+18343
+18344
+18345</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13312</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18342</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetBody-instance_method" title="s3.UploadPartInput.SetBody() (method)">SetBody</a></span>(v io.ReadSeeker) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.Body = v
@@ -1128,13 +1220,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13318
-13319
-13320
-13321</pre>
+18348
+18349
+18350
+18351</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13318</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18348</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.UploadPartInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.Bucket = &v
@@ -1172,13 +1264,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13331
-13332
-13333
-13334</pre>
+18361
+18362
+18363
+18364</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13331</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18361</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetContentLength-instance_method" title="s3.UploadPartInput.SetContentLength() (method)">SetContentLength</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.ContentLength = &v
@@ -1216,16 +1308,60 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13337
-13338
-13339
-13340</pre>
+18367
+18368
+18369
+18370</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13337</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18367</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetContentMD5-instance_method" title="s3.UploadPartInput.SetContentMD5() (method)">SetContentMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.ContentMD5 = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.UploadPartInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18373
+18374
+18375
+18376</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18373</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.UploadPartInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -1260,13 +1396,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13343
-13344
-13345
-13346</pre>
+18379
+18380
+18381
+18382</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13343</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18379</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.UploadPartInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.Key = &v
@@ -1304,13 +1440,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13349
-13350
-13351
-13352</pre>
+18385
+18386
+18387
+18388</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13349</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18385</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetPartNumber-instance_method" title="s3.UploadPartInput.SetPartNumber() (method)">SetPartNumber</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.PartNumber = &v
@@ -1348,13 +1484,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13355
-13356
-13357
-13358</pre>
+18391
+18392
+18393
+18394</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13355</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18391</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.UploadPartInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.RequestPayer = &v
@@ -1392,13 +1528,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13361
-13362
-13363
-13364</pre>
+18397
+18398
+18399
+18400</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13361</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18397</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.UploadPartInput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -1436,13 +1572,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13367
-13368
-13369
-13370</pre>
+18403
+18404
+18405
+18406</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13367</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18403</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.UploadPartInput.SetSSECustomerKey() (method)">SetSSECustomerKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.SSECustomerKey = &v
@@ -1480,13 +1616,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13380
-13381
-13382
-13383</pre>
+18416
+18417
+18418
+18419</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13380</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18416</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.UploadPartInput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -1524,13 +1660,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13386
-13387
-13388
-13389</pre>
+18422
+18423
+18424
+18425</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13386</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18422</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#SetUploadId-instance_method" title="s3.UploadPartInput.SetUploadId() (method)">SetUploadId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span> {
 	s.UploadId = &v
@@ -1568,12 +1704,12 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13274
-13275
-13276</pre>
+18304
+18305
+18306</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13274</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18304</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.UploadPartInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1610,35 +1746,35 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13284
-13285
-13286
-13287
-13288
-13289
-13290
-13291
-13292
-13293
-13294
-13295
-13296
-13297
-13298
-13299
-13300
-13301
-13302
-13303
-13304
-13305
-13306
-13307
-13308
-13309</pre>
+18314
+18315
+18316
+18317
+18318
+18319
+18320
+18321
+18322
+18323
+18324
+18325
+18326
+18327
+18328
+18329
+18330
+18331
+18332
+18333
+18334
+18335
+18336
+18337
+18338
+18339</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13284</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18314</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.UploadPartInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.UploadPartInput (struct)">UploadPartInput</a></span>"</span>}
@@ -1678,7 +1814,7 @@ the encryption key was transmitted without error.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:04 2021 by
+  Generated on Mon May 10 21:15:09 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

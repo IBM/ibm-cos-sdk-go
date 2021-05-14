@@ -355,6 +355,8 @@ region is not valid.</p>
 	<span class="hljs-keyword">if</span> checkIfRegionPresent && r.ClientInfo.SigningRegion == <span class="hljs-string">""</span> && aws.StringValue(r.Config.Region) == <span class="hljs-string">""</span> {
 		r.Error = <span class='object_link'><a href="../aws.html#ErrMissingRegion-constant" title="aws.ErrMissingRegion (constant)">aws.ErrMissingRegion</a></span>
 	} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> r.ClientInfo.Endpo<span class="hljs-constant">int</span> == <span class="hljs-string">""</span> {
+		<span class="hljs-comment">// Was any endpoint provided by the user, or one was derived by the</span>
+		<span class="hljs-comment">// SDK's endpoint resolver?</span>
 		r.Error = aws.ErrMissingEndpo<span class="hljs-constant">int</span>
 	}
 	<span class="hljs-comment">// IBM COS SDK Code -- END</span>
@@ -478,7 +480,7 @@ request being sent.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:26 2021 by
+  Generated on Mon May 10 21:14:20 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

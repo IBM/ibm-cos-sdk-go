@@ -76,9 +76,11 @@ import "../ibm-cos-sdk-go/service/s3"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Container for logging information. Presence of this element indicates that
-logging is enabled. Parameters TargetBucket and TargetPrefix are required
-in this case.</p>
+<p>Describes where logs are stored and the prefix that Amazon S3 assigns to
+all log object keys for a bucket. For more information, see PUT Bucket
+logging (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html</a>)
+in the Amazon Simple Storage Service API Reference.</p>
 
 
   </div>
@@ -151,7 +153,9 @@ in this case.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Container for granting information.</p>
+</div></span>
   
 </li>
 
@@ -175,8 +179,7 @@ in this case.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>This element lets you specify a prefix for the keys that the log files will
-be stored under.</p>
+<p>A prefix for all log object keys.</p>
 </div></span>
   
 </li>
@@ -389,7 +392,7 @@ be stored under.</p>
 <p>Specifies the bucket where you want Amazon S3 to store server access logs.
 You can have your logs delivered to any bucket that you own, including the
 same bucket that is being logged. You can also configure multiple buckets
-to deliver their logs to the same target bucket. In this case you should
+to deliver their logs to the same target bucket. In this case, you should
 choose a different TargetPrefix for each source bucket so that the
 delivered log files can be distinguished by key.</p>
 
@@ -409,7 +412,18 @@ delivered log files can be distinguished by key.</p>
   <strong>TargetGrants</strong> []*<span class='object_link'><a href="TargetGrant.html" title="s3.TargetGrant (struct)">TargetGrant</a></span> 
   <code>`locationNameList:"Grant" type:"list"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Container for granting information.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -420,8 +434,9 @@ delivered log files can be distinguished by key.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>This element lets you specify a prefix for the keys that the log files will
-be stored under.</p>
+<p>A prefix for all log object keys. If you store log files from multiple
+Amazon S3 buckets in a single bucket, you can use a prefix to distinguish
+which log files came from which bucket.</p>
 
 <p>TargetPrefix is a required field</p>
 
@@ -475,12 +490,12 @@ be stored under.</p>
       <pre class="lines">
 
 
-10707
-10708
-10709</pre>
+14984
+14985
+14986</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10707</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14984</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.LoggingEnabled.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -517,13 +532,13 @@ be stored under.</p>
       <pre class="lines">
 
 
-10738
-10739
-10740
-10741</pre>
+15015
+15016
+15017
+15018</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10738</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15015</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#SetTargetBucket-instance_method" title="s3.LoggingEnabled.SetTargetBucket() (method)">SetTargetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span> {
 	s.TargetBucket = &v
@@ -561,13 +576,13 @@ be stored under.</p>
       <pre class="lines">
 
 
-10744
-10745
-10746
-10747</pre>
+15021
+15022
+15023
+15024</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10744</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15021</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#SetTargetGrants-instance_method" title="s3.LoggingEnabled.SetTargetGrants() (method)">SetTargetGrants</a></span>(v []*<span class='object_link'><a href="TargetGrant.html" title="s3.TargetGrant (struct)">TargetGrant</a></span>) *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span> {
 	s.TargetGrants = v
@@ -605,13 +620,13 @@ be stored under.</p>
       <pre class="lines">
 
 
-10750
-10751
-10752
-10753</pre>
+15027
+15028
+15029
+15030</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10750</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15027</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#SetTargetPrefix-instance_method" title="s3.LoggingEnabled.SetTargetPrefix() (method)">SetTargetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span> {
 	s.TargetPrefix = &v
@@ -649,12 +664,12 @@ be stored under.</p>
       <pre class="lines">
 
 
-10702
-10703
-10704</pre>
+14979
+14980
+14981</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10702</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14979</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.LoggingEnabled.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -691,33 +706,33 @@ be stored under.</p>
       <pre class="lines">
 
 
-10712
-10713
-10714
-10715
-10716
-10717
-10718
-10719
-10720
-10721
-10722
-10723
-10724
-10725
-10726
-10727
-10728
-10729
-10730
-10731
-10732
-10733
-10734
-10735</pre>
+14989
+14990
+14991
+14992
+14993
+14994
+14995
+14996
+14997
+14998
+14999
+15000
+15001
+15002
+15003
+15004
+15005
+15006
+15007
+15008
+15009
+15010
+15011
+15012</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10712</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14989</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.LoggingEnabled.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>"</span>}
@@ -755,7 +770,7 @@ be stored under.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:58 2021 by
+  Generated on Mon May 10 21:15:02 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

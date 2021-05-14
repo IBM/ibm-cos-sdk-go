@@ -114,7 +114,32 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The bucket name containing the object to restore.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.RestoreObjectInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
 </div></span>
   
 </li>
@@ -139,7 +164,33 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Key is a required field.</p>
+<p>Object key for which the action was initiated.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#RequestPayer-field" title="s3.RestoreObjectInput.RequestPayer (field)"><strong>RequestPayer</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Confirms that the requester knows that they will be charged for the
+request.</p>
 </div></span>
   
 </li>
@@ -165,6 +216,31 @@ import "../ibm-cos-sdk-go/service/s3"
   
     <span class="summary_desc"><div class='inline'>
 <p>Container for restore job parameters.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#VersionId-field" title="s3.RestoreObjectInput.VersionId (field)"><strong>VersionId</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>VersionId used to reference a specific version of the object.</p>
 </div></span>
   
 </li>
@@ -258,6 +334,31 @@ import "../ibm-cos-sdk-go/service/s3"
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.RestoreObjectInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *RestoreObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetKey-instance_method" title="s3.RestoreObjectInput.SetKey() (method)"><strong>SetKey</strong>(string)  *RestoreObjectInput </a></span></span>
   
   
@@ -275,6 +376,56 @@ import "../ibm-cos-sdk-go/service/s3"
   
     <span class="summary_desc"><div class='inline'>
 <p>SetKey sets the Key field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.RestoreObjectInput.SetRequestPayer() (method)"><strong>SetRequestPayer</strong>(string)  *RestoreObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetRequestPayer sets the RequestPayer field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetVersionId-instance_method" title="s3.RestoreObjectInput.SetVersionId() (method)"><strong>SetVersionId</strong>(string)  *RestoreObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetVersionId sets the VersionId field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -353,7 +504,48 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
+<p>The bucket name containing the object to restore.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
+
 <p>Bucket is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
 
 
   </div>
@@ -372,7 +564,33 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
+<p>Object key for which the action was initiated.</p>
+
 <p>Key is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="RequestPayer-field">
+  <strong>RequestPayer</strong> *string 
+  <code>`location:"header" locationName:"x-amz-request-payer" type:"string" enum:"RequestPayer"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Confirms that the requester knows that they will be charged for the
+request. Bucket owners need not specify this parameter in their requests.
+For information about downloading objects from requester pays buckets, see
+Downloading Objects in Requestor Pays Buckets (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
+in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -392,6 +610,25 @@ import "../ibm-cos-sdk-go/service/s3"
   <div class="discussion">
     
 <p>Container for restore job parameters.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="VersionId-field">
+  <strong>VersionId</strong> *string 
+  <code>`location:"querystring" locationName:"versionId" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>VersionId used to reference a specific version of the object.</p>
 
 
   </div>
@@ -443,12 +680,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-12521
-12522
-12523</pre>
+17418
+17419
+17420</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12521</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17418</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.RestoreObjectInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -485,16 +722,60 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-12553
-12554
-12555
-12556</pre>
+17450
+17451
+17452
+17453</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12553</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17450</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.RestoreObjectInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> {
 	s.Bucket = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.RestoreObjectInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17463
+17464
+17465
+17466</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17463</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.RestoreObjectInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -529,16 +810,60 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-12566
-12567
-12568
-12569</pre>
+17469
+17470
+17471
+17472</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12566</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17469</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.RestoreObjectInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> {
 	s.Key = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetRequestPayer-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <strong><span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.RestoreObjectInput.SetRequestPayer() (method)">SetRequestPayer</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetRequestPayer sets the RequestPayer field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17475
+17476
+17477
+17478</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17475</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.RestoreObjectInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> {
+	s.RequestPayer = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -608,16 +933,60 @@ err := req.Send()
       <pre class="lines">
 
 
-12572
-12573
-12574
-12575</pre>
+17481
+17482
+17483
+17484</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12572</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17481</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *RestoreObjectInput) SetRestoreRequest(v *RestoreRequest) *RestoreObjectInput {
 	s.RestoreRequest = v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetVersionId-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <strong><span class='object_link'><a href="#SetVersionId-instance_method" title="s3.RestoreObjectInput.SetVersionId() (method)">SetVersionId</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetVersionId sets the VersionId field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17487
+17488
+17489
+17490</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17487</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.RestoreObjectInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> {
+	s.VersionId = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -652,12 +1021,12 @@ err := req.Send()
       <pre class="lines">
 
 
-12516
-12517
-12518</pre>
+17413
+17414
+17415</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12516</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17413</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.RestoreObjectInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -694,34 +1063,34 @@ err := req.Send()
       <pre class="lines">
 
 
-12526
-12527
-12528
-12529
-12530
-12531
-12532
-12533
-12534
-12535
-12536
-12537
-12538
-12539
-12540
-12541
-12542
-12543
-12544
-12545
-12546
-12547
-12548
-12549
-12550</pre>
+17423
+17424
+17425
+17426
+17427
+17428
+17429
+17430
+17431
+17432
+17433
+17434
+17435
+17436
+17437
+17438
+17439
+17440
+17441
+17442
+17443
+17444
+17445
+17446
+17447</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12526</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17423</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.RestoreObjectInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>"</span>}
@@ -760,7 +1129,7 @@ err := req.Send()
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:03 2021 by
+  Generated on Mon May 10 21:15:07 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

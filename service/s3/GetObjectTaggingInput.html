@@ -114,7 +114,8 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The bucket name containing the object for which to get the tagging
+information.</p>
 </div></span>
   
 </li>
@@ -138,7 +139,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
+</div></span>
   
 </li>
 
@@ -162,7 +165,33 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Key is a required field.</p>
+<p>Object key for which to get the tagging information.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#RequestPayer-field" title="s3.GetObjectTaggingInput.RequestPayer (field)"><strong>RequestPayer</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Confirms that the requester knows that they will be charged for the
+request.</p>
 </div></span>
   
 </li>
@@ -186,7 +215,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The versionId of the object for which to get the tagging information.</p>
+</div></span>
   
 </li>
 
@@ -329,6 +360,31 @@ import "../ibm-cos-sdk-go/service/s3"
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.GetObjectTaggingInput.SetRequestPayer() (method)"><strong>SetRequestPayer</strong>(string)  *GetObjectTaggingInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetRequestPayer sets the RequestPayer field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetVersionId-instance_method" title="s3.GetObjectTaggingInput.SetVersionId() (method)"><strong>SetVersionId</strong>(string)  *GetObjectTaggingInput </a></span></span>
   
   
@@ -420,6 +476,27 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
+<p>The bucket name containing the object for which to get the tagging
+information.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
+
 <p>Bucket is a required field</p>
 
 
@@ -436,7 +513,20 @@ import "../ibm-cos-sdk-go/service/s3"
   <strong>ExpectedBucketOwner</strong> *string 
   <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -447,7 +537,33 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
+<p>Object key for which to get the tagging information.</p>
+
 <p>Key is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="RequestPayer-field">
+  <strong>RequestPayer</strong> *string 
+  <code>`location:"header" locationName:"x-amz-request-payer" type:"string" enum:"RequestPayer"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Confirms that the requester knows that they will be charged for the
+request. Bucket owners need not specify this parameter in their requests.
+For information about downloading objects from requester pays buckets, see
+Downloading Objects in Requestor Pays Buckets (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
+in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -463,7 +579,18 @@ import "../ibm-cos-sdk-go/service/s3"
   <strong>VersionId</strong> *string 
   <code>`location:"querystring" locationName:"versionId" type:"string"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The versionId of the object for which to get the tagging information.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -507,12 +634,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8283
-8284
-8285</pre>
+11792
+11793
+11794</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8283</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11792</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetObjectTaggingInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -549,13 +676,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8310
-8311
-8312
-8313</pre>
+11819
+11820
+11821
+11822</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8310</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11819</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetObjectTaggingInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.Bucket = &v
@@ -593,13 +720,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8323
-8324
-8325
-8326</pre>
+11832
+11833
+11834
+11835</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8323</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11832</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetObjectTaggingInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -637,16 +764,60 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8329
-8330
-8331
-8332</pre>
+11838
+11839
+11840
+11841</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8329</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11838</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.GetObjectTaggingInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.Key = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetRequestPayer-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <strong><span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.GetObjectTaggingInput.SetRequestPayer() (method)">SetRequestPayer</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetRequestPayer sets the RequestPayer field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11844
+11845
+11846
+11847</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11844</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.GetObjectTaggingInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
+	s.RequestPayer = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -681,13 +852,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8335
-8336
-8337
-8338</pre>
+11850
+11851
+11852
+11853</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8335</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11850</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.GetObjectTaggingInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.VersionId = &v
@@ -725,12 +896,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8278
-8279
-8280</pre>
+11787
+11788
+11789</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8278</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11787</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetObjectTaggingInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -767,29 +938,29 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8288
-8289
-8290
-8291
-8292
-8293
-8294
-8295
-8296
-8297
-8298
-8299
-8300
-8301
-8302
-8303
-8304
-8305
-8306
-8307</pre>
+11797
+11798
+11799
+11800
+11801
+11802
+11803
+11804
+11805
+11806
+11807
+11808
+11809
+11810
+11811
+11812
+11813
+11814
+11815
+11816</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8288</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11797</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.GetObjectTaggingInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>"</span>}
@@ -823,7 +994,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:52 2021 by
+  Generated on Mon May 10 21:14:54 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

@@ -604,12 +604,12 @@ result, err := uploader.Upload(upParams, <span class="hljs-keyword">func</span>(
       <pre class="lines">
 
 
-262
-263
-264</pre>
+265
+266
+267</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 262</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 265</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) Upload(input *UploadInput, options ...<span class="hljs-keyword">func</span>(*Uploader)) (*UploadOutput, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">return</span> u.UploadWithContext(aws.BackgroundContext(), input, options...)
@@ -664,9 +664,6 @@ options that will be applied to all API operations made with this uploader.</p>
       <pre class="lines">
 
 
-284
-285
-286
 287
 288
 289
@@ -674,10 +671,13 @@ options that will be applied to all API operations made with this uploader.</p>
 291
 292
 293
-294</pre>
+294
+295
+296
+297</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 284</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 287</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) UploadWithContext(ctx aws.Context, input *UploadInput, opts ...<span class="hljs-keyword">func</span>(*Uploader)) (*UploadOutput, <span class="hljs-constant">error</span>) {
 	i := uploader{in: input, cfg: u, ctx: ctx}
@@ -740,9 +740,6 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
       <pre class="lines">
 
 
-316
-317
-318
 319
 320
 321
@@ -773,10 +770,13 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
 346
 347
 348
-349</pre>
+349
+350
+351
+352</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 316</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 319</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) UploadWithIterator(ctx aws.Context, iter BatchUploadIterator, opts ...<span class="hljs-keyword">func</span>(*Uploader)) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">var</span> errs []Error
@@ -824,7 +824,7 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:29 2021 by
+  Generated on Mon May 10 21:15:36 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

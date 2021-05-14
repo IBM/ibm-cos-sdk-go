@@ -82,6 +82,11 @@ all get object requests from Amazon S3. Supported key wrapping algorithms:
 
 <p>Supported content ciphers: 	* AES/GCM 	* AES/CBC</p>
 
+<p>deprecated: This feature is in maintenance mode, no new updates will be
+released. Please see <a
+href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a>
+for more information.</p>
+
 
   </div>
 </div>
@@ -402,6 +407,11 @@ object or from a separate file in s3.</p>
     
 <p>GetObject is a wrapper for GetObjectRequest</p>
 
+<p>deprecated: This feature is in maintenance mode, no new updates will be
+released. Please see <a
+href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a>
+for more information.</p>
+
 
   </div>
 </div>
@@ -414,17 +424,15 @@ object or from a separate file in s3.</p>
       <pre class="lines">
 
 
-117
-118
-119
-120</pre>
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 117</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 102</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *DecryptionClient) GetObject(input *s3.GetObjectInput) (*s3.GetObjectOutput, <span class="hljs-constant">error</span>) {
-	req, out := c.GetObjectRequest(input)
-	<span class="hljs-keyword">return</span> out, req.Send()
+	<span class="hljs-keyword">return</span> getObject(c.getClientOptions(), input)
 }</div></pre>
     </td>
   </tr>
@@ -448,10 +456,15 @@ object or from a separate file in s3.</p>
 process decryption will be done. The SDK only supports V2 reads of KMS and
 GCM.</p>
 
-<p>Example:  sess := session.New()  svc := s3crypto.NewDecryptionClient(sess) 
-req, out := svc.GetObjectRequest(&amp;s3.GetObjectInput {  Key:
-aws.String(“testKey”),  Bucket: aws.String(“testBucket”),  })  err :=
-req.Send()</p>
+<p>Example:  sess := session.Must(session.NewSession())  svc :=
+s3crypto.NewDecryptionClient(sess)  req, out :=
+svc.GetObjectRequest(&amp;s3.GetObjectInput {  Key: aws.String(“testKey”), 
+Bucket: aws.String(“testBucket”),  })  err := req.Send()</p>
+
+<p>deprecated: This feature is in maintenance mode, no new updates will be
+released. Please see <a
+href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a>
+for more information.</p>
 
 
   </div>
@@ -465,67 +478,15 @@ req.Send()</p>
       <pre class="lines">
 
 
-86
-87
-88
-89
-90
-91
-92
-93
-94
 95
 96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114</pre>
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 86</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 95</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *DecryptionClient) GetObjectRequest(input *s3.GetObjectInput) (*request.Request, *s3.GetObjectOutput) {
-	req, out := c.S3Client.GetObjectRequest(input)
-	req.Handlers.Unmarshal.PushBack(<span class="hljs-keyword">func</span>(r *request.Request) {
-		env, err := c.LoadStrategy.Load(r)
-		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
-			r.Error = err
-			out.Body.Close()
-			<span class="hljs-keyword">return</span>
-		}
-
-		<span class="hljs-comment">// If KMS should return the correct CEK algorithm with the proper</span>
-		<span class="hljs-comment">// KMS key provider</span>
-		cipher, err := c.contentCipherFromEnvelope(r.Context(), env)
-		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
-			r.Error = err
-			out.Body.Close()
-			<span class="hljs-keyword">return</span>
-		}
-
-		reader, err := cipher.DecryptContents(out.Body)
-		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
-			r.Error = err
-			out.Body.Close()
-			<span class="hljs-keyword">return</span>
-		}
-		out.Body = reader
-	})
-	<span class="hljs-keyword">return</span> req, out
+	<span class="hljs-keyword">return</span> getObjectRequest(c.getClientOptions(), input)
 }</div></pre>
     </td>
   </tr>
@@ -553,6 +514,11 @@ for Context input parameters. The Context must not be nil. A nil Context
 will cause a panic. Use the Context to add deadlining, timeouts, etc. In
 the future this may create sub-contexts for individual underlying requests.</p>
 
+<p>deprecated: This feature is in maintenance mode, no new updates will be
+released. Please see <a
+href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a>
+for more information.</p>
+
 
   </div>
 </div>
@@ -565,21 +531,15 @@ the future this may create sub-contexts for individual underlying requests.</p>
       <pre class="lines">
 
 
-129
-130
-131
-132
-133
-134</pre>
+115
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 129</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 115</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *DecryptionClient) GetObjectWithContext(ctx aws.Context, input *s3.GetObjectInput, opts ...request.Option) (*s3.GetObjectOutput, <span class="hljs-constant">error</span>) {
-	req, out := c.GetObjectRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	<span class="hljs-keyword">return</span> out, req.Send()
+	<span class="hljs-keyword">return</span> getObjectWithContext(c.getClientOptions(), ctx, input, opts...)
 }</div></pre>
     </td>
   </tr>
@@ -593,7 +553,7 @@ the future this may create sub-contexts for individual underlying requests.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:29 2021 by
+  Generated on Mon May 10 21:15:37 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

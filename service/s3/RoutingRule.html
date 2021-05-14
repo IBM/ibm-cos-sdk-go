@@ -73,7 +73,22 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Specifies the redirect behavior and when a redirect is applied. For more
+information about routing rules, see Configuring advanced conditional
+redirects (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects">docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects</a>)
+in the Amazon S3 User Guide.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -404,12 +419,12 @@ you can specify a different error code to return.</p>
       <pre class="lines">
 
 
-12667
-12668
-12669</pre>
+17591
+17592
+17593</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12667</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17591</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.RoutingRule (struct)">RoutingRule</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.RoutingRule.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -446,13 +461,13 @@ you can specify a different error code to return.</p>
       <pre class="lines">
 
 
-12685
-12686
-12687
-12688</pre>
+17609
+17610
+17611
+17612</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12685</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17609</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RoutingRule (struct)">RoutingRule</a></span>) <span class='object_link'><a href="#SetCondition-instance_method" title="s3.RoutingRule.SetCondition() (method)">SetCondition</a></span>(v *<span class='object_link'><a href="#Condition-field" title="s3.RoutingRule.Condition (field)">Condition</a></span>) *<span class='object_link'><a href="" title="s3.RoutingRule (struct)">RoutingRule</a></span> {
 	s.Condition = v
@@ -490,13 +505,13 @@ you can specify a different error code to return.</p>
       <pre class="lines">
 
 
-12691
-12692
-12693
-12694</pre>
+17615
+17616
+17617
+17618</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12691</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17615</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RoutingRule (struct)">RoutingRule</a></span>) <span class='object_link'><a href="#SetRedirect-instance_method" title="s3.RoutingRule.SetRedirect() (method)">SetRedirect</a></span>(v *<span class='object_link'><a href="#Redirect-field" title="s3.RoutingRule.Redirect (field)">Redirect</a></span>) *<span class='object_link'><a href="" title="s3.RoutingRule (struct)">RoutingRule</a></span> {
 	s.Redirect = v
@@ -534,12 +549,12 @@ you can specify a different error code to return.</p>
       <pre class="lines">
 
 
-12662
-12663
-12664</pre>
+17586
+17587
+17588</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12662</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17586</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.RoutingRule (struct)">RoutingRule</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.RoutingRule.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -576,20 +591,20 @@ you can specify a different error code to return.</p>
       <pre class="lines">
 
 
-12672
-12673
-12674
-12675
-12676
-12677
-12678
-12679
-12680
-12681
-12682</pre>
+17596
+17597
+17598
+17599
+17600
+17601
+17602
+17603
+17604
+17605
+17606</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12672</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17596</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RoutingRule (struct)">RoutingRule</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.RoutingRule.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.RoutingRule (struct)">RoutingRule</a></span>"</span>}
@@ -614,7 +629,7 @@ you can specify a different error code to return.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:03 2021 by
+  Generated on Mon May 10 21:15:07 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

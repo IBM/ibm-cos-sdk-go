@@ -73,7 +73,18 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Object Identifier is unique value to identify objects.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -114,7 +125,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Key name of the object to delete.</p>
+<p>Key name of the object.</p>
 </div></span>
   
 </li>
@@ -324,7 +335,12 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Key name of the object to delete.</p>
+<p>Key name of the object.</p>
+
+<p>Replacement must be made for object keys containing special characters
+(such as carriage returns) when using XML requests. For more information,
+see XML related object key constraints (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints</a>).</p>
 
 <p>Key is a required field</p>
 
@@ -397,12 +413,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10903
-10904
-10905</pre>
+15209
+15210
+15211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10903</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15209</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ObjectIdentifier.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -439,13 +455,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10924
-10925
-10926
-10927</pre>
+15230
+15231
+15232
+15233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10924</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15230</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.ObjectIdentifier.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span> {
 	s.Key = &v
@@ -483,13 +499,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10930
-10931
-10932
-10933</pre>
+15236
+15237
+15238
+15239</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10930</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15236</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.ObjectIdentifier.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span> {
 	s.VersionId = &v
@@ -527,12 +543,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10898
-10899
-10900</pre>
+15204
+15205
+15206</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10898</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15204</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ObjectIdentifier.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -569,23 +585,23 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10908
-10909
-10910
-10911
-10912
-10913
-10914
-10915
-10916
-10917
-10918
-10919
-10920
-10921</pre>
+15214
+15215
+15216
+15217
+15218
+15219
+15220
+15221
+15222
+15223
+15224
+15225
+15226
+15227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10908</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15214</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.ObjectIdentifier.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.ObjectIdentifier (struct)">ObjectIdentifier</a></span>"</span>}
@@ -613,7 +629,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:58 2021 by
+  Generated on Mon May 10 21:15:03 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

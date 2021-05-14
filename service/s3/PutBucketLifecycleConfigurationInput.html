@@ -114,7 +114,32 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The name of the bucket for which to set the configuration.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.PutBucketLifecycleConfigurationInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
 </div></span>
   
 </li>
@@ -139,7 +164,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>LifecycleConfiguration is a required field.</p>
+<p>Container for lifecycle rules.</p>
 </div></span>
   
 </li>
@@ -225,6 +250,31 @@ import "../ibm-cos-sdk-go/service/s3"
   
     <span class="summary_desc"><div class='inline'>
 <p>SetBucket sets the Bucket field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.PutBucketLifecycleConfigurationInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *PutBucketLifecycleConfigurationInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -325,7 +375,30 @@ value.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>The name of the bucket for which to set the configuration.</p>
+
 <p>Bucket is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
 
 
   </div>
@@ -339,12 +412,12 @@ value.</p>
       <div class="method_details ">
   <h3 class="signature " id="LifecycleConfiguration-field">
   <strong>LifecycleConfiguration</strong> *<span class='object_link'><a href="#LifecycleConfiguration-field" title="s3.PutBucketLifecycleConfigurationInput.LifecycleConfiguration (field)">LifecycleConfiguration</a></span> 
-  <code>`locationName:"LifecycleConfiguration" type:"structure" required:"true" xmlURI:"http://s3.amazonaws.com/doc/2006-03-01/"`</code>
+  <code>`locationName:"LifecycleConfiguration" type:"structure" xmlURI:"http://s3.amazonaws.com/doc/2006-03-01/"`</code>
 </h3>
 <div class="docstring">
   <div class="discussion">
     
-<p>LifecycleConfiguration is a required field</p>
+<p>Container for lifecycle rules. You can add as many as 1000 rules.</p>
 
 
   </div>
@@ -396,12 +469,12 @@ value.</p>
       <pre class="lines">
 
 
-11344
-11345
-11346</pre>
+15834
+15835
+15836</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11344</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15834</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.PutBucketLifecycleConfigurationInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -438,16 +511,60 @@ value.</p>
       <pre class="lines">
 
 
-11373
-11374
-11375
-11376</pre>
+15860
+15861
+15862
+15863</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11373</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15860</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.PutBucketLifecycleConfigurationInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span> {
 	s.Bucket = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.PutBucketLifecycleConfigurationInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15873
+15874
+15875
+15876</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15873</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.PutBucketLifecycleConfigurationInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -483,13 +600,13 @@ value.</p>
       <pre class="lines">
 
 
-11386
-11387
-11388
-11389</pre>
+15879
+15880
+15881
+15882</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11386</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15879</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#SetLifecycleConfiguration-instance_method" title="s3.PutBucketLifecycleConfigurationInput.SetLifecycleConfiguration() (method)">SetLifecycleConfiguration</a></span>(v *<span class='object_link'><a href="#LifecycleConfiguration-field" title="s3.PutBucketLifecycleConfigurationInput.LifecycleConfiguration (field)">LifecycleConfiguration</a></span>) *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span> {
 	s.LifecycleConfiguration = v
@@ -527,12 +644,12 @@ value.</p>
       <pre class="lines">
 
 
-11339
-11340
-11341</pre>
+15829
+15830
+15831</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11339</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15829</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.PutBucketLifecycleConfigurationInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -569,31 +686,28 @@ value.</p>
       <pre class="lines">
 
 
-11349
-11350
-11351
-11352
-11353
-11354
-11355
-11356
-11357
-11358
-11359
-11360
-11361
-11362
-11363
-11364
-11365
-11366
-11367
-11368
-11369
-11370</pre>
+15839
+15840
+15841
+15842
+15843
+15844
+15845
+15846
+15847
+15848
+15849
+15850
+15851
+15852
+15853
+15854
+15855
+15856
+15857</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11349</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15839</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.PutBucketLifecycleConfigurationInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.PutBucketLifecycleConfigurationInput (struct)">PutBucketLifecycleConfigurationInput</a></span>"</span>}
@@ -602,9 +716,6 @@ value.</p>
 	}
 	<span class="hljs-keyword">if</span> s.Bucket != <span class="hljs-constant">nil</span> && len(*s.Bucket) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen(<span class="hljs-string">"<span class='object_link'><a href="#Bucket-field" title="s3.PutBucketLifecycleConfigurationInput.Bucket (field)">Bucket</a></span>"</span>, 1))
-	}
-	<span class="hljs-keyword">if</span> s.LifecycleConfiguration == <span class="hljs-constant">nil</span> {
-		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#LifecycleConfiguration-field" title="s3.PutBucketLifecycleConfigurationInput.LifecycleConfiguration (field)">LifecycleConfiguration</a></span>"</span>))
 	}
 	<span class="hljs-keyword">if</span> s.LifecycleConfiguration != <span class="hljs-constant">nil</span> {
 		<span class="hljs-keyword">if</span> err := s.LifecycleConfiguration.<span class='object_link'><a href="#Validate-instance_method" title="s3.PutBucketLifecycleConfigurationInput.Validate() (method)">Validate</a></span>(); err != <span class="hljs-constant">nil</span> {
@@ -629,7 +740,7 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:59 2021 by
+  Generated on Mon May 10 21:15:04 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

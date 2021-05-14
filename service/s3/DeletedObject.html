@@ -73,7 +73,18 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Information about the deleted object.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -113,7 +124,10 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Specifies whether the versioned object that was permanently deleted was
+(true) or was not (false) a delete marker.</p>
+</div></span>
   
 </li>
 
@@ -136,7 +150,10 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The version ID of the delete marker created as a result of the DELETE
+operation.</p>
+</div></span>
   
 </li>
 
@@ -159,7 +176,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The name of the deleted object.</p>
+</div></span>
   
 </li>
 
@@ -182,7 +201,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The version ID of the deleted object.</p>
+</div></span>
   
 </li>
 
@@ -388,7 +409,20 @@ import "../ibm-cos-sdk-go/service/s3"
   <strong>DeleteMarker</strong> *bool 
   <code>`type:"boolean"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Specifies whether the versioned object that was permanently deleted was
+(true) or was not (false) a delete marker. In a simple DELETE, this header
+indicates whether (true) or not (false) a delete marker was created.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -396,7 +430,20 @@ import "../ibm-cos-sdk-go/service/s3"
   <strong>DeleteMarkerVersionId</strong> *string 
   <code>`type:"string"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The version ID of the delete marker created as a result of the DELETE
+operation. If you delete a specific object version, the value returned by
+this header is the version ID of the object version deleted.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -404,7 +451,18 @@ import "../ibm-cos-sdk-go/service/s3"
   <strong>Key</strong> *string 
   <code>`min:"1" type:"string"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The name of the deleted object.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -412,7 +470,18 @@ import "../ibm-cos-sdk-go/service/s3"
   <strong>VersionId</strong> *string 
   <code>`type:"string"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The version ID of the deleted object.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -456,12 +525,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6798
-6799
-6800</pre>
+9685
+9686
+9687</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6798</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9685</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeletedObject (struct)">DeletedObject</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.DeletedObject.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -498,13 +567,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6803
-6804
-6805
-6806</pre>
+9690
+9691
+9692
+9693</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6803</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9690</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeletedObject (struct)">DeletedObject</a></span>) <span class='object_link'><a href="#SetDeleteMarker-instance_method" title="s3.DeletedObject.SetDeleteMarker() (method)">SetDeleteMarker</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.DeletedObject (struct)">DeletedObject</a></span> {
 	s.DeleteMarker = &v
@@ -542,13 +611,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6809
-6810
-6811
-6812</pre>
+9696
+9697
+9698
+9699</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6809</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9696</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeletedObject (struct)">DeletedObject</a></span>) <span class='object_link'><a href="#SetDeleteMarkerVersionId-instance_method" title="s3.DeletedObject.SetDeleteMarkerVersionId() (method)">SetDeleteMarkerVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeletedObject (struct)">DeletedObject</a></span> {
 	s.DeleteMarkerVersionId = &v
@@ -586,13 +655,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6815
-6816
-6817
-6818</pre>
+9702
+9703
+9704
+9705</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6815</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9702</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeletedObject (struct)">DeletedObject</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.DeletedObject.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeletedObject (struct)">DeletedObject</a></span> {
 	s.Key = &v
@@ -630,13 +699,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6821
-6822
-6823
-6824</pre>
+9708
+9709
+9710
+9711</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6821</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9708</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeletedObject (struct)">DeletedObject</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.DeletedObject.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeletedObject (struct)">DeletedObject</a></span> {
 	s.VersionId = &v
@@ -674,12 +743,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-6793
-6794
-6795</pre>
+9680
+9681
+9682</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6793</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9680</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeletedObject (struct)">DeletedObject</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.DeletedObject.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -696,7 +765,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:49 2021 by
+  Generated on Mon May 10 21:14:49 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

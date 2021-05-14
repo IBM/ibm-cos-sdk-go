@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Lists only aliases that refer to the specified CMK.</p>
+<p>Lists only aliases that are associated with the specified CMK.</p>
 </div></span>
   
 </li>
@@ -375,13 +375,23 @@ with truncated results.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Lists only aliases that refer to the specified CMK. The value of this
-parameter can be the ID or Amazon Resource Name (ARN) of a CMK in the
-caller&#39;s account and region. You cannot use an alias name or alias ARN
-in this value.</p>
+<p>Lists only aliases that are associated with the specified CMK. Enter a CMK
+in your AWS account.</p>
 
 <p>This parameter is optional. If you omit it, ListAliases returns all aliases
-in the account and region.</p>
+in the account and Region.</p>
+
+<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
+
+<p>For example:</p>
+<ul><li>
+<p>Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</p>
+</li><li>
+<p>Key ARN:
+arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
+</li></ul>
+
+<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
 
 
   </div>
@@ -478,12 +488,12 @@ truncated response you just received.</p>
       <pre class="lines">
 
 
-12085
-12086
-12087</pre>
+12784
+12785
+12786</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12085</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12784</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.ListAliasesInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -520,13 +530,13 @@ truncated response you just received.</p>
       <pre class="lines">
 
 
-12109
-12110
-12111
-12112</pre>
+12808
+12809
+12810
+12811</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12109</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12808</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.ListAliasesInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span> {
 	s.KeyId = &v
@@ -564,13 +574,13 @@ truncated response you just received.</p>
       <pre class="lines">
 
 
-12115
-12116
-12117
-12118</pre>
+12814
+12815
+12816
+12817</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12115</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12814</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>) <span class='object_link'><a href="#SetLimit-instance_method" title="kms.ListAliasesInput.SetLimit() (method)">SetLimit</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span> {
 	s.Limit = &v
@@ -608,13 +618,13 @@ truncated response you just received.</p>
       <pre class="lines">
 
 
-12121
-12122
-12123
-12124</pre>
+12820
+12821
+12822
+12823</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12121</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12820</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>) <span class='object_link'><a href="#SetMarker-instance_method" title="kms.ListAliasesInput.SetMarker() (method)">SetMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span> {
 	s.Marker = &v
@@ -652,12 +662,12 @@ truncated response you just received.</p>
       <pre class="lines">
 
 
-12080
-12081
-12082</pre>
+12779
+12780
+12781</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12080</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12779</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.ListAliasesInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -694,26 +704,26 @@ truncated response you just received.</p>
       <pre class="lines">
 
 
-12090
-12091
-12092
-12093
-12094
-12095
-12096
-12097
-12098
-12099
-12100
-12101
-12102
-12103
-12104
-12105
-12106</pre>
+12789
+12790
+12791
+12792
+12793
+12794
+12795
+12796
+12797
+12798
+12799
+12800
+12801
+12802
+12803
+12804
+12805</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12090</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12789</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.ListAliasesInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>"</span>}
@@ -744,7 +754,7 @@ truncated response you just received.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:24 2021 by
+  Generated on Mon May 10 21:15:31 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

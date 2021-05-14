@@ -147,7 +147,7 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <div class="method_details first">
   <h3 class="signature first" id="Load-instance_method">
   
-    func (load <span class='object_link'><a href="" title="s3crypto.HeaderV2LoadStrategy (struct)">HeaderV2LoadStrategy</a></span>) <strong><span class='object_link'><a href="#Load-instance_method" title="s3crypto.HeaderV2LoadStrategy.Load() (method)">Load</a></span></strong>(req *request.Request) (<span class='object_link'><a href="../s3crypto.html#type-Envelope" title="s3crypto (package)">Envelope</a></span>, error) 
+    func (load <span class='object_link'><a href="" title="s3crypto.HeaderV2LoadStrategy (struct)">HeaderV2LoadStrategy</a></span>) <strong><span class='object_link'><a href="#Load-instance_method" title="s3crypto.HeaderV2LoadStrategy.Load() (method)">Load</a></span></strong>(req *request.Request) (<span class='object_link'><a href="Envelope.html" title="s3crypto.Envelope (struct)">Envelope</a></span>, error) 
   
 
   
@@ -159,6 +159,7 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
+112
 113
 114
 115
@@ -168,12 +169,10 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 119
 120
 121
-122
-123
-124</pre>
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/strategy.go', line 113</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/strategy.go', line 112</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (load HeaderV2LoadStrategy) Load(req *request.Request) (Envelope, <span class="hljs-constant">error</span>) {
 	env := Envelope{}
@@ -183,7 +182,6 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 	env.WrapAlg = req.HTTPResponse.Header.Get(strings.Join([]<span class="hljs-constant">string</span>{metaHeader, wrapAlgorithmHeader}, <span class="hljs-string">"-"</span>))
 	env.CEKAlg = req.HTTPResponse.Header.Get(strings.Join([]<span class="hljs-constant">string</span>{metaHeader, cekAlgorithmHeader}, <span class="hljs-string">"-"</span>))
 	env.TagLen = req.HTTPResponse.Header.Get(strings.Join([]<span class="hljs-constant">string</span>{metaHeader, tagLengthHeader}, <span class="hljs-string">"-"</span>))
-	env.UnencryptedMD5 = req.HTTPResponse.Header.Get(strings.Join([]<span class="hljs-constant">string</span>{metaHeader, unencryptedMD5Header}, <span class="hljs-string">"-"</span>))
 	env.UnencryptedContentLen = req.HTTPResponse.Header.Get(strings.Join([]<span class="hljs-constant">string</span>{metaHeader, unencryptedContentLengthHeader}, <span class="hljs-string">"-"</span>))
 	<span class="hljs-keyword">return</span> env, <span class="hljs-constant">nil</span>
 }</div></pre>
@@ -199,7 +197,7 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:29 2021 by
+  Generated on Mon May 10 21:15:36 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

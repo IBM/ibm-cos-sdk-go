@@ -113,7 +113,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Indicates that a range of bytes was specified.</p>
+</div></span>
   
 </li>
 
@@ -440,7 +442,7 @@ response includes this header.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Last modified date of the object.</p>
+<p>Creation date of the object.</p>
 </div></span>
   
 </li>
@@ -540,7 +542,10 @@ headers.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Amazon S3 can return this header if your request involves a bucket that is
+either a source or a destination in a replication rule.</p>
+</div></span>
   
 </li>
 
@@ -590,8 +595,11 @@ request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Provides information about object restoration operation and expiration time
-of the restored object copy.</p>
+<p>If the object is an archived object (an object whose storage class is
+GLACIER), the response includes this header if either the archive
+restoration is in progress (see RestoreObject (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html</a>)
+or an archive copy is already restored.</p>
 </div></span>
   
 </li>
@@ -717,7 +725,7 @@ algorithm used.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>If server-side encryption with a customer-provided encryption key was
-requested, the response will include this header to provide round trip
+requested, the response will include this header to provide round-trip
 message integrity verification of the customer-provided encryption key.</p>
 </div></span>
   
@@ -743,8 +751,9 @@ message integrity verification of the customer-provided encryption key.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-encryption key that was used for the object.</p>
+<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+symmetric customer managed customer master key (CMK) that was used for the
+object.</p>
 </div></span>
   
 </li>
@@ -769,8 +778,11 @@ encryption key that was used for the object.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Server-side encryption algorithm used when storing this object in S3
-(e.g., AES256, aws:kms).</p>
+<p>If the object is stored using server-side encryption either with an AWS KMS
+customer master key (CMK) or an Amazon S3-managed encryption key, the
+response includes this header with the value of the server-side encryption
+algorithm used when storing this object in Amazon S3 (for example, AES256,
+aws:kms).</p>
 </div></span>
   
 </li>
@@ -794,7 +806,9 @@ encryption key that was used for the object.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Provides storage class information of the object.</p>
+</div></span>
   
 </li>
 
@@ -1705,7 +1719,18 @@ value.</p>
   <strong>AcceptRanges</strong> *string 
   <code>`location:"header" locationName:"accept-ranges" type:"string"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Indicates that a range of bytes was specified.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -1854,7 +1879,7 @@ response.</p>
   <div class="discussion">
     
 <p>An ETag is an opaque identifier assigned by a web server to a specific
-version of a resource found at a URL</p>
+version of a resource found at a URL.</p>
 
 
   </div>
@@ -1874,8 +1899,8 @@ version of a resource found at a URL</p>
   <div class="discussion">
     
 <p>If the object expiration is configured (see PUT Bucket lifecycle), the
-response includes this header. It includes the expiry-date and rule-id key
-value pairs providing object expiration information. The value of the
+response includes this header. It includes the expiry-date and rule-id
+key-value pairs providing object expiration information. The value of the
 rule-id is URL encoded.</p>
 
 
@@ -1944,7 +1969,7 @@ will indicate the time at which the object was originally archived.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Last modified date of the object</p>
+<p>Creation date of the object.</p>
 
 
   </div>
@@ -2026,7 +2051,51 @@ you can create metadata whose values are not legal HTTP headers.</p>
   <strong>ReplicationStatus</strong> *string 
   <code>`location:"header" locationName:"x-amz-replication-status" type:"string" enum:"ReplicationStatus"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Amazon S3 can return this header if your request involves a bucket that is
+either a source or a destination in a replication rule.</p>
 
+<p>In replication, you have a source bucket on which you configure replication
+and destination bucket or buckets where Amazon S3 stores object replicas.
+When you request an object (GetObject) or object metadata (HeadObject) from
+these buckets, Amazon S3 will return the x-amz-replication-status header in
+the response as follows:</p>
+<ul><li>
+<p>If requesting an object from the source bucket — Amazon S3 will return  the
+x-amz-replication-status header if the object in your request is eligible 
+for replication. For example, suppose that in your replication
+configuration,  you specify object prefix TaxDocs requesting Amazon S3 to
+replicate objects  with key prefix TaxDocs. Any objects you upload with
+this key name prefix,  for example TaxDocs/document1.pdf, are eligible for
+replication. For any  object request with this key name prefix, Amazon S3
+will return the x-amz-replication-status  header with value PENDING,
+COMPLETED or FAILED indicating object replication  status.</p>
+</li><li>
+<p>If requesting an object from a destination bucket — Amazon S3 will  return
+the x-amz-replication-status header with value REPLICA if the object  in
+your request is a replica that Amazon S3 created and there is no replica 
+modification replication in progress.</p>
+</li><li>
+<p>When replicating objects to multiple destination buckets the
+x-amz-replication-status  header acts differently. The header of the source
+object will only return  a value of COMPLETED when replication is
+successful to all destinations.  The header will remain at value PENDING
+until replication has completed  for all destinations. If one or more
+destinations fails replication the  header will return FAILED.</p>
+</li></ul>
+
+<p>For more information, see Replication (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html</a>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -2057,8 +2126,24 @@ request.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Provides information about object restoration operation and expiration time
-of the restored object copy.</p>
+<p>If the object is an archived object (an object whose storage class is
+GLACIER), the response includes this header if either the archive
+restoration is in progress (see RestoreObject (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html</a>)
+or an archive copy is already restored.</p>
+
+<p>If an archive copy is already restored, the header value indicates when
+Amazon S3 is scheduled to delete the object copy. For example:</p>
+
+<p>x-amz-restore: ongoing-request=“false”, expiry-date=“Fri, 21 Dec 2012
+00:00:00 GMT”</p>
+
+<p>If the object restoration is in progress, the header returns the value
+ongoing-request=“true”.</p>
+
+<p>For more information about archiving objects, see Transitioning Objects:
+General Considerations (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations">docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations</a>).</p>
 
 
   </div>
@@ -2151,7 +2236,7 @@ algorithm used.</p>
   <div class="discussion">
     
 <p>If server-side encryption with a customer-provided encryption key was
-requested, the response will include this header to provide round trip
+requested, the response will include this header to provide round-trip
 message integrity verification of the customer-provided encryption key.</p>
 
 
@@ -2171,8 +2256,9 @@ message integrity verification of the customer-provided encryption key.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-encryption key that was used for the object.</p>
+<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+symmetric customer managed customer master key (CMK) that was used for the
+object.</p>
 
 
   </div>
@@ -2191,8 +2277,11 @@ encryption key that was used for the object.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The Server-side encryption algorithm used when storing this object in S3
-(e.g., AES256, aws:kms).</p>
+<p>If the object is stored using server-side encryption either with an AWS KMS
+customer master key (CMK) or an Amazon S3-managed encryption key, the
+response includes this header with the value of the server-side encryption
+algorithm used when storing this object in Amazon S3 (for example, AES256,
+aws:kms).</p>
 
 
   </div>
@@ -2208,7 +2297,22 @@ encryption key that was used for the object.</p>
   <strong>StorageClass</strong> *string 
   <code>`location:"header" locationName:"x-amz-storage-class" type:"string" enum:"StorageClass"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Provides storage class information of the object. Amazon S3 returns this
+header for all objects except for S3 Standard storage class objects.</p>
 
+<p>For more information, see Storage Classes (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html</a>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -2292,12 +2396,12 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-8920
-8921
-8922</pre>
+12665
+12666
+12667</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8920</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12665</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.HeadObjectOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -2334,13 +2438,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-8925
-8926
-8927
-8928</pre>
+12670
+12671
+12672
+12673</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8925</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12670</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetAcceptRanges-instance_method" title="s3.HeadObjectOutput.SetAcceptRanges() (method)">SetAcceptRanges</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.AcceptRanges = &v
@@ -2378,13 +2482,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-8931
-8932
-8933
-8934</pre>
+12676
+12677
+12678
+12679</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8931</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12676</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetCacheControl-instance_method" title="s3.HeadObjectOutput.SetCacheControl() (method)">SetCacheControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.CacheControl = &v
@@ -2422,13 +2526,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-8937
-8938
-8939
-8940</pre>
+12682
+12683
+12684
+12685</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8937</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12682</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetContentDisposition-instance_method" title="s3.HeadObjectOutput.SetContentDisposition() (method)">SetContentDisposition</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ContentDisposition = &v
@@ -2466,13 +2570,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-8943
-8944
-8945
-8946</pre>
+12688
+12689
+12690
+12691</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8943</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12688</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetContentEncoding-instance_method" title="s3.HeadObjectOutput.SetContentEncoding() (method)">SetContentEncoding</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ContentEncoding = &v
@@ -2510,13 +2614,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-8949
-8950
-8951
-8952</pre>
+12694
+12695
+12696
+12697</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8949</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12694</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetContentLanguage-instance_method" title="s3.HeadObjectOutput.SetContentLanguage() (method)">SetContentLanguage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ContentLanguage = &v
@@ -2554,13 +2658,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-8955
-8956
-8957
-8958</pre>
+12700
+12701
+12702
+12703</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8955</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12700</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetContentLength-instance_method" title="s3.HeadObjectOutput.SetContentLength() (method)">SetContentLength</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ContentLength = &v
@@ -2598,13 +2702,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-8961
-8962
-8963
-8964</pre>
+12706
+12707
+12708
+12709</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8961</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12706</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetContentType-instance_method" title="s3.HeadObjectOutput.SetContentType() (method)">SetContentType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ContentType = &v
@@ -2642,13 +2746,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-8967
-8968
-8969
-8970</pre>
+12712
+12713
+12714
+12715</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8967</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12712</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetDeleteMarker-instance_method" title="s3.HeadObjectOutput.SetDeleteMarker() (method)">SetDeleteMarker</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.DeleteMarker = &v
@@ -2686,13 +2790,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-8973
-8974
-8975
-8976</pre>
+12718
+12719
+12720
+12721</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8973</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12718</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetETag-instance_method" title="s3.HeadObjectOutput.SetETag() (method)">SetETag</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ETag = &v
@@ -2730,13 +2834,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-8979
-8980
-8981
-8982</pre>
+12724
+12725
+12726
+12727</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8979</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12724</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetExpiration-instance_method" title="s3.HeadObjectOutput.SetExpiration() (method)">SetExpiration</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.Expiration = &v
@@ -2774,13 +2878,13 @@ S3 stores the value of this header in the object metadata.</p>
       <pre class="lines">
 
 
-8985
-8986
-8987
-8988</pre>
+12730
+12731
+12732
+12733</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8985</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12730</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetExpires-instance_method" title="s3.HeadObjectOutput.SetExpires() (method)">SetExpires</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.Expires = &v
@@ -2819,13 +2923,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-8991
-8992
-8993
-8994</pre>
+12736
+12737
+12738
+12739</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8991</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12736</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetIBMRestoredCopyStorageClass-instance_method" title="s3.HeadObjectOutput.SetIBMRestoredCopyStorageClass() (method)">SetIBMRestoredCopyStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.IBMRestoredCopyStorageClass = &v
@@ -2863,13 +2967,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-8997
-8998
-8999
-9000</pre>
+12742
+12743
+12744
+12745</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8997</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12742</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetIBMTransition-instance_method" title="s3.HeadObjectOutput.SetIBMTransition() (method)">SetIBMTransition</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.IBMTransition = &v
@@ -2907,13 +3011,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-9003
-9004
-9005
-9006</pre>
+12748
+12749
+12750
+12751</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9003</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12748</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetLastModified-instance_method" title="s3.HeadObjectOutput.SetLastModified() (method)">SetLastModified</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.LastModified = &v
@@ -2951,13 +3055,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-9009
-9010
-9011
-9012</pre>
+12754
+12755
+12756
+12757</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9009</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12754</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetMetadata-instance_method" title="s3.HeadObjectOutput.SetMetadata() (method)">SetMetadata</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.Metadata = v
@@ -2995,13 +3099,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-9015
-9016
-9017
-9018</pre>
+12760
+12761
+12762
+12763</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9015</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12760</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetMissingMeta-instance_method" title="s3.HeadObjectOutput.SetMissingMeta() (method)">SetMissingMeta</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.MissingMeta = &v
@@ -3039,13 +3143,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-9021
-9022
-9023
-9024</pre>
+12766
+12767
+12768
+12769</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9021</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12766</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetPartsCount-instance_method" title="s3.HeadObjectOutput.SetPartsCount() (method)">SetPartsCount</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.PartsCount = &v
@@ -3083,13 +3187,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-9027
-9028
-9029
-9030</pre>
+12772
+12773
+12774
+12775</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9027</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12772</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetReplicationStatus-instance_method" title="s3.HeadObjectOutput.SetReplicationStatus() (method)">SetReplicationStatus</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ReplicationStatus = &v
@@ -3127,13 +3231,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-9033
-9034
-9035
-9036</pre>
+12778
+12779
+12780
+12781</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9033</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12778</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.HeadObjectOutput.SetRequestCharged() (method)">SetRequestCharged</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.RequestCharged = &v
@@ -3171,13 +3275,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-9039
-9040
-9041
-9042</pre>
+12784
+12785
+12786
+12787</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9039</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12784</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetRestore-instance_method" title="s3.HeadObjectOutput.SetRestore() (method)">SetRestore</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.Restore = &v
@@ -3216,13 +3320,13 @@ value.</p>
       <pre class="lines">
 
 
-9045
-9046
-9047
-9048</pre>
+12790
+12791
+12792
+12793</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9045</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12790</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetRetentionExpirationDate-instance_method" title="s3.HeadObjectOutput.SetRetentionExpirationDate() (method)">SetRetentionExpirationDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.RetentionExpirationDate = &v
@@ -3261,13 +3365,13 @@ value.</p>
       <pre class="lines">
 
 
-9051
-9052
-9053
-9054</pre>
+12796
+12797
+12798
+12799</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9051</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12796</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetRetentionLegalHoldCount-instance_method" title="s3.HeadObjectOutput.SetRetentionLegalHoldCount() (method)">SetRetentionLegalHoldCount</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.RetentionLegalHoldCount = &v
@@ -3305,13 +3409,13 @@ value.</p>
       <pre class="lines">
 
 
-9057
-9058
-9059
-9060</pre>
+12802
+12803
+12804
+12805</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9057</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12802</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetRetentionPeriod-instance_method" title="s3.HeadObjectOutput.SetRetentionPeriod() (method)">SetRetentionPeriod</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.RetentionPeriod = &v
@@ -3349,13 +3453,13 @@ value.</p>
       <pre class="lines">
 
 
-9081
-9082
-9083
-9084</pre>
+12826
+12827
+12828
+12829</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9081</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12826</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.HeadObjectOutput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ServerSideEncryption = &v
@@ -3393,13 +3497,13 @@ value.</p>
       <pre class="lines">
 
 
-9063
-9064
-9065
-9066</pre>
+12808
+12809
+12810
+12811</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9063</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12808</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.HeadObjectOutput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -3437,13 +3541,13 @@ value.</p>
       <pre class="lines">
 
 
-9069
-9070
-9071
-9072</pre>
+12814
+12815
+12816
+12817</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9069</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12814</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.HeadObjectOutput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -3481,13 +3585,13 @@ value.</p>
       <pre class="lines">
 
 
-9075
-9076
-9077
-9078</pre>
+12820
+12821
+12822
+12823</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9075</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12820</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.HeadObjectOutput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -3525,13 +3629,13 @@ value.</p>
       <pre class="lines">
 
 
-9087
-9088
-9089
-9090</pre>
+12832
+12833
+12834
+12835</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9087</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12832</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetStorageClass-instance_method" title="s3.HeadObjectOutput.SetStorageClass() (method)">SetStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.StorageClass = &v
@@ -3569,13 +3673,13 @@ value.</p>
       <pre class="lines">
 
 
-9093
-9094
-9095
-9096</pre>
+12838
+12839
+12840
+12841</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9093</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12838</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.HeadObjectOutput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.VersionId = &v
@@ -3614,13 +3718,13 @@ value.</p>
       <pre class="lines">
 
 
-9099
-9100
-9101
-9102</pre>
+12844
+12845
+12846
+12847</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9099</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12844</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetWebsiteRedirectLocation-instance_method" title="s3.HeadObjectOutput.SetWebsiteRedirectLocation() (method)">SetWebsiteRedirectLocation</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.WebsiteRedirectLocation = &v
@@ -3658,12 +3762,12 @@ value.</p>
       <pre class="lines">
 
 
-8915
-8916
-8917</pre>
+12660
+12661
+12662</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8915</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12660</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.HeadObjectOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -3680,7 +3784,7 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:54 2021 by
+  Generated on Mon May 10 21:14:56 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

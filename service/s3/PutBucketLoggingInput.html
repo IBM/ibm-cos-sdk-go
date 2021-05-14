@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The name of the bucket for which to set the logging parameters.</p>
 </div></span>
   
 </li>
@@ -139,7 +139,32 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BucketLoggingStatus is a required field.</p>
+<p>Container for logging status information.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.PutBucketLoggingInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
 </div></span>
   
 </li>
@@ -258,6 +283,31 @@ import "../ibm-cos-sdk-go/service/s3"
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.PutBucketLoggingInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *PutBucketLoggingInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#String-instance_method" title="s3.PutBucketLoggingInput.String() (method)"><strong>String</strong>()  string </a></span></span>
   
   
@@ -324,6 +374,8 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
+<p>The name of the bucket for which to set the logging parameters.</p>
+
 <p>Bucket is a required field</p>
 
 
@@ -343,7 +395,30 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
+<p>Container for logging status information.</p>
+
 <p>BucketLoggingStatus is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
 
 
   </div>
@@ -395,12 +470,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-11421
-11422
-11423</pre>
+15923
+15924
+15925</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11421</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15923</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.PutBucketLoggingInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -437,13 +512,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-11450
-11451
-11452
-11453</pre>
+15952
+15953
+15954
+15955</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11450</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15952</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.PutBucketLoggingInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span> {
 	s.Bucket = &v
@@ -481,16 +556,60 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-11463
-11464
-11465
-11466</pre>
+15965
+15966
+15967
+15968</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11463</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15965</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>) <span class='object_link'><a href="#SetBucketLoggingStatus-instance_method" title="s3.PutBucketLoggingInput.SetBucketLoggingStatus() (method)">SetBucketLoggingStatus</a></span>(v *<span class='object_link'><a href="#BucketLoggingStatus-field" title="s3.PutBucketLoggingInput.BucketLoggingStatus (field)">BucketLoggingStatus</a></span>) *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span> {
 	s.BucketLoggingStatus = v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.PutBucketLoggingInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15971
+15972
+15973
+15974</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15971</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.PutBucketLoggingInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -525,12 +644,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-11416
-11417
-11418</pre>
+15918
+15919
+15920</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11416</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15918</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.PutBucketLoggingInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -567,31 +686,31 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-11426
-11427
-11428
-11429
-11430
-11431
-11432
-11433
-11434
-11435
-11436
-11437
-11438
-11439
-11440
-11441
-11442
-11443
-11444
-11445
-11446
-11447</pre>
+15928
+15929
+15930
+15931
+15932
+15933
+15934
+15935
+15936
+15937
+15938
+15939
+15940
+15941
+15942
+15943
+15944
+15945
+15946
+15947
+15948
+15949</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11426</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15928</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.PutBucketLoggingInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.PutBucketLoggingInput (struct)">PutBucketLoggingInput</a></span>"</span>}
@@ -627,7 +746,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:59 2021 by
+  Generated on Mon May 10 21:15:04 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

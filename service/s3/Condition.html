@@ -73,7 +73,22 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A container for describing a condition that must be met for the specified
+redirect to apply. For example, 1. If request is for pages in the /docs
+folder, redirect to the /documents folder. 2. If request results in HTTP
+error 4xx, redirect request to another host where you might process the
+error.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -331,6 +346,11 @@ folder. Required when the parent element Condition is specified and sibling
 HttpErrorCodeReturnedEquals is not specified. If both conditions are
 specified, both must be true for the redirect to be applied.</p>
 
+<p>Replacement must be made for object keys containing special characters
+(such as carriage returns) when using XML requests. For more information,
+see XML related object key constraints (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints</a>).</p>
+
 
   </div>
 </div>
@@ -381,12 +401,12 @@ specified, both must be true for the redirect to be applied.</p>
       <pre class="lines">
 
 
-4839
-4840
-4841</pre>
+7292
+7293
+7294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4839</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7292</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Condition (struct)">Condition</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.Condition.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -424,13 +444,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-4844
-4845
-4846
-4847</pre>
+7297
+7298
+7299
+7300</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4844</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7297</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Condition (struct)">Condition</a></span>) <span class='object_link'><a href="#SetHttpErrorCodeReturnedEquals-instance_method" title="s3.Condition.SetHttpErrorCodeReturnedEquals() (method)">SetHttpErrorCodeReturnedEquals</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Condition (struct)">Condition</a></span> {
 	s.HttpErrorCodeReturnedEquals = &v
@@ -468,13 +488,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-4850
-4851
-4852
-4853</pre>
+7303
+7304
+7305
+7306</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4850</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7303</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Condition (struct)">Condition</a></span>) <span class='object_link'><a href="#SetKeyPrefixEquals-instance_method" title="s3.Condition.SetKeyPrefixEquals() (method)">SetKeyPrefixEquals</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Condition (struct)">Condition</a></span> {
 	s.KeyPrefixEquals = &v
@@ -512,12 +532,12 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-4834
-4835
-4836</pre>
+7287
+7288
+7289</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4834</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7287</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Condition (struct)">Condition</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.Condition.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -534,7 +554,7 @@ field&#39;s value.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:45 2021 by
+  Generated on Mon May 10 21:14:44 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

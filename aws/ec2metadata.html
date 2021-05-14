@@ -85,6 +85,10 @@ variable set to true instructs the SDK to disable the EC2 Metadata client.
 The client cannot be used while the environment variable is set to true,
 (case insensitive).</p>
 
+<p>The endpoint of the EC2 IMDS client can be configured via the environment
+variable, AWS_EC2_METADATA_SERVICE_ENDPOINT when creating the client with a
+Session. See aws/session#Options.EC2IMDSEndpoint for more details.</p>
+
 
   </div>
 </div>
@@ -538,6 +542,9 @@ instance identity document</p>
 client when not using a session. Generally using just New with a session is
 preferred.</p>
 
+<p>Will remove the URL path from the endpoint provided to ensure the EC2 IMDS
+client is able to communicate with the EC2 IMDS API.</p>
+
 <p>If an unmodified HTTP client is provided from the stdlib default, or no
 client the EC2RoleProvider&#39;s EC2Metadata HTTP client&#39;s timeout will
 be shortened. To disable this set Config.EC2MetadataDisableTimeoutOverride
@@ -555,14 +562,6 @@ to false. Enabled by default.</p>
       <pre class="lines">
 
 
-74
-75
-76
-77
-78
-79
-80
-81
 82
 83
 84
@@ -624,10 +623,27 @@ to false. Enabled by default.</p>
 140
 141
 142
-143</pre>
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/ec2metadata/service.go', line 74</span>
+      <pre class="code"><span class="info file">// File 'aws/ec2metadata/service.go', line 82</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewClient(cfg aws.Config, handlers request.Handlers, endpo<span class="hljs-constant">int</span>, signingRegion <span class="hljs-constant">string</span>, opts ...<span class="hljs-keyword">func</span>(*client.Client)) *EC2Metadata {
 	<span class="hljs-keyword">if</span> !aws.BoolValue(cfg.EC2MetadataDisableTimeoutOverride) && httpClientZero(cfg.HTTPClient) {
@@ -641,6 +657,15 @@ to false. Enabled by default.</p>
 		}
 		<span class="hljs-comment">// max number of retries on the client operation</span>
 		cfg.MaxRetries = aws.Int(2)
+	}
+
+	<span class="hljs-keyword">if</span> u, err := url.Parse(endpo<span class="hljs-constant">int</span>); err == <span class="hljs-constant">nil</span> {
+		<span class="hljs-comment">// Remove path from the endpoint since it will be added by requests.</span>
+		<span class="hljs-comment">// This is an artifact of the SDK adding `/latest` to the endpoint for</span>
+		<span class="hljs-comment">// EC2 IMDS, but this is now moved to the operation definition.</span>
+		u.Path = <span class="hljs-string">""</span>
+		u.RawPath = <span class="hljs-string">""</span>
+		endpo<span class="hljs-constant">int</span> = u.String()
 	}
 
 	svc := &EC2Metadata{
@@ -711,7 +736,7 @@ to false. Enabled by default.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:26 2021 by
+  Generated on Mon May 10 21:14:19 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

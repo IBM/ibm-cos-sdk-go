@@ -81,6 +81,11 @@ Authentication mode which will use KMS for key wrapping and AES GCM for
 content encryption. AES GCM will load all data into memory. However, the
 rest of the content algorithms do not load the entire contents into memory.</p>
 
+<p>deprecated: This feature is in maintenance mode, no new updates will be
+released. Please see <a
+href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a>
+for more information.</p>
+
 
   </div>
 </div>
@@ -428,6 +433,11 @@ Temporary files are needed to compute the X-Amz-Content-Sha256 header.</p>
     
 <p>PutObject is a wrapper for PutObjectRequest</p>
 
+<p>deprecated: This feature is in maintenance mode, no new updates will be
+released. Please see <a
+href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a>
+for more information.</p>
+
 
   </div>
 </div>
@@ -440,17 +450,21 @@ Temporary files are needed to compute the X-Amz-Content-Sha256 header.</p>
       <pre class="lines">
 
 
-136
-137
-138
-139</pre>
+115
+116
+117
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 136</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 115</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EncryptionClient) PutObject(input *s3.PutObjectInput) (*s3.PutObjectOutput, <span class="hljs-constant">error</span>) {
-	req, out := c.PutObjectRequest(input)
-	<span class="hljs-keyword">return</span> out, req.Send()
+	<span class="hljs-keyword">if</span> err := validateV1EncryptionClientConstruction(c); err != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>, err
+	}
+	<span class="hljs-keyword">return</span> putObject(c.getClientOptions(), input)
 }</div></pre>
     </td>
   </tr>
@@ -473,11 +487,17 @@ Temporary files are needed to compute the X-Amz-Content-Sha256 header.</p>
 <p>PutObjectRequest creates a temp file to encrypt the contents into. It then
 streams that data to S3.</p>
 
-<p>Example:  svc := s3crypto.New(session.New(),
+<p>Example:  svc :=
+s3crypto.NewEncryptionClient(session.Must(session.NewSession()),
 s3crypto.AESGCMContentCipherBuilder(handler))  req, out :=
 svc.PutObjectRequest(&amp;s3.PutObjectInput {  Key: aws.String(“testKey”), 
 Bucket: aws.String(“testBucket”),  Body: strings.NewReader(“test data”), 
 })  err := req.Send()</p>
+
+<p>deprecated: This feature is in maintenance mode, no new updates will be
+released. Please see <a
+href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a>
+for more information.</p>
 
 
   </div>
@@ -491,28 +511,6 @@ Bucket: aws.String(“testBucket”),  Body: strings.NewReader(“test data”),
       <pre class="lines">
 
 
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
 92
 93
 94
@@ -525,102 +523,22 @@ Bucket: aws.String(“testBucket”),  Body: strings.NewReader(“test data”),
 101
 102
 103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133</pre>
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 70</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 92</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EncryptionClient) PutObjectRequest(input *s3.PutObjectInput) (*request.Request, *s3.PutObjectOutput) {
-	req, out := c.S3Client.PutObjectRequest(input)
-
-	<span class="hljs-comment">// Get Size of file</span>
-	n, err := aws.SeekerLen(input.Body)
-	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+	req, out := putObjectRequest(c.getClientOptions(), input)
+	<span class="hljs-keyword">if</span> err := validateV1EncryptionClientConstruction(c); err != <span class="hljs-constant">nil</span> {
+		errHandler := setReqError(err)
 		req.Error = err
-		<span class="hljs-keyword">return</span> req, out
+		req.Handlers.Build.Clear()
+		req.Handlers.Send.Clear()
+		req.Handlers.Validate.PushFront(errHandler)
+		req.Handlers.Build.PushFront(errHandler)
+		req.Handlers.Send.PushFront(errHandler)
 	}
-
-	dst, err := getWriterStore(req, c.TempFolderPath, n >= c.MinFileSize)
-	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
-		req.Error = err
-		<span class="hljs-keyword">return</span> req, out
-	}
-
-	req.Handlers.Build.PushFront(<span class="hljs-keyword">func</span>(r *request.Request) {
-		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
-			r.Error = err
-			<span class="hljs-keyword">return</span>
-		}
-		<span class="hljs-keyword">var</span> encryptor ContentCipher
-		<span class="hljs-keyword">if</span> v, ok := c.ContentCipherBuilder.(ContentCipherBuilderWithContext); ok {
-			encryptor, err = v.ContentCipherWithContext(r.Context())
-		} <span class="hljs-keyword">else</span> {
-			encryptor, err = c.ContentCipherBuilder.ContentCipher()
-		}
-		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
-			r.Error = err
-		}
-
-		md5 := newMD5Reader(input.Body)
-		sha := newSHA256Writer(dst)
-		reader, err := encryptor.EncryptContents(md5)
-		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
-			r.Error = err
-			<span class="hljs-keyword">return</span>
-		}
-
-		_, err = io.Copy(sha, reader)
-		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
-			r.Error = err
-			<span class="hljs-keyword">return</span>
-		}
-
-		data := encryptor.GetCipherData()
-		env, err := encodeMeta(md5, data)
-		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
-			r.Error = err
-			<span class="hljs-keyword">return</span>
-		}
-
-		shaHex := hex.EncodeToString(sha.GetValue())
-		req.HTTPRequest.Header.Set(<span class="hljs-string">"X-Amz-Content-Sha256"</span>, shaHex)
-
-		dst.Seek(0, sdkio.SeekStart)
-		input.Body = dst
-
-		err = c.SaveStrategy.Save(env, r)
-		r.Error = err
-	})
-
 	<span class="hljs-keyword">return</span> req, out
 }</div></pre>
     </td>
@@ -647,7 +565,13 @@ context, and request options support.</p>
 <p>PutObjectWithContext is the same as PutObject with the additional support
 for Context input parameters. The Context must not be nil. A nil Context
 will cause a panic. Use the Context to add deadlining, timeouts, etc. In
-the future this may create sub-contexts for individual underlying requests.</p>
+the future this may create sub-contexts for individual underlying requests.
+PutObject is a wrapper for PutObjectRequest</p>
+
+<p>deprecated: This feature is in maintenance mode, no new updates will be
+released. Please see <a
+href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a>
+for more information.</p>
 
 
   </div>
@@ -661,21 +585,21 @@ the future this may create sub-contexts for individual underlying requests.</p>
       <pre class="lines">
 
 
-148
-149
-150
-151
-152
-153</pre>
+132
+133
+134
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 148</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 132</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EncryptionClient) PutObjectWithContext(ctx aws.Context, input *s3.PutObjectInput, opts ...request.Option) (*s3.PutObjectOutput, <span class="hljs-constant">error</span>) {
-	req, out := c.PutObjectRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	<span class="hljs-keyword">return</span> out, req.Send()
+	<span class="hljs-keyword">if</span> err := validateV1EncryptionClientConstruction(c); err != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>, err
+	}
+	<span class="hljs-keyword">return</span> putObjectWithContext(c.getClientOptions(), ctx, input, opts...)
 }</div></pre>
     </td>
   </tr>
@@ -689,7 +613,7 @@ the future this may create sub-contexts for individual underlying requests.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:29 2021 by
+  Generated on Mon May 10 21:15:37 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

@@ -166,16 +166,6 @@ href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucket
 content from S3. The Encryption and Decryption clients can be used
 concurrently once the client is created.</p>
 
-<p>sess := session.Must(session.NewSession())</p>
-
-<p>// Create the decryption client.  svc := s3crypto.NewDecryptionClient(sess)</p>
-
-<p>// The object will be downloaded from S3 and decrypted locally. By metadata
-// about the object&#39;s encryption will instruct the decryption client
-how  // decrypt the content of the object. By default KMS is used for keys.
-result, err := svc.GetObject(&amp;s3.GetObjectInput {  Bucket:
-aws.String(myBucket),  Key: aws.String(myKey),  })</p>
-
 <p>See the s3crypto package documentation for more information. <a
 href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto</a>/</p>
 
@@ -663,6 +653,52 @@ value</p>
             <pre class="code"><div class="hljs"><span class="hljs-string">"Retention"</span></div></pre>
           </dd>
         
+          <dt id="BucketVersioningStatusEnabled-constant" class="">
+          <div class="defn">const <strong>BucketVersioningStatusEnabled</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>BucketVersioningStatusEnabled is a BucketVersioningStatus enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Enabled"</span></div></pre>
+          </dd>
+        
+          <dt id="BucketVersioningStatusSuspended-constant" class="">
+          <div class="defn">const <strong>BucketVersioningStatusSuspended</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>BucketVersioningStatusSuspended is a BucketVersioningStatus enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Suspended"</span></div></pre>
+          </dd>
+        
           <dt id="EncodingTypeUrl-constant" class="">
           <div class="defn">const <strong>EncodingTypeUrl</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -718,6 +754,98 @@ value</p>
   <div class="discussion">
     
 <p>ExpirationStatusDisabled is a ExpirationStatus enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Disabled"</span></div></pre>
+          </dd>
+        
+          <dt id="MFADeleteEnabled-constant" class="">
+          <div class="defn">const <strong>MFADeleteEnabled</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>MFADeleteEnabled is a MFADelete enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Enabled"</span></div></pre>
+          </dd>
+        
+          <dt id="MFADeleteDisabled-constant" class="">
+          <div class="defn">const <strong>MFADeleteDisabled</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>MFADeleteDisabled is a MFADelete enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Disabled"</span></div></pre>
+          </dd>
+        
+          <dt id="MFADeleteStatusEnabled-constant" class="">
+          <div class="defn">const <strong>MFADeleteStatusEnabled</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>MFADeleteStatusEnabled is a MFADeleteStatus enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Enabled"</span></div></pre>
+          </dd>
+        
+          <dt id="MFADeleteStatusDisabled-constant" class="">
+          <div class="defn">const <strong>MFADeleteStatusDisabled</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>MFADeleteStatusDisabled is a MFADeleteStatus enum value</p>
 
 
   </div>
@@ -1121,6 +1249,29 @@ value</p>
           <dd>
             <h3>Value:</h3>
             <pre class="code"><div class="hljs"><span class="hljs-string">"DEEP_ARCHIVE"</span></div></pre>
+          </dd>
+        
+          <dt id="ObjectVersionStorageClassStandard-constant" class="">
+          <div class="defn">const <strong>ObjectVersionStorageClassStandard</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>ObjectVersionStorageClassStandard is a ObjectVersionStorageClass enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"STANDARD"</span></div></pre>
           </dd>
         
           <dt id="PermissionFullControl-constant" class="">
@@ -2056,7 +2207,7 @@ value</p>
 “BucketAlreadyExists”.</p>
 
 <p>The requested bucket name is not available. The bucket namespace is shared
-by all users of the system. Please select a different name and try again.</p>
+by all users of the system. Select a different name and try again.</p>
 
 
   </div>
@@ -2082,6 +2233,12 @@ by all users of the system. Please select a different name and try again.</p>
 <p>ErrCodeBucketAlreadyOwnedByYou for service response error code
 “BucketAlreadyOwnedByYou”.</p>
 
+<p>The bucket you tried to create already exists, and you own it. Amazon S3
+returns this error in all AWS Regions except in the North Virginia Region.
+For legacy compatibility, if you re-create an existing bucket that you
+already own in the North Virginia Region, Amazon S3 returns 200 OK and
+resets the bucket access control lists (ACLs).</p>
+
 
   </div>
 </div>
@@ -2093,6 +2250,32 @@ by all users of the system. Please select a different name and try again.</p>
           <dd>
             <h3>Value:</h3>
             <pre class="code"><div class="hljs"><span class="hljs-string">"BucketAlreadyOwnedByYou"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeInvalidObjectState-constant" class="">
+          <div class="defn">const <strong>ErrCodeInvalidObjectState</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>ErrCodeInvalidObjectState for service response error code
+“InvalidObjectState”.</p>
+
+<p>Object is archived and inaccessible until restored.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"InvalidObjectState"</span></div></pre>
           </dd>
         
           <dt id="ErrCodeNoSuchBucket-constant" class="">
@@ -2181,7 +2364,7 @@ by all users of the system. Please select a different name and try again.</p>
 <p>ErrCodeObjectAlreadyInActiveTierError for service response error code
 “ObjectAlreadyInActiveTierError”.</p>
 
-<p>This operation is not allowed against this storage tier</p>
+<p>This action is not allowed against this storage tier.</p>
 
 
   </div>
@@ -2207,8 +2390,8 @@ by all users of the system. Please select a different name and try again.</p>
 <p>ErrCodeObjectNotInActiveTierError for service response error code
 “ObjectNotInActiveTierError”.</p>
 
-<p>The source object of the COPY operation is not in the active tier and is
-only stored in Amazon Glacier.</p>
+<p>The source object of the COPY action is not in the active tier and is only
+stored in Amazon S3 Glacier.</p>
 
 
   </div>
@@ -2472,6 +2655,29 @@ err := req.Send()</div></code></pre>
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-DeletePublicAccessBlockOutput" title="s3 (package)"><strong>DeletePublicAccessBlockOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#type-ExtendObjectRetentionOutput" title="s3 (package)"><strong>ExtendObjectRetentionOutput</strong></a></span></span>
   
   
@@ -2610,7 +2816,53 @@ err := req.Send()</div></code></pre>
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-PutBucketVersioningOutput" title="s3 (package)"><strong>PutBucketVersioningOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#type-PutBucketWebsiteOutput" title="s3 (package)"><strong>PutBucketWebsiteOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-PutPublicAccessBlockOutput" title="s3 (package)"><strong>PutPublicAccessBlockOutput</strong></a></span></span>
   
   
   <span class="note title readonly">struct</span>
@@ -2703,6 +2955,261 @@ returned from API operation errors.</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BucketCannedACL_Values-class_method" title="s3.BucketCannedACL_Values() (method)">func <strong>BucketCannedACL_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>BucketCannedACL_Values returns all elements of the BucketCannedACL enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BucketLocationConstraint_Values-class_method" title="s3.BucketLocationConstraint_Values() (method)">func <strong>BucketLocationConstraint_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>BucketLocationConstraint_Values returns all elements of the
+BucketLocationConstraint enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BucketLogsPermission_Values-class_method" title="s3.BucketLogsPermission_Values() (method)">func <strong>BucketLogsPermission_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>BucketLogsPermission_Values returns all elements of the
+BucketLogsPermission enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BucketProtectionStatus_Values-class_method" title="s3.BucketProtectionStatus_Values() (method)">func <strong>BucketProtectionStatus_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>BucketProtectionStatus_Values returns all elements of the
+BucketProtectionStatus enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BucketVersioningStatus_Values-class_method" title="s3.BucketVersioningStatus_Values() (method)">func <strong>BucketVersioningStatus_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>BucketVersioningStatus_Values returns all elements of the
+BucketVersioningStatus enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#EncodingType_Values-class_method" title="s3.EncodingType_Values() (method)">func <strong>EncodingType_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>EncodingType_Values returns all elements of the EncodingType enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpirationStatus_Values-class_method" title="s3.ExpirationStatus_Values() (method)">func <strong>ExpirationStatus_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ExpirationStatus_Values returns all elements of the ExpirationStatus enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#MetadataDirective_Values-class_method" title="s3.MetadataDirective_Values() (method)">func <strong>MetadataDirective_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>MetadataDirective_Values returns all elements of the MetadataDirective
+enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#MFADelete_Values-class_method" title="s3.MFADelete_Values() (method)">func <strong>MFADelete_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>MFADelete_Values returns all elements of the MFADelete enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#MFADeleteStatus_Values-class_method" title="s3.MFADeleteStatus_Values() (method)">func <strong>MFADeleteStatus_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>MFADeleteStatus_Values returns all elements of the MFADeleteStatus enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#NormalizeBucketLocation-class_method" title="s3.NormalizeBucketLocation() (method)">func <strong>NormalizeBucketLocation</strong>(loc string) string </a></span></span>
   
   
@@ -2721,6 +3228,387 @@ returned from API operation errors.</p>
     <span class="summary_desc"><div class='inline'>
 <p>NormalizeBucketLocation is a utility function which will update the passed
 in value to always be a region ID.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ObjectCannedACL_Values-class_method" title="s3.ObjectCannedACL_Values() (method)">func <strong>ObjectCannedACL_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ObjectCannedACL_Values returns all elements of the ObjectCannedACL enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ObjectStorageClass_Values-class_method" title="s3.ObjectStorageClass_Values() (method)">func <strong>ObjectStorageClass_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ObjectStorageClass_Values returns all elements of the ObjectStorageClass
+enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ObjectVersionStorageClass_Values-class_method" title="s3.ObjectVersionStorageClass_Values() (method)">func <strong>ObjectVersionStorageClass_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ObjectVersionStorageClass_Values returns all elements of the
+ObjectVersionStorageClass enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Permission_Values-class_method" title="s3.Permission_Values() (method)">func <strong>Permission_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Permission_Values returns all elements of the Permission enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Protocol_Values-class_method" title="s3.Protocol_Values() (method)">func <strong>Protocol_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Protocol_Values returns all elements of the Protocol enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ReplicationStatus_Values-class_method" title="s3.ReplicationStatus_Values() (method)">func <strong>ReplicationStatus_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ReplicationStatus_Values returns all elements of the ReplicationStatus
+enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#RequestCharged_Values-class_method" title="s3.RequestCharged_Values() (method)">func <strong>RequestCharged_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>RequestCharged_Values returns all elements of the RequestCharged enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#RequestPayer_Values-class_method" title="s3.RequestPayer_Values() (method)">func <strong>RequestPayer_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>RequestPayer_Values returns all elements of the RequestPayer enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#RetentionDirective_Values-class_method" title="s3.RetentionDirective_Values() (method)">func <strong>RetentionDirective_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>RetentionDirective_Values returns all elements of the RetentionDirective
+enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ServerSideEncryption_Values-class_method" title="s3.ServerSideEncryption_Values() (method)">func <strong>ServerSideEncryption_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ServerSideEncryption_Values returns all elements of the
+ServerSideEncryption enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#StorageClass_Values-class_method" title="s3.StorageClass_Values() (method)">func <strong>StorageClass_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>StorageClass_Values returns all elements of the StorageClass enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#TaggingDirective_Values-class_method" title="s3.TaggingDirective_Values() (method)">func <strong>TaggingDirective_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>TaggingDirective_Values returns all elements of the TaggingDirective enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Tier_Values-class_method" title="s3.Tier_Values() (method)">func <strong>Tier_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Tier_Values returns all elements of the Tier enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#TransitionStorageClass_Values-class_method" title="s3.TransitionStorageClass_Values() (method)">func <strong>TransitionStorageClass_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>TransitionStorageClass_Values returns all elements of the
+TransitionStorageClass enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Type_Values-class_method" title="s3.Type_Values() (method)">func <strong>Type_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Type_Values returns all elements of the Type enum.</p>
 </div></span>
   
 </li>
@@ -2939,6 +3827,35 @@ region ID.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="type-DeletePublicAccessBlockOutput">
+  
+    <strong>DeletePublicAccessBlockOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="type-ExtendObjectRetentionOutput">
   
     <strong>ExtendObjectRetentionOutput</strong> struct
@@ -3113,9 +4030,67 @@ region ID.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="type-PutBucketVersioningOutput">
+  
+    <strong>PutBucketVersioningOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="type-PutBucketWebsiteOutput">
   
     <strong>PutBucketWebsiteOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-PutPublicAccessBlockOutput">
+  
+    <strong>PutPublicAccessBlockOutput</strong> struct
   
 
   
@@ -3178,7 +4153,511 @@ region ID.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="NormalizeBucketLocation-class_method">
+  <h3 class="signature first" id="BucketCannedACL_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#BucketCannedACL_Values-class_method" title="s3.BucketCannedACL_Values() (method)">BucketCannedACL_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>BucketCannedACL_Values returns all elements of the BucketCannedACL enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18642
+18643
+18644
+18645
+18646
+18647
+18648
+18649</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18642</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> BucketCannedACL_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		BucketCannedACLPrivate,
+		BucketCannedACLPublicRead,
+		BucketCannedACLPublicReadWrite,
+		BucketCannedACLAuthenticatedRead,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="BucketLocationConstraint_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#BucketLocationConstraint_Values-class_method" title="s3.BucketLocationConstraint_Values() (method)">BucketLocationConstraint_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>BucketLocationConstraint_Values returns all elements of the
+BucketLocationConstraint enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18687
+18688
+18689
+18690
+18691
+18692
+18693
+18694
+18695
+18696
+18697
+18698
+18699
+18700
+18701</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18687</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> BucketLocationConstraint_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		BucketLocationConstraintEu,
+		BucketLocationConstraintEuWest1,
+		BucketLocationConstraintUsWest1,
+		BucketLocationConstraintUsWest2,
+		BucketLocationConstraintApSouth1,
+		BucketLocationConstraintApSoutheast1,
+		BucketLocationConstraintApSoutheast2,
+		BucketLocationConstraintApNortheast1,
+		BucketLocationConstraintSaEast1,
+		BucketLocationConstraintCnNorth1,
+		BucketLocationConstraintEuCentral1,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="BucketLogsPermission_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#BucketLogsPermission_Values-class_method" title="s3.BucketLogsPermission_Values() (method)">BucketLogsPermission_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>BucketLogsPermission_Values returns all elements of the
+BucketLogsPermission enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18715
+18716
+18717
+18718
+18719
+18720
+18721</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18715</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> BucketLogsPermission_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		BucketLogsPermissionFullControl,
+		BucketLogsPermissionRead,
+		BucketLogsPermissionWrite,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="BucketProtectionStatus_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#BucketProtectionStatus_Values-class_method" title="s3.BucketProtectionStatus_Values() (method)">BucketProtectionStatus_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>BucketProtectionStatus_Values returns all elements of the
+BucketProtectionStatus enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18729
+18730
+18731
+18732
+18733</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18729</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> BucketProtectionStatus_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		BucketProtectionStatusRetention,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="BucketVersioningStatus_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#BucketVersioningStatus_Values-class_method" title="s3.BucketVersioningStatus_Values() (method)">BucketVersioningStatus_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>BucketVersioningStatus_Values returns all elements of the
+BucketVersioningStatus enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18744
+18745
+18746
+18747
+18748
+18749</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18744</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> BucketVersioningStatus_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		BucketVersioningStatusEnabled,
+		BucketVersioningStatusSuspended,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="EncodingType_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#EncodingType_Values-class_method" title="s3.EncodingType_Values() (method)">EncodingType_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>EncodingType_Values returns all elements of the EncodingType enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18763
+18764
+18765
+18766
+18767</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18763</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> EncodingType_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		EncodingTypeUrl,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExpirationStatus_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#ExpirationStatus_Values-class_method" title="s3.ExpirationStatus_Values() (method)">ExpirationStatus_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>ExpirationStatus_Values returns all elements of the ExpirationStatus enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18778
+18779
+18780
+18781
+18782
+18783</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18778</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> ExpirationStatus_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		ExpirationStatusEnabled,
+		ExpirationStatusDisabled,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="MetadataDirective_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#MetadataDirective_Values-class_method" title="s3.MetadataDirective_Values() (method)">MetadataDirective_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>MetadataDirective_Values returns all elements of the MetadataDirective enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18826
+18827
+18828
+18829
+18830
+18831</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18826</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> MetadataDirective_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		MetadataDirectiveCopy,
+		MetadataDirectiveReplace,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="MFADelete_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#MFADelete_Values-class_method" title="s3.MFADelete_Values() (method)">MFADelete_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>MFADelete_Values returns all elements of the MFADelete enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18794
+18795
+18796
+18797
+18798
+18799</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18794</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> MFADelete_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		MFADeleteEnabled,
+		MFADeleteDisabled,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="MFADeleteStatus_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#MFADeleteStatus_Values-class_method" title="s3.MFADeleteStatus_Values() (method)">MFADeleteStatus_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>MFADeleteStatus_Values returns all elements of the MFADeleteStatus enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18810
+18811
+18812
+18813
+18814
+18815</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18810</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> MFADeleteStatus_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		MFADeleteStatusEnabled,
+		MFADeleteStatusDisabled,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="NormalizeBucketLocation-class_method">
   
     func <strong><span class='object_link'><a href="#NormalizeBucketLocation-class_method" title="s3.NormalizeBucketLocation() (method)">NormalizeBucketLocation</a></span></strong>(loc string) string 
   
@@ -3234,6 +4713,783 @@ for more information on the values that can be returned.</p>
 	}
 
 	<span class="hljs-keyword">return</span> loc
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ObjectCannedACL_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#ObjectCannedACL_Values-class_method" title="s3.ObjectCannedACL_Values() (method)">ObjectCannedACL_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>ObjectCannedACL_Values returns all elements of the ObjectCannedACL enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18857
+18858
+18859
+18860
+18861
+18862
+18863
+18864
+18865
+18866
+18867</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18857</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> ObjectCannedACL_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		ObjectCannedACLPrivate,
+		ObjectCannedACLPublicRead,
+		ObjectCannedACLPublicReadWrite,
+		ObjectCannedACLAuthenticatedRead,
+		ObjectCannedACLAwsExecRead,
+		ObjectCannedACLBucketOwnerRead,
+		ObjectCannedACLBucketOwnerFullControl,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ObjectStorageClass_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#ObjectStorageClass_Values-class_method" title="s3.ObjectStorageClass_Values() (method)">ObjectStorageClass_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>ObjectStorageClass_Values returns all elements of the ObjectStorageClass
+enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18896
+18897
+18898
+18899
+18900
+18901
+18902
+18903
+18904
+18905
+18906
+18907</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18896</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> ObjectStorageClass_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		ObjectStorageClassStandard,
+		ObjectStorageClassReducedRedundancy,
+		ObjectStorageClassGlacier,
+		ObjectStorageClassAccelerated,
+		ObjectStorageClassStandardIa,
+		ObjectStorageClassOnezoneIa,
+		ObjectStorageClassIntelligentTiering,
+		ObjectStorageClassDeepArchive,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ObjectVersionStorageClass_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#ObjectVersionStorageClass_Values-class_method" title="s3.ObjectVersionStorageClass_Values() (method)">ObjectVersionStorageClass_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>ObjectVersionStorageClass_Values returns all elements of the
+ObjectVersionStorageClass enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18915
+18916
+18917
+18918
+18919</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18915</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> ObjectVersionStorageClass_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		ObjectVersionStorageClassStandard,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Permission_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#Permission_Values-class_method" title="s3.Permission_Values() (method)">Permission_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Permission_Values returns all elements of the Permission enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18939
+18940
+18941
+18942
+18943
+18944
+18945
+18946
+18947</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18939</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Permission_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		PermissionFullControl,
+		PermissionWrite,
+		PermissionWriteAcp,
+		PermissionRead,
+		PermissionReadAcp,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Protocol_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#Protocol_Values-class_method" title="s3.Protocol_Values() (method)">Protocol_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Protocol_Values returns all elements of the Protocol enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18958
+18959
+18960
+18961
+18962
+18963</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18958</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Protocol_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		ProtocolHttp,
+		ProtocolHttps,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ReplicationStatus_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#ReplicationStatus_Values-class_method" title="s3.ReplicationStatus_Values() (method)">ReplicationStatus_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>ReplicationStatus_Values returns all elements of the ReplicationStatus enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18980
+18981
+18982
+18983
+18984
+18985
+18986
+18987</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18980</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> ReplicationStatus_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		ReplicationStatusComplete,
+		ReplicationStatusPending,
+		ReplicationStatusFailed,
+		ReplicationStatusReplica,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="RequestCharged_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#RequestCharged_Values-class_method" title="s3.RequestCharged_Values() (method)">RequestCharged_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>RequestCharged_Values returns all elements of the RequestCharged enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18997
+18998
+18999
+19000
+19001</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18997</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> RequestCharged_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		RequestChargedRequester,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="RequestPayer_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#RequestPayer_Values-class_method" title="s3.RequestPayer_Values() (method)">RequestPayer_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>RequestPayer_Values returns all elements of the RequestPayer enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19014
+19015
+19016
+19017
+19018</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19014</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> RequestPayer_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		RequestPayerRequester,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="RetentionDirective_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#RetentionDirective_Values-class_method" title="s3.RetentionDirective_Values() (method)">RetentionDirective_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>RetentionDirective_Values returns all elements of the RetentionDirective
+enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19029
+19030
+19031
+19032
+19033
+19034</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19029</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> RetentionDirective_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		RetentionDirectiveCopy,
+		RetentionDirectiveReplace,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ServerSideEncryption_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#ServerSideEncryption_Values-class_method" title="s3.ServerSideEncryption_Values() (method)">ServerSideEncryption_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>ServerSideEncryption_Values returns all elements of the
+ServerSideEncryption enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19045
+19046
+19047
+19048
+19049
+19050</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19045</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> ServerSideEncryption_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		ServerSideEncryptionAes256,
+		ServerSideEncryptionAwsKms,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="StorageClass_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#StorageClass_Values-class_method" title="s3.StorageClass_Values() (method)">StorageClass_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>StorageClass_Values returns all elements of the StorageClass enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19079
+19080
+19081
+19082
+19083
+19084
+19085
+19086
+19087
+19088
+19089
+19090</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19079</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> StorageClass_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		StorageClassStandard,
+		StorageClassReducedRedundancy,
+		StorageClassStandardIa,
+		StorageClassOnezoneIa,
+		StorageClassIntelligentTiering,
+		StorageClassGlacier,
+		StorageClassAccelerated,
+		StorageClassDeepArchive,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="TaggingDirective_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#TaggingDirective_Values-class_method" title="s3.TaggingDirective_Values() (method)">TaggingDirective_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>TaggingDirective_Values returns all elements of the TaggingDirective enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19101
+19102
+19103
+19104
+19105
+19106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19101</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> TaggingDirective_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		TaggingDirectiveCopy,
+		TaggingDirectiveReplace,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Tier_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#Tier_Values-class_method" title="s3.Tier_Values() (method)">Tier_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Tier_Values returns all elements of the Tier enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19123
+19124
+19125
+19126
+19127
+19128
+19129
+19130</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19123</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Tier_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		TierAccelerated,
+		TierStandard,
+		TierBulk,
+		TierExpedited,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="TransitionStorageClass_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#TransitionStorageClass_Values-class_method" title="s3.TransitionStorageClass_Values() (method)">TransitionStorageClass_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>TransitionStorageClass_Values returns all elements of the
+TransitionStorageClass enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19153
+19154
+19155
+19156
+19157
+19158
+19159
+19160
+19161
+19162</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19153</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> TransitionStorageClass_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		TransitionStorageClassGlacier,
+		TransitionStorageClassAccelerated,
+		TransitionStorageClassStandardIa,
+		TransitionStorageClassOnezoneIa,
+		TransitionStorageClassIntelligentTiering,
+		TransitionStorageClassDeepArchive,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Type_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#Type_Values-class_method" title="s3.Type_Values() (method)">Type_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Type_Values returns all elements of the Type enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19176
+19177
+19178
+19179
+19180
+19181
+19182</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19176</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> Type_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		TypeCanonicalUser,
+		TypeAmazonCustomerByEmail,
+		TypeGroup,
+	}
 }</div></pre>
     </td>
   </tr>
@@ -3304,7 +5560,7 @@ for more information on the values that can be returned.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:28 2021 by
+  Generated on Mon May 10 21:14:23 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A unique identifier for the CMK you are tagging.</p>
+<p>Identifies a customer managed CMK in the account and Region.</p>
 </div></span>
   
 </li>
@@ -324,7 +324,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>A unique identifier for the CMK you are tagging.</p>
+<p>Identifies a customer managed CMK in the account and Region.</p>
 
 <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
 
@@ -357,7 +357,14 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>One or more tags. Each tag consists of a tag key and a tag value.</p>
+<p>One or more tags.</p>
+
+<p>Each tag consists of a tag key and a tag value. The tag value can be an
+empty (null) string.</p>
+
+<p>You cannot have more than one tag on a CMK with the same tag key. If you
+specify an existing tag key with a different tag value, AWS KMS replaces
+the current tag value with the specified one.</p>
 
 <p>Tags is a required field</p>
 
@@ -411,12 +418,12 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-13846
-13847
-13848</pre>
+14580
+14581
+14582</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13846</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14580</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.TagResourceInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -453,13 +460,13 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-13880
-13881
-13882
-13883</pre>
+14614
+14615
+14616
+14617</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13880</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14614</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.TagResourceInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span> {
 	s.KeyId = &v
@@ -497,13 +504,13 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-13886
-13887
-13888
-13889</pre>
+14620
+14621
+14622
+14623</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13886</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14620</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#SetTags-instance_method" title="kms.TagResourceInput.SetTags() (method)">SetTags</a></span>(v []*<span class='object_link'><a href="Tag.html" title="kms.Tag (struct)">Tag</a></span>) *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span> {
 	s.Tags = v
@@ -541,12 +548,12 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-13841
-13842
-13843</pre>
+14575
+14576
+14577</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13841</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14575</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.TagResourceInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -583,36 +590,36 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-13851
-13852
-13853
-13854
-13855
-13856
-13857
-13858
-13859
-13860
-13861
-13862
-13863
-13864
-13865
-13866
-13867
-13868
-13869
-13870
-13871
-13872
-13873
-13874
-13875
-13876
-13877</pre>
+14585
+14586
+14587
+14588
+14589
+14590
+14591
+14592
+14593
+14594
+14595
+14596
+14597
+14598
+14599
+14600
+14601
+14602
+14603
+14604
+14605
+14606
+14607
+14608
+14609
+14610
+14611</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13851</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14585</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.TagResourceInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>"</span>}
@@ -653,7 +660,7 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:27 2021 by
+  Generated on Mon May 10 21:15:34 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

@@ -114,7 +114,32 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The bucket name containing the object.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.GetObjectInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
 </div></span>
   
 </li>
@@ -243,7 +268,7 @@ time, otherwise return a 412 (precondition failed).</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Key is a required field.</p>
+<p>Key of the object to get.</p>
 </div></span>
   
 </li>
@@ -318,7 +343,7 @@ time, otherwise return a 412 (precondition failed).</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Confirms that the requester knows that she or he will be charged for the
+<p>Confirms that the requester knows that they will be charged for the
 request.</p>
 </div></span>
   
@@ -494,7 +519,7 @@ request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the algorithm to use to when encrypting the object (e.g.,
+<p>Specifies the algorithm to use to when decrypting the object (for example,
 AES256).</p>
 </div></span>
   
@@ -520,8 +545,8 @@ AES256).</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the customer-provided encryption key for Amazon S3 to use in
-encrypting data.</p>
+<p>Specifies the customer-provided encryption key for Amazon S3 used to
+encrypt the data.</p>
 </div></span>
   
 </li>
@@ -658,6 +683,31 @@ encrypting data.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>SetBucket sets the Bucket field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetObjectInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *GetObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -1185,7 +1235,48 @@ value.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>The bucket name containing the object.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
+
 <p>Bucket is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
 
 
   </div>
@@ -1284,6 +1375,8 @@ time, otherwise return a 412 (precondition failed).</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>Key of the object to get.</p>
+
 <p>Key is a required field</p>
 
 
@@ -1325,8 +1418,13 @@ part specified. Useful for downloading just a part of an object.</p>
   <div class="discussion">
     
 <p>Downloads the specified range bytes of an object. For more information
-about the HTTP Range header, go to <a
-href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>.</p>
+about the HTTP Range header, see <a
+href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>
+(<a
+href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>).</p>
+
+<p>Amazon S3 doesn&#39;t support retrieving multiple ranges of data per GET
+request.</p>
 
 
   </div>
@@ -1345,11 +1443,12 @@ href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">www.w3.or
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that she or he will be charged for the
+<p>Confirms that the requester knows that they will be charged for the
 request. Bucket owners need not specify this parameter in their requests.
-Documentation on downloading objects from requester pays buckets can be
-found at <a
-href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a></p>
+For information about downloading objects from requester pays buckets, see
+Downloading Objects in Requestor Pays Buckets (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
+in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -1482,7 +1581,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the algorithm to use to when encrypting the object (e.g.,
+<p>Specifies the algorithm to use to when decrypting the object (for example,
 AES256).</p>
 
 
@@ -1502,11 +1601,11 @@ AES256).</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the customer-provided encryption key for Amazon S3 to use in
-encrypting data. This value is used to store the object and then it is
-discarded; Amazon does not store the encryption key. The key must be
+<p>Specifies the customer-provided encryption key for Amazon S3 used to
+encrypt the data. This value is used to decrypt the object when recovering
+it and must match the one used when storing the data. The key must be
 appropriate for use with the algorithm specified in the
-x-amz-server-side​-encryption​-customer-algorithm header.</p>
+x-amz-server-side-encryption-customer-algorithm header.</p>
 
 
   </div>
@@ -1527,7 +1626,7 @@ x-amz-server-side​-encryption​-customer-algorithm header.</p>
     
 <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC
 1321. Amazon S3 uses this header for a message integrity check to ensure
-the encryption key was transmitted without error.</p>
+that the encryption key was transmitted without error.</p>
 
 
   </div>
@@ -1598,12 +1697,12 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-7770
-7771
-7772</pre>
+11237
+11238
+11239</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7770</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11237</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetObjectInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1640,16 +1739,60 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-7797
-7798
-7799
-7800</pre>
+11264
+11265
+11266
+11267</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7797</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11264</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetObjectInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.Bucket = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetObjectInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11277
+11278
+11279
+11280</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11277</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetObjectInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -1684,13 +1827,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-7810
-7811
-7812
-7813</pre>
+11283
+11284
+11285
+11286</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7810</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11283</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetIfMatch-instance_method" title="s3.GetObjectInput.SetIfMatch() (method)">SetIfMatch</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.IfMatch = &v
@@ -1728,13 +1871,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-7816
-7817
-7818
-7819</pre>
+11289
+11290
+11291
+11292</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7816</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11289</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetIfModifiedSince-instance_method" title="s3.GetObjectInput.SetIfModifiedSince() (method)">SetIfModifiedSince</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.IfModifiedSince = &v
@@ -1772,13 +1915,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-7822
-7823
-7824
-7825</pre>
+11295
+11296
+11297
+11298</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7822</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11295</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetIfNoneMatch-instance_method" title="s3.GetObjectInput.SetIfNoneMatch() (method)">SetIfNoneMatch</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.IfNoneMatch = &v
@@ -1816,13 +1959,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-7828
-7829
-7830
-7831</pre>
+11301
+11302
+11303
+11304</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7828</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11301</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetIfUnmodifiedSince-instance_method" title="s3.GetObjectInput.SetIfUnmodifiedSince() (method)">SetIfUnmodifiedSince</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.IfUnmodifiedSince = &v
@@ -1860,13 +2003,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-7834
-7835
-7836
-7837</pre>
+11307
+11308
+11309
+11310</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7834</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11307</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.GetObjectInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.Key = &v
@@ -1904,13 +2047,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-7840
-7841
-7842
-7843</pre>
+11313
+11314
+11315
+11316</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7840</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11313</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetPartNumber-instance_method" title="s3.GetObjectInput.SetPartNumber() (method)">SetPartNumber</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.PartNumber = &v
@@ -1948,13 +2091,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-7846
-7847
-7848
-7849</pre>
+11319
+11320
+11321
+11322</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7846</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11319</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetRange-instance_method" title="s3.GetObjectInput.SetRange() (method)">SetRange</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.Range = &v
@@ -1992,13 +2135,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-7852
-7853
-7854
-7855</pre>
+11325
+11326
+11327
+11328</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7852</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11325</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.GetObjectInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.RequestPayer = &v
@@ -2036,13 +2179,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-7858
-7859
-7860
-7861</pre>
+11331
+11332
+11333
+11334</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7858</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11331</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetResponseCacheControl-instance_method" title="s3.GetObjectInput.SetResponseCacheControl() (method)">SetResponseCacheControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.ResponseCacheControl = &v
@@ -2081,13 +2224,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7864
-7865
-7866
-7867</pre>
+11337
+11338
+11339
+11340</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7864</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11337</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetResponseContentDisposition-instance_method" title="s3.GetObjectInput.SetResponseContentDisposition() (method)">SetResponseContentDisposition</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.ResponseContentDisposition = &v
@@ -2126,13 +2269,13 @@ value.</p>
       <pre class="lines">
 
 
-7870
-7871
-7872
-7873</pre>
+11343
+11344
+11345
+11346</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7870</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11343</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetResponseContentEncoding-instance_method" title="s3.GetObjectInput.SetResponseContentEncoding() (method)">SetResponseContentEncoding</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.ResponseContentEncoding = &v
@@ -2171,13 +2314,13 @@ value.</p>
       <pre class="lines">
 
 
-7876
-7877
-7878
-7879</pre>
+11349
+11350
+11351
+11352</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7876</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11349</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetResponseContentLanguage-instance_method" title="s3.GetObjectInput.SetResponseContentLanguage() (method)">SetResponseContentLanguage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.ResponseContentLanguage = &v
@@ -2215,13 +2358,13 @@ value.</p>
       <pre class="lines">
 
 
-7882
-7883
-7884
-7885</pre>
+11355
+11356
+11357
+11358</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7882</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11355</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetResponseContentType-instance_method" title="s3.GetObjectInput.SetResponseContentType() (method)">SetResponseContentType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.ResponseContentType = &v
@@ -2259,13 +2402,13 @@ value.</p>
       <pre class="lines">
 
 
-7888
-7889
-7890
-7891</pre>
+11361
+11362
+11363
+11364</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7888</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11361</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetResponseExpires-instance_method" title="s3.GetObjectInput.SetResponseExpires() (method)">SetResponseExpires</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.ResponseExpires = &v
@@ -2303,13 +2446,13 @@ value.</p>
       <pre class="lines">
 
 
-7894
-7895
-7896
-7897</pre>
+11367
+11368
+11369
+11370</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7894</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11367</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.GetObjectInput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -2347,13 +2490,13 @@ value.</p>
       <pre class="lines">
 
 
-7900
-7901
-7902
-7903</pre>
+11373
+11374
+11375
+11376</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7900</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11373</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.GetObjectInput.SetSSECustomerKey() (method)">SetSSECustomerKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.SSECustomerKey = &v
@@ -2391,13 +2534,13 @@ value.</p>
       <pre class="lines">
 
 
-7913
-7914
-7915
-7916</pre>
+11386
+11387
+11388
+11389</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7913</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11386</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.GetObjectInput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -2435,13 +2578,13 @@ value.</p>
       <pre class="lines">
 
 
-7919
-7920
-7921
-7922</pre>
+11392
+11393
+11394
+11395</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7919</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11392</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.GetObjectInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span> {
 	s.VersionId = &v
@@ -2479,12 +2622,12 @@ value.</p>
       <pre class="lines">
 
 
-7765
-7766
-7767</pre>
+11232
+11233
+11234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7765</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11232</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetObjectInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -2521,29 +2664,29 @@ value.</p>
       <pre class="lines">
 
 
-7775
-7776
-7777
-7778
-7779
-7780
-7781
-7782
-7783
-7784
-7785
-7786
-7787
-7788
-7789
-7790
-7791
-7792
-7793
-7794</pre>
+11242
+11243
+11244
+11245
+11246
+11247
+11248
+11249
+11250
+11251
+11252
+11253
+11254
+11255
+11256
+11257
+11258
+11259
+11260
+11261</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7775</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11242</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.GetObjectInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.GetObjectInput (struct)">GetObjectInput</a></span>"</span>}
@@ -2577,7 +2720,7 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:51 2021 by
+  Generated on Mon May 10 21:14:53 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

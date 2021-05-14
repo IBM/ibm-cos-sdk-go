@@ -139,7 +139,8 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies the CMK to which the alias refers.</p>
+<p>Associates the alias with the specified customer managed CMK (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk</a>).</p>
 </div></span>
   
 </li>
@@ -325,8 +326,13 @@ import "../ibm-cos-sdk-go/service/kms"
   <div class="discussion">
     
 <p>Specifies the alias name. This value must begin with alias/ followed by a
-name, such as alias/ExampleAlias. The alias name cannot begin with
-alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.</p>
+name, such as alias/ExampleAlias.</p>
+
+<p>The AliasName value must be string of 1-256 characters. It can contain only
+alphanumeric characters, forward slashes (/), underscores (_), and dashes
+(-). The alias name cannot begin with alias/aws/. The alias/aws/ prefix is
+reserved for AWS managed CMKs (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk</a>).</p>
 
 <p>AliasName is a required field</p>
 
@@ -347,11 +353,28 @@ alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies the CMK to which the alias refers. Specify the key ID or the
-Amazon Resource Name (ARN) of the CMK. You cannot specify another alias.
-For help finding the key ID and ARN, see Finding the Key ID and ARN (<a
+<p>Associates the alias with the specified customer managed CMK (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk</a>).
+The CMK must be in the same AWS Region.</p>
+
+<p>A valid CMK ID is required. If you supply a null or empty string value,
+this operation returns an error.</p>
+
+<p>For help finding the key ID and ARN, see Finding the Key ID and ARN (<a
 href="https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn">docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn</a>)
 in the AWS Key Management Service Developer Guide.</p>
+
+<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
+
+<p>For example:</p>
+<ul><li>
+<p>Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</p>
+</li><li>
+<p>Key ARN:
+arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
+</li></ul>
+
+<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
 
 <p>TargetKeyId is a required field</p>
 
@@ -405,12 +428,12 @@ in the AWS Key Management Service Developer Guide.</p>
       <pre class="lines">
 
 
-7078
-7079
-7080</pre>
+7764
+7765
+7766</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7078</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7764</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.CreateAliasInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -447,13 +470,13 @@ in the AWS Key Management Service Developer Guide.</p>
       <pre class="lines">
 
 
-7105
-7106
-7107
-7108</pre>
+7791
+7792
+7793
+7794</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7105</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7791</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span>) <span class='object_link'><a href="#SetAliasName-instance_method" title="kms.CreateAliasInput.SetAliasName() (method)">SetAliasName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span> {
 	s.AliasName = &v
@@ -491,13 +514,13 @@ in the AWS Key Management Service Developer Guide.</p>
       <pre class="lines">
 
 
-7111
-7112
-7113
-7114</pre>
+7797
+7798
+7799
+7800</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7111</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7797</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span>) <span class='object_link'><a href="#SetTargetKeyId-instance_method" title="kms.CreateAliasInput.SetTargetKeyId() (method)">SetTargetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span> {
 	s.TargetKeyId = &v
@@ -535,12 +558,12 @@ in the AWS Key Management Service Developer Guide.</p>
       <pre class="lines">
 
 
-7073
-7074
-7075</pre>
+7759
+7760
+7761</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7073</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7759</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.CreateAliasInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -577,29 +600,29 @@ in the AWS Key Management Service Developer Guide.</p>
       <pre class="lines">
 
 
-7083
-7084
-7085
-7086
-7087
-7088
-7089
-7090
-7091
-7092
-7093
-7094
-7095
-7096
-7097
-7098
-7099
-7100
-7101
-7102</pre>
+7769
+7770
+7771
+7772
+7773
+7774
+7775
+7776
+7777
+7778
+7779
+7780
+7781
+7782
+7783
+7784
+7785
+7786
+7787
+7788</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7083</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7769</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.CreateAliasInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.CreateAliasInput (struct)">CreateAliasInput</a></span>"</span>}
@@ -633,7 +656,7 @@ in the AWS Key Management Service Developer Guide.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:15 2021 by
+  Generated on Mon May 10 21:15:21 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

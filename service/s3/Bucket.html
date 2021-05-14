@@ -73,7 +73,19 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>In terms of implementation, a Bucket is a resource. An Amazon S3 bucket
+name is globally unique, and the namespace is shared by all AWS accounts.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -299,7 +311,8 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Date the bucket was created.</p>
+<p>Date the bucket was created. This date can change when making changes to
+your bucket, such as editing its bucket policy.</p>
 
 
   </div>
@@ -370,12 +383,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4169
-4170
-4171</pre>
+6539
+6540
+6541</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4169</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6539</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Bucket (struct)">Bucket</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.Bucket.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -412,13 +425,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4174
-4175
-4176
-4177</pre>
+6544
+6545
+6546
+6547</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4174</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6544</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Bucket (struct)">Bucket</a></span>) <span class='object_link'><a href="#SetCreationDate-instance_method" title="s3.Bucket.SetCreationDate() (method)">SetCreationDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.Bucket (struct)">Bucket</a></span> {
 	s.CreationDate = &v
@@ -456,13 +469,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4180
-4181
-4182
-4183</pre>
+6550
+6551
+6552
+6553</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4180</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6550</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Bucket (struct)">Bucket</a></span>) <span class='object_link'><a href="#SetName-instance_method" title="s3.Bucket.SetName() (method)">SetName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Bucket (struct)">Bucket</a></span> {
 	s.Name = &v
@@ -500,12 +513,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4164
-4165
-4166</pre>
+6534
+6535
+6536</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4164</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6534</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Bucket (struct)">Bucket</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.Bucket.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -522,7 +535,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:43 2021 by
+  Generated on Mon May 10 21:14:43 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

@@ -73,7 +73,22 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Specifies when an object transitions to a specified storage class. For more
+information about Amazon S3 lifecycle configuration rules, see
+Transitioning Objects Using Amazon S3 Lifecycle (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html">docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html</a>)
+in the Amazon S3 User Guide.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -114,7 +129,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Indicates at what date the object is to be moved or deleted.</p>
+<p>Indicates when objects are transitioned to the specified storage class.</p>
 </div></span>
   
 </li>
@@ -139,8 +154,8 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Indicates the lifetime, in days, of the objects that are subject to the
-rule.</p>
+<p>Indicates the number of days after creation when objects are transitioned
+to the specified storage class.</p>
 </div></span>
   
 </li>
@@ -165,7 +180,7 @@ rule.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The class of storage used to store the object.</p>
+<p>The storage class to which you want the object to transition.</p>
 </div></span>
   
 </li>
@@ -350,8 +365,8 @@ rule.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Indicates at what date the object is to be moved or deleted. Should be in
-GMT ISO 8601 Format.</p>
+<p>Indicates when objects are transitioned to the specified storage class. The
+date value must be in ISO 8601 format. The time is always midnight UTC.</p>
 
 
   </div>
@@ -370,8 +385,8 @@ GMT ISO 8601 Format.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Indicates the lifetime, in days, of the objects that are subject to the
-rule. The value must be a non-zero positive integer.</p>
+<p>Indicates the number of days after creation when objects are transitioned
+to the specified storage class. The value must be a positive integer.</p>
 
 
   </div>
@@ -390,7 +405,7 @@ rule. The value must be a non-zero positive integer.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The class of storage used to store the object.</p>
+<p>The storage class to which you want the object to transition.</p>
 
 
   </div>
@@ -442,12 +457,12 @@ rule. The value must be a non-zero positive integer.</p>
       <pre class="lines">
 
 
-12864
-12865
-12866</pre>
+17798
+17799
+17800</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12864</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17798</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Transition (struct)">Transition</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.Transition.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -484,13 +499,13 @@ rule. The value must be a non-zero positive integer.</p>
       <pre class="lines">
 
 
-12869
-12870
-12871
-12872</pre>
+17803
+17804
+17805
+17806</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12869</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17803</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Transition (struct)">Transition</a></span>) <span class='object_link'><a href="#SetDate-instance_method" title="s3.Transition.SetDate() (method)">SetDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.Transition (struct)">Transition</a></span> {
 	s.Date = &v
@@ -528,13 +543,13 @@ rule. The value must be a non-zero positive integer.</p>
       <pre class="lines">
 
 
-12875
-12876
-12877
-12878</pre>
+17809
+17810
+17811
+17812</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12875</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17809</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Transition (struct)">Transition</a></span>) <span class='object_link'><a href="#SetDays-instance_method" title="s3.Transition.SetDays() (method)">SetDays</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.Transition (struct)">Transition</a></span> {
 	s.Days = &v
@@ -572,13 +587,13 @@ rule. The value must be a non-zero positive integer.</p>
       <pre class="lines">
 
 
-12881
-12882
-12883
-12884</pre>
+17815
+17816
+17817
+17818</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12881</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17815</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Transition (struct)">Transition</a></span>) <span class='object_link'><a href="#SetStorageClass-instance_method" title="s3.Transition.SetStorageClass() (method)">SetStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Transition (struct)">Transition</a></span> {
 	s.StorageClass = &v
@@ -616,12 +631,12 @@ rule. The value must be a non-zero positive integer.</p>
       <pre class="lines">
 
 
-12859
-12860
-12861</pre>
+17793
+17794
+17795</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12859</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17793</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Transition (struct)">Transition</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.Transition.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -638,7 +653,7 @@ rule. The value must be a non-zero positive integer.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:03 2021 by
+  Generated on Mon May 10 21:15:07 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

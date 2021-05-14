@@ -1507,7 +1507,25 @@ io.Reader instead of an io.ReadSeeker.</p>
   </code></dt>
   <dd>
     
-<p>Name of the bucket to which the PUT operation was initiated.</p>
+<p>The bucket name to which the PUT action was initiated.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -1521,7 +1539,7 @@ io.Reader instead of an io.ReadSeeker.</p>
   </code></dt>
   <dd>
     
-<p>Object key for which the PUT operation was initiated.</p>
+<p>Object key for which the PUT action was initiated.</p>
 
 <p>Key is a required field</p>
 
@@ -1545,7 +1563,11 @@ io.Reader instead of an io.ReadSeeker.</p>
   </code></dt>
   <dd>
     
-<p>The canned ACL to apply to the object.</p>
+<p>The canned ACL to apply to the object. For more information, see Canned ACL
+(<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL</a>).</p>
+
+<p>This action is not supported by Amazon S3 on Outposts.</p>
 
     <div class="tags">
 <p class="tag_title">Enum Values:</p>
@@ -1577,7 +1599,11 @@ io.Reader instead of an io.ReadSeeker.</p>
   </code></dt>
   <dd>
     
-<p>Specifies caching behavior along the request/reply chain.</p>
+<p>Can be used to specify caching behavior along the request/reply chain. For
+more information, see <a
+href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>
+(<a
+href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>).</p>
 
     
   </dd>
@@ -1589,7 +1615,11 @@ io.Reader instead of an io.ReadSeeker.</p>
   </code></dt>
   <dd>
     
-<p>Specifies presentational information for the object.</p>
+<p>Specifies presentational information for the object. For more information,
+see <a
+href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1">www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1</a>
+(<a
+href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1">www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1</a>).</p>
 
     
   </dd>
@@ -1603,7 +1633,10 @@ io.Reader instead of an io.ReadSeeker.</p>
     
 <p>Specifies what content encodings have been applied to the object and thus
 what decoding mechanisms must be applied to obtain the media-type
-referenced by the Content-Type header field.</p>
+referenced by the Content-Type header field. For more information, see <a
+href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11</a>
+(<a
+href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11</a>).</p>
 
     
   </dd>
@@ -1627,8 +1660,13 @@ referenced by the Content-Type header field.</p>
   </code></dt>
   <dd>
     
-<p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is
-auto-populated when using the command from the CLI</p>
+<p>The base64-encoded 128-bit MD5 digest of the message (without the headers)
+according to RFC 1864. This header can be used as a message integrity check
+to verify that the data is the same data that was originally sent. Although
+it is optional, we recommend using the Content-MD5 mechanism as an
+end-to-end integrity check. For more information about REST request
+authentication, see REST Authentication (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html</a>).</p>
 
     
   </dd>
@@ -1640,7 +1678,11 @@ auto-populated when using the command from the CLI</p>
   </code></dt>
   <dd>
     
-<p>A standard MIME type describing the format of the object data.</p>
+<p>A standard MIME type describing the format of the contents. For more
+information, see <a
+href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17</a>
+(<a
+href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17</a>).</p>
 
     
   </dd>
@@ -1652,7 +1694,11 @@ auto-populated when using the command from the CLI</p>
   </code></dt>
   <dd>
     
-<p>The date and time at which the object is no longer cacheable.</p>
+<p>The date and time at which the object is no longer cacheable. For more
+information, see <a
+href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21</a>
+(<a
+href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21</a>).</p>
 
     
   </dd>
@@ -1666,6 +1712,8 @@ auto-populated when using the command from the CLI</p>
     
 <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
 
+<p>This action is not supported by Amazon S3 on Outposts.</p>
+
     
   </dd>
 
@@ -1677,6 +1725,8 @@ auto-populated when using the command from the CLI</p>
   <dd>
     
 <p>Allows grantee to read the object data and its metadata.</p>
+
+<p>This action is not supported by Amazon S3 on Outposts.</p>
 
     
   </dd>
@@ -1690,6 +1740,8 @@ auto-populated when using the command from the CLI</p>
     
 <p>Allows grantee to read the object ACL.</p>
 
+<p>This action is not supported by Amazon S3 on Outposts.</p>
+
     
   </dd>
 
@@ -1701,6 +1753,8 @@ auto-populated when using the command from the CLI</p>
   <dd>
     
 <p>Allows grantee to write the ACL for the applicable object.</p>
+
+<p>This action is not supported by Amazon S3 on Outposts.</p>
 
     
   </dd>
@@ -1724,11 +1778,12 @@ auto-populated when using the command from the CLI</p>
   </code></dt>
   <dd>
     
-<p>Confirms that the requester knows that she or he will be charged for the
+<p>Confirms that the requester knows that they will be charged for the
 request. Bucket owners need not specify this parameter in their requests.
-Documentation on downloading objects from requester pays buckets can be
-found at <a
-href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a></p>
+For information about downloading objects from requester pays buckets, see
+Downloading Objects in Requestor Pays Buckets (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
+in the Amazon S3 Developer Guide.</p>
 
     <div class="tags">
 <p class="tag_title">Enum Values:</p>
@@ -1794,7 +1849,7 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
   </code></dt>
   <dd>
     
-<p>Specifies the algorithm to use to when encrypting the object (e.g.,
+<p>Specifies the algorithm to use to when encrypting the object (for example,
 AES256).</p>
 
     
@@ -1809,9 +1864,9 @@ AES256).</p>
     
 <p>Specifies the customer-provided encryption key for Amazon S3 to use in
 encrypting data. This value is used to store the object and then it is
-discarded; Amazon does not store the encryption key. The key must be
+discarded; Amazon S3 does not store the encryption key. The key must be
 appropriate for use with the algorithm specified in the
-x-amz-server-side​-encryption​-customer-algorithm header.</p>
+x-amz-server-side-encryption-customer-algorithm header.</p>
 
     
   </dd>
@@ -1825,7 +1880,7 @@ x-amz-server-side​-encryption​-customer-algorithm header.</p>
     
 <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC
 1321. Amazon S3 uses this header for a message integrity check to ensure
-the encryption key was transmitted without error.</p>
+that the encryption key was transmitted without error.</p>
 
     
   </dd>
@@ -1837,11 +1892,16 @@ the encryption key was transmitted without error.</p>
   </code></dt>
   <dd>
     
-<p>Specifies the AWS KMS key ID to use for object encryption. All GET and PUT
-requests for an object protected by AWS KMS will fail if not made via SSL
-or using SigV4. Documentation on configuring any of the officially
-supported AWS SDKs and CLI can be found at <a
-href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</a></p>
+<p>If x-amz-server-side-encryption is present and has the value of aws:kms,
+this header specifies the ID of the AWS Key Management Service (AWS KMS)
+symmetrical customer managed customer master key (CMK) that was used for
+the object.</p>
+
+<p>If the value of x-amz-server-side-encryption is aws:kms, this header
+specifies the ID of the symmetric customer managed AWS KMS CMK that will be
+used for the object. If you specify x-amz-server-side-encryption:aws:kms,
+but do not providex-amz-server-side-encryption-aws-kms-key-id, Amazon S3
+uses the AWS managed CMK in AWS to protect the data.</p>
 
     
   </dd>
@@ -1853,8 +1913,8 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-si
   </code></dt>
   <dd>
     
-<p>The Server-side encryption algorithm used when storing this object in S3
-(e.g., AES256, aws:kms).</p>
+<p>The server-side encryption algorithm used when storing this object in
+Amazon S3 (for example, AES256, aws:kms).</p>
 
     <div class="tags">
 <p class="tag_title">Enum Values:</p>
@@ -1874,7 +1934,13 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-si
   </code></dt>
   <dd>
     
-<p>The type of storage to use for the object. Defaults to &#39;STANDARD&#39;.</p>
+<p>By default, Amazon S3 uses the STANDARD Storage Class to store newly
+created objects. The STANDARD storage class provides high durability and
+high availability. Depending on performance needs, you can specify a
+different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS
+Storage Class. For more information, see Storage Classes (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html</a>)
+in the Amazon S3 Service Developer Guide.</p>
 
     <div class="tags">
 <p class="tag_title">Enum Values:</p>
@@ -2002,6 +2068,18 @@ be cast to the MultiUploadFailure interface to extract the upload ID.</p>
     
   </dd>
 
+  <dt><code>
+    <strong>ETag</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    
+<p>Entity tag of the object.</p>
+
+    
+  </dd>
+
 
 </dl>
 </div>
@@ -2050,6 +2128,33 @@ ok &amp;&amp; aerr.Code() == “NotFound” {  fmt.Fprintf(os.Stderr, “unable
 to find bucket %s&#39;s region not foundn”, bucket)  }  return err  } 
 fmt.Printf(“Bucket %s is in %s regionn”, bucket, region)</p>
 
+<p>By default the request will be made to the Amazon S3 endpoint using the
+Path style addressing.</p>
+
+<p>s3.us-west-2.amazonaws.com/bucketname</p>
+
+<p>This is not compatible with Amazon S3&#39;s FIPS endpoints. To override
+this behavior to use Virtual Host style addressing, provide a functional
+option that will set the Request&#39;s Config.S3ForcePathStyle to
+aws.Bool(false).</p>
+
+<p>region, err := s3manager.GetBucketRegion(ctx, sess, “bucketname”,
+“us-west-2”, func(r *request.Request) {  r.S3ForcePathStyle =
+aws.Bool(false)  })</p>
+
+<p>To configure the GetBucketRegion to make a request via the Amazon S3 FIPS
+endpoints directly when a FIPS region name is not available, (e.g.
+fips-us-gov-west-1) set the Config.Endpoint on the Session, or client the
+utility is called with. The hint region will be ignored if an endpoint URL
+is configured on the session or client.</p>
+
+<p>sess, err := session.NewSession(&amp;aws.Config{  Endpoint: aws.String(“<a
+href="https://s3-fips.us-west-2.amazonaws.com">s3-fips.us-west-2.amazonaws.com</a>”),
+})</p>
+
+<p>region, err := s3manager.GetBucketRegion(context.Background(), sess,
+“bucketname”, “”)</p>
+
 
   </div>
 </div>
@@ -2062,17 +2167,17 @@ fmt.Printf(“Bucket %s is in %s regionn”, bucket, region)</p>
       <pre class="lines">
 
 
-37
-38
-39
-40
-41
-42
-43
-44</pre>
+62
+63
+64
+65
+66
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/bucket_region.go', line 37</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/bucket_region.go', line 62</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> GetBucketRegion(ctx aws.Context, c client.ConfigProvider, bucket, regionH<span class="hljs-constant">int</span> <span class="hljs-constant">string</span>, opts ...request.Option) (<span class="hljs-constant">string</span>, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">var</span> cfg aws.Config
@@ -2104,6 +2209,31 @@ fmt.Printf(“Bucket %s is in %s regionn”, bucket, region)</p>
 that it takes a S3 service client instead of a Session. The regionHint is
 derived from the region the S3 service client was created in.</p>
 
+<p>By default the request will be made to the Amazon S3 endpoint using the
+Path style addressing.</p>
+
+<p>s3.us-west-2.amazonaws.com/bucketname</p>
+
+<p>This is not compatible with Amazon S3&#39;s FIPS endpoints. To override
+this behavior to use Virtual Host style addressing, provide a functional
+option that will set the Request&#39;s Config.S3ForcePathStyle to
+aws.Bool(false).</p>
+
+<p>region, err := s3manager.GetBucketRegionWithClient(ctx, client,
+“bucketname”, func(r *request.Request) {  r.S3ForcePathStyle =
+aws.Bool(false)  })</p>
+
+<p>To configure the GetBucketRegion to make a request via the Amazon S3 FIPS
+endpoints directly when a FIPS region name is not available, (e.g.
+fips-us-gov-west-1) set the Config.Endpoint on the Session, or client the
+utility is called with. The hint region will be ignored if an endpoint URL
+is configured on the session or client.</p>
+
+<p>region, err := s3manager.GetBucketRegionWithClient(context.Background(), 
+s3.New(sess, &amp;aws.Config{  Endpoint: aws.String(“<a
+href="https://s3-fips.us-west-2.amazonaws.com">s3-fips.us-west-2.amazonaws.com</a>”),
+}),  “bucketname”)</p>
+
 <p>See GetBucketRegion for more information.</p>
 
 
@@ -2118,50 +2248,62 @@ derived from the region the S3 service client was created in.</p>
       <pre class="lines">
 
 
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87</pre>
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/bucket_region.go', line 53</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/bucket_region.go', line 103</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> GetBucketRegionWithClient(ctx aws.Context, svc s3iface.S3API, bucket <span class="hljs-constant">string</span>, opts ...request.Option) (<span class="hljs-constant">string</span>, <span class="hljs-constant">error</span>) {
 	req, _ := svc.HeadBucketRequest(&s3.HeadBucketInput{
 		Bucket: aws.String(bucket),
 	})
 	req.Config.S3ForcePathStyle = aws.Bool(<span class="hljs-constant">true</span>)
+
 	req.Config.Credentials = credentials.AnonymousCredentials
 	req.SetContext(ctx)
 
@@ -2181,6 +2323,16 @@ derived from the region the S3 service client was created in.</p>
 		r.HTTPResponse.Status = <span class="hljs-string">"OK"</span>
 		r.Error = <span class="hljs-constant">nil</span>
 	})
+	<span class="hljs-comment">// Replace the endpoint validation handler to not require a region if an</span>
+	<span class="hljs-comment">// endpoint URL was specified. Since these requests are not authenticated,</span>
+	<span class="hljs-comment">// requiring a region is not needed when an endpoint URL is provided.</span>
+	req.Handlers.Validate.Swap(
+		corehandlers.ValidateEndpointHandler.Name,
+		request.NamedHandler{
+			Name: <span class="hljs-string">"validateEndpointWithoutRegion"</span>,
+			Fn:   validateEndpointWithoutRegion,
+		},
+	)
 
 	req.ApplyOptions(opts...)
 
@@ -2623,12 +2775,12 @@ uploader := s3manager.NewUploader(session, <span class="hljs-keyword">func</span
       <pre class="lines">
 
 
-188
-189
-190</pre>
+191
+192
+193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 188</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 191</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewUploader(c client.ConfigProvider, options ...<span class="hljs-keyword">func</span>(*Uploader)) *Uploader {
 	<span class="hljs-keyword">return</span> newUploader(s3.New(c), options...)
@@ -2681,12 +2833,12 @@ uploader := s3manager.NewUploaderWithClient(s3Svc, <span class="hljs-keyword">fu
       <pre class="lines">
 
 
-229
-230
-231</pre>
+232
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 229</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 232</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewUploaderWithClient(svc s3iface.S3API, options ...<span class="hljs-keyword">func</span>(*Uploader)) *Uploader {
 	<span class="hljs-keyword">return</span> newUploader(svc, options...)
@@ -2771,14 +2923,14 @@ options.</p>
       <pre class="lines">
 
 
-114
-115
-116
 117
-118</pre>
+118
+119
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 114</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 117</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithUploaderRequestOptions(opts ...request.Option) <span class="hljs-keyword">func</span>(*Uploader) {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(u *Uploader) {
@@ -2797,7 +2949,7 @@ options.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:31 2021 by
+  Generated on Mon May 10 21:14:25 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

@@ -149,7 +149,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>S3 Glacier related parameters pertaining to this job.</p>
+</div></span>
   
 </li>
 
@@ -336,6 +338,9 @@ import "../ibm-cos-sdk-go/service/s3"
 <p>Lifetime of the active copy in days. Do not use with restores that specify
 OutputLocation.</p>
 
+<p>The Days element is required for regular restores, and must not be provided
+for select requests.</p>
+
 <p>Days is a required field</p>
 
 
@@ -352,7 +357,19 @@ OutputLocation.</p>
   <strong>GlacierJobParameters</strong> *<span class='object_link'><a href="#GlacierJobParameters-field" title="s3.RestoreRequest.GlacierJobParameters (field)">GlacierJobParameters</a></span> 
   <code>`type:"structure"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>S3 Glacier related parameters pertaining to this job. Do not use with
+restores that specify OutputLocation.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -396,12 +413,12 @@ OutputLocation.</p>
       <pre class="lines">
 
 
-12610
-12611
-12612</pre>
+17530
+17531
+17532</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12610</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17530</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.RestoreRequest (struct)">RestoreRequest</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.RestoreRequest.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -438,13 +455,13 @@ OutputLocation.</p>
       <pre class="lines">
 
 
-12633
-12634
-12635
-12636</pre>
+17553
+17554
+17555
+17556</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12633</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17553</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreRequest (struct)">RestoreRequest</a></span>) <span class='object_link'><a href="#SetDays-instance_method" title="s3.RestoreRequest.SetDays() (method)">SetDays</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.RestoreRequest (struct)">RestoreRequest</a></span> {
 	s.Days = &v
@@ -482,13 +499,13 @@ OutputLocation.</p>
       <pre class="lines">
 
 
-12639
-12640
-12641
-12642</pre>
+17559
+17560
+17561
+17562</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12639</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17559</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreRequest (struct)">RestoreRequest</a></span>) <span class='object_link'><a href="#SetGlacierJobParameters-instance_method" title="s3.RestoreRequest.SetGlacierJobParameters() (method)">SetGlacierJobParameters</a></span>(v *<span class='object_link'><a href="#GlacierJobParameters-field" title="s3.RestoreRequest.GlacierJobParameters (field)">GlacierJobParameters</a></span>) *<span class='object_link'><a href="" title="s3.RestoreRequest (struct)">RestoreRequest</a></span> {
 	s.GlacierJobParameters = v
@@ -526,12 +543,12 @@ OutputLocation.</p>
       <pre class="lines">
 
 
-12605
-12606
-12607</pre>
+17525
+17526
+17527</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12605</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17525</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.RestoreRequest (struct)">RestoreRequest</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.RestoreRequest.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -568,25 +585,25 @@ OutputLocation.</p>
       <pre class="lines">
 
 
-12615
-12616
-12617
-12618
-12619
-12620
-12621
-12622
-12623
-12624
-12625
-12626
-12627
-12628
-12629
-12630</pre>
+17535
+17536
+17537
+17538
+17539
+17540
+17541
+17542
+17543
+17544
+17545
+17546
+17547
+17548
+17549
+17550</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12615</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17535</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreRequest (struct)">RestoreRequest</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.RestoreRequest.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.RestoreRequest (struct)">RestoreRequest</a></span>"</span>}
@@ -616,7 +633,7 @@ OutputLocation.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:03 2021 by
+  Generated on Mon May 10 21:15:07 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

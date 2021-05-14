@@ -113,7 +113,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The name of the bucket that contains the newly created object.</p>
+</div></span>
   
 </li>
 
@@ -137,7 +139,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Entity tag of the object.</p>
+<p>Entity tag that identifies the newly created object&#39;s data.</p>
 </div></span>
   
 </li>
@@ -187,7 +189,9 @@ date (expiry-date) and rule ID (rule-id).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The object key of the newly created object.</p>
+</div></span>
   
 </li>
 
@@ -210,7 +214,9 @@ date (expiry-date) and rule ID (rule-id).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The URI that identifies the newly created object.</p>
+</div></span>
   
 </li>
 
@@ -260,8 +266,9 @@ request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-encryption key that was used for the object.</p>
+<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+symmetric customer managed customer master key (CMK) that was used for the
+object.</p>
 </div></span>
   
 </li>
@@ -286,8 +293,9 @@ encryption key that was used for the object.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Server-side encryption algorithm used when storing this object in S3
-(e.g., AES256, aws:kms).</p>
+<p>If you specified server-side encryption either with an Amazon S3-managed
+encryption key or an AWS KMS customer master key (CMK) in your initiate
+multipart upload request, the response includes this header.</p>
 </div></span>
   
 </li>
@@ -312,7 +320,8 @@ encryption key that was used for the object.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Version of the object.</p>
+<p>Version ID of the newly created object, in case the bucket has versioning
+turned on.</p>
 </div></span>
   
 </li>
@@ -644,7 +653,36 @@ encryption key that was used for the object.</p>
   <strong>Bucket</strong> *string 
   <code>`type:"string"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The name of the bucket that contains the newly created object.</p>
 
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -655,7 +693,12 @@ encryption key that was used for the object.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Entity tag of the object.</p>
+<p>Entity tag that identifies the newly created object&#39;s data. Objects
+with different object data will have different entity tags. The entity tag
+is an opaque string. The entity tag may or may not be an MD5 digest of the
+object data. If the entity tag is not an MD5 digest of the object data, it
+will contain one or more nonhexadecimal characters and/or will consist of
+less than 32 or more than 32 hexadecimal digits.</p>
 
 
   </div>
@@ -692,7 +735,18 @@ encoded.</p>
   <strong>Key</strong> *string 
   <code>`min:"1" type:"string"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The object key of the newly created object.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -700,7 +754,18 @@ encoded.</p>
   <strong>Location</strong> *string 
   <code>`type:"string"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The URI that identifies the newly created object.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -731,8 +796,9 @@ request.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-encryption key that was used for the object.</p>
+<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+symmetric customer managed customer master key (CMK) that was used for the
+object.</p>
 
 
   </div>
@@ -751,8 +817,10 @@ encryption key that was used for the object.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The Server-side encryption algorithm used when storing this object in S3
-(e.g., AES256, aws:kms).</p>
+<p>If you specified server-side encryption either with an Amazon S3-managed
+encryption key or an AWS KMS customer master key (CMK) in your initiate
+multipart upload request, the response includes this header. It confirms
+the encryption algorithm that Amazon S3 used to encrypt the object.</p>
 
 
   </div>
@@ -771,7 +839,8 @@ encryption key that was used for the object.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Version of the object.</p>
+<p>Version ID of the newly created object, in case the bucket has versioning
+turned on.</p>
 
 
   </div>
@@ -823,12 +892,12 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-4693
-4694
-4695</pre>
+7135
+7136
+7137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4693</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7135</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.CompleteMultipartUploadOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -865,13 +934,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-4698
-4699
-4700
-4701</pre>
+7140
+7141
+7142
+7143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4698</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7140</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.CompleteMultipartUploadOutput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span> {
 	s.Bucket = &v
@@ -909,13 +978,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-4711
-4712
-4713
-4714</pre>
+7153
+7154
+7155
+7156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4711</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7153</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetETag-instance_method" title="s3.CompleteMultipartUploadOutput.SetETag() (method)">SetETag</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span> {
 	s.ETag = &v
@@ -953,13 +1022,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-4717
-4718
-4719
-4720</pre>
+7159
+7160
+7161
+7162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4717</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7159</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetExpiration-instance_method" title="s3.CompleteMultipartUploadOutput.SetExpiration() (method)">SetExpiration</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span> {
 	s.Expiration = &v
@@ -997,13 +1066,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-4723
-4724
-4725
-4726</pre>
+7165
+7166
+7167
+7168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4723</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7165</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.CompleteMultipartUploadOutput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span> {
 	s.Key = &v
@@ -1041,13 +1110,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-4729
-4730
-4731
-4732</pre>
+7171
+7172
+7173
+7174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4729</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7171</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetLocation-instance_method" title="s3.CompleteMultipartUploadOutput.SetLocation() (method)">SetLocation</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span> {
 	s.Location = &v
@@ -1085,13 +1154,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-4735
-4736
-4737
-4738</pre>
+7177
+7178
+7179
+7180</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4735</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7177</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.CompleteMultipartUploadOutput.SetRequestCharged() (method)">SetRequestCharged</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span> {
 	s.RequestCharged = &v
@@ -1129,13 +1198,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-4747
-4748
-4749
-4750</pre>
+7189
+7190
+7191
+7192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4747</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7189</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.CompleteMultipartUploadOutput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span> {
 	s.ServerSideEncryption = &v
@@ -1173,13 +1242,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-4741
-4742
-4743
-4744</pre>
+7183
+7184
+7185
+7186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4741</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7183</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.CompleteMultipartUploadOutput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -1217,13 +1286,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-4753
-4754
-4755
-4756</pre>
+7195
+7196
+7197
+7198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4753</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7195</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.CompleteMultipartUploadOutput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span> {
 	s.VersionId = &v
@@ -1261,12 +1330,12 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-4688
-4689
-4690</pre>
+7130
+7131
+7132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4688</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7130</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CompleteMultipartUploadOutput (struct)">CompleteMultipartUploadOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.CompleteMultipartUploadOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1283,7 +1352,7 @@ encryption key that was used for the object.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:45 2021 by
+  Generated on Mon May 10 21:14:44 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

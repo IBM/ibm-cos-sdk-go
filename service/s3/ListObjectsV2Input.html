@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Name of the bucket to list.</p>
+<p>Bucket name to list.</p>
 </div></span>
   
 </li>
@@ -191,6 +191,31 @@ this bucket with a token.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.ListObjectsV2Input.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
 </div></span>
   
 </li>
@@ -487,6 +512,31 @@ list objects request in V2 style.</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.ListObjectsV2Input.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *ListObjectsV2Input </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetFetchOwner-instance_method" title="s3.ListObjectsV2Input.SetFetchOwner() (method)"><strong>SetFetchOwner</strong>(bool)  *ListObjectsV2Input </a></span></span>
   
   
@@ -678,7 +728,25 @@ list objects request in V2 style.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Name of the bucket to list.</p>
+<p>Bucket name to list.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -701,7 +769,7 @@ list objects request in V2 style.</p>
     
 <p>ContinuationToken indicates Amazon S3 that the list is being continued on
 this bucket with a token. ContinuationToken is obfuscated and is not a real
-key</p>
+key.</p>
 
 
   </div>
@@ -751,6 +819,27 @@ key</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="FetchOwner-field">
   <strong>FetchOwner</strong> *bool 
   <code>`location:"querystring" locationName:"fetch-owner" type:"boolean"`</code>
@@ -760,7 +849,7 @@ key</p>
     
 <p>The owner field is not present in listV2 by default, if you want to return
 owner field with each key in the result then set the fetch owner field to
-true</p>
+true.</p>
 
 
   </div>
@@ -779,8 +868,9 @@ true</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Sets the maximum number of keys returned in the response. The response
-might contain fewer keys but will never contain more.</p>
+<p>Sets the maximum number of keys returned in the response. By default the
+action returns up to 1,000 key names. The response might contain fewer keys
+but will never contain more.</p>
 
 
   </div>
@@ -841,7 +931,7 @@ parameter in their requests.</p>
     
 <p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3
 starts listing after this specified key. StartAfter can be any key in the
-bucket</p>
+bucket.</p>
 
 
   </div>
@@ -893,12 +983,12 @@ bucket</p>
       <pre class="lines">
 
 
-10207
-10208
-10209</pre>
+14385
+14386
+14387</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10207</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14385</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ListObjectsV2Input.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -935,13 +1025,13 @@ bucket</p>
       <pre class="lines">
 
 
-10228
-10229
-10230
-10231</pre>
+14406
+14407
+14408
+14409</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10228</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14406</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.ListObjectsV2Input.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span> {
 	s.Bucket = &v
@@ -979,13 +1069,13 @@ bucket</p>
       <pre class="lines">
 
 
-10241
-10242
-10243
-10244</pre>
+14419
+14420
+14421
+14422</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10241</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14419</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <span class='object_link'><a href="#SetContinuationToken-instance_method" title="s3.ListObjectsV2Input.SetContinuationToken() (method)">SetContinuationToken</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span> {
 	s.ContinuationToken = &v
@@ -1023,13 +1113,13 @@ bucket</p>
       <pre class="lines">
 
 
-10247
-10248
-10249
-10250</pre>
+14425
+14426
+14427
+14428</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10247</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14425</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <span class='object_link'><a href="#SetDelimiter-instance_method" title="s3.ListObjectsV2Input.SetDelimiter() (method)">SetDelimiter</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span> {
 	s.Delimiter = &v
@@ -1067,16 +1157,60 @@ bucket</p>
       <pre class="lines">
 
 
-10253
-10254
-10255
-10256</pre>
+14431
+14432
+14433
+14434</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10253</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14431</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <span class='object_link'><a href="#SetEncodingType-instance_method" title="s3.ListObjectsV2Input.SetEncodingType() (method)">SetEncodingType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span> {
 	s.EncodingType = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.ListObjectsV2Input.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14437
+14438
+14439
+14440</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14437</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.ListObjectsV2Input.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -1111,13 +1245,13 @@ bucket</p>
       <pre class="lines">
 
 
-10259
-10260
-10261
-10262</pre>
+14443
+14444
+14445
+14446</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10259</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14443</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <span class='object_link'><a href="#SetFetchOwner-instance_method" title="s3.ListObjectsV2Input.SetFetchOwner() (method)">SetFetchOwner</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span> {
 	s.FetchOwner = &v
@@ -1155,13 +1289,13 @@ bucket</p>
       <pre class="lines">
 
 
-10265
-10266
-10267
-10268</pre>
+14449
+14450
+14451
+14452</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10265</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14449</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <span class='object_link'><a href="#SetMaxKeys-instance_method" title="s3.ListObjectsV2Input.SetMaxKeys() (method)">SetMaxKeys</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span> {
 	s.MaxKeys = &v
@@ -1199,13 +1333,13 @@ bucket</p>
       <pre class="lines">
 
 
-10271
-10272
-10273
-10274</pre>
+14455
+14456
+14457
+14458</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10271</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14455</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <span class='object_link'><a href="#SetPrefix-instance_method" title="s3.ListObjectsV2Input.SetPrefix() (method)">SetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span> {
 	s.Prefix = &v
@@ -1243,13 +1377,13 @@ bucket</p>
       <pre class="lines">
 
 
-10277
-10278
-10279
-10280</pre>
+14461
+14462
+14463
+14464</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10277</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14461</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.ListObjectsV2Input.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span> {
 	s.RequestPayer = &v
@@ -1287,13 +1421,13 @@ bucket</p>
       <pre class="lines">
 
 
-10283
-10284
-10285
-10286</pre>
+14467
+14468
+14469
+14470</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10283</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14467</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <span class='object_link'><a href="#SetStartAfter-instance_method" title="s3.ListObjectsV2Input.SetStartAfter() (method)">SetStartAfter</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span> {
 	s.StartAfter = &v
@@ -1331,12 +1465,12 @@ bucket</p>
       <pre class="lines">
 
 
-10202
-10203
-10204</pre>
+14380
+14381
+14382</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10202</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14380</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ListObjectsV2Input.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1373,23 +1507,23 @@ bucket</p>
       <pre class="lines">
 
 
-10212
-10213
-10214
-10215
-10216
-10217
-10218
-10219
-10220
-10221
-10222
-10223
-10224
-10225</pre>
+14390
+14391
+14392
+14393
+14394
+14395
+14396
+14397
+14398
+14399
+14400
+14401
+14402
+14403</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10212</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14390</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.ListObjectsV2Input.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.ListObjectsV2Input (struct)">ListObjectsV2Input</a></span>"</span>}
@@ -1417,7 +1551,7 @@ bucket</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:57 2021 by
+  Generated on Mon May 10 21:14:59 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

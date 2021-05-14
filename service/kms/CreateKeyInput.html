@@ -216,7 +216,9 @@ and the key material in its associated AWS CloudHSM cluster.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Determines the cryptographic operations for which you can use the CMK.</p>
+<p>Determines the cryptographic operations (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
+for which you can use the CMK.</p>
 </div></span>
   
 </li>
@@ -777,10 +779,11 @@ a task.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Determines the cryptographic operations for which you can use the CMK. The
-default value is ENCRYPT_DECRYPT. This parameter is required only for
-asymmetric CMKs. You can&#39;t change the KeyUsage value after the CMK is
-created.</p>
+<p>Determines the cryptographic operations (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
+for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This
+parameter is required only for asymmetric CMKs. You can&#39;t change the
+KeyUsage value after the CMK is created.</p>
 
 <p>Select only one valid value.</p>
 <ul><li>
@@ -875,6 +878,11 @@ in the AWS Key Management Service Developer Guide.</p>
 
 <p>The key policy size quota is 32 kilobytes (32768 bytes).</p>
 
+<p>For help writing and formatting a JSON policy document, see the IAM JSON
+Policy Reference (<a
+href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html</a>)
+in the IAM User Guide .</p>
+
 
   </div>
 </div>
@@ -903,6 +911,10 @@ href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">d
 
 <p>Use this parameter to tag the CMK when it is created. To add tags to an
 existing CMK, use the TagResource operation.</p>
+
+<p>To use this parameter, you must have kms:TagResource (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html</a>)
+permission in an IAM policy.</p>
 
 
   </div>
@@ -954,12 +966,12 @@ existing CMK, use the TagResource operation.</p>
       <pre class="lines">
 
 
-7610
-7611
-7612</pre>
+8309
+8310
+8311</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7610</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8309</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.CreateKeyInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -997,13 +1009,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7641
-7642
-7643
-7644</pre>
+8340
+8341
+8342
+8343</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7641</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8340</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetBypassPolicyLockoutSafetyCheck-instance_method" title="kms.CreateKeyInput.SetBypassPolicyLockoutSafetyCheck() (method)">SetBypassPolicyLockoutSafetyCheck</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.BypassPolicyLockoutSafetyCheck = &v
@@ -1041,13 +1053,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7653
-7654
-7655
-7656</pre>
+8352
+8353
+8354
+8355</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7653</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8352</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetCustomerMasterKeySpec-instance_method" title="kms.CreateKeyInput.SetCustomerMasterKeySpec() (method)">SetCustomerMasterKeySpec</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.CustomerMasterKeySpec = &v
@@ -1085,13 +1097,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7647
-7648
-7649
-7650</pre>
+8346
+8347
+8348
+8349</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7647</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8346</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetCustomKeyStoreId-instance_method" title="kms.CreateKeyInput.SetCustomKeyStoreId() (method)">SetCustomKeyStoreId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.CustomKeyStoreId = &v
@@ -1129,13 +1141,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7659
-7660
-7661
-7662</pre>
+8358
+8359
+8360
+8361</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7659</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8358</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetDescription-instance_method" title="kms.CreateKeyInput.SetDescription() (method)">SetDescription</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.Description = &v
@@ -1173,13 +1185,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7665
-7666
-7667
-7668</pre>
+8364
+8365
+8366
+8367</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7665</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8364</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetKeyUsage-instance_method" title="kms.CreateKeyInput.SetKeyUsage() (method)">SetKeyUsage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.KeyUsage = &v
@@ -1217,13 +1229,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7671
-7672
-7673
-7674</pre>
+8370
+8371
+8372
+8373</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7671</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8370</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetOrigin-instance_method" title="kms.CreateKeyInput.SetOrigin() (method)">SetOrigin</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.Origin = &v
@@ -1261,13 +1273,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7677
-7678
-7679
-7680</pre>
+8376
+8377
+8378
+8379</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7677</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8376</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetPolicy-instance_method" title="kms.CreateKeyInput.SetPolicy() (method)">SetPolicy</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.Policy = &v
@@ -1305,13 +1317,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7683
-7684
-7685
-7686</pre>
+8382
+8383
+8384
+8385</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7683</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8382</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetTags-instance_method" title="kms.CreateKeyInput.SetTags() (method)">SetTags</a></span>(v []*<span class='object_link'><a href="Tag.html" title="kms.Tag (struct)">Tag</a></span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.Tags = v
@@ -1349,12 +1361,12 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7605
-7606
-7607</pre>
+8304
+8305
+8306</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7605</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8304</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.CreateKeyInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1391,33 +1403,33 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7615
-7616
-7617
-7618
-7619
-7620
-7621
-7622
-7623
-7624
-7625
-7626
-7627
-7628
-7629
-7630
-7631
-7632
-7633
-7634
-7635
-7636
-7637
-7638</pre>
+8314
+8315
+8316
+8317
+8318
+8319
+8320
+8321
+8322
+8323
+8324
+8325
+8326
+8327
+8328
+8329
+8330
+8331
+8332
+8333
+8334
+8335
+8336
+8337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7615</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8314</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.CreateKeyInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>"</span>}
@@ -1455,7 +1467,7 @@ field&#39;s value.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:16 2021 by
+  Generated on Mon May 10 21:15:22 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

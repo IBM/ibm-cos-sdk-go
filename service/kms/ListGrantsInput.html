@@ -98,6 +98,57 @@ import "../ibm-cos-sdk-go/service/kms"
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GrantId-field" title="kms.ListGrantsInput.GrantId (field)"><strong>GrantId</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns only the grant with the specified grant ID.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GranteePrincipal-field" title="kms.ListGrantsInput.GranteePrincipal (field)"><strong>GranteePrincipal</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns only grants where the specified principal is the grantee principal
+for the grant.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#KeyId-field" title="kms.ListGrantsInput.KeyId (field)"><strong>KeyId</strong> *string</a></span></span>
   
   
@@ -114,7 +165,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A unique identifier for the customer master key (CMK).</p>
+<p>Returns only grants for the specified customer master key (CMK).</p>
 </div></span>
   
 </li>
@@ -226,6 +277,56 @@ with truncated results.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>GoString returns the string representation.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetGranteePrincipal-instance_method" title="kms.ListGrantsInput.SetGranteePrincipal() (method)"><strong>SetGranteePrincipal</strong>(string)  *ListGrantsInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetGranteePrincipal sets the GranteePrincipal field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetGrantId-instance_method" title="kms.ListGrantsInput.SetGrantId() (method)"><strong>SetGrantId</strong>(string)  *ListGrantsInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetGrantId sets the GrantId field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -368,14 +469,55 @@ with truncated results.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="KeyId-field">
+  <h3 class="signature first" id="GrantId-field">
+  <strong>GrantId</strong> *string 
+  <code>`min:"1" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Returns only the grant with the specified grant ID. The grant ID uniquely
+identifies the grant.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GranteePrincipal-field">
+  <strong>GranteePrincipal</strong> *string 
+  <code>`min:"1" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Returns only grants where the specified principal is the grantee principal
+for the grant.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="KeyId-field">
   <strong>KeyId</strong> *string 
   <code>`min:"1" type:"string" required:"true"`</code>
 </h3>
 <div class="docstring">
   <div class="discussion">
     
-<p>A unique identifier for the customer master key (CMK).</p>
+<p>Returns only grants for the specified customer master key (CMK). This
+parameter is required.</p>
 
 <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify
 a CMK in a different AWS account, you must use the key ARN.</p>
@@ -487,15 +629,103 @@ truncated response you just received.</p>
       <pre class="lines">
 
 
-12210
-12211
-12212</pre>
+12918
+12919
+12920</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12210</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12918</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.ListGrantsInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetGranteePrincipal-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <strong><span class='object_link'><a href="#SetGranteePrincipal-instance_method" title="kms.ListGrantsInput.SetGranteePrincipal() (method)">SetGranteePrincipal</a></span></strong>(v string) *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetGranteePrincipal sets the GranteePrincipal field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12957
+12958
+12959
+12960</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12957</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#SetGranteePrincipal-instance_method" title="kms.ListGrantsInput.SetGranteePrincipal() (method)">SetGranteePrincipal</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span> {
+	s.GranteePrincipal = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetGrantId-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <strong><span class='object_link'><a href="#SetGrantId-instance_method" title="kms.ListGrantsInput.SetGrantId() (method)">SetGrantId</a></span></strong>(v string) *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetGrantId sets the GrantId field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12951
+12952
+12953
+12954</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12951</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#SetGrantId-instance_method" title="kms.ListGrantsInput.SetGrantId() (method)">SetGrantId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span> {
+	s.GrantId = &v
+	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
   </tr>
@@ -529,13 +759,13 @@ truncated response you just received.</p>
       <pre class="lines">
 
 
-12237
-12238
-12239
-12240</pre>
+12963
+12964
+12965
+12966</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12237</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12963</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.ListGrantsInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span> {
 	s.KeyId = &v
@@ -573,13 +803,13 @@ truncated response you just received.</p>
       <pre class="lines">
 
 
-12243
-12244
-12245
-12246</pre>
+12969
+12970
+12971
+12972</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12243</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12969</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#SetLimit-instance_method" title="kms.ListGrantsInput.SetLimit() (method)">SetLimit</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span> {
 	s.Limit = &v
@@ -617,13 +847,13 @@ truncated response you just received.</p>
       <pre class="lines">
 
 
-12249
-12250
-12251
-12252</pre>
+12975
+12976
+12977
+12978</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12249</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12975</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#SetMarker-instance_method" title="kms.ListGrantsInput.SetMarker() (method)">SetMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span> {
 	s.Marker = &v
@@ -661,12 +891,12 @@ truncated response you just received.</p>
       <pre class="lines">
 
 
-12205
-12206
-12207</pre>
+12913
+12914
+12915</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12205</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12913</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.ListGrantsInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -703,32 +933,44 @@ truncated response you just received.</p>
       <pre class="lines">
 
 
-12215
-12216
-12217
-12218
-12219
-12220
-12221
-12222
-12223
-12224
-12225
-12226
-12227
-12228
-12229
-12230
-12231
-12232
-12233
-12234</pre>
+12923
+12924
+12925
+12926
+12927
+12928
+12929
+12930
+12931
+12932
+12933
+12934
+12935
+12936
+12937
+12938
+12939
+12940
+12941
+12942
+12943
+12944
+12945
+12946
+12947
+12948</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12215</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12923</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.ListGrantsInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>"</span>}
+	<span class="hljs-keyword">if</span> s.GrantId != <span class="hljs-constant">nil</span> && len(*s.GrantId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen(<span class="hljs-string">"<span class='object_link'><a href="#GrantId-field" title="kms.ListGrantsInput.GrantId (field)">GrantId</a></span>"</span>, 1))
+	}
+	<span class="hljs-keyword">if</span> s.GranteePrincipal != <span class="hljs-constant">nil</span> && len(*s.GranteePrincipal) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen(<span class="hljs-string">"<span class='object_link'><a href="#GranteePrincipal-field" title="kms.ListGrantsInput.GranteePrincipal (field)">GranteePrincipal</a></span>"</span>, 1))
+	}
 	<span class="hljs-keyword">if</span> s.KeyId == <span class="hljs-constant">nil</span> {
 		invalidParams.Add(request.NewErrParamRequired(<span class="hljs-string">"<span class='object_link'><a href="#KeyId-field" title="kms.ListGrantsInput.KeyId (field)">KeyId</a></span>"</span>))
 	}
@@ -759,7 +1001,7 @@ truncated response you just received.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:24 2021 by
+  Generated on Mon May 10 21:15:31 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

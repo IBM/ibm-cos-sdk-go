@@ -114,8 +114,11 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Date when multipart upload will become eligible for abort operation by
-lifecycle.</p>
+<p>If the bucket has a lifecycle rule configured with an action to abort
+incomplete multipart uploads and the prefix in the lifecycle rule matches
+the object name in the request, then the response includes this header
+indicating when the initiated multipart upload will become eligible for
+abort operation.</p>
 </div></span>
   
 </li>
@@ -140,8 +143,7 @@ lifecycle.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Id of the lifecycle rule that makes a multipart upload eligible for abort
-operation.</p>
+<p>This header is returned along with the x-amz-abort-date header.</p>
 </div></span>
   
 </li>
@@ -166,7 +168,7 @@ operation.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Name of the bucket to which the multipart upload was initiated.</p>
+<p>The name of the bucket to which the multipart upload was initiated.</p>
 </div></span>
   
 </li>
@@ -191,7 +193,7 @@ operation.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies who initiated the multipart upload.</p>
+<p>Container element that identifies who initiated the multipart upload.</p>
 </div></span>
   
 </li>
@@ -317,7 +319,10 @@ a subsequent request.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Container element that identifies the object owner, after the object is
+created.</p>
+</div></span>
   
 </li>
 
@@ -341,7 +346,9 @@ a subsequent request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Part number after which listing begins.</p>
+<p>When a list is truncated, this element specifies the last part in the list,
+as well as the value to use for the part-number-marker request parameter in
+a subsequent request.</p>
 </div></span>
   
 </li>
@@ -365,7 +372,9 @@ a subsequent request.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Container for elements related to a particular part.</p>
+</div></span>
   
 </li>
 
@@ -415,7 +424,8 @@ request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The class of storage used to store the object.</p>
+<p>Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the
+uploaded object.</p>
 </div></span>
   
 </li>
@@ -900,8 +910,17 @@ request.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Date when multipart upload will become eligible for abort operation by
-lifecycle.</p>
+<p>If the bucket has a lifecycle rule configured with an action to abort
+incomplete multipart uploads and the prefix in the lifecycle rule matches
+the object name in the request, then the response includes this header
+indicating when the initiated multipart upload will become eligible for
+abort operation. For more information, see Aborting Incomplete Multipart
+Uploads Using a Bucket Lifecycle Policy (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config</a>).</p>
+
+<p>The response will also include the x-amz-abort-rule-id header that will
+provide the ID of the lifecycle configuration rule that defines this
+action.</p>
 
 
   </div>
@@ -920,8 +939,9 @@ lifecycle.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Id of the lifecycle rule that makes a multipart upload eligible for abort
-operation.</p>
+<p>This header is returned along with the x-amz-abort-date header. It
+identifies applicable lifecycle configuration rule that defines the action
+to abort incomplete multipart uploads.</p>
 
 
   </div>
@@ -940,7 +960,7 @@ operation.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Name of the bucket to which the multipart upload was initiated.</p>
+<p>The name of the bucket to which the multipart upload was initiated.</p>
 
 
   </div>
@@ -959,7 +979,10 @@ operation.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies who initiated the multipart upload.</p>
+<p>Container element that identifies who initiated the multipart upload. If
+the initiator is an AWS account, this element provides the same information
+as the Owner element. If the initiator is an IAM User, this element
+provides the user ARN and display name.</p>
 
 
   </div>
@@ -978,7 +1001,9 @@ operation.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Indicates whether the returned list of parts is truncated.</p>
+<p>Indicates whether the returned list of parts is truncated. A true value
+indicates that the list was truncated. A list can be truncated if the
+number of parts exceeds the limit returned in the MaxParts element.</p>
 
 
   </div>
@@ -1053,7 +1078,20 @@ a subsequent request.</p>
   <strong>Owner</strong> *<span class='object_link'><a href="#Owner-field" title="s3.ListPartsOutput.Owner (field)">Owner</a></span> 
   <code>`type:"structure"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Container element that identifies the object owner, after the object is
+created. If multipart upload is initiated by an IAM user, this element
+provides the parent account ID and display name.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -1064,7 +1102,9 @@ a subsequent request.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Part number after which listing begins.</p>
+<p>When a list is truncated, this element specifies the last part in the list,
+as well as the value to use for the part-number-marker request parameter in
+a subsequent request.</p>
 
 
   </div>
@@ -1080,7 +1120,19 @@ a subsequent request.</p>
   <strong>Parts</strong> []*<span class='object_link'><a href="Part.html" title="s3.Part (struct)">Part</a></span> 
   <code>`locationName:"Part" type:"list" flattened:"true"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Container for elements related to a particular part. A response can contain
+zero or more Part elements.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -1111,7 +1163,8 @@ request.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The class of storage used to store the object.</p>
+<p>Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the
+uploaded object.</p>
 
 
   </div>
@@ -1182,12 +1235,12 @@ request.</p>
       <pre class="lines">
 
 
-10581
-10582
-10583</pre>
+14855
+14856
+14857</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10581</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14855</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ListPartsOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1224,13 +1277,13 @@ request.</p>
       <pre class="lines">
 
 
-10586
-10587
-10588
-10589</pre>
+14860
+14861
+14862
+14863</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10586</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14860</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetAbortDate-instance_method" title="s3.ListPartsOutput.SetAbortDate() (method)">SetAbortDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.AbortDate = &v
@@ -1268,13 +1321,13 @@ request.</p>
       <pre class="lines">
 
 
-10592
-10593
-10594
-10595</pre>
+14866
+14867
+14868
+14869</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10592</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14866</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetAbortRuleId-instance_method" title="s3.ListPartsOutput.SetAbortRuleId() (method)">SetAbortRuleId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.AbortRuleId = &v
@@ -1312,13 +1365,13 @@ request.</p>
       <pre class="lines">
 
 
-10598
-10599
-10600
-10601</pre>
+14872
+14873
+14874
+14875</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10598</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14872</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.ListPartsOutput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.Bucket = &v
@@ -1356,13 +1409,13 @@ request.</p>
       <pre class="lines">
 
 
-10611
-10612
-10613
-10614</pre>
+14885
+14886
+14887
+14888</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10611</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14885</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetInitiator-instance_method" title="s3.ListPartsOutput.SetInitiator() (method)">SetInitiator</a></span>(v *<span class='object_link'><a href="#Initiator-field" title="s3.ListPartsOutput.Initiator (field)">Initiator</a></span>) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.Initiator = v
@@ -1400,13 +1453,13 @@ request.</p>
       <pre class="lines">
 
 
-10617
-10618
-10619
-10620</pre>
+14891
+14892
+14893
+14894</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10617</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14891</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetIsTruncated-instance_method" title="s3.ListPartsOutput.SetIsTruncated() (method)">SetIsTruncated</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.IsTruncated = &v
@@ -1444,13 +1497,13 @@ request.</p>
       <pre class="lines">
 
 
-10623
-10624
-10625
-10626</pre>
+14897
+14898
+14899
+14900</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10623</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14897</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.ListPartsOutput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.Key = &v
@@ -1488,13 +1541,13 @@ request.</p>
       <pre class="lines">
 
 
-10629
-10630
-10631
-10632</pre>
+14903
+14904
+14905
+14906</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10629</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14903</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetMaxParts-instance_method" title="s3.ListPartsOutput.SetMaxParts() (method)">SetMaxParts</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.MaxParts = &v
@@ -1532,13 +1585,13 @@ request.</p>
       <pre class="lines">
 
 
-10635
-10636
-10637
-10638</pre>
+14909
+14910
+14911
+14912</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10635</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14909</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetNextPartNumberMarker-instance_method" title="s3.ListPartsOutput.SetNextPartNumberMarker() (method)">SetNextPartNumberMarker</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.NextPartNumberMarker = &v
@@ -1576,13 +1629,13 @@ request.</p>
       <pre class="lines">
 
 
-10641
-10642
-10643
-10644</pre>
+14915
+14916
+14917
+14918</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10641</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14915</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetOwner-instance_method" title="s3.ListPartsOutput.SetOwner() (method)">SetOwner</a></span>(v *<span class='object_link'><a href="#Owner-field" title="s3.ListPartsOutput.Owner (field)">Owner</a></span>) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.Owner = v
@@ -1620,13 +1673,13 @@ request.</p>
       <pre class="lines">
 
 
-10647
-10648
-10649
-10650</pre>
+14921
+14922
+14923
+14924</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10647</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14921</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetPartNumberMarker-instance_method" title="s3.ListPartsOutput.SetPartNumberMarker() (method)">SetPartNumberMarker</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.PartNumberMarker = &v
@@ -1664,13 +1717,13 @@ request.</p>
       <pre class="lines">
 
 
-10653
-10654
-10655
-10656</pre>
+14927
+14928
+14929
+14930</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10653</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14927</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetParts-instance_method" title="s3.ListPartsOutput.SetParts() (method)">SetParts</a></span>(v []*<span class='object_link'><a href="Part.html" title="s3.Part (struct)">Part</a></span>) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.Parts = v
@@ -1708,13 +1761,13 @@ request.</p>
       <pre class="lines">
 
 
-10659
-10660
-10661
-10662</pre>
+14933
+14934
+14935
+14936</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10659</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14933</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.ListPartsOutput.SetRequestCharged() (method)">SetRequestCharged</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.RequestCharged = &v
@@ -1752,13 +1805,13 @@ request.</p>
       <pre class="lines">
 
 
-10665
-10666
-10667
-10668</pre>
+14939
+14940
+14941
+14942</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10665</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14939</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetStorageClass-instance_method" title="s3.ListPartsOutput.SetStorageClass() (method)">SetStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.StorageClass = &v
@@ -1796,13 +1849,13 @@ request.</p>
       <pre class="lines">
 
 
-10671
-10672
-10673
-10674</pre>
+14945
+14946
+14947
+14948</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10671</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14945</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#SetUploadId-instance_method" title="s3.ListPartsOutput.SetUploadId() (method)">SetUploadId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span> {
 	s.UploadId = &v
@@ -1840,12 +1893,12 @@ request.</p>
       <pre class="lines">
 
 
-10576
-10577
-10578</pre>
+14850
+14851
+14852</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10576</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14850</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListPartsOutput (struct)">ListPartsOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ListPartsOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1862,7 +1915,7 @@ request.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:58 2021 by
+  Generated on Mon May 10 21:15:01 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

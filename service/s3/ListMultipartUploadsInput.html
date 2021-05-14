@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The name of the bucket to which the multipart upload was initiated.</p>
 </div></span>
   
 </li>
@@ -166,6 +166,31 @@ import "../ibm-cos-sdk-go/service/s3"
     <span class="summary_desc"><div class='inline'>
 <p>Requests Amazon S3 to encode the object keys in the response and specifies
 the encoding method to use.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.ListMultipartUploadsInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
 </div></span>
   
 </li>
@@ -413,6 +438,31 @@ listing should begin.</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.ListMultipartUploadsInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *ListMultipartUploadsInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetKeyMarker-instance_method" title="s3.ListMultipartUploadsInput.SetKeyMarker() (method)"><strong>SetKeyMarker</strong>(string)  *ListMultipartUploadsInput </a></span></span>
   
   
@@ -579,6 +629,26 @@ listing should begin.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>The name of the bucket to which the multipart upload was initiated.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
+
 <p>Bucket is a required field</p>
 
 
@@ -599,6 +669,13 @@ listing should begin.</p>
   <div class="discussion">
     
 <p>Character you use to group keys.</p>
+
+<p>All keys that contain the same string between the prefix, if specified, and
+the first occurrence of the delimiter after the prefix are grouped under a
+single result element, CommonPrefixes. If you don&#39;t specify the prefix
+parameter, then the substring starts at the beginning of the key. The keys
+that are grouped under CommonPrefixes result element are not returned
+elsewhere in the response.</p>
 
 
   </div>
@@ -634,6 +711,27 @@ encode the keys in the response.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="KeyMarker-field">
   <strong>KeyMarker</strong> *string 
   <code>`location:"querystring" locationName:"key-marker" type:"string"`</code>
@@ -643,6 +741,14 @@ encode the keys in the response.</p>
     
 <p>Together with upload-id-marker, this parameter specifies the multipart
 upload after which listing should begin.</p>
+
+<p>If upload-id-marker is not specified, only the keys lexicographically
+greater than the specified key-marker will be included in the list.</p>
+
+<p>If upload-id-marker is specified, any multipart uploads for a key equal to
+the key-marker might also be included, provided those multipart uploads
+have upload IDs lexicographically greater than the specified
+upload-id-marker.</p>
 
 
   </div>
@@ -683,7 +789,9 @@ returned in a response.</p>
   <div class="discussion">
     
 <p>Lists in-progress uploads only for those keys that begin with the specified
-prefix.</p>
+prefix. You can use prefixes to separate a bucket into different grouping
+of keys. (You can think of using prefix to make groups in the same way
+you&#39;d use a folder in a file system.)</p>
 
 
   </div>
@@ -704,7 +812,9 @@ prefix.</p>
     
 <p>Together with key-marker, specifies the multipart upload after which
 listing should begin. If key-marker is not specified, the upload-id-marker
-parameter is ignored.</p>
+parameter is ignored. Otherwise, any multipart uploads for a key equal to
+the key-marker might be included in the list only if they have an upload ID
+lexicographically greater than the specified upload-id-marker.</p>
 
 
   </div>
@@ -756,12 +866,12 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-9727
-9728
-9729</pre>
+13527
+13528
+13529</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9727</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13527</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ListMultipartUploadsInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -798,13 +908,13 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-9748
-9749
-9750
-9751</pre>
+13548
+13549
+13550
+13551</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9748</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13548</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.ListMultipartUploadsInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.Bucket = &v
@@ -842,13 +952,13 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-9761
-9762
-9763
-9764</pre>
+13561
+13562
+13563
+13564</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9761</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13561</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetDelimiter-instance_method" title="s3.ListMultipartUploadsInput.SetDelimiter() (method)">SetDelimiter</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.Delimiter = &v
@@ -886,16 +996,60 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-9767
-9768
-9769
-9770</pre>
+13567
+13568
+13569
+13570</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9767</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13567</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetEncodingType-instance_method" title="s3.ListMultipartUploadsInput.SetEncodingType() (method)">SetEncodingType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.EncodingType = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.ListMultipartUploadsInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13573
+13574
+13575
+13576</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13573</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.ListMultipartUploadsInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -930,13 +1084,13 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-9773
-9774
-9775
-9776</pre>
+13579
+13580
+13581
+13582</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9773</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13579</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetKeyMarker-instance_method" title="s3.ListMultipartUploadsInput.SetKeyMarker() (method)">SetKeyMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.KeyMarker = &v
@@ -974,13 +1128,13 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-9779
-9780
-9781
-9782</pre>
+13585
+13586
+13587
+13588</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9779</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13585</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetMaxUploads-instance_method" title="s3.ListMultipartUploadsInput.SetMaxUploads() (method)">SetMaxUploads</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.MaxUploads = &v
@@ -1018,13 +1172,13 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-9785
-9786
-9787
-9788</pre>
+13591
+13592
+13593
+13594</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9785</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13591</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetPrefix-instance_method" title="s3.ListMultipartUploadsInput.SetPrefix() (method)">SetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.Prefix = &v
@@ -1062,13 +1216,13 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-9791
-9792
-9793
-9794</pre>
+13597
+13598
+13599
+13600</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9791</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13597</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetUploadIdMarker-instance_method" title="s3.ListMultipartUploadsInput.SetUploadIdMarker() (method)">SetUploadIdMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.UploadIdMarker = &v
@@ -1106,12 +1260,12 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-9722
-9723
-9724</pre>
+13522
+13523
+13524</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9722</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13522</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ListMultipartUploadsInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1148,23 +1302,23 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-9732
-9733
-9734
-9735
-9736
-9737
-9738
-9739
-9740
-9741
-9742
-9743
-9744
-9745</pre>
+13532
+13533
+13534
+13535
+13536
+13537
+13538
+13539
+13540
+13541
+13542
+13543
+13544
+13545</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9732</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13532</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.ListMultipartUploadsInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>"</span>}
@@ -1192,7 +1346,7 @@ parameter is ignored.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:56 2021 by
+  Generated on Mon May 10 21:14:57 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

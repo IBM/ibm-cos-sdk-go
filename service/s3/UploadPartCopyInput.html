@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The bucket name.</p>
 </div></span>
   
 </li>
@@ -139,8 +139,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The name of the source bucket and key name of the source object, separated
-by a slash (/).</p>
+<p>Specifies the source object for the copy operation.</p>
 </div></span>
   
 </li>
@@ -291,8 +290,8 @@ ETag.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the algorithm to use when decrypting the source object (e.g.,
-AES256).</p>
+<p>Specifies the algorithm to use when decrypting the source object (for
+example, AES256).</p>
 </div></span>
   
 </li>
@@ -353,6 +352,56 @@ decrypt the source object.</p>
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.UploadPartCopyInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected destination bucket owner.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedSourceBucketOwner-field" title="s3.UploadPartCopyInput.ExpectedSourceBucketOwner (field)"><strong>ExpectedSourceBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected source bucket owner.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#Key-field" title="s3.UploadPartCopyInput.Key (field)"><strong>Key</strong> *string</a></span></span>
   
   
@@ -369,7 +418,7 @@ decrypt the source object.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Key is a required field.</p>
+<p>Object key for which the multipart upload was initiated.</p>
 </div></span>
   
 </li>
@@ -419,7 +468,7 @@ decrypt the source object.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Confirms that the requester knows that she or he will be charged for the
+<p>Confirms that the requester knows that they will be charged for the
 request.</p>
 </div></span>
   
@@ -445,7 +494,7 @@ request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the algorithm to use to when encrypting the object (e.g.,
+<p>Specifies the algorithm to use to when encrypting the object (for example,
 AES256).</p>
 </div></span>
   
@@ -847,6 +896,57 @@ field&#39;s value.</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.UploadPartCopyInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedSourceBucketOwner-instance_method" title="s3.UploadPartCopyInput.SetExpectedSourceBucketOwner() (method)"><strong>SetExpectedSourceBucketOwner</strong>(string)  *UploadPartCopyInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedSourceBucketOwner sets the ExpectedSourceBucketOwner field&#39;s
+value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetKey-instance_method" title="s3.UploadPartCopyInput.SetKey() (method)"><strong>SetKey</strong>(string)  *UploadPartCopyInput </a></span></span>
   
   
@@ -1088,6 +1188,26 @@ field&#39;s value.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>The bucket name.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
+
 <p>Bucket is a required field</p>
 
 
@@ -1107,8 +1227,42 @@ field&#39;s value.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The name of the source bucket and key name of the source object, separated
-by a slash (/). Must be URL-encoded.</p>
+<p>Specifies the source object for the copy operation. You specify the value
+in one of two formats, depending on whether you want to access the source
+object through an access point (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html</a>):</p>
+<ul><li>
+<p>For objects not accessed through an access point, specify the name of  the
+source bucket and key of the source object, separated by a slash (/).  For
+example, to copy the object reports/january.pdf from the bucket
+awsexamplebucket,  use awsexamplebucket/reports/january.pdf. The value must
+be URL encoded.</p>
+</li><li>
+<p>For objects accessed through access points, specify the Amazon Resource 
+Name (ARN) of the object as accessed through the access point, in the 
+format
+arn:aws:s3:&lt;Region&gt;:&lt;account-id&gt;:accesspoint/&lt;access-point-name&gt;/object/&lt;key&gt;.
+For example, to copy the object reports/january.pdf through access point 
+my-access-point owned by account 123456789012 in Region us-west-2, use  the
+URL encoding of
+arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf.
+The value must be URL encoded. Amazon S3 supports copy operations using 
+access points only when the source and destination buckets are in the  same
+AWS Region. Alternatively, for objects accessed through Amazon S3  on
+Outposts, specify the ARN of the object as accessed in the format
+arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/object/&lt;key&gt;.
+For example, to copy the object reports/january.pdf through outpost
+my-outpost  owned by account 123456789012 in Region us-west-2, use the URL
+encoding  of
+arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf.
+The value must be URL encoded.</p>
+</li></ul>
+
+<p>To copy a specific version of an object, append
+?versionId=&lt;version-id&gt; to the value (for example,
+awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893).
+If you don&#39;t specify a version ID, Amazon S3 copies the latest version
+of the source object.</p>
 
 <p>CopySource is a required field</p>
 
@@ -1209,7 +1363,7 @@ ETag.</p>
 <p>The range of bytes to copy from the source object. The range value must use
 the form bytes=first-last, where the first and last are the zero-based byte
 offsets to copy. For example, bytes=0-9 indicates that you want to copy the
-first ten bytes of the source. You can copy a range only if the source
+first 10 bytes of the source. You can copy a range only if the source
 object is greater than 5 MB.</p>
 
 
@@ -1229,8 +1383,8 @@ object is greater than 5 MB.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the algorithm to use when decrypting the source object (e.g.,
-AES256).</p>
+<p>Specifies the algorithm to use when decrypting the source object (for
+example, AES256).</p>
 
 
   </div>
@@ -1272,7 +1426,49 @@ be one that was used when the source object was created.</p>
     
 <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC
 1321. Amazon S3 uses this header for a message integrity check to ensure
-the encryption key was transmitted without error.</p>
+that the encryption key was transmitted without error.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected destination bucket owner. If the destination
+bucket is owned by a different account, the request will fail with an HTTP
+403 (Access Denied) error.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExpectedSourceBucketOwner-field">
+  <strong>ExpectedSourceBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-source-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected source bucket owner. If the source bucket is
+owned by a different account, the request will fail with an HTTP 403
+(Access Denied) error.</p>
 
 
   </div>
@@ -1291,6 +1487,8 @@ the encryption key was transmitted without error.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>Object key for which the multipart upload was initiated.</p>
+
 <p>Key is a required field</p>
 
 
@@ -1332,11 +1530,12 @@ the encryption key was transmitted without error.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that she or he will be charged for the
+<p>Confirms that the requester knows that they will be charged for the
 request. Bucket owners need not specify this parameter in their requests.
-Documentation on downloading objects from requester pays buckets can be
-found at <a
-href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a></p>
+For information about downloading objects from requester pays buckets, see
+Downloading Objects in Requestor Pays Buckets (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
+in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -1355,7 +1554,7 @@ href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBucke
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the algorithm to use to when encrypting the object (e.g.,
+<p>Specifies the algorithm to use to when encrypting the object (for example,
 AES256).</p>
 
 
@@ -1377,9 +1576,9 @@ AES256).</p>
     
 <p>Specifies the customer-provided encryption key for Amazon S3 to use in
 encrypting data. This value is used to store the object and then it is
-discarded; Amazon does not store the encryption key. The key must be
+discarded; Amazon S3 does not store the encryption key. The key must be
 appropriate for use with the algorithm specified in the
-x-amz-server-side​-encryption​-customer-algorithm header. This must be the
+x-amz-server-side-encryption-customer-algorithm header. This must be the
 same encryption key specified in the initiate multipart upload request.</p>
 
 
@@ -1401,7 +1600,7 @@ same encryption key specified in the initiate multipart upload request.</p>
     
 <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC
 1321. Amazon S3 uses this header for a message integrity check to ensure
-the encryption key was transmitted without error.</p>
+that the encryption key was transmitted without error.</p>
 
 
   </div>
@@ -1474,12 +1673,12 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-12974
-12975
-12976</pre>
+17966
+17967
+17968</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12974</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17966</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.UploadPartCopyInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1516,13 +1715,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13010
-13011
-13012
-13013</pre>
+18002
+18003
+18004
+18005</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13010</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18002</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.UploadPartCopyInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.Bucket = &v
@@ -1560,13 +1759,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13023
-13024
-13025
-13026</pre>
+18015
+18016
+18017
+18018</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13023</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18015</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySource-instance_method" title="s3.UploadPartCopyInput.SetCopySource() (method)">SetCopySource</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.CopySource = &v
@@ -1604,13 +1803,13 @@ the encryption key was transmitted without error.</p>
       <pre class="lines">
 
 
-13029
-13030
-13031
-13032</pre>
+18021
+18022
+18023
+18024</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13029</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18021</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceIfMatch-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfMatch() (method)">SetCopySourceIfMatch</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.CopySourceIfMatch = &v
@@ -1649,13 +1848,13 @@ value.</p>
       <pre class="lines">
 
 
-13035
-13036
-13037
-13038</pre>
+18027
+18028
+18029
+18030</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13035</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18027</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceIfModifiedSince-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfModifiedSince() (method)">SetCopySourceIfModifiedSince</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.CopySourceIfModifiedSince = &v
@@ -1693,13 +1892,13 @@ value.</p>
       <pre class="lines">
 
 
-13041
-13042
-13043
-13044</pre>
+18033
+18034
+18035
+18036</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13041</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18033</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceIfNoneMatch-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfNoneMatch() (method)">SetCopySourceIfNoneMatch</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.CopySourceIfNoneMatch = &v
@@ -1738,13 +1937,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13047
-13048
-13049
-13050</pre>
+18039
+18040
+18041
+18042</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13047</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18039</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceIfUnmodifiedSince-instance_method" title="s3.UploadPartCopyInput.SetCopySourceIfUnmodifiedSince() (method)">SetCopySourceIfUnmodifiedSince</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.CopySourceIfUnmodifiedSince = &v
@@ -1782,13 +1981,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13053
-13054
-13055
-13056</pre>
+18045
+18046
+18047
+18048</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13053</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18045</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceRange-instance_method" title="s3.UploadPartCopyInput.SetCopySourceRange() (method)">SetCopySourceRange</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.CopySourceRange = &v
@@ -1827,13 +2026,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13059
-13060
-13061
-13062</pre>
+18051
+18052
+18053
+18054</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13059</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18051</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceSSECustomerAlgorithm-instance_method" title="s3.UploadPartCopyInput.SetCopySourceSSECustomerAlgorithm() (method)">SetCopySourceSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.CopySourceSSECustomerAlgorithm = &v
@@ -1872,13 +2071,13 @@ value.</p>
       <pre class="lines">
 
 
-13065
-13066
-13067
-13068</pre>
+18057
+18058
+18059
+18060</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13065</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18057</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceSSECustomerKey-instance_method" title="s3.UploadPartCopyInput.SetCopySourceSSECustomerKey() (method)">SetCopySourceSSECustomerKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.CopySourceSSECustomerKey = &v
@@ -1917,16 +2116,105 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13078
-13079
-13080
-13081</pre>
+18070
+18071
+18072
+18073</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13078</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18070</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetCopySourceSSECustomerKeyMD5-instance_method" title="s3.UploadPartCopyInput.SetCopySourceSSECustomerKeyMD5() (method)">SetCopySourceSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.CopySourceSSECustomerKeyMD5 = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.UploadPartCopyInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18076
+18077
+18078
+18079</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18076</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.UploadPartCopyInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.ExpectedBucketOwner = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedSourceBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedSourceBucketOwner-instance_method" title="s3.UploadPartCopyInput.SetExpectedSourceBucketOwner() (method)">SetExpectedSourceBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedSourceBucketOwner sets the ExpectedSourceBucketOwner field&#39;s
+value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18082
+18083
+18084
+18085</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18082</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetExpectedSourceBucketOwner-instance_method" title="s3.UploadPartCopyInput.SetExpectedSourceBucketOwner() (method)">SetExpectedSourceBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
+	s.ExpectedSourceBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -1961,13 +2249,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13084
-13085
-13086
-13087</pre>
+18088
+18089
+18090
+18091</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13084</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18088</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.UploadPartCopyInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.Key = &v
@@ -2005,13 +2293,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13090
-13091
-13092
-13093</pre>
+18094
+18095
+18096
+18097</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13090</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18094</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetPartNumber-instance_method" title="s3.UploadPartCopyInput.SetPartNumber() (method)">SetPartNumber</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.PartNumber = &v
@@ -2049,13 +2337,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13096
-13097
-13098
-13099</pre>
+18100
+18101
+18102
+18103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13096</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18100</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.UploadPartCopyInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.RequestPayer = &v
@@ -2093,13 +2381,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13102
-13103
-13104
-13105</pre>
+18106
+18107
+18108
+18109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13102</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18106</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.UploadPartCopyInput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -2137,13 +2425,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13108
-13109
-13110
-13111</pre>
+18112
+18113
+18114
+18115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13108</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18112</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.UploadPartCopyInput.SetSSECustomerKey() (method)">SetSSECustomerKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.SSECustomerKey = &v
@@ -2181,13 +2469,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13121
-13122
-13123
-13124</pre>
+18125
+18126
+18127
+18128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13121</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18125</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.UploadPartCopyInput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -2225,13 +2513,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13127
-13128
-13129
-13130</pre>
+18131
+18132
+18133
+18134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13127</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18131</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#SetUploadId-instance_method" title="s3.UploadPartCopyInput.SetUploadId() (method)">SetUploadId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span> {
 	s.UploadId = &v
@@ -2269,12 +2557,12 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-12969
-12970
-12971</pre>
+17961
+17962
+17963</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12969</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17961</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.UploadPartCopyInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -2311,38 +2599,38 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-12979
-12980
-12981
-12982
-12983
-12984
-12985
-12986
-12987
-12988
-12989
-12990
-12991
-12992
-12993
-12994
-12995
-12996
-12997
-12998
-12999
-13000
-13001
-13002
-13003
-13004
-13005
-13006
-13007</pre>
+17971
+17972
+17973
+17974
+17975
+17976
+17977
+17978
+17979
+17980
+17981
+17982
+17983
+17984
+17985
+17986
+17987
+17988
+17989
+17990
+17991
+17992
+17993
+17994
+17995
+17996
+17997
+17998
+17999</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12979</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17971</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.UploadPartCopyInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.UploadPartCopyInput (struct)">UploadPartCopyInput</a></span>"</span>}
@@ -2385,7 +2673,7 @@ field&#39;s value.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:04 2021 by
+  Generated on Mon May 10 21:15:08 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

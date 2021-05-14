@@ -73,7 +73,18 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Container for lifecycle rules. You can add as many as 1000 rules.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -114,7 +125,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Currently only one Rule allowed.</p>
+<p>Rules is a required field.</p>
 </div></span>
   
 </li>
@@ -274,8 +285,6 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Currently only one Rule allowed.</p>
-
 <p>Rules is a required field</p>
 
 
@@ -328,12 +337,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9225
-9226
-9227</pre>
+12974
+12975
+12976</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9225</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12974</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LifecycleConfiguration (struct)">LifecycleConfiguration</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.LifecycleConfiguration.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -370,13 +379,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9253
-9254
-9255
-9256</pre>
+13002
+13003
+13004
+13005</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9253</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13002</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleConfiguration (struct)">LifecycleConfiguration</a></span>) <span class='object_link'><a href="#SetRules-instance_method" title="s3.LifecycleConfiguration.SetRules() (method)">SetRules</a></span>(v []*<span class='object_link'><a href="LifecycleRule.html" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) *<span class='object_link'><a href="" title="s3.LifecycleConfiguration (struct)">LifecycleConfiguration</a></span> {
 	s.Rules = v
@@ -414,12 +423,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9220
-9221
-9222</pre>
+12969
+12970
+12971</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9220</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12969</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LifecycleConfiguration (struct)">LifecycleConfiguration</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.LifecycleConfiguration.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -456,30 +465,30 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9230
-9231
-9232
-9233
-9234
-9235
-9236
-9237
-9238
-9239
-9240
-9241
-9242
-9243
-9244
-9245
-9246
-9247
-9248
-9249
-9250</pre>
+12979
+12980
+12981
+12982
+12983
+12984
+12985
+12986
+12987
+12988
+12989
+12990
+12991
+12992
+12993
+12994
+12995
+12996
+12997
+12998
+12999</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9230</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12979</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleConfiguration (struct)">LifecycleConfiguration</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.LifecycleConfiguration.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.LifecycleConfiguration (struct)">LifecycleConfiguration</a></span>"</span>}
@@ -514,7 +523,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:55 2021 by
+  Generated on Mon May 10 21:14:56 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

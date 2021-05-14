@@ -212,7 +212,7 @@ requests for debugging. Will also enable LogDebug.</p>
           </dt>
           <dd>
             <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"1.6.1"</span></div></pre>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"1.7.0"</span></div></pre>
           </dd>
         
       </dl>
@@ -686,6 +686,31 @@ bool values.</p>
     <span class="summary_desc"><div class='inline'>
 <p>BoolValueSlice converts a slice of bool pointers into a slice of bool
 values.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#CopySeekableBody-class_method" title="aws.CopySeekableBody() (method)">func <strong>CopySeekableBody</strong>(dst io.Writer, src io.ReadSeeker) (int64, error) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>CopySeekableBody copies the seekable body to an io.Writer.</p>
 </div></span>
   
 </li>
@@ -3446,6 +3471,84 @@ values</p>
 		}
 	}
 	<span class="hljs-keyword">return</span> dst
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="CopySeekableBody-class_method">
+  
+    func <strong><span class='object_link'><a href="#CopySeekableBody-class_method" title="aws.CopySeekableBody() (method)">CopySeekableBody</a></span></strong>(dst io.Writer, src io.ReadSeeker) (int64, error) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>CopySeekableBody copies the seekable body to an io.Writer</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/types.go', line 243</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> CopySeekableBody(dst io.Writer, src io.ReadSeeker) (<span class="hljs-constant">int64</span>, <span class="hljs-constant">error</span>) {
+	curPos, err := src.Seek(0, sdkio.SeekCurrent)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> 0, err
+	}
+
+	<span class="hljs-comment">// copy errors may be assumed to be from the body.</span>
+	n, err := io.Copy(dst, src)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> n, err
+	}
+
+	<span class="hljs-comment">// seek back to the first position after reading to reset</span>
+	<span class="hljs-comment">// the body for transmission.</span>
+	_, err = src.Seek(curPos, sdkio.SeekStart)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> n, err
+	}
+
+	<span class="hljs-keyword">return</span> n, <span class="hljs-constant">nil</span>
 }</div></pre>
     </td>
   </tr>
@@ -8205,7 +8308,7 @@ values</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:24 2021 by
+  Generated on Mon May 10 21:14:17 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

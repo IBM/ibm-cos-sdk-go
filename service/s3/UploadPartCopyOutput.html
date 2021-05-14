@@ -113,7 +113,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Container for all response elements.</p>
+</div></span>
   
 </li>
 
@@ -217,7 +219,7 @@ algorithm used.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>If server-side encryption with a customer-provided encryption key was
-requested, the response will include this header to provide round trip
+requested, the response will include this header to provide round-trip
 message integrity verification of the customer-provided encryption key.</p>
 </div></span>
   
@@ -243,8 +245,9 @@ message integrity verification of the customer-provided encryption key.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-encryption key that was used for the object.</p>
+<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+symmetric customer managed customer master key (CMK) that was used for the
+object.</p>
 </div></span>
   
 </li>
@@ -269,8 +272,8 @@ encryption key that was used for the object.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Server-side encryption algorithm used when storing this object in S3
-(e.g., AES256, aws:kms).</p>
+<p>The server-side encryption algorithm used when storing this object in
+Amazon S3 (for example, AES256, aws:kms).</p>
 </div></span>
   
 </li>
@@ -552,7 +555,18 @@ encryption key that was used for the object.</p>
   <strong>CopyPartResult</strong> *<span class='object_link'><a href="#CopyPartResult-field" title="s3.UploadPartCopyOutput.CopyPartResult (field)">CopyPartResult</a></span> 
   <code>`type:"structure"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Container for all response elements.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -625,7 +639,7 @@ algorithm used.</p>
   <div class="discussion">
     
 <p>If server-side encryption with a customer-provided encryption key was
-requested, the response will include this header to provide round trip
+requested, the response will include this header to provide round-trip
 message integrity verification of the customer-provided encryption key.</p>
 
 
@@ -645,8 +659,9 @@ message integrity verification of the customer-provided encryption key.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-encryption key that was used for the object.</p>
+<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+symmetric customer managed customer master key (CMK) that was used for the
+object.</p>
 
 
   </div>
@@ -665,8 +680,8 @@ encryption key that was used for the object.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The Server-side encryption algorithm used when storing this object in S3
-(e.g., AES256, aws:kms).</p>
+<p>The server-side encryption algorithm used when storing this object in
+Amazon S3 (for example, AES256, aws:kms).</p>
 
 
   </div>
@@ -718,12 +733,12 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-13170
-13171
-13172</pre>
+18176
+18177
+18178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13170</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18176</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.UploadPartCopyOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -760,13 +775,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-13175
-13176
-13177
-13178</pre>
+18181
+18182
+18183
+18184</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13175</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18181</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetCopyPartResult-instance_method" title="s3.UploadPartCopyOutput.SetCopyPartResult() (method)">SetCopyPartResult</a></span>(v *<span class='object_link'><a href="#CopyPartResult-field" title="s3.UploadPartCopyOutput.CopyPartResult (field)">CopyPartResult</a></span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.CopyPartResult = v
@@ -804,13 +819,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-13181
-13182
-13183
-13184</pre>
+18187
+18188
+18189
+18190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13181</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18187</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetCopySourceVersionId-instance_method" title="s3.UploadPartCopyOutput.SetCopySourceVersionId() (method)">SetCopySourceVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.CopySourceVersionId = &v
@@ -848,13 +863,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-13187
-13188
-13189
-13190</pre>
+18193
+18194
+18195
+18196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13187</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18193</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.UploadPartCopyOutput.SetRequestCharged() (method)">SetRequestCharged</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.RequestCharged = &v
@@ -892,13 +907,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-13211
-13212
-13213
-13214</pre>
+18217
+18218
+18219
+18220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13211</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18217</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.UploadPartCopyOutput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.ServerSideEncryption = &v
@@ -936,13 +951,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-13193
-13194
-13195
-13196</pre>
+18199
+18200
+18201
+18202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13193</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18199</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.UploadPartCopyOutput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -980,13 +995,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-13199
-13200
-13201
-13202</pre>
+18205
+18206
+18207
+18208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13199</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18205</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.UploadPartCopyOutput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -1024,13 +1039,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-13205
-13206
-13207
-13208</pre>
+18211
+18212
+18213
+18214</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13205</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18211</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.UploadPartCopyOutput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -1068,12 +1083,12 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-13165
-13166
-13167</pre>
+18171
+18172
+18173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13165</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18171</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.UploadPartCopyOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1090,7 +1105,7 @@ encryption key that was used for the object.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:04 2021 by
+  Generated on Mon May 10 21:15:08 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

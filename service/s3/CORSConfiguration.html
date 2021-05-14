@@ -73,7 +73,22 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Describes the cross-origin access configuration for objects in an Amazon S3
+bucket. For more information, see Enabling Cross-Origin Resource Sharing
+(<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">docs.aws.amazon.com/AmazonS3/latest/dev/cors.html</a>)
+in the Amazon S3 User Guide.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -114,7 +129,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>CORSRules is a required field.</p>
+<p>A set of origins and methods (cross-origin access that you want to allow).</p>
 </div></span>
   
 </li>
@@ -274,6 +289,9 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
+<p>A set of origins and methods (cross-origin access that you want to allow).
+You can add up to 100 rules to the configuration.</p>
+
 <p>CORSRules is a required field</p>
 
 
@@ -326,12 +344,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4387
-4388
-4389</pre>
+6773
+6774
+6775</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4387</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6773</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CORSConfiguration (struct)">CORSConfiguration</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.CORSConfiguration.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -368,13 +386,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4415
-4416
-4417
-4418</pre>
+6801
+6802
+6803
+6804</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4415</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6801</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSConfiguration (struct)">CORSConfiguration</a></span>) <span class='object_link'><a href="#SetCORSRules-instance_method" title="s3.CORSConfiguration.SetCORSRules() (method)">SetCORSRules</a></span>(v []*<span class='object_link'><a href="CORSRule.html" title="s3.CORSRule (struct)">CORSRule</a></span>) *<span class='object_link'><a href="" title="s3.CORSConfiguration (struct)">CORSConfiguration</a></span> {
 	s.CORSRules = v
@@ -412,12 +430,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4382
-4383
-4384</pre>
+6768
+6769
+6770</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4382</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6768</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CORSConfiguration (struct)">CORSConfiguration</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.CORSConfiguration.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -454,30 +472,30 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-4392
-4393
-4394
-4395
-4396
-4397
-4398
-4399
-4400
-4401
-4402
-4403
-4404
-4405
-4406
-4407
-4408
-4409
-4410
-4411
-4412</pre>
+6778
+6779
+6780
+6781
+6782
+6783
+6784
+6785
+6786
+6787
+6788
+6789
+6790
+6791
+6792
+6793
+6794
+6795
+6796
+6797
+6798</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4392</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6778</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSConfiguration (struct)">CORSConfiguration</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.CORSConfiguration.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.CORSConfiguration (struct)">CORSConfiguration</a></span>"</span>}
@@ -512,7 +530,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:44 2021 by
+  Generated on Mon May 10 21:14:43 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

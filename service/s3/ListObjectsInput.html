@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The name of the bucket containing the objects.</p>
 </div></span>
   
 </li>
@@ -166,6 +166,31 @@ import "../ibm-cos-sdk-go/service/s3"
     <span class="summary_desc"><div class='inline'>
 <p>Requests Amazon S3 to encode the object keys in the response and specifies
 the encoding method to use.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.ListObjectsInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
 </div></span>
   
 </li>
@@ -410,6 +435,31 @@ list objects request.</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.ListObjectsInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *ListObjectsInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetMarker-instance_method" title="s3.ListObjectsInput.SetMarker() (method)"><strong>SetMarker</strong>(string)  *ListObjectsInput </a></span></span>
   
   
@@ -576,6 +626,26 @@ list objects request.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>The name of the bucket containing the objects.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
+
 <p>Bucket is a required field</p>
 
 
@@ -631,6 +701,27 @@ encode the keys in the response.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="Marker-field">
   <strong>Marker</strong> *string 
   <code>`location:"querystring" locationName:"marker" type:"string"`</code>
@@ -657,8 +748,9 @@ encode the keys in the response.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Sets the maximum number of keys returned in the response. The response
-might contain fewer keys but will never contain more.</p>
+<p>Sets the maximum number of keys returned in the response. By default the
+action returns up to 1,000 key names. The response might contain fewer keys
+but will never contain more.</p>
 
 
   </div>
@@ -750,12 +842,12 @@ their requests.</p>
       <pre class="lines">
 
 
-9968
-9969
-9970</pre>
+14093
+14094
+14095</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9968</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14093</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ListObjectsInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -792,13 +884,13 @@ their requests.</p>
       <pre class="lines">
 
 
-9989
-9990
-9991
-9992</pre>
+14114
+14115
+14116
+14117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9989</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14114</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.ListObjectsInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span> {
 	s.Bucket = &v
@@ -836,13 +928,13 @@ their requests.</p>
       <pre class="lines">
 
 
-10002
-10003
-10004
-10005</pre>
+14127
+14128
+14129
+14130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10002</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14127</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span>) <span class='object_link'><a href="#SetDelimiter-instance_method" title="s3.ListObjectsInput.SetDelimiter() (method)">SetDelimiter</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span> {
 	s.Delimiter = &v
@@ -880,16 +972,60 @@ their requests.</p>
       <pre class="lines">
 
 
-10008
-10009
-10010
-10011</pre>
+14133
+14134
+14135
+14136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10008</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14133</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span>) <span class='object_link'><a href="#SetEncodingType-instance_method" title="s3.ListObjectsInput.SetEncodingType() (method)">SetEncodingType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span> {
 	s.EncodingType = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.ListObjectsInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14139
+14140
+14141
+14142</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14139</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.ListObjectsInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -924,13 +1060,13 @@ their requests.</p>
       <pre class="lines">
 
 
-10014
-10015
-10016
-10017</pre>
+14145
+14146
+14147
+14148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10014</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14145</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span>) <span class='object_link'><a href="#SetMarker-instance_method" title="s3.ListObjectsInput.SetMarker() (method)">SetMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span> {
 	s.Marker = &v
@@ -968,13 +1104,13 @@ their requests.</p>
       <pre class="lines">
 
 
-10020
-10021
-10022
-10023</pre>
+14151
+14152
+14153
+14154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10020</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14151</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span>) <span class='object_link'><a href="#SetMaxKeys-instance_method" title="s3.ListObjectsInput.SetMaxKeys() (method)">SetMaxKeys</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span> {
 	s.MaxKeys = &v
@@ -1012,13 +1148,13 @@ their requests.</p>
       <pre class="lines">
 
 
-10026
-10027
-10028
-10029</pre>
+14157
+14158
+14159
+14160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10026</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14157</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span>) <span class='object_link'><a href="#SetPrefix-instance_method" title="s3.ListObjectsInput.SetPrefix() (method)">SetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span> {
 	s.Prefix = &v
@@ -1056,13 +1192,13 @@ their requests.</p>
       <pre class="lines">
 
 
-10032
-10033
-10034
-10035</pre>
+14163
+14164
+14165
+14166</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10032</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14163</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.ListObjectsInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span> {
 	s.RequestPayer = &v
@@ -1100,12 +1236,12 @@ their requests.</p>
       <pre class="lines">
 
 
-9963
-9964
-9965</pre>
+14088
+14089
+14090</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9963</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14088</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ListObjectsInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1142,23 +1278,23 @@ their requests.</p>
       <pre class="lines">
 
 
-9973
-9974
-9975
-9976
-9977
-9978
-9979
-9980
-9981
-9982
-9983
-9984
-9985
-9986</pre>
+14098
+14099
+14100
+14101
+14102
+14103
+14104
+14105
+14106
+14107
+14108
+14109
+14110
+14111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9973</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14098</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.ListObjectsInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.ListObjectsInput (struct)">ListObjectsInput</a></span>"</span>}
@@ -1186,7 +1322,7 @@ their requests.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:56 2021 by
+  Generated on Mon May 10 21:14:59 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

@@ -591,12 +591,20 @@ ignored.</p>
 212
 213
 214
-215</pre>
+215
+216
+217
+218
+219</pre>
     </td>
     <td>
       <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 193</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) DownloadWithContext(ctx aws.Context, w io.WriterAt, input *s3.GetObjectInput, options ...<span class="hljs-keyword">func</span>(*Downloader)) (n <span class="hljs-constant">int64</span>, err <span class="hljs-constant">error</span>) {
+	<span class="hljs-keyword">if</span> err := validateSupportedARNType(aws.StringValue(input.Bucket)); err != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> 0, err
+	}
+
 	impl := downloader{w: w, in: input, cfg: d, ctx: ctx}
 
 	<span class="hljs-keyword">for</span> _, option := <span class="hljs-keyword">range</span> options {
@@ -686,10 +694,6 @@ iter := &s3manager.DownloadObjectsIterator{Objects: objects}
       <pre class="lines">
 
 
-254
-255
-256
-257
 258
 259
 260
@@ -707,10 +711,14 @@ iter := &s3manager.DownloadObjectsIterator{Objects: objects}
 272
 273
 274
-275</pre>
+275
+276
+277
+278
+279</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 254</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 258</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) DownloadWithIterator(ctx aws.Context, iter BatchDownloadIterator, opts ...<span class="hljs-keyword">func</span>(*Downloader)) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">var</span> errs []Error
@@ -746,7 +754,7 @@ iter := &s3manager.DownloadObjectsIterator{Objects: objects}
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:29 2021 by
+  Generated on Mon May 10 21:15:37 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

@@ -126,7 +126,7 @@ Amazon S3 bucket.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Name of the host where requests will be redirected.</p>
+<p>Name of the host where requests are redirected.</p>
 </div></span>
   
 </li>
@@ -151,7 +151,7 @@ Amazon S3 bucket.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Protocol to use (http, https) when redirecting requests.</p>
+<p>Protocol to use when redirecting requests.</p>
 </div></span>
   
 </li>
@@ -336,7 +336,7 @@ Amazon S3 bucket.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Name of the host where requests will be redirected.</p>
+<p>Name of the host where requests are redirected.</p>
 
 <p>HostName is a required field</p>
 
@@ -357,8 +357,8 @@ Amazon S3 bucket.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Protocol to use (http, https) when redirecting requests. The default is the
-protocol that is used in the original request.</p>
+<p>Protocol to use when redirecting requests. The default is the protocol that
+is used in the original request.</p>
 
 
   </div>
@@ -410,12 +410,12 @@ protocol that is used in the original request.</p>
       <pre class="lines">
 
 
-12473
-12474
-12475</pre>
+17336
+17337
+17338</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12473</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17336</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.RedirectAllRequestsTo (struct)">RedirectAllRequestsTo</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.RedirectAllRequestsTo.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -452,13 +452,13 @@ protocol that is used in the original request.</p>
       <pre class="lines">
 
 
-12491
-12492
-12493
-12494</pre>
+17354
+17355
+17356
+17357</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12491</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17354</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RedirectAllRequestsTo (struct)">RedirectAllRequestsTo</a></span>) <span class='object_link'><a href="#SetHostName-instance_method" title="s3.RedirectAllRequestsTo.SetHostName() (method)">SetHostName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RedirectAllRequestsTo (struct)">RedirectAllRequestsTo</a></span> {
 	s.HostName = &v
@@ -496,13 +496,13 @@ protocol that is used in the original request.</p>
       <pre class="lines">
 
 
-12497
-12498
-12499
-12500</pre>
+17360
+17361
+17362
+17363</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12497</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17360</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RedirectAllRequestsTo (struct)">RedirectAllRequestsTo</a></span>) <span class='object_link'><a href="#SetProtocol-instance_method" title="s3.RedirectAllRequestsTo.SetProtocol() (method)">SetProtocol</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RedirectAllRequestsTo (struct)">RedirectAllRequestsTo</a></span> {
 	s.Protocol = &v
@@ -540,12 +540,12 @@ protocol that is used in the original request.</p>
       <pre class="lines">
 
 
-12468
-12469
-12470</pre>
+17331
+17332
+17333</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12468</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17331</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.RedirectAllRequestsTo (struct)">RedirectAllRequestsTo</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.RedirectAllRequestsTo.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -582,20 +582,20 @@ protocol that is used in the original request.</p>
       <pre class="lines">
 
 
-12478
-12479
-12480
-12481
-12482
-12483
-12484
-12485
-12486
-12487
-12488</pre>
+17341
+17342
+17343
+17344
+17345
+17346
+17347
+17348
+17349
+17350
+17351</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12478</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17341</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RedirectAllRequestsTo (struct)">RedirectAllRequestsTo</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.RedirectAllRequestsTo.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.RedirectAllRequestsTo (struct)">RedirectAllRequestsTo</a></span>"</span>}
@@ -620,7 +620,7 @@ protocol that is used in the original request.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:02 2021 by
+  Generated on Mon May 10 21:15:07 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

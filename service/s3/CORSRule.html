@@ -73,7 +73,18 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Specifies a cross-origin access rule for an Amazon S3 bucket.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -114,7 +125,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies which headers are allowed in a pre-flight OPTIONS request.</p>
+<p>Headers that are specified in the Access-Control-Request-Headers header.</p>
 </div></span>
   
 </li>
@@ -139,8 +150,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies HTTP methods that the domain/origin specified in the rule is
-allowed to execute.</p>
+<p>An HTTP method that you allow the origin to execute.</p>
 </div></span>
   
 </li>
@@ -479,7 +489,10 @@ for the specified resource.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies which headers are allowed in a pre-flight OPTIONS request.</p>
+<p>Headers that are specified in the Access-Control-Request-Headers header.
+These headers are allowed in a preflight OPTIONS request. In response to
+any preflight OPTIONS request, Amazon S3 returns any requested headers that
+are allowed.</p>
 
 
   </div>
@@ -498,8 +511,8 @@ for the specified resource.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies HTTP methods that the domain/origin specified in the rule is
-allowed to execute.</p>
+<p>An HTTP method that you allow the origin to execute. Valid values are GET,
+PUT, HEAD, POST, and DELETE.</p>
 
 <p>AllowedMethods is a required field</p>
 
@@ -616,12 +629,12 @@ for the specified resource.</p>
       <pre class="lines">
 
 
-4453
-4454
-4455</pre>
+6843
+6844
+6845</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4453</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6843</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.CORSRule.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -658,13 +671,13 @@ for the specified resource.</p>
       <pre class="lines">
 
 
-4474
-4475
-4476
-4477</pre>
+6864
+6865
+6866
+6867</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4474</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6864</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#SetAllowedHeaders-instance_method" title="s3.CORSRule.SetAllowedHeaders() (method)">SetAllowedHeaders</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> {
 	s.AllowedHeaders = v
@@ -702,13 +715,13 @@ for the specified resource.</p>
       <pre class="lines">
 
 
-4480
-4481
-4482
-4483</pre>
+6870
+6871
+6872
+6873</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4480</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6870</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#SetAllowedMethods-instance_method" title="s3.CORSRule.SetAllowedMethods() (method)">SetAllowedMethods</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> {
 	s.AllowedMethods = v
@@ -746,13 +759,13 @@ for the specified resource.</p>
       <pre class="lines">
 
 
-4486
-4487
-4488
-4489</pre>
+6876
+6877
+6878
+6879</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4486</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6876</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#SetAllowedOrigins-instance_method" title="s3.CORSRule.SetAllowedOrigins() (method)">SetAllowedOrigins</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> {
 	s.AllowedOrigins = v
@@ -790,13 +803,13 @@ for the specified resource.</p>
       <pre class="lines">
 
 
-4492
-4493
-4494
-4495</pre>
+6882
+6883
+6884
+6885</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4492</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6882</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#SetExposeHeaders-instance_method" title="s3.CORSRule.SetExposeHeaders() (method)">SetExposeHeaders</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> {
 	s.ExposeHeaders = v
@@ -834,13 +847,13 @@ for the specified resource.</p>
       <pre class="lines">
 
 
-4498
-4499
-4500
-4501</pre>
+6888
+6889
+6890
+6891</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4498</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6888</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#SetMaxAgeSeconds-instance_method" title="s3.CORSRule.SetMaxAgeSeconds() (method)">SetMaxAgeSeconds</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span> {
 	s.MaxAgeSeconds = &v
@@ -878,12 +891,12 @@ for the specified resource.</p>
       <pre class="lines">
 
 
-4448
-4449
-4450</pre>
+6838
+6839
+6840</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4448</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6838</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.CORSRule.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -920,23 +933,23 @@ for the specified resource.</p>
       <pre class="lines">
 
 
-4458
-4459
-4460
-4461
-4462
-4463
-4464
-4465
-4466
-4467
-4468
-4469
-4470
-4471</pre>
+6848
+6849
+6850
+6851
+6852
+6853
+6854
+6855
+6856
+6857
+6858
+6859
+6860
+6861</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 4458</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6848</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.CORSRule.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.CORSRule (struct)">CORSRule</a></span>"</span>}
@@ -964,7 +977,7 @@ for the specified resource.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:44 2021 by
+  Generated on Mon May 10 21:14:43 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

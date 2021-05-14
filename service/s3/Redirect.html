@@ -73,7 +73,19 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Specifies how requests are redirected. In the event of an error, you can
+specify a different error code to return.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -164,7 +176,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Protocol to use (http, https) when redirecting requests.</p>
+<p>Protocol to use when redirecting requests.</p>
 </div></span>
   
 </li>
@@ -488,8 +500,8 @@ siblings is present.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Protocol to use (http, https) when redirecting requests. The default is the
-protocol that is used in the original request.</p>
+<p>Protocol to use when redirecting requests. The default is the protocol that
+is used in the original request.</p>
 
 
   </div>
@@ -515,6 +527,11 @@ set to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents.
 Not required if one of the siblings is present. Can be present only if
 ReplaceKeyWith is not provided.</p>
 
+<p>Replacement must be made for object keys containing special characters
+(such as carriage returns) when using XML requests. For more information,
+see XML related object key constraints (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints</a>).</p>
+
 
   </div>
 </div>
@@ -533,8 +550,13 @@ ReplaceKeyWith is not provided.</p>
   <div class="discussion">
     
 <p>The specific object key to use in the redirect request. For example,
-redirect request to error.html. Not required if one of the sibling is
+redirect request to error.html. Not required if one of the siblings is
 present. Can be present only if ReplaceKeyPrefixWith is not provided.</p>
+
+<p>Replacement must be made for object keys containing special characters
+(such as carriage returns) when using XML requests. For more information,
+see XML related object key constraints (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints</a>).</p>
 
 
   </div>
@@ -586,12 +608,12 @@ present. Can be present only if ReplaceKeyPrefixWith is not provided.</p>
       <pre class="lines">
 
 
-12418
-12419
-12420</pre>
+17281
+17282
+17283</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12418</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17281</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Redirect (struct)">Redirect</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.Redirect.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -628,13 +650,13 @@ present. Can be present only if ReplaceKeyPrefixWith is not provided.</p>
       <pre class="lines">
 
 
-12423
-12424
-12425
-12426</pre>
+17286
+17287
+17288
+17289</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12423</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17286</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Redirect (struct)">Redirect</a></span>) <span class='object_link'><a href="#SetHostName-instance_method" title="s3.Redirect.SetHostName() (method)">SetHostName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Redirect (struct)">Redirect</a></span> {
 	s.HostName = &v
@@ -672,13 +694,13 @@ present. Can be present only if ReplaceKeyPrefixWith is not provided.</p>
       <pre class="lines">
 
 
-12429
-12430
-12431
-12432</pre>
+17292
+17293
+17294
+17295</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12429</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17292</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Redirect (struct)">Redirect</a></span>) <span class='object_link'><a href="#SetHttpRedirectCode-instance_method" title="s3.Redirect.SetHttpRedirectCode() (method)">SetHttpRedirectCode</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Redirect (struct)">Redirect</a></span> {
 	s.HttpRedirectCode = &v
@@ -716,13 +738,13 @@ present. Can be present only if ReplaceKeyPrefixWith is not provided.</p>
       <pre class="lines">
 
 
-12435
-12436
-12437
-12438</pre>
+17298
+17299
+17300
+17301</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12435</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17298</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Redirect (struct)">Redirect</a></span>) <span class='object_link'><a href="#SetProtocol-instance_method" title="s3.Redirect.SetProtocol() (method)">SetProtocol</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Redirect (struct)">Redirect</a></span> {
 	s.Protocol = &v
@@ -760,13 +782,13 @@ present. Can be present only if ReplaceKeyPrefixWith is not provided.</p>
       <pre class="lines">
 
 
-12441
-12442
-12443
-12444</pre>
+17304
+17305
+17306
+17307</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12441</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17304</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Redirect (struct)">Redirect</a></span>) <span class='object_link'><a href="#SetReplaceKeyPrefixWith-instance_method" title="s3.Redirect.SetReplaceKeyPrefixWith() (method)">SetReplaceKeyPrefixWith</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Redirect (struct)">Redirect</a></span> {
 	s.ReplaceKeyPrefixWith = &v
@@ -804,13 +826,13 @@ present. Can be present only if ReplaceKeyPrefixWith is not provided.</p>
       <pre class="lines">
 
 
-12447
-12448
-12449
-12450</pre>
+17310
+17311
+17312
+17313</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12447</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17310</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Redirect (struct)">Redirect</a></span>) <span class='object_link'><a href="#SetReplaceKeyWith-instance_method" title="s3.Redirect.SetReplaceKeyWith() (method)">SetReplaceKeyWith</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Redirect (struct)">Redirect</a></span> {
 	s.ReplaceKeyWith = &v
@@ -848,12 +870,12 @@ present. Can be present only if ReplaceKeyPrefixWith is not provided.</p>
       <pre class="lines">
 
 
-12413
-12414
-12415</pre>
+17276
+17277
+17278</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12413</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17276</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Redirect (struct)">Redirect</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.Redirect.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -870,7 +892,7 @@ present. Can be present only if ReplaceKeyPrefixWith is not provided.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:02 2021 by
+  Generated on Mon May 10 21:15:07 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

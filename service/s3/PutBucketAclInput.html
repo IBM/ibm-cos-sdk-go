@@ -138,7 +138,10 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Contains the elements that set the ACL permissions for an object per
+grantee.</p>
+</div></span>
   
 </li>
 
@@ -162,7 +165,32 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Bucket is a required field.</p>
+<p>The bucket to which to apply the ACL.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.PutBucketAclInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The account ID of the expected bucket owner.</p>
 </div></span>
   
 </li>
@@ -432,6 +460,31 @@ bucket.</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.PutBucketAclInput.SetExpectedBucketOwner() (method)"><strong>SetExpectedBucketOwner</strong>(string)  *PutBucketAclInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetGrantFullControl-instance_method" title="s3.PutBucketAclInput.SetGrantFullControl() (method)"><strong>SetGrantFullControl</strong>(string)  *PutBucketAclInput </a></span></span>
   
   
@@ -639,7 +692,19 @@ bucket.</p>
   <strong>AccessControlPolicy</strong> *<span class='object_link'><a href="#AccessControlPolicy-field" title="s3.PutBucketAclInput.AccessControlPolicy (field)">AccessControlPolicy</a></span> 
   <code>`locationName:"AccessControlPolicy" type:"structure" xmlURI:"http://s3.amazonaws.com/doc/2006-03-01/"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Contains the elements that set the ACL permissions for an object per
+grantee.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -650,7 +715,30 @@ bucket.</p>
 <div class="docstring">
   <div class="discussion">
     
+<p>The bucket to which to apply the ACL.</p>
+
 <p>Bucket is a required field</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ExpectedBucketOwner-field">
+  <strong>ExpectedBucketOwner</strong> *string 
+  <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The account ID of the expected bucket owner. If the bucket is owned by a
+different account, the request will fail with an HTTP 403 (Access Denied)
+error.</p>
 
 
   </div>
@@ -798,12 +886,12 @@ bucket.</p>
       <pre class="lines">
 
 
-11157
-11158
-11159</pre>
+15616
+15617
+15618</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11157</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15616</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.PutBucketAclInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -840,13 +928,13 @@ bucket.</p>
       <pre class="lines">
 
 
-11189
-11190
-11191
-11192</pre>
+15648
+15649
+15650
+15651</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11189</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15648</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>) <span class='object_link'><a href="#SetAccessControlPolicy-instance_method" title="s3.PutBucketAclInput.SetAccessControlPolicy() (method)">SetAccessControlPolicy</a></span>(v *<span class='object_link'><a href="#AccessControlPolicy-field" title="s3.PutBucketAclInput.AccessControlPolicy (field)">AccessControlPolicy</a></span>) *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span> {
 	s.AccessControlPolicy = v
@@ -884,13 +972,13 @@ bucket.</p>
       <pre class="lines">
 
 
-11183
-11184
-11185
-11186</pre>
+15642
+15643
+15644
+15645</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11183</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15642</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>) <span class='object_link'><a href="#SetACL-instance_method" title="s3.PutBucketAclInput.SetACL() (method)">SetACL</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span> {
 	s.ACL = &v
@@ -928,16 +1016,60 @@ bucket.</p>
       <pre class="lines">
 
 
-11195
-11196
-11197
-11198</pre>
+15654
+15655
+15656
+15657</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11195</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15654</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.PutBucketAclInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span> {
 	s.Bucket = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpectedBucketOwner-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>) <strong><span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.PutBucketAclInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpectedBucketOwner sets the ExpectedBucketOwner field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15667
+15668
+15669
+15670</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15667</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.PutBucketAclInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span> {
+	s.ExpectedBucketOwner = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -972,13 +1104,13 @@ bucket.</p>
       <pre class="lines">
 
 
-11208
-11209
-11210
-11211</pre>
+15673
+15674
+15675
+15676</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11208</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15673</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>) <span class='object_link'><a href="#SetGrantFullControl-instance_method" title="s3.PutBucketAclInput.SetGrantFullControl() (method)">SetGrantFullControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span> {
 	s.GrantFullControl = &v
@@ -1016,13 +1148,13 @@ bucket.</p>
       <pre class="lines">
 
 
-11214
-11215
-11216
-11217</pre>
+15679
+15680
+15681
+15682</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11214</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15679</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>) <span class='object_link'><a href="#SetGrantRead-instance_method" title="s3.PutBucketAclInput.SetGrantRead() (method)">SetGrantRead</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span> {
 	s.GrantRead = &v
@@ -1060,13 +1192,13 @@ bucket.</p>
       <pre class="lines">
 
 
-11220
-11221
-11222
-11223</pre>
+15685
+15686
+15687
+15688</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11220</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15685</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>) <span class='object_link'><a href="#SetGrantReadACP-instance_method" title="s3.PutBucketAclInput.SetGrantReadACP() (method)">SetGrantReadACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span> {
 	s.GrantReadACP = &v
@@ -1104,13 +1236,13 @@ bucket.</p>
       <pre class="lines">
 
 
-11226
-11227
-11228
-11229</pre>
+15691
+15692
+15693
+15694</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11226</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15691</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>) <span class='object_link'><a href="#SetGrantWrite-instance_method" title="s3.PutBucketAclInput.SetGrantWrite() (method)">SetGrantWrite</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span> {
 	s.GrantWrite = &v
@@ -1148,13 +1280,13 @@ bucket.</p>
       <pre class="lines">
 
 
-11232
-11233
-11234
-11235</pre>
+15697
+15698
+15699
+15700</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11232</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15697</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>) <span class='object_link'><a href="#SetGrantWriteACP-instance_method" title="s3.PutBucketAclInput.SetGrantWriteACP() (method)">SetGrantWriteACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span> {
 	s.GrantWriteACP = &v
@@ -1192,12 +1324,12 @@ bucket.</p>
       <pre class="lines">
 
 
-11152
-11153
-11154</pre>
+15611
+15612
+15613</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11152</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15611</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.PutBucketAclInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1234,28 +1366,28 @@ bucket.</p>
       <pre class="lines">
 
 
-11162
-11163
-11164
-11165
-11166
-11167
-11168
-11169
-11170
-11171
-11172
-11173
-11174
-11175
-11176
-11177
-11178
-11179
-11180</pre>
+15621
+15622
+15623
+15624
+15625
+15626
+15627
+15628
+15629
+15630
+15631
+15632
+15633
+15634
+15635
+15636
+15637
+15638
+15639</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11162</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15621</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.PutBucketAclInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.PutBucketAclInput (struct)">PutBucketAclInput</a></span>"</span>}
@@ -1288,7 +1420,7 @@ bucket.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:59 2021 by
+  Generated on Mon May 10 21:15:04 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

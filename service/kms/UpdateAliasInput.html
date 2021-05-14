@@ -139,7 +139,9 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies the CMK to associate with the alias.</p>
+<p>Identifies the customer managed CMK (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk</a>)
+to associate with the alias.</p>
 </div></span>
   
 </li>
@@ -347,8 +349,11 @@ use UpdateAlias to change the alias name.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies the CMK to associate with the alias. When the update operation
-completes, the alias will point to this CMK.</p>
+<p>Identifies the customer managed CMK (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk</a>)
+to associate with the alias. You don&#39;t have permission to associate an
+alias with an AWS managed CMK (<a
+href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk</a>).</p>
 
 <p>The CMK must be in the same AWS account and Region as the alias. Also, the
 new target CMK must be the same type as the current target CMK (both
@@ -420,12 +425,12 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-14080
-14081
-14082</pre>
+14815
+14816
+14817</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14080</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14815</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.UpdateAliasInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -462,13 +467,13 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-14107
-14108
-14109
-14110</pre>
+14842
+14843
+14844
+14845</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14107</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14842</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#SetAliasName-instance_method" title="kms.UpdateAliasInput.SetAliasName() (method)">SetAliasName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span> {
 	s.AliasName = &v
@@ -506,13 +511,13 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-14113
-14114
-14115
-14116</pre>
+14848
+14849
+14850
+14851</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14113</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14848</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#SetTargetKeyId-instance_method" title="kms.UpdateAliasInput.SetTargetKeyId() (method)">SetTargetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span> {
 	s.TargetKeyId = &v
@@ -550,12 +555,12 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-14075
-14076
-14077</pre>
+14810
+14811
+14812</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14075</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14810</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.UpdateAliasInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -592,29 +597,29 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       <pre class="lines">
 
 
-14085
-14086
-14087
-14088
-14089
-14090
-14091
-14092
-14093
-14094
-14095
-14096
-14097
-14098
-14099
-14100
-14101
-14102
-14103
-14104</pre>
+14820
+14821
+14822
+14823
+14824
+14825
+14826
+14827
+14828
+14829
+14830
+14831
+14832
+14833
+14834
+14835
+14836
+14837
+14838
+14839</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14085</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14820</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.UpdateAliasInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>"</span>}
@@ -648,7 +653,7 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:28 2021 by
+  Generated on Mon May 10 21:15:34 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

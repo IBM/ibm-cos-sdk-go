@@ -73,7 +73,18 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="../../aws/request/Validator.html" title="request.Validator (interface)">request.Validator</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -113,7 +124,10 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Specifies the expiration for the lifecycle of the object in the form of
+date, days and, whether the object has a delete marker.</p>
+</div></span>
   
 </li>
 
@@ -212,8 +226,8 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Currently only one Transition allowed, also Date and Days fields are
-mutually exclusive.</p>
+<p>Specifies when an Amazon S3 object transitions to a specified storage
+class.</p>
 </div></span>
   
 </li>
@@ -470,7 +484,19 @@ mutually exclusive.</p>
   <strong>Expiration</strong> *<span class='object_link'><a href="LifecycleExpiration.html" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span> 
   <code>`type:"structure"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Specifies the expiration for the lifecycle of the object in the form of
+date, days and, whether the object has a delete marker.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -482,7 +508,8 @@ mutually exclusive.</p>
   <div class="discussion">
     
 <p>The Filter is used to identify objects that a Lifecycle Rule applies to. A
-Filter must have exactly one of Prefix, Tag, or And specified.</p>
+Filter must have exactly one of Prefix, Tag, or And specified. Filter is
+required if the LifecycleRule does not containt a Prefix element.</p>
 
 <p>Filter is a required field</p>
 
@@ -545,8 +572,8 @@ characters.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Currently only one Transition allowed, also Date and Days fields are
-mutually exclusive.</p>
+<p>Specifies when an Amazon S3 object transitions to a specified storage
+class.</p>
 
 
   </div>
@@ -598,12 +625,12 @@ mutually exclusive.</p>
       <pre class="lines">
 
 
-9323
-9324
-9325</pre>
+13076
+13077
+13078</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9323</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13076</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.LifecycleRule.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -640,13 +667,13 @@ mutually exclusive.</p>
       <pre class="lines">
 
 
-9344
-9345
-9346
-9347</pre>
+13097
+13098
+13099
+13100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9344</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13097</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#SetExpiration-instance_method" title="s3.LifecycleRule.SetExpiration() (method)">SetExpiration</a></span>(v *<span class='object_link'><a href="LifecycleExpiration.html" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span>) *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span> {
 	s.Expiration = v
@@ -684,13 +711,13 @@ mutually exclusive.</p>
       <pre class="lines">
 
 
-9350
-9351
-9352
-9353</pre>
+13103
+13104
+13105
+13106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9350</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13103</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#SetFilter-instance_method" title="s3.LifecycleRule.SetFilter() (method)">SetFilter</a></span>(v *<span class='object_link'><a href="LifecycleRuleFilter.html" title="s3.LifecycleRuleFilter (struct)">LifecycleRuleFilter</a></span>) *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span> {
 	s.Filter = v
@@ -728,13 +755,13 @@ mutually exclusive.</p>
       <pre class="lines">
 
 
-9356
-9357
-9358
-9359</pre>
+13109
+13110
+13111
+13112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9356</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13109</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#SetID-instance_method" title="s3.LifecycleRule.SetID() (method)">SetID</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span> {
 	s.ID = &v
@@ -772,13 +799,13 @@ mutually exclusive.</p>
       <pre class="lines">
 
 
-9362
-9363
-9364
-9365</pre>
+13115
+13116
+13117
+13118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9362</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13115</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#SetStatus-instance_method" title="s3.LifecycleRule.SetStatus() (method)">SetStatus</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span> {
 	s.Status = &v
@@ -816,13 +843,13 @@ mutually exclusive.</p>
       <pre class="lines">
 
 
-9368
-9369
-9370
-9371</pre>
+13121
+13122
+13123
+13124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9368</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13121</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#SetTransitions-instance_method" title="s3.LifecycleRule.SetTransitions() (method)">SetTransitions</a></span>(v []*<span class='object_link'><a href="Transition.html" title="s3.Transition (struct)">Transition</a></span>) *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span> {
 	s.Transitions = v
@@ -860,12 +887,12 @@ mutually exclusive.</p>
       <pre class="lines">
 
 
-9318
-9319
-9320</pre>
+13071
+13072
+13073</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9318</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13071</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.LifecycleRule.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -902,23 +929,23 @@ mutually exclusive.</p>
       <pre class="lines">
 
 
-9328
-9329
-9330
-9331
-9332
-9333
-9334
-9335
-9336
-9337
-9338
-9339
-9340
-9341</pre>
+13081
+13082
+13083
+13084
+13085
+13086
+13087
+13088
+13089
+13090
+13091
+13092
+13093
+13094</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9328</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13081</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.LifecycleRule.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>"</span>}
@@ -946,7 +973,7 @@ mutually exclusive.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:55 2021 by
+  Generated on Mon May 10 21:14:56 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

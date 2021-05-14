@@ -291,8 +291,8 @@ ciphertext before it is reencrypted.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A unique identifier for the CMK that is used to decrypt the ciphertext
-before it reencrypts it using the destination CMK.</p>
+<p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt
+the ciphertext before it is re-encrypted.</p>
 </div></span>
   
 </li>
@@ -835,20 +835,19 @@ in the AWS Key Management Service Developer Guide.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>A unique identifier for the CMK that is used to decrypt the ciphertext
-before it reencrypts it using the destination CMK.</p>
+<p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt
+the ciphertext before it is re-encrypted. Enter a key ID of the CMK that
+was used to encrypt the ciphertext.</p>
 
 <p>This parameter is required only when the ciphertext was encrypted under an
-asymmetric CMK. Otherwise, AWS KMS uses the metadata that it adds to the
-ciphertext blob to determine which CMK was used to encrypt the ciphertext.
-However, you can use this parameter to ensure that a particular CMK (of any
-kind) is used to decrypt the ciphertext before it is reencrypted.</p>
-
-<p>If you specify a KeyId value, the decrypt part of the ReEncrypt operation
-succeeds only if the specified CMK was used to encrypt the ciphertext.</p>
+asymmetric CMK. If you used a symmetric CMK, AWS KMS can get the CMK from
+metadata that it adds to the symmetric ciphertext blob. However, it is
+always recommended as a best practice. This practice ensures that you use
+the CMK that you intend.</p>
 
 <p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name,
-or alias ARN. When using an alias name, prefix it with “alias/”.</p>
+or alias ARN. When using an alias name, prefix it with “alias/”. To specify
+a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -915,12 +914,12 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-13118
-13119
-13120</pre>
+13844
+13845
+13846</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13118</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13844</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.ReEncryptInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -957,13 +956,13 @@ get the alias name and alias ARN, use ListAliases.</p>
       <pre class="lines">
 
 
-13148
-13149
-13150
-13151</pre>
+13874
+13875
+13876
+13877</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13148</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13874</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetCiphertextBlob-instance_method" title="kms.ReEncryptInput.SetCiphertextBlob() (method)">SetCiphertextBlob</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.CiphertextBlob = v
@@ -1002,13 +1001,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13154
-13155
-13156
-13157</pre>
+13880
+13881
+13882
+13883</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13154</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13880</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetDestinationEncryptionAlgorithm-instance_method" title="kms.ReEncryptInput.SetDestinationEncryptionAlgorithm() (method)">SetDestinationEncryptionAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.DestinationEncryptionAlgorithm = &v
@@ -1047,13 +1046,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13160
-13161
-13162
-13163</pre>
+13886
+13887
+13888
+13889</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13160</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13886</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetDestinationEncryptionContext-instance_method" title="kms.ReEncryptInput.SetDestinationEncryptionContext() (method)">SetDestinationEncryptionContext</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.DestinationEncryptionContext = v
@@ -1091,13 +1090,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13166
-13167
-13168
-13169</pre>
+13892
+13893
+13894
+13895</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13166</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13892</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetDestinationKeyId-instance_method" title="kms.ReEncryptInput.SetDestinationKeyId() (method)">SetDestinationKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.DestinationKeyId = &v
@@ -1135,13 +1134,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-13172
-13173
-13174
-13175</pre>
+13898
+13899
+13900
+13901</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13172</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13898</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.ReEncryptInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.GrantTokens = v
@@ -1180,13 +1179,13 @@ value.</p>
       <pre class="lines">
 
 
-13178
-13179
-13180
-13181</pre>
+13904
+13905
+13906
+13907</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13178</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13904</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetSourceEncryptionAlgorithm-instance_method" title="kms.ReEncryptInput.SetSourceEncryptionAlgorithm() (method)">SetSourceEncryptionAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.SourceEncryptionAlgorithm = &v
@@ -1225,13 +1224,13 @@ value.</p>
       <pre class="lines">
 
 
-13184
-13185
-13186
-13187</pre>
+13910
+13911
+13912
+13913</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13184</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13910</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetSourceEncryptionContext-instance_method" title="kms.ReEncryptInput.SetSourceEncryptionContext() (method)">SetSourceEncryptionContext</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.SourceEncryptionContext = v
@@ -1269,13 +1268,13 @@ value.</p>
       <pre class="lines">
 
 
-13190
-13191
-13192
-13193</pre>
+13916
+13917
+13918
+13919</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13190</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13916</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetSourceKeyId-instance_method" title="kms.ReEncryptInput.SetSourceKeyId() (method)">SetSourceKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.SourceKeyId = &v
@@ -1313,12 +1312,12 @@ value.</p>
       <pre class="lines">
 
 
-13113
-13114
-13115</pre>
+13839
+13840
+13841</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13113</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13839</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.ReEncryptInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1355,32 +1354,32 @@ value.</p>
       <pre class="lines">
 
 
-13123
-13124
-13125
-13126
-13127
-13128
-13129
-13130
-13131
-13132
-13133
-13134
-13135
-13136
-13137
-13138
-13139
-13140
-13141
-13142
-13143
-13144
-13145</pre>
+13849
+13850
+13851
+13852
+13853
+13854
+13855
+13856
+13857
+13858
+13859
+13860
+13861
+13862
+13863
+13864
+13865
+13866
+13867
+13868
+13869
+13870
+13871</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13123</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13849</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.ReEncryptInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>"</span>}
@@ -1417,7 +1416,7 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:10:26 2021 by
+  Generated on Mon May 10 21:15:33 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

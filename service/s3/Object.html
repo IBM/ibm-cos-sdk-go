@@ -73,7 +73,18 @@
 <div class="package signature">
 import "../ibm-cos-sdk-go/service/s3"
 </div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>An object consists of data and its descriptive metadata.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h3 class="inherited">Implemented Interfaces</h3>
   <p class="inherited"><span class='object_link'><a href="s3crypto/Cipher.html" title="s3crypto.Cipher (interface)">s3crypto.Cipher</a></span>, <span class='object_link'><a href="s3manager/ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">s3manager.ReadSeekerWriteTo</a></span>, <span class='object_link'><a href="s3manager/WriterReadFrom.html" title="s3manager.WriterReadFrom (interface)">s3manager.WriterReadFrom</a></span></p>
@@ -113,7 +124,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The entity tag is a hash of the object.</p>
+</div></span>
   
 </li>
 
@@ -136,7 +149,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The name that you assign to an object.</p>
+</div></span>
   
 </li>
 
@@ -159,7 +174,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Creation date of the object.</p>
+</div></span>
   
 </li>
 
@@ -182,7 +199,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The owner of the object.</p>
+</div></span>
   
 </li>
 
@@ -205,7 +224,9 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Size in bytes of the object.</p>
+</div></span>
   
 </li>
 
@@ -486,7 +507,34 @@ import "../ibm-cos-sdk-go/service/s3"
   <strong>ETag</strong> *string 
   <code>`type:"string"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The entity tag is a hash of the object. The ETag reflects changes only to
+the contents of an object, not its metadata. The ETag may or may not be an
+MD5 digest of the object data. Whether or not it is depends on how the
+object was created and how it is encrypted as described below:</p>
+<ul><li>
+<p>Objects created by the PUT Object, POST Object, or Copy operation, or 
+through the AWS Management Console, and are encrypted by SSE-S3 or
+plaintext,  have ETags that are an MD5 digest of their object data.</p>
+</li><li>
+<p>Objects created by the PUT Object, POST Object, or Copy operation, or 
+through the AWS Management Console, and are encrypted by SSE-C or SSE-KMS, 
+have ETags that are not an MD5 digest of their object data.</p>
+</li><li>
+<p>If an object is created by either the Multipart Upload or Part Copy 
+operation, the ETag is not an MD5 digest, regardless of the method of 
+encryption.</p>
+</li></ul>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -494,7 +542,19 @@ import "../ibm-cos-sdk-go/service/s3"
   <strong>Key</strong> *string 
   <code>`min:"1" type:"string"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The name that you assign to an object. You use the object key to retrieve
+the object.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -502,7 +562,18 @@ import "../ibm-cos-sdk-go/service/s3"
   <strong>LastModified</strong> *time.Time 
   <code>`type:"timestamp"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Creation date of the object.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -510,7 +581,18 @@ import "../ibm-cos-sdk-go/service/s3"
   <strong>Owner</strong> *<span class='object_link'><a href="#Owner-field" title="s3.Object.Owner (field)">Owner</a></span> 
   <code>`type:"structure"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>The owner of the object</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -518,7 +600,18 @@ import "../ibm-cos-sdk-go/service/s3"
   <strong>Size</strong> *int64 
   <code>`type:"integer"`</code>
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Size in bytes of the object</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -581,12 +674,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10845
-10846
-10847</pre>
+15146
+15147
+15148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10845</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15146</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.Object.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -623,13 +716,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10850
-10851
-10852
-10853</pre>
+15151
+15152
+15153
+15154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10850</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15151</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#SetETag-instance_method" title="s3.Object.SetETag() (method)">SetETag</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span> {
 	s.ETag = &v
@@ -667,13 +760,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10856
-10857
-10858
-10859</pre>
+15157
+15158
+15159
+15160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10856</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15157</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.Object.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span> {
 	s.Key = &v
@@ -711,13 +804,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10862
-10863
-10864
-10865</pre>
+15163
+15164
+15165
+15166</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10862</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15163</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#SetLastModified-instance_method" title="s3.Object.SetLastModified() (method)">SetLastModified</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span> {
 	s.LastModified = &v
@@ -755,13 +848,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10868
-10869
-10870
-10871</pre>
+15169
+15170
+15171
+15172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10868</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15169</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#SetOwner-instance_method" title="s3.Object.SetOwner() (method)">SetOwner</a></span>(v *<span class='object_link'><a href="#Owner-field" title="s3.Object.Owner (field)">Owner</a></span>) *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span> {
 	s.Owner = v
@@ -799,13 +892,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10874
-10875
-10876
-10877</pre>
+15175
+15176
+15177
+15178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10874</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15175</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#SetSize-instance_method" title="s3.Object.SetSize() (method)">SetSize</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span> {
 	s.Size = &v
@@ -843,13 +936,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10880
-10881
-10882
-10883</pre>
+15181
+15182
+15183
+15184</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10880</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15181</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#SetStorageClass-instance_method" title="s3.Object.SetStorageClass() (method)">SetStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span> {
 	s.StorageClass = &v
@@ -887,12 +980,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10840
-10841
-10842</pre>
+15141
+15142
+15143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10840</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15141</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.Object.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -909,7 +1002,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:58 2021 by
+  Generated on Mon May 10 21:15:03 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

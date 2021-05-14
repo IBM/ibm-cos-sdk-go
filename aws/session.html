@@ -103,6 +103,53 @@ configuration logic</p>
             <pre class="code"><div class="hljs"><span class="hljs-string">"SharedConfigErr"</span></div></pre>
           </dd>
         
+          <dt id="ErrCodeLoadCustomCABundle-constant" class="">
+          <div class="defn">const <strong>ErrCodeLoadCustomCABundle</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>ErrCodeLoadCustomCABundle error code for unable to load custom CA bundle.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"LoadCustomCABundleError"</span></div></pre>
+          </dd>
+        
+          <dt id="ErrCodeLoadClientTLSCert-constant" class="">
+          <div class="defn">const <strong>ErrCodeLoadClientTLSCert</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>ErrCodeLoadClientTLSCert error code for unable to load client TLS
+certificate or key</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"LoadClientTLSCertError"</span></div></pre>
+          </dd>
+        
           <dt id="SharedConfigStateFromEnv-constant" class="">
           <div class="defn">const <strong>SharedConfigStateFromEnv</strong> SharedConfigState = 
           <span class="note title readonly">readonly</span>
@@ -206,7 +253,7 @@ source_profile and credential_source</p>
           </dt>
           <dd>
             <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class='object_link'><a href="awserr.html#New-class_method" title="awserr.New() (method)">awserr.New</a></span>(<span class='object_link'><a href="#ErrCodeSharedConfig-constant" title="aws/session.ErrCodeSharedConfig (constant)">ErrCodeSharedConfig</a></span>, <span class="hljs-string">"only source profile or credential source can be specified, not both"</span>, <span class="hljs-constant">nil</span>)</div></pre>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="awserr.html#New-class_method" title="awserr.New() (method)">awserr.New</a></span>(<span class='object_link'><a href="#ErrCodeSharedConfig-constant" title="aws/session.ErrCodeSharedConfig (constant)">ErrCodeSharedConfig</a></span>, <span class="hljs-string">"only one credential type may be specified per profile: source profile, credential source, credential process, web identity token, or sso"</span>, <span class="hljs-constant">nil</span>)</div></pre>
           </dd>
         
           <dt id="ErrSharedConfigECSContainerEnvVarEmpty-constant" class="">
@@ -594,17 +641,62 @@ the SDK will use instead of the default system&#39;s root CA bundle. Use
 this only if you want to replace the CA bundle the SDK uses for TLS
 requests.</p>
 
-<p>Enabling this option will attempt to merge the Transport into the SDK&#39;s
-HTTP client. If the client&#39;s Transport is not a http.Transport an error
-will be returned. If the Transport&#39;s TLS config is set this option will
-cause the SDK to overwrite the Transport&#39;s TLS config&#39;s RootCAs
-value. If the CA bundle reader contains multiple certificates all of them
-will be loaded.</p>
+<p>HTTP Client&#39;s Transport concrete implementation must be a
+http.Transport or creating the session will fail.</p>
 
-<p>The Session option CustomCABundle is also available when creating sessions
-to also enable this feature. CustomCABundle session option field has
-priority over the AWS_CA_BUNDLE environment variable, and will be used if
-both are set.</p>
+<p>If the Transport&#39;s TLS config is set this option will cause the SDK to
+overwrite the Transport&#39;s TLS config&#39;s RootCAs value. If the CA
+bundle reader contains multiple certificates all of them will be loaded.</p>
+
+<p>Can also be specified via the environment variable:</p>
+
+<p>AWS_CA_BUNDLE=$HOME/ca_bundle</p>
+
+<p>Can also be specified via the shared config field:</p>
+
+<p>ca_bundle = $HOME/ca_bundle</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>ClientTLSCert</strong> io.Reader 
+    
+    
+  </code></dt>
+  <dd>
+    
+<p>Reader for the TLC client certificate that should be used by the SDK&#39;s
+HTTP transport when making requests. The certificate must be paired with a
+TLS client key file. Will be ignored if both are not provided.</p>
+
+<p>HTTP Client&#39;s Transport concrete implementation must be a
+http.Transport or creating the session will fail.</p>
+
+<p>Can also be specified via the environment variable:</p>
+
+<p>AWS_SDK_GO_CLIENT_TLS_CERT=$HOME/my_client_cert</p>
+
+    
+  </dd>
+
+  <dt><code>
+    <strong>ClientTLSKey</strong> io.Reader 
+    
+    
+  </code></dt>
+  <dd>
+    
+<p>Reader for the TLC client key that should be used by the SDK&#39;s HTTP
+transport when making requests. The key must be paired with a TLS client
+certificate file. Will be ignored if both are not provided.</p>
+
+<p>HTTP Client&#39;s Transport concrete implementation must be a
+http.Transport or creating the session will fail.</p>
+
+<p>Can also be specified via the environment variable:</p>
+
+<p>AWS_SDK_GO_CLIENT_TLS_KEY=$HOME/my_client_key</p>
 
     
   </dd>
@@ -678,15 +770,15 @@ the config profile, and controlling if shared config is enabled or not.</p>
       <pre class="lines">
 
 
-144
-145
-146
-147
-148
-149</pre>
+99
+100
+101
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 144</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 99</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewSession(cfgs ...*aws.Config) (*Session, <span class="hljs-constant">error</span>) {
 	opts := Options{}
@@ -754,6 +846,22 @@ sess := session.Must(session.NewSessionWithOptions(session.Options{
       <pre class="lines">
 
 
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
 283
 284
 285
@@ -765,37 +873,10 @@ sess := session.Must(session.NewSessionWithOptions(session.Options{
 291
 292
 293
-294
-295
-296
-297
-298
-299
-300
-301
-302
-303
-304
-305
-306
-307
-308
-309
-310
-311
-312
-313
-314
-315
-316
-317
-318
-319
-320
-321</pre>
+294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 283</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 267</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewSessionWithOptions(opts Options) (*Session, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">var</span> envCfg envConfig
@@ -823,17 +904,6 @@ sess := session.Must(session.NewSessionWithOptions(session.Options{
 		envCfg.EnableSharedConfig = <span class="hljs-constant">true</span>
 	}
 
-	<span class="hljs-comment">// Only use AWS_CA_BUNDLE if session option is not provided.</span>
-	<span class="hljs-keyword">if</span> len(envCfg.CustomCABundle) != 0 && opts.CustomCABundle == <span class="hljs-constant">nil</span> {
-		f, err := os.Open(envCfg.CustomCABundle)
-		<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
-			<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>, awserr.New(<span class="hljs-string">"LoadCustomCABundleError"</span>,
-				<span class="hljs-string">"failed to open custom CA bundle PEM file"</span>, err)
-		}
-		<span class="hljs-keyword">defer</span> f.Close()
-		opts.CustomCABundle = f
-	}
-
 	<span class="hljs-keyword">return</span> newSession(opts, envCfg, &opts.Config)
 }</div></pre>
     </td>
@@ -848,7 +918,7 @@ sess := session.Must(session.NewSessionWithOptions(session.Options{
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:26 2021 by
+  Generated on Mon May 10 21:14:19 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>

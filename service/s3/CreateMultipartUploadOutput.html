@@ -114,8 +114,9 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Date when multipart upload will become eligible for abort operation by
-lifecycle.</p>
+<p>If the bucket has a lifecycle rule configured with an action to abort
+incomplete multipart uploads and the prefix in the lifecycle rule matches
+the object name in the request, the response includes this header.</p>
 </div></span>
   
 </li>
@@ -140,8 +141,7 @@ lifecycle.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Id of the lifecycle rule that makes a multipart upload eligible for abort
-operation.</p>
+<p>This header is returned along with the x-amz-abort-date header.</p>
 </div></span>
   
 </li>
@@ -166,7 +166,7 @@ operation.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Name of the bucket to which the multipart upload was initiated.</p>
+<p>The name of the bucket to which the multipart upload was initiated.</p>
 </div></span>
   
 </li>
@@ -270,7 +270,7 @@ algorithm used.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>If server-side encryption with a customer-provided encryption key was
-requested, the response will include this header to provide round trip
+requested, the response will include this header to provide round-trip
 message integrity verification of the customer-provided encryption key.</p>
 </div></span>
   
@@ -296,8 +296,9 @@ message integrity verification of the customer-provided encryption key.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-encryption key that was used for the object.</p>
+<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+symmetric customer managed customer master key (CMK) that was used for the
+object.</p>
 </div></span>
   
 </li>
@@ -322,8 +323,8 @@ encryption key that was used for the object.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Server-side encryption algorithm used when storing this object in S3
-(e.g., AES256, aws:kms).</p>
+<p>The server-side encryption algorithm used when storing this object in
+Amazon S3 (for example, AES256, aws:kms).</p>
 </div></span>
   
 </li>
@@ -708,8 +709,16 @@ encryption key that was used for the object.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Date when multipart upload will become eligible for abort operation by
-lifecycle.</p>
+<p>If the bucket has a lifecycle rule configured with an action to abort
+incomplete multipart uploads and the prefix in the lifecycle rule matches
+the object name in the request, the response includes this header. The
+header indicates when the initiated multipart upload becomes eligible for
+an abort operation. For more information, see Aborting Incomplete Multipart
+Uploads Using a Bucket Lifecycle Policy (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config</a>).</p>
+
+<p>The response also includes the x-amz-abort-rule-id header that provides the
+ID of the lifecycle configuration rule that defines this action.</p>
 
 
   </div>
@@ -728,8 +737,9 @@ lifecycle.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Id of the lifecycle rule that makes a multipart upload eligible for abort
-operation.</p>
+<p>This header is returned along with the x-amz-abort-date header. It
+identifies the applicable lifecycle configuration rule that defines the
+action to abort incomplete multipart uploads.</p>
 
 
   </div>
@@ -748,7 +758,25 @@ operation.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Name of the bucket to which the multipart upload was initiated.</p>
+<p>The name of the bucket to which the multipart upload was initiated.</p>
+
+<p>When using this action with an access point, you must direct requests to
+the access point hostname. The access point hostname takes the form
+AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
+this action with an access point through the AWS SDKs, you provide the
+access point ARN in place of the bucket name. For more information about
+access point ARNs, see Using Access Points (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
+in the Amazon S3 User Guide.</p>
+
+<p>When using this action with Amazon S3 on Outposts, you must direct requests
+to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
+using this action using S3 on Outposts through the AWS SDKs, you provide
+the Outposts bucket ARN in place of the bucket name. For more information
+about S3 on Outposts ARNs, see Using S3 on Outposts (<a
+href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
+in the Amazon S3 User Guide.</p>
 
 
   </div>
@@ -828,7 +856,7 @@ algorithm used.</p>
   <div class="discussion">
     
 <p>If server-side encryption with a customer-provided encryption key was
-requested, the response will include this header to provide round trip
+requested, the response will include this header to provide round-trip
 message integrity verification of the customer-provided encryption key.</p>
 
 
@@ -848,8 +876,9 @@ message integrity verification of the customer-provided encryption key.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-encryption key that was used for the object.</p>
+<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+symmetric customer managed customer master key (CMK) that was used for the
+object.</p>
 
 
   </div>
@@ -868,8 +897,8 @@ encryption key that was used for the object.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The Server-side encryption algorithm used when storing this object in S3
-(e.g., AES256, aws:kms).</p>
+<p>The server-side encryption algorithm used when storing this object in
+Amazon S3 (for example, AES256, aws:kms).</p>
 
 
   </div>
@@ -940,12 +969,12 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-5962
-5963
-5964</pre>
+8560
+8561
+8562</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5962</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8560</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.CreateMultipartUploadOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -982,13 +1011,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-5967
-5968
-5969
-5970</pre>
+8565
+8566
+8567
+8568</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5967</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8565</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetAbortDate-instance_method" title="s3.CreateMultipartUploadOutput.SetAbortDate() (method)">SetAbortDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.AbortDate = &v
@@ -1026,13 +1055,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-5973
-5974
-5975
-5976</pre>
+8571
+8572
+8573
+8574</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5973</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8571</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetAbortRuleId-instance_method" title="s3.CreateMultipartUploadOutput.SetAbortRuleId() (method)">SetAbortRuleId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.AbortRuleId = &v
@@ -1070,13 +1099,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-5979
-5980
-5981
-5982</pre>
+8577
+8578
+8579
+8580</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5979</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8577</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.CreateMultipartUploadOutput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.Bucket = &v
@@ -1114,13 +1143,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-5992
-5993
-5994
-5995</pre>
+8590
+8591
+8592
+8593</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5992</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8590</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.CreateMultipartUploadOutput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.Key = &v
@@ -1158,13 +1187,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-5998
-5999
-6000
-6001</pre>
+8596
+8597
+8598
+8599</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5998</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8596</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.CreateMultipartUploadOutput.SetRequestCharged() (method)">SetRequestCharged</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.RequestCharged = &v
@@ -1202,13 +1231,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-6022
-6023
-6024
-6025</pre>
+8620
+8621
+8622
+8623</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6022</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8620</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.CreateMultipartUploadOutput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.ServerSideEncryption = &v
@@ -1246,13 +1275,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-6004
-6005
-6006
-6007</pre>
+8602
+8603
+8604
+8605</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6004</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8602</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.CreateMultipartUploadOutput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -1290,13 +1319,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-6010
-6011
-6012
-6013</pre>
+8608
+8609
+8610
+8611</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6010</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8608</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.CreateMultipartUploadOutput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -1334,13 +1363,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-6016
-6017
-6018
-6019</pre>
+8614
+8615
+8616
+8617</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6016</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8614</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.CreateMultipartUploadOutput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -1378,13 +1407,13 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-6028
-6029
-6030
-6031</pre>
+8626
+8627
+8628
+8629</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 6028</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8626</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetUploadId-instance_method" title="s3.CreateMultipartUploadOutput.SetUploadId() (method)">SetUploadId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.UploadId = &v
@@ -1422,12 +1451,12 @@ encryption key that was used for the object.</p>
       <pre class="lines">
 
 
-5957
-5958
-5959</pre>
+8555
+8556
+8557</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 5957</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8555</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.CreateMultipartUploadOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1444,7 +1473,7 @@ encryption key that was used for the object.</p>
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 11 20:09:48 2021 by
+  Generated on Mon May 10 21:14:48 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>
