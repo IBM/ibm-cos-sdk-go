@@ -57,7 +57,6 @@ go build ./...
 
 ```sh
 export API_KEY="Apikey from Servcie Crednetials"
-
 export RESOURCE_INSTANCE_ID="Resource Instance Id from Bucket Service Credentials"
 ```
 ## Example code
