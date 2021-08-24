@@ -59,7 +59,7 @@ go build ./...
 export API_KEY="Apikey from Servcie Crednetials"
 
 export RESOURCE_INSTANCE_ID="Resource Instance Id from Bucket Service Credentials"
-
+```
 ## Example code
 
 Create a file `main.go`, replacing your own values for API key, instance ID, and bucket name:
