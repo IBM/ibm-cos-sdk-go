@@ -55,6 +55,11 @@ Use go build to add the SDK to your project's Go module dependencies.  The SDK r
 go build ./...
 ```
 
+```sh
+export API_KEY="Apikey from Servcie Crednetials"
+
+export RESOURCE_INSTANCE_ID="Resource Instance Id from Bucket Service Credentials"
+
 ## Example code
 
 Create a file `main.go`, replacing your own values for API key, instance ID, and bucket name:
@@ -64,6 +69,7 @@ package main
 
 import (
  "fmt"
+ "os"
 
  "github.com/IBM/ibm-cos-sdk-go/aws"
  "github.com/IBM/ibm-cos-sdk-go/aws/credentials/ibmiam"
@@ -71,9 +77,10 @@ import (
  "github.com/IBM/ibm-cos-sdk-go/service/s3"
 )
 
+
 const (
- apiKey            = "<API_KEY>"
- serviceInstanceID = "<RESOURCE_INSTANCE_ID>"
+ apiKey            = os.Getenv("API_KEY")
+ serviceInstanceID = os.Getnev("RESOURCE_INSTANCE_ID")
  authEndpoint      = "https://iam.cloud.ibm.com/identity/token"
  serviceEndpoint   = "https://s3-api.us-geo.objectstorage.softlayer.net"
 )
