@@ -160,6 +160,32 @@ rule.</p>
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ExpiredObjectDeleteMarker-field" title="s3.LifecycleExpiration.ExpiredObjectDeleteMarker (field)"><strong>ExpiredObjectDeleteMarker</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Indicates whether Amazon S3 will remove a delete marker with no noncurrent
+versions.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#_-field" title="s3.LifecycleExpiration._ (field)"><strong>_</strong> struct{}</a></span></span>
   
   
@@ -270,6 +296,32 @@ rule.</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetExpiredObjectDeleteMarker-instance_method" title="s3.LifecycleExpiration.SetExpiredObjectDeleteMarker() (method)"><strong>SetExpiredObjectDeleteMarker</strong>(bool)  *LifecycleExpiration </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetExpiredObjectDeleteMarker sets the ExpiredObjectDeleteMarker field&#39;s
+value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#String-instance_method" title="s3.LifecycleExpiration.String() (method)"><strong>String</strong>()  string </a></span></span>
   
   
@@ -344,6 +396,28 @@ rule. The value must be a non-zero positive integer.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="ExpiredObjectDeleteMarker-field">
+  <strong>ExpiredObjectDeleteMarker</strong> *bool 
+  <code>`type:"boolean"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Indicates whether Amazon S3 will remove a delete marker with no noncurrent
+versions. If set to true, the delete marker will be expired; if set to
+false the policy takes no action. This cannot be specified with Days or
+Date in a Lifecycle Expiration Policy.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="_-field">
   <strong>_</strong> struct{} 
   <code>`type:"structure"`</code>
@@ -384,12 +458,12 @@ rule. The value must be a non-zero positive integer.</p>
       <pre class="lines">
 
 
-13026
-13027
-13028</pre>
+13061
+13062
+13063</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13026</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13061</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.LifecycleExpiration.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -426,13 +500,13 @@ rule. The value must be a non-zero positive integer.</p>
       <pre class="lines">
 
 
-13031
-13032
-13033
-13034</pre>
+13066
+13067
+13068
+13069</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13031</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13066</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span>) <span class='object_link'><a href="#SetDate-instance_method" title="s3.LifecycleExpiration.SetDate() (method)">SetDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span> {
 	s.Date = &v
@@ -470,16 +544,61 @@ rule. The value must be a non-zero positive integer.</p>
       <pre class="lines">
 
 
-13037
-13038
-13039
-13040</pre>
+13072
+13073
+13074
+13075</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13037</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13072</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span>) <span class='object_link'><a href="#SetDays-instance_method" title="s3.LifecycleExpiration.SetDays() (method)">SetDays</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span> {
 	s.Days = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetExpiredObjectDeleteMarker-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span>) <strong><span class='object_link'><a href="#SetExpiredObjectDeleteMarker-instance_method" title="s3.LifecycleExpiration.SetExpiredObjectDeleteMarker() (method)">SetExpiredObjectDeleteMarker</a></span></strong>(v bool) *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetExpiredObjectDeleteMarker sets the ExpiredObjectDeleteMarker field&#39;s
+value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13078
+13079
+13080
+13081</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13078</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span>) <span class='object_link'><a href="#SetExpiredObjectDeleteMarker-instance_method" title="s3.LifecycleExpiration.SetExpiredObjectDeleteMarker() (method)">SetExpiredObjectDeleteMarker</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span> {
+	s.ExpiredObjectDeleteMarker = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -514,12 +633,12 @@ rule. The value must be a non-zero positive integer.</p>
       <pre class="lines">
 
 
-13021
-13022
-13023</pre>
+13056
+13057
+13058</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13021</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13056</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.LifecycleExpiration.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -536,7 +655,7 @@ rule. The value must be a non-zero positive integer.</p>
       </div>
 
       <div id="footer">
-  Generated on Mon May 10 21:14:56 2021 by
+  Generated on Wed Nov  3 20:12:15 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.3.1).
 </div>
