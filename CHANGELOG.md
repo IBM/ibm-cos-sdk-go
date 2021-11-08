@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 1.8.0
+
+### Content
+
+#### Features
+
+* Versioning Support with Object Expiration
+* Abort Multipart Upload Expiration Support
+
+#### Defect Fixes
+
+* Support for Golang 1.17
+
 ## 1.7.0
 
 ### Content
