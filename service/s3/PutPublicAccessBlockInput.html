@@ -114,8 +114,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The name of the Amazon S3 bucket whose PublicAccessBlock configuration you
-want to set.</p>
+<p>The name of the Amazon S3 bucket whose PublicAccessBlock configuration you want to set.</p>
 </div></span>
   
 </li>
@@ -140,7 +139,7 @@ want to set.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The account ID of the expected bucket owner.</p>
+<p>Ignored by COS.</p>
 </div></span>
   
 </li>
@@ -165,8 +164,7 @@ want to set.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The PublicAccessBlock configuration that you want to apply to this Amazon
-S3 bucket.</p>
+<p>The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket.</p>
 </div></span>
   
 </li>
@@ -301,8 +299,7 @@ S3 bucket.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SetPublicAccessBlockConfiguration sets the PublicAccessBlockConfiguration
-field&#39;s value.</p>
+<p>SetPublicAccessBlockConfiguration sets the PublicAccessBlockConfiguration field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -377,8 +374,7 @@ field&#39;s value.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The name of the Amazon S3 bucket whose PublicAccessBlock configuration you
-want to set.</p>
+<p>The name of the Amazon S3 bucket whose PublicAccessBlock configuration you want to set.</p>
 
 <p>Bucket is a required field</p>
 
@@ -399,9 +395,7 @@ want to set.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The account ID of the expected bucket owner. If the bucket is owned by a
-different account, the request will fail with an HTTP 403 (Access Denied)
-error.</p>
+<p>Ignored by COS</p>
 
 
   </div>
@@ -420,12 +414,7 @@ error.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The PublicAccessBlock configuration that you want to apply to this Amazon
-S3 bucket. You can enable the configuration options in any combination. For
-more information about when Amazon S3 considers a bucket or object public,
-see The Meaning of “Public” (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status</a>)
-in the Amazon S3 User Guide.</p>
+<p>The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see The Meaning of “Public” (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status</a>) in the Amazon S3 User Guide.</p>
 
 <p>PublicAccessBlockConfiguration is a required field</p>
 
@@ -479,12 +468,12 @@ in the Amazon S3 User Guide.</p>
       <pre class="lines">
 
 
-17274
-17275
-17276</pre>
+17766
+17767
+17768</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17274</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17766</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutPublicAccessBlockInput (struct)">PutPublicAccessBlockInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.PutPublicAccessBlockInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -521,13 +510,13 @@ in the Amazon S3 User Guide.</p>
       <pre class="lines">
 
 
-17298
-17299
-17300
-17301</pre>
+17790
+17791
+17792
+17793</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17298</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17790</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutPublicAccessBlockInput (struct)">PutPublicAccessBlockInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.PutPublicAccessBlockInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutPublicAccessBlockInput (struct)">PutPublicAccessBlockInput</a></span> {
 	s.Bucket = &v
@@ -565,13 +554,13 @@ in the Amazon S3 User Guide.</p>
       <pre class="lines">
 
 
-17311
-17312
-17313
-17314</pre>
+17803
+17804
+17805
+17806</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17311</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17803</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutPublicAccessBlockInput (struct)">PutPublicAccessBlockInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.PutPublicAccessBlockInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutPublicAccessBlockInput (struct)">PutPublicAccessBlockInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -595,8 +584,7 @@ in the Amazon S3 User Guide.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SetPublicAccessBlockConfiguration sets the PublicAccessBlockConfiguration
-field&#39;s value.</p>
+<p>SetPublicAccessBlockConfiguration sets the PublicAccessBlockConfiguration field&#39;s value.</p>
 
 
   </div>
@@ -610,13 +598,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-17317
-17318
-17319
-17320</pre>
+17809
+17810
+17811
+17812</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17317</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17809</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutPublicAccessBlockInput (struct)">PutPublicAccessBlockInput</a></span>) <span class='object_link'><a href="#SetPublicAccessBlockConfiguration-instance_method" title="s3.PutPublicAccessBlockInput.SetPublicAccessBlockConfiguration() (method)">SetPublicAccessBlockConfiguration</a></span>(v *<span class='object_link'><a href="#PublicAccessBlockConfiguration-field" title="s3.PutPublicAccessBlockInput.PublicAccessBlockConfiguration (field)">PublicAccessBlockConfiguration</a></span>) *<span class='object_link'><a href="" title="s3.PutPublicAccessBlockInput (struct)">PutPublicAccessBlockInput</a></span> {
 	s.PublicAccessBlockConfiguration = v
@@ -654,12 +642,12 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-17269
-17270
-17271</pre>
+17761
+17762
+17763</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17269</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17761</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutPublicAccessBlockInput (struct)">PutPublicAccessBlockInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.PutPublicAccessBlockInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -696,26 +684,26 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-17279
-17280
-17281
-17282
-17283
-17284
-17285
-17286
-17287
-17288
-17289
-17290
-17291
-17292
-17293
-17294
-17295</pre>
+17771
+17772
+17773
+17774
+17775
+17776
+17777
+17778
+17779
+17780
+17781
+17782
+17783
+17784
+17785
+17786
+17787</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17279</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17771</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutPublicAccessBlockInput (struct)">PutPublicAccessBlockInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.PutPublicAccessBlockInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.PutPublicAccessBlockInput (struct)">PutPublicAccessBlockInput</a></span>"</span>}
@@ -746,9 +734,9 @@ field&#39;s value.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:24 2021 by
+  Generated on Thu Jun  9 14:08:01 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

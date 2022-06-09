@@ -78,96 +78,53 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>Upload Managers</p>
 
-<p>The s3manager package&#39;s Uploader provides concurrent upload of content
-to S3 by taking advantage of S3&#39;s Multipart APIs. The Uploader also
-supports both io.Reader for streaming uploads, and will also take advantage
-of io.ReadSeeker for optimizations if the Body satisfies that type. Once
-the Uploader instance is created you can call Upload concurrently from
-multiple goroutines safely.</p>
+<p>The s3manager package&#39;s Uploader provides concurrent upload of content to S3 by taking advantage of S3&#39;s Multipart APIs. The Uploader also supports both io.Reader for streaming uploads, and will also take advantage of io.ReadSeeker for optimizations if the Body satisfies that type. Once the Uploader instance is created you can call Upload concurrently from multiple goroutines safely.</p>
 
-<p>// The session the S3 Uploader will use  sess :=
-session.Must(session.NewSession())</p>
+<p>// The session the S3 Uploader will use  sess := session.Must(session.NewSession())</p>
 
-<p>// Create an uploader with the session and default options  uploader :=
-s3manager.NewUploader(sess)</p>
+<p>// Create an uploader with the session and default options  uploader := s3manager.NewUploader(sess)</p>
 
-<p>f, err := os.Open(filename)  if err != nil {  return fmt.Errorf(“failed to
-open file %q, %v”, filename, err)  }</p>
+<p>f, err := os.Open(filename)  if err != nil {  return fmt.Errorf(“failed to open file %q, %v”, filename, err)  }</p>
 
-<p>// Upload the file to S3.  result, err :=
-uploader.Upload(&amp;s3manager.UploadInput{  Bucket: aws.String(myBucket), 
-Key: aws.String(myString),  Body: f,  })  if err != nil {  return
-fmt.Errorf(“failed to upload file, %v”, err)  }  fmt.Printf(“file uploaded
-to, %sn”, aws.StringValue(result.Location))</p>
+<p>// Upload the file to S3.  result, err := uploader.Upload(&amp;s3manager.UploadInput{  Bucket: aws.String(myBucket),  Key: aws.String(myString),  Body: f,  })  if err != nil {  return fmt.Errorf(“failed to upload file, %v”, err)  }  fmt.Printf(“file uploaded to, %sn”, aws.StringValue(result.Location))</p>
 
-<p>See the s3manager package&#39;s Uploader type documentation for more
-information. <a
-href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader</a></p>
+<p>See the s3manager package&#39;s Uploader type documentation for more information. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader</a></p>
 
 <p>Download Manager</p>
 
-<p>The s3manager package&#39;s Downloader provides concurrently downloading of
-Objects from S3. The Downloader will write S3 Object content with an
-io.WriterAt. Once the Downloader instance is created you can call Download
-concurrently from multiple goroutines safely.</p>
+<p>The s3manager package&#39;s Downloader provides concurrently downloading of Objects from S3. The Downloader will write S3 Object content with an io.WriterAt. Once the Downloader instance is created you can call Download concurrently from multiple goroutines safely.</p>
 
-<p>// The session the S3 Downloader will use  sess :=
-session.Must(session.NewSession())</p>
+<p>// The session the S3 Downloader will use  sess := session.Must(session.NewSession())</p>
 
-<p>// Create a downloader with the session and default options  downloader :=
-s3manager.NewDownloader(sess)</p>
+<p>// Create a downloader with the session and default options  downloader := s3manager.NewDownloader(sess)</p>
 
-<p>// Create a file to write the S3 Object contents to.  f, err :=
-os.Create(filename)  if err != nil {  return fmt.Errorf(“failed to create
-file %q, %v”, filename, err)  }</p>
+<p>// Create a file to write the S3 Object contents to.  f, err := os.Create(filename)  if err != nil {  return fmt.Errorf(“failed to create file %q, %v”, filename, err)  }</p>
 
-<p>// Write the contents of S3 Object to the file  n, err :=
-downloader.Download(f, &amp;s3.GetObjectInput{  Bucket:
-aws.String(myBucket),  Key: aws.String(myString),  })  if err != nil { 
-return fmt.Errorf(“failed to download file, %v”, err)  }  fmt.Printf(“file
-downloaded, %d bytesn”, n)</p>
+<p>// Write the contents of S3 Object to the file  n, err := downloader.Download(f, &amp;s3.GetObjectInput{  Bucket: aws.String(myBucket),  Key: aws.String(myString),  })  if err != nil {  return fmt.Errorf(“failed to download file, %v”, err)  }  fmt.Printf(“file downloaded, %d bytesn”, n)</p>
 
-<p>See the s3manager package&#39;s Downloader type documentation for more
-information. <a
-href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader</a></p>
+<p>See the s3manager package&#39;s Downloader type documentation for more information. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader</a></p>
 
 <p>Automatic URI cleaning</p>
 
-<p>Interacting with objects whose keys contain adjacent slashes (e.g.
-bucketname/foo//bar/objectname) requires setting
-DisableRestProtocolURICleaning to true in the aws.Config struct used by the
-service client.</p>
+<p>Interacting with objects whose keys contain adjacent slashes (e.g. bucketname/foo//bar/objectname) requires setting DisableRestProtocolURICleaning to true in the aws.Config struct used by the service client.</p>
 
-<p>svc := s3.New(sess, &amp;aws.Config{  DisableRestProtocolURICleaning:
-aws.Bool(true),  })  out, err := svc.GetObject(&amp;s3.GetObjectInput { 
-Bucket: aws.String(“bucketname”),  Key: aws.String(“//foo//bar//moo”),  })</p>
+<p>svc := s3.New(sess, &amp;aws.Config{  DisableRestProtocolURICleaning: aws.Bool(true),  })  out, err := svc.GetObject(&amp;s3.GetObjectInput {  Bucket: aws.String(“bucketname”),  Key: aws.String(“//foo//bar//moo”),  })</p>
 
 <p>Get Bucket Region</p>
 
-<p>GetBucketRegion will attempt to get the region for a bucket using a region
-hint to determine which AWS partition to perform the query on. Use this
-utility to determine the region a bucket is in.</p>
+<p>GetBucketRegion will attempt to get the region for a bucket using a region hint to determine which AWS partition to perform the query on. Use this utility to determine the region a bucket is in.</p>
 
 <p>sess := session.Must(session.NewSession())</p>
 
-<p>bucket := “my-bucket”  region, err := s3manager.GetBucketRegion(ctx, sess,
-bucket, “us-west-2”)  if err != nil {  if aerr, ok := err.(awserr.Error);
-ok &amp;&amp; aerr.Code() == “NotFound” {  fmt.Fprintf(os.Stderr, “unable
-to find bucket %s&#39;s region not foundn”, bucket)  }  return err  } 
-fmt.Printf(“Bucket %s is in %s regionn”, bucket, region)</p>
+<p>bucket := “my-bucket”  region, err := s3manager.GetBucketRegion(ctx, sess, bucket, “us-west-2”)  if err != nil {  if aerr, ok := err.(awserr.Error); ok &amp;&amp; aerr.Code() == “NotFound” {  fmt.Fprintf(os.Stderr, “unable to find bucket %s&#39;s region not foundn”, bucket)  }  return err  }  fmt.Printf(“Bucket %s is in %s regionn”, bucket, region)</p>
 
-<p>See the s3manager package&#39;s GetBucketRegion function documentation for
-more information <a
-href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion</a></p>
+<p>See the s3manager package&#39;s GetBucketRegion function documentation for more information <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion</a></p>
 
 <p>S3 Crypto Client</p>
 
-<p>The s3crypto package provides the tools to upload and download encrypted
-content from S3. The Encryption and Decryption clients can be used
-concurrently once the client is created.</p>
+<p>The s3crypto package provides the tools to upload and download encrypted content from S3. The Encryption and Decryption clients can be used concurrently once the client is created.</p>
 
-<p>See the s3crypto package documentation for more information. <a
-href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto</a>/</p>
+<p>See the s3crypto package documentation for more information. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto</a>/</p>
 
 
   </div>
@@ -199,8 +156,7 @@ href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto">docs.aws.a
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WaitUntilBucketExists uses the Amazon S3 API operation HeadBucket to wait
-for a condition to be met before returning.</p>
+<p>WaitUntilBucketExists uses the Amazon S3 API operation HeadBucket to wait for a condition to be met before returning.</p>
 </div></span>
   
 </li>
@@ -428,8 +384,7 @@ for a condition to be met before returning.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>BucketLocationConstraintApSoutheast1 is a BucketLocationConstraint enum
-value</p>
+<p>BucketLocationConstraintApSoutheast1 is a BucketLocationConstraint enum value</p>
 
 
   </div>
@@ -452,8 +407,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>BucketLocationConstraintApSoutheast2 is a BucketLocationConstraint enum
-value</p>
+<p>BucketLocationConstraintApSoutheast2 is a BucketLocationConstraint enum value</p>
 
 
   </div>
@@ -476,8 +430,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>BucketLocationConstraintApNortheast1 is a BucketLocationConstraint enum
-value</p>
+<p>BucketLocationConstraintApNortheast1 is a BucketLocationConstraint enum value</p>
 
 
   </div>
@@ -697,6 +650,52 @@ value</p>
           <dd>
             <h3>Value:</h3>
             <pre class="code"><div class="hljs"><span class="hljs-string">"Suspended"</span></div></pre>
+          </dd>
+        
+          <dt id="DeleteMarkerReplicationStatusEnabled-constant" class="">
+          <div class="defn">const <strong>DeleteMarkerReplicationStatusEnabled</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>DeleteMarkerReplicationStatusEnabled is a DeleteMarkerReplicationStatus enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Enabled"</span></div></pre>
+          </dd>
+        
+          <dt id="DeleteMarkerReplicationStatusDisabled-constant" class="">
+          <div class="defn">const <strong>DeleteMarkerReplicationStatusDisabled</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>DeleteMarkerReplicationStatusDisabled is a DeleteMarkerReplicationStatus enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Disabled"</span></div></pre>
           </dd>
         
           <dt id="EncodingTypeUrl-constant" class="">
@@ -1435,6 +1434,52 @@ value</p>
             <pre class="code"><div class="hljs"><span class="hljs-string">"https"</span></div></pre>
           </dd>
         
+          <dt id="ReplicationRuleStatusEnabled-constant" class="">
+          <div class="defn">const <strong>ReplicationRuleStatusEnabled</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>ReplicationRuleStatusEnabled is a ReplicationRuleStatus enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Enabled"</span></div></pre>
+          </dd>
+        
+          <dt id="ReplicationRuleStatusDisabled-constant" class="">
+          <div class="defn">const <strong>ReplicationRuleStatusDisabled</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>ReplicationRuleStatusDisabled is a ReplicationRuleStatus enum value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"Disabled"</span></div></pre>
+          </dd>
+        
           <dt id="ReplicationStatusComplete-constant" class="">
           <div class="defn">const <strong>ReplicationStatusComplete</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -2087,8 +2132,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>TransitionStorageClassIntelligentTiering is a TransitionStorageClass enum
-value</p>
+<p>TransitionStorageClassIntelligentTiering is a TransitionStorageClass enum value</p>
 
 
   </div>
@@ -2203,11 +2247,9 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeBucketAlreadyExists for service response error code
-“BucketAlreadyExists”.</p>
+<p>ErrCodeBucketAlreadyExists for service response error code “BucketAlreadyExists”.</p>
 
-<p>The requested bucket name is not available. The bucket namespace is shared
-by all users of the system. Select a different name and try again.</p>
+<p>The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.</p>
 
 
   </div>
@@ -2230,14 +2272,9 @@ by all users of the system. Select a different name and try again.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeBucketAlreadyOwnedByYou for service response error code
-“BucketAlreadyOwnedByYou”.</p>
+<p>ErrCodeBucketAlreadyOwnedByYou for service response error code “BucketAlreadyOwnedByYou”.</p>
 
-<p>The bucket you tried to create already exists, and you own it. Amazon S3
-returns this error in all AWS Regions except in the North Virginia Region.
-For legacy compatibility, if you re-create an existing bucket that you
-already own in the North Virginia Region, Amazon S3 returns 200 OK and
-resets the bucket access control lists (ACLs).</p>
+<p>The bucket you tried to create already exists, and you own it. Amazon S3 returns this error in all AWS Regions except in the North Virginia Region. For legacy compatibility, if you re-create an existing bucket that you already own in the North Virginia Region, Amazon S3 returns 200 OK and resets the bucket access control lists (ACLs).</p>
 
 
   </div>
@@ -2260,8 +2297,7 @@ resets the bucket access control lists (ACLs).</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeInvalidObjectState for service response error code
-“InvalidObjectState”.</p>
+<p>ErrCodeInvalidObjectState for service response error code “InvalidObjectState”.</p>
 
 <p>Object is archived and inaccessible until restored.</p>
 
@@ -2361,8 +2397,7 @@ resets the bucket access control lists (ACLs).</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeObjectAlreadyInActiveTierError for service response error code
-“ObjectAlreadyInActiveTierError”.</p>
+<p>ErrCodeObjectAlreadyInActiveTierError for service response error code “ObjectAlreadyInActiveTierError”.</p>
 
 <p>This action is not allowed against this storage tier.</p>
 
@@ -2387,11 +2422,9 @@ resets the bucket access control lists (ACLs).</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeObjectNotInActiveTierError for service response error code
-“ObjectNotInActiveTierError”.</p>
+<p>ErrCodeObjectNotInActiveTierError for service response error code “ObjectNotInActiveTierError”.</p>
 
-<p>The source object of the COPY action is not in the active tier and is only
-stored in Amazon S3 Glacier.</p>
+<p>The source object of the COPY action is not in the active tier and is only stored in Amazon S3 Glacier.</p>
 
 
   </div>
@@ -2458,21 +2491,18 @@ stored in Amazon S3 Glacier.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>NormalizeBucketLocationHandler is a request handler which will update the
-GetBucketLocation&#39;s result LocationConstraint value to always be a
-region ID.</p>
+<p>NormalizeBucketLocationHandler is a request handler which will update the GetBucketLocation&#39;s result LocationConstraint value to always be a region ID.</p>
 
 <p>Replaces empty string with “us-east-1”, and “EU” with “eu-west-1”.</p>
 
-<p>See <a
-href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a>
-for more information on the values that can be returned.</p>
+<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a> for more information on the values that can be returned.</p>
 
 <pre class="code go"><code class="go"><div class="hljs">req, result := svc.GetBucketLocationRequest(&s3.GetBucketLocationInput{
     Bucket: aws.String(bucket),
 })
 req.Handlers.Unmarshal.PushBackNamed(NormalizeBucketLocationHandler)
-err := req.Send()</div></code></pre>
+err := req.Send()
+</div></code></pre>
 
 
   </div>
@@ -2587,6 +2617,29 @@ err := req.Send()</div></code></pre>
       
 <li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#type-DeleteBucketOutput" title="s3 (package)"><strong>DeleteBucketOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-DeleteBucketReplicationOutput" title="s3 (package)"><strong>DeleteBucketReplicationOutput</strong></a></span></span>
   
   
   <span class="note title readonly">struct</span>
@@ -2816,6 +2869,29 @@ err := req.Send()</div></code></pre>
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-PutBucketReplicationOutput" title="s3 (package)"><strong>PutBucketReplicationOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#type-PutBucketVersioningOutput" title="s3 (package)"><strong>PutBucketVersioningOutput</strong></a></span></span>
   
   
@@ -2934,8 +3010,7 @@ err := req.Send()</div></code></pre>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A RequestFailure provides access to the S3 Request ID and Host ID values
-returned from API operation errors.</p>
+<p>A RequestFailure provides access to the S3 Request ID and Host ID values returned from API operation errors.</p>
 </div></span>
   
 </li>
@@ -2996,8 +3071,7 @@ returned from API operation errors.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BucketLocationConstraint_Values returns all elements of the
-BucketLocationConstraint enum.</p>
+<p>BucketLocationConstraint_Values returns all elements of the BucketLocationConstraint enum.</p>
 </div></span>
   
 </li>
@@ -3022,8 +3096,7 @@ BucketLocationConstraint enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BucketLogsPermission_Values returns all elements of the
-BucketLogsPermission enum.</p>
+<p>BucketLogsPermission_Values returns all elements of the BucketLogsPermission enum.</p>
 </div></span>
   
 </li>
@@ -3048,8 +3121,7 @@ BucketLogsPermission enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BucketProtectionStatus_Values returns all elements of the
-BucketProtectionStatus enum.</p>
+<p>BucketProtectionStatus_Values returns all elements of the BucketProtectionStatus enum.</p>
 </div></span>
   
 </li>
@@ -3074,8 +3146,32 @@ BucketProtectionStatus enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BucketVersioningStatus_Values returns all elements of the
-BucketVersioningStatus enum.</p>
+<p>BucketVersioningStatus_Values returns all elements of the BucketVersioningStatus enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DeleteMarkerReplicationStatus_Values-class_method" title="s3.DeleteMarkerReplicationStatus_Values() (method)">func <strong>DeleteMarkerReplicationStatus_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>DeleteMarkerReplicationStatus_Values returns all elements of the DeleteMarkerReplicationStatus enum.</p>
 </div></span>
   
 </li>
@@ -3150,8 +3246,7 @@ BucketVersioningStatus enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>MetadataDirective_Values returns all elements of the MetadataDirective
-enum.</p>
+<p>MetadataDirective_Values returns all elements of the MetadataDirective enum.</p>
 </div></span>
   
 </li>
@@ -3226,8 +3321,7 @@ enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>NormalizeBucketLocation is a utility function which will update the passed
-in value to always be a region ID.</p>
+<p>NormalizeBucketLocation is a utility function which will update the passed in value to always be a region ID.</p>
 </div></span>
   
 </li>
@@ -3277,8 +3371,7 @@ in value to always be a region ID.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>ObjectStorageClass_Values returns all elements of the ObjectStorageClass
-enum.</p>
+<p>ObjectStorageClass_Values returns all elements of the ObjectStorageClass enum.</p>
 </div></span>
   
 </li>
@@ -3303,8 +3396,7 @@ enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>ObjectVersionStorageClass_Values returns all elements of the
-ObjectVersionStorageClass enum.</p>
+<p>ObjectVersionStorageClass_Values returns all elements of the ObjectVersionStorageClass enum.</p>
 </div></span>
   
 </li>
@@ -3363,6 +3455,31 @@ ObjectVersionStorageClass enum.</p>
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ReplicationRuleStatus_Values-class_method" title="s3.ReplicationRuleStatus_Values() (method)">func <strong>ReplicationRuleStatus_Values</strong>() []string </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ReplicationRuleStatus_Values returns all elements of the ReplicationRuleStatus enum.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#ReplicationStatus_Values-class_method" title="s3.ReplicationStatus_Values() (method)">func <strong>ReplicationStatus_Values</strong>() []string </a></span></span>
   
   
@@ -3379,8 +3496,7 @@ ObjectVersionStorageClass enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>ReplicationStatus_Values returns all elements of the ReplicationStatus
-enum.</p>
+<p>ReplicationStatus_Values returns all elements of the ReplicationStatus enum.</p>
 </div></span>
   
 </li>
@@ -3455,8 +3571,7 @@ enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>RetentionDirective_Values returns all elements of the RetentionDirective
-enum.</p>
+<p>RetentionDirective_Values returns all elements of the RetentionDirective enum.</p>
 </div></span>
   
 </li>
@@ -3481,8 +3596,7 @@ enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>ServerSideEncryption_Values returns all elements of the
-ServerSideEncryption enum.</p>
+<p>ServerSideEncryption_Values returns all elements of the ServerSideEncryption enum.</p>
 </div></span>
   
 </li>
@@ -3582,8 +3696,7 @@ ServerSideEncryption enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>TransitionStorageClass_Values returns all elements of the
-TransitionStorageClass enum.</p>
+<p>TransitionStorageClass_Values returns all elements of the TransitionStorageClass enum.</p>
 </div></span>
   
 </li>
@@ -3633,9 +3746,7 @@ TransitionStorageClass enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithNormalizeBucketLocation is a request option which will update the
-GetBucketLocation&#39;s result LocationConstraint value to always be a
-region ID.</p>
+<p>WithNormalizeBucketLocation is a request option which will update the GetBucketLocation&#39;s result LocationConstraint value to always be a region ID.</p>
 </div></span>
   
 </li>
@@ -3743,6 +3854,35 @@ region ID.</p>
   <h3 class="signature " id="type-DeleteBucketOutput">
   
     <strong>DeleteBucketOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-DeleteBucketReplicationOutput">
+  
+    <strong>DeleteBucketReplicationOutput</strong> struct
   
 
   
@@ -4030,6 +4170,35 @@ region ID.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="type-PutBucketReplicationOutput">
+  
+    <strong>PutBucketReplicationOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="type-PutBucketVersioningOutput">
   
     <strong>PutBucketVersioningOutput</strong> struct
@@ -4178,17 +4347,17 @@ region ID.</p>
       <pre class="lines">
 
 
-18741
-18742
-18743
-18744
-18745
-18746
-18747
-18748</pre>
+19589
+19590
+19591
+19592
+19593
+19594
+19595
+19596</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18741</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19589</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> BucketCannedACL_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -4216,8 +4385,7 @@ region ID.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>BucketLocationConstraint_Values returns all elements of the
-BucketLocationConstraint enum</p>
+<p>BucketLocationConstraint_Values returns all elements of the BucketLocationConstraint enum</p>
 
 
   </div>
@@ -4231,24 +4399,24 @@ BucketLocationConstraint enum</p>
       <pre class="lines">
 
 
-18786
-18787
-18788
-18789
-18790
-18791
-18792
-18793
-18794
-18795
-18796
-18797
-18798
-18799
-18800</pre>
+19634
+19635
+19636
+19637
+19638
+19639
+19640
+19641
+19642
+19643
+19644
+19645
+19646
+19647
+19648</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18786</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19634</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> BucketLocationConstraint_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -4283,8 +4451,7 @@ BucketLocationConstraint enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>BucketLogsPermission_Values returns all elements of the
-BucketLogsPermission enum</p>
+<p>BucketLogsPermission_Values returns all elements of the BucketLogsPermission enum</p>
 
 
   </div>
@@ -4298,16 +4465,16 @@ BucketLogsPermission enum</p>
       <pre class="lines">
 
 
-18814
-18815
-18816
-18817
-18818
-18819
-18820</pre>
+19662
+19663
+19664
+19665
+19666
+19667
+19668</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18814</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19662</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> BucketLogsPermission_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -4334,8 +4501,7 @@ BucketLogsPermission enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>BucketProtectionStatus_Values returns all elements of the
-BucketProtectionStatus enum</p>
+<p>BucketProtectionStatus_Values returns all elements of the BucketProtectionStatus enum</p>
 
 
   </div>
@@ -4349,14 +4515,14 @@ BucketProtectionStatus enum</p>
       <pre class="lines">
 
 
-18828
-18829
-18830
-18831
-18832</pre>
+19676
+19677
+19678
+19679
+19680</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18828</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19676</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> BucketProtectionStatus_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -4381,8 +4547,7 @@ BucketProtectionStatus enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>BucketVersioningStatus_Values returns all elements of the
-BucketVersioningStatus enum</p>
+<p>BucketVersioningStatus_Values returns all elements of the BucketVersioningStatus enum</p>
 
 
   </div>
@@ -4396,20 +4561,68 @@ BucketVersioningStatus enum</p>
       <pre class="lines">
 
 
-18843
-18844
-18845
-18846
-18847
-18848</pre>
+19691
+19692
+19693
+19694
+19695
+19696</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18843</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19691</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> BucketVersioningStatus_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
 		BucketVersioningStatusEnabled,
 		BucketVersioningStatusSuspended,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DeleteMarkerReplicationStatus_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#DeleteMarkerReplicationStatus_Values-class_method" title="s3.DeleteMarkerReplicationStatus_Values() (method)">DeleteMarkerReplicationStatus_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>DeleteMarkerReplicationStatus_Values returns all elements of the DeleteMarkerReplicationStatus enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19707
+19708
+19709
+19710
+19711
+19712</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19707</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> DeleteMarkerReplicationStatus_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		DeleteMarkerReplicationStatusEnabled,
+		DeleteMarkerReplicationStatusDisabled,
 	}
 }</div></pre>
     </td>
@@ -4444,14 +4657,14 @@ BucketVersioningStatus enum</p>
       <pre class="lines">
 
 
-18862
-18863
-18864
-18865
-18866</pre>
+19726
+19727
+19728
+19729
+19730</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18862</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19726</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> EncodingType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -4490,15 +4703,15 @@ BucketVersioningStatus enum</p>
       <pre class="lines">
 
 
-18877
-18878
-18879
-18880
-18881
-18882</pre>
+19741
+19742
+19743
+19744
+19745
+19746</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18877</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19741</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ExpirationStatus_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -4538,15 +4751,15 @@ BucketVersioningStatus enum</p>
       <pre class="lines">
 
 
-18925
-18926
-18927
-18928
-18929
-18930</pre>
+19789
+19790
+19791
+19792
+19793
+19794</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18925</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19789</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> MetadataDirective_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -4586,15 +4799,15 @@ BucketVersioningStatus enum</p>
       <pre class="lines">
 
 
-18893
-18894
-18895
-18896
-18897
-18898</pre>
+19757
+19758
+19759
+19760
+19761
+19762</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18893</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19757</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> MFADelete_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -4634,15 +4847,15 @@ BucketVersioningStatus enum</p>
       <pre class="lines">
 
 
-18909
-18910
-18911
-18912
-18913
-18914</pre>
+19773
+19774
+19775
+19776
+19777
+19778</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18909</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19773</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> MFADeleteStatus_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -4668,15 +4881,11 @@ BucketVersioningStatus enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>NormalizeBucketLocation is a utility function which will update the passed
-in value to always be a region ID. Generally this would be used with
-GetBucketLocation API operation.</p>
+<p>NormalizeBucketLocation is a utility function which will update the passed in value to always be a region ID. Generally this would be used with GetBucketLocation API operation.</p>
 
 <p>Replaces empty string with “us-east-1”, and “EU” with “eu-west-1”.</p>
 
-<p>See <a
-href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a>
-for more information on the values that can be returned.</p>
+<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a> for more information on the values that can be returned.</p>
 
 
   </div>
@@ -4746,20 +4955,20 @@ for more information on the values that can be returned.</p>
       <pre class="lines">
 
 
-18956
-18957
-18958
-18959
-18960
-18961
-18962
-18963
-18964
-18965
-18966</pre>
+19820
+19821
+19822
+19823
+19824
+19825
+19826
+19827
+19828
+19829
+19830</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18956</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19820</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ObjectCannedACL_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -4790,8 +4999,7 @@ for more information on the values that can be returned.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>ObjectStorageClass_Values returns all elements of the ObjectStorageClass
-enum</p>
+<p>ObjectStorageClass_Values returns all elements of the ObjectStorageClass enum</p>
 
 
   </div>
@@ -4805,21 +5013,21 @@ enum</p>
       <pre class="lines">
 
 
-18995
-18996
-18997
-18998
-18999
-19000
-19001
-19002
-19003
-19004
-19005
-19006</pre>
+19859
+19860
+19861
+19862
+19863
+19864
+19865
+19866
+19867
+19868
+19869
+19870</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18995</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19859</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ObjectStorageClass_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -4851,8 +5059,7 @@ enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>ObjectVersionStorageClass_Values returns all elements of the
-ObjectVersionStorageClass enum</p>
+<p>ObjectVersionStorageClass_Values returns all elements of the ObjectVersionStorageClass enum</p>
 
 
   </div>
@@ -4866,14 +5073,14 @@ ObjectVersionStorageClass enum</p>
       <pre class="lines">
 
 
-19014
-19015
-19016
-19017
-19018</pre>
+19878
+19879
+19880
+19881
+19882</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19014</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19878</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ObjectVersionStorageClass_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -4912,18 +5119,18 @@ ObjectVersionStorageClass enum</p>
       <pre class="lines">
 
 
-19038
-19039
-19040
-19041
-19042
-19043
-19044
-19045
-19046</pre>
+19902
+19903
+19904
+19905
+19906
+19907
+19908
+19909
+19910</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19038</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19902</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> Permission_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -4966,20 +5173,68 @@ ObjectVersionStorageClass enum</p>
       <pre class="lines">
 
 
-19057
-19058
-19059
-19060
-19061
-19062</pre>
+19921
+19922
+19923
+19924
+19925
+19926</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19057</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19921</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> Protocol_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
 		ProtocolHttp,
 		ProtocolHttps,
+	}
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ReplicationRuleStatus_Values-class_method">
+  
+    func <strong><span class='object_link'><a href="#ReplicationRuleStatus_Values-class_method" title="s3.ReplicationRuleStatus_Values() (method)">ReplicationRuleStatus_Values</a></span></strong>() []string 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>ReplicationRuleStatus_Values returns all elements of the ReplicationRuleStatus enum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19937
+19938
+19939
+19940
+19941
+19942</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19937</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> ReplicationRuleStatus_Values() []<span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
+		ReplicationRuleStatusEnabled,
+		ReplicationRuleStatusDisabled,
 	}
 }</div></pre>
     </td>
@@ -5014,17 +5269,17 @@ ObjectVersionStorageClass enum</p>
       <pre class="lines">
 
 
-19079
-19080
-19081
-19082
-19083
-19084
-19085
-19086</pre>
+19959
+19960
+19961
+19962
+19963
+19964
+19965
+19966</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19079</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19959</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ReplicationStatus_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5066,14 +5321,14 @@ ObjectVersionStorageClass enum</p>
       <pre class="lines">
 
 
-19096
-19097
-19098
-19099
-19100</pre>
+19976
+19977
+19978
+19979
+19980</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19096</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19976</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RequestCharged_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5112,14 +5367,14 @@ ObjectVersionStorageClass enum</p>
       <pre class="lines">
 
 
-19113
-19114
-19115
-19116
-19117</pre>
+19993
+19994
+19995
+19996
+19997</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19113</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19993</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RequestPayer_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5144,8 +5399,7 @@ ObjectVersionStorageClass enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>RetentionDirective_Values returns all elements of the RetentionDirective
-enum</p>
+<p>RetentionDirective_Values returns all elements of the RetentionDirective enum</p>
 
 
   </div>
@@ -5159,15 +5413,15 @@ enum</p>
       <pre class="lines">
 
 
-19128
-19129
-19130
-19131
-19132
-19133</pre>
+20008
+20009
+20010
+20011
+20012
+20013</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19128</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20008</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RetentionDirective_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5193,8 +5447,7 @@ enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>ServerSideEncryption_Values returns all elements of the
-ServerSideEncryption enum</p>
+<p>ServerSideEncryption_Values returns all elements of the ServerSideEncryption enum</p>
 
 
   </div>
@@ -5208,15 +5461,15 @@ ServerSideEncryption enum</p>
       <pre class="lines">
 
 
-19144
-19145
-19146
-19147
-19148
-19149</pre>
+20024
+20025
+20026
+20027
+20028
+20029</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19144</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20024</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ServerSideEncryption_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5256,21 +5509,21 @@ ServerSideEncryption enum</p>
       <pre class="lines">
 
 
-19178
-19179
-19180
-19181
-19182
-19183
-19184
-19185
-19186
-19187
-19188
-19189</pre>
+20058
+20059
+20060
+20061
+20062
+20063
+20064
+20065
+20066
+20067
+20068
+20069</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19178</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20058</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> StorageClass_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5316,15 +5569,15 @@ ServerSideEncryption enum</p>
       <pre class="lines">
 
 
-19200
-19201
-19202
-19203
-19204
-19205</pre>
+20080
+20081
+20082
+20083
+20084
+20085</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19200</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20080</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> TaggingDirective_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5364,17 +5617,17 @@ ServerSideEncryption enum</p>
       <pre class="lines">
 
 
-19222
-19223
-19224
-19225
-19226
-19227
-19228
-19229</pre>
+20102
+20103
+20104
+20105
+20106
+20107
+20108
+20109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19222</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20102</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> Tier_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5402,8 +5655,7 @@ ServerSideEncryption enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>TransitionStorageClass_Values returns all elements of the
-TransitionStorageClass enum</p>
+<p>TransitionStorageClass_Values returns all elements of the TransitionStorageClass enum</p>
 
 
   </div>
@@ -5417,19 +5669,19 @@ TransitionStorageClass enum</p>
       <pre class="lines">
 
 
-19252
-19253
-19254
-19255
-19256
-19257
-19258
-19259
-19260
-19261</pre>
+20132
+20133
+20134
+20135
+20136
+20137
+20138
+20139
+20140
+20141</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19252</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20132</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> TransitionStorageClass_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5473,16 +5725,16 @@ TransitionStorageClass enum</p>
       <pre class="lines">
 
 
-19275
-19276
-19277
-19278
-19279
-19280
-19281</pre>
+20155
+20156
+20157
+20158
+20159
+20160
+20161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19275</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20155</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> Type_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5509,22 +5761,19 @@ TransitionStorageClass enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithNormalizeBucketLocation is a request option which will update the
-GetBucketLocation&#39;s result LocationConstraint value to always be a
-region ID.</p>
+<p>WithNormalizeBucketLocation is a request option which will update the GetBucketLocation&#39;s result LocationConstraint value to always be a region ID.</p>
 
 <p>Replaces empty string with “us-east-1”, and “EU” with “eu-west-1”.</p>
 
-<p>See <a
-href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a>
-for more information on the values that can be returned.</p>
+<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a> for more information on the values that can be returned.</p>
 
 <pre class="code go"><code class="go"><div class="hljs">result, err := svc.GetBucketLocationWithContext(ctx,
     &s3.GetBucketLocationInput{
         Bucket: aws.String(bucket),
     },
     s3.WithNormalizeBucketLocation,
-)</div></code></pre>
+)
+</div></code></pre>
 
 
   </div>
@@ -5560,9 +5809,9 @@ for more information on the values that can be returned.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:11:40 2021 by
+  Generated on Thu Jun  9 14:07:07 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

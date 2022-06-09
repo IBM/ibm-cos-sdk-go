@@ -164,8 +164,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Requests Amazon S3 to encode the object keys in the response and specifies
-the encoding method to use.</p>
+<p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use.</p>
 </div></span>
   
 </li>
@@ -190,7 +189,7 @@ the encoding method to use.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The account ID of the expected bucket owner.</p>
+<p>Ignored by COS.</p>
 </div></span>
   
 </li>
@@ -265,8 +264,7 @@ the encoding method to use.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Use this parameter to select only those keys that begin with the specified
-prefix.</p>
+<p>Use this parameter to select only those keys that begin with the specified prefix.</p>
 </div></span>
   
 </li>
@@ -647,11 +645,7 @@ prefix.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>A delimiter is a character that you specify to group keys. All keys that
-contain the same string between the prefix and the first occurrence of the
-delimiter are grouped under a single result element in CommonPrefixes.
-These groups are counted as one result against the max-keys limitation.
-These keys are not returned elsewhere in the response.</p>
+<p>A delimiter is a character that you specify to group keys. All keys that contain the same string between the prefix and the first occurrence of the delimiter are grouped under a single result element in CommonPrefixes. These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response.</p>
 
 
   </div>
@@ -670,12 +664,7 @@ These keys are not returned elsewhere in the response.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Requests Amazon S3 to encode the object keys in the response and specifies
-the encoding method to use. An object key may contain any Unicode
-character; however, XML 1.0 parser cannot parse some characters, such as
-characters with an ASCII value from 0 to 10. For characters that are not
-supported in XML 1.0, you can add this parameter to request that Amazon S3
-encode the keys in the response.</p>
+<p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>
 
 
   </div>
@@ -694,9 +683,7 @@ encode the keys in the response.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The account ID of the expected bucket owner. If the bucket is owned by a
-different account, the request will fail with an HTTP 403 (Access Denied)
-error.</p>
+<p>Ignored by COS</p>
 
 
   </div>
@@ -734,12 +721,7 @@ error.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Sets the maximum number of keys returned in the response. By default the
-action returns up to 1,000 key names. The response might contain fewer keys
-but will never contain more. If additional keys satisfy the search
-criteria, but were not returned because max-keys was exceeded, the response
-contains &lt;isTruncated&gt;true&lt;/isTruncated&gt;. To return the
-additional keys, see key-marker and version-id-marker.</p>
+<p>Sets the maximum number of keys returned in the response. By default the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because max-keys was exceeded, the response contains &lt;isTruncated&gt;true&lt;/isTruncated&gt;. To return the additional keys, see key-marker and version-id-marker.</p>
 
 
   </div>
@@ -758,11 +740,7 @@ additional keys, see key-marker and version-id-marker.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Use this parameter to select only those keys that begin with the specified
-prefix. You can use prefixes to separate a bucket into different groupings
-of keys. (You can think of using prefix to make groups in the same way
-you&#39;d use a folder in a file system.) You can use prefix with delimiter
-to roll up numerous objects into a single result under CommonPrefixes.</p>
+<p>Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using prefix to make groups in the same way you&#39;d use a folder in a file system.) You can use prefix with delimiter to roll up numerous objects into a single result under CommonPrefixes.</p>
 
 
   </div>
@@ -833,12 +811,12 @@ to roll up numerous objects into a single result under CommonPrefixes.</p>
       <pre class="lines">
 
 
-13871
-13872
-13873</pre>
+14296
+14297
+14298</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13871</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14296</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ListObjectVersionsInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -875,13 +853,13 @@ to roll up numerous objects into a single result under CommonPrefixes.</p>
       <pre class="lines">
 
 
-13892
-13893
-13894
-13895</pre>
+14317
+14318
+14319
+14320</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13892</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14317</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.ListObjectVersionsInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span> {
 	s.Bucket = &v
@@ -919,13 +897,13 @@ to roll up numerous objects into a single result under CommonPrefixes.</p>
       <pre class="lines">
 
 
-13905
-13906
-13907
-13908</pre>
+14330
+14331
+14332
+14333</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13905</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14330</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span>) <span class='object_link'><a href="#SetDelimiter-instance_method" title="s3.ListObjectVersionsInput.SetDelimiter() (method)">SetDelimiter</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span> {
 	s.Delimiter = &v
@@ -963,13 +941,13 @@ to roll up numerous objects into a single result under CommonPrefixes.</p>
       <pre class="lines">
 
 
-13911
-13912
-13913
-13914</pre>
+14336
+14337
+14338
+14339</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13911</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14336</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span>) <span class='object_link'><a href="#SetEncodingType-instance_method" title="s3.ListObjectVersionsInput.SetEncodingType() (method)">SetEncodingType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span> {
 	s.EncodingType = &v
@@ -1007,13 +985,13 @@ to roll up numerous objects into a single result under CommonPrefixes.</p>
       <pre class="lines">
 
 
-13917
-13918
-13919
-13920</pre>
+14342
+14343
+14344
+14345</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13917</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14342</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.ListObjectVersionsInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -1051,13 +1029,13 @@ to roll up numerous objects into a single result under CommonPrefixes.</p>
       <pre class="lines">
 
 
-13923
-13924
-13925
-13926</pre>
+14348
+14349
+14350
+14351</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13923</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14348</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span>) <span class='object_link'><a href="#SetKeyMarker-instance_method" title="s3.ListObjectVersionsInput.SetKeyMarker() (method)">SetKeyMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span> {
 	s.KeyMarker = &v
@@ -1095,13 +1073,13 @@ to roll up numerous objects into a single result under CommonPrefixes.</p>
       <pre class="lines">
 
 
-13929
-13930
-13931
-13932</pre>
+14354
+14355
+14356
+14357</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13929</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14354</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span>) <span class='object_link'><a href="#SetMaxKeys-instance_method" title="s3.ListObjectVersionsInput.SetMaxKeys() (method)">SetMaxKeys</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span> {
 	s.MaxKeys = &v
@@ -1139,13 +1117,13 @@ to roll up numerous objects into a single result under CommonPrefixes.</p>
       <pre class="lines">
 
 
-13935
-13936
-13937
-13938</pre>
+14360
+14361
+14362
+14363</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13935</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14360</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span>) <span class='object_link'><a href="#SetPrefix-instance_method" title="s3.ListObjectVersionsInput.SetPrefix() (method)">SetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span> {
 	s.Prefix = &v
@@ -1183,13 +1161,13 @@ to roll up numerous objects into a single result under CommonPrefixes.</p>
       <pre class="lines">
 
 
-13941
-13942
-13943
-13944</pre>
+14366
+14367
+14368
+14369</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13941</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14366</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span>) <span class='object_link'><a href="#SetVersionIdMarker-instance_method" title="s3.ListObjectVersionsInput.SetVersionIdMarker() (method)">SetVersionIdMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span> {
 	s.VersionIdMarker = &v
@@ -1227,12 +1205,12 @@ to roll up numerous objects into a single result under CommonPrefixes.</p>
       <pre class="lines">
 
 
-13866
-13867
-13868</pre>
+14291
+14292
+14293</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13866</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14291</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ListObjectVersionsInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1269,23 +1247,23 @@ to roll up numerous objects into a single result under CommonPrefixes.</p>
       <pre class="lines">
 
 
-13876
-13877
-13878
-13879
-13880
-13881
-13882
-13883
-13884
-13885
-13886
-13887
-13888
-13889</pre>
+14301
+14302
+14303
+14304
+14305
+14306
+14307
+14308
+14309
+14310
+14311
+14312
+14313
+14314</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13876</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14301</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.ListObjectVersionsInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.ListObjectVersionsInput (struct)">ListObjectVersionsInput</a></span>"</span>}
@@ -1313,9 +1291,9 @@ to roll up numerous objects into a single result under CommonPrefixes.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:17 2021 by
+  Generated on Thu Jun  9 14:07:52 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

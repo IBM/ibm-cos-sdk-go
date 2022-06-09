@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The account ID of the expected bucket owner.</p>
+<p>Ignored by COS.</p>
 </div></span>
   
 </li>
@@ -345,9 +345,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>The account ID of the expected bucket owner. If the bucket is owned by a
-different account, the request will fail with an HTTP 403 (Access Denied)
-error.</p>
+<p>Ignored by COS</p>
 
 
   </div>
@@ -399,12 +397,12 @@ error.</p>
       <pre class="lines">
 
 
-10670
-10671
-10672</pre>
+11034
+11035
+11036</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10670</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11034</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetBucketLoggingInput (struct)">GetBucketLoggingInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetBucketLoggingInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -441,13 +439,13 @@ error.</p>
       <pre class="lines">
 
 
-10691
-10692
-10693
-10694</pre>
+11055
+11056
+11057
+11058</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10691</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11055</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketLoggingInput (struct)">GetBucketLoggingInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetBucketLoggingInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetBucketLoggingInput (struct)">GetBucketLoggingInput</a></span> {
 	s.Bucket = &v
@@ -485,13 +483,13 @@ error.</p>
       <pre class="lines">
 
 
-10704
-10705
-10706
-10707</pre>
+11068
+11069
+11070
+11071</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10704</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11068</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketLoggingInput (struct)">GetBucketLoggingInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetBucketLoggingInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetBucketLoggingInput (struct)">GetBucketLoggingInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -529,12 +527,12 @@ error.</p>
       <pre class="lines">
 
 
-10665
-10666
-10667</pre>
+11029
+11030
+11031</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10665</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11029</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetBucketLoggingInput (struct)">GetBucketLoggingInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetBucketLoggingInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -571,23 +569,23 @@ error.</p>
       <pre class="lines">
 
 
-10675
-10676
-10677
-10678
-10679
-10680
-10681
-10682
-10683
-10684
-10685
-10686
-10687
-10688</pre>
+11039
+11040
+11041
+11042
+11043
+11044
+11045
+11046
+11047
+11048
+11049
+11050
+11051
+11052</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10675</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11039</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketLoggingInput (struct)">GetBucketLoggingInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.GetBucketLoggingInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.GetBucketLoggingInput (struct)">GetBucketLoggingInput</a></span>"</span>}
@@ -615,9 +613,9 @@ error.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:11 2021 by
+  Generated on Thu Jun  9 14:07:43 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

@@ -76,8 +76,7 @@ import "../ibm-cos-sdk-go/aws"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>A Config provides service configuration for service clients. By default,
-all clients will use the defaults.DefaultConfig structure.</p>
+<p>A Config provides service configuration for service clients. By default, all clients will use the defaults.DefaultConfig structure.</p>
 
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Create Session with MaxRetries configuration to be shared by multiple</span>
 <span class="hljs-comment">// service clients.</span>
@@ -88,7 +87,8 @@ sess := session.Must(session.NewSession(&aws.Config{
 <span class="hljs-comment">// Create S3 service client with a specific Region.</span>
 svc := s3.New(sess, &aws.Config{
     Region: aws.String(<span class="hljs-string">"us-west-2"</span>),
-})</div></code></pre>
+})
+</div></code></pre>
 
 
   </div>
@@ -187,8 +187,7 @@ svc := s3.New(sess, &aws.Config{
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Disables the computation of request and response checksums, e.g., CRC32
-checksums in Amazon DynamoDB.</p>
+<p>Disables the computation of request and response checksums, e.g., CRC32 checksums in Amazon DynamoDB.</p>
 </div></span>
   
 </li>
@@ -213,8 +212,7 @@ checksums in Amazon DynamoDB.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>DisableEndpointHostPrefix will disable the SDK&#39;s behavior of prefixing
-request endpoint hosts with modeled information.</p>
+<p>DisableEndpointHostPrefix will disable the SDK&#39;s behavior of prefixing request endpoint hosts with modeled information.</p>
 </div></span>
   
 </li>
@@ -239,8 +237,7 @@ request endpoint hosts with modeled information.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Disables semantic parameter validation, which validates input for missing
-required fields and/or other semantic request input errors.</p>
+<p>Disables semantic parameter validation, which validates input for missing required fields and/or other semantic request input errors.</p>
 </div></span>
   
 </li>
@@ -265,8 +262,7 @@ required fields and/or other semantic request input errors.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>DisableRestProtocolURICleaning will not clean the URL path when making rest
-protocol requests.</p>
+<p>DisableRestProtocolURICleaning will not clean the URL path when making rest protocol requests.</p>
 </div></span>
   
 </li>
@@ -316,8 +312,7 @@ protocol requests.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Set this to <code>true</code> to disable the EC2Metadata client from
-overriding the default http.Client&#39;s Timeout.</p>
+<p>Set this to <code>true</code> to disable the EC2Metadata client from overriding the default http.Client&#39;s Timeout.</p>
 </div></span>
   
 </li>
@@ -342,8 +337,7 @@ overriding the default http.Client&#39;s Timeout.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>EnableEndpointDiscovery will allow for endpoint discovery on operations
-that have the definition in its model.</p>
+<p>EnableEndpointDiscovery will allow for endpoint discovery on operations that have the definition in its model.</p>
 </div></span>
   
 </li>
@@ -368,8 +362,7 @@ that have the definition in its model.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>An optional endpoint URL (hostname only or fully qualified URI) that
-overrides the default generated endpoint for a client.</p>
+<p>An optional endpoint URL (hostname only or fully qualified URI) that overrides the default generated endpoint for a client.</p>
 </div></span>
   
 </li>
@@ -394,8 +387,7 @@ overrides the default generated endpoint for a client.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The resolver to use for looking up endpoints for AWS service clients to use
-based on region.</p>
+<p>The resolver to use for looking up endpoints for AWS service clients to use based on region.</p>
 </div></span>
   
 </li>
@@ -420,8 +412,7 @@ based on region.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>EnforceShouldRetryCheck is used in the AfterRetryHandler to always call
-ShouldRetry regardless of whether or not if request.Retryable is set.</p>
+<p>EnforceShouldRetryCheck is used in the AfterRetryHandler to always call ShouldRetry regardless of whether or not if request.Retryable is set.</p>
 </div></span>
   
 </li>
@@ -521,8 +512,7 @@ ShouldRetry regardless of whether or not if request.Retryable is set.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Set this to <code>true</code> to enable the SDK to unmarshal API response
-header maps to normalized lower case map keys.</p>
+<p>Set this to <code>true</code> to enable the SDK to unmarshal API response header maps to normalized lower case map keys.</p>
 </div></span>
   
 </li>
@@ -597,8 +587,7 @@ header maps to normalized lower case map keys.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Retryer guides how HTTP requests should be retried in case of recoverable
-failures.</p>
+<p>Retryer guides how HTTP requests should be retried in case of recoverable failures.</p>
 </div></span>
   
 </li>
@@ -623,8 +612,7 @@ failures.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Set this to <code>true</code> to disable the SDK adding the <code>Expect:
-100-Continue</code> header to PUT requests over 2MB of content.</p>
+<p>Set this to <code>true</code> to disable the SDK adding the <code>Expect: 100-Continue</code> header to PUT requests over 2MB of content.</p>
 </div></span>
   
 </li>
@@ -649,8 +637,7 @@ failures.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>S3DisableContentMD5Validation config option is temporarily disabled, For S3
-GetObject API calls, #1837.</p>
+<p>S3DisableContentMD5Validation config option is temporarily disabled, For S3 GetObject API calls, #1837.</p>
 </div></span>
   
 </li>
@@ -675,8 +662,7 @@ GetObject API calls, #1837.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Set this to <code>true</code> to force the request to use path-style
-addressing, i.e., <code>http://s3.amazonaws.com/BUCKET/KEY</code>.</p>
+<p>Set this to <code>true</code> to force the request to use path-style addressing, i.e., <code>http://s3.amazonaws.com/BUCKET/KEY</code>.</p>
 </div></span>
   
 </li>
@@ -701,8 +687,7 @@ addressing, i.e., <code>http://s3.amazonaws.com/BUCKET/KEY</code>.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>S3UsEast1RegionalEndpoint will enable regional or legacy endpoint
-resolving.</p>
+<p>S3UsEast1RegionalEndpoint will enable regional or legacy endpoint resolving.</p>
 </div></span>
   
 </li>
@@ -727,9 +712,7 @@ resolving.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Set this to <code>true</code> to have the S3 service client to use the
-region specified in the ARN, when an ARN is provided as an argument to a
-bucket parameter.</p>
+<p>Set this to <code>true</code> to have the S3 service client to use the region specified in the ARN, when an ARN is provided as an argument to a bucket parameter.</p>
 </div></span>
   
 </li>
@@ -779,8 +762,7 @@ bucket parameter.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SleepDelay is an override for the func the SDK will call when sleeping
-during the lifecycle of a request.</p>
+<p>SleepDelay is an override for the func the SDK will call when sleeping during the lifecycle of a request.</p>
 </div></span>
   
 </li>
@@ -805,8 +787,7 @@ during the lifecycle of a request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Instructs the endpoint to be generated for a service client to be the dual
-stack endpoint.</p>
+<p>Instructs the endpoint to be generated for a service client to be the dual stack endpoint.</p>
 </div></span>
   
 </li>
@@ -843,8 +824,7 @@ stack endpoint.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>NewConfig returns a new Config pointer that can be chained with builder
-methods to set multiple configuration values inline without using pointers.</p>
+<p>NewConfig returns a new Config pointer that can be chained with builder methods to set multiple configuration values inline without using pointers.</p>
 </div></span>
   
 </li>
@@ -928,8 +908,7 @@ methods to set multiple configuration values inline without using pointers.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithCredentials sets a config Credentials value returning a Config pointer
-for chaining.</p>
+<p>WithCredentials sets a config Credentials value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -954,8 +933,7 @@ for chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithCredentialsChainVerboseErrors sets a config verbose errors boolean and
-returning a Config pointer.</p>
+<p>WithCredentialsChainVerboseErrors sets a config verbose errors boolean and returning a Config pointer.</p>
 </div></span>
   
 </li>
@@ -980,8 +958,7 @@ returning a Config pointer.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithDisableComputeChecksums sets a config DisableComputeChecksums value
-returning a Config pointer for chaining.</p>
+<p>WithDisableComputeChecksums sets a config DisableComputeChecksums value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1006,8 +983,7 @@ returning a Config pointer for chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithDisableEndpointHostPrefix will set whether or not to use modeled host
-prefix when making requests.</p>
+<p>WithDisableEndpointHostPrefix will set whether or not to use modeled host prefix when making requests.</p>
 </div></span>
   
 </li>
@@ -1032,8 +1008,7 @@ prefix when making requests.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithDisableParamValidation sets a config DisableParamValidation value
-returning a Config pointer for chaining.</p>
+<p>WithDisableParamValidation sets a config DisableParamValidation value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1058,9 +1033,7 @@ returning a Config pointer for chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithDisableRestProtocolURICleaning sets a config
-DisableRestProtocolURICleaning value returning a Config pointer for
-chaining.</p>
+<p>WithDisableRestProtocolURICleaning sets a config DisableRestProtocolURICleaning value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1085,8 +1058,7 @@ chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithDisableSSL sets a config DisableSSL value returning a Config pointer
-for chaining.</p>
+<p>WithDisableSSL sets a config DisableSSL value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1111,9 +1083,7 @@ for chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithEC2MetadataDisableTimeoutOverride sets a config
-EC2MetadataDisableTimeoutOverride value returning a Config pointer for
-chaining.</p>
+<p>WithEC2MetadataDisableTimeoutOverride sets a config EC2MetadataDisableTimeoutOverride value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1138,8 +1108,7 @@ chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithEndpoint sets a config Endpoint value returning a Config pointer for
-chaining.</p>
+<p>WithEndpoint sets a config Endpoint value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1189,8 +1158,7 @@ chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithEndpointResolver sets a config EndpointResolver value returning a
-Config pointer for chaining.</p>
+<p>WithEndpointResolver sets a config EndpointResolver value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1215,8 +1183,7 @@ Config pointer for chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithHTTPClient sets a config HTTPClient value returning a Config pointer
-for chaining.</p>
+<p>WithHTTPClient sets a config HTTPClient value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1241,8 +1208,7 @@ for chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithLogger sets a config Logger value returning a Config pointer for
-chaining.</p>
+<p>WithLogger sets a config Logger value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1267,8 +1233,7 @@ chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithLogLevel sets a config LogLevel value returning a Config pointer for
-chaining.</p>
+<p>WithLogLevel sets a config LogLevel value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1293,8 +1258,7 @@ chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithLowerCaseHeaderMaps sets a config LowerCaseHeaderMaps value returning a
-Config pointer for chaining.</p>
+<p>WithLowerCaseHeaderMaps sets a config LowerCaseHeaderMaps value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1319,8 +1283,7 @@ Config pointer for chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithMaxRetries sets a config MaxRetries value returning a Config pointer
-for chaining.</p>
+<p>WithMaxRetries sets a config MaxRetries value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1345,8 +1308,7 @@ for chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithRegion sets a config Region value returning a Config pointer for
-chaining.</p>
+<p>WithRegion sets a config Region value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1371,8 +1333,7 @@ chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithS3Disable100Continue sets a config S3Disable100Continue value returning
-a Config pointer for chaining.</p>
+<p>WithS3Disable100Continue sets a config S3Disable100Continue value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1397,9 +1358,7 @@ a Config pointer for chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithS3DisableContentMD5Validation sets a config
-S3DisableContentMD5Validation value returning a Config pointer for
-chaining.</p>
+<p>WithS3DisableContentMD5Validation sets a config S3DisableContentMD5Validation value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1424,8 +1383,7 @@ chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithS3ForcePathStyle sets a config S3ForcePathStyle value returning a
-Config pointer for chaining.</p>
+<p>WithS3ForcePathStyle sets a config S3ForcePathStyle value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1450,8 +1408,7 @@ Config pointer for chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithS3UseAccelerate sets a config S3UseAccelerate value returning a Config
-pointer for chaining.</p>
+<p>WithS3UseAccelerate sets a config S3UseAccelerate value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1476,8 +1433,7 @@ pointer for chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithS3UseARNRegion sets a config S3UseARNRegion value and returning a
-Config pointer for chaining.</p>
+<p>WithS3UseARNRegion sets a config S3UseARNRegion value and returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1502,8 +1458,7 @@ Config pointer for chaining.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithS3UsEast1RegionalEndpoint will set whether or not to use regional
-endpoint flag when resolving the endpoint for a service.</p>
+<p>WithS3UsEast1RegionalEndpoint will set whether or not to use regional endpoint flag when resolving the endpoint for a service.</p>
 </div></span>
   
 </li>
@@ -1528,8 +1483,7 @@ endpoint flag when resolving the endpoint for a service.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithSleepDelay overrides the function used to sleep while waiting for the
-next retry.</p>
+<p>WithSleepDelay overrides the function used to sleep while waiting for the next retry.</p>
 </div></span>
   
 </li>
@@ -1554,8 +1508,7 @@ next retry.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithUseDualStack sets a config UseDualStack value returning a Config
-pointer for chaining.</p>
+<p>WithUseDualStack sets a config UseDualStack value returning a Config pointer for chaining.</p>
 </div></span>
   
 </li>
@@ -1580,9 +1533,7 @@ pointer for chaining.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The credentials object to use when signing requests. Defaults to a chain of
-credential providers to search for credentials in environment variables,
-shared credential file, and EC2 Instance Roles.</p>
+<p>The credentials object to use when signing requests. Defaults to a chain of credential providers to search for credentials in environment variables, shared credential file, and EC2 Instance Roles.</p>
 
 
   </div>
@@ -1601,9 +1552,7 @@ shared credential file, and EC2 Instance Roles.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Enables verbose error printing of all credential chain errors. Should be
-used when wanting to see all errors while attempting to retrieve
-credentials.</p>
+<p>Enables verbose error printing of all credential chain errors. Should be used when wanting to see all errors while attempting to retrieve credentials.</p>
 
 
   </div>
@@ -1622,8 +1571,7 @@ credentials.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Disables the computation of request and response checksums, e.g., CRC32
-checksums in Amazon DynamoDB.</p>
+<p>Disables the computation of request and response checksums, e.g., CRC32 checksums in Amazon DynamoDB.</p>
 
 
   </div>
@@ -1642,11 +1590,9 @@ checksums in Amazon DynamoDB.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>DisableEndpointHostPrefix will disable the SDK&#39;s behavior of prefixing
-request endpoint hosts with modeled information.</p>
+<p>DisableEndpointHostPrefix will disable the SDK&#39;s behavior of prefixing request endpoint hosts with modeled information.</p>
 
-<p>Disabling this feature is useful when you want to use local endpoints for
-testing that do not support the modeled host prefix pattern.</p>
+<p>Disabling this feature is useful when you want to use local endpoints for testing that do not support the modeled host prefix pattern.</p>
 
 
   </div>
@@ -1665,8 +1611,7 @@ testing that do not support the modeled host prefix pattern.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Disables semantic parameter validation, which validates input for missing
-required fields and/or other semantic request input errors.</p>
+<p>Disables semantic parameter validation, which validates input for missing required fields and/or other semantic request input errors.</p>
 
 
   </div>
@@ -1685,15 +1630,11 @@ required fields and/or other semantic request input errors.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>DisableRestProtocolURICleaning will not clean the URL path when making rest
-protocol requests. Will default to false. This would only be used for empty
-directory names in s3 requests.</p>
+<p>DisableRestProtocolURICleaning will not clean the URL path when making rest protocol requests. Will default to false. This would only be used for empty directory names in s3 requests.</p>
 
-<p>Example:  sess := session.Must(session.NewSession(&amp;aws.Config{ 
-DisableRestProtocolURICleaning: aws.Bool(true),  }))</p>
+<p>Example:  sess := session.Must(session.NewSession(&amp;aws.Config{  DisableRestProtocolURICleaning: aws.Bool(true),  }))</p>
 
-<p>svc := s3.New(sess)  out, err := svc.GetObject(&amp;s3.GetObjectInput { 
-Bucket: aws.String(“bucketname”),  Key: aws.String(“//foo//bar//moo”),  })</p>
+<p>svc := s3.New(sess)  out, err := svc.GetObject(&amp;s3.GetObjectInput {  Bucket: aws.String(“bucketname”),  Key: aws.String(“//foo//bar//moo”),  })</p>
 
 
   </div>
@@ -1712,8 +1653,7 @@ Bucket: aws.String(“bucketname”),  Key: aws.String(“//foo//bar//moo”),  
 <div class="docstring">
   <div class="discussion">
     
-<p>Set this to <code>true</code> to disable SSL when sending requests.
-Defaults to <code>false</code>.</p>
+<p>Set this to <code>true</code> to disable SSL when sending requests. Defaults to <code>false</code>.</p>
 
 
   </div>
@@ -1732,17 +1672,11 @@ Defaults to <code>false</code>.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Set this to <code>true</code> to disable the EC2Metadata client from
-overriding the default http.Client&#39;s Timeout. This is helpful if you do
-not want the EC2Metadata client to create a new http.Client. This options
-is only meaningful if you&#39;re not already using a custom HTTP client
-with the SDK. Enabled by default.</p>
+<p>Set this to <code>true</code> to disable the EC2Metadata client from overriding the default http.Client&#39;s Timeout. This is helpful if you do not want the EC2Metadata client to create a new http.Client. This options is only meaningful if you&#39;re not already using a custom HTTP client with the SDK. Enabled by default.</p>
 
-<p>Must be set and provided to the session.NewSession() in order to disable
-the EC2Metadata overriding the timeout for default credentials chain.</p>
+<p>Must be set and provided to the session.NewSession() in order to disable the EC2Metadata overriding the timeout for default credentials chain.</p>
 
-<p>Example:  sess := session.Must(session.NewSession(aws.NewConfig() 
-.WithEC2MetadataDisableTimeoutOverride(true)))</p>
+<p>Example:  sess := session.Must(session.NewSession(aws.NewConfig()  .WithEC2MetadataDisableTimeoutOverride(true)))</p>
 
 <p>svc := s3.New(sess)</p>
 
@@ -1763,16 +1697,11 @@ the EC2Metadata overriding the timeout for default credentials chain.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>EnableEndpointDiscovery will allow for endpoint discovery on operations
-that have the definition in its model. By default, endpoint discovery is
-off. To use EndpointDiscovery, Endpoint should be unset or set to an empty
-string.</p>
+<p>EnableEndpointDiscovery will allow for endpoint discovery on operations that have the definition in its model. By default, endpoint discovery is off. To use EndpointDiscovery, Endpoint should be unset or set to an empty string.</p>
 
-<p>Example:  sess := session.Must(session.NewSession(&amp;aws.Config{ 
-EnableEndpointDiscovery: aws.Bool(true),  }))</p>
+<p>Example:  sess := session.Must(session.NewSession(&amp;aws.Config{  EnableEndpointDiscovery: aws.Bool(true),  }))</p>
 
-<p>svc := s3.New(sess)  out, err := svc.GetObject(&amp;s3.GetObjectInput { 
-Bucket: aws.String(“bucketname”),  Key: aws.String(“/foo/bar/moo”),  })</p>
+<p>svc := s3.New(sess)  out, err := svc.GetObject(&amp;s3.GetObjectInput {  Bucket: aws.String(“bucketname”),  Key: aws.String(“/foo/bar/moo”),  })</p>
 
 
   </div>
@@ -1791,13 +1720,9 @@ Bucket: aws.String(“bucketname”),  Key: aws.String(“/foo/bar/moo”),  })<
 <div class="docstring">
   <div class="discussion">
     
-<p>An optional endpoint URL (hostname only or fully qualified URI) that
-overrides the default generated endpoint for a client. Set this to
-<code>nil</code> or the value to <code>&quot;&quot;</code> to use the
-default generated endpoint.</p>
+<p>An optional endpoint URL (hostname only or fully qualified URI) that overrides the default generated endpoint for a client. Set this to <code>nil</code> or the value to <code>&quot;&quot;</code> to use the default generated endpoint.</p>
 
-<p>Note: You must still provide a <code>Region</code> value when specifying an
-endpoint for a client.</p>
+<p>Note: You must still provide a <code>Region</code> value when specifying an endpoint for a client.</p>
 
 
   </div>
@@ -1816,8 +1741,7 @@ endpoint for a client.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The resolver to use for looking up endpoints for AWS service clients to use
-based on region.</p>
+<p>The resolver to use for looking up endpoints for AWS service clients to use based on region.</p>
 
 
   </div>
@@ -1836,12 +1760,7 @@ based on region.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>EnforceShouldRetryCheck is used in the AfterRetryHandler to always call
-ShouldRetry regardless of whether or not if request.Retryable is set. This
-will utilize ShouldRetry method of custom retryers. If
-EnforceShouldRetryCheck is not set, then ShouldRetry will only be called if
-request.Retryable is nil. Proper handling of the request.Retryable field is
-important when setting this field.</p>
+<p>EnforceShouldRetryCheck is used in the AfterRetryHandler to always call ShouldRetry regardless of whether or not if request.Retryable is set. This will utilize ShouldRetry method of custom retryers. If EnforceShouldRetryCheck is not set, then ShouldRetry will only be called if request.Retryable is nil. Proper handling of the request.Retryable field is important when setting this field.</p>
 
 
   </div>
@@ -1860,8 +1779,7 @@ important when setting this field.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The HTTP client to use when sending requests. Defaults to
-<code>http.DefaultClient</code>.</p>
+<p>The HTTP client to use when sending requests. Defaults to <code>http.DefaultClient</code>.</p>
 
 
   </div>
@@ -1880,9 +1798,7 @@ important when setting this field.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>An integer value representing the logging level. The default log level is
-zero (LogOff), which represents no logging. To enable logging set to a
-LogLevel Value.</p>
+<p>An integer value representing the logging level. The default log level is zero (LogOff), which represents no logging. To enable logging set to a LogLevel Value.</p>
 
 
   </div>
@@ -1901,8 +1817,7 @@ LogLevel Value.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The logger writer interface to write logging messages to. Defaults to
-standard out.</p>
+<p>The logger writer interface to write logging messages to. Defaults to standard out.</p>
 
 
   </div>
@@ -1921,12 +1836,9 @@ standard out.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Set this to <code>true</code> to enable the SDK to unmarshal API response
-header maps to normalized lower case map keys.</p>
+<p>Set this to <code>true</code> to enable the SDK to unmarshal API response header maps to normalized lower case map keys.</p>
 
-<p>For example S3&#39;s X-Amz-Meta prefixed header will be unmarshaled to
-lower case Metadata member&#39;s map keys. The value of the header in the
-map is unaffected.</p>
+<p>For example S3&#39;s X-Amz-Meta prefixed header will be unmarshaled to lower case Metadata member&#39;s map keys. The value of the header in the map is unaffected.</p>
 
 
   </div>
@@ -1945,9 +1857,7 @@ map is unaffected.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The maximum number of times that a request will be retried for failures.
-Defaults to -1, which defers the max retry setting to the service specific
-configuration.</p>
+<p>The maximum number of times that a request will be retried for failures. Defaults to -1, which defers the max retry setting to the service specific configuration.</p>
 
 
   </div>
@@ -1966,13 +1876,9 @@ configuration.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The region to send requests to. This parameter is required and must be
-configured globally or on a per-client basis unless otherwise noted. A full
-list of regions is found in the “Regions and Endpoints” document.</p>
+<p>The region to send requests to. This parameter is required and must be configured globally or on a per-client basis unless otherwise noted. A full list of regions is found in the “Regions and Endpoints” document.</p>
 
-<p>See <a
-href="http://docs.aws.amazon.com/general/latest/gr/rande.html">docs.aws.amazon.com/general/latest/gr/rande.html</a>
-for AWS Regions and Endpoints.</p>
+<p>See <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">docs.aws.amazon.com/general/latest/gr/rande.html</a> for AWS Regions and Endpoints.</p>
 
 
   </div>
@@ -1991,17 +1897,13 @@ for AWS Regions and Endpoints.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Retryer guides how HTTP requests should be retried in case of recoverable
-failures.</p>
+<p>Retryer guides how HTTP requests should be retried in case of recoverable failures.</p>
 
-<p>When nil or the value does not implement the request.Retryer interface, the
-client.DefaultRetryer will be used.</p>
+<p>When nil or the value does not implement the request.Retryer interface, the client.DefaultRetryer will be used.</p>
 
-<p>When both Retryer and MaxRetries are non-nil, the former is used and the
-latter ignored.</p>
+<p>When both Retryer and MaxRetries are non-nil, the former is used and the latter ignored.</p>
 
-<p>To set the Retryer field in a type-safe manner and with chaining, use the
-request.WithRetryer helper function:</p>
+<p>To set the Retryer field in a type-safe manner and with chaining, use the request.WithRetryer helper function:</p>
 
 <p>cfg := request.WithRetryer(aws.NewConfig(), myRetryer)</p>
 
@@ -2022,23 +1924,13 @@ request.WithRetryer helper function:</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Set this to <code>true</code> to disable the SDK adding the <code>Expect:
-100-Continue</code> header to PUT requests over 2MB of content.
-100-Continue instructs the HTTP client not to send the body until the
-service responds with a <code>continue</code> status. This is useful to
-prevent sending the request body until after the request is authenticated,
-and validated.</p>
+<p>Set this to <code>true</code> to disable the SDK adding the <code>Expect: 100-Continue</code> header to PUT requests over 2MB of content. 100-Continue instructs the HTTP client not to send the body until the service responds with a <code>continue</code> status. This is useful to prevent sending the request body until after the request is authenticated, and validated.</p>
 
-<p><a
-href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html</a></p>
+<p><a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html</a></p>
 
-<p>100-Continue is only enabled for Go 1.6 and above. See
-<code>http.Transport</code>&#39;s <code>ExpectContinueTimeout</code> for
-information on adjusting the continue wait timeout. <a
-href="https://golang.org/pkg/net/http/#Transport">golang.org/pkg/net/http/#Transport</a></p>
+<p>100-Continue is only enabled for Go 1.6 and above. See <code>http.Transport</code>&#39;s <code>ExpectContinueTimeout</code> for information on adjusting the continue wait timeout. <a href="https://golang.org/pkg/net/http/#Transport">golang.org/pkg/net/http/#Transport</a></p>
 
-<p>You should use this flag to disable 100-Continue if you experience issues
-with proxies or third party S3 compatible services.</p>
+<p>You should use this flag to disable 100-Continue if you experience issues with proxies or third party S3 compatible services.</p>
 
 
   </div>
@@ -2057,13 +1949,9 @@ with proxies or third party S3 compatible services.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>S3DisableContentMD5Validation config option is temporarily disabled, For S3
-GetObject API calls, #1837.</p>
+<p>S3DisableContentMD5Validation config option is temporarily disabled, For S3 GetObject API calls, #1837.</p>
 
-<p>Set this to <code>true</code> to disable the S3 service client from
-automatically adding the ContentMD5 to S3 Object Put and Upload API calls.
-This option will also disable the SDK from performing object ContentMD5
-validation on GetObject API calls.</p>
+<p>Set this to <code>true</code> to disable the S3 service client from automatically adding the ContentMD5 to S3 Object Put and Upload API calls. This option will also disable the SDK from performing object ContentMD5 validation on GetObject API calls.</p>
 
 
   </div>
@@ -2082,16 +1970,11 @@ validation on GetObject API calls.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Set this to <code>true</code> to force the request to use path-style
-addressing, i.e., <code>http://s3.amazonaws.com/BUCKET/KEY</code>. By
-default, the S3 client will use virtual hosted bucket addressing when
-possible (<code>http://BUCKET.s3.amazonaws.com/KEY</code>).</p>
+<p>Set this to <code>true</code> to force the request to use path-style addressing, i.e., <code>http://s3.amazonaws.com/BUCKET/KEY</code>. By default, the S3 client will use virtual hosted bucket addressing when possible (<code>http://BUCKET.s3.amazonaws.com/KEY</code>).</p>
 
 <p>Note: This configuration option is specific to the Amazon S3 service.</p>
 
-<p>See <a
-href="http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html">docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html</a>
-for Amazon S3: Virtual Hosting of Buckets</p>
+<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html">docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html</a> for Amazon S3: Virtual Hosting of Buckets</p>
 
 
   </div>
@@ -2129,9 +2012,7 @@ for Amazon S3: Virtual Hosting of Buckets</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Set this to <code>true</code> to have the S3 service client to use the
-region specified in the ARN, when an ARN is provided as an argument to a
-bucket parameter.</p>
+<p>Set this to <code>true</code> to have the S3 service client to use the region specified in the ARN, when an ARN is provided as an argument to a bucket parameter.</p>
 
 
   </div>
@@ -2150,14 +2031,9 @@ bucket parameter.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Set this to <code>true</code> to enable S3 Accelerate feature. For all
-operations compatible with S3 Accelerate will use the accelerate endpoint
-for requests. Requests not compatible will fall back to normal S3 requests.</p>
+<p>Set this to <code>true</code> to enable S3 Accelerate feature. For all operations compatible with S3 Accelerate will use the accelerate endpoint for requests. Requests not compatible will fall back to normal S3 requests.</p>
 
-<p>The bucket must be enable for accelerate to be used with S3 client with
-accelerate enabled. If the bucket is not enabled for accelerate an error
-will be returned. The bucket name must be DNS compatible to also work with
-accelerate.</p>
+<p>The bucket must be enable for accelerate to be used with S3 client with accelerate enabled. If the bucket is not enabled for accelerate an error will be returned. The bucket name must be DNS compatible to also work with accelerate.</p>
 
 
   </div>
@@ -2176,15 +2052,9 @@ accelerate.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>SleepDelay is an override for the func the SDK will call when sleeping
-during the lifecycle of a request. Specifically this will be used for
-request delays. This value should only be used for testing. To adjust the
-delay of a request see the aws/client.DefaultRetryer and
-aws/request.Retryer.</p>
+<p>SleepDelay is an override for the func the SDK will call when sleeping during the lifecycle of a request. Specifically this will be used for request delays. This value should only be used for testing. To adjust the delay of a request see the aws/client.DefaultRetryer and aws/request.Retryer.</p>
 
-<p>SleepDelay will prevent any Context from being used for canceling retry
-delay of an API operation. It is recommended to not use SleepDelay at all
-and specify a Retryer instead.</p>
+<p>SleepDelay will prevent any Context from being used for canceling retry delay of an API operation. It is recommended to not use SleepDelay at all and specify a Retryer instead.</p>
 
 
   </div>
@@ -2203,17 +2073,11 @@ and specify a Retryer instead.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Instructs the endpoint to be generated for a service client to be the dual
-stack endpoint. The dual stack endpoint will support both IPv4 and IPv6
-addressing.</p>
+<p>Instructs the endpoint to be generated for a service client to be the dual stack endpoint. The dual stack endpoint will support both IPv4 and IPv6 addressing.</p>
 
-<p>Setting this for a service which does not support dual stack will fail to
-make requests. It is not recommended to set this value on the session as it
-will apply to all service clients created with the session. Even services
-which don&#39;t support dual stack endpoints.</p>
+<p>Setting this for a service which does not support dual stack will fail to make requests. It is not recommended to set this value on the session as it will apply to all service clients created with the session. Even services which don&#39;t support dual stack endpoints.</p>
 
-<p>If the Endpoint config value is also provided the UseDualStack flag will be
-ignored.</p>
+<p>If the Endpoint config value is also provided the UseDualStack flag will be ignored.</p>
 
 <p>Only supported with.</p>
 
@@ -2221,7 +2085,8 @@ ignored.</p>
 
 svc := s3.New(sess, &aws.Config{
     UseDualStack: aws.Bool(<span class="hljs-constant">true</span>),
-})</div></code></pre>
+})
+</div></code></pre>
 
 
   </div>
@@ -2251,8 +2116,7 @@ svc := s3.New(sess, &aws.Config{
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>NewConfig returns a new Config pointer that can be chained with builder
-methods to set multiple configuration values inline without using pointers.</p>
+<p>NewConfig returns a new Config pointer that can be chained with builder methods to set multiple configuration values inline without using pointers.</p>
 
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Create Session with MaxRetries configuration to be shared by multiple</span>
 <span class="hljs-comment">// service clients.</span>
@@ -2263,7 +2127,8 @@ sess := session.Must(session.NewSession(aws.NewConfig().
 <span class="hljs-comment">// Create S3 service client with a specific Region.</span>
 svc := s3.New(sess, aws.NewConfig().
     WithRegion(<span class="hljs-string">"us-west-2"</span>),
-)</div></code></pre>
+)
+</div></code></pre>
 
 
   </div>
@@ -2311,9 +2176,7 @@ svc := s3.New(sess, aws.NewConfig().
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Copy will return a shallow copy of the Config object. If any additional
-configurations are provided they will be merged into the new config
-returned.</p>
+<p>Copy will return a shallow copy of the Config object. If any additional configurations are provided they will be merged into the new config returned.</p>
 
 
   </div>
@@ -2415,8 +2278,7 @@ returned.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithCredentials sets a config Credentials value returning a Config pointer
-for chaining.</p>
+<p>WithCredentials sets a config Credentials value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -2460,8 +2322,7 @@ for chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithCredentialsChainVerboseErrors sets a config verbose errors boolean and
-returning a Config pointer.</p>
+<p>WithCredentialsChainVerboseErrors sets a config verbose errors boolean and returning a Config pointer.</p>
 
 
   </div>
@@ -2505,8 +2366,7 @@ returning a Config pointer.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithDisableComputeChecksums sets a config DisableComputeChecksums value
-returning a Config pointer for chaining.</p>
+<p>WithDisableComputeChecksums sets a config DisableComputeChecksums value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -2550,8 +2410,7 @@ returning a Config pointer for chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithDisableEndpointHostPrefix will set whether or not to use modeled host
-prefix when making requests.</p>
+<p>WithDisableEndpointHostPrefix will set whether or not to use modeled host prefix when making requests.</p>
 
 
   </div>
@@ -2595,8 +2454,7 @@ prefix when making requests.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithDisableParamValidation sets a config DisableParamValidation value
-returning a Config pointer for chaining.</p>
+<p>WithDisableParamValidation sets a config DisableParamValidation value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -2640,9 +2498,7 @@ returning a Config pointer for chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithDisableRestProtocolURICleaning sets a config
-DisableRestProtocolURICleaning value returning a Config pointer for
-chaining.</p>
+<p>WithDisableRestProtocolURICleaning sets a config DisableRestProtocolURICleaning value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -2686,8 +2542,7 @@ chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithDisableSSL sets a config DisableSSL value returning a Config pointer
-for chaining.</p>
+<p>WithDisableSSL sets a config DisableSSL value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -2731,9 +2586,7 @@ for chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithEC2MetadataDisableTimeoutOverride sets a config
-EC2MetadataDisableTimeoutOverride value returning a Config pointer for
-chaining.</p>
+<p>WithEC2MetadataDisableTimeoutOverride sets a config EC2MetadataDisableTimeoutOverride value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -2777,8 +2630,7 @@ chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithEndpoint sets a config Endpoint value returning a Config pointer for
-chaining.</p>
+<p>WithEndpoint sets a config Endpoint value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -2866,8 +2718,7 @@ chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithEndpointResolver sets a config EndpointResolver value returning a
-Config pointer for chaining.</p>
+<p>WithEndpointResolver sets a config EndpointResolver value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -2911,8 +2762,7 @@ Config pointer for chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithHTTPClient sets a config HTTPClient value returning a Config pointer
-for chaining.</p>
+<p>WithHTTPClient sets a config HTTPClient value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -2956,8 +2806,7 @@ for chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithLogger sets a config Logger value returning a Config pointer for
-chaining.</p>
+<p>WithLogger sets a config Logger value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -3001,8 +2850,7 @@ chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithLogLevel sets a config LogLevel value returning a Config pointer for
-chaining.</p>
+<p>WithLogLevel sets a config LogLevel value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -3046,8 +2894,7 @@ chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithLowerCaseHeaderMaps sets a config LowerCaseHeaderMaps value returning a
-Config pointer for chaining.</p>
+<p>WithLowerCaseHeaderMaps sets a config LowerCaseHeaderMaps value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -3091,8 +2938,7 @@ Config pointer for chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithMaxRetries sets a config MaxRetries value returning a Config pointer
-for chaining.</p>
+<p>WithMaxRetries sets a config MaxRetries value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -3136,8 +2982,7 @@ for chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithRegion sets a config Region value returning a Config pointer for
-chaining.</p>
+<p>WithRegion sets a config Region value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -3181,8 +3026,7 @@ chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithS3Disable100Continue sets a config S3Disable100Continue value returning
-a Config pointer for chaining.</p>
+<p>WithS3Disable100Continue sets a config S3Disable100Continue value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -3226,9 +3070,7 @@ a Config pointer for chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithS3DisableContentMD5Validation sets a config
-S3DisableContentMD5Validation value returning a Config pointer for
-chaining.</p>
+<p>WithS3DisableContentMD5Validation sets a config S3DisableContentMD5Validation value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -3274,8 +3116,7 @@ chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithS3ForcePathStyle sets a config S3ForcePathStyle value returning a
-Config pointer for chaining.</p>
+<p>WithS3ForcePathStyle sets a config S3ForcePathStyle value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -3319,8 +3160,7 @@ Config pointer for chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithS3UseAccelerate sets a config S3UseAccelerate value returning a Config
-pointer for chaining.</p>
+<p>WithS3UseAccelerate sets a config S3UseAccelerate value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -3366,8 +3206,7 @@ pointer for chaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithS3UseARNRegion sets a config S3UseARNRegion value and returning a
-Config pointer for chaining</p>
+<p>WithS3UseARNRegion sets a config S3UseARNRegion value and returning a Config pointer for chaining</p>
 
 
   </div>
@@ -3411,8 +3250,7 @@ Config pointer for chaining</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithS3UsEast1RegionalEndpoint will set whether or not to use regional
-endpoint flag when resolving the endpoint for a service</p>
+<p>WithS3UsEast1RegionalEndpoint will set whether or not to use regional endpoint flag when resolving the endpoint for a service</p>
 
 
   </div>
@@ -3456,8 +3294,7 @@ endpoint flag when resolving the endpoint for a service</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithSleepDelay overrides the function used to sleep while waiting for the
-next retry. Defaults to time.Sleep.</p>
+<p>WithSleepDelay overrides the function used to sleep while waiting for the next retry. Defaults to time.Sleep.</p>
 
 
   </div>
@@ -3501,8 +3338,7 @@ next retry. Defaults to time.Sleep.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithUseDualStack sets a config UseDualStack value returning a Config
-pointer for chaining.</p>
+<p>WithUseDualStack sets a config UseDualStack value returning a Config pointer for chaining.</p>
 
 
   </div>
@@ -3540,9 +3376,9 @@ pointer for chaining.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:11:45 2021 by
+  Generated on Thu Jun  9 14:07:12 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

@@ -76,23 +76,13 @@ import "../ibm-cos-sdk-go/aws/endpoints"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Package endpoints provides the types and functionality for defining regions
-and endpoints, as well as querying those definitions.</p>
+<p>Package endpoints provides the types and functionality for defining regions and endpoints, as well as querying those definitions.</p>
 
-<p>The SDK&#39;s Regions and Endpoints metadata is code generated into the
-endpoints package, and is accessible via the DefaultResolver function. This
-function returns a endpoint Resolver will search the metadata and build an
-associated endpoint if one is found. The default resolver will search all
-partitions known by the SDK. e.g AWS Standard (aws), AWS China (aws-cn),
-and AWS GovCloud (US) (aws-us-gov). .</p>
+<p>The SDK&#39;s Regions and Endpoints metadata is code generated into the endpoints package, and is accessible via the DefaultResolver function. This function returns a endpoint Resolver will search the metadata and build an associated endpoint if one is found. The default resolver will search all partitions known by the SDK. e.g AWS Standard (aws), AWS China (aws-cn), and AWS GovCloud (US) (aws-us-gov). .</p>
 
 <p>Enumerating Regions and Endpoint Metadata</p>
 
-<p>Casting the Resolver returned by DefaultResolver to a EnumPartitions
-interface will allow you to get access to the list of underlying Partitions
-with the Partitions method. This is helpful if you want to limit the
-SDK&#39;s endpoint resolving to a single partition, or enumerate regions,
-services, and endpoints in the partition.</p>
+<p>Casting the Resolver returned by DefaultResolver to a EnumPartitions interface will allow you to get access to the list of underlying Partitions with the Partitions method. This is helpful if you want to limit the SDK&#39;s endpoint resolving to a single partition, or enumerate regions, services, and endpoints in the partition.</p>
 
 <pre class="code go"><code class="go"><div class="hljs">resolver := endpoints.DefaultResolver()
 partitions := resolver.(endpoints.EnumPartitions).Partitions()
@@ -107,22 +97,16 @@ partitions := resolver.(endpoints.EnumPartitions).Partitions()
     <span class="hljs-keyword">for</span> id, _ := <span class="hljs-keyword">range</span> p.Services() {
         fmt.Println(<span class="hljs-string">"*"</span>, id)
     }
-}</div></code></pre>
+}
+</div></code></pre>
 
 <p>Using Custom Endpoints</p>
 
-<p>The endpoints package also gives you the ability to use your own logic how
-endpoints are resolved. This is a great way to define a custom endpoint for
-select services, without passing that logic down through your code.</p>
+<p>The endpoints package also gives you the ability to use your own logic how endpoints are resolved. This is a great way to define a custom endpoint for select services, without passing that logic down through your code.</p>
 
-<p>If a type implements the Resolver interface it can be used to resolve
-endpoints. To use this with the SDK&#39;s Session and Config set the value
-of the type to the EndpointsResolver field of aws.Config when initializing
-the session, or service client.</p>
+<p>If a type implements the Resolver interface it can be used to resolve endpoints. To use this with the SDK&#39;s Session and Config set the value of the type to the EndpointsResolver field of aws.Config when initializing the session, or service client.</p>
 
-<p>In addition the ResolverFunc is a wrapper for a func matching the signature
-of Resolver.EndpointFor, converting it to a type that satisfies the
-Resolver interface.</p>
+<p>In addition the ResolverFunc is a wrapper for a func matching the signature of Resolver.EndpointFor, converting it to a type that satisfies the Resolver interface.</p>
 
 <pre class="code go"><code class="go"><div class="hljs">myCustomResolver := <span class="hljs-keyword">func</span>(service, region <span class="hljs-constant">string</span>, optFns ...<span class="hljs-keyword">func</span>(*endpoints.Options)) (endpoints.ResolvedEndpo<span class="hljs-constant">int</span>, <span class="hljs-constant">error</span>) {
     <span class="hljs-keyword">if</span> service == endpoints.S3ServiceID {
@@ -138,7 +122,8 @@ Resolver interface.</p>
 sess := session.Must(session.NewSession(&aws.Config{
     Region:           aws.String(<span class="hljs-string">"us-west-2"</span>),
     EndpointResolver: endpoints.ResolverFunc(myCustomResolver),
-}))</div></code></pre>
+}))
+</div></code></pre>
 
 
   </div>
@@ -544,8 +529,7 @@ sess := session.Must(session.NewSession(&aws.Config{
             <div class="docstring">
   <div class="discussion">
     
-<p>UnsetS3UsEast1Endpoint represents that S3 Regional Endpoint flag is not
-specified.</p>
+<p>UnsetS3UsEast1Endpoint represents that S3 Regional Endpoint flag is not specified.</p>
 
 
   </div>
@@ -2193,8 +2177,7 @@ specified.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A CodeGenOptions are the options for code generating the endpoints into Go
-code from the endpoints model definition.</p>
+<p>A CodeGenOptions are the options for code generating the endpoints into Go code from the endpoints model definition.</p>
 </div></span>
   
 </li>
@@ -2219,8 +2202,7 @@ code from the endpoints model definition.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A DecodeModelOptions are the options for how the endpoints model definition
-are decoded.</p>
+<p>A DecodeModelOptions are the options for how the endpoints model definition are decoded.</p>
 </div></span>
   
 </li>
@@ -2245,9 +2227,7 @@ are decoded.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A Endpoint provides information about endpoints, and provides the ability
-to resolve that endpoint for the service, and the region the endpoint
-represents.</p>
+<p>A Endpoint provides information about endpoints, and provides the ability to resolve that endpoint for the service, and the region the endpoint represents.</p>
 </div></span>
   
 </li>
@@ -2272,9 +2252,7 @@ represents.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A EndpointNotFoundError is returned when in StrictMatching mode, and the
-endpoint for the service and region cannot be found in any of the
-partitions.</p>
+<p>A EndpointNotFoundError is returned when in StrictMatching mode, and the endpoint for the service and region cannot be found in any of the partitions.</p>
 </div></span>
   
 </li>
@@ -2299,8 +2277,7 @@ partitions.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Options provide the configuration needed to direct how the endpoints will
-be resolved.</p>
+<p>Options provide the configuration needed to direct how the endpoints will be resolved.</p>
 </div></span>
   
 </li>
@@ -2325,8 +2302,7 @@ be resolved.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A Partition provides the ability to enumerate the partition&#39;s regions
-and services.</p>
+<p>A Partition provides the ability to enumerate the partition&#39;s regions and services.</p>
 </div></span>
   
 </li>
@@ -2351,8 +2327,7 @@ and services.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A Region provides information about a region, and ability to resolve an
-endpoint from the context of a region, given a service.</p>
+<p>A Region provides information about a region, and ability to resolve an endpoint from the context of a region, given a service.</p>
 </div></span>
   
 </li>
@@ -2377,8 +2352,7 @@ endpoint from the context of a region, given a service.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A ResolvedEndpoint is an endpoint that has been resolved based on a
-partition service, and region.</p>
+<p>A ResolvedEndpoint is an endpoint that has been resolved based on a partition service, and region.</p>
 </div></span>
   
 </li>
@@ -2403,8 +2377,7 @@ partition service, and region.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>EndpointFor wraps the ResolverFunc function to satisfy the Resolver
-interface.</p>
+<p>EndpointFor wraps the ResolverFunc function to satisfy the Resolver interface.</p>
 </div></span>
   
 </li>
@@ -2452,8 +2425,7 @@ interface.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A Service provides information about a service, and ability to resolve an
-endpoint from the context of a service, given a region.</p>
+<p>A Service provides information about a service, and ability to resolve an endpoint from the context of a service, given a region.</p>
 </div></span>
   
 </li>
@@ -2478,8 +2450,7 @@ endpoint from the context of a service, given a region.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A UnknownEndpointError is returned when in StrictMatching mode and the
-service is valid, but the region does not resolve to an endpoint.</p>
+<p>A UnknownEndpointError is returned when in StrictMatching mode and the service is valid, but the region does not resolve to an endpoint.</p>
 </div></span>
   
 </li>
@@ -2504,8 +2475,7 @@ service is valid, but the region does not resolve to an endpoint.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A UnknownServiceError is returned when the service does not resolve to an
-endpoint.</p>
+<p>A UnknownServiceError is returned when the service does not resolve to an endpoint.</p>
 </div></span>
   
 </li>
@@ -2540,9 +2510,7 @@ endpoint.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>EnumPartitions a provides a way to retrieve the underlying partitions that
-make up the SDK&#39;s default Resolver, or any resolver decoded from a
-model file.</p>
+<p>EnumPartitions a provides a way to retrieve the underlying partitions that make up the SDK&#39;s default Resolver, or any resolver decoded from a model file.</p>
 </div></span>
   
 </li>
@@ -2603,8 +2571,7 @@ model file.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>AddScheme adds the HTTP or HTTPS schemes to a endpoint URL if there is no
-scheme.</p>
+<p>AddScheme adds the HTTP or HTTPS schemes to a endpoint URL if there is no scheme.</p>
 </div></span>
   
 </li>
@@ -2754,8 +2721,7 @@ scheme.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>CodeGenModel given a endpoints model file will decode it and attempt to
-generate Go code from the model definition.</p>
+<p>CodeGenModel given a endpoints model file will decode it and attempt to generate Go code from the model definition.</p>
 </div></span>
   
 </li>
@@ -2780,8 +2746,7 @@ generate Go code from the model definition.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>DecodeModel unmarshals a Regions and Endpoint model definition file into a
-endpoint Resolver.</p>
+<p>DecodeModel unmarshals a Regions and Endpoint model definition file into a endpoint Resolver.</p>
 </div></span>
   
 </li>
@@ -2831,9 +2796,7 @@ endpoint Resolver.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>DefaultResolver returns an Endpoint resolver that will be able to resolve
-endpoints for: AWS Standard, AWS China, AWS GovCloud (US), AWS ISO (US),
-and AWS ISOB (US).</p>
+<p>DefaultResolver returns an Endpoint resolver that will be able to resolve endpoints for: AWS Standard, AWS China, AWS GovCloud (US), AWS ISO (US), and AWS ISOB (US).</p>
 </div></span>
   
 </li>
@@ -2883,9 +2846,7 @@ and AWS ISOB (US).</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>GetS3UsEast1RegionalEndpoint function returns the
-S3UsEast1RegionalEndpointFlag based on the input string provided in env
-config or shared config by the user.</p>
+<p>GetS3UsEast1RegionalEndpoint function returns the S3UsEast1RegionalEndpointFlag based on the input string provided in env config or shared config by the user.</p>
 </div></span>
   
 </li>
@@ -2960,8 +2921,7 @@ config or shared config by the user.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>PartitionForRegion returns the first partition which includes the region
-passed in.</p>
+<p>PartitionForRegion returns the first partition which includes the region passed in.</p>
 </div></span>
   
 </li>
@@ -3089,9 +3049,7 @@ passed in.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>A EndpointNotFoundError is returned when in StrictMatching mode, and the
-endpoint for the service and region cannot be found in any of the
-partitions.</p>
+<p>A EndpointNotFoundError is returned when in StrictMatching mode, and the endpoint for the service and region cannot be found in any of the partitions.</p>
 
 
   </div>
@@ -3151,8 +3109,7 @@ partitions.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>A ResolvedEndpoint is an endpoint that has been resolved based on a
-partition service, and region.</p>
+<p>A ResolvedEndpoint is an endpoint that has been resolved based on a partition service, and region.</p>
 
 
   </div>
@@ -3219,8 +3176,7 @@ partition service, and region.</p>
   </code></dt>
   <dd>
     
-<p>States that the signing name for this endpoint was derived from metadata
-passed in, but was not explicitly modeled.</p>
+<p>States that the signing name for this endpoint was derived from metadata passed in, but was not explicitly modeled.</p>
 
     
   </dd>
@@ -3284,12 +3240,9 @@ passed in, but was not explicitly modeled.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>AddScheme adds the HTTP or HTTPS schemes to a endpoint URL if there is no
-scheme. If disableSSL is true HTTP will set HTTP instead of the default
-HTTPS.</p>
+<p>AddScheme adds the HTTP or HTTPS schemes to a endpoint URL if there is no scheme. If disableSSL is true HTTP will set HTTP instead of the default HTTPS.</p>
 
-<p>If disableSSL is set, it will only set the URL&#39;s scheme if the URL does
-not contain a scheme.</p>
+<p>If disableSSL is set, it will only set the URL&#39;s scheme if the URL does not contain a scheme.</p>
 
 
   </div>
@@ -3557,9 +3510,7 @@ not contain a scheme.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>CodeGenModel given a endpoints model file will decode it and attempt to
-generate Go code from the model definition. Error will be returned if the
-code is unable to be generated, or decoded.</p>
+<p>CodeGenModel given a endpoints model file will decode it and attempt to generate Go code from the model definition. Error will be returned if the code is unable to be generated, or decoded.</p>
 
 
   </div>
@@ -3647,18 +3598,13 @@ code is unable to be generated, or decoded.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>DecodeModel unmarshals a Regions and Endpoint model definition file into a
-endpoint Resolver. If the file format is not supported, or an error occurs
-when unmarshaling the model an error will be returned.</p>
+<p>DecodeModel unmarshals a Regions and Endpoint model definition file into a endpoint Resolver. If the file format is not supported, or an error occurs when unmarshaling the model an error will be returned.</p>
 
-<p>Casting the return value of this func to a EnumPartitions will allow you to
-get a list of the partitions in the order the endpoints will be resolved
-in.</p>
+<p>Casting the return value of this func to a EnumPartitions will allow you to get a list of the partitions in the order the endpoints will be resolved in.</p>
 
 <p>resolver, err := endpoints.DecodeModel(reader)</p>
 
-<p>partitions := resolver.(endpoints.EnumPartitions).Partitions()  for _, p :=
-range partitions {  // … inspect partitions  }</p>
+<p>partitions := resolver.(endpoints.EnumPartitions).Partitions()  for _, p := range partitions {  // … inspect partitions  }</p>
 
 
   </div>
@@ -3744,12 +3690,9 @@ range partitions {  // … inspect partitions  }</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>DefaultPartitions returns a list of the partitions the SDK is bundled with.
-The available partitions are: AWS Standard, AWS China, AWS GovCloud (US),
-AWS ISO (US), and AWS ISOB (US).</p>
+<p>DefaultPartitions returns a list of the partitions the SDK is bundled with. The available partitions are: AWS Standard, AWS China, AWS GovCloud (US), AWS ISO (US), and AWS ISOB (US).</p>
 
-<p>partitions := endpoints.DefaultPartitions  for _, p := range partitions { 
-// … inspect partitions  }</p>
+<p>partitions := endpoints.DefaultPartitions  for _, p := range partitions {  // … inspect partitions  }</p>
 
 
   </div>
@@ -3791,9 +3734,7 @@ AWS ISO (US), and AWS ISOB (US).</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>DefaultResolver returns an Endpoint resolver that will be able to resolve
-endpoints for: AWS Standard, AWS China, AWS GovCloud (US), AWS ISO (US),
-and AWS ISOB (US).</p>
+<p>DefaultResolver returns an Endpoint resolver that will be able to resolve endpoints for: AWS Standard, AWS China, AWS GovCloud (US), AWS ISO (US), and AWS ISOB (US).</p>
 
 <p>Use DefaultPartitions() to get the list of the default partitions.</p>
 
@@ -3837,8 +3778,7 @@ and AWS ISOB (US).</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>DisableSSLOption sets the DisableSSL options. Can be used as a functional
-option when resolving endpoints.</p>
+<p>DisableSSLOption sets the DisableSSL options. Can be used as a functional option when resolving endpoints.</p>
 
 
   </div>
@@ -3880,12 +3820,9 @@ option when resolving endpoints.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GetS3UsEast1RegionalEndpoint function returns the
-S3UsEast1RegionalEndpointFlag based on the input string provided in env
-config or shared config by the user.</p>
+<p>GetS3UsEast1RegionalEndpoint function returns the S3UsEast1RegionalEndpointFlag based on the input string provided in env config or shared config by the user.</p>
 
-<p><code>legacy</code>, <code>regional</code> are the only case-insensitive
-valid strings for resolving the S3 regional Endpoint flag.</p>
+<p><code>legacy</code>, <code>regional</code> are the only case-insensitive valid strings for resolving the S3 regional Endpoint flag.</p>
 
 
   </div>
@@ -4053,11 +3990,7 @@ valid strings for resolving the S3 regional Endpoint flag.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>PartitionForRegion returns the first partition which includes the region
-passed in. This includes both known regions and regions which match a
-pattern supported by the partition which may include regions that are not
-explicitly known by the partition. Use the Regions method of the returned
-Partition if explicit support is needed.</p>
+<p>PartitionForRegion returns the first partition which includes the region passed in. This includes both known regions and regions which match a pattern supported by the partition which may include regions that are not explicitly known by the partition. Use the Regions method of the returned Partition if explicit support is needed.</p>
 
 
   </div>
@@ -4111,17 +4044,11 @@ Partition if explicit support is needed.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>RegionsForService returns a map of regions for the partition and service.
-If either the partition or service does not exist false will be returned as
-the second parameter.</p>
+<p>RegionsForService returns a map of regions for the partition and service. If either the partition or service does not exist false will be returned as the second parameter.</p>
 
-<p>This example shows how to get the regions for DynamoDB in the AWS
-partition.  rs, exists :=
-endpoints.RegionsForService(endpoints.DefaultPartitions(),
-endpoints.AwsPartitionID, endpoints.DynamodbServiceID)</p>
+<p>This example shows how to get the regions for DynamoDB in the AWS partition.  rs, exists := endpoints.RegionsForService(endpoints.DefaultPartitions(), endpoints.AwsPartitionID, endpoints.DynamodbServiceID)</p>
 
-<p>This is equivalent to using the partition directly.  rs := <a
-href="endpoints.DynamodbServiceID">endpoints.AwsPartition().Services()</a>.Regions()</p>
+<p>This is equivalent to using the partition directly.  rs := <a href="endpoints.DynamodbServiceID">endpoints.AwsPartition().Services()</a>.Regions()</p>
 
 
   </div>
@@ -4193,8 +4120,7 @@ href="endpoints.DynamodbServiceID">endpoints.AwsPartition().Services()</a>.Regio
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>ResolveUnknownServiceOption sets the ResolveUnknownService option. Can be
-used as a functional option when resolving endpoints.</p>
+<p>ResolveUnknownServiceOption sets the ResolveUnknownService option. Can be used as a functional option when resolving endpoints.</p>
 
 
   </div>
@@ -4236,8 +4162,7 @@ used as a functional option when resolving endpoints.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>StrictMatchingOption sets the StrictMatching option. Can be used as a
-functional option when resolving endpoints.</p>
+<p>StrictMatchingOption sets the StrictMatching option. Can be used as a functional option when resolving endpoints.</p>
 
 
   </div>
@@ -4279,8 +4204,7 @@ functional option when resolving endpoints.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>UseDualStackOption sets the UseDualStack option. Can be used as a
-functional option when resolving endpoints.</p>
+<p>UseDualStackOption sets the UseDualStack option. Can be used as a functional option when resolving endpoints.</p>
 
 
   </div>
@@ -4316,9 +4240,9 @@ functional option when resolving endpoints.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:11:37 2021 by
+  Generated on Thu Jun  9 14:07:03 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

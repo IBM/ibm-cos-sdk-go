@@ -76,34 +76,15 @@ import "../ibm-cos-sdk-go/service/kms"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Use this structure to allow cryptographic operations (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
-in the grant only when the operation request includes the specified
-encryption context (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>).</p>
+<p>Use this structure to allow cryptographic operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) in the grant only when the operation request includes the specified encryption context (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>).</p>
 
-<p>AWS KMS applies the grant constraints only to cryptographic operations that
-support an encryption context, that is, all cryptographic operations with a
-symmetric CMK (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks">docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks</a>).
-Grant constraints are not applied to operations that do not support an
-encryption context, such as cryptographic operations with asymmetric CMKs
-and management operations, such as DescribeKey or RetireGrant.</p>
+<p>AWS KMS applies the grant constraints only to cryptographic operations that support an encryption context, that is, all cryptographic operations with a symmetric CMK (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks">docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks</a>). Grant constraints are not applied to operations that do not support an encryption context, such as cryptographic operations with asymmetric CMKs and management operations, such as DescribeKey or RetireGrant.</p>
 
-<p>In a cryptographic operation, the encryption context in the decryption
-operation must be an exact, case-sensitive match for the keys and values in
-the encryption context of the encryption operation. Only the order of the
-pairs can vary.</p>
+<p>In a cryptographic operation, the encryption context in the decryption operation must be an exact, case-sensitive match for the keys and values in the encryption context of the encryption operation. Only the order of the pairs can vary.</p>
 
-<p>However, in a grant constraint, the key in each key-value pair is not case
-sensitive, but the value is case sensitive.</p>
+<p>However, in a grant constraint, the key in each key-value pair is not case sensitive, but the value is case sensitive.</p>
 
-<p>To avoid confusion, do not use multiple encryption context pairs that
-differ only by case. To require a fully case-sensitive encryption context,
-use the kms:EncryptionContext: and kms:EncryptionContextKeys conditions in
-an IAM or key policy. For details, see kms:EncryptionContext: (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context">docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context</a>)
-in the AWS Key Management Service Developer Guide .</p>
+<p>To avoid confusion, do not use multiple encryption context pairs that differ only by case. To require a fully case-sensitive encryption context, use the kms:EncryptionContext: and kms:EncryptionContextKeys conditions in an IAM or key policy. For details, see kms:EncryptionContext: (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context">docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context</a>) in the AWS Key Management Service Developer Guide .</p>
 
 
   </div>
@@ -152,10 +133,7 @@ in the AWS Key Management Service Developer Guide .</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A list of key-value pairs that must match the encryption context in the
-cryptographic operation (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
-request.</p>
+<p>A list of key-value pairs that must match the encryption context in the cryptographic operation (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) request.</p>
 </div></span>
   
 </li>
@@ -180,10 +158,7 @@ request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A list of key-value pairs that must be included in the encryption context
-of the cryptographic operation (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
-request.</p>
+<p>A list of key-value pairs that must be included in the encryption context of the cryptographic operation (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) request.</p>
 </div></span>
   
 </li>
@@ -268,8 +243,7 @@ request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SetEncryptionContextEquals sets the EncryptionContextEquals field&#39;s
-value.</p>
+<p>SetEncryptionContextEquals sets the EncryptionContextEquals field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -294,8 +268,7 @@ value.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SetEncryptionContextSubset sets the EncryptionContextSubset field&#39;s
-value.</p>
+<p>SetEncryptionContextSubset sets the EncryptionContextSubset field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -345,12 +318,7 @@ value.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>A list of key-value pairs that must match the encryption context in the
-cryptographic operation (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
-request. The grant allows the operation only when the encryption context in
-the request is the same as the encryption context specified in this
-constraint.</p>
+<p>A list of key-value pairs that must match the encryption context in the cryptographic operation (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) request. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint.</p>
 
 
   </div>
@@ -369,12 +337,7 @@ constraint.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>A list of key-value pairs that must be included in the encryption context
-of the cryptographic operation (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
-request. The grant allows the cryptographic operation only when the
-encryption context in the request includes the key-value pairs specified in
-this constraint, although it can include additional key-value pairs.</p>
+<p>A list of key-value pairs that must be included in the encryption context of the cryptographic operation (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) request. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs.</p>
 
 
   </div>
@@ -454,8 +417,7 @@ this constraint, although it can include additional key-value pairs.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SetEncryptionContextEquals sets the EncryptionContextEquals field&#39;s
-value.</p>
+<p>SetEncryptionContextEquals sets the EncryptionContextEquals field&#39;s value.</p>
 
 
   </div>
@@ -499,8 +461,7 @@ value.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SetEncryptionContextSubset sets the EncryptionContextSubset field&#39;s
-value.</p>
+<p>SetEncryptionContextSubset sets the EncryptionContextSubset field&#39;s value.</p>
 
 
   </div>
@@ -580,9 +541,9 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:44 2021 by
+  Generated on Thu Jun  9 14:08:28 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

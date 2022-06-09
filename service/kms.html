@@ -76,86 +76,46 @@ import "../ibm-cos-sdk-go/service/kms"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Package kms provides the client and types for making API requests to AWS
-Key Management Service.</p>
+<p>Package kms provides the client and types for making API requests to AWS Key Management Service.</p>
 
-<p>AWS Key Management Service (AWS KMS) is an encryption and key management
-web service. This guide describes the AWS KMS operations that you can call
-programmatically. For general information about AWS KMS, see the AWS Key
-Management Service Developer Guide (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide">docs.aws.amazon.com/kms/latest/developerguide</a>/).</p>
+<p>AWS Key Management Service (AWS KMS) is an encryption and key management web service. This guide describes the AWS KMS operations that you can call programmatically. For general information about AWS KMS, see the AWS Key Management Service Developer Guide (<a href="https://docs.aws.amazon.com/kms/latest/developerguide">docs.aws.amazon.com/kms/latest/developerguide</a>/).</p>
 
-<p>AWS provides SDKs that consist of libraries and sample code for various
-programming languages and platforms (Java, Ruby, .Net, macOS, Android,
-etc.). The SDKs provide a convenient way to create programmatic access to
-AWS KMS and other AWS services. For example, the SDKs take care of tasks
-such as signing requests (see below), managing errors, and retrying
-requests automatically. For more information about the AWS SDKs, including
-how to download and install them, see Tools for Amazon Web Services (<a
-href="http://aws.amazon.com/tools">aws.amazon.com/tools</a>/).</p>
+<p>AWS provides SDKs that consist of libraries and sample code for various programming languages and platforms (Java, Ruby, .Net, macOS, Android, etc.). The SDKs provide a convenient way to create programmatic access to AWS KMS and other AWS services. For example, the SDKs take care of tasks such as signing requests (see below), managing errors, and retrying requests automatically. For more information about the AWS SDKs, including how to download and install them, see Tools for Amazon Web Services (<a href="http://aws.amazon.com/tools">aws.amazon.com/tools</a>/).</p>
 
-<p>We recommend that you use the AWS SDKs to make programmatic API calls to
-AWS KMS.</p>
+<p>We recommend that you use the AWS SDKs to make programmatic API calls to AWS KMS.</p>
 
-<p>Clients must support TLS (Transport Layer Security) 1.0. We recommend TLS
-1.2. Clients must also support cipher suites with Perfect Forward Secrecy
-(PFS) such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral
-Diffie-Hellman (ECDHE). Most modern systems such as Java 7 and later
-support these modes.</p>
+<p>Clients must support TLS (Transport Layer Security) 1.0. We recommend TLS 1.2. Clients must also support cipher suites with Perfect Forward Secrecy (PFS) such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems such as Java 7 and later support these modes.</p>
 
 <p>Signing Requests</p>
 
-<p>Requests must be signed by using an access key ID and a secret access key.
-We strongly recommend that you do not use your AWS account (root) access
-key ID and secret key for everyday work with AWS KMS. Instead, use the
-access key ID and secret access key for an IAM user. You can also use the
-AWS Security Token Service to generate temporary security credentials that
-you can use to sign requests.</p>
+<p>Requests must be signed by using an access key ID and a secret access key. We strongly recommend that you do not use your AWS account (root) access key ID and secret key for everyday work with AWS KMS. Instead, use the access key ID and secret access key for an IAM user. You can also use the AWS Security Token Service to generate temporary security credentials that you can use to sign requests.</p>
 
-<p>All AWS KMS operations require Signature Version 4 (<a
-href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>).</p>
+<p>All AWS KMS operations require Signature Version 4 (<a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>).</p>
 
 <p>Logging API Requests</p>
 
-<p>AWS KMS supports AWS CloudTrail, a service that logs AWS API calls and
-related events for your AWS account and delivers them to an Amazon S3
-bucket that you specify. By using the information collected by CloudTrail,
-you can determine what requests were made to AWS KMS, who made the request,
-when it was made, and so on. To learn more about CloudTrail, including how
-to turn it on and find your log files, see the AWS CloudTrail User Guide
-(<a
-href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide">docs.aws.amazon.com/awscloudtrail/latest/userguide</a>/).</p>
+<p>AWS KMS supports AWS CloudTrail, a service that logs AWS API calls and related events for your AWS account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to AWS KMS, who made the request, when it was made, and so on. To learn more about CloudTrail, including how to turn it on and find your log files, see the AWS CloudTrail User Guide (<a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide">docs.aws.amazon.com/awscloudtrail/latest/userguide</a>/).</p>
 
 <p>Additional Resources</p>
 
-<p>For more information about credentials and request signing, see the
-following:</p>
+<p>For more information about credentials and request signing, see the following:</p>
 <ul><li>
-<p>AWS Security Credentials (<a
-href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a>)</p>
+<p>AWS Security Credentials (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a>)</p>
 </li><li>
-<p>This topic provides general information about the types of credentials 
-used for accessing AWS.</p>
+<p>This topic provides general information about the types of credentials  used for accessing AWS.</p>
 </li><li>
-<p>Temporary Security Credentials (<a
-href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html</a>)</p>
+<p>Temporary Security Credentials (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html</a>)</p>
 </li><li>
-<p>This section of the IAM User Guide describes how to create and use
-temporary  security credentials.</p>
+<p>This section of the IAM User Guide describes how to create and use temporary  security credentials.</p>
 </li><li>
-<p>Signature Version 4 Signing Process (<a
-href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>)</p>
+<p>Signature Version 4 Signing Process (<a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>)</p>
 </li><li>
-<p>This set of topics walks you through the process of signing a request 
-using an access key ID and a secret access key.</p>
+<p>This set of topics walks you through the process of signing a request  using an access key ID and a secret access key.</p>
 </li></ul>
 
 <p>Commonly Used API Operations</p>
 
-<p>Of the API operations discussed in this guide, the following will prove the
-most useful for most applications. You will likely perform operations other
-than these, such as creating keys and assigning policies, by using the
-console.</p>
+<p>Of the API operations discussed in this guide, the following will prove the most useful for most applications. You will likely perform operations other than these, such as creating keys and assigning policies, by using the console.</p>
 <ul><li>
 <p>Encrypt</p>
 </li><li>
@@ -166,30 +126,19 @@ console.</p>
 <p>GenerateDataKeyWithoutPlaintext</p>
 </li></ul>
 
-<p>See <a
-href="https://docs.aws.amazon.com/goto/WebAPI/kms-2014-11-01">docs.aws.amazon.com/goto/WebAPI/kms-2014-11-01</a>
-for more information on this service.</p>
+<p>See <a href="https://docs.aws.amazon.com/goto/WebAPI/kms-2014-11-01">docs.aws.amazon.com/goto/WebAPI/kms-2014-11-01</a> for more information on this service.</p>
 
-<p>See kms package documentation for more information. <a
-href="https://docs.aws.amazon.com/sdk-for-go/api/service/kms">docs.aws.amazon.com/sdk-for-go/api/service/kms</a>/</p>
+<p>See kms package documentation for more information. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/kms">docs.aws.amazon.com/sdk-for-go/api/service/kms</a>/</p>
 
 <p>Using the Client</p>
 
-<p>To contact AWS Key Management Service with the SDK use the New function to
-create a new service client. With that client you can make API requests to
-the service. These clients are safe to use concurrently.</p>
+<p>To contact AWS Key Management Service with the SDK use the New function to create a new service client. With that client you can make API requests to the service. These clients are safe to use concurrently.</p>
 
-<p>See the SDK&#39;s documentation for more information on how to use the SDK.
-<a
-href="https://docs.aws.amazon.com/sdk-for-go/api">docs.aws.amazon.com/sdk-for-go/api</a>/</p>
+<p>See the SDK&#39;s documentation for more information on how to use the SDK. <a href="https://docs.aws.amazon.com/sdk-for-go/api">docs.aws.amazon.com/sdk-for-go/api</a>/</p>
 
-<p>See aws.Config documentation for more information on configuring SDK
-clients. <a
-href="https://docs.aws.amazon.com/sdk-for-go/api/aws/#Config">docs.aws.amazon.com/sdk-for-go/api/aws/#Config</a></p>
+<p>See aws.Config documentation for more information on configuring SDK clients. <a href="https://docs.aws.amazon.com/sdk-for-go/api/aws/#Config">docs.aws.amazon.com/sdk-for-go/api/aws/#Config</a></p>
 
-<p>See the AWS Key Management Service client KMS for more information on
-creating client for this service. <a
-href="https://docs.aws.amazon.com/sdk-for-go/api/service/kms/#New">docs.aws.amazon.com/sdk-for-go/api/service/kms/#New</a></p>
+<p>See the AWS Key Management Service client KMS for more information on creating client for this service. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/kms/#New">docs.aws.amazon.com/sdk-for-go/api/service/kms/#New</a></p>
 
 
   </div>
@@ -221,8 +170,7 @@ href="https://docs.aws.amazon.com/sdk-for-go/api/service/kms/#New">docs.aws.amaz
 
   
     <span class="summary_desc"><div class='inline'>
-<p>KMS provides the API operation methods for making requests to AWS Key
-Management Service.</p>
+<p>KMS provides the API operation methods for making requests to AWS Key Management Service.</p>
 </div></span>
   
 </li>
@@ -312,8 +260,7 @@ Management Service.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ConnectionErrorCodeTypeInvalidCredentials is a ConnectionErrorCodeType enum
-value</p>
+<p>ConnectionErrorCodeTypeInvalidCredentials is a ConnectionErrorCodeType enum value</p>
 
 
   </div>
@@ -336,8 +283,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ConnectionErrorCodeTypeClusterNotFound is a ConnectionErrorCodeType enum
-value</p>
+<p>ConnectionErrorCodeTypeClusterNotFound is a ConnectionErrorCodeType enum value</p>
 
 
   </div>
@@ -360,8 +306,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ConnectionErrorCodeTypeNetworkErrors is a ConnectionErrorCodeType enum
-value</p>
+<p>ConnectionErrorCodeTypeNetworkErrors is a ConnectionErrorCodeType enum value</p>
 
 
   </div>
@@ -384,8 +329,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ConnectionErrorCodeTypeInternalError is a ConnectionErrorCodeType enum
-value</p>
+<p>ConnectionErrorCodeTypeInternalError is a ConnectionErrorCodeType enum value</p>
 
 
   </div>
@@ -408,8 +352,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ConnectionErrorCodeTypeInsufficientCloudhsmHsms is a
-ConnectionErrorCodeType enum value</p>
+<p>ConnectionErrorCodeTypeInsufficientCloudhsmHsms is a ConnectionErrorCodeType enum value</p>
 
 
   </div>
@@ -432,8 +375,7 @@ ConnectionErrorCodeType enum value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ConnectionErrorCodeTypeUserLockedOut is a ConnectionErrorCodeType enum
-value</p>
+<p>ConnectionErrorCodeTypeUserLockedOut is a ConnectionErrorCodeType enum value</p>
 
 
   </div>
@@ -502,8 +444,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ConnectionErrorCodeTypeSubnetNotFound is a ConnectionErrorCodeType enum
-value</p>
+<p>ConnectionErrorCodeTypeSubnetNotFound is a ConnectionErrorCodeType enum value</p>
 
 
   </div>
@@ -1032,8 +973,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>EncryptionAlgorithmSpecSymmetricDefault is a EncryptionAlgorithmSpec enum
-value</p>
+<p>EncryptionAlgorithmSpecSymmetricDefault is a EncryptionAlgorithmSpec enum value</p>
 
 
   </div>
@@ -1056,8 +996,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>EncryptionAlgorithmSpecRsaesOaepSha1 is a EncryptionAlgorithmSpec enum
-value</p>
+<p>EncryptionAlgorithmSpecRsaesOaepSha1 is a EncryptionAlgorithmSpec enum value</p>
 
 
   </div>
@@ -1080,8 +1019,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>EncryptionAlgorithmSpecRsaesOaepSha256 is a EncryptionAlgorithmSpec enum
-value</p>
+<p>EncryptionAlgorithmSpecRsaesOaepSha256 is a EncryptionAlgorithmSpec enum value</p>
 
 
   </div>
@@ -1127,8 +1065,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ExpirationModelTypeKeyMaterialDoesNotExpire is a ExpirationModelType enum
-value</p>
+<p>ExpirationModelTypeKeyMaterialDoesNotExpire is a ExpirationModelType enum value</p>
 
 
   </div>
@@ -1220,8 +1157,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>GrantOperationGenerateDataKeyWithoutPlaintext is a GrantOperation enum
-value</p>
+<p>GrantOperationGenerateDataKeyWithoutPlaintext is a GrantOperation enum value</p>
 
 
   </div>
@@ -1451,8 +1387,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>GrantOperationGenerateDataKeyPairWithoutPlaintext is a GrantOperation enum
-value</p>
+<p>GrantOperationGenerateDataKeyPairWithoutPlaintext is a GrantOperation enum value</p>
 
 
   </div>
@@ -1866,8 +1801,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>SigningAlgorithmSpecRsassaPkcs1V15Sha256 is a SigningAlgorithmSpec enum
-value</p>
+<p>SigningAlgorithmSpecRsassaPkcs1V15Sha256 is a SigningAlgorithmSpec enum value</p>
 
 
   </div>
@@ -1890,8 +1824,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>SigningAlgorithmSpecRsassaPkcs1V15Sha384 is a SigningAlgorithmSpec enum
-value</p>
+<p>SigningAlgorithmSpecRsassaPkcs1V15Sha384 is a SigningAlgorithmSpec enum value</p>
 
 
   </div>
@@ -1914,8 +1847,7 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>SigningAlgorithmSpecRsassaPkcs1V15Sha512 is a SigningAlgorithmSpec enum
-value</p>
+<p>SigningAlgorithmSpecRsassaPkcs1V15Sha512 is a SigningAlgorithmSpec enum value</p>
 
 
   </div>
@@ -2030,11 +1962,9 @@ value</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeAlreadyExistsException for service response error code
-“AlreadyExistsException”.</p>
+<p>ErrCodeAlreadyExistsException for service response error code “AlreadyExistsException”.</p>
 
-<p>The request was rejected because it attempted to create a resource that
-already exists.</p>
+<p>The request was rejected because it attempted to create a resource that already exists.</p>
 
 
   </div>
@@ -2057,18 +1987,11 @@ already exists.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeCloudHsmClusterInUseException for service response error code
-“CloudHsmClusterInUseException”.</p>
+<p>ErrCodeCloudHsmClusterInUseException for service response error code “CloudHsmClusterInUseException”.</p>
 
-<p>The request was rejected because the specified AWS CloudHSM cluster is
-already associated with a custom key store or it shares a backup history
-with a cluster that is associated with a custom key store. Each custom key
-store must be associated with a different AWS CloudHSM cluster.</p>
+<p>The request was rejected because the specified AWS CloudHSM cluster is already associated with a custom key store or it shares a backup history with a cluster that is associated with a custom key store. Each custom key store must be associated with a different AWS CloudHSM cluster.</p>
 
-<p>Clusters that share a backup history have the same cluster certificate. To
-view the cluster certificate of a cluster, use the DescribeClusters (<a
-href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>)
-operation.</p>
+<p>Clusters that share a backup history have the same cluster certificate. To view the cluster certificate of a cluster, use the DescribeClusters (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>) operation.</p>
 
 
   </div>
@@ -2091,47 +2014,18 @@ operation.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeCloudHsmClusterInvalidConfigurationException for service response
-error code “CloudHsmClusterInvalidConfigurationException”.</p>
+<p>ErrCodeCloudHsmClusterInvalidConfigurationException for service response error code “CloudHsmClusterInvalidConfigurationException”.</p>
 
-<p>The request was rejected because the associated AWS CloudHSM cluster did
-not meet the configuration requirements for a custom key store.</p>
+<p>The request was rejected because the associated AWS CloudHSM cluster did not meet the configuration requirements for a custom key store.</p>
 <ul><li>
-<p>The cluster must be configured with private subnets in at least two 
-different Availability Zones in the Region.</p>
+<p>The cluster must be configured with private subnets in at least two  different Availability Zones in the Region.</p>
 </li><li>
-<p>The security group for the cluster (<a
-href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>)
-(cloudhsm-cluster-&lt;cluster-id&gt;-sg) must include inbound rules and
-outbound  rules that allow TCP traffic on ports 2223-2225. The Source in
-the inbound  rules and the Destination in the outbound rules must match the
-security  group ID. These rules are set by default when you create the
-cluster.  Do not delete or change them. To get information about a
-particular security  group, use the DescribeSecurityGroups (<a
-href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html">docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html</a>)
-operation.</p>
+<p>The security group for the cluster (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>)  (cloudhsm-cluster-&lt;cluster-id&gt;-sg) must include inbound rules and outbound  rules that allow TCP traffic on ports 2223-2225. The Source in the inbound  rules and the Destination in the outbound rules must match the security  group ID. These rules are set by default when you create the cluster.  Do not delete or change them. To get information about a particular security  group, use the DescribeSecurityGroups (<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html">docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html</a>)  operation.</p>
 </li><li>
-<p>The cluster must contain at least as many HSMs as the operation requires. 
-To add HSMs, use the AWS CloudHSM CreateHsm (<a
-href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html</a>)
-operation. For the CreateCustomKeyStore, UpdateCustomKeyStore, and
-CreateKey  operations, the AWS CloudHSM cluster must have at least two
-active HSMs,  each in a different Availability Zone. For the
-ConnectCustomKeyStore operation,  the AWS CloudHSM must contain at least
-one active HSM.</p>
+<p>The cluster must contain at least as many HSMs as the operation requires.  To add HSMs, use the AWS CloudHSM CreateHsm (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html</a>)  operation. For the CreateCustomKeyStore, UpdateCustomKeyStore, and CreateKey  operations, the AWS CloudHSM cluster must have at least two active HSMs,  each in a different Availability Zone. For the ConnectCustomKeyStore operation,  the AWS CloudHSM must contain at least one active HSM.</p>
 </li></ul>
 
-<p>For information about the requirements for an AWS CloudHSM cluster that is
-associated with a custom key store, see Assemble the Prerequisites (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore</a>)
-in the AWS Key Management Service Developer Guide. For information about
-creating a private subnet for an AWS CloudHSM cluster, see Create a Private
-Subnet (<a
-href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html</a>)
-in the AWS CloudHSM User Guide. For information about cluster security
-groups, see Configure a Default Security Group (<a
-href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>)
-in the AWS CloudHSM User Guide .</p>
+<p>For information about the requirements for an AWS CloudHSM cluster that is associated with a custom key store, see Assemble the Prerequisites (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore</a>) in the AWS Key Management Service Developer Guide. For information about creating a private subnet for an AWS CloudHSM cluster, see Create a Private Subnet (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html</a>) in the AWS CloudHSM User Guide. For information about cluster security groups, see Configure a Default Security Group (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>) in the AWS CloudHSM User Guide .</p>
 
 
   </div>
@@ -2154,15 +2048,9 @@ in the AWS CloudHSM User Guide .</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeCloudHsmClusterNotActiveException for service response error code
-“CloudHsmClusterNotActiveException”.</p>
+<p>ErrCodeCloudHsmClusterNotActiveException for service response error code “CloudHsmClusterNotActiveException”.</p>
 
-<p>The request was rejected because the AWS CloudHSM cluster that is
-associated with the custom key store is not active. Initialize and activate
-the cluster and try the command again. For detailed instructions, see
-Getting Started (<a
-href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html</a>)
-in the AWS CloudHSM User Guide.</p>
+<p>The request was rejected because the AWS CloudHSM cluster that is associated with the custom key store is not active. Initialize and activate the cluster and try the command again. For detailed instructions, see Getting Started (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html</a>) in the AWS CloudHSM User Guide.</p>
 
 
   </div>
@@ -2185,12 +2073,9 @@ in the AWS CloudHSM User Guide.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeCloudHsmClusterNotFoundException for service response error code
-“CloudHsmClusterNotFoundException”.</p>
+<p>ErrCodeCloudHsmClusterNotFoundException for service response error code “CloudHsmClusterNotFoundException”.</p>
 
-<p>The request was rejected because AWS KMS cannot find the AWS CloudHSM
-cluster with the specified cluster ID. Retry the request with a different
-cluster ID.</p>
+<p>The request was rejected because AWS KMS cannot find the AWS CloudHSM cluster with the specified cluster ID. Retry the request with a different cluster ID.</p>
 
 
   </div>
@@ -2213,22 +2098,13 @@ cluster ID.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeCloudHsmClusterNotRelatedException for service response error code
-“CloudHsmClusterNotRelatedException”.</p>
+<p>ErrCodeCloudHsmClusterNotRelatedException for service response error code “CloudHsmClusterNotRelatedException”.</p>
 
-<p>The request was rejected because the specified AWS CloudHSM cluster has a
-different cluster certificate than the original cluster. You cannot use the
-operation to specify an unrelated cluster.</p>
+<p>The request was rejected because the specified AWS CloudHSM cluster has a different cluster certificate than the original cluster. You cannot use the operation to specify an unrelated cluster.</p>
 
-<p>Specify a cluster that shares a backup history with the original cluster.
-This includes clusters that were created from a backup of the current
-cluster, and clusters that were created from the same backup that produced
-the current cluster.</p>
+<p>Specify a cluster that shares a backup history with the original cluster. This includes clusters that were created from a backup of the current cluster, and clusters that were created from the same backup that produced the current cluster.</p>
 
-<p>Clusters that share a backup history have the same cluster certificate. To
-view the cluster certificate of a cluster, use the DescribeClusters (<a
-href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>)
-operation.</p>
+<p>Clusters that share a backup history have the same cluster certificate. To view the cluster certificate of a cluster, use the DescribeClusters (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>) operation.</p>
 
 
   </div>
@@ -2251,13 +2127,9 @@ operation.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeCustomKeyStoreHasCMKsException for service response error code
-“CustomKeyStoreHasCMKsException”.</p>
+<p>ErrCodeCustomKeyStoreHasCMKsException for service response error code “CustomKeyStoreHasCMKsException”.</p>
 
-<p>The request was rejected because the custom key store contains AWS KMS
-customer master keys (CMKs). After verifying that you do not need to use
-the CMKs, use the ScheduleKeyDeletion operation to delete the CMKs. After
-they are deleted, you can delete the custom key store.</p>
+<p>The request was rejected because the custom key store contains AWS KMS customer master keys (CMKs). After verifying that you do not need to use the CMKs, use the ScheduleKeyDeletion operation to delete the CMKs. After they are deleted, you can delete the custom key store.</p>
 
 
   </div>
@@ -2280,26 +2152,17 @@ they are deleted, you can delete the custom key store.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeCustomKeyStoreInvalidStateException for service response error code
-“CustomKeyStoreInvalidStateException”.</p>
+<p>ErrCodeCustomKeyStoreInvalidStateException for service response error code “CustomKeyStoreInvalidStateException”.</p>
 
-<p>The request was rejected because of the ConnectionState of the custom key
-store. To get the ConnectionState of a custom key store, use the
-DescribeCustomKeyStores operation.</p>
+<p>The request was rejected because of the ConnectionState of the custom key store. To get the ConnectionState of a custom key store, use the DescribeCustomKeyStores operation.</p>
 
 <p>This exception is thrown under the following conditions:</p>
 <ul><li>
-<p>You requested the CreateKey or GenerateRandom operation in a custom  key
-store that is not connected. These operations are valid only when  the
-custom key store ConnectionState is CONNECTED.</p>
+<p>You requested the CreateKey or GenerateRandom operation in a custom  key store that is not connected. These operations are valid only when  the custom key store ConnectionState is CONNECTED.</p>
 </li><li>
-<p>You requested the UpdateCustomKeyStore or DeleteCustomKeyStore operation 
-on a custom key store that is not disconnected. This operation is valid 
-only when the custom key store ConnectionState is DISCONNECTED.</p>
+<p>You requested the UpdateCustomKeyStore or DeleteCustomKeyStore operation  on a custom key store that is not disconnected. This operation is valid  only when the custom key store ConnectionState is DISCONNECTED.</p>
 </li><li>
-<p>You requested the ConnectCustomKeyStore operation on a custom key store 
-with a ConnectionState of DISCONNECTING or FAILED. This operation is valid 
-for all other ConnectionState values.</p>
+<p>You requested the ConnectCustomKeyStore operation on a custom key store  with a ConnectionState of DISCONNECTING or FAILED. This operation is valid  for all other ConnectionState values.</p>
 </li></ul>
 
 
@@ -2323,12 +2186,9 @@ for all other ConnectionState values.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeCustomKeyStoreNameInUseException for service response error code
-“CustomKeyStoreNameInUseException”.</p>
+<p>ErrCodeCustomKeyStoreNameInUseException for service response error code “CustomKeyStoreNameInUseException”.</p>
 
-<p>The request was rejected because the specified custom key store name is
-already assigned to another custom key store in the account. Try again with
-a custom key store name that is unique in the account.</p>
+<p>The request was rejected because the specified custom key store name is already assigned to another custom key store in the account. Try again with a custom key store name that is unique in the account.</p>
 
 
   </div>
@@ -2351,11 +2211,9 @@ a custom key store name that is unique in the account.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeCustomKeyStoreNotFoundException for service response error code
-“CustomKeyStoreNotFoundException”.</p>
+<p>ErrCodeCustomKeyStoreNotFoundException for service response error code “CustomKeyStoreNotFoundException”.</p>
 
-<p>The request was rejected because AWS KMS cannot find a custom key store
-with the specified key store name or ID.</p>
+<p>The request was rejected because AWS KMS cannot find a custom key store with the specified key store name or ID.</p>
 
 
   </div>
@@ -2378,11 +2236,9 @@ with the specified key store name or ID.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeDependencyTimeoutException for service response error code
-“DependencyTimeoutException”.</p>
+<p>ErrCodeDependencyTimeoutException for service response error code “DependencyTimeoutException”.</p>
 
-<p>The system timed out while trying to fulfill the request. The request can
-be retried.</p>
+<p>The system timed out while trying to fulfill the request. The request can be retried.</p>
 
 
   </div>
@@ -2405,8 +2261,7 @@ be retried.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeDisabledException for service response error code
-“DisabledException”.</p>
+<p>ErrCodeDisabledException for service response error code “DisabledException”.</p>
 
 <p>The request was rejected because the specified CMK is not enabled.</p>
 
@@ -2431,12 +2286,9 @@ be retried.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeExpiredImportTokenException for service response error code
-“ExpiredImportTokenException”.</p>
+<p>ErrCodeExpiredImportTokenException for service response error code “ExpiredImportTokenException”.</p>
 
-<p>The request was rejected because the specified import token is expired. Use
-GetParametersForImport to get a new import token and public key, use the
-new public key to encrypt the key material, and then try the request again.</p>
+<p>The request was rejected because the specified import token is expired. Use GetParametersForImport to get a new import token and public key, use the new public key to encrypt the key material, and then try the request again.</p>
 
 
   </div>
@@ -2459,12 +2311,9 @@ new public key to encrypt the key material, and then try the request again.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeIncorrectKeyException for service response error code
-“IncorrectKeyException”.</p>
+<p>ErrCodeIncorrectKeyException for service response error code “IncorrectKeyException”.</p>
 
-<p>The request was rejected because the specified CMK cannot decrypt the data.
-The KeyId in a Decrypt request and the SourceKeyId in a ReEncrypt request
-must identify the same CMK that was used to encrypt the ciphertext.</p>
+<p>The request was rejected because the specified CMK cannot decrypt the data. The KeyId in a Decrypt request and the SourceKeyId in a ReEncrypt request must identify the same CMK that was used to encrypt the ciphertext.</p>
 
 
   </div>
@@ -2487,12 +2336,9 @@ must identify the same CMK that was used to encrypt the ciphertext.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeIncorrectKeyMaterialException for service response error code
-“IncorrectKeyMaterialException”.</p>
+<p>ErrCodeIncorrectKeyMaterialException for service response error code “IncorrectKeyMaterialException”.</p>
 
-<p>The request was rejected because the key material in the request is,
-expired, invalid, or is not the same key material that was previously
-imported into this customer master key (CMK).</p>
+<p>The request was rejected because the key material in the request is, expired, invalid, or is not the same key material that was previously imported into this customer master key (CMK).</p>
 
 
   </div>
@@ -2515,17 +2361,11 @@ imported into this customer master key (CMK).</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeIncorrectTrustAnchorException for service response error code
-“IncorrectTrustAnchorException”.</p>
+<p>ErrCodeIncorrectTrustAnchorException for service response error code “IncorrectTrustAnchorException”.</p>
 
-<p>The request was rejected because the trust anchor certificate in the
-request is not the trust anchor certificate for the specified AWS CloudHSM
-cluster.</p>
+<p>The request was rejected because the trust anchor certificate in the request is not the trust anchor certificate for the specified AWS CloudHSM cluster.</p>
 
-<p>When you initialize the cluster (<a
-href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr</a>),
-you create the trust anchor certificate and save it in the customerCA.crt
-file.</p>
+<p>When you initialize the cluster (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr</a>), you create the trust anchor certificate and save it in the customerCA.crt file.</p>
 
 
   </div>
@@ -2548,11 +2388,9 @@ file.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeInternalException for service response error code
-“KMSInternalException”.</p>
+<p>ErrCodeInternalException for service response error code “KMSInternalException”.</p>
 
-<p>The request was rejected because an internal exception occurred. The
-request can be retried.</p>
+<p>The request was rejected because an internal exception occurred. The request can be retried.</p>
 
 
   </div>
@@ -2575,8 +2413,7 @@ request can be retried.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeInvalidAliasNameException for service response error code
-“InvalidAliasNameException”.</p>
+<p>ErrCodeInvalidAliasNameException for service response error code “InvalidAliasNameException”.</p>
 
 <p>The request was rejected because the specified alias name is not valid.</p>
 
@@ -2601,11 +2438,9 @@ request can be retried.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeInvalidArnException for service response error code
-“InvalidArnException”.</p>
+<p>ErrCodeInvalidArnException for service response error code “InvalidArnException”.</p>
 
-<p>The request was rejected because a specified ARN, or an ARN in a key
-policy, is not valid.</p>
+<p>The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.</p>
 
 
   </div>
@@ -2628,16 +2463,11 @@ policy, is not valid.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeInvalidCiphertextException for service response error code
-“InvalidCiphertextException”.</p>
+<p>ErrCodeInvalidCiphertextException for service response error code “InvalidCiphertextException”.</p>
 
-<p>From the Decrypt or ReEncrypt operation, the request was rejected because
-the specified ciphertext, or additional authenticated data incorporated
-into the ciphertext, such as the encryption context, is corrupted, missing,
-or otherwise invalid.</p>
+<p>From the Decrypt or ReEncrypt operation, the request was rejected because the specified ciphertext, or additional authenticated data incorporated into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise invalid.</p>
 
-<p>From the ImportKeyMaterial operation, the request was rejected because AWS
-KMS could not decrypt the encrypted (wrapped) key material.</p>
+<p>From the ImportKeyMaterial operation, the request was rejected because AWS KMS could not decrypt the encrypted (wrapped) key material.</p>
 
 
   </div>
@@ -2660,8 +2490,7 @@ KMS could not decrypt the encrypted (wrapped) key material.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeInvalidGrantIdException for service response error code
-“InvalidGrantIdException”.</p>
+<p>ErrCodeInvalidGrantIdException for service response error code “InvalidGrantIdException”.</p>
 
 <p>The request was rejected because the specified GrantId is not valid.</p>
 
@@ -2686,8 +2515,7 @@ KMS could not decrypt the encrypted (wrapped) key material.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeInvalidGrantTokenException for service response error code
-“InvalidGrantTokenException”.</p>
+<p>ErrCodeInvalidGrantTokenException for service response error code “InvalidGrantTokenException”.</p>
 
 <p>The request was rejected because the specified grant token is not valid.</p>
 
@@ -2712,11 +2540,9 @@ KMS could not decrypt the encrypted (wrapped) key material.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeInvalidImportTokenException for service response error code
-“InvalidImportTokenException”.</p>
+<p>ErrCodeInvalidImportTokenException for service response error code “InvalidImportTokenException”.</p>
 
-<p>The request was rejected because the provided import token is invalid or is
-associated with a different customer master key (CMK).</p>
+<p>The request was rejected because the provided import token is invalid or is associated with a different customer master key (CMK).</p>
 
 
   </div>
@@ -2739,25 +2565,18 @@ associated with a different customer master key (CMK).</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeInvalidKeyUsageException for service response error code
-“InvalidKeyUsageException”.</p>
+<p>ErrCodeInvalidKeyUsageException for service response error code “InvalidKeyUsageException”.</p>
 
 <p>The request was rejected for one of the following reasons:</p>
 <ul><li>
 <p>The KeyUsage value of the CMK is incompatible with the API operation.</p>
 </li><li>
-<p>The encryption algorithm or signing algorithm specified for the operation 
-is incompatible with the type of key material in the CMK
-(CustomerMasterKeySpec).</p>
+<p>The encryption algorithm or signing algorithm specified for the operation  is incompatible with the type of key material in the CMK (CustomerMasterKeySpec).</p>
 </li></ul>
 
-<p>For encrypting, decrypting, re-encrypting, and generating data keys, the
-KeyUsage must be ENCRYPT_DECRYPT. For signing and verifying, the KeyUsage
-must be SIGN_VERIFY. To find the KeyUsage of a CMK, use the DescribeKey
-operation.</p>
+<p>For encrypting, decrypting, re-encrypting, and generating data keys, the KeyUsage must be ENCRYPT_DECRYPT. For signing and verifying, the KeyUsage must be SIGN_VERIFY. To find the KeyUsage of a CMK, use the DescribeKey operation.</p>
 
-<p>To find the encryption or signing algorithms supported for a particular
-CMK, use the DescribeKey operation.</p>
+<p>To find the encryption or signing algorithms supported for a particular CMK, use the DescribeKey operation.</p>
 
 
   </div>
@@ -2780,11 +2599,9 @@ CMK, use the DescribeKey operation.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeInvalidMarkerException for service response error code
-“InvalidMarkerException”.</p>
+<p>ErrCodeInvalidMarkerException for service response error code “InvalidMarkerException”.</p>
 
-<p>The request was rejected because the marker that specifies where pagination
-should next begin is not valid.</p>
+<p>The request was rejected because the marker that specifies where pagination should next begin is not valid.</p>
 
 
   </div>
@@ -2807,16 +2624,11 @@ should next begin is not valid.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeInvalidStateException for service response error code
-“KMSInvalidStateException”.</p>
+<p>ErrCodeInvalidStateException for service response error code “KMSInvalidStateException”.</p>
 
-<p>The request was rejected because the state of the specified resource is not
-valid for this request.</p>
+<p>The request was rejected because the state of the specified resource is not valid for this request.</p>
 
-<p>For more information about how key state affects the use of a CMK, see How
-Key State Affects Use of a Customer Master Key (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>)
-in the AWS Key Management Service Developer Guide .</p>
+<p>For more information about how key state affects the use of a CMK, see How Key State Affects Use of a Customer Master Key (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>) in the AWS Key Management Service Developer Guide .</p>
 
 
   </div>
@@ -2839,13 +2651,9 @@ in the AWS Key Management Service Developer Guide .</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeKMSInvalidSignatureException for service response error code
-“KMSInvalidSignatureException”.</p>
+<p>ErrCodeKMSInvalidSignatureException for service response error code “KMSInvalidSignatureException”.</p>
 
-<p>The request was rejected because the signature verification failed.
-Signature verification fails when it cannot confirm that signature was
-produced by signing the specified message with the specified CMK and
-signing algorithm.</p>
+<p>The request was rejected because the signature verification failed. Signature verification fails when it cannot confirm that signature was produced by signing the specified message with the specified CMK and signing algorithm.</p>
 
 
   </div>
@@ -2868,11 +2676,9 @@ signing algorithm.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeKeyUnavailableException for service response error code
-“KeyUnavailableException”.</p>
+<p>ErrCodeKeyUnavailableException for service response error code “KeyUnavailableException”.</p>
 
-<p>The request was rejected because the specified CMK was not available. You
-can retry the request.</p>
+<p>The request was rejected because the specified CMK was not available. You can retry the request.</p>
 
 
   </div>
@@ -2895,13 +2701,9 @@ can retry the request.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeLimitExceededException for service response error code
-“LimitExceededException”.</p>
+<p>ErrCodeLimitExceededException for service response error code “LimitExceededException”.</p>
 
-<p>The request was rejected because a quota was exceeded. For more
-information, see Quotas (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">docs.aws.amazon.com/kms/latest/developerguide/limits.html</a>)
-in the AWS Key Management Service Developer Guide.</p>
+<p>The request was rejected because a quota was exceeded. For more information, see Quotas (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">docs.aws.amazon.com/kms/latest/developerguide/limits.html</a>) in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -2924,11 +2726,9 @@ in the AWS Key Management Service Developer Guide.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeMalformedPolicyDocumentException for service response error code
-“MalformedPolicyDocumentException”.</p>
+<p>ErrCodeMalformedPolicyDocumentException for service response error code “MalformedPolicyDocumentException”.</p>
 
-<p>The request was rejected because the specified policy is not syntactically
-or semantically correct.</p>
+<p>The request was rejected because the specified policy is not syntactically or semantically correct.</p>
 
 
   </div>
@@ -2951,11 +2751,9 @@ or semantically correct.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeNotFoundException for service response error code
-“NotFoundException”.</p>
+<p>ErrCodeNotFoundException for service response error code “NotFoundException”.</p>
 
-<p>The request was rejected because the specified entity or resource could not
-be found.</p>
+<p>The request was rejected because the specified entity or resource could not be found.</p>
 
 
   </div>
@@ -3003,11 +2801,9 @@ be found.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrCodeUnsupportedOperationException for service response error code
-“UnsupportedOperationException”.</p>
+<p>ErrCodeUnsupportedOperationException for service response error code “UnsupportedOperationException”.</p>
 
-<p>The request was rejected because a specified parameter is not supported or
-a specified resource is not valid for this operation.</p>
+<p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.</p>
 
 
   </div>
@@ -3569,8 +3365,7 @@ a specified resource is not valid for this operation.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>ConnectionErrorCodeType_Values returns all elements of the
-ConnectionErrorCodeType enum.</p>
+<p>ConnectionErrorCodeType_Values returns all elements of the ConnectionErrorCodeType enum.</p>
 </div></span>
   
 </li>
@@ -3595,8 +3390,7 @@ ConnectionErrorCodeType enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>ConnectionStateType_Values returns all elements of the ConnectionStateType
-enum.</p>
+<p>ConnectionStateType_Values returns all elements of the ConnectionStateType enum.</p>
 </div></span>
   
 </li>
@@ -3621,8 +3415,7 @@ enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>CustomerMasterKeySpec_Values returns all elements of the
-CustomerMasterKeySpec enum.</p>
+<p>CustomerMasterKeySpec_Values returns all elements of the CustomerMasterKeySpec enum.</p>
 </div></span>
   
 </li>
@@ -3697,8 +3490,7 @@ CustomerMasterKeySpec enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>EncryptionAlgorithmSpec_Values returns all elements of the
-EncryptionAlgorithmSpec enum.</p>
+<p>EncryptionAlgorithmSpec_Values returns all elements of the EncryptionAlgorithmSpec enum.</p>
 </div></span>
   
 </li>
@@ -3723,8 +3515,7 @@ EncryptionAlgorithmSpec enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>ExpirationModelType_Values returns all elements of the ExpirationModelType
-enum.</p>
+<p>ExpirationModelType_Values returns all elements of the ExpirationModelType enum.</p>
 </div></span>
   
 </li>
@@ -3899,8 +3690,7 @@ enum.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SigningAlgorithmSpec_Values returns all elements of the
-SigningAlgorithmSpec enum.</p>
+<p>SigningAlgorithmSpec_Values returns all elements of the SigningAlgorithmSpec enum.</p>
 </div></span>
   
 </li>
@@ -4562,8 +4352,7 @@ SigningAlgorithmSpec enum.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>ConnectionErrorCodeType_Values returns all elements of the
-ConnectionErrorCodeType enum</p>
+<p>ConnectionErrorCodeType_Values returns all elements of the ConnectionErrorCodeType enum</p>
 
 
   </div>
@@ -4625,8 +4414,7 @@ ConnectionErrorCodeType enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>ConnectionStateType_Values returns all elements of the ConnectionStateType
-enum</p>
+<p>ConnectionStateType_Values returns all elements of the ConnectionStateType enum</p>
 
 
   </div>
@@ -4680,8 +4468,7 @@ enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>CustomerMasterKeySpec_Values returns all elements of the
-CustomerMasterKeySpec enum</p>
+<p>CustomerMasterKeySpec_Values returns all elements of the CustomerMasterKeySpec enum</p>
 
 
   </div>
@@ -4847,8 +4634,7 @@ CustomerMasterKeySpec enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>EncryptionAlgorithmSpec_Values returns all elements of the
-EncryptionAlgorithmSpec enum</p>
+<p>EncryptionAlgorithmSpec_Values returns all elements of the EncryptionAlgorithmSpec enum</p>
 
 
   </div>
@@ -4898,8 +4684,7 @@ EncryptionAlgorithmSpec enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>ExpirationModelType_Values returns all elements of the ExpirationModelType
-enum</p>
+<p>ExpirationModelType_Values returns all elements of the ExpirationModelType enum</p>
 
 
   </div>
@@ -5267,8 +5052,7 @@ enum</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SigningAlgorithmSpec_Values returns all elements of the
-SigningAlgorithmSpec enum</p>
+<p>SigningAlgorithmSpec_Values returns all elements of the SigningAlgorithmSpec enum</p>
 
 
   </div>
@@ -5370,9 +5154,9 @@ SigningAlgorithmSpec enum</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:11:42 2021 by
+  Generated on Thu Jun  9 14:07:08 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

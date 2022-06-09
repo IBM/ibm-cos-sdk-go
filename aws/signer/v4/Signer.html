@@ -76,8 +76,7 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Signer applies AWS v4 signing to given request. Use this to sign requests
-that need to be signed with AWS V4 Signatures.</p>
+<p>Signer applies AWS v4 signing to given request. Use this to sign requests that need to be signed with AWS V4 Signatures.</p>
 
 
   </div>
@@ -151,8 +150,7 @@ that need to be signed with AWS V4 Signatures.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Sets the log level the signer should use when reporting information to the
-logger.</p>
+<p>Sets the log level the signer should use when reporting information to the logger.</p>
 </div></span>
   
 </li>
@@ -177,8 +175,7 @@ logger.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Disables the Signer&#39;s moving HTTP header key/value pairs from the HTTP
-request header to the request&#39;s query string.</p>
+<p>Disables the Signer&#39;s moving HTTP header key/value pairs from the HTTP request header to the request&#39;s query string.</p>
 </div></span>
   
 </li>
@@ -203,8 +200,7 @@ request header to the request&#39;s query string.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Disables the automatical setting of the HTTP request&#39;s Body field with
-the io.ReadSeeker passed in to the signer.</p>
+<p>Disables the automatical setting of the HTTP request&#39;s Body field with the io.ReadSeeker passed in to the signer.</p>
 </div></span>
   
 </li>
@@ -229,8 +225,7 @@ the io.ReadSeeker passed in to the signer.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Disables the automatic escaping of the URI path of the request for the
-siganture&#39;s canonical string&#39;s path.</p>
+<p>Disables the automatic escaping of the URI path of the request for the siganture&#39;s canonical string&#39;s path.</p>
 </div></span>
   
 </li>
@@ -317,8 +312,7 @@ siganture&#39;s canonical string&#39;s path.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Presign signs AWS v4 requests with the provided body, service name, region
-the request is made to, and time the request is signed at.</p>
+<p>Presign signs AWS v4 requests with the provided body, service name, region the request is made to, and time the request is signed at.</p>
 </div></span>
   
 </li>
@@ -343,8 +337,7 @@ the request is made to, and time the request is signed at.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Sign signs AWS v4 requests with the provided body, service name, region the
-request is made to, and time the request is signed at.</p>
+<p>Sign signs AWS v4 requests with the provided body, service name, region the request is made to, and time the request is signed at.</p>
 </div></span>
   
 </li>
@@ -369,8 +362,7 @@ request is made to, and time the request is signed at.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The authentication credentials the request will be signed against. This
-value must be set to sign requests.</p>
+<p>The authentication credentials the request will be signed against. This value must be set to sign requests.</p>
 
 
   </div>
@@ -389,9 +381,7 @@ value must be set to sign requests.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Sets the log level the signer should use when reporting information to the
-logger. If the logger is nil nothing will be logged. See aws.LogLevelType
-for more information on available logging levels</p>
+<p>Sets the log level the signer should use when reporting information to the logger. If the logger is nil nothing will be logged. See aws.LogLevelType for more information on available logging levels</p>
 
 <p>By default nothing will be logged.</p>
 
@@ -412,10 +402,7 @@ for more information on available logging levels</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Disables the Signer&#39;s moving HTTP header key/value pairs from the HTTP
-request header to the request&#39;s query string. This is most commonly
-used with pre-signed requests preventing headers from being added to the
-request&#39;s query string.</p>
+<p>Disables the Signer&#39;s moving HTTP header key/value pairs from the HTTP request header to the request&#39;s query string. This is most commonly used with pre-signed requests preventing headers from being added to the request&#39;s query string.</p>
 
 
   </div>
@@ -434,14 +421,9 @@ request&#39;s query string.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Disables the automatical setting of the HTTP request&#39;s Body field with
-the io.ReadSeeker passed in to the signer. This is useful if you&#39;re
-using a custom wrapper around the body for the io.ReadSeeker and want to
-preserve the Body value on the Request.Body.</p>
+<p>Disables the automatical setting of the HTTP request&#39;s Body field with the io.ReadSeeker passed in to the signer. This is useful if you&#39;re using a custom wrapper around the body for the io.ReadSeeker and want to preserve the Body value on the Request.Body.</p>
 
-<p>This does run the risk of signing a request with a body that will not be
-sent in the request. Need to ensure that the underlying data of the Body
-values are the same.</p>
+<p>This does run the risk of signing a request with a body that will not be sent in the request. Need to ensure that the underlying data of the Body values are the same.</p>
 
 
   </div>
@@ -460,14 +442,11 @@ values are the same.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Disables the automatic escaping of the URI path of the request for the
-siganture&#39;s canonical string&#39;s path. For services that do not need
-additional escaping then use this to disable the signer escaping the path.</p>
+<p>Disables the automatic escaping of the URI path of the request for the siganture&#39;s canonical string&#39;s path. For services that do not need additional escaping then use this to disable the signer escaping the path.</p>
 
 <p>S3 is an example of a service that does not need additional escaping.</p>
 
-<p><a
-href="http://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html">docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html</a></p>
+<p><a href="http://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html">docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html</a></p>
 
 
   </div>
@@ -486,8 +465,7 @@ href="http://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-reques
 <div class="docstring">
   <div class="discussion">
     
-<p>The logger loging information will be written to. If there the logger is
-nil, nothing will be logged.</p>
+<p>The logger loging information will be written to. If there the logger is nil, nothing will be logged.</p>
 
 
   </div>
@@ -506,8 +484,7 @@ nil, nothing will be logged.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>UnsignedPayload will prevent signing of the payload. This will only work
-for services that have support for this.</p>
+<p>UnsignedPayload will prevent signing of the payload. This will only work for services that have support for this.</p>
 
 
   </div>
@@ -537,37 +514,17 @@ for services that have support for this.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Presign signs AWS v4 requests with the provided body, service name, region
-the request is made to, and time the request is signed at. The signTime
-allows you to specify that a request is signed for the future, and cannot
-be used until then.</p>
+<p>Presign signs AWS v4 requests with the provided body, service name, region the request is made to, and time the request is signed at. The signTime allows you to specify that a request is signed for the future, and cannot be used until then.</p>
 
-<p>Returns a list of HTTP headers that were included in the signature or an
-error if signing the request failed. For presigned requests these headers
-and their values must be included on the HTTP request when it is made. This
-is helpful to know what header values need to be shared with the party the
-presigned request will be distributed to.</p>
+<p>Returns a list of HTTP headers that were included in the signature or an error if signing the request failed. For presigned requests these headers and their values must be included on the HTTP request when it is made. This is helpful to know what header values need to be shared with the party the presigned request will be distributed to.</p>
 
-<p>Presign differs from Sign in that it will sign the request using query
-string instead of header values. This allows you to share the Presigned
-Request&#39;s URL with third parties, or distribute it throughout your
-system with minimal dependencies.</p>
+<p>Presign differs from Sign in that it will sign the request using query string instead of header values. This allows you to share the Presigned Request&#39;s URL with third parties, or distribute it throughout your system with minimal dependencies.</p>
 
-<p>Presign also takes an exp value which is the duration the signed request
-will be valid after the signing time. This is allows you to set when the
-request will expire.</p>
+<p>Presign also takes an exp value which is the duration the signed request will be valid after the signing time. This is allows you to set when the request will expire.</p>
 
-<p>The requests body is an io.ReadSeeker so the SHA256 of the body can be
-generated. To bypass the signer computing the hash you can set the
-“X-Amz-Content-Sha256” header with a precomputed value. The signer will
-only compute the hash if the request header value is empty.</p>
+<p>The requests body is an io.ReadSeeker so the SHA256 of the body can be generated. To bypass the signer computing the hash you can set the “X-Amz-Content-Sha256” header with a precomputed value. The signer will only compute the hash if the request header value is empty.</p>
 
-<p>Presigning a S3 request will not compute the body&#39;s SHA256 hash by
-default. This is done due to the general use case for S3 presigned URLs is
-to share PUT/GET capabilities. If you would like to include the body&#39;s
-SHA256 in the presigned request&#39;s signature you can set the
-“X-Amz-Content-Sha256” HTTP header and that will be included in the
-request&#39;s signature.</p>
+<p>Presigning a S3 request will not compute the body&#39;s SHA256 hash by default. This is done due to the general use case for S3 presigned URLs is to share PUT/GET capabilities. If you would like to include the body&#39;s SHA256 in the presigned request&#39;s signature you can set the “X-Amz-Content-Sha256” HTTP header and that will be included in the request&#39;s signature.</p>
 
 
   </div>
@@ -609,32 +566,15 @@ request&#39;s signature.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Sign signs AWS v4 requests with the provided body, service name, region the
-request is made to, and time the request is signed at. The signTime allows
-you to specify that a request is signed for the future, and cannot be used
-until then.</p>
+<p>Sign signs AWS v4 requests with the provided body, service name, region the request is made to, and time the request is signed at. The signTime allows you to specify that a request is signed for the future, and cannot be used until then.</p>
 
-<p>Returns a list of HTTP headers that were included in the signature or an
-error if signing the request failed. Generally for signed requests this
-value is not needed as the full request context will be captured by the
-http.Request value. It is included for reference though.</p>
+<p>Returns a list of HTTP headers that were included in the signature or an error if signing the request failed. Generally for signed requests this value is not needed as the full request context will be captured by the http.Request value. It is included for reference though.</p>
 
-<p>Sign will set the request&#39;s Body to be the <code>body</code> parameter
-passed in. If the body is not already an io.ReadCloser, it will be wrapped
-within one. If a <code>nil</code> body parameter passed to Sign, the
-request&#39;s Body field will be also set to nil. Its important to note
-that this functionality will not change the request&#39;s ContentLength of
-the request.</p>
+<p>Sign will set the request&#39;s Body to be the <code>body</code> parameter passed in. If the body is not already an io.ReadCloser, it will be wrapped within one. If a <code>nil</code> body parameter passed to Sign, the request&#39;s Body field will be also set to nil. Its important to note that this functionality will not change the request&#39;s ContentLength of the request.</p>
 
-<p>Sign differs from Presign in that it will sign the request using HTTP
-header values. This type of signing is intended for http.Request values
-that will not be shared, or are shared in a way the header values on the
-request will not be lost.</p>
+<p>Sign differs from Presign in that it will sign the request using HTTP header values. This type of signing is intended for http.Request values that will not be shared, or are shared in a way the header values on the request will not be lost.</p>
 
-<p>The requests body is an io.ReadSeeker so the SHA256 of the body can be
-generated. To bypass the signer computing the hash you can set the
-“X-Amz-Content-Sha256” header with a precomputed value. The signer will
-only compute the hash if the request header value is empty.</p>
+<p>The requests body is an io.ReadSeeker so the SHA256 of the body can be generated. To bypass the signer computing the hash you can set the “X-Amz-Content-Sha256” header with a precomputed value. The signer will only compute the hash if the request header value is empty.</p>
 
 
   </div>
@@ -670,9 +610,9 @@ only compute the hash if the request header value is empty.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:11:45 2021 by
+  Generated on Thu Jun  9 14:07:13 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

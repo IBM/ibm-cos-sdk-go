@@ -510,22 +510,13 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>The entity tag is a hash of the object. The ETag reflects changes only to
-the contents of an object, not its metadata. The ETag may or may not be an
-MD5 digest of the object data. Whether or not it is depends on how the
-object was created and how it is encrypted as described below:</p>
+<p>The entity tag is a hash of the object. The ETag reflects changes only to the contents of an object, not its metadata. The ETag may or may not be an MD5 digest of the object data. Whether or not it is depends on how the object was created and how it is encrypted as described below:</p>
 <ul><li>
-<p>Objects created by the PUT Object, POST Object, or Copy operation, or 
-through the AWS Management Console, and are encrypted by SSE-S3 or
-plaintext,  have ETags that are an MD5 digest of their object data.</p>
+<p>Objects created by the PUT Object, POST Object, or Copy operation, or  through the AWS Management Console, and are encrypted by SSE-S3 or plaintext,  have ETags that are an MD5 digest of their object data.</p>
 </li><li>
-<p>Objects created by the PUT Object, POST Object, or Copy operation, or 
-through the AWS Management Console, and are encrypted by SSE-C or SSE-KMS, 
-have ETags that are not an MD5 digest of their object data.</p>
+<p>Objects created by the PUT Object, POST Object, or Copy operation, or  through the AWS Management Console, and are encrypted by SSE-C or SSE-KMS,  have ETags that are not an MD5 digest of their object data.</p>
 </li><li>
-<p>If an object is created by either the Multipart Upload or Part Copy 
-operation, the ETag is not an MD5 digest, regardless of the method of 
-encryption.</p>
+<p>If an object is created by either the Multipart Upload or Part Copy  operation, the ETag is not an MD5 digest, regardless of the method of  encryption.</p>
 </li></ul>
 
 
@@ -545,8 +536,7 @@ encryption.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The name that you assign to an object. You use the object key to retrieve
-the object.</p>
+<p>The name that you assign to an object. You use the object key to retrieve the object.</p>
 
 
   </div>
@@ -674,12 +664,12 @@ the object.</p>
       <pre class="lines">
 
 
-15245
-15246
-15247</pre>
+15664
+15665
+15666</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15245</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15664</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.Object.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -716,13 +706,13 @@ the object.</p>
       <pre class="lines">
 
 
-15250
-15251
-15252
-15253</pre>
+15669
+15670
+15671
+15672</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15250</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15669</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#SetETag-instance_method" title="s3.Object.SetETag() (method)">SetETag</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span> {
 	s.ETag = &v
@@ -760,13 +750,13 @@ the object.</p>
       <pre class="lines">
 
 
-15256
-15257
-15258
-15259</pre>
+15675
+15676
+15677
+15678</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15256</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15675</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.Object.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span> {
 	s.Key = &v
@@ -804,13 +794,13 @@ the object.</p>
       <pre class="lines">
 
 
-15262
-15263
-15264
-15265</pre>
+15681
+15682
+15683
+15684</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15262</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15681</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#SetLastModified-instance_method" title="s3.Object.SetLastModified() (method)">SetLastModified</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span> {
 	s.LastModified = &v
@@ -848,13 +838,13 @@ the object.</p>
       <pre class="lines">
 
 
-15268
-15269
-15270
-15271</pre>
+15687
+15688
+15689
+15690</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15268</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15687</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#SetOwner-instance_method" title="s3.Object.SetOwner() (method)">SetOwner</a></span>(v *<span class='object_link'><a href="#Owner-field" title="s3.Object.Owner (field)">Owner</a></span>) *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span> {
 	s.Owner = v
@@ -892,13 +882,13 @@ the object.</p>
       <pre class="lines">
 
 
-15274
-15275
-15276
-15277</pre>
+15693
+15694
+15695
+15696</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15274</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15693</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#SetSize-instance_method" title="s3.Object.SetSize() (method)">SetSize</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span> {
 	s.Size = &v
@@ -936,13 +926,13 @@ the object.</p>
       <pre class="lines">
 
 
-15280
-15281
-15282
-15283</pre>
+15699
+15700
+15701
+15702</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15280</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15699</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#SetStorageClass-instance_method" title="s3.Object.SetStorageClass() (method)">SetStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span> {
 	s.StorageClass = &v
@@ -980,12 +970,12 @@ the object.</p>
       <pre class="lines">
 
 
-15240
-15241
-15242</pre>
+15659
+15660
+15661</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15240</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15659</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Object (struct)">Object</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.Object.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1002,9 +992,9 @@ the object.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:20 2021 by
+  Generated on Thu Jun  9 14:07:56 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

@@ -76,11 +76,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Describes where logs are stored and the prefix that Amazon S3 assigns to
-all log object keys for a bucket. For more information, see PUT Bucket
-logging (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html</a>)
-in the Amazon Simple Storage Service API Reference.</p>
+<p>Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a bucket. For more information, see PUT Bucket logging (<a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html</a>) in the Amazon Simple Storage Service API Reference.</p>
 
 
   </div>
@@ -389,12 +385,7 @@ in the Amazon Simple Storage Service API Reference.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the bucket where you want Amazon S3 to store server access logs.
-You can have your logs delivered to any bucket that you own, including the
-same bucket that is being logged. You can also configure multiple buckets
-to deliver their logs to the same target bucket. In this case, you should
-choose a different TargetPrefix for each source bucket so that the
-delivered log files can be distinguished by key.</p>
+<p>Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case, you should choose a different TargetPrefix for each source bucket so that the delivered log files can be distinguished by key.</p>
 
 <p>TargetBucket is a required field</p>
 
@@ -434,9 +425,7 @@ delivered log files can be distinguished by key.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>A prefix for all log object keys. If you store log files from multiple
-Amazon S3 buckets in a single bucket, you can use a prefix to distinguish
-which log files came from which bucket.</p>
+<p>A prefix for all log object keys. If you store log files from multiple Amazon S3 buckets in a single bucket, you can use a prefix to distinguish which log files came from which bucket.</p>
 
 <p>TargetPrefix is a required field</p>
 
@@ -490,12 +479,12 @@ which log files came from which bucket.</p>
       <pre class="lines">
 
 
-15051
-15052
-15053</pre>
+15470
+15471
+15472</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15051</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15470</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.LoggingEnabled.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -532,13 +521,13 @@ which log files came from which bucket.</p>
       <pre class="lines">
 
 
-15082
-15083
-15084
-15085</pre>
+15501
+15502
+15503
+15504</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15082</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15501</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#SetTargetBucket-instance_method" title="s3.LoggingEnabled.SetTargetBucket() (method)">SetTargetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span> {
 	s.TargetBucket = &v
@@ -576,13 +565,13 @@ which log files came from which bucket.</p>
       <pre class="lines">
 
 
-15088
-15089
-15090
-15091</pre>
+15507
+15508
+15509
+15510</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15088</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15507</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#SetTargetGrants-instance_method" title="s3.LoggingEnabled.SetTargetGrants() (method)">SetTargetGrants</a></span>(v []*<span class='object_link'><a href="TargetGrant.html" title="s3.TargetGrant (struct)">TargetGrant</a></span>) *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span> {
 	s.TargetGrants = v
@@ -620,13 +609,13 @@ which log files came from which bucket.</p>
       <pre class="lines">
 
 
-15094
-15095
-15096
-15097</pre>
+15513
+15514
+15515
+15516</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15094</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15513</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#SetTargetPrefix-instance_method" title="s3.LoggingEnabled.SetTargetPrefix() (method)">SetTargetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span> {
 	s.TargetPrefix = &v
@@ -664,12 +653,12 @@ which log files came from which bucket.</p>
       <pre class="lines">
 
 
-15046
-15047
-15048</pre>
+15465
+15466
+15467</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15046</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15465</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.LoggingEnabled.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -706,33 +695,33 @@ which log files came from which bucket.</p>
       <pre class="lines">
 
 
-15056
-15057
-15058
-15059
-15060
-15061
-15062
-15063
-15064
-15065
-15066
-15067
-15068
-15069
-15070
-15071
-15072
-15073
-15074
-15075
-15076
-15077
-15078
-15079</pre>
+15475
+15476
+15477
+15478
+15479
+15480
+15481
+15482
+15483
+15484
+15485
+15486
+15487
+15488
+15489
+15490
+15491
+15492
+15493
+15494
+15495
+15496
+15497
+15498</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15056</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15475</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.LoggingEnabled.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.LoggingEnabled (struct)">LoggingEnabled</a></span>"</span>}
@@ -770,9 +759,9 @@ which log files came from which bucket.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:20 2021 by
+  Generated on Thu Jun  9 14:07:55 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

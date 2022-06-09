@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The account ID of the expected bucket owner.</p>
+<p>Ignored by COS.</p>
 </div></span>
   
 </li>
@@ -189,8 +189,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The concatenation of the authentication device&#39;s serial number, a
-space, and the value that is displayed on your authentication device.</p>
+<p>The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.</p>
 </div></span>
   
 </li>
@@ -215,8 +214,7 @@ space, and the value that is displayed on your authentication device.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Confirms that the requester knows that they will be charged for the
-request.</p>
+<p>Confirms that the requester knows that they will be charged for the request.</p>
 </div></span>
   
 </li>
@@ -528,23 +526,9 @@ request.</p>
     
 <p>The bucket name of the bucket containing the object.</p>
 
-<p>When using this action with an access point, you must direct requests to
-the access point hostname. The access point hostname takes the form
-AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
-this action with an access point through the AWS SDKs, you provide the
-access point ARN in place of the bucket name. For more information about
-access point ARNs, see Using Access Points (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
-in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
-<p>When using this action with Amazon S3 on Outposts, you must direct requests
-to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
-AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
-using this action using S3 on Outposts through the AWS SDKs, you provide
-the Outposts bucket ARN in place of the bucket name. For more information
-about S3 on Outposts ARNs, see Using S3 on Outposts (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
-in the Amazon S3 User Guide.</p>
+<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see Using S3 on Outposts (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -565,9 +549,7 @@ in the Amazon S3 User Guide.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The account ID of the expected bucket owner. If the bucket is owned by a
-different account, the request will fail with an HTTP 403 (Access Denied)
-error.</p>
+<p>Ignored by COS</p>
 
 
   </div>
@@ -607,10 +589,7 @@ error.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The concatenation of the authentication device&#39;s serial number, a
-space, and the value that is displayed on your authentication device.
-Required to permanently delete a versioned object if versioning is
-configured with MFA delete enabled.</p>
+<p>The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device. Required to permanently delete a versioned object if versioning is configured with MFA delete enabled.</p>
 
 
   </div>
@@ -629,12 +608,7 @@ configured with MFA delete enabled.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that they will be charged for the
-request. Bucket owners need not specify this parameter in their requests.
-For information about downloading objects from requester pays buckets, see
-Downloading Objects in Requestor Pays Buckets (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
-in the Amazon S3 Developer Guide.</p>
+<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -705,12 +679,12 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-9215
-9216
-9217</pre>
+9547
+9548
+9549</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9215</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9547</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.DeleteObjectInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -747,13 +721,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-9242
-9243
-9244
-9245</pre>
+9574
+9575
+9576
+9577</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9242</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9574</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.DeleteObjectInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.Bucket = &v
@@ -791,13 +765,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-9255
-9256
-9257
-9258</pre>
+9587
+9588
+9589
+9590</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9255</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9587</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.DeleteObjectInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -835,13 +809,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-9261
-9262
-9263
-9264</pre>
+9593
+9594
+9595
+9596</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9261</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9593</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.DeleteObjectInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.Key = &v
@@ -879,13 +853,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-9267
-9268
-9269
-9270</pre>
+9599
+9600
+9601
+9602</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9267</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9599</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetMFA-instance_method" title="s3.DeleteObjectInput.SetMFA() (method)">SetMFA</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.MFA = &v
@@ -923,13 +897,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-9273
-9274
-9275
-9276</pre>
+9605
+9606
+9607
+9608</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9273</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9605</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.DeleteObjectInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.RequestPayer = &v
@@ -967,13 +941,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-9279
-9280
-9281
-9282</pre>
+9611
+9612
+9613
+9614</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9279</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9611</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.DeleteObjectInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.VersionId = &v
@@ -1011,12 +985,12 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-9210
-9211
-9212</pre>
+9542
+9543
+9544</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9210</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9542</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.DeleteObjectInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1053,29 +1027,29 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-9220
-9221
-9222
-9223
-9224
-9225
-9226
-9227
-9228
-9229
-9230
-9231
-9232
-9233
-9234
-9235
-9236
-9237
-9238
-9239</pre>
+9552
+9553
+9554
+9555
+9556
+9557
+9558
+9559
+9560
+9561
+9562
+9563
+9564
+9565
+9566
+9567
+9568
+9569
+9570
+9571</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9220</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9552</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.DeleteObjectInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>"</span>}
@@ -1109,9 +1083,9 @@ in the Amazon S3 Developer Guide.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:08 2021 by
+  Generated on Thu Jun  9 14:07:39 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

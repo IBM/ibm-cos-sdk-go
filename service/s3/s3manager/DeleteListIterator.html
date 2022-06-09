@@ -76,20 +76,15 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>DeleteListIterator is an alternative iterator for the BatchDelete client.
-This will iterate through a list of objects and delete the objects.</p>
+<p>DeleteListIterator is an alternative iterator for the BatchDelete client. This will iterate through a list of objects and delete the objects.</p>
 
-<p>Example:  iter := &amp;s3manager.DeleteListIterator{  Client: svc,  Input:
-&amp;s3.ListObjectsInput{  Bucket: aws.String(“bucket”),  MaxKeys:
-aws.Int64(5),  },  Paginator: request.Pagination{  NewRequest: func()
-(*request.Request, error) {  var inCpy *ListObjectsInput  if input != nil {
-tmp := *input  inCpy = &amp;tmp  }  req, _ := c.ListObjectsRequest(inCpy) 
-return req, nil  },  },  }</p>
+<p>Example:  iter := &amp;s3manager.DeleteListIterator{  Client: svc,  Input: &amp;s3.ListObjectsInput{  Bucket: aws.String(“bucket”),  MaxKeys: aws.Int64(5),  },  Paginator: request.Pagination{  NewRequest: func() (<em>request.Request, error) {  var inCpy </em>ListObjectsInput  if input != nil {  tmp := *input  inCpy = &amp;tmp  }  req, _ := c.ListObjectsRequest(inCpy)  return req, nil  },  },  }</p>
 
 <pre class="code go"><code class="go"><div class="hljs">batcher := s3manager.NewBatchDeleteWithClient(svc)
 <span class="hljs-keyword">if</span> err := batcher.Delete(aws.BackgroundContext(), iter); err != <span class="hljs-constant">nil</span> {
 	<span class="hljs-keyword">return</span> err
-}</div></code></pre>
+}
+</div></code></pre>
 
 
   </div>
@@ -444,9 +439,9 @@ return req, nil  },  },  }</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:51 2021 by
+  Generated on Thu Jun  9 14:08:36 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

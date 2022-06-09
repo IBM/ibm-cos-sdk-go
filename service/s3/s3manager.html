@@ -76,8 +76,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Package s3manager provides utilities to upload and download objects from S3
-concurrently. Helpful for when working with large objects.</p>
+<p>Package s3manager provides utilities to upload and download objects from S3 concurrently. Helpful for when working with large objects.</p>
 
 
   </div>
@@ -103,9 +102,7 @@ concurrently. Helpful for when working with large objects.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>DefaultBatchSize is the batch size we initialize when constructing a batch
-delete client. This value is used when calling DeleteObjects. This
-represents how many objects to delete per DeleteObjects call.</p>
+<p>DefaultBatchSize is the batch size we initialize when constructing a batch delete client. This value is used when calling DeleteObjects. This represents how many objects to delete per DeleteObjects call.</p>
 
 
   </div>
@@ -128,8 +125,7 @@ represents how many objects to delete per DeleteObjects call.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>ErrDeleteBatchFailCode represents an error code which will be returned only
-when DeleteObjects.Errors has an error that does not contain a code.</p>
+<p>ErrDeleteBatchFailCode represents an error code which will be returned only when DeleteObjects.Errors has an error that does not contain a code.</p>
 
 
   </div>
@@ -152,8 +148,7 @@ when DeleteObjects.Errors has an error that does not contain a code.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>MaxUploadParts is the maximum allowed number of parts in a multi-part
-upload on Amazon S3.</p>
+<p>MaxUploadParts is the maximum allowed number of parts in a multi-part upload on Amazon S3.</p>
 
 
   </div>
@@ -176,8 +171,7 @@ upload on Amazon S3.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>MinUploadPartSize is the minimum allowed part size when uploading a part to
-Amazon S3.</p>
+<p>MinUploadPartSize is the minimum allowed part size when uploading a part to Amazon S3.</p>
 
 
   </div>
@@ -200,8 +194,7 @@ Amazon S3.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>DefaultUploadPartSize is the default part size to buffer chunks of a
-payload into.</p>
+<p>DefaultUploadPartSize is the default part size to buffer chunks of a payload into.</p>
 
 
   </div>
@@ -224,8 +217,7 @@ payload into.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>DefaultUploadConcurrency is the default number of goroutines to spin up
-when using Upload().</p>
+<p>DefaultUploadConcurrency is the default number of goroutines to spin up when using Upload().</p>
 
 
   </div>
@@ -248,8 +240,7 @@ when using Upload().</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>DefaultDownloadPartSize is the default range of bytes to get at a time when
-using Download().</p>
+<p>DefaultDownloadPartSize is the default range of bytes to get at a time when using Download().</p>
 
 
   </div>
@@ -272,8 +263,7 @@ using Download().</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>DefaultDownloadConcurrency is the default number of goroutines to spin up
-when using Download().</p>
+<p>DefaultDownloadConcurrency is the default number of goroutines to spin up when using Download().</p>
 
 
   </div>
@@ -325,8 +315,7 @@ when using Download().</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BatchDelete will use the s3 package&#39;s service client to perform a batch
-delete.</p>
+<p>BatchDelete will use the s3 package&#39;s service client to perform a batch delete.</p>
 </div></span>
   
 </li>
@@ -351,8 +340,7 @@ delete.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BatchDeleteObject is a wrapper object for calling the batch delete
-operation.</p>
+<p>BatchDeleteObject is a wrapper object for calling the batch delete operation.</p>
 </div></span>
   
 </li>
@@ -377,8 +365,7 @@ operation.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BatchDownloadObject contains all necessary information to run a batch
-operation once.</p>
+<p>BatchDownloadObject contains all necessary information to run a batch operation once.</p>
 </div></span>
   
 </li>
@@ -403,8 +390,7 @@ operation once.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BatchError will contain the key and bucket of the object that failed to
-either upload or download.</p>
+<p>BatchError will contain the key and bucket of the object that failed to either upload or download.</p>
 </div></span>
   
 </li>
@@ -429,8 +415,7 @@ either upload or download.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BatchUploadObject contains all necessary information to run a batch
-operation once.</p>
+<p>BatchUploadObject contains all necessary information to run a batch operation once.</p>
 </div></span>
   
 </li>
@@ -480,8 +465,7 @@ operation once.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BufferedReadSeekerWriteTo wraps a BufferedReadSeeker with an io.WriteAt
-implementation.</p>
+<p>BufferedReadSeekerWriteTo wraps a BufferedReadSeeker with an io.WriteAt implementation.</p>
 </div></span>
   
 </li>
@@ -506,8 +490,7 @@ implementation.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BufferedReadSeekerWriteToPool uses a sync.Pool to create and reuse []byte
-slices for buffering parts in memory.</p>
+<p>BufferedReadSeekerWriteToPool uses a sync.Pool to create and reuse []byte slices for buffering parts in memory.</p>
 </div></span>
   
 </li>
@@ -557,8 +540,7 @@ slices for buffering parts in memory.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>DeleteObjectsIterator is an interface that uses the scanner pattern to
-iterate through a series of objects to be deleted.</p>
+<p>DeleteObjectsIterator is an interface that uses the scanner pattern to iterate through a series of objects to be deleted.</p>
 </div></span>
   
 </li>
@@ -583,8 +565,7 @@ iterate through a series of objects to be deleted.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>DownloadObjectsIterator implements the BatchDownloadIterator interface and
-allows for batched download of objects.</p>
+<p>DownloadObjectsIterator implements the BatchDownloadIterator interface and allows for batched download of objects.</p>
 </div></span>
   
 </li>
@@ -634,8 +615,7 @@ allows for batched download of objects.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Error will contain the original error, bucket, and key of the operation
-that failed during batch operations.</p>
+<p>Error will contain the original error, bucket, and key of the operation that failed during batch operations.</p>
 </div></span>
   
 </li>
@@ -683,8 +663,7 @@ that failed during batch operations.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>PooledBufferedReadFromProvider is a WriterReadFromProvider that uses a
-sync.Pool to manage allocation and reuse of *bufio.Writer structures.</p>
+<p>PooledBufferedReadFromProvider is a WriterReadFromProvider that uses a sync.Pool to manage allocation and reuse of *bufio.Writer structures.</p>
 </div></span>
   
 </li>
@@ -709,8 +688,7 @@ sync.Pool to manage allocation and reuse of *bufio.Writer structures.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>UploadInput provides the input parameters for uploading a stream or buffer
-to an object in an Amazon S3 bucket.</p>
+<p>UploadInput provides the input parameters for uploading a stream or buffer to an object in an Amazon S3 bucket.</p>
 </div></span>
   
 </li>
@@ -735,8 +713,7 @@ to an object in an Amazon S3 bucket.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>UploadObjectsIterator implements the BatchUploadIterator interface and
-allows for batched upload of objects.</p>
+<p>UploadObjectsIterator implements the BatchUploadIterator interface and allows for batched upload of objects.</p>
 </div></span>
   
 </li>
@@ -821,8 +798,7 @@ allows for batched upload of objects.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BatchDeleteIterator is an interface that uses the scanner pattern to
-iterate through what needs to be deleted.</p>
+<p>BatchDeleteIterator is an interface that uses the scanner pattern to iterate through what needs to be deleted.</p>
 </div></span>
   
 </li>
@@ -847,8 +823,7 @@ iterate through what needs to be deleted.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BatchDownloadIterator is an interface that uses the scanner pattern to
-iterate through a series of objects to be downloaded.</p>
+<p>BatchDownloadIterator is an interface that uses the scanner pattern to iterate through a series of objects to be downloaded.</p>
 </div></span>
   
 </li>
@@ -873,8 +848,7 @@ iterate through a series of objects to be downloaded.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BatchUploadIterator is an interface that uses the scanner pattern to
-iterate through what needs to be uploaded.</p>
+<p>BatchUploadIterator is an interface that uses the scanner pattern to iterate through what needs to be uploaded.</p>
 </div></span>
   
 </li>
@@ -924,8 +898,7 @@ iterate through what needs to be uploaded.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>ReadSeekerWriteTo defines an interface implementing io.WriteTo and
-io.ReadSeeker.</p>
+<p>ReadSeekerWriteTo defines an interface implementing io.WriteTo and io.ReadSeeker.</p>
 </div></span>
   
 </li>
@@ -950,8 +923,7 @@ io.ReadSeeker.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>ReadSeekerWriteToProvider provides an implementation of io.WriteTo for an
-io.ReadSeeker.</p>
+<p>ReadSeekerWriteToProvider provides an implementation of io.WriteTo for an io.ReadSeeker.</p>
 </div></span>
   
 </li>
@@ -976,8 +948,7 @@ io.ReadSeeker.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WriterReadFrom defines an interface implementing io.Writer and
-io.ReaderFrom.</p>
+<p>WriterReadFrom defines an interface implementing io.Writer and io.ReaderFrom.</p>
 </div></span>
   
 </li>
@@ -1002,8 +973,7 @@ io.ReaderFrom.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WriterReadFromProvider provides an implementation of io.ReadFrom for the
-given io.Writer.</p>
+<p>WriterReadFromProvider provides an implementation of io.ReadFrom for the given io.Writer.</p>
 </div></span>
   
 </li>
@@ -1039,8 +1009,7 @@ given io.Writer.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>GetBucketRegion will attempt to get the region for a bucket using the
-regionHint to determine which AWS partition to perform the query on.</p>
+<p>GetBucketRegion will attempt to get the region for a bucket using the regionHint to determine which AWS partition to perform the query on.</p>
 </div></span>
   
 </li>
@@ -1065,8 +1034,7 @@ regionHint to determine which AWS partition to perform the query on.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>GetBucketRegionWithClient is the same as GetBucketRegion with the exception
-that it takes a S3 service client instead of a Session.</p>
+<p>GetBucketRegionWithClient is the same as GetBucketRegion with the exception that it takes a S3 service client instead of a Session.</p>
 </div></span>
   
 </li>
@@ -1091,8 +1059,7 @@ that it takes a S3 service client instead of a Session.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>NewBatchDelete will return a new delete client that can delete a batched
-amount of objects.</p>
+<p>NewBatchDelete will return a new delete client that can delete a batched amount of objects.</p>
 </div></span>
   
 </li>
@@ -1117,8 +1084,7 @@ amount of objects.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>NewBatchDeleteWithClient will return a new delete client that can delete a
-batched amount of objects.</p>
+<p>NewBatchDeleteWithClient will return a new delete client that can delete a batched amount of objects.</p>
 </div></span>
   
 </li>
@@ -1143,8 +1109,7 @@ batched amount of objects.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>NewBatchError will return a BatchError that satisfies the awserr.Error
-interface.</p>
+<p>NewBatchError will return a BatchError that satisfies the awserr.Error interface.</p>
 </div></span>
   
 </li>
@@ -1194,8 +1159,7 @@ interface.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>NewDownloader creates a new Downloader instance to downloads objects from
-S3 in concurrent chunks.</p>
+<p>NewDownloader creates a new Downloader instance to downloads objects from S3 in concurrent chunks.</p>
 </div></span>
   
 </li>
@@ -1220,8 +1184,7 @@ S3 in concurrent chunks.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>NewDownloaderWithClient creates a new Downloader instance to downloads
-objects from S3 in concurrent chunks.</p>
+<p>NewDownloaderWithClient creates a new Downloader instance to downloads objects from S3 in concurrent chunks.</p>
 </div></span>
   
 </li>
@@ -1271,8 +1234,7 @@ objects from S3 in concurrent chunks.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>NewUploaderWithClient creates a new Uploader instance to upload objects to
-S3.</p>
+<p>NewUploaderWithClient creates a new Uploader instance to upload objects to S3.</p>
 </div></span>
   
 </li>
@@ -1297,8 +1259,7 @@ S3.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithDownloaderRequestOptions appends to the Downloader&#39;s API request
-options.</p>
+<p>WithDownloaderRequestOptions appends to the Downloader&#39;s API request options.</p>
 </div></span>
   
 </li>
@@ -1323,8 +1284,7 @@ options.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithUploaderRequestOptions appends to the Uploader&#39;s API request
-options.</p>
+<p>WithUploaderRequestOptions appends to the Uploader&#39;s API request options.</p>
 </div></span>
   
 </li>
@@ -1352,8 +1312,7 @@ options.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>BatchDeleteObject is a wrapper object for calling the batch delete
-operation.</p>
+<p>BatchDeleteObject is a wrapper object for calling the batch delete operation.</p>
 
 
   </div>
@@ -1393,8 +1352,7 @@ operation.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>BatchDownloadObject contains all necessary information to run a batch
-operation once.</p>
+<p>BatchDownloadObject contains all necessary information to run a batch operation once.</p>
 
 
   </div>
@@ -1444,8 +1402,7 @@ operation once.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>BatchUploadObject contains all necessary information to run a batch
-operation once.</p>
+<p>BatchUploadObject contains all necessary information to run a batch operation once.</p>
 
 
   </div>
@@ -1485,10 +1442,7 @@ operation once.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>UploadInput provides the input parameters for uploading a stream or buffer
-to an object in an Amazon S3 bucket. This type is similar to the s3
-package&#39;s PutObjectInput with the exception that the Body member is an
-io.Reader instead of an io.ReadSeeker.</p>
+<p>UploadInput provides the input parameters for uploading a stream or buffer to an object in an Amazon S3 bucket. This type is similar to the s3 package&#39;s PutObjectInput with the exception that the Body member is an io.Reader instead of an io.ReadSeeker.</p>
 
 
   </div>
@@ -1509,23 +1463,9 @@ io.Reader instead of an io.ReadSeeker.</p>
     
 <p>The bucket name to which the PUT action was initiated.</p>
 
-<p>When using this action with an access point, you must direct requests to
-the access point hostname. The access point hostname takes the form
-AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
-this action with an access point through the AWS SDKs, you provide the
-access point ARN in place of the bucket name. For more information about
-access point ARNs, see Using Access Points (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
-in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
-<p>When using this action with Amazon S3 on Outposts, you must direct requests
-to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
-AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
-using this action using S3 on Outposts through the AWS SDKs, you provide
-the Outposts bucket ARN in place of the bucket name. For more information
-about S3 on Outposts ARNs, see Using S3 on Outposts (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
-in the Amazon S3 User Guide.</p>
+<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see Using S3 on Outposts (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -1563,9 +1503,7 @@ in the Amazon S3 User Guide.</p>
   </code></dt>
   <dd>
     
-<p>The canned ACL to apply to the object. For more information, see Canned ACL
-(<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL</a>).</p>
+<p>The canned ACL to apply to the object. For more information, see Canned ACL (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL</a>).</p>
 
 <p>This action is not supported by Amazon S3 on Outposts.</p>
 
@@ -1599,11 +1537,7 @@ href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedAC
   </code></dt>
   <dd>
     
-<p>Can be used to specify caching behavior along the request/reply chain. For
-more information, see <a
-href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>
-(<a
-href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>).</p>
+<p>Can be used to specify caching behavior along the request/reply chain. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a> (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>).</p>
 
     
   </dd>
@@ -1615,11 +1549,7 @@ href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">www.w3.org
   </code></dt>
   <dd>
     
-<p>Specifies presentational information for the object. For more information,
-see <a
-href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1">www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1</a>
-(<a
-href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1">www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1</a>).</p>
+<p>Specifies presentational information for the object. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1">www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1</a> (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1">www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1</a>).</p>
 
     
   </dd>
@@ -1631,12 +1561,7 @@ href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1">www.w3.o
   </code></dt>
   <dd>
     
-<p>Specifies what content encodings have been applied to the object and thus
-what decoding mechanisms must be applied to obtain the media-type
-referenced by the Content-Type header field. For more information, see <a
-href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11</a>
-(<a
-href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11</a>).</p>
+<p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11</a> (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11</a>).</p>
 
     
   </dd>
@@ -1660,13 +1585,7 @@ href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11">www.w3.or
   </code></dt>
   <dd>
     
-<p>The base64-encoded 128-bit MD5 digest of the message (without the headers)
-according to RFC 1864. This header can be used as a message integrity check
-to verify that the data is the same data that was originally sent. Although
-it is optional, we recommend using the Content-MD5 mechanism as an
-end-to-end integrity check. For more information about REST request
-authentication, see REST Authentication (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html</a>).</p>
+<p>The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see REST Authentication (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html</a>).</p>
 
     
   </dd>
@@ -1678,11 +1597,7 @@ href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">d
   </code></dt>
   <dd>
     
-<p>A standard MIME type describing the format of the contents. For more
-information, see <a
-href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17</a>
-(<a
-href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17</a>).</p>
+<p>A standard MIME type describing the format of the contents. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17</a> (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17</a>).</p>
 
     
   </dd>
@@ -1694,11 +1609,7 @@ href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">www.w3.or
   </code></dt>
   <dd>
     
-<p>The date and time at which the object is no longer cacheable. For more
-information, see <a
-href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21</a>
-(<a
-href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21</a>).</p>
+<p>The date and time at which the object is no longer cacheable. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21</a> (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21</a>).</p>
 
     
   </dd>
@@ -1778,12 +1689,7 @@ href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21">www.w3.or
   </code></dt>
   <dd>
     
-<p>Confirms that the requester knows that they will be charged for the
-request. Bucket owners need not specify this parameter in their requests.
-For information about downloading objects from requester pays buckets, see
-Downloading Objects in Requestor Pays Buckets (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
-in the Amazon S3 Developer Guide.</p>
+<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 Developer Guide.</p>
 
     <div class="tags">
 <p class="tag_title">Enum Values:</p>
@@ -1803,11 +1709,7 @@ in the Amazon S3 Developer Guide.</p>
   </code></dt>
   <dd>
     
-<p>Date on which it will be legal to delete or modify the object. This field
-can only be specified if Retention-Directive is REPLACE. You can only
-specify this or the Retention-Period header. If both are specified a 400
-error will be returned. If neither is specified the bucket&#39;s
-DefaultRetention period will be used.</p>
+<p>Date on which it will be legal to delete or modify the object. This field can only be specified if Retention-Directive is REPLACE. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket&#39;s DefaultRetention period will be used.</p>
 
     
   </dd>
@@ -1819,10 +1721,7 @@ DefaultRetention period will be used.</p>
   </code></dt>
   <dd>
     
-<p>A single legal hold to apply to the object. This field can only be
-specified if Retention-Directive is REPLACE. A legal hold is a character
-long string of max length 64. The object cannot be overwritten or deleted
-until all legal holds associated with the object are removed.</p>
+<p>A single legal hold to apply to the object. This field can only be specified if Retention-Directive is REPLACE. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.</p>
 
     
   </dd>
@@ -1834,10 +1733,7 @@ until all legal holds associated with the object are removed.</p>
   </code></dt>
   <dd>
     
-<p>Retention period to store on the object in seconds. If this field and
-Retention-Expiration-Date are specified a 400 error is returned. If neither
-is specified the bucket&#39;s DefaultRetention period will be used. 0 is a
-legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
+<p>Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket&#39;s DefaultRetention period will be used. 0 is a legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
 
     
   </dd>
@@ -1849,8 +1745,7 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
   </code></dt>
   <dd>
     
-<p>Specifies the algorithm to use to when encrypting the object (for example,
-AES256).</p>
+<p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
 
     
   </dd>
@@ -1862,11 +1757,7 @@ AES256).</p>
   </code></dt>
   <dd>
     
-<p>Specifies the customer-provided encryption key for Amazon S3 to use in
-encrypting data. This value is used to store the object and then it is
-discarded; Amazon S3 does not store the encryption key. The key must be
-appropriate for use with the algorithm specified in the
-x-amz-server-side-encryption-customer-algorithm header.</p>
+<p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.</p>
 
     
   </dd>
@@ -1878,9 +1769,7 @@ x-amz-server-side-encryption-customer-algorithm header.</p>
   </code></dt>
   <dd>
     
-<p>Specifies the 128-bit MD5 digest of the encryption key according to RFC
-1321. Amazon S3 uses this header for a message integrity check to ensure
-that the encryption key was transmitted without error.</p>
+<p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.</p>
 
     
   </dd>
@@ -1892,16 +1781,9 @@ that the encryption key was transmitted without error.</p>
   </code></dt>
   <dd>
     
-<p>If x-amz-server-side-encryption is present and has the value of aws:kms,
-this header specifies the ID of the AWS Key Management Service (AWS KMS)
-symmetrical customer managed customer master key (CMK) that was used for
-the object.</p>
+<p>If x-amz-server-side-encryption is present and has the value of aws:kms, this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetrical customer managed customer master key (CMK) that was used for the object.</p>
 
-<p>If the value of x-amz-server-side-encryption is aws:kms, this header
-specifies the ID of the symmetric customer managed AWS KMS CMK that will be
-used for the object. If you specify x-amz-server-side-encryption:aws:kms,
-but do not providex-amz-server-side-encryption-aws-kms-key-id, Amazon S3
-uses the AWS managed CMK in AWS to protect the data.</p>
+<p>If the value of x-amz-server-side-encryption is aws:kms, this header specifies the ID of the symmetric customer managed AWS KMS CMK that will be used for the object. If you specify x-amz-server-side-encryption:aws:kms, but do not providex-amz-server-side-encryption-aws-kms-key-id, Amazon S3 uses the AWS managed CMK in AWS to protect the data.</p>
 
     
   </dd>
@@ -1913,8 +1795,7 @@ uses the AWS managed CMK in AWS to protect the data.</p>
   </code></dt>
   <dd>
     
-<p>The server-side encryption algorithm used when storing this object in
-Amazon S3 (for example, AES256, aws:kms).</p>
+<p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).</p>
 
     <div class="tags">
 <p class="tag_title">Enum Values:</p>
@@ -1934,13 +1815,7 @@ Amazon S3 (for example, AES256, aws:kms).</p>
   </code></dt>
   <dd>
     
-<p>By default, Amazon S3 uses the STANDARD Storage Class to store newly
-created objects. The STANDARD storage class provides high durability and
-high availability. Depending on performance needs, you can specify a
-different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS
-Storage Class. For more information, see Storage Classes (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html</a>)
-in the Amazon S3 Service Developer Guide.</p>
+<p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see Storage Classes (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html</a>) in the Amazon S3 Service Developer Guide.</p>
 
     <div class="tags">
 <p class="tag_title">Enum Values:</p>
@@ -1960,8 +1835,7 @@ in the Amazon S3 Service Developer Guide.</p>
   </code></dt>
   <dd>
     
-<p>The tag-set for the object. The tag-set must be encoded as URL Query
-parameters. (For example, “Key1=Value1”)</p>
+<p>The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, “Key1=Value1”)</p>
 
     
   </dd>
@@ -1973,28 +1847,17 @@ parameters. (For example, “Key1=Value1”)</p>
   </code></dt>
   <dd>
     
-<p>If the bucket is configured as a website, redirects requests for this
-object to another object in the same bucket or to an external URL. Amazon
-S3 stores the value of this header in the object metadata. For information
-about object metadata, see Object Key and Metadata (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html">docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html</a>).</p>
+<p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, see Object Key and Metadata (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html">docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html</a>).</p>
 
-<p>In the following example, the request header sets the redirect to an object
-(anotherPage.html) in the same bucket:</p>
+<p>In the following example, the request header sets the redirect to an object (anotherPage.html) in the same bucket:</p>
 
 <p>x-amz-website-redirect-location: /anotherPage.html</p>
 
-<p>In the following example, the request header sets the object redirect to
-another website:</p>
+<p>In the following example, the request header sets the object redirect to another website:</p>
 
-<p>x-amz-website-redirect-location: <a
-href="http://www.example.com">www.example.com</a>/</p>
+<p>x-amz-website-redirect-location: <a href="http://www.example.com">www.example.com</a>/</p>
 
-<p>For more information about website hosting in Amazon S3, see Hosting
-Websites on Amazon S3 (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html</a>)
-and How to Configure Website Page Redirects (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html</a>).</p>
+<p>For more information about website hosting in Amazon S3, see Hosting Websites on Amazon S3 (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html</a>) and How to Configure Website Page Redirects (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html</a>).</p>
 
     
   </dd>
@@ -2048,9 +1911,7 @@ href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html"
   </code></dt>
   <dd>
     
-<p>The version of the object that was uploaded. Will only be populated if the
-S3 Bucket is versioned. If the bucket is not versioned this field will not
-be set.</p>
+<p>The version of the object that was uploaded. Will only be populated if the S3 Bucket is versioned. If the bucket is not versioned this field will not be set.</p>
 
     
   </dd>
@@ -2062,8 +1923,7 @@ be set.</p>
   </code></dt>
   <dd>
     
-<p>The ID for a multipart upload to S3. In the case of an error the error can
-be cast to the MultiUploadFailure interface to extract the upload ID.</p>
+<p>The ID for a multipart upload to S3. In the case of an error the error can be cast to the MultiUploadFailure interface to extract the upload ID.</p>
 
     
   </dd>
@@ -2106,54 +1966,31 @@ be cast to the MultiUploadFailure interface to extract the upload ID.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GetBucketRegion will attempt to get the region for a bucket using the
-regionHint to determine which AWS partition to perform the query on.</p>
+<p>GetBucketRegion will attempt to get the region for a bucket using the regionHint to determine which AWS partition to perform the query on.</p>
 
 <p>The request will not be signed, and will not use your AWS credentials.</p>
 
-<p>A “NotFound” error code will be returned if the bucket does not exist in
-the AWS partition the regionHint belongs to. If the regionHint parameter is
-an empty string GetBucketRegion will fallback to the ConfigProvider&#39;s
-region config. If the regionHint is empty, and the ConfigProvider does not
-have a region value, an error will be returned..</p>
+<p>A “NotFound” error code will be returned if the bucket does not exist in the AWS partition the regionHint belongs to. If the regionHint parameter is an empty string GetBucketRegion will fallback to the ConfigProvider&#39;s region config. If the regionHint is empty, and the ConfigProvider does not have a region value, an error will be returned..</p>
 
-<p>For example to get the region of a bucket which exists in “eu-central-1”
-you could provide a region hint of “us-west-2”.</p>
+<p>For example to get the region of a bucket which exists in “eu-central-1” you could provide a region hint of “us-west-2”.</p>
 
 <p>sess := session.Must(session.NewSession())</p>
 
-<p>bucket := “my-bucket”  region, err := s3manager.GetBucketRegion(ctx, sess,
-bucket, “us-west-2”)  if err != nil {  if aerr, ok := err.(awserr.Error);
-ok &amp;&amp; aerr.Code() == “NotFound” {  fmt.Fprintf(os.Stderr, “unable
-to find bucket %s&#39;s region not foundn”, bucket)  }  return err  } 
-fmt.Printf(“Bucket %s is in %s regionn”, bucket, region)</p>
+<p>bucket := “my-bucket”  region, err := s3manager.GetBucketRegion(ctx, sess, bucket, “us-west-2”)  if err != nil {  if aerr, ok := err.(awserr.Error); ok &amp;&amp; aerr.Code() == “NotFound” {  fmt.Fprintf(os.Stderr, “unable to find bucket %s&#39;s region not foundn”, bucket)  }  return err  }  fmt.Printf(“Bucket %s is in %s regionn”, bucket, region)</p>
 
-<p>By default the request will be made to the Amazon S3 endpoint using the
-Path style addressing.</p>
+<p>By default the request will be made to the Amazon S3 endpoint using the Path style addressing.</p>
 
 <p>s3.us-west-2.amazonaws.com/bucketname</p>
 
-<p>This is not compatible with Amazon S3&#39;s FIPS endpoints. To override
-this behavior to use Virtual Host style addressing, provide a functional
-option that will set the Request&#39;s Config.S3ForcePathStyle to
-aws.Bool(false).</p>
+<p>This is not compatible with Amazon S3&#39;s FIPS endpoints. To override this behavior to use Virtual Host style addressing, provide a functional option that will set the Request&#39;s Config.S3ForcePathStyle to aws.Bool(false).</p>
 
-<p>region, err := s3manager.GetBucketRegion(ctx, sess, “bucketname”,
-“us-west-2”, func(r *request.Request) {  r.S3ForcePathStyle =
-aws.Bool(false)  })</p>
+<p>region, err := s3manager.GetBucketRegion(ctx, sess, “bucketname”, “us-west-2”, func(r *request.Request) {  r.S3ForcePathStyle = aws.Bool(false)  })</p>
 
-<p>To configure the GetBucketRegion to make a request via the Amazon S3 FIPS
-endpoints directly when a FIPS region name is not available, (e.g.
-fips-us-gov-west-1) set the Config.Endpoint on the Session, or client the
-utility is called with. The hint region will be ignored if an endpoint URL
-is configured on the session or client.</p>
+<p>To configure the GetBucketRegion to make a request via the Amazon S3 FIPS endpoints directly when a FIPS region name is not available, (e.g. fips-us-gov-west-1) set the Config.Endpoint on the Session, or client the utility is called with. The hint region will be ignored if an endpoint URL is configured on the session or client.</p>
 
-<p>sess, err := session.NewSession(&amp;aws.Config{  Endpoint: aws.String(“<a
-href="https://s3-fips.us-west-2.amazonaws.com">s3-fips.us-west-2.amazonaws.com</a>”),
-})</p>
+<p>sess, err := session.NewSession(&amp;aws.Config{  Endpoint: aws.String(“<a href="https://s3-fips.us-west-2.amazonaws.com">s3-fips.us-west-2.amazonaws.com</a>”),  })</p>
 
-<p>region, err := s3manager.GetBucketRegion(context.Background(), sess,
-“bucketname”, “”)</p>
+<p>region, err := s3manager.GetBucketRegion(context.Background(), sess, “bucketname”, “”)</p>
 
 
   </div>
@@ -2205,34 +2042,19 @@ href="https://s3-fips.us-west-2.amazonaws.com">s3-fips.us-west-2.amazonaws.com</
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GetBucketRegionWithClient is the same as GetBucketRegion with the exception
-that it takes a S3 service client instead of a Session. The regionHint is
-derived from the region the S3 service client was created in.</p>
+<p>GetBucketRegionWithClient is the same as GetBucketRegion with the exception that it takes a S3 service client instead of a Session. The regionHint is derived from the region the S3 service client was created in.</p>
 
-<p>By default the request will be made to the Amazon S3 endpoint using the
-Path style addressing.</p>
+<p>By default the request will be made to the Amazon S3 endpoint using the Path style addressing.</p>
 
 <p>s3.us-west-2.amazonaws.com/bucketname</p>
 
-<p>This is not compatible with Amazon S3&#39;s FIPS endpoints. To override
-this behavior to use Virtual Host style addressing, provide a functional
-option that will set the Request&#39;s Config.S3ForcePathStyle to
-aws.Bool(false).</p>
+<p>This is not compatible with Amazon S3&#39;s FIPS endpoints. To override this behavior to use Virtual Host style addressing, provide a functional option that will set the Request&#39;s Config.S3ForcePathStyle to aws.Bool(false).</p>
 
-<p>region, err := s3manager.GetBucketRegionWithClient(ctx, client,
-“bucketname”, func(r *request.Request) {  r.S3ForcePathStyle =
-aws.Bool(false)  })</p>
+<p>region, err := s3manager.GetBucketRegionWithClient(ctx, client, “bucketname”, func(r *request.Request) {  r.S3ForcePathStyle = aws.Bool(false)  })</p>
 
-<p>To configure the GetBucketRegion to make a request via the Amazon S3 FIPS
-endpoints directly when a FIPS region name is not available, (e.g.
-fips-us-gov-west-1) set the Config.Endpoint on the Session, or client the
-utility is called with. The hint region will be ignored if an endpoint URL
-is configured on the session or client.</p>
+<p>To configure the GetBucketRegion to make a request via the Amazon S3 FIPS endpoints directly when a FIPS region name is not available, (e.g. fips-us-gov-west-1) set the Config.Endpoint on the Session, or client the utility is called with. The hint region will be ignored if an endpoint URL is configured on the session or client.</p>
 
-<p>region, err := s3manager.GetBucketRegionWithClient(context.Background(), 
-s3.New(sess, &amp;aws.Config{  Endpoint: aws.String(“<a
-href="https://s3-fips.us-west-2.amazonaws.com">s3-fips.us-west-2.amazonaws.com</a>”),
-}),  “bucketname”)</p>
+<p>region, err := s3manager.GetBucketRegionWithClient(context.Background(),  s3.New(sess, &amp;aws.Config{  Endpoint: aws.String(“<a href="https://s3-fips.us-west-2.amazonaws.com">s3-fips.us-west-2.amazonaws.com</a>”),  }),  “bucketname”)</p>
 
 <p>See GetBucketRegion for more information.</p>
 
@@ -2362,8 +2184,7 @@ href="https://s3-fips.us-west-2.amazonaws.com">s3-fips.us-west-2.amazonaws.com</
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>NewBatchDelete will return a new delete client that can delete a batched
-amount of objects.</p>
+<p>NewBatchDelete will return a new delete client that can delete a batched amount of objects.</p>
 
 <p>Example:  batcher := s3manager.NewBatchDelete(sess, size)</p>
 
@@ -2380,7 +2201,8 @@ amount of objects.</p>
 	Objects: objects,
 }); err != <span class="hljs-constant">nil</span> {
 	<span class="hljs-keyword">return</span> err
-}</div></code></pre>
+}
+</div></code></pre>
 
 
   </div>
@@ -2424,8 +2246,7 @@ amount of objects.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>NewBatchDeleteWithClient will return a new delete client that can delete a
-batched amount of objects.</p>
+<p>NewBatchDeleteWithClient will return a new delete client that can delete a batched amount of objects.</p>
 
 <p>Example:  batcher := s3manager.NewBatchDeleteWithClient(client, size)</p>
 
@@ -2442,7 +2263,8 @@ batched amount of objects.</p>
 	Objects: objects,
 }); err != <span class="hljs-constant">nil</span> {
 	<span class="hljs-keyword">return</span> err
-}</div></code></pre>
+}
+</div></code></pre>
 
 
   </div>
@@ -2502,8 +2324,7 @@ batched amount of objects.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>NewBatchError will return a BatchError that satisfies the awserr.Error
-interface.</p>
+<p>NewBatchError will return a BatchError that satisfies the awserr.Error interface.</p>
 
 
   </div>
@@ -2631,14 +2452,9 @@ interface.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>NewDownloader creates a new Downloader instance to downloads objects from
-S3 in concurrent chunks. Pass in additional functional options to customize
-the downloader behavior. Requires a client.ConfigProvider in order to
-create a S3 service client. The session.Session satisfies the
-client.ConfigProvider interface.</p>
+<p>NewDownloader creates a new Downloader instance to downloads objects from S3 in concurrent chunks. Pass in additional functional options to customize the downloader behavior. Requires a client.ConfigProvider in order to create a S3 service client. The session.Session satisfies the client.ConfigProvider interface.</p>
 
-<p>Example:  // The session the S3 Downloader will use  sess :=
-session.Must(session.NewSession())</p>
+<p>Example:  // The session the S3 Downloader will use  sess := session.Must(session.NewSession())</p>
 
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Create a downloader with the session and default options</span>
 downloader := s3manager.NewDownloader(sess)
@@ -2646,7 +2462,8 @@ downloader := s3manager.NewDownloader(sess)
 <span class="hljs-comment">// Create a downloader with the session and custom options</span>
 downloader := s3manager.NewDownloader(sess, <span class="hljs-keyword">func</span>(d *s3manager.Downloader) {
      d.PartSize = 64 * 1024 * 1024 <span class="hljs-comment">// 64MB per part</span>
-})</div></code></pre>
+})
+</div></code></pre>
 
 
   </div>
@@ -2688,13 +2505,9 @@ downloader := s3manager.NewDownloader(sess, <span class="hljs-keyword">func</spa
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>NewDownloaderWithClient creates a new Downloader instance to downloads
-objects from S3 in concurrent chunks. Pass in additional functional options
-to customize the downloader behavior. Requires a S3 service client to make
-S3 API calls.</p>
+<p>NewDownloaderWithClient creates a new Downloader instance to downloads objects from S3 in concurrent chunks. Pass in additional functional options to customize the downloader behavior. Requires a S3 service client to make S3 API calls.</p>
 
-<p>Example:  // The session the S3 Downloader will use  sess :=
-session.Must(session.NewSession())</p>
+<p>Example:  // The session the S3 Downloader will use  sess := session.Must(session.NewSession())</p>
 
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// The S3 client the S3 Downloader will use</span>
 s3Svc := s3.New(sess)
@@ -2705,7 +2518,8 @@ downloader := s3manager.NewDownloaderWithClient(s3Svc)
 <span class="hljs-comment">// Create a downloader with the s3 client and custom options</span>
 downloader := s3manager.NewDownloaderWithClient(s3Svc, <span class="hljs-keyword">func</span>(d *s3manager.Downloader) {
      d.PartSize = 64 * 1024 * 1024 <span class="hljs-comment">// 64MB per part</span>
-})</div></code></pre>
+})
+</div></code></pre>
 
 
   </div>
@@ -2747,13 +2561,9 @@ downloader := s3manager.NewDownloaderWithClient(s3Svc, <span class="hljs-keyword
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>NewUploader creates a new Uploader instance to upload objects to S3. Pass
-In additional functional options to customize the uploader&#39;s behavior.
-Requires a client.ConfigProvider in order to create a S3 service client.
-The session.Session satisfies the client.ConfigProvider interface.</p>
+<p>NewUploader creates a new Uploader instance to upload objects to S3. Pass In additional functional options to customize the uploader&#39;s behavior. Requires a client.ConfigProvider in order to create a S3 service client. The session.Session satisfies the client.ConfigProvider interface.</p>
 
-<p>Example:  // The session the S3 Uploader will use  sess :=
-session.Must(session.NewSession())</p>
+<p>Example:  // The session the S3 Uploader will use  sess := session.Must(session.NewSession())</p>
 
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Create an uploader with the session and default options</span>
 uploader := s3manager.NewUploader(sess)
@@ -2761,7 +2571,8 @@ uploader := s3manager.NewUploader(sess)
 <span class="hljs-comment">// Create an uploader with the session and custom options</span>
 uploader := s3manager.NewUploader(session, <span class="hljs-keyword">func</span>(u *s3manager.Uploader) {
      u.PartSize = 64 * 1024 * 1024 <span class="hljs-comment">// 64MB per part</span>
-})</div></code></pre>
+})
+</div></code></pre>
 
 
   </div>
@@ -2803,12 +2614,9 @@ uploader := s3manager.NewUploader(session, <span class="hljs-keyword">func</span
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>NewUploaderWithClient creates a new Uploader instance to upload objects to
-S3. Pass in additional functional options to customize the uploader&#39;s
-behavior. Requires a S3 service client to make S3 API calls.</p>
+<p>NewUploaderWithClient creates a new Uploader instance to upload objects to S3. Pass in additional functional options to customize the uploader&#39;s behavior. Requires a S3 service client to make S3 API calls.</p>
 
-<p>Example:  // The session the S3 Uploader will use  sess :=
-session.Must(session.NewSession())</p>
+<p>Example:  // The session the S3 Uploader will use  sess := session.Must(session.NewSession())</p>
 
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// S3 service client the Upload manager will use.</span>
 s3Svc := s3.New(sess)
@@ -2819,7 +2627,8 @@ uploader := s3manager.NewUploaderWithClient(s3Svc)
 <span class="hljs-comment">// Create an uploader with S3 client and custom options</span>
 uploader := s3manager.NewUploaderWithClient(s3Svc, <span class="hljs-keyword">func</span>(u *s3manager.Uploader) {
      u.PartSize = 64 * 1024 * 1024 <span class="hljs-comment">// 64MB per part</span>
-})</div></code></pre>
+})
+</div></code></pre>
 
 
   </div>
@@ -2861,8 +2670,7 @@ uploader := s3manager.NewUploaderWithClient(s3Svc, <span class="hljs-keyword">fu
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithDownloaderRequestOptions appends to the Downloader&#39;s API request
-options.</p>
+<p>WithDownloaderRequestOptions appends to the Downloader&#39;s API request options.</p>
 
 
   </div>
@@ -2908,8 +2716,7 @@ options.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithUploaderRequestOptions appends to the Uploader&#39;s API request
-options.</p>
+<p>WithUploaderRequestOptions appends to the Uploader&#39;s API request options.</p>
 
 
   </div>
@@ -2949,9 +2756,9 @@ options.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:11:43 2021 by
+  Generated on Thu Jun  9 14:07:09 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

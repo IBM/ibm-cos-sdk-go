@@ -76,11 +76,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>A container for describing a condition that must be met for the specified
-redirect to apply. For example, 1. If request is for pages in the /docs
-folder, redirect to the /documents folder. 2. If request results in HTTP
-error 4xx, redirect request to another host where you might process the
-error.</p>
+<p>A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the /docs folder, redirect to the /documents folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.</p>
 
 
   </div>
@@ -239,8 +235,7 @@ error.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SetHttpErrorCodeReturnedEquals sets the HttpErrorCodeReturnedEquals
-field&#39;s value.</p>
+<p>SetHttpErrorCodeReturnedEquals sets the HttpErrorCodeReturnedEquals field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -315,11 +310,7 @@ field&#39;s value.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The HTTP error code when the redirect is applied. In the event of an error,
-if the error code equals this value, then the specified redirect is
-applied. Required when parent element Condition is specified and sibling
-KeyPrefixEquals is not specified. If both are specified, then both must be
-true for the redirect to be applied.</p>
+<p>The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element Condition is specified and sibling KeyPrefixEquals is not specified. If both are specified, then both must be true for the redirect to be applied.</p>
 
 
   </div>
@@ -338,18 +329,9 @@ true for the redirect to be applied.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The object key name prefix when the redirect is applied. For example, to
-redirect requests for ExamplePage.html, the key prefix will be
-ExamplePage.html. To redirect request for all pages with the prefix docs/,
-the key prefix will be /docs, which identifies all objects in the docs/
-folder. Required when the parent element Condition is specified and sibling
-HttpErrorCodeReturnedEquals is not specified. If both conditions are
-specified, both must be true for the redirect to be applied.</p>
+<p>The object key name prefix when the redirect is applied. For example, to redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html. To redirect request for all pages with the prefix docs/, the key prefix will be /docs, which identifies all objects in the docs/ folder. Required when the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals is not specified. If both conditions are specified, both must be true for the redirect to be applied.</p>
 
-<p>Replacement must be made for object keys containing special characters
-(such as carriage returns) when using XML requests. For more information,
-see XML related object key constraints (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints</a>).</p>
+<p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see XML related object key constraints (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints</a>).</p>
 
 
   </div>
@@ -401,12 +383,12 @@ href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#obj
       <pre class="lines">
 
 
-7321
-7322
-7323</pre>
+7539
+7540
+7541</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7321</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7539</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Condition (struct)">Condition</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.Condition.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -429,8 +411,7 @@ href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#obj
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SetHttpErrorCodeReturnedEquals sets the HttpErrorCodeReturnedEquals
-field&#39;s value.</p>
+<p>SetHttpErrorCodeReturnedEquals sets the HttpErrorCodeReturnedEquals field&#39;s value.</p>
 
 
   </div>
@@ -444,13 +425,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7326
-7327
-7328
-7329</pre>
+7544
+7545
+7546
+7547</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7326</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7544</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Condition (struct)">Condition</a></span>) <span class='object_link'><a href="#SetHttpErrorCodeReturnedEquals-instance_method" title="s3.Condition.SetHttpErrorCodeReturnedEquals() (method)">SetHttpErrorCodeReturnedEquals</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Condition (struct)">Condition</a></span> {
 	s.HttpErrorCodeReturnedEquals = &v
@@ -488,13 +469,13 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7332
-7333
-7334
-7335</pre>
+7550
+7551
+7552
+7553</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7332</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7550</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.Condition (struct)">Condition</a></span>) <span class='object_link'><a href="#SetKeyPrefixEquals-instance_method" title="s3.Condition.SetKeyPrefixEquals() (method)">SetKeyPrefixEquals</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.Condition (struct)">Condition</a></span> {
 	s.KeyPrefixEquals = &v
@@ -532,12 +513,12 @@ field&#39;s value.</p>
       <pre class="lines">
 
 
-7316
-7317
-7318</pre>
+7534
+7535
+7536</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7316</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7534</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.Condition (struct)">Condition</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.Condition.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -554,9 +535,9 @@ field&#39;s value.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:04 2021 by
+  Generated on Thu Jun  9 14:07:34 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

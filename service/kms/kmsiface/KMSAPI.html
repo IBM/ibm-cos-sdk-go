@@ -76,22 +76,13 @@ import "../ibm-cos-sdk-go/service/kms/kmsiface"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>KMSAPI provides an interface to enable mocking the kms.KMS service
-client&#39;s API operation, paginators, and waiters. This make unit testing
-your code that calls out to the SDK&#39;s service client&#39;s calls
-easier.</p>
+<p>KMSAPI provides an interface to enable mocking the kms.KMS service client&#39;s API operation, paginators, and waiters. This make unit testing your code that calls out to the SDK&#39;s service client&#39;s calls easier.</p>
 
-<p>The best way to use this interface is so the SDK&#39;s service client&#39;s
-calls can be stubbed out for unit testing your code with the SDK without
-needing to inject custom request handlers into the SDK&#39;s request
-pipeline.</p>
+<p>The best way to use this interface is so the SDK&#39;s service client&#39;s calls can be stubbed out for unit testing your code with the SDK without needing to inject custom request handlers into the SDK&#39;s request pipeline.</p>
 
-<p>// myFunc uses an SDK service client to make a request to  // AWS Key
-Management Service.  func myFunc(svc kmsiface.KMSAPI) bool {  // Make
-svc.CancelKeyDeletion request  }</p>
+<p>// myFunc uses an SDK service client to make a request to  // AWS Key Management Service.  func myFunc(svc kmsiface.KMSAPI) bool {  // Make svc.CancelKeyDeletion request  }</p>
 
-<p>IBM COS SDK Code – START  func main() {  sess :=
-session.Must(session.NewSession())  svc := kms.New(sess)</p>
+<p>IBM COS SDK Code – START  func main() {  sess := session.Must(session.NewSession())  svc := kms.New(sess)</p>
 
 <pre class="code go"><code class="go"><div class="hljs">   myFunc(svc)
 </div></code></pre>
@@ -100,25 +91,18 @@ session.Must(session.NewSession())  svc := kms.New(sess)</p>
 
 <p>In your _test.go file:</p>
 
-<p>// Define a mock struct to be used in your unit tests of myFunc.  type
-mockKMSClient struct {  kmsiface.KMSAPI  }  func (m *mockKMSClient)
-CancelKeyDeletion(input <em>kms.CancelKeyDeletionInput)
-(</em>kms.CancelKeyDeletionOutput, error) {  // mock response/functionality
-}</p>
+<p>// Define a mock struct to be used in your unit tests of myFunc.  type mockKMSClient struct {  kmsiface.KMSAPI  }  func (m <em>mockKMSClient) CancelKeyDeletion(input </em>kms.CancelKeyDeletionInput) (*kms.CancelKeyDeletionOutput, error) {  // mock response/functionality  }</p>
 
-<p>func TestMyFunc(t *testing.T) {  // Setup Test  mockSvc :=
-&amp;mockKMSClient{}</p>
+<p>func TestMyFunc(t *testing.T) {  // Setup Test  mockSvc := &amp;mockKMSClient{}</p>
 
 <pre class="code go"><code class="go"><div class="hljs">   my<span class="hljs-keyword">func</span>(mockSvc)
 
-   <span class="hljs-comment">// Verify myFunc's functionality</span></div></code></pre>
+   <span class="hljs-comment">// Verify myFunc's functionality</span>
+</div></code></pre>
 
 <p>}</p>
 
-<p>It is important to note that this interface will have breaking changes when
-the service model is updated and adds new API operations, paginators, and
-waiters. Its suggested to use the pattern above for testing, or using
-tooling to generate mocks to satisfy the interfaces.</p>
+<p>It is important to note that this interface will have breaking changes when the service model is updated and adds new API operations, paginators, and waiters. Its suggested to use the pattern above for testing, or using tooling to generate mocks to satisfy the interfaces.</p>
 
 
   </div>
@@ -9364,9 +9348,9 @@ tooling to generate mocks to satisfy the interfaces.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:56 2021 by
+  Generated on Thu Jun  9 14:08:43 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

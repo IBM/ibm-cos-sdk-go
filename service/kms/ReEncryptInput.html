@@ -139,8 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the encryption algorithm that AWS KMS will use to reecrypt the
-data after it has decrypted it.</p>
+<p>Specifies the encryption algorithm that AWS KMS will use to reecrypt the data after it has decrypted it.</p>
 </div></span>
   
 </li>
@@ -240,8 +239,7 @@ data after it has decrypted it.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the encryption algorithm that AWS KMS will use to decrypt the
-ciphertext before it is reencrypted.</p>
+<p>Specifies the encryption algorithm that AWS KMS will use to decrypt the ciphertext before it is reencrypted.</p>
 </div></span>
   
 </li>
@@ -291,8 +289,7 @@ ciphertext before it is reencrypted.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt
-the ciphertext before it is re-encrypted.</p>
+<p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt the ciphertext before it is re-encrypted.</p>
 </div></span>
   
 </li>
@@ -402,8 +399,7 @@ the ciphertext before it is re-encrypted.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SetDestinationEncryptionAlgorithm sets the DestinationEncryptionAlgorithm
-field&#39;s value.</p>
+<p>SetDestinationEncryptionAlgorithm sets the DestinationEncryptionAlgorithm field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -428,8 +424,7 @@ field&#39;s value.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SetDestinationEncryptionContext sets the DestinationEncryptionContext
-field&#39;s value.</p>
+<p>SetDestinationEncryptionContext sets the DestinationEncryptionContext field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -504,8 +499,7 @@ field&#39;s value.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SetSourceEncryptionAlgorithm sets the SourceEncryptionAlgorithm field&#39;s
-value.</p>
+<p>SetSourceEncryptionAlgorithm sets the SourceEncryptionAlgorithm field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -530,8 +524,7 @@ value.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SetSourceEncryptionContext sets the SourceEncryptionContext field&#39;s
-value.</p>
+<p>SetSourceEncryptionContext sets the SourceEncryptionContext field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -654,12 +647,9 @@ value.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the encryption algorithm that AWS KMS will use to reecrypt the
-data after it has decrypted it. The default value, SYMMETRIC_DEFAULT,
-represents the encryption algorithm used for symmetric CMKs.</p>
+<p>Specifies the encryption algorithm that AWS KMS will use to reecrypt the data after it has decrypted it. The default value, SYMMETRIC_DEFAULT, represents the encryption algorithm used for symmetric CMKs.</p>
 
-<p>This parameter is required only when the destination CMK is an asymmetric
-CMK.</p>
+<p>This parameter is required only when the destination CMK is an asymmetric CMK.</p>
 
 
   </div>
@@ -680,20 +670,11 @@ CMK.</p>
     
 <p>Specifies that encryption context to use when the reencrypting the data.</p>
 
-<p>A destination encryption context is valid only when the destination CMK is
-a symmetric CMK. The standard ciphertext format for asymmetric CMKs does
-not include fields for metadata.</p>
+<p>A destination encryption context is valid only when the destination CMK is a symmetric CMK. The standard ciphertext format for asymmetric CMKs does not include fields for metadata.</p>
 
-<p>An encryption context is a collection of non-secret key-value pairs that
-represents additional authenticated data. When you use an encryption
-context to encrypt data, you must specify the same (an exact case-sensitive
-match) encryption context to decrypt the data. An encryption context is
-optional when encrypting with a symmetric CMK, but it is highly
-recommended.</p>
+<p>An encryption context is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
 
-<p>For more information, see Encryption Context (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>)
-in the AWS Key Management Service Developer Guide.</p>
+<p>For more information, see Encryption Context (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>) in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -712,28 +693,22 @@ in the AWS Key Management Service Developer Guide.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>A unique identifier for the CMK that is used to reencrypt the data. Specify
-a symmetric or asymmetric CMK with a KeyUsage value of ENCRYPT_DECRYPT. To
-find the KeyUsage value of a CMK, use the DescribeKey operation.</p>
+<p>A unique identifier for the CMK that is used to reencrypt the data. Specify a symmetric or asymmetric CMK with a KeyUsage value of ENCRYPT_DECRYPT. To find the KeyUsage value of a CMK, use the DescribeKey operation.</p>
 
-<p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name,
-or alias ARN. When using an alias name, prefix it with “alias/”. To specify
-a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
+<p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
 
 <p>For example:</p>
 <ul><li>
 <p>Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li><li>
-<p>Key ARN:
-arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
+<p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li><li>
 <p>Alias name: alias/ExampleAlias</p>
 </li><li>
 <p>Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
-get the alias name and alias ARN, use ListAliases.</p>
+<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
 
 <p>DestinationKeyId is a required field</p>
 
@@ -756,9 +731,7 @@ get the alias name and alias ARN, use ListAliases.</p>
     
 <p>A list of grant tokens.</p>
 
-<p>For more information, see Grant Tokens (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token</a>)
-in the AWS Key Management Service Developer Guide.</p>
+<p>For more information, see Grant Tokens (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token</a>) in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -777,15 +750,11 @@ in the AWS Key Management Service Developer Guide.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the encryption algorithm that AWS KMS will use to decrypt the
-ciphertext before it is reencrypted. The default value, SYMMETRIC_DEFAULT,
-represents the algorithm used for symmetric CMKs.</p>
+<p>Specifies the encryption algorithm that AWS KMS will use to decrypt the ciphertext before it is reencrypted. The default value, SYMMETRIC_DEFAULT, represents the algorithm used for symmetric CMKs.</p>
 
-<p>Specify the same algorithm that was used to encrypt the ciphertext. If you
-specify a different algorithm, the decrypt attempt fails.</p>
+<p>Specify the same algorithm that was used to encrypt the ciphertext. If you specify a different algorithm, the decrypt attempt fails.</p>
 
-<p>This parameter is required only when the ciphertext was encrypted under an
-asymmetric CMK.</p>
+<p>This parameter is required only when the ciphertext was encrypted under an asymmetric CMK.</p>
 
 
   </div>
@@ -804,19 +773,11 @@ asymmetric CMK.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the encryption context to use to decrypt the ciphertext. Enter
-the same encryption context that was used to encrypt the ciphertext.</p>
+<p>Specifies the encryption context to use to decrypt the ciphertext. Enter the same encryption context that was used to encrypt the ciphertext.</p>
 
-<p>An encryption context is a collection of non-secret key-value pairs that
-represents additional authenticated data. When you use an encryption
-context to encrypt data, you must specify the same (an exact case-sensitive
-match) encryption context to decrypt the data. An encryption context is
-optional when encrypting with a symmetric CMK, but it is highly
-recommended.</p>
+<p>An encryption context is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
 
-<p>For more information, see Encryption Context (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>)
-in the AWS Key Management Service Developer Guide.</p>
+<p>For more information, see Encryption Context (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>) in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -835,34 +796,24 @@ in the AWS Key Management Service Developer Guide.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt
-the ciphertext before it is re-encrypted. Enter a key ID of the CMK that
-was used to encrypt the ciphertext.</p>
+<p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt the ciphertext before it is re-encrypted. Enter a key ID of the CMK that was used to encrypt the ciphertext.</p>
 
-<p>This parameter is required only when the ciphertext was encrypted under an
-asymmetric CMK. If you used a symmetric CMK, AWS KMS can get the CMK from
-metadata that it adds to the symmetric ciphertext blob. However, it is
-always recommended as a best practice. This practice ensures that you use
-the CMK that you intend.</p>
+<p>This parameter is required only when the ciphertext was encrypted under an asymmetric CMK. If you used a symmetric CMK, AWS KMS can get the CMK from metadata that it adds to the symmetric ciphertext blob. However, it is always recommended as a best practice. This practice ensures that you use the CMK that you intend.</p>
 
-<p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name,
-or alias ARN. When using an alias name, prefix it with “alias/”. To specify
-a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
+<p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
 
 <p>For example:</p>
 <ul><li>
 <p>Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li><li>
-<p>Key ARN:
-arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
+<p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li><li>
 <p>Alias name: alias/ExampleAlias</p>
 </li><li>
 <p>Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
-get the alias name and alias ARN, use ListAliases.</p>
+<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
 
 
   </div>
@@ -986,8 +937,7 @@ get the alias name and alias ARN, use ListAliases.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SetDestinationEncryptionAlgorithm sets the DestinationEncryptionAlgorithm
-field&#39;s value.</p>
+<p>SetDestinationEncryptionAlgorithm sets the DestinationEncryptionAlgorithm field&#39;s value.</p>
 
 
   </div>
@@ -1031,8 +981,7 @@ field&#39;s value.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SetDestinationEncryptionContext sets the DestinationEncryptionContext
-field&#39;s value.</p>
+<p>SetDestinationEncryptionContext sets the DestinationEncryptionContext field&#39;s value.</p>
 
 
   </div>
@@ -1164,8 +1113,7 @@ field&#39;s value.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SetSourceEncryptionAlgorithm sets the SourceEncryptionAlgorithm field&#39;s
-value.</p>
+<p>SetSourceEncryptionAlgorithm sets the SourceEncryptionAlgorithm field&#39;s value.</p>
 
 
   </div>
@@ -1209,8 +1157,7 @@ value.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SetSourceEncryptionContext sets the SourceEncryptionContext field&#39;s
-value.</p>
+<p>SetSourceEncryptionContext sets the SourceEncryptionContext field&#39;s value.</p>
 
 
   </div>
@@ -1416,9 +1363,9 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:49 2021 by
+  Generated on Thu Jun  9 14:08:34 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

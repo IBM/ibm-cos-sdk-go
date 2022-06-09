@@ -76,8 +76,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>BufferedReadSeekerWriteToPool uses a sync.Pool to create and reuse []byte
-slices for buffering parts in memory</p>
+<p>BufferedReadSeekerWriteToPool uses a sync.Pool to create and reuse []byte slices for buffering parts in memory</p>
 
 
   </div>
@@ -129,8 +128,7 @@ slices for buffering parts in memory</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>NewBufferedReadSeekerWriteToPool will return a new
-BufferedReadSeekerWriteToPool that will create a pool of reusable buffers .</p>
+<p>NewBufferedReadSeekerWriteToPool will return a new BufferedReadSeekerWriteToPool that will create a pool of reusable buffers .</p>
 </div></span>
   
 </li>
@@ -164,8 +162,7 @@ BufferedReadSeekerWriteToPool that will create a pool of reusable buffers .</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>GetWriteTo will wrap the provided io.ReadSeeker with a
-BufferedReadSeekerWriteTo.</p>
+<p>GetWriteTo will wrap the provided io.ReadSeeker with a BufferedReadSeekerWriteTo.</p>
 </div></span>
   
 </li>
@@ -195,11 +192,7 @@ BufferedReadSeekerWriteTo.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>NewBufferedReadSeekerWriteToPool will return a new
-BufferedReadSeekerWriteToPool that will create a pool of reusable buffers .
-If size is less then &lt; 64 KiB then the buffer will default to 64 KiB.
-Reason: io.Copy from writers or readers that don&#39;t support io.WriteTo
-or io.ReadFrom respectively will default to copying 32 KiB.</p>
+<p>NewBufferedReadSeekerWriteToPool will return a new BufferedReadSeekerWriteToPool that will create a pool of reusable buffers . If size is less then &lt; 64 KiB then the buffer will default to 64 KiB. Reason: io.Copy from writers or readers that don&#39;t support io.WriteTo or io.ReadFrom respectively will default to copying 32 KiB.</p>
 
 
   </div>
@@ -263,10 +256,7 @@ or io.ReadFrom respectively will default to copying 32 KiB.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GetWriteTo will wrap the provided io.ReadSeeker with a
-BufferedReadSeekerWriteTo. The provided cleanup must be called after
-operations have been completed on the returned io.ReadSeekerWriteTo in
-order to signal the return of resources to the pool.</p>
+<p>GetWriteTo will wrap the provided io.ReadSeeker with a BufferedReadSeekerWriteTo. The provided cleanup must be called after operations have been completed on the returned io.ReadSeekerWriteTo in order to signal the return of resources to the pool.</p>
 
 
   </div>
@@ -316,9 +306,9 @@ order to signal the return of resources to the pool.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:52 2021 by
+  Generated on Thu Jun  9 14:08:38 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

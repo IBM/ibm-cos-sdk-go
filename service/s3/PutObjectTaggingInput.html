@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The account ID of the expected bucket owner.</p>
+<p>Ignored by COS.</p>
 </div></span>
   
 </li>
@@ -189,8 +189,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Confirms that the requester knows that they will be charged for the
-request.</p>
+<p>Confirms that the requester knows that they will be charged for the request.</p>
 </div></span>
   
 </li>
@@ -527,23 +526,9 @@ request.</p>
     
 <p>The bucket name containing the object.</p>
 
-<p>When using this action with an access point, you must direct requests to
-the access point hostname. The access point hostname takes the form
-AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
-this action with an access point through the AWS SDKs, you provide the
-access point ARN in place of the bucket name. For more information about
-access point ARNs, see Using Access Points (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
-in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
-<p>When using this action with Amazon S3 on Outposts, you must direct requests
-to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
-AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
-using this action using S3 on Outposts through the AWS SDKs, you provide
-the Outposts bucket ARN in place of the bucket name. For more information
-about S3 on Outposts ARNs, see Using S3 on Outposts (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
-in the Amazon S3 User Guide.</p>
+<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see Using S3 on Outposts (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -564,9 +549,7 @@ in the Amazon S3 User Guide.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The account ID of the expected bucket owner. If the bucket is owned by a
-different account, the request will fail with an HTTP 403 (Access Denied)
-error.</p>
+<p>Ignored by COS</p>
 
 
   </div>
@@ -606,12 +589,7 @@ error.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that they will be charged for the
-request. Bucket owners need not specify this parameter in their requests.
-For information about downloading objects from requester pays buckets, see
-Downloading Objects in Requestor Pays Buckets (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
-in the Amazon S3 Developer Guide.</p>
+<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -703,12 +681,12 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-17144
-17145
-17146</pre>
+17638
+17639
+17640</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17144</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17638</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.PutObjectTaggingInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -745,13 +723,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-17179
-17180
-17181
-17182</pre>
+17673
+17674
+17675
+17676</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17179</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17673</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.PutObjectTaggingInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span> {
 	s.Bucket = &v
@@ -789,13 +767,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-17192
-17193
-17194
-17195</pre>
+17686
+17687
+17688
+17689</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17192</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17686</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.PutObjectTaggingInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -833,13 +811,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-17198
-17199
-17200
-17201</pre>
+17692
+17693
+17694
+17695</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17198</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17692</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.PutObjectTaggingInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span> {
 	s.Key = &v
@@ -877,13 +855,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-17204
-17205
-17206
-17207</pre>
+17698
+17699
+17700
+17701</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17204</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17698</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.PutObjectTaggingInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span> {
 	s.RequestPayer = &v
@@ -921,13 +899,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-17210
-17211
-17212
-17213</pre>
+17704
+17705
+17706
+17707</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17210</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17704</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetTagging-instance_method" title="s3.PutObjectTaggingInput.SetTagging() (method)">SetTagging</a></span>(v *<span class='object_link'><a href="#Tagging-field" title="s3.PutObjectTaggingInput.Tagging (field)">Tagging</a></span>) *<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span> {
 	s.Tagging = v
@@ -965,13 +943,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-17216
-17217
-17218
-17219</pre>
+17710
+17711
+17712
+17713</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17216</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17710</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.PutObjectTaggingInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span> {
 	s.VersionId = &v
@@ -1009,12 +987,12 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-17139
-17140
-17141</pre>
+17633
+17634
+17635</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17139</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17633</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.PutObjectTaggingInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1051,37 +1029,37 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-17149
-17150
-17151
-17152
-17153
-17154
-17155
-17156
-17157
-17158
-17159
-17160
-17161
-17162
-17163
-17164
-17165
-17166
-17167
-17168
-17169
-17170
-17171
-17172
-17173
-17174
-17175
-17176</pre>
+17643
+17644
+17645
+17646
+17647
+17648
+17649
+17650
+17651
+17652
+17653
+17654
+17655
+17656
+17657
+17658
+17659
+17660
+17661
+17662
+17663
+17664
+17665
+17666
+17667
+17668
+17669
+17670</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17149</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17643</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.PutObjectTaggingInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.PutObjectTaggingInput (struct)">PutObjectTaggingInput</a></span>"</span>}
@@ -1123,9 +1101,9 @@ in the Amazon S3 Developer Guide.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:24 2021 by
+  Generated on Thu Jun  9 14:08:01 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

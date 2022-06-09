@@ -76,12 +76,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>The PublicAccessBlock configuration that you want to apply to this Amazon
-S3 bucket. You can enable the configuration options in any combination. For
-more information about when Amazon S3 considers a bucket or object public,
-see The Meaning of “Public” (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status</a>)
-in the Amazon S3 User Guide.</p>
+<p>The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see The Meaning of “Public” (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status</a>) in the Amazon S3 User Guide.</p>
 
 
   </div>
@@ -130,8 +125,7 @@ in the Amazon S3 User Guide.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies whether Amazon S3 should block public access control lists (ACLs)
-for this bucket and objects in this bucket.</p>
+<p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket.</p>
 </div></span>
   
 </li>
@@ -156,8 +150,7 @@ for this bucket and objects in this bucket.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies whether Amazon S3 should ignore public ACLs for this bucket and
-objects in this bucket.</p>
+<p>Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket.</p>
 </div></span>
   
 </li>
@@ -317,12 +310,9 @@ objects in this bucket.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies whether Amazon S3 should block public access control lists (ACLs)
-for this bucket and objects in this bucket. Setting this element to TRUE
-causes the following behavior:</p>
+<p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to TRUE causes the following behavior:</p>
 <ul><li>
-<p>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is 
-public.</p>
+<p>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is  public.</p>
 </li><li>
 <p>PUT Object calls fail if the request includes a public ACL.</p>
 </li><li>
@@ -348,12 +338,9 @@ public.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies whether Amazon S3 should ignore public ACLs for this bucket and
-objects in this bucket. Setting this element to TRUE causes Amazon S3 to
-ignore all public ACLs on this bucket and objects in this bucket.</p>
+<p>Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.</p>
 
-<p>Enabling this setting doesn&#39;t affect the persistence of any existing
-ACLs and doesn&#39;t prevent new public ACLs from being set.</p>
+<p>Enabling this setting doesn&#39;t affect the persistence of any existing ACLs and doesn&#39;t prevent new public ACLs from being set.</p>
 
 
   </div>
@@ -405,12 +392,12 @@ ACLs and doesn&#39;t prevent new public ACLs from being set.</p>
       <pre class="lines">
 
 
-15657
-15658
-15659</pre>
+16076
+16077
+16078</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15657</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16076</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.PublicAccessBlockConfiguration.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -447,13 +434,13 @@ ACLs and doesn&#39;t prevent new public ACLs from being set.</p>
       <pre class="lines">
 
 
-15662
-15663
-15664
-15665</pre>
+16081
+16082
+16083
+16084</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15662</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16081</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span>) <span class='object_link'><a href="#SetBlockPublicAcls-instance_method" title="s3.PublicAccessBlockConfiguration.SetBlockPublicAcls() (method)">SetBlockPublicAcls</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span> {
 	s.BlockPublicAcls = &v
@@ -491,13 +478,13 @@ ACLs and doesn&#39;t prevent new public ACLs from being set.</p>
       <pre class="lines">
 
 
-15668
-15669
-15670
-15671</pre>
+16087
+16088
+16089
+16090</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15668</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16087</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span>) <span class='object_link'><a href="#SetIgnorePublicAcls-instance_method" title="s3.PublicAccessBlockConfiguration.SetIgnorePublicAcls() (method)">SetIgnorePublicAcls</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span> {
 	s.IgnorePublicAcls = &v
@@ -535,12 +522,12 @@ ACLs and doesn&#39;t prevent new public ACLs from being set.</p>
       <pre class="lines">
 
 
-15652
-15653
-15654</pre>
+16071
+16072
+16073</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15652</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16071</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.PublicAccessBlockConfiguration.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -557,9 +544,9 @@ ACLs and doesn&#39;t prevent new public ACLs from being set.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:21 2021 by
+  Generated on Thu Jun  9 14:07:57 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

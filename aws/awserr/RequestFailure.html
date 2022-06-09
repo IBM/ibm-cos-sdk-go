@@ -76,10 +76,7 @@ import "../ibm-cos-sdk-go/aws/awserr"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>A RequestFailure is an interface to extract request failure information
-from an Error such as the request ID of the failed request returned by a
-service. RequestFailures may not always have a requestID value if the
-request failed prior to reaching the service such as a connection error.</p>
+<p>A RequestFailure is an interface to extract request failure information from an Error such as the request ID of the failed request returned by a service. RequestFailures may not always have a requestID value if the request failed prior to reaching the service such as a connection error.</p>
 
 <p>Example:</p>
 
@@ -90,14 +87,12 @@ request failed prior to reaching the service such as a connection error.</p>
     } <span class="hljs-keyword">else</span> {
         log.Println(<span class="hljs-string">"Error:"</span>, err.Error())
     }
-}</div></code></pre>
+}
+</div></code></pre>
 
 <p>Combined with awserr.Error:</p>
 
-<p>output, err := s3manage.Upload(svc, input, opts)  if err != nil {  if
-awsErr, ok := err.(awserr.Error); ok {  // Generic AWS Error with Code,
-Message, and original error (if any)  fmt.Println(awsErr.Code(),
-awsErr.Message(), awsErr.OrigErr())</p>
+<p>output, err := s3manage.Upload(svc, input, opts)  if err != nil {  if awsErr, ok := err.(awserr.Error); ok {  // Generic AWS Error with Code, Message, and original error (if any)  fmt.Println(awsErr.Code(), awsErr.Message(), awsErr.OrigErr())</p>
 
 <pre class="code go"><code class="go"><div class="hljs">       <span class="hljs-keyword">if</span> reqErr, ok := err.(awserr.RequestFailure); ok {
            <span class="hljs-comment">// A service error occurred</span>
@@ -105,7 +100,8 @@ awsErr.Message(), awsErr.OrigErr())</p>
        }
    } <span class="hljs-keyword">else</span> {
        fmt.Println(err.Error())
-   }</div></code></pre>
+   }
+</div></code></pre>
 
 <p>}</p>
 
@@ -227,9 +223,7 @@ awsErr.Message(), awsErr.OrigErr())</p>
   <div class='inline'></div>
 </div>
 
-<p>The request ID returned by the service for a request failure. This will be
-empty if no request ID is available such as the request failed due to a
-connection error.</p>
+<p>The request ID returned by the service for a request failure. This will be empty if no request ID is available such as the request failed due to a connection error.</p>
 
 
   </div>
@@ -303,9 +297,9 @@ connection error.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:53 2021 by
+  Generated on Thu Jun  9 14:08:38 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

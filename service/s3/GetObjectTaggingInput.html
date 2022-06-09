@@ -114,8 +114,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The bucket name containing the object for which to get the tagging
-information.</p>
+<p>The bucket name containing the object for which to get the tagging information.</p>
 </div></span>
   
 </li>
@@ -140,7 +139,7 @@ information.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The account ID of the expected bucket owner.</p>
+<p>Ignored by COS.</p>
 </div></span>
   
 </li>
@@ -190,8 +189,7 @@ information.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Confirms that the requester knows that they will be charged for the
-request.</p>
+<p>Confirms that the requester knows that they will be charged for the request.</p>
 </div></span>
   
 </li>
@@ -476,26 +474,11 @@ request.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The bucket name containing the object for which to get the tagging
-information.</p>
+<p>The bucket name containing the object for which to get the tagging information.</p>
 
-<p>When using this action with an access point, you must direct requests to
-the access point hostname. The access point hostname takes the form
-AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
-this action with an access point through the AWS SDKs, you provide the
-access point ARN in place of the bucket name. For more information about
-access point ARNs, see Using Access Points (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
-in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
-<p>When using this action with Amazon S3 on Outposts, you must direct requests
-to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
-AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
-using this action using S3 on Outposts through the AWS SDKs, you provide
-the Outposts bucket ARN in place of the bucket name. For more information
-about S3 on Outposts ARNs, see Using S3 on Outposts (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
-in the Amazon S3 User Guide.</p>
+<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see Using S3 on Outposts (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -516,9 +499,7 @@ in the Amazon S3 User Guide.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The account ID of the expected bucket owner. If the bucket is owned by a
-different account, the request will fail with an HTTP 403 (Access Denied)
-error.</p>
+<p>Ignored by COS</p>
 
 
   </div>
@@ -558,12 +539,7 @@ error.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that they will be charged for the
-request. Bucket owners need not specify this parameter in their requests.
-For information about downloading objects from requester pays buckets, see
-Downloading Objects in Requestor Pays Buckets (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
-in the Amazon S3 Developer Guide.</p>
+<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -634,12 +610,12 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11821
-11822
-11823</pre>
+12256
+12257
+12258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11821</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12256</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetObjectTaggingInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -676,13 +652,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11848
-11849
-11850
-11851</pre>
+12283
+12284
+12285
+12286</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11848</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12283</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetObjectTaggingInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.Bucket = &v
@@ -720,13 +696,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11861
-11862
-11863
-11864</pre>
+12296
+12297
+12298
+12299</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11861</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12296</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetObjectTaggingInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -764,13 +740,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11867
-11868
-11869
-11870</pre>
+12302
+12303
+12304
+12305</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11867</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12302</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.GetObjectTaggingInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.Key = &v
@@ -808,13 +784,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11873
-11874
-11875
-11876</pre>
+12308
+12309
+12310
+12311</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11873</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12308</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.GetObjectTaggingInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.RequestPayer = &v
@@ -852,13 +828,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11879
-11880
-11881
-11882</pre>
+12314
+12315
+12316
+12317</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11879</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12314</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.GetObjectTaggingInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.VersionId = &v
@@ -896,12 +872,12 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11816
-11817
-11818</pre>
+12251
+12252
+12253</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11816</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12251</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetObjectTaggingInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -938,29 +914,29 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11826
-11827
-11828
-11829
-11830
-11831
-11832
-11833
-11834
-11835
-11836
-11837
-11838
-11839
-11840
-11841
-11842
-11843
-11844
-11845</pre>
+12261
+12262
+12263
+12264
+12265
+12266
+12267
+12268
+12269
+12270
+12271
+12272
+12273
+12274
+12275
+12276
+12277
+12278
+12279
+12280</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11826</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12261</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.GetObjectTaggingInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>"</span>}
@@ -994,9 +970,9 @@ in the Amazon S3 Developer Guide.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:13 2021 by
+  Generated on Thu Jun  9 14:07:47 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

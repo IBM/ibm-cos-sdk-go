@@ -114,8 +114,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Amazon S3 bucket whose PublicAccessBlock configuration you want to
-delete.</p>
+<p>The Amazon S3 bucket whose PublicAccessBlock configuration you want to delete.</p>
 </div></span>
   
 </li>
@@ -140,7 +139,7 @@ delete.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The account ID of the expected bucket owner.</p>
+<p>Ignored by COS.</p>
 </div></span>
   
 </li>
@@ -325,8 +324,7 @@ delete.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The Amazon S3 bucket whose PublicAccessBlock configuration you want to
-delete.</p>
+<p>The Amazon S3 bucket whose PublicAccessBlock configuration you want to delete.</p>
 
 <p>Bucket is a required field</p>
 
@@ -347,9 +345,7 @@ delete.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The account ID of the expected bucket owner. If the bucket is owned by a
-different account, the request will fail with an HTTP 403 (Access Denied)
-error.</p>
+<p>Ignored by COS</p>
 
 
   </div>
@@ -401,12 +397,12 @@ error.</p>
       <pre class="lines">
 
 
-9634
-9635
-9636</pre>
+9960
+9961
+9962</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9634</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9960</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeletePublicAccessBlockInput (struct)">DeletePublicAccessBlockInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.DeletePublicAccessBlockInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -443,13 +439,13 @@ error.</p>
       <pre class="lines">
 
 
-9655
-9656
-9657
-9658</pre>
+9981
+9982
+9983
+9984</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9655</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9981</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeletePublicAccessBlockInput (struct)">DeletePublicAccessBlockInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.DeletePublicAccessBlockInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeletePublicAccessBlockInput (struct)">DeletePublicAccessBlockInput</a></span> {
 	s.Bucket = &v
@@ -487,13 +483,13 @@ error.</p>
       <pre class="lines">
 
 
-9668
-9669
-9670
-9671</pre>
+9994
+9995
+9996
+9997</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9668</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9994</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeletePublicAccessBlockInput (struct)">DeletePublicAccessBlockInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.DeletePublicAccessBlockInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeletePublicAccessBlockInput (struct)">DeletePublicAccessBlockInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -531,12 +527,12 @@ error.</p>
       <pre class="lines">
 
 
-9629
-9630
-9631</pre>
+9955
+9956
+9957</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9629</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9955</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeletePublicAccessBlockInput (struct)">DeletePublicAccessBlockInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.DeletePublicAccessBlockInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -573,23 +569,23 @@ error.</p>
       <pre class="lines">
 
 
-9639
-9640
-9641
-9642
-9643
-9644
-9645
-9646
-9647
-9648
-9649
-9650
-9651
-9652</pre>
+9965
+9966
+9967
+9968
+9969
+9970
+9971
+9972
+9973
+9974
+9975
+9976
+9977
+9978</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9639</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9965</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeletePublicAccessBlockInput (struct)">DeletePublicAccessBlockInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.DeletePublicAccessBlockInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.DeletePublicAccessBlockInput (struct)">DeletePublicAccessBlockInput</a></span>"</span>}
@@ -617,9 +613,9 @@ error.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:09 2021 by
+  Generated on Thu Jun  9 14:07:40 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The account ID of the expected bucket owner.</p>
+<p>Ignored by COS.</p>
 </div></span>
   
 </li>
@@ -214,8 +214,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Confirms that the requester knows that they will be charged for the
-request.</p>
+<p>Confirms that the requester knows that they will be charged for the request.</p>
 </div></span>
   
 </li>
@@ -525,8 +524,7 @@ request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SetRetentionExpirationDate sets the RetentionExpirationDate field&#39;s
-value.</p>
+<p>SetRetentionExpirationDate sets the RetentionExpirationDate field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -697,9 +695,7 @@ value.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The account ID of the expected bucket owner. If the bucket is owned by a
-different account, the request will fail with an HTTP 403 (Access Denied)
-error.</p>
+<p>Ignored by COS</p>
 
 
   </div>
@@ -758,12 +754,7 @@ error.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that they will be charged for the
-request. Bucket owners need not specify this parameter in their requests.
-For information about downloading objects from requester pays buckets, see
-Downloading Objects in Requestor Pays Buckets (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
-in the Amazon S3 Developer Guide.</p>
+<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -782,11 +773,7 @@ in the Amazon S3 Developer Guide.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Date on which it will be legal to delete or modify the object. This field
-can only be specified if Retention-Directive is REPLACE. You can only
-specify this or the Retention-Period header. If both are specified a 400
-error will be returned. If neither is specified the bucket&#39;s
-DefaultRetention period will be used.</p>
+<p>Date on which it will be legal to delete or modify the object. This field can only be specified if Retention-Directive is REPLACE. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket&#39;s DefaultRetention period will be used.</p>
 
 
   </div>
@@ -805,10 +792,7 @@ DefaultRetention period will be used.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>A single legal hold to apply to the object. This field can only be
-specified if Retention-Directive is REPLACE. A legal hold is a character
-long string of max length 64. The object cannot be overwritten or deleted
-until all legal holds associated with the object are removed.</p>
+<p>A single legal hold to apply to the object. This field can only be specified if Retention-Directive is REPLACE. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.</p>
 
 
   </div>
@@ -827,10 +811,7 @@ until all legal holds associated with the object are removed.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Retention period to store on the object in seconds. If this field and
-Retention-Expiration-Date are specified a 400 error is returned. If neither
-is specified the bucket&#39;s DefaultRetention period will be used. 0 is a
-legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
+<p>Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket&#39;s DefaultRetention period will be used. 0 is a legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
 
 
   </div>
@@ -903,12 +884,12 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
       <pre class="lines">
 
 
-7009
-7010
-7011</pre>
+7227
+7228
+7229</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7009</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7227</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.CompleteMultipartUploadInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -945,13 +926,13 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
       <pre class="lines">
 
 
-7039
-7040
-7041
-7042</pre>
+7257
+7258
+7259
+7260</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7039</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7257</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.CompleteMultipartUploadInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.Bucket = &v
@@ -989,13 +970,13 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
       <pre class="lines">
 
 
-7052
-7053
-7054
-7055</pre>
+7270
+7271
+7272
+7273</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7052</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7270</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.CompleteMultipartUploadInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -1033,13 +1014,13 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
       <pre class="lines">
 
 
-7058
-7059
-7060
-7061</pre>
+7276
+7277
+7278
+7279</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7058</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7276</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.CompleteMultipartUploadInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.Key = &v
@@ -1077,13 +1058,13 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
       <pre class="lines">
 
 
-7064
-7065
-7066
-7067</pre>
+7282
+7283
+7284
+7285</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7064</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7282</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetMultipartUpload-instance_method" title="s3.CompleteMultipartUploadInput.SetMultipartUpload() (method)">SetMultipartUpload</a></span>(v *<span class='object_link'><a href="CompletedMultipartUpload.html" title="s3.CompletedMultipartUpload (struct)">CompletedMultipartUpload</a></span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.MultipartUpload = v
@@ -1121,13 +1102,13 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
       <pre class="lines">
 
 
-7070
-7071
-7072
-7073</pre>
+7288
+7289
+7290
+7291</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7070</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7288</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.CompleteMultipartUploadInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.RequestPayer = &v
@@ -1151,8 +1132,7 @@ legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SetRetentionExpirationDate sets the RetentionExpirationDate field&#39;s
-value.</p>
+<p>SetRetentionExpirationDate sets the RetentionExpirationDate field&#39;s value.</p>
 
 
   </div>
@@ -1166,13 +1146,13 @@ value.</p>
       <pre class="lines">
 
 
-7076
-7077
-7078
-7079</pre>
+7294
+7295
+7296
+7297</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7076</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7294</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetRetentionExpirationDate-instance_method" title="s3.CompleteMultipartUploadInput.SetRetentionExpirationDate() (method)">SetRetentionExpirationDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.RetentionExpirationDate = &v
@@ -1210,13 +1190,13 @@ value.</p>
       <pre class="lines">
 
 
-7082
-7083
-7084
-7085</pre>
+7300
+7301
+7302
+7303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7082</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7300</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetRetentionLegalHoldId-instance_method" title="s3.CompleteMultipartUploadInput.SetRetentionLegalHoldId() (method)">SetRetentionLegalHoldId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.RetentionLegalHoldId = &v
@@ -1254,13 +1234,13 @@ value.</p>
       <pre class="lines">
 
 
-7088
-7089
-7090
-7091</pre>
+7306
+7307
+7308
+7309</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7088</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7306</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetRetentionPeriod-instance_method" title="s3.CompleteMultipartUploadInput.SetRetentionPeriod() (method)">SetRetentionPeriod</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.RetentionPeriod = &v
@@ -1298,13 +1278,13 @@ value.</p>
       <pre class="lines">
 
 
-7094
-7095
-7096
-7097</pre>
+7312
+7313
+7314
+7315</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7094</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7312</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetUploadId-instance_method" title="s3.CompleteMultipartUploadInput.SetUploadId() (method)">SetUploadId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span> {
 	s.UploadId = &v
@@ -1342,12 +1322,12 @@ value.</p>
       <pre class="lines">
 
 
-7004
-7005
-7006</pre>
+7222
+7223
+7224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7004</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7222</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.CompleteMultipartUploadInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1384,32 +1364,32 @@ value.</p>
       <pre class="lines">
 
 
-7014
-7015
-7016
-7017
-7018
-7019
-7020
-7021
-7022
-7023
-7024
-7025
-7026
-7027
-7028
-7029
-7030
-7031
-7032
-7033
-7034
-7035
-7036</pre>
+7232
+7233
+7234
+7235
+7236
+7237
+7238
+7239
+7240
+7241
+7242
+7243
+7244
+7245
+7246
+7247
+7248
+7249
+7250
+7251
+7252
+7253
+7254</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7014</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 7232</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.CompleteMultipartUploadInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.CompleteMultipartUploadInput (struct)">CompleteMultipartUploadInput</a></span>"</span>}
@@ -1446,9 +1426,9 @@ value.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:04 2021 by
+  Generated on Thu Jun  9 14:07:34 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

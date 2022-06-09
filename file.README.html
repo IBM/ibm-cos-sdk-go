@@ -66,32 +66,19 @@
         <div id='filecontents'>
 <h1 id="label-IBM+Cloud+Object+Storage+-+Go+SDK">IBM Cloud Object Storage - Go SDK</h1>
 
-<p>This package allows Go developers to write software that interacts with <a
-href="https://www.ibm.com/cloud/object-storage">IBM Cloud Object
-Storage</a>. It is a fork of the <a
-href="https://github.com/aws/aws-sdk-go">AWS SDK for Go</a> library and can
-stand as a drop-in replacement if the application needs to connect to
-object storage using an S3-like API and does not make use of other AWS
-services.</p>
+<p>This package allows Go developers to write software that interacts with <a href="https://www.ibm.com/cloud/object-storage">IBM Cloud Object Storage</a>. It is a fork of the <a href="https://github.com/aws/aws-sdk-go">AWS SDK for Go</a> library and can stand as a drop-in replacement if the application needs to connect to object storage using an S3-like API and does not make use of other AWS services.</p>
 
 <h2 id="label-Notice">Notice</h2>
 
-<p>IBM has added a <a href="#language-support-policy">Language Support
-Policy</a>. Language versions will be deprecated on the published schedule
-without additional notice.</p>
+<p>IBM has added a <a href="#language-support-policy">Language Support Policy</a>. Language versions will be deprecated on the published schedule without additional notice.</p>
 
 <h2 id="label-Documentation">Documentation</h2>
 <ul><li>
-<p><a
-href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started">Core
-documentation for IBM COS</a></p>
+<p><a href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started">Core documentation for IBM COS</a></p>
 </li><li>
-<p><a href="https://ibm.github.io/ibm-cos-sdk-go">Go API reference
-documentation</a></p>
+<p><a href="https://ibm.github.io/ibm-cos-sdk-go">Go API reference documentation</a></p>
 </li><li>
-<p><a
-href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api">REST
-API reference documentation</a></p>
+<p><a href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api">REST API reference documentation</a></p>
 </li></ul>
 
 <p>For release notes, see the <a href="CHANGELOG.md">CHANGELOG</a>.</p>
@@ -109,10 +96,7 @@ API reference documentation</a></p>
 <ul><li>
 <p>An instance of COS.</p>
 </li><li>
-<p>An API key from <a
-href="https://cloud.ibm.com/docs/iam?topic=iam-userroles#userroles">IBM
-Cloud Identity and Access Management</a> with at least <code>Writer</code>
-permissions.</p>
+<p>An API key from <a href="https://cloud.ibm.com/docs/iam?topic=iam-userroles#userroles">IBM Cloud Identity and Access Management</a> with at least <code>Writer</code> permissions.</p>
 </li><li>
 <p>The ID of the instance of COS that you are working with.</p>
 </li><li>
@@ -121,54 +105,34 @@ permissions.</p>
 <p>Service endpoint</p>
 </li></ul>
 
-<p>These values can be found in the IBM Cloud Console by <a
-href="https://cloud.ibm.com/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials#service-credentials">generating
-a ‘service credential’</a>.</p>
+<p>These values can be found in the IBM Cloud Console by <a href="https://cloud.ibm.com/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials#service-credentials">generating a ‘service credential’</a>.</p>
 
 <h2 id="label-Archive+Tier+Support">Archive Tier Support</h2>
 
-<p>You can automatically archive objects after a specified length of time or
-after a specified date. Once archived, a temporary copy of an object can be
-restored for access as needed. Restore time may take up to 15 hours.</p>
+<p>You can automatically archive objects after a specified length of time or after a specified date. Once archived, a temporary copy of an object can be restored for access as needed. Restore time may take up to 15 hours.</p>
 
-<p>An archive policy is set at the bucket level by calling the
-<code>PutBucketLifecycleConfiguration</code> method on a client instance. A
-newly added or modified archive policy applies to new objects uploaded and
-does not affect existing objects. For more detail, see the <a
-href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go">documentation</a>.</p>
+<p>An archive policy is set at the bucket level by calling the <code>PutBucketLifecycleConfiguration</code> method on a client instance. A newly added or modified archive policy applies to new objects uploaded and does not affect existing objects. For more detail, see the <a href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go">documentation</a>.</p>
 
 <h2 id="label-Immutable+Object+Storage">Immutable Object Storage</h2>
 
-<p>Users can configure buckets with an Immutable Object Storage policy to
-prevent objects from being modified or deleted for a defined period of
-time. The retention period can be specified on a per-object basis, or
-objects can inherit a default retention period set on the bucket. It is
-also possible to set open-ended and permanent retention periods. Immutable
-Object Storage meets the rules set forth by the SEC governing record
-retention, and IBM Cloud administrators are unable to bypass these
-restrictions. For more detail, see the <a
-href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go">IBM
-Cloud documentation</a>.</p>
+<p>Users can configure buckets with an Immutable Object Storage policy to prevent objects from being modified or deleted for a defined period of time. The retention period can be specified on a per-object basis, or objects can inherit a default retention period set on the bucket. It is also possible to set open-ended and permanent retention periods. Immutable Object Storage meets the rules set forth by the SEC governing record retention, and IBM Cloud administrators are unable to bypass these restrictions. For more detail, see the <a href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go">IBM Cloud documentation</a>.</p>
 
-<p>Note: Immutable Object Storage does not support Aspera transfers via the
-SDK to upload objects or directories at this stage.</p>
+<p>Note: Immutable Object Storage does not support Aspera transfers via the SDK to upload objects or directories at this stage.</p>
 
 <h2 id="label-Accelerated+Archive">Accelerated Archive</h2>
 
-<p>Users can set an archive rule that would allow data restore from an archive
-in 2 hours or 12 hours.</p>
+<p>Users can set an archive rule that would allow data restore from an archive in 2 hours or 12 hours.</p>
 
 <h2 id="label-Getting+the+SDK">Getting the SDK</h2>
 
-<p>Use go build to add the SDK to your project&#39;s Go module dependencies.
-The SDK requires a minimum version of Go 1.12.</p>
+<p>Use go build to add the SDK to your project&#39;s Go module dependencies. The SDK requires a minimum version of Go 1.12.</p>
 
-<pre class="code ruby"><code class="ruby">go build ./...</code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_go'>go</span> <span class='id identifier rubyid_build'>build</span> <span class='period'>.</span><span class='op'>/</span><span class='op'>...</span>
+</code></pre>
 
 <h2 id="label-Example+code">Example code</h2>
 
-<p>Create a file <code>main.go</code>, replacing your own values for API key,
-instance ID, and bucket name:</p>
+<p>Create a file <code>main.go</code>, replacing your own values for API key, instance ID, and bucket name:</p>
 
 <pre class="code ruby"><code class="ruby">package main
 
@@ -217,52 +181,38 @@ func main() {
 
  d, _ := client.ListBuckets(&amp;s3.ListBucketsInput{})
  fmt.Println(d)
-}</code></pre>
+}
+</code></pre>
 
-<p>From the command line, run <code>go run main.go</code>. You should see a
-list of your buckets.</p>
+<p>From the command line, run <code>go run main.go</code>. You should see a list of your buckets.</p>
 
 <h2 id="label-Getting+Help">Getting Help</h2>
 
-<p>Feel free to use GitHub issues for tracking bugs and feature requests, but
-for help please use one of the following resources:</p>
+<p>Feel free to use GitHub issues for tracking bugs and feature requests, but for help please use one of the following resources:</p>
 <ul><li>
-<p>Read a quick start guide in <a
-href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go">IBM
-Cloud Docs</a>.</p>
+<p>Read a quick start guide in <a href="https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go">IBM Cloud Docs</a>.</p>
 </li><li>
-<p>Ask a question on <a
-href="https://stackoverflow.com/questions/tagged/object-storage+ibm">Stack
-Overflow</a> and tag it with <code>ibm</code> and
-<code>object-storage</code>.</p>
+<p>Ask a question on <a href="https://stackoverflow.com/questions/tagged/object-storage+ibm">Stack Overflow</a> and tag it with <code>ibm</code> and <code>object-storage</code>.</p>
 </li><li>
-<p>Open a support ticket with <a
-href="https://cloud.ibm.com/unifiedsupport/supportcenter/">IBM Cloud
-Support</a></p>
+<p>Open a support ticket with <a href="https://cloud.ibm.com/unifiedsupport/supportcenter/">IBM Cloud Support</a></p>
 </li><li>
-<p>If it turns out that you may have found a bug, please <a
-href="https://github.com/ibm/ibm-cos-sdk-go/issues/new">open an issue</a>.</p>
+<p>If it turns out that you may have found a bug, please <a href="https://github.com/ibm/ibm-cos-sdk-go/issues/new">open an issue</a>.</p>
 </li></ul>
 
 <h2 id="label-Language+Support+Policy">Language Support Policy</h2>
 
-<p>IBM supports <a href="https://golang.org/doc/devel/release.html">current
-public releases</a>. IBM will deprecate language versions 90 days after a
-version reaches end-of-life. All clients will need to upgrade to a
-supported version before the end of the grace period.</p>
+<p>IBM supports <a href="https://golang.org/doc/devel/release.html">current public releases</a>. IBM will deprecate language versions 90 days after a version reaches end-of-life. All clients will need to upgrade to a supported version before the end of the grace period.</p>
 
 <h2 id="label-License">License</h2>
 
-<p>This SDK is distributed under the <a
-href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version
-2.0</a>, see LICENSE.txt and NOTICE.txt for more information.</p>
+<p>This SDK is distributed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>, see LICENSE.txt and NOTICE.txt for more information.</p>
 </div>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:11:34 2021 by
+  Generated on Thu Jun  9 14:06:58 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

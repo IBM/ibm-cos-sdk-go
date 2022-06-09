@@ -78,62 +78,33 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
     
 <p>Package v4 implements signing for AWS V4 signer</p>
 
-<p>Provides request signing for request that need to be signed with AWS V4
-Signatures.</p>
+<p>Provides request signing for request that need to be signed with AWS V4 Signatures.</p>
 
 <p>Standalone Signer</p>
 
-<p>Generally using the signer outside of the SDK should not require any
-additional logic when using Go v1.5 or higher. The signer does this by
-taking advantage of the URL.EscapedPath method. If your request URI
-requires additional escaping you many need to use the URL.Opaque to define
-what the raw URI should be sent to the service as.</p>
+<p>Generally using the signer outside of the SDK should not require any additional logic when using Go v1.5 or higher. The signer does this by taking advantage of the URL.EscapedPath method. If your request URI requires additional escaping you many need to use the URL.Opaque to define what the raw URI should be sent to the service as.</p>
 
-<p>The signer will first check the URL.Opaque field, and use its value if set.
-The signer does require the URL.Opaque field to be set in the form of:</p>
+<p>The signer will first check the URL.Opaque field, and use its value if set. The signer does require the URL.Opaque field to be set in the form of:</p>
 
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-string">"//<hostname>/<path>"</span>
 
 <span class="hljs-comment">// e.g.</span>
-<span class="hljs-string">"//example.com/some/path"</span></div></code></pre>
+<span class="hljs-string">"//example.com/some/path"</span>
+</div></code></pre>
 
-<p>The leading “//” and hostname are required or the URL.Opaque escaping will
-not work correctly.</p>
+<p>The leading “//” and hostname are required or the URL.Opaque escaping will not work correctly.</p>
 
-<p>If URL.Opaque is not set the signer will fallback to the URL.EscapedPath()
-method and using the returned value. If you&#39;re using Go v1.4 you must
-set URL.Opaque if the URI path needs escaping. If URL.Opaque is not set
-with Go v1.5 the signer will fallback to URL.Path.</p>
+<p>If URL.Opaque is not set the signer will fallback to the URL.EscapedPath() method and using the returned value. If you&#39;re using Go v1.4 you must set URL.Opaque if the URI path needs escaping. If URL.Opaque is not set with Go v1.5 the signer will fallback to URL.Path.</p>
 
-<p>AWS v4 signature validation requires that the canonical string&#39;s URI
-path element must be the URI escaped form of the HTTP request&#39;s path.
-<a
-href="http://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html">docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html</a></p>
+<p>AWS v4 signature validation requires that the canonical string&#39;s URI path element must be the URI escaped form of the HTTP request&#39;s path. <a href="http://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html">docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html</a></p>
 
-<p>The Go HTTP client will perform escaping automatically on the request. Some
-of these escaping may cause signature validation errors because the HTTP
-request differs from the URI path or query that the signature was
-generated. <a
-href="https://golang.org/pkg/net/url/#URL.EscapedPath">golang.org/pkg/net/url/#URL.EscapedPath</a></p>
+<p>The Go HTTP client will perform escaping automatically on the request. Some of these escaping may cause signature validation errors because the HTTP request differs from the URI path or query that the signature was generated. <a href="https://golang.org/pkg/net/url/#URL.EscapedPath">golang.org/pkg/net/url/#URL.EscapedPath</a></p>
 
-<p>Because of this, it is recommended that when using the signer outside of
-the SDK that explicitly escaping the request prior to being signed is
-preferable, and will help prevent signature validation errors. This can be
-done by setting the URL.Opaque or URL.RawPath. The SDK will use URL.Opaque
-first and then call URL.EscapedPath() if Opaque is not set.</p>
+<p>Because of this, it is recommended that when using the signer outside of the SDK that explicitly escaping the request prior to being signed is preferable, and will help prevent signature validation errors. This can be done by setting the URL.Opaque or URL.RawPath. The SDK will use URL.Opaque first and then call URL.EscapedPath() if Opaque is not set.</p>
 
-<p>If signing a request intended for HTTP2 server, and you&#39;re using Go
-1.6.2 through 1.7.4 you should use the URL.RawPath as the pre-escaped form
-of the request URL. <a
-href="https://github.com/golang/go/issues/16847">github.com/golang/go/issues/16847</a>
-points to a bug in Go pre 1.8 that fails to make HTTP2 requests using
-absolute URL in the HTTP message. URL.Opaque generally will force Go to
-make requests with absolute URL. URL.RawPath does not do this, but RawPath
-must be a valid escaping of Path or url.EscapedPath will ignore the RawPath
-escaping.</p>
+<p>If signing a request intended for HTTP2 server, and you&#39;re using Go 1.6.2 through 1.7.4 you should use the URL.RawPath as the pre-escaped form of the request URL. <a href="https://github.com/golang/go/issues/16847">github.com/golang/go/issues/16847</a> points to a bug in Go pre 1.8 that fails to make HTTP2 requests using absolute URL in the HTTP message. URL.Opaque generally will force Go to make requests with absolute URL. URL.RawPath does not do this, but RawPath must be a valid escaping of Path or url.EscapedPath will ignore the RawPath escaping.</p>
 
-<p>Test <code>TestStandaloneSign</code> provides a complete example of using
-the signer outside of the SDK and pre-escaping the URI path.</p>
+<p>Test <code>TestStandaloneSign</code> provides a complete example of using the signer outside of the SDK and pre-escaping the URI path.</p>
 
 
   </div>
@@ -156,8 +127,7 @@ the signer outside of the SDK and pre-escaping the URI path.</p>
             <div class="docstring">
   <div class="discussion">
     
-<p>SignRequestHandler is a named request handler the SDK will use to sign
-service client request with using the V4 signature.</p>
+<p>SignRequestHandler is a named request handler the SDK will use to sign service client request with using the V4 signature.</p>
 
 
   </div>
@@ -321,8 +291,7 @@ service client request with using the V4 signature.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>NewSigner returns a Signer pointer configured with the credentials and
-optional option values provided.</p>
+<p>NewSigner returns a Signer pointer configured with the credentials and optional option values provided.</p>
 </div></span>
   
 </li>
@@ -372,8 +341,7 @@ optional option values provided.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SignSDKRequestWithCurrentTime will sign the SDK&#39;s request using the
-time function passed in.</p>
+<p>SignSDKRequestWithCurrentTime will sign the SDK&#39;s request using the time function passed in.</p>
 </div></span>
   
 </li>
@@ -398,8 +366,7 @@ time function passed in.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithUnsignedPayload will enable and set the UnsignedPayload field to true
-of the signer.</p>
+<p>WithUnsignedPayload will enable and set the UnsignedPayload field to true of the signer.</p>
 </div></span>
   
 </li>
@@ -481,9 +448,7 @@ of the signer.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GetSignedRequestSignature attempts to extract the signature of the request.
-Returning an error if the request is unsigned, or unable to extract the
-signature.</p>
+<p>GetSignedRequestSignature attempts to extract the signature of the request. Returning an error if the request is unsigned, or unable to extract the signature.</p>
 
 
   </div>
@@ -561,9 +526,7 @@ signature.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>NewSigner returns a Signer pointer configured with the credentials and
-optional option values provided. If not options are provided the Signer
-will use its default configuration.</p>
+<p>NewSigner returns a Signer pointer configured with the credentials and optional option values provided. If not options are provided the Signer will use its default configuration.</p>
 
 
   </div>
@@ -621,17 +584,11 @@ will use its default configuration.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SignSDKRequest signs an AWS request with the V4 signature. This request
-handler should only be used with the SDK&#39;s built in service
-client&#39;s API operation requests.</p>
+<p>SignSDKRequest signs an AWS request with the V4 signature. This request handler should only be used with the SDK&#39;s built in service client&#39;s API operation requests.</p>
 
-<p>This function should not be used on its on its own, but in conjunction with
-an AWS service client&#39;s API operation call. To sign a standalone
-request not created by a service client&#39;s API operation method use the
-“Sign” or “Presign” functions of the “Signer” type.</p>
+<p>This function should not be used on its on its own, but in conjunction with an AWS service client&#39;s API operation call. To sign a standalone request not created by a service client&#39;s API operation method use the “Sign” or “Presign” functions of the “Signer” type.</p>
 
-<p>If the credentials of the request&#39;s config are set to
-credentials.AnonymousCredentials the request will not be signed.</p>
+<p>If the credentials of the request&#39;s config are set to credentials.AnonymousCredentials the request will not be signed.</p>
 
 
   </div>
@@ -673,10 +630,7 @@ credentials.AnonymousCredentials the request will not be signed.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SignSDKRequestWithCurrentTime will sign the SDK&#39;s request using the
-time function passed in. Behaves the same as SignSDKRequest with the
-exception the request is signed with the value returned by the current time
-function.</p>
+<p>SignSDKRequestWithCurrentTime will sign the SDK&#39;s request using the time function passed in. Behaves the same as SignSDKRequest with the exception the request is signed with the value returned by the current time function.</p>
 
 
   </div>
@@ -810,8 +764,7 @@ function.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithUnsignedPayload will enable and set the UnsignedPayload field to true
-of the signer.</p>
+<p>WithUnsignedPayload will enable and set the UnsignedPayload field to true of the signer.</p>
 
 
   </div>
@@ -847,9 +800,9 @@ of the signer.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:11:36 2021 by
+  Generated on Thu Jun  9 14:07:01 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

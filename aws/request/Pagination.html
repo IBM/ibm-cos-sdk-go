@@ -76,15 +76,9 @@ import "../ibm-cos-sdk-go/aws/request"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>A Pagination provides paginating of SDK API operations which are
-paginatable. Generally you should not use this type directly, but use the
-“Pages” API operations method to automatically perform pagination for you.
-Such as, “S3.ListObjectsPages”, and “S3.ListObjectsPagesWithContext”
-methods.</p>
+<p>A Pagination provides paginating of SDK API operations which are paginatable. Generally you should not use this type directly, but use the “Pages” API operations method to automatically perform pagination for you. Such as, “S3.ListObjectsPages”, and “S3.ListObjectsPagesWithContext” methods.</p>
 
-<p>Pagination differs from a Paginator type in that pagination is the type
-that does the pagination between API operations, and Paginator defines the
-configuration that will be used per page request.</p>
+<p>Pagination differs from a Paginator type in that pagination is the type that does the pagination between API operations, and Paginator defines the configuration that will be used per page request.</p>
 
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-keyword">for</span> p.Next() {
     data := p.Page().(*s3.ListObjectsOutput)
@@ -93,10 +87,10 @@ configuration that will be used per page request.</p>
     <span class="hljs-comment">// break out of loop to stop fetching additional pages</span>
 }
 
-<span class="hljs-keyword">return</span> p.Err()</div></code></pre>
+<span class="hljs-keyword">return</span> p.Err()
+</div></code></pre>
 
-<p>See service client API operation Pages methods for examples how the SDK
-will use the Pagination type.</p>
+<p>See service client API operation Pages methods for examples how the SDK will use the Pagination type.</p>
 
 
   </div>
@@ -145,8 +139,7 @@ will use the Pagination type.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>EndPageOnSameToken, when enabled, will allow the paginator to stop on token
-that are the same as its previous tokens.</p>
+<p>EndPageOnSameToken, when enabled, will allow the paginator to stop on token that are the same as its previous tokens.</p>
 </div></span>
   
 </li>
@@ -208,8 +201,7 @@ that are the same as its previous tokens.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>HasNextPage will return true if Pagination is able to determine that the
-API operation has additional pages.</p>
+<p>HasNextPage will return true if Pagination is able to determine that the API operation has additional pages.</p>
 </div></span>
   
 </li>
@@ -284,8 +276,7 @@ API operation has additional pages.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>EndPageOnSameToken, when enabled, will allow the paginator to stop on token
-that are the same as its previous tokens.</p>
+<p>EndPageOnSameToken, when enabled, will allow the paginator to stop on token that are the same as its previous tokens.</p>
 
 
   </div>
@@ -357,9 +348,7 @@ that are the same as its previous tokens.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>HasNextPage will return true if Pagination is able to determine that the
-API operation has additional pages. False will be returned if there are no
-more pages remaining.</p>
+<p>HasNextPage will return true if Pagination is able to determine that the API operation has additional pages. False will be returned if there are no more pages remaining.</p>
 
 <p>Will always return true if Next has not been called yet.</p>
 
@@ -419,12 +408,9 @@ more pages remaining.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Next will attempt to retrieve the next page for the API operation. When a
-page is retrieved true will be returned. If the page cannot be retrieved,
-or there are no more pages false will be returned.</p>
+<p>Next will attempt to retrieve the next page for the API operation. When a page is retrieved true will be returned. If the page cannot be retrieved, or there are no more pages false will be returned.</p>
 
-<p>Use the Page method to retrieve the current page data. The data will need
-to be cast to the API operation&#39;s output type.</p>
+<p>Use the Page method to retrieve the current page data. The data will need to be cast to the API operation&#39;s output type.</p>
 
 <p>Use the Err method to determine if an error occurred if Page returns false.</p>
 
@@ -522,9 +508,7 @@ to be cast to the API operation&#39;s output type.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Page returns the current page. Page should only be called after a
-successful call to Next. It is undefined what Page will return if Page is
-called after Next returns false.</p>
+<p>Page returns the current page. Page should only be called after a successful call to Next. It is undefined what Page will return if Page is called after Next returns false.</p>
 
 
   </div>
@@ -560,9 +544,9 @@ called after Next returns false.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:11:48 2021 by
+  Generated on Thu Jun  9 14:07:16 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

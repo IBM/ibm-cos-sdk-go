@@ -164,8 +164,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Requests Amazon S3 to encode the object keys in the response and specifies
-the encoding method to use.</p>
+<p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use.</p>
 </div></span>
   
 </li>
@@ -190,7 +189,7 @@ the encoding method to use.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The account ID of the expected bucket owner.</p>
+<p>Ignored by COS.</p>
 </div></span>
   
 </li>
@@ -215,8 +214,7 @@ the encoding method to use.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Together with upload-id-marker, this parameter specifies the multipart
-upload after which listing should begin.</p>
+<p>Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.</p>
 </div></span>
   
 </li>
@@ -241,8 +239,7 @@ upload after which listing should begin.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Sets the maximum number of multipart uploads, from 1 to 1,000, to return in
-the response body.</p>
+<p>Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body.</p>
 </div></span>
   
 </li>
@@ -267,8 +264,7 @@ the response body.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Lists in-progress uploads only for those keys that begin with the specified
-prefix.</p>
+<p>Lists in-progress uploads only for those keys that begin with the specified prefix.</p>
 </div></span>
   
 </li>
@@ -293,8 +289,7 @@ prefix.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Together with key-marker, specifies the multipart upload after which
-listing should begin.</p>
+<p>Together with key-marker, specifies the multipart upload after which listing should begin.</p>
 </div></span>
   
 </li>
@@ -631,23 +626,9 @@ listing should begin.</p>
     
 <p>The name of the bucket to which the multipart upload was initiated.</p>
 
-<p>When using this action with an access point, you must direct requests to
-the access point hostname. The access point hostname takes the form
-AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
-this action with an access point through the AWS SDKs, you provide the
-access point ARN in place of the bucket name. For more information about
-access point ARNs, see Using Access Points (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
-in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
-<p>When using this action with Amazon S3 on Outposts, you must direct requests
-to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
-AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
-using this action using S3 on Outposts through the AWS SDKs, you provide
-the Outposts bucket ARN in place of the bucket name. For more information
-about S3 on Outposts ARNs, see Using S3 on Outposts (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
-in the Amazon S3 User Guide.</p>
+<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see Using S3 on Outposts (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -670,12 +651,7 @@ in the Amazon S3 User Guide.</p>
     
 <p>Character you use to group keys.</p>
 
-<p>All keys that contain the same string between the prefix, if specified, and
-the first occurrence of the delimiter after the prefix are grouped under a
-single result element, CommonPrefixes. If you don&#39;t specify the prefix
-parameter, then the substring starts at the beginning of the key. The keys
-that are grouped under CommonPrefixes result element are not returned
-elsewhere in the response.</p>
+<p>All keys that contain the same string between the prefix, if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element, CommonPrefixes. If you don&#39;t specify the prefix parameter, then the substring starts at the beginning of the key. The keys that are grouped under CommonPrefixes result element are not returned elsewhere in the response.</p>
 
 
   </div>
@@ -694,12 +670,7 @@ elsewhere in the response.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Requests Amazon S3 to encode the object keys in the response and specifies
-the encoding method to use. An object key may contain any Unicode
-character; however, XML 1.0 parser cannot parse some characters, such as
-characters with an ASCII value from 0 to 10. For characters that are not
-supported in XML 1.0, you can add this parameter to request that Amazon S3
-encode the keys in the response.</p>
+<p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>
 
 
   </div>
@@ -718,9 +689,7 @@ encode the keys in the response.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The account ID of the expected bucket owner. If the bucket is owned by a
-different account, the request will fail with an HTTP 403 (Access Denied)
-error.</p>
+<p>Ignored by COS</p>
 
 
   </div>
@@ -739,16 +708,11 @@ error.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Together with upload-id-marker, this parameter specifies the multipart
-upload after which listing should begin.</p>
+<p>Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.</p>
 
-<p>If upload-id-marker is not specified, only the keys lexicographically
-greater than the specified key-marker will be included in the list.</p>
+<p>If upload-id-marker is not specified, only the keys lexicographically greater than the specified key-marker will be included in the list.</p>
 
-<p>If upload-id-marker is specified, any multipart uploads for a key equal to
-the key-marker might also be included, provided those multipart uploads
-have upload IDs lexicographically greater than the specified
-upload-id-marker.</p>
+<p>If upload-id-marker is specified, any multipart uploads for a key equal to the key-marker might also be included, provided those multipart uploads have upload IDs lexicographically greater than the specified upload-id-marker.</p>
 
 
   </div>
@@ -767,9 +731,7 @@ upload-id-marker.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Sets the maximum number of multipart uploads, from 1 to 1,000, to return in
-the response body. 1,000 is the maximum number of uploads that can be
-returned in a response.</p>
+<p>Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.</p>
 
 
   </div>
@@ -788,10 +750,7 @@ returned in a response.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Lists in-progress uploads only for those keys that begin with the specified
-prefix. You can use prefixes to separate a bucket into different grouping
-of keys. (You can think of using prefix to make groups in the same way
-you&#39;d use a folder in a file system.)</p>
+<p>Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you&#39;d use a folder in a file system.)</p>
 
 
   </div>
@@ -810,11 +769,7 @@ you&#39;d use a folder in a file system.)</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Together with key-marker, specifies the multipart upload after which
-listing should begin. If key-marker is not specified, the upload-id-marker
-parameter is ignored. Otherwise, any multipart uploads for a key equal to
-the key-marker might be included in the list only if they have an upload ID
-lexicographically greater than the specified upload-id-marker.</p>
+<p>Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified upload-id-marker.</p>
 
 
   </div>
@@ -866,12 +821,12 @@ lexicographically greater than the specified upload-id-marker.</p>
       <pre class="lines">
 
 
-13594
-13595
-13596</pre>
+14021
+14022
+14023</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13594</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14021</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ListMultipartUploadsInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -908,13 +863,13 @@ lexicographically greater than the specified upload-id-marker.</p>
       <pre class="lines">
 
 
-13615
-13616
-13617
-13618</pre>
+14042
+14043
+14044
+14045</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13615</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14042</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.ListMultipartUploadsInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.Bucket = &v
@@ -952,13 +907,13 @@ lexicographically greater than the specified upload-id-marker.</p>
       <pre class="lines">
 
 
-13628
-13629
-13630
-13631</pre>
+14055
+14056
+14057
+14058</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13628</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14055</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetDelimiter-instance_method" title="s3.ListMultipartUploadsInput.SetDelimiter() (method)">SetDelimiter</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.Delimiter = &v
@@ -996,13 +951,13 @@ lexicographically greater than the specified upload-id-marker.</p>
       <pre class="lines">
 
 
-13634
-13635
-13636
-13637</pre>
+14061
+14062
+14063
+14064</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13634</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14061</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetEncodingType-instance_method" title="s3.ListMultipartUploadsInput.SetEncodingType() (method)">SetEncodingType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.EncodingType = &v
@@ -1040,13 +995,13 @@ lexicographically greater than the specified upload-id-marker.</p>
       <pre class="lines">
 
 
-13640
-13641
-13642
-13643</pre>
+14067
+14068
+14069
+14070</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13640</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14067</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.ListMultipartUploadsInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -1084,13 +1039,13 @@ lexicographically greater than the specified upload-id-marker.</p>
       <pre class="lines">
 
 
-13646
-13647
-13648
-13649</pre>
+14073
+14074
+14075
+14076</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13646</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14073</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetKeyMarker-instance_method" title="s3.ListMultipartUploadsInput.SetKeyMarker() (method)">SetKeyMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.KeyMarker = &v
@@ -1128,13 +1083,13 @@ lexicographically greater than the specified upload-id-marker.</p>
       <pre class="lines">
 
 
-13652
-13653
-13654
-13655</pre>
+14079
+14080
+14081
+14082</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13652</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14079</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetMaxUploads-instance_method" title="s3.ListMultipartUploadsInput.SetMaxUploads() (method)">SetMaxUploads</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.MaxUploads = &v
@@ -1172,13 +1127,13 @@ lexicographically greater than the specified upload-id-marker.</p>
       <pre class="lines">
 
 
-13658
-13659
-13660
-13661</pre>
+14085
+14086
+14087
+14088</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13658</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14085</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetPrefix-instance_method" title="s3.ListMultipartUploadsInput.SetPrefix() (method)">SetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.Prefix = &v
@@ -1216,13 +1171,13 @@ lexicographically greater than the specified upload-id-marker.</p>
       <pre class="lines">
 
 
-13664
-13665
-13666
-13667</pre>
+14091
+14092
+14093
+14094</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13664</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14091</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetUploadIdMarker-instance_method" title="s3.ListMultipartUploadsInput.SetUploadIdMarker() (method)">SetUploadIdMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.UploadIdMarker = &v
@@ -1260,12 +1215,12 @@ lexicographically greater than the specified upload-id-marker.</p>
       <pre class="lines">
 
 
-13589
-13590
-13591</pre>
+14016
+14017
+14018</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13589</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14016</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ListMultipartUploadsInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1302,23 +1257,23 @@ lexicographically greater than the specified upload-id-marker.</p>
       <pre class="lines">
 
 
-13599
-13600
-13601
-13602
-13603
-13604
-13605
-13606
-13607
-13608
-13609
-13610
-13611
-13612</pre>
+14026
+14027
+14028
+14029
+14030
+14031
+14032
+14033
+14034
+14035
+14036
+14037
+14038
+14039</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13599</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14026</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.ListMultipartUploadsInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>"</span>}
@@ -1346,9 +1301,9 @@ lexicographically greater than the specified upload-id-marker.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:17 2021 by
+  Generated on Thu Jun  9 14:07:51 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

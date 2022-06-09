@@ -114,8 +114,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The bucket name that contains the object for which to get the ACL
-information.</p>
+<p>The bucket name that contains the object for which to get the ACL information.</p>
 </div></span>
   
 </li>
@@ -140,7 +139,7 @@ information.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The account ID of the expected bucket owner.</p>
+<p>Ignored by COS.</p>
 </div></span>
   
 </li>
@@ -190,8 +189,7 @@ information.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Confirms that the requester knows that they will be charged for the
-request.</p>
+<p>Confirms that the requester knows that they will be charged for the request.</p>
 </div></span>
   
 </li>
@@ -476,17 +474,9 @@ request.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The bucket name that contains the object for which to get the ACL
-information.</p>
+<p>The bucket name that contains the object for which to get the ACL information.</p>
 
-<p>When using this action with an access point, you must direct requests to
-the access point hostname. The access point hostname takes the form
-AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
-this action with an access point through the AWS SDKs, you provide the
-access point ARN in place of the bucket name. For more information about
-access point ARNs, see Using Access Points (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
-in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -507,9 +497,7 @@ in the Amazon S3 User Guide.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The account ID of the expected bucket owner. If the bucket is owned by a
-different account, the request will fail with an HTTP 403 (Access Denied)
-error.</p>
+<p>Ignored by COS</p>
 
 
   </div>
@@ -549,12 +537,7 @@ error.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that they will be charged for the
-request. Bucket owners need not specify this parameter in their requests.
-For information about downloading objects from requester pays buckets, see
-Downloading Objects in Requestor Pays Buckets (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>)
-in the Amazon S3 Developer Guide.</p>
+<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 Developer Guide.</p>
 
 
   </div>
@@ -625,12 +608,12 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11049
-11050
-11051</pre>
+11488
+11489
+11490</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11049</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11488</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetObjectAclInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -667,13 +650,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11076
-11077
-11078
-11079</pre>
+11515
+11516
+11517
+11518</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11076</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11515</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetObjectAclInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span> {
 	s.Bucket = &v
@@ -711,13 +694,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11089
-11090
-11091
-11092</pre>
+11528
+11529
+11530
+11531</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11089</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11528</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetObjectAclInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -755,13 +738,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11095
-11096
-11097
-11098</pre>
+11534
+11535
+11536
+11537</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11095</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11534</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.GetObjectAclInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span> {
 	s.Key = &v
@@ -799,13 +782,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11101
-11102
-11103
-11104</pre>
+11540
+11541
+11542
+11543</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11101</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11540</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.GetObjectAclInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span> {
 	s.RequestPayer = &v
@@ -843,13 +826,13 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11107
-11108
-11109
-11110</pre>
+11546
+11547
+11548
+11549</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11107</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11546</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.GetObjectAclInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span> {
 	s.VersionId = &v
@@ -887,12 +870,12 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11044
-11045
-11046</pre>
+11483
+11484
+11485</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11044</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11483</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetObjectAclInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -929,29 +912,29 @@ in the Amazon S3 Developer Guide.</p>
       <pre class="lines">
 
 
-11054
-11055
-11056
-11057
-11058
-11059
-11060
-11061
-11062
-11063
-11064
-11065
-11066
-11067
-11068
-11069
-11070
-11071
-11072
-11073</pre>
+11493
+11494
+11495
+11496
+11497
+11498
+11499
+11500
+11501
+11502
+11503
+11504
+11505
+11506
+11507
+11508
+11509
+11510
+11511
+11512</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11054</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11493</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.GetObjectAclInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>"</span>}
@@ -985,9 +968,9 @@ in the Amazon S3 Developer Guide.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:11 2021 by
+  Generated on Thu Jun  9 14:07:44 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

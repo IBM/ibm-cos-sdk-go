@@ -139,9 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Creates the CMK in the specified custom key store (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>)
-and the key material in its associated AWS CloudHSM cluster.</p>
+<p>Creates the CMK in the specified custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) and the key material in its associated AWS CloudHSM cluster.</p>
 </div></span>
   
 </li>
@@ -216,9 +214,7 @@ and the key material in its associated AWS CloudHSM cluster.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Determines the cryptographic operations (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
-for which you can use the CMK.</p>
+<p>Determines the cryptographic operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) for which you can use the CMK.</p>
 </div></span>
   
 </li>
@@ -378,8 +374,7 @@ for which you can use the CMK.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SetBypassPolicyLockoutSafetyCheck sets the BypassPolicyLockoutSafetyCheck
-field&#39;s value.</p>
+<p>SetBypassPolicyLockoutSafetyCheck sets the BypassPolicyLockoutSafetyCheck field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -631,16 +626,11 @@ field&#39;s value.</p>
     
 <p>A flag to indicate whether to bypass the key policy lockout safety check.</p>
 
-<p>Setting this value to true increases the risk that the CMK becomes
-unmanageable. Do not set this value to true indiscriminately.</p>
+<p>Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.</p>
 
-<p>For more information, refer to the scenario in the Default Key Policy (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam</a>)
-section in the AWS Key Management Service Developer Guide .</p>
+<p>For more information, refer to the scenario in the Default Key Policy (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam</a>) section in the AWS Key Management Service Developer Guide .</p>
 
-<p>Use this parameter only when you include a policy in the request and you
-intend to prevent the principal that is making the request from making a
-subsequent PutKeyPolicy request on the CMK.</p>
+<p>Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutKeyPolicy request on the CMK.</p>
 
 <p>The default value is false.</p>
 
@@ -661,28 +651,15 @@ subsequent PutKeyPolicy request on the CMK.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Creates the CMK in the specified custom key store (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>)
-and the key material in its associated AWS CloudHSM cluster. To create a
-CMK in a custom key store, you must also specify the Origin parameter with
-a value of AWS_CLOUDHSM. The AWS CloudHSM cluster that is associated with
-the custom key store must have at least two active HSMs, each in a
-different Availability Zone in the Region.</p>
+<p>Creates the CMK in the specified custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) and the key material in its associated AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the Origin parameter with a value of AWS_CLOUDHSM. The AWS CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.</p>
 
-<p>This parameter is valid only for symmetric CMKs. You cannot create an
-asymmetric CMK in a custom key store.</p>
+<p>This parameter is valid only for symmetric CMKs. You cannot create an asymmetric CMK in a custom key store.</p>
 
-<p>To find the ID of a custom key store, use the DescribeCustomKeyStores
-operation.</p>
+<p>To find the ID of a custom key store, use the DescribeCustomKeyStores operation.</p>
 
-<p>The response includes the custom key store ID and the ID of the AWS
-CloudHSM cluster.</p>
+<p>The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.</p>
 
-<p>This operation is part of the Custom Key Store feature (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>)
-feature in AWS KMS, which combines the convenience and extensive
-integration of AWS KMS with the isolation and control of a single-tenant
-key store.</p>
+<p>This operation is part of the Custom Key Store feature (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.</p>
 
 
   </div>
@@ -701,31 +678,11 @@ key store.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the type of CMK to create. The default value, SYMMETRIC_DEFAULT,
-creates a CMK with a 256-bit symmetric key for encryption and decryption.
-For help choosing a key spec for your CMK, see How to Choose Your CMK
-Configuration (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html">docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html</a>)
-in the AWS Key Management Service Developer Guide.</p>
+<p>Specifies the type of CMK to create. The default value, SYMMETRIC_DEFAULT, creates a CMK with a 256-bit symmetric key for encryption and decryption. For help choosing a key spec for your CMK, see How to Choose Your CMK Configuration (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html">docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html</a>) in the AWS Key Management Service Developer Guide.</p>
 
-<p>The CustomerMasterKeySpec determines whether the CMK contains a symmetric
-key or an asymmetric key pair. It also determines the encryption algorithms
-or signing algorithms that the CMK supports. You can&#39;t change the
-CustomerMasterKeySpec after the CMK is created. To further restrict the
-algorithms that can be used with the CMK, use a condition key in its key
-policy or IAM policy. For more information, see kms:EncryptionAlgorithm (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm</a>)
-or kms:Signing Algorithm (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm</a>)
-in the AWS Key Management Service Developer Guide.</p>
+<p>The CustomerMasterKeySpec determines whether the CMK contains a symmetric key or an asymmetric key pair. It also determines the encryption algorithms or signing algorithms that the CMK supports. You can&#39;t change the CustomerMasterKeySpec after the CMK is created. To further restrict the algorithms that can be used with the CMK, use a condition key in its key policy or IAM policy. For more information, see kms:EncryptionAlgorithm (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm</a>) or kms:Signing Algorithm (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm</a>) in the AWS Key Management Service Developer Guide.</p>
 
-<p>AWS services that are integrated with AWS KMS (<a
-href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">aws.amazon.com/kms/features/#AWS_Service_Integration</a>)
-use symmetric CMKs to protect your data. These services do not support
-asymmetric CMKs. For help determining whether a CMK is symmetric or
-asymmetric, see Identifying Symmetric and Asymmetric CMKs (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html">docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html</a>)
-in the AWS Key Management Service Developer Guide.</p>
+<p>AWS services that are integrated with AWS KMS (<a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">aws.amazon.com/kms/features/#AWS_Service_Integration</a>) use symmetric CMKs to protect your data. These services do not support asymmetric CMKs. For help determining whether a CMK is symmetric or asymmetric, see Identifying Symmetric and Asymmetric CMKs (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html">docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html</a>) in the AWS Key Management Service Developer Guide.</p>
 
 <p>AWS KMS supports the following key specs for CMKs:</p>
 <ul><li>
@@ -733,11 +690,9 @@ in the AWS Key Management Service Developer Guide.</p>
 </li><li>
 <p>Asymmetric RSA key pairs RSA_2048 RSA_3072 RSA_4096</p>
 </li><li>
-<p>Asymmetric NIST-recommended elliptic curve key pairs ECC_NIST_P256
-(secp256r1)  ECC_NIST_P384 (secp384r1) ECC_NIST_P521 (secp521r1)</p>
+<p>Asymmetric NIST-recommended elliptic curve key pairs ECC_NIST_P256 (secp256r1)  ECC_NIST_P384 (secp384r1) ECC_NIST_P521 (secp521r1)</p>
 </li><li>
-<p>Other asymmetric elliptic curve key pairs ECC_SECG_P256K1 (secp256k1), 
-commonly used for cryptocurrencies.</p>
+<p>Other asymmetric elliptic curve key pairs ECC_SECG_P256K1 (secp256k1),  commonly used for cryptocurrencies.</p>
 </li></ul>
 
 
@@ -759,8 +714,7 @@ commonly used for cryptocurrencies.</p>
     
 <p>A description of the CMK.</p>
 
-<p>Use a description that helps you decide whether the CMK is appropriate for
-a task.</p>
+<p>Use a description that helps you decide whether the CMK is appropriate for a task.</p>
 
 
   </div>
@@ -779,18 +733,13 @@ a task.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>Determines the cryptographic operations (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>)
-for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This
-parameter is required only for asymmetric CMKs. You can&#39;t change the
-KeyUsage value after the CMK is created.</p>
+<p>Determines the cryptographic operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This parameter is required only for asymmetric CMKs. You can&#39;t change the KeyUsage value after the CMK is created.</p>
 
 <p>Select only one valid value.</p>
 <ul><li>
 <p>For symmetric CMKs, omit the parameter or specify ENCRYPT_DECRYPT.</p>
 </li><li>
-<p>For asymmetric CMKs with RSA key material, specify ENCRYPT_DECRYPT or 
-SIGN_VERIFY.</p>
+<p>For asymmetric CMKs with RSA key material, specify ENCRYPT_DECRYPT or  SIGN_VERIFY.</p>
 </li><li>
 <p>For asymmetric CMKs with ECC key material, specify SIGN_VERIFY.</p>
 </li></ul>
@@ -812,24 +761,11 @@ SIGN_VERIFY.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The source of the key material for the CMK. You cannot change the origin
-after you create the CMK. The default is AWS_KMS, which means AWS KMS
-creates the key material.</p>
+<p>The source of the key material for the CMK. You cannot change the origin after you create the CMK. The default is AWS_KMS, which means AWS KMS creates the key material.</p>
 
-<p>When the parameter value is EXTERNAL, AWS KMS creates a CMK without key
-material so that you can import key material from your existing key
-management infrastructure. For more information about importing key
-material into AWS KMS, see Importing Key Material (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html</a>)
-in the AWS Key Management Service Developer Guide. This value is valid only
-for symmetric CMKs.</p>
+<p>When the parameter value is EXTERNAL, AWS KMS creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see Importing Key Material (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html</a>) in the AWS Key Management Service Developer Guide. This value is valid only for symmetric CMKs.</p>
 
-<p>When the parameter value is AWS_CLOUDHSM, AWS KMS creates the CMK in an AWS
-KMS custom key store (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>)
-and creates its key material in the associated AWS CloudHSM cluster. You
-must also use the CustomKeyStoreId parameter to identify the custom key
-store. This value is valid only for symmetric CMKs.</p>
+<p>When the parameter value is AWS_CLOUDHSM, AWS KMS creates the CMK in an AWS KMS custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) and creates its key material in the associated AWS CloudHSM cluster. You must also use the CustomKeyStoreId parameter to identify the custom key store. This value is valid only for symmetric CMKs.</p>
 
 
   </div>
@@ -852,36 +788,16 @@ store. This value is valid only for symmetric CMKs.</p>
 
 <p>If you provide a key policy, it must meet the following criteria:</p>
 <ul><li>
-<p>If you don&#39;t set BypassPolicyLockoutSafetyCheck to true, the key policy
-must allow the principal that is making the CreateKey request to make  a
-subsequent PutKeyPolicy request on the CMK. This reduces the risk that  the
-CMK becomes unmanageable. For more information, refer to the scenario  in
-the Default Key Policy (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam</a>)
-section of the AWS Key Management Service Developer Guide .</p>
+<p>If you don&#39;t set BypassPolicyLockoutSafetyCheck to true, the key policy  must allow the principal that is making the CreateKey request to make  a subsequent PutKeyPolicy request on the CMK. This reduces the risk that  the CMK becomes unmanageable. For more information, refer to the scenario  in the Default Key Policy (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam</a>)  section of the AWS Key Management Service Developer Guide .</p>
 </li><li>
-<p>Each statement in the key policy must contain one or more principals.  The
-principals in the key policy must exist and be visible to AWS KMS.  When
-you create a new AWS principal (for example, an IAM user or role),  you
-might need to enforce a delay before including the new principal in  a key
-policy because the new principal might not be immediately visible  to AWS
-KMS. For more information, see Changes that I make are not always 
-immediately visible (<a
-href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency</a>)
-in the AWS Identity and Access Management User Guide.</p>
+<p>Each statement in the key policy must contain one or more principals.  The principals in the key policy must exist and be visible to AWS KMS.  When you create a new AWS principal (for example, an IAM user or role),  you might need to enforce a delay before including the new principal in  a key policy because the new principal might not be immediately visible  to AWS KMS. For more information, see Changes that I make are not always  immediately visible (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency</a>)  in the AWS Identity and Access Management User Guide.</p>
 </li></ul>
 
-<p>If you do not provide a key policy, AWS KMS attaches a default key policy
-to the CMK. For more information, see Default Key Policy (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default</a>)
-in the AWS Key Management Service Developer Guide.</p>
+<p>If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK. For more information, see Default Key Policy (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default</a>) in the AWS Key Management Service Developer Guide.</p>
 
 <p>The key policy size quota is 32 kilobytes (32768 bytes).</p>
 
-<p>For help writing and formatting a JSON policy document, see the IAM JSON
-Policy Reference (<a
-href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html</a>)
-in the IAM User Guide .</p>
+<p>For help writing and formatting a JSON policy document, see the IAM JSON Policy Reference (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html</a>) in the IAM User Guide .</p>
 
 
   </div>
@@ -900,21 +816,13 @@ in the IAM User Guide .</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>One or more tags. Each tag consists of a tag key and a tag value. Both the
-tag key and the tag value are required, but the tag value can be an empty
-(null) string.</p>
+<p>One or more tags. Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string.</p>
 
-<p>When you add tags to an AWS resource, AWS generates a cost allocation
-report with usage and costs aggregated by tags. For information about
-adding, changing, deleting and listing tags for CMKs, see Tagging Keys (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html</a>).</p>
+<p>When you add tags to an AWS resource, AWS generates a cost allocation report with usage and costs aggregated by tags. For information about adding, changing, deleting and listing tags for CMKs, see Tagging Keys (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html</a>).</p>
 
-<p>Use this parameter to tag the CMK when it is created. To add tags to an
-existing CMK, use the TagResource operation.</p>
+<p>Use this parameter to tag the CMK when it is created. To add tags to an existing CMK, use the TagResource operation.</p>
 
-<p>To use this parameter, you must have kms:TagResource (<a
-href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html</a>)
-permission in an IAM policy.</p>
+<p>To use this parameter, you must have kms:TagResource (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html</a>) permission in an IAM policy.</p>
 
 
   </div>
@@ -994,8 +902,7 @@ permission in an IAM policy.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SetBypassPolicyLockoutSafetyCheck sets the BypassPolicyLockoutSafetyCheck
-field&#39;s value.</p>
+<p>SetBypassPolicyLockoutSafetyCheck sets the BypassPolicyLockoutSafetyCheck field&#39;s value.</p>
 
 
   </div>
@@ -1467,9 +1374,9 @@ field&#39;s value.</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:39 2021 by
+  Generated on Thu Jun  9 14:08:22 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

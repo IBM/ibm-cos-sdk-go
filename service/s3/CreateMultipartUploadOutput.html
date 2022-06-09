@@ -114,9 +114,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>If the bucket has a lifecycle rule configured with an action to abort
-incomplete multipart uploads and the prefix in the lifecycle rule matches
-the object name in the request, the response includes this header.</p>
+<p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, the response includes this header.</p>
 </div></span>
   
 </li>
@@ -216,8 +214,7 @@ the object name in the request, the response includes this header.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>If present, indicates that the requester was successfully charged for the
-request.</p>
+<p>If present, indicates that the requester was successfully charged for the request.</p>
 </div></span>
   
 </li>
@@ -242,9 +239,7 @@ request.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>If server-side encryption with a customer-provided encryption key was
-requested, the response will include this header confirming the encryption
-algorithm used.</p>
+<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
 </div></span>
   
 </li>
@@ -269,9 +264,7 @@ algorithm used.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>If server-side encryption with a customer-provided encryption key was
-requested, the response will include this header to provide round-trip
-message integrity verification of the customer-provided encryption key.</p>
+<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.</p>
 </div></span>
   
 </li>
@@ -296,9 +289,7 @@ message integrity verification of the customer-provided encryption key.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
-symmetric customer managed customer master key (CMK) that was used for the
-object.</p>
+<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.</p>
 </div></span>
   
 </li>
@@ -323,8 +314,7 @@ object.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The server-side encryption algorithm used when storing this object in
-Amazon S3 (for example, AES256, aws:kms).</p>
+<p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).</p>
 </div></span>
   
 </li>
@@ -709,16 +699,9 @@ Amazon S3 (for example, AES256, aws:kms).</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>If the bucket has a lifecycle rule configured with an action to abort
-incomplete multipart uploads and the prefix in the lifecycle rule matches
-the object name in the request, the response includes this header. The
-header indicates when the initiated multipart upload becomes eligible for
-an abort operation. For more information, see Aborting Incomplete Multipart
-Uploads Using a Bucket Lifecycle Policy (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config</a>).</p>
+<p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, the response includes this header. The header indicates when the initiated multipart upload becomes eligible for an abort operation. For more information, see Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config</a>).</p>
 
-<p>The response also includes the x-amz-abort-rule-id header that provides the
-ID of the lifecycle configuration rule that defines this action.</p>
+<p>The response also includes the x-amz-abort-rule-id header that provides the ID of the lifecycle configuration rule that defines this action.</p>
 
 
   </div>
@@ -737,9 +720,7 @@ ID of the lifecycle configuration rule that defines this action.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>This header is returned along with the x-amz-abort-date header. It
-identifies the applicable lifecycle configuration rule that defines the
-action to abort incomplete multipart uploads.</p>
+<p>This header is returned along with the x-amz-abort-date header. It identifies the applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.</p>
 
 
   </div>
@@ -760,23 +741,9 @@ action to abort incomplete multipart uploads.</p>
     
 <p>The name of the bucket to which the multipart upload was initiated.</p>
 
-<p>When using this action with an access point, you must direct requests to
-the access point hostname. The access point hostname takes the form
-AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using
-this action with an access point through the AWS SDKs, you provide the
-access point ARN in place of the bucket name. For more information about
-access point ARNs, see Using Access Points (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>)
-in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
-<p>When using this action with Amazon S3 on Outposts, you must direct requests
-to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
-AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When
-using this action using S3 on Outposts through the AWS SDKs, you provide
-the Outposts bucket ARN in place of the bucket name. For more information
-about S3 on Outposts ARNs, see Using S3 on Outposts (<a
-href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>)
-in the Amazon S3 User Guide.</p>
+<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see Using S3 on Outposts (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
 
 
   </div>
@@ -814,8 +781,7 @@ in the Amazon S3 User Guide.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>If present, indicates that the requester was successfully charged for the
-request.</p>
+<p>If present, indicates that the requester was successfully charged for the request.</p>
 
 
   </div>
@@ -834,9 +800,7 @@ request.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>If server-side encryption with a customer-provided encryption key was
-requested, the response will include this header confirming the encryption
-algorithm used.</p>
+<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
 
 
   </div>
@@ -855,9 +819,7 @@ algorithm used.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>If server-side encryption with a customer-provided encryption key was
-requested, the response will include this header to provide round-trip
-message integrity verification of the customer-provided encryption key.</p>
+<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.</p>
 
 
   </div>
@@ -876,9 +838,7 @@ message integrity verification of the customer-provided encryption key.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
-symmetric customer managed customer master key (CMK) that was used for the
-object.</p>
+<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.</p>
 
 
   </div>
@@ -897,8 +857,7 @@ object.</p>
 <div class="docstring">
   <div class="discussion">
     
-<p>The server-side encryption algorithm used when storing this object in
-Amazon S3 (for example, AES256, aws:kms).</p>
+<p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).</p>
 
 
   </div>
@@ -969,12 +928,12 @@ Amazon S3 (for example, AES256, aws:kms).</p>
       <pre class="lines">
 
 
-8589
-8590
-8591</pre>
+8807
+8808
+8809</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8589</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8807</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.CreateMultipartUploadOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1011,13 +970,13 @@ Amazon S3 (for example, AES256, aws:kms).</p>
       <pre class="lines">
 
 
-8594
-8595
-8596
-8597</pre>
+8812
+8813
+8814
+8815</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8594</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8812</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetAbortDate-instance_method" title="s3.CreateMultipartUploadOutput.SetAbortDate() (method)">SetAbortDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.AbortDate = &v
@@ -1055,13 +1014,13 @@ Amazon S3 (for example, AES256, aws:kms).</p>
       <pre class="lines">
 
 
-8600
-8601
-8602
-8603</pre>
+8818
+8819
+8820
+8821</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8600</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8818</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetAbortRuleId-instance_method" title="s3.CreateMultipartUploadOutput.SetAbortRuleId() (method)">SetAbortRuleId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.AbortRuleId = &v
@@ -1099,13 +1058,13 @@ Amazon S3 (for example, AES256, aws:kms).</p>
       <pre class="lines">
 
 
-8606
-8607
-8608
-8609</pre>
+8824
+8825
+8826
+8827</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8606</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8824</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.CreateMultipartUploadOutput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.Bucket = &v
@@ -1143,13 +1102,13 @@ Amazon S3 (for example, AES256, aws:kms).</p>
       <pre class="lines">
 
 
-8619
-8620
-8621
-8622</pre>
+8837
+8838
+8839
+8840</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8619</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8837</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.CreateMultipartUploadOutput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.Key = &v
@@ -1187,13 +1146,13 @@ Amazon S3 (for example, AES256, aws:kms).</p>
       <pre class="lines">
 
 
-8625
-8626
-8627
-8628</pre>
+8843
+8844
+8845
+8846</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8625</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8843</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.CreateMultipartUploadOutput.SetRequestCharged() (method)">SetRequestCharged</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.RequestCharged = &v
@@ -1231,13 +1190,13 @@ Amazon S3 (for example, AES256, aws:kms).</p>
       <pre class="lines">
 
 
-8649
-8650
-8651
-8652</pre>
+8867
+8868
+8869
+8870</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8649</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8867</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.CreateMultipartUploadOutput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.ServerSideEncryption = &v
@@ -1275,13 +1234,13 @@ Amazon S3 (for example, AES256, aws:kms).</p>
       <pre class="lines">
 
 
-8631
-8632
-8633
-8634</pre>
+8849
+8850
+8851
+8852</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8631</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8849</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.CreateMultipartUploadOutput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -1319,13 +1278,13 @@ Amazon S3 (for example, AES256, aws:kms).</p>
       <pre class="lines">
 
 
-8637
-8638
-8639
-8640</pre>
+8855
+8856
+8857
+8858</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8637</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8855</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.CreateMultipartUploadOutput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -1363,13 +1322,13 @@ Amazon S3 (for example, AES256, aws:kms).</p>
       <pre class="lines">
 
 
-8643
-8644
-8645
-8646</pre>
+8861
+8862
+8863
+8864</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8643</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8861</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.CreateMultipartUploadOutput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -1407,13 +1366,13 @@ Amazon S3 (for example, AES256, aws:kms).</p>
       <pre class="lines">
 
 
-8655
-8656
-8657
-8658</pre>
+8873
+8874
+8875
+8876</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8655</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8873</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetUploadId-instance_method" title="s3.CreateMultipartUploadOutput.SetUploadId() (method)">SetUploadId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.UploadId = &v
@@ -1451,12 +1410,12 @@ Amazon S3 (for example, AES256, aws:kms).</p>
       <pre class="lines">
 
 
-8584
-8585
-8586</pre>
+8802
+8803
+8804</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8584</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8802</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.CreateMultipartUploadOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1473,9 +1432,9 @@ Amazon S3 (for example, AES256, aws:kms).</p>
       </div>
 
       <div id="footer">
-  Generated on Wed Nov  3 20:12:07 2021 by
+  Generated on Thu Jun  9 14:07:38 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.3.1).
+  0.9.28 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->
