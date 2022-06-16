@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
-gem 'yard', :github => 'lsegal/yard', :branch => 'main'
-gem 'yard-go', :github => 'lsegal/yard-go', :branch => 'master'
+gem 'yard', git: 'https://github.com/lsegal/yard.git', branch: 'main'
+gem 'yard-go', git: 'https://github.com/lsegal/yard-go.git', branch: 'master'

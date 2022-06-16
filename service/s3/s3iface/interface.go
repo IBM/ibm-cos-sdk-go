@@ -98,6 +98,10 @@ type S3API interface {
 	DeleteBucketLifecycleWithContext(aws.Context, *s3.DeleteBucketLifecycleInput, ...request.Option) (*s3.DeleteBucketLifecycleOutput, error)
 	DeleteBucketLifecycleRequest(*s3.DeleteBucketLifecycleInput) (*request.Request, *s3.DeleteBucketLifecycleOutput)
 
+	DeleteBucketReplication(*s3.DeleteBucketReplicationInput) (*s3.DeleteBucketReplicationOutput, error)
+	DeleteBucketReplicationWithContext(aws.Context, *s3.DeleteBucketReplicationInput, ...request.Option) (*s3.DeleteBucketReplicationOutput, error)
+	DeleteBucketReplicationRequest(*s3.DeleteBucketReplicationInput) (*request.Request, *s3.DeleteBucketReplicationOutput)
+
 	DeleteBucketWebsite(*s3.DeleteBucketWebsiteInput) (*s3.DeleteBucketWebsiteOutput, error)
 	DeleteBucketWebsiteWithContext(aws.Context, *s3.DeleteBucketWebsiteInput, ...request.Option) (*s3.DeleteBucketWebsiteOutput, error)
 	DeleteBucketWebsiteRequest(*s3.DeleteBucketWebsiteInput) (*request.Request, *s3.DeleteBucketWebsiteOutput)
@@ -149,6 +153,10 @@ type S3API interface {
 	GetBucketProtectionConfiguration(*s3.GetBucketProtectionConfigurationInput) (*s3.GetBucketProtectionConfigurationOutput, error)
 	GetBucketProtectionConfigurationWithContext(aws.Context, *s3.GetBucketProtectionConfigurationInput, ...request.Option) (*s3.GetBucketProtectionConfigurationOutput, error)
 	GetBucketProtectionConfigurationRequest(*s3.GetBucketProtectionConfigurationInput) (*request.Request, *s3.GetBucketProtectionConfigurationOutput)
+
+	GetBucketReplication(*s3.GetBucketReplicationInput) (*s3.GetBucketReplicationOutput, error)
+	GetBucketReplicationWithContext(aws.Context, *s3.GetBucketReplicationInput, ...request.Option) (*s3.GetBucketReplicationOutput, error)
+	GetBucketReplicationRequest(*s3.GetBucketReplicationInput) (*request.Request, *s3.GetBucketReplicationOutput)
 
 	GetBucketVersioning(*s3.GetBucketVersioningInput) (*s3.GetBucketVersioningOutput, error)
 	GetBucketVersioningWithContext(aws.Context, *s3.GetBucketVersioningInput, ...request.Option) (*s3.GetBucketVersioningOutput, error)
@@ -251,6 +259,10 @@ type S3API interface {
 	PutBucketProtectionConfiguration(*s3.PutBucketProtectionConfigurationInput) (*s3.PutBucketProtectionConfigurationOutput, error)
 	PutBucketProtectionConfigurationWithContext(aws.Context, *s3.PutBucketProtectionConfigurationInput, ...request.Option) (*s3.PutBucketProtectionConfigurationOutput, error)
 	PutBucketProtectionConfigurationRequest(*s3.PutBucketProtectionConfigurationInput) (*request.Request, *s3.PutBucketProtectionConfigurationOutput)
+
+	PutBucketReplication(*s3.PutBucketReplicationInput) (*s3.PutBucketReplicationOutput, error)
+	PutBucketReplicationWithContext(aws.Context, *s3.PutBucketReplicationInput, ...request.Option) (*s3.PutBucketReplicationOutput, error)
+	PutBucketReplicationRequest(*s3.PutBucketReplicationInput) (*request.Request, *s3.PutBucketReplicationOutput)
 
 	PutBucketVersioning(*s3.PutBucketVersioningInput) (*s3.PutBucketVersioningOutput, error)
 	PutBucketVersioningWithContext(aws.Context, *s3.PutBucketVersioningInput, ...request.Option) (*s3.PutBucketVersioningOutput, error)

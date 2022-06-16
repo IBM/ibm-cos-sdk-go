@@ -116,6 +116,15 @@
       "input":{"shape":"DeleteBucketLifecycleRequest"},
       "documentationUrl":"https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api-bucket-operations#delete-the-lifecycle-configuration-for-a-bucket"
     },
+    "DeleteBucketReplication":{
+      "name":"DeleteBucketReplication",
+      "http":{
+        "method":"DELETE",
+        "requestUri":"/{Bucket}?replication",
+        "responseCode":204
+      },
+      "input":{"shape":"DeleteBucketReplicationRequest"}
+    },
     "DeleteLegalHold":{
       "name":"DeleteLegalHold",
       "http":{
@@ -308,6 +317,15 @@
       "input":{"shape":"GetPublicAccessBlockRequest"},
       "output":{"shape":"GetPublicAccessBlockOutput"}
     },
+    "GetBucketReplication":{
+      "name":"GetBucketReplication",
+      "http":{
+        "method":"GET",
+        "requestUri":"/{Bucket}?replication"
+      },
+      "input":{"shape":"GetBucketReplicationRequest"},
+      "output":{"shape":"GetBucketReplicationOutput"}
+    },
     "HeadBucket":{
       "name":"HeadBucket",
       "http":{
@@ -469,6 +487,15 @@
         "requestUri":"/{Bucket}?protection"
       },
       "input":{"shape":"PutBucketProtectionConfigurationRequest"},
+      "httpChecksumRequired":true
+    },
+    "PutBucketReplication":{
+      "name":"PutBucketReplication",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/{Bucket}?replication"
+      },
+      "input":{"shape":"PutBucketReplicationRequest"},
       "httpChecksumRequired":true
     },
     "PutBucketVersioning":{
@@ -637,13 +664,6 @@
           "locationName":"AccessControlList"
         },
         "Owner":{"shape":"Owner"}
-      }
-    },
-    "AccessControlTranslation":{
-      "type":"structure",
-      "required":["Owner"],
-      "members":{
-        "Owner":{"shape":"OwnerOverride"}
       }
     },
     "AccountId":{"type":"string"},
@@ -1703,6 +1723,22 @@
         }
       }
     },
+    "DeleteBucketReplicationRequest":{
+      "type":"structure",
+      "required":["Bucket"],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        },
+        "ExpectedBucketOwner":{
+          "shape":"AccountId",
+          "location":"header",
+          "locationName":"x-amz-expected-bucket-owner"
+        }
+      }
+    },
     "DeleteBucketRequest":{
       "type":"structure",
       "required":["Bucket"],
@@ -1773,6 +1809,9 @@
     },
     "DeleteMarkerReplication":{
       "type":"structure",
+      "required":[
+        "Status"
+      ],
       "members":{
         "Status":{"shape":"DeleteMarkerReplicationStatus"}
       }
@@ -1974,11 +2013,7 @@
       "type":"structure",
       "required":["Bucket"],
       "members":{
-        "Bucket":{"shape":"BucketName"},
-        "Account":{"shape":"AccountId"},
-        "StorageClass":{"shape":"StorageClass"},
-        "AccessControlTranslation":{"shape":"AccessControlTranslation"},
-        "EncryptionConfiguration":{"shape":"EncryptionConfiguration"}
+        "Bucket":{"shape":"BucketName"}
       }
     },
     "DisplayName":{"type":"string"},
@@ -1996,12 +2031,6 @@
         "EncryptionType":{"shape":"ServerSideEncryption"},
         "KMSKeyId":{"shape":"SSEKMSKeyId"},
         "KMSContext":{"shape":"KMSContext"}
-      }
-    },
-    "EncryptionConfiguration":{
-      "type":"structure",
-      "members":{
-        "ReplicaKmsKeyID":{"shape":"ReplicaKmsKeyID"}
       }
     },
     "End":{"type":"long"},
@@ -2281,6 +2310,29 @@
           "shape":"BucketName",
           "location":"uri",
           "locationName":"Bucket"
+        }
+      }
+    },
+    "GetBucketReplicationOutput":{
+      "type":"structure",
+      "members":{
+        "ReplicationConfiguration":{"shape":"ReplicationConfiguration"}
+      },
+      "payload":"ReplicationConfiguration"
+    },
+    "GetBucketReplicationRequest":{
+      "type":"structure",
+      "required":["Bucket"],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        },
+        "ExpectedBucketOwner":{
+          "shape":"AccountId",
+          "location":"header",
+          "locationName":"x-amz-expected-bucket-owner"
         }
       }
     },
@@ -4382,6 +4434,36 @@
       },
       "payload":"ProtectionConfiguration"
     },
+    "PutBucketReplicationRequest":{
+      "type":"structure",
+      "required":[
+        "Bucket",
+        "ReplicationConfiguration"
+      ],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        },
+        "ContentMD5":{
+          "shape":"ContentMD5",
+          "location":"header",
+          "locationName":"Content-MD5"
+        },
+        "ReplicationConfiguration":{
+          "shape":"ReplicationConfiguration",
+          "locationName":"ReplicationConfiguration",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}
+        },
+        "ExpectedBucketOwner":{
+          "shape":"AccountId",
+          "location":"header",
+          "locationName":"x-amz-expected-bucket-owner"
+        }
+      },
+      "payload":"ReplicationConfiguration"
+    },
     "PutBucketVersioningRequest":{
       "type":"structure",
       "required":[
@@ -4907,7 +4989,6 @@
     "ReplicationConfiguration":{
       "type":"structure",
       "required":[
-        "Role",
         "Rules"
       ],
       "members":{
@@ -4921,6 +5002,9 @@
     "ReplicationRule":{
       "type":"structure",
       "required":[
+        "DeleteMarkerReplication",
+        "Filter",
+        "Priority",
         "Status",
         "Destination"
       ],
@@ -4933,7 +5017,6 @@
         },
         "Filter":{"shape":"ReplicationRuleFilter"},
         "Status":{"shape":"ReplicationRuleStatus"},
-        "SourceSelectionCriteria":{"shape":"SourceSelectionCriteria"},
         "Destination":{"shape":"Destination"},
         "DeleteMarkerReplication":{"shape":"DeleteMarkerReplication"}
       }
@@ -5228,26 +5311,6 @@
     },
     "Setting":{"type":"boolean"},
     "Size":{"type":"integer"},
-    "SourceSelectionCriteria":{
-      "type":"structure",
-      "members":{
-        "SseKmsEncryptedObjects":{"shape":"SseKmsEncryptedObjects"}
-      }
-    },
-    "SseKmsEncryptedObjects":{
-      "type":"structure",
-      "required":["Status"],
-      "members":{
-        "Status":{"shape":"SseKmsEncryptedObjectsStatus"}
-      }
-    },
-    "SseKmsEncryptedObjectsStatus":{
-      "type":"string",
-      "enum":[
-        "Enabled",
-        "Disabled"
-      ]
-    },
     "Start":{"type":"long"},
     "StartAfter":{"type":"string"},
     "Stats":{

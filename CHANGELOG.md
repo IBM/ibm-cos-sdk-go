@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 1.9.0
+
+### Content
+
+#### Features
+
+* Cloud Object Storage Replication
+
+#### Defect Fixes
+
+* Support for Golang 1.18
+
 ## 1.8.0
 
 ### Content
