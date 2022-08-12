@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.9.1
+
+### Content
+
+#### Defect Fixes
+
+* Internal fixes and improvements
+
 ## 1.9.0
 
 ### Content
