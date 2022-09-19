@@ -78,7 +78,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>The request was rejected because the state of the specified resource is not valid for this request.</p>
 
-<p>For more information about how key state affects the use of a CMK, see How Key State Affects Use of a Customer Master Key (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>) in the AWS Key Management Service Developer Guide .</p>
+<p>For more information about how key state affects the use of a KMS key, see Key states of KMS keys (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>) in the Key Management Service Developer Guide .</p>
 
 
   </div>
@@ -455,12 +455,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12293
-12294
-12295</pre>
+14274
+14275
+14276</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12293</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14274</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.InvalidStateException (struct)">InvalidStateException</a></span>) <span class='object_link'><a href="#Code-instance_method" title="kms.InvalidStateException.Code() (method)">Code</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> <span class="hljs-string">"KMSInvalidStateException"</span>
@@ -486,12 +486,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12310
-12311
-12312</pre>
+14291
+14292
+14293</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12310</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14291</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.InvalidStateException (struct)">InvalidStateException</a></span>) <span class='object_link'><a href="#Error-instance_method" title="kms.InvalidStateException.Error() (method)">Error</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> fmt.Sprintf(<span class="hljs-string">"%s: %s"</span>, s.Code(), s.Message())
@@ -514,7 +514,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -528,12 +530,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12282
-12283
-12284</pre>
+14263
+14264
+14265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12282</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14263</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.InvalidStateException (struct)">InvalidStateException</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.InvalidStateException.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -570,15 +572,15 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12298
-12299
-12300
-12301
-12302
-12303</pre>
+14279
+14280
+14281
+14282
+14283
+14284</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12298</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14279</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.InvalidStateException (struct)">InvalidStateException</a></span>) <span class='object_link'><a href="#Message-instance_method" title="kms.InvalidStateException.Message() (method)">Message</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">if</span> s.Message_ != <span class="hljs-constant">nil</span> {
@@ -618,12 +620,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12306
-12307
-12308</pre>
+14287
+14288
+14289</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12306</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14287</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.InvalidStateException (struct)">InvalidStateException</a></span>) <span class='object_link'><a href="#OrigErr-instance_method" title="kms.InvalidStateException.OrigErr() (method)">OrigErr</a></span>() <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
@@ -660,12 +662,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12320
-12321
-12322</pre>
+14301
+14302
+14303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12320</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14301</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.InvalidStateException (struct)">InvalidStateException</a></span>) <span class='object_link'><a href="#RequestID-instance_method" title="kms.InvalidStateException.RequestID() (method)">RequestID</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.RespMetadata.<span class='object_link'><a href="#RequestID-instance_method" title="kms.InvalidStateException.RequestID() (method)">RequestID</a></span>
@@ -702,12 +704,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12315
-12316
-12317</pre>
+14296
+14297
+14298</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12315</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14296</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.InvalidStateException (struct)">InvalidStateException</a></span>) <span class='object_link'><a href="#StatusCode-instance_method" title="kms.InvalidStateException.StatusCode() (method)">StatusCode</a></span>() <span class="hljs-constant">int</span> {
 	<span class="hljs-keyword">return</span> s.RespMetadata.<span class='object_link'><a href="#StatusCode-instance_method" title="kms.InvalidStateException.StatusCode() (method)">StatusCode</a></span>
@@ -730,7 +732,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -744,12 +748,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12277
-12278
-12279</pre>
+14254
+14255
+14256</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12277</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14254</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.InvalidStateException (struct)">InvalidStateException</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.InvalidStateException.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -766,7 +770,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:05:30 2022 by
+  Generated on Mon Sep 19 10:14:29 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

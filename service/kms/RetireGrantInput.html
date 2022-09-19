@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Unique identifier of the grant to retire.</p>
+<p>Identifies the grant to retire.</p>
 </div></span>
   
 </li>
@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Token that identifies the grant to be retired.</p>
+<p>Identifies the grant to be retired.</p>
 </div></span>
   
 </li>
@@ -164,7 +164,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Amazon Resource Name (ARN) of the CMK associated with the grant.</p>
+<p>The key ARN KMS key associated with the grant.</p>
 </div></span>
   
 </li>
@@ -374,7 +374,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Unique identifier of the grant to retire. The grant ID is returned in the response to a CreateGrant operation.</p>
+<p>Identifies the grant to retire. To get the grant ID, use CreateGrant, ListGrants, or ListRetirableGrants.</p>
 <ul><li>
 <p>Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123</p>
 </li></ul>
@@ -396,7 +396,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Token that identifies the grant to be retired.</p>
+<p>Identifies the grant to be retired. You can use a grant token to identify a new grant even before it has achieved eventual consistency.</p>
+
+<p>Only the CreateGrant operation returns a grant token. For details, see Grant token (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token</a>) and Eventual consistency (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency">docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency</a>) in the Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -415,7 +417,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The Amazon Resource Name (ARN) of the CMK associated with the grant.</p>
+<p>The key ARN KMS key associated with the grant. To find the key ARN, use the ListKeys operation.</p>
 
 <p>For example: arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 
@@ -455,7 +457,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -469,12 +473,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14009
-14010
-14011</pre>
+16736
+16737
+16738</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14009</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16736</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.RetireGrantInput (struct)">RetireGrantInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.RetireGrantInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -511,13 +515,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14033
-14034
-14035
-14036</pre>
+16760
+16761
+16762
+16763</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14033</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16760</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.RetireGrantInput (struct)">RetireGrantInput</a></span>) <span class='object_link'><a href="#SetGrantId-instance_method" title="kms.RetireGrantInput.SetGrantId() (method)">SetGrantId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.RetireGrantInput (struct)">RetireGrantInput</a></span> {
 	s.GrantId = &v
@@ -555,13 +559,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14039
-14040
-14041
-14042</pre>
+16766
+16767
+16768
+16769</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14039</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16766</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.RetireGrantInput (struct)">RetireGrantInput</a></span>) <span class='object_link'><a href="#SetGrantToken-instance_method" title="kms.RetireGrantInput.SetGrantToken() (method)">SetGrantToken</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.RetireGrantInput (struct)">RetireGrantInput</a></span> {
 	s.GrantToken = &v
@@ -599,13 +603,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14045
-14046
-14047
-14048</pre>
+16772
+16773
+16774
+16775</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14045</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16772</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.RetireGrantInput (struct)">RetireGrantInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.RetireGrantInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.RetireGrantInput (struct)">RetireGrantInput</a></span> {
 	s.KeyId = &v
@@ -629,7 +633,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -643,12 +649,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14004
-14005
-14006</pre>
+16727
+16728
+16729</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14004</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16727</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.RetireGrantInput (struct)">RetireGrantInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.RetireGrantInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -685,26 +691,26 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14014
-14015
-14016
-14017
-14018
-14019
-14020
-14021
-14022
-14023
-14024
-14025
-14026
-14027
-14028
-14029
-14030</pre>
+16741
+16742
+16743
+16744
+16745
+16746
+16747
+16748
+16749
+16750
+16751
+16752
+16753
+16754
+16755
+16756
+16757</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14014</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16741</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.RetireGrantInput (struct)">RetireGrantInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.RetireGrantInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.RetireGrantInput (struct)">RetireGrantInput</a></span>"</span>}
@@ -735,7 +741,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:05:33 2022 by
+  Generated on Mon Sep 19 10:14:33 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

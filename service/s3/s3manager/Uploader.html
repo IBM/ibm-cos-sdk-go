@@ -78,6 +78,10 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
     
 <p>The Uploader structure that calls Upload(). It is safe to call Upload() on this structure for multiple objects and across concurrent goroutines. Mutating the Uploader&#39;s properties is not safe to be done concurrently.</p>
 
+<p>The ContentMD5 member for pre-computed MD5 checksums will be ignored for multipart uploads. Objects that will be uploaded in a single part, the ContentMD5 will be used.</p>
+
+<p>The Checksum members for pre-computed checksums will be ignored for multipart uploads. Objects that will be uploaded in a single part, will include the checksum member in the request.</p>
+
 
   </div>
 </div>
@@ -571,12 +575,12 @@ result, err := uploader.Upload(upParams, <span class="hljs-keyword">func</span>(
       <pre class="lines">
 
 
-265
-266
-267</pre>
+273
+274
+275</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 265</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 273</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) Upload(input *UploadInput, options ...<span class="hljs-keyword">func</span>(*Uploader)) (*UploadOutput, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">return</span> u.UploadWithContext(aws.BackgroundContext(), input, options...)
@@ -621,20 +625,20 @@ result, err := uploader.Upload(upParams, <span class="hljs-keyword">func</span>(
       <pre class="lines">
 
 
-287
-288
-289
-290
-291
-292
-293
-294
 295
 296
-297</pre>
+297
+298
+299
+300
+301
+302
+303
+304
+305</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 287</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 295</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) UploadWithContext(ctx aws.Context, input *UploadInput, opts ...<span class="hljs-keyword">func</span>(*Uploader)) (*UploadOutput, <span class="hljs-constant">error</span>) {
 	i := uploader{in: input, cfg: u, ctx: ctx}
@@ -696,14 +700,6 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
       <pre class="lines">
 
 
-319
-320
-321
-322
-323
-324
-325
-326
 327
 328
 329
@@ -729,10 +725,18 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
 349
 350
 351
-352</pre>
+352
+353
+354
+355
+356
+357
+358
+359
+360</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 319</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 327</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) UploadWithIterator(ctx aws.Context, iter BatchUploadIterator, opts ...<span class="hljs-keyword">func</span>(*Uploader)) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">var</span> errs []Error
@@ -780,7 +784,7 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:05:35 2022 by
+  Generated on Mon Sep 19 10:14:36 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

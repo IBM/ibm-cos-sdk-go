@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A unique identifier for the customer master key (CMK).</p>
+<p>Sets the key policy on the specified KMS key.</p>
 </div></span>
   
 </li>
@@ -164,7 +164,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The key policy to attach to the CMK.</p>
+<p>The key policy to attach to the KMS key.</p>
 </div></span>
   
 </li>
@@ -426,11 +426,11 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>A flag to indicate whether to bypass the key policy lockout safety check.</p>
 
-<p>Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.</p>
+<p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.</p>
 
-<p>For more information, refer to the scenario in the Default Key Policy (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam</a>) section in the AWS Key Management Service Developer Guide.</p>
+<p>For more information, refer to the scenario in the Default Key Policy (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam</a>) section in the Key Management Service Developer Guide.</p>
 
-<p>Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent PutKeyPolicy request on the CMK.</p>
+<p>Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent PutKeyPolicy request on the KMS key.</p>
 
 <p>The default value is false.</p>
 
@@ -451,9 +451,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>A unique identifier for the customer master key (CMK).</p>
+<p>Sets the key policy on the specified KMS key.</p>
 
-<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
+<p>Specify the key ID or key ARN of the KMS key.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -462,7 +462,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
+<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.</p>
 
 <p>KeyId is a required field</p>
 
@@ -483,16 +483,25 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The key policy to attach to the CMK.</p>
+<p>The key policy to attach to the KMS key.</p>
 
 <p>The key policy must meet the following criteria:</p>
 <ul><li>
-<p>If you don&#39;t set BypassPolicyLockoutSafetyCheck to true, the key policy  must allow the principal that is making the PutKeyPolicy request to make  a subsequent PutKeyPolicy request on the CMK. This reduces the risk that  the CMK becomes unmanageable. For more information, refer to the scenario  in the Default Key Policy (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam</a>)  section of the AWS Key Management Service Developer Guide.</p>
+<p>If you don&#39;t set BypassPolicyLockoutSafetyCheck to true, the key policy  must allow the principal that is making the PutKeyPolicy request to make  a subsequent PutKeyPolicy request on the KMS key. This reduces the risk  that the KMS key becomes unmanageable. For more information, refer to  the scenario in the Default Key Policy (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam</a>)  section of the Key Management Service Developer Guide.</p>
 </li><li>
-<p>Each statement in the key policy must contain one or more principals.  The principals in the key policy must exist and be visible to AWS KMS.  When you create a new AWS principal (for example, an IAM user or role),  you might need to enforce a delay before including the new principal in  a key policy because the new principal might not be immediately visible  to AWS KMS. For more information, see Changes that I make are not always  immediately visible (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency</a>)  in the AWS Identity and Access Management User Guide.</p>
+<p>Each statement in the key policy must contain one or more principals.  The principals in the key policy must exist and be visible to KMS. When  you create a new Amazon Web Services principal (for example, an IAM user  or role), you might need to enforce a delay before including the new principal  in a key policy because the new principal might not be immediately visible  to KMS. For more information, see Changes that I make are not always immediately  visible (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency</a>)  in the Amazon Web Services Identity and Access Management User Guide.</p>
 </li></ul>
 
-<p>The key policy cannot exceed 32 kilobytes (32768 bytes). For more information, see Resource Quotas (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html">docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html</a>) in the AWS Key Management Service Developer Guide.</p>
+<p>A key policy document must conform to the following rules.</p>
+<ul><li>
+<p>Up to 32 kilobytes (32768 bytes)</p>
+</li><li>
+<p>Must be UTF-8 encoded</p>
+</li><li>
+<p>The only Unicode characters that are permitted in a key policy document  are the horizontal tab (U+0009), linefeed (U+000A), carriage return (U+000D),  and characters in the range U+0020 to U+00FF.</p>
+</li><li>
+<p>The Sid element in a key policy statement can include spaces. (Spaces  are prohibited in the Sid element of an IAM policy document.)</p>
+</li></ul>
 
 <p>Policy is a required field</p>
 
@@ -553,7 +562,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -567,12 +578,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13651
-13652
-13653</pre>
+16048
+16049
+16050</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13651</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16048</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.PutKeyPolicyInput (struct)">PutKeyPolicyInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.PutKeyPolicyInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -609,13 +620,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13684
-13685
-13686
-13687</pre>
+16081
+16082
+16083
+16084</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13684</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16081</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.PutKeyPolicyInput (struct)">PutKeyPolicyInput</a></span>) <span class='object_link'><a href="#SetBypassPolicyLockoutSafetyCheck-instance_method" title="kms.PutKeyPolicyInput.SetBypassPolicyLockoutSafetyCheck() (method)">SetBypassPolicyLockoutSafetyCheck</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="kms.PutKeyPolicyInput (struct)">PutKeyPolicyInput</a></span> {
 	s.BypassPolicyLockoutSafetyCheck = &v
@@ -653,13 +664,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13690
-13691
-13692
-13693</pre>
+16087
+16088
+16089
+16090</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13690</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16087</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.PutKeyPolicyInput (struct)">PutKeyPolicyInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.PutKeyPolicyInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.PutKeyPolicyInput (struct)">PutKeyPolicyInput</a></span> {
 	s.KeyId = &v
@@ -697,13 +708,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13696
-13697
-13698
-13699</pre>
+16093
+16094
+16095
+16096</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13696</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16093</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.PutKeyPolicyInput (struct)">PutKeyPolicyInput</a></span>) <span class='object_link'><a href="#SetPolicy-instance_method" title="kms.PutKeyPolicyInput.SetPolicy() (method)">SetPolicy</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.PutKeyPolicyInput (struct)">PutKeyPolicyInput</a></span> {
 	s.Policy = &v
@@ -741,13 +752,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13702
-13703
-13704
-13705</pre>
+16099
+16100
+16101
+16102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13702</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16099</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.PutKeyPolicyInput (struct)">PutKeyPolicyInput</a></span>) <span class='object_link'><a href="#SetPolicyName-instance_method" title="kms.PutKeyPolicyInput.SetPolicyName() (method)">SetPolicyName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.PutKeyPolicyInput (struct)">PutKeyPolicyInput</a></span> {
 	s.PolicyName = &v
@@ -771,7 +782,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -785,12 +798,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13646
-13647
-13648</pre>
+16039
+16040
+16041</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13646</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16039</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.PutKeyPolicyInput (struct)">PutKeyPolicyInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.PutKeyPolicyInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -827,35 +840,35 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13656
-13657
-13658
-13659
-13660
-13661
-13662
-13663
-13664
-13665
-13666
-13667
-13668
-13669
-13670
-13671
-13672
-13673
-13674
-13675
-13676
-13677
-13678
-13679
-13680
-13681</pre>
+16053
+16054
+16055
+16056
+16057
+16058
+16059
+16060
+16061
+16062
+16063
+16064
+16065
+16066
+16067
+16068
+16069
+16070
+16071
+16072
+16073
+16074
+16075
+16076
+16077
+16078</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13656</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16053</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.PutKeyPolicyInput (struct)">PutKeyPolicyInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.PutKeyPolicyInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.PutKeyPolicyInput (struct)">PutKeyPolicyInput</a></span>"</span>}
@@ -895,7 +908,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:05:32 2022 by
+  Generated on Mon Sep 19 10:14:32 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

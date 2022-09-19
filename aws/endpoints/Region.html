@@ -197,20 +197,20 @@ import "../ibm-cos-sdk-go/aws/endpoints"
       <pre class="lines">
 
 
-297
-298
-299
-300
-301
-302
-303
-304
-305
-306
-307</pre>
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 297</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 375</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r Region) ID() <span class="hljs-constant">string</span> { <span class="hljs-keyword">return</span> r.id }
 
@@ -255,27 +255,27 @@ import "../ibm-cos-sdk-go/aws/endpoints"
       <pre class="lines">
 
 
-310
-311
-312
-313
-314
-315
-316
-317
-318
-319
-320
-321
-322</pre>
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 310</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 388</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (r Region) Services() <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Service {
 	ss := <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Service{}
 	<span class="hljs-keyword">for</span> id, s := <span class="hljs-keyword">range</span> r.p.Services {
-		<span class="hljs-keyword">if</span> _, ok := s.Endpoints[r.id]; ok {
+		<span class="hljs-keyword">if</span> _, ok := s.Endpoints[endpointKey{Region: r.id}]; ok {
 			ss[id] = Service{
 				id: id,
 				p:  r.p,
@@ -297,7 +297,7 @@ import "../ibm-cos-sdk-go/aws/endpoints"
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:04:39 2022 by
+  Generated on Mon Sep 19 10:13:41 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

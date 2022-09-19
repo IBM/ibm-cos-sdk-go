@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the encryption algorithm that AWS KMS will use to reecrypt the data after it has decrypted it.</p>
+<p>Specifies the encryption algorithm that KMS will use to reecrypt the data after it has decrypted it.</p>
 </div></span>
   
 </li>
@@ -189,7 +189,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A unique identifier for the CMK that is used to reencrypt the data.</p>
+<p>A unique identifier for the KMS key that is used to reencrypt the data.</p>
 </div></span>
   
 </li>
@@ -239,7 +239,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the encryption algorithm that AWS KMS will use to decrypt the ciphertext before it is reencrypted.</p>
+<p>Specifies the encryption algorithm that KMS will use to decrypt the ciphertext before it is reencrypted.</p>
 </div></span>
   
 </li>
@@ -289,7 +289,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt the ciphertext before it is re-encrypted.</p>
+<p>Specifies the KMS key that KMS will use to decrypt the ciphertext before it is re-encrypted.</p>
 </div></span>
   
 </li>
@@ -624,9 +624,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Ciphertext of the data to reencrypt.</p>
-
-<p>CiphertextBlob is automatically base64 encoded/decoded by the SDK.</p>
+<p>Ciphertext of the data to reencrypt. CiphertextBlob is automatically base64 encoded/decoded by the SDK.</p>
 
 <p>CiphertextBlob is a required field</p>
 
@@ -647,9 +645,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the encryption algorithm that AWS KMS will use to reecrypt the data after it has decrypted it. The default value, SYMMETRIC_DEFAULT, represents the encryption algorithm used for symmetric CMKs.</p>
+<p>Specifies the encryption algorithm that KMS will use to reecrypt the data after it has decrypted it. The default value, SYMMETRIC_DEFAULT, represents the encryption algorithm used for symmetric encryption KMS keys.</p>
 
-<p>This parameter is required only when the destination CMK is an asymmetric CMK.</p>
+<p>This parameter is required only when the destination KMS key is an asymmetric KMS key.</p>
 
 
   </div>
@@ -670,11 +668,11 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>Specifies that encryption context to use when the reencrypting the data.</p>
 
-<p>A destination encryption context is valid only when the destination CMK is a symmetric CMK. The standard ciphertext format for asymmetric CMKs does not include fields for metadata.</p>
+<p>A destination encryption context is valid only when the destination KMS key is a symmetric encryption KMS key. The standard ciphertext format for asymmetric KMS keys does not include fields for metadata.</p>
 
-<p>An encryption context is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
+<p>An encryption context is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
 
-<p>For more information, see Encryption Context (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>) in the AWS Key Management Service Developer Guide.</p>
+<p>For more information, see Encryption context (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>) in the Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -693,9 +691,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>A unique identifier for the CMK that is used to reencrypt the data. Specify a symmetric or asymmetric CMK with a KeyUsage value of ENCRYPT_DECRYPT. To find the KeyUsage value of a CMK, use the DescribeKey operation.</p>
+<p>A unique identifier for the KMS key that is used to reencrypt the data. Specify a symmetric encryption KMS key or an asymmetric KMS key with a KeyUsage value of ENCRYPT_DECRYPT. To find the KeyUsage value of a KMS key, use the DescribeKey operation.</p>
 
-<p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
+<p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -708,7 +706,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
+<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
 
 <p>DestinationKeyId is a required field</p>
 
@@ -731,7 +729,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>A list of grant tokens.</p>
 
-<p>For more information, see Grant Tokens (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token</a>) in the AWS Key Management Service Developer Guide.</p>
+<p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved eventual consistency. For more information, see Grant token (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token</a>) and Using a grant token (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token</a>) in the Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -750,11 +748,11 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the encryption algorithm that AWS KMS will use to decrypt the ciphertext before it is reencrypted. The default value, SYMMETRIC_DEFAULT, represents the algorithm used for symmetric CMKs.</p>
+<p>Specifies the encryption algorithm that KMS will use to decrypt the ciphertext before it is reencrypted. The default value, SYMMETRIC_DEFAULT, represents the algorithm used for symmetric encryption KMS keys.</p>
 
 <p>Specify the same algorithm that was used to encrypt the ciphertext. If you specify a different algorithm, the decrypt attempt fails.</p>
 
-<p>This parameter is required only when the ciphertext was encrypted under an asymmetric CMK.</p>
+<p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.</p>
 
 
   </div>
@@ -775,9 +773,9 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>Specifies the encryption context to use to decrypt the ciphertext. Enter the same encryption context that was used to encrypt the ciphertext.</p>
 
-<p>An encryption context is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
+<p>An encryption context is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
 
-<p>For more information, see Encryption Context (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>) in the AWS Key Management Service Developer Guide.</p>
+<p>For more information, see Encryption context (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>) in the Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -796,11 +794,13 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt the ciphertext before it is re-encrypted. Enter a key ID of the CMK that was used to encrypt the ciphertext.</p>
+<p>Specifies the KMS key that KMS will use to decrypt the ciphertext before it is re-encrypted.</p>
 
-<p>This parameter is required only when the ciphertext was encrypted under an asymmetric CMK. If you used a symmetric CMK, AWS KMS can get the CMK from metadata that it adds to the symmetric ciphertext blob. However, it is always recommended as a best practice. This practice ensures that you use the CMK that you intend.</p>
+<p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a different KMS key, the ReEncrypt operation throws an IncorrectKeyException.</p>
 
-<p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
+<p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that it adds to the symmetric ciphertext blob. However, it is always recommended as a best practice. This practice ensures that you use the KMS key that you intend.</p>
+
+<p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -813,7 +813,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
+<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
 
 
   </div>
@@ -851,7 +851,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -865,12 +867,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13844
-13845
-13846</pre>
+16268
+16269
+16270</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13844</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16268</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.ReEncryptInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -907,13 +909,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13874
-13875
-13876
-13877</pre>
+16298
+16299
+16300
+16301</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13874</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16298</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetCiphertextBlob-instance_method" title="kms.ReEncryptInput.SetCiphertextBlob() (method)">SetCiphertextBlob</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.CiphertextBlob = v
@@ -951,13 +953,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13880
-13881
-13882
-13883</pre>
+16304
+16305
+16306
+16307</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13880</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16304</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetDestinationEncryptionAlgorithm-instance_method" title="kms.ReEncryptInput.SetDestinationEncryptionAlgorithm() (method)">SetDestinationEncryptionAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.DestinationEncryptionAlgorithm = &v
@@ -995,13 +997,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13886
-13887
-13888
-13889</pre>
+16310
+16311
+16312
+16313</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13886</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16310</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetDestinationEncryptionContext-instance_method" title="kms.ReEncryptInput.SetDestinationEncryptionContext() (method)">SetDestinationEncryptionContext</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.DestinationEncryptionContext = v
@@ -1039,13 +1041,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13892
-13893
-13894
-13895</pre>
+16316
+16317
+16318
+16319</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13892</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16316</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetDestinationKeyId-instance_method" title="kms.ReEncryptInput.SetDestinationKeyId() (method)">SetDestinationKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.DestinationKeyId = &v
@@ -1083,13 +1085,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13898
-13899
-13900
-13901</pre>
+16322
+16323
+16324
+16325</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13898</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16322</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.ReEncryptInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.GrantTokens = v
@@ -1127,13 +1129,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13904
-13905
-13906
-13907</pre>
+16328
+16329
+16330
+16331</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13904</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16328</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetSourceEncryptionAlgorithm-instance_method" title="kms.ReEncryptInput.SetSourceEncryptionAlgorithm() (method)">SetSourceEncryptionAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.SourceEncryptionAlgorithm = &v
@@ -1171,13 +1173,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13910
-13911
-13912
-13913</pre>
+16334
+16335
+16336
+16337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13910</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16334</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetSourceEncryptionContext-instance_method" title="kms.ReEncryptInput.SetSourceEncryptionContext() (method)">SetSourceEncryptionContext</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.SourceEncryptionContext = v
@@ -1215,13 +1217,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13916
-13917
-13918
-13919</pre>
+16340
+16341
+16342
+16343</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13916</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16340</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#SetSourceKeyId-instance_method" title="kms.ReEncryptInput.SetSourceKeyId() (method)">SetSourceKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span> {
 	s.SourceKeyId = &v
@@ -1245,7 +1247,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -1259,12 +1263,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13839
-13840
-13841</pre>
+16259
+16260
+16261</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13839</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16259</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.ReEncryptInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1301,32 +1305,32 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13849
-13850
-13851
-13852
-13853
-13854
-13855
-13856
-13857
-13858
-13859
-13860
-13861
-13862
-13863
-13864
-13865
-13866
-13867
-13868
-13869
-13870
-13871</pre>
+16273
+16274
+16275
+16276
+16277
+16278
+16279
+16280
+16281
+16282
+16283
+16284
+16285
+16286
+16287
+16288
+16289
+16290
+16291
+16292
+16293
+16294
+16295</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13849</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16273</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.ReEncryptInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.ReEncryptInput (struct)">ReEncryptInput</a></span>"</span>}
@@ -1363,7 +1367,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:05:33 2022 by
+  Generated on Mon Sep 19 10:14:32 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

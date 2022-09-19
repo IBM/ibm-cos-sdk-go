@@ -164,7 +164,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns only grants for the specified customer master key (CMK).</p>
+<p>Returns only grants for the specified KMS key.</p>
 </div></span>
   
 </li>
@@ -512,9 +512,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Returns only grants for the specified customer master key (CMK). This parameter is required.</p>
+<p>Returns only grants for the specified KMS key. This parameter is required.</p>
 
-<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.</p>
+<p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -523,7 +523,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
+<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.</p>
 
 <p>KeyId is a required field</p>
 
@@ -544,7 +544,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.</p>
+<p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
 
 <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
 
@@ -603,7 +603,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -617,12 +619,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12918
-12919
-12920</pre>
+15116
+15117
+15118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12918</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15116</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.ListGrantsInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -659,13 +661,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12957
-12958
-12959
-12960</pre>
+15155
+15156
+15157
+15158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12957</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15155</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#SetGranteePrincipal-instance_method" title="kms.ListGrantsInput.SetGranteePrincipal() (method)">SetGranteePrincipal</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span> {
 	s.GranteePrincipal = &v
@@ -703,13 +705,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12951
-12952
-12953
-12954</pre>
+15149
+15150
+15151
+15152</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12951</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15149</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#SetGrantId-instance_method" title="kms.ListGrantsInput.SetGrantId() (method)">SetGrantId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span> {
 	s.GrantId = &v
@@ -747,13 +749,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12963
-12964
-12965
-12966</pre>
+15161
+15162
+15163
+15164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12963</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15161</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.ListGrantsInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span> {
 	s.KeyId = &v
@@ -791,13 +793,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12969
-12970
-12971
-12972</pre>
+15167
+15168
+15169
+15170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12969</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15167</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#SetLimit-instance_method" title="kms.ListGrantsInput.SetLimit() (method)">SetLimit</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span> {
 	s.Limit = &v
@@ -835,13 +837,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12975
-12976
-12977
-12978</pre>
+15173
+15174
+15175
+15176</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12975</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15173</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#SetMarker-instance_method" title="kms.ListGrantsInput.SetMarker() (method)">SetMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span> {
 	s.Marker = &v
@@ -865,7 +867,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -879,12 +883,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12913
-12914
-12915</pre>
+15107
+15108
+15109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12913</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15107</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.ListGrantsInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -921,35 +925,35 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12923
-12924
-12925
-12926
-12927
-12928
-12929
-12930
-12931
-12932
-12933
-12934
-12935
-12936
-12937
-12938
-12939
-12940
-12941
-12942
-12943
-12944
-12945
-12946
-12947
-12948</pre>
+15121
+15122
+15123
+15124
+15125
+15126
+15127
+15128
+15129
+15130
+15131
+15132
+15133
+15134
+15135
+15136
+15137
+15138
+15139
+15140
+15141
+15142
+15143
+15144
+15145
+15146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12923</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15121</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.ListGrantsInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.ListGrantsInput (struct)">ListGrantsInput</a></span>"</span>}
@@ -989,7 +993,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:05:31 2022 by
+  Generated on Mon Sep 19 10:14:31 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

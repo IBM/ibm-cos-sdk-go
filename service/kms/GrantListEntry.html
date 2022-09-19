@@ -225,7 +225,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The AWS account under which the grant was issued.</p>
+<p>The Amazon Web Services account under which the grant was issued.</p>
 </div></span>
   
 </li>
@@ -250,7 +250,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The unique identifier for the customer master key (CMK) to which the grant applies.</p>
+<p>The unique identifier for the KMS key to which the grant applies.</p>
 </div></span>
   
 </li>
@@ -719,7 +719,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>The identity that gets the permissions in the grant.</p>
 
-<p>The GranteePrincipal field in the ListGrants response usually contains the user or role designated as the grantee principal in the grant. However, when the grantee principal in the grant is an AWS service, the GranteePrincipal field contains the service principal (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services</a>), which might represent several different grantee principals.</p>
+<p>The GranteePrincipal field in the ListGrants response usually contains the user or role designated as the grantee principal in the grant. However, when the grantee principal in the grant is an Amazon Web Services service, the GranteePrincipal field contains the service principal (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services</a>), which might represent several different grantee principals.</p>
 
 
   </div>
@@ -738,7 +738,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The AWS account under which the grant was issued.</p>
+<p>The Amazon Web Services account under which the grant was issued.</p>
 
 
   </div>
@@ -757,7 +757,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The unique identifier for the customer master key (CMK) to which the grant applies.</p>
+<p>The unique identifier for the KMS key to which the grant applies.</p>
 
 
   </div>
@@ -790,7 +790,7 @@ import "../ibm-cos-sdk-go/service/kms"
       <div class="method_details ">
   <h3 class="signature " id="Operations-field">
   <strong>Operations</strong> []*string 
-  <code>`type:"list"`</code>
+  <code>`type:"list" enum:"GrantOperation"`</code>
 </h3>
 <div class="docstring">
   <div class="discussion">
@@ -852,7 +852,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -866,12 +868,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11369
-11370
-11371</pre>
+13227
+13228
+13229</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11369</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13227</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GrantListEntry.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -908,13 +910,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11374
-11375
-11376
-11377</pre>
+13232
+13233
+13234
+13235</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11374</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13232</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetConstraints-instance_method" title="kms.GrantListEntry.SetConstraints() (method)">SetConstraints</a></span>(v *<span class='object_link'><a href="GrantConstraints.html" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.Constraints = v
@@ -952,13 +954,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11380
-11381
-11382
-11383</pre>
+13238
+13239
+13240
+13241</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11380</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13238</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetCreationDate-instance_method" title="kms.GrantListEntry.SetCreationDate() (method)">SetCreationDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.CreationDate = &v
@@ -996,13 +998,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11392
-11393
-11394
-11395</pre>
+13250
+13251
+13252
+13253</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11392</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13250</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetGranteePrincipal-instance_method" title="kms.GrantListEntry.SetGranteePrincipal() (method)">SetGranteePrincipal</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.GranteePrincipal = &v
@@ -1040,13 +1042,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11386
-11387
-11388
-11389</pre>
+13244
+13245
+13246
+13247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11386</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13244</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetGrantId-instance_method" title="kms.GrantListEntry.SetGrantId() (method)">SetGrantId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.GrantId = &v
@@ -1084,13 +1086,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11398
-11399
-11400
-11401</pre>
+13256
+13257
+13258
+13259</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11398</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13256</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetIssuingAccount-instance_method" title="kms.GrantListEntry.SetIssuingAccount() (method)">SetIssuingAccount</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.IssuingAccount = &v
@@ -1128,13 +1130,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11404
-11405
-11406
-11407</pre>
+13262
+13263
+13264
+13265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11404</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13262</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.GrantListEntry.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.KeyId = &v
@@ -1172,13 +1174,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11410
-11411
-11412
-11413</pre>
+13268
+13269
+13270
+13271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11410</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13268</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetName-instance_method" title="kms.GrantListEntry.SetName() (method)">SetName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.Name = &v
@@ -1216,13 +1218,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11416
-11417
-11418
-11419</pre>
+13274
+13275
+13276
+13277</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11416</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13274</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetOperations-instance_method" title="kms.GrantListEntry.SetOperations() (method)">SetOperations</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.Operations = v
@@ -1260,13 +1262,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11422
-11423
-11424
-11425</pre>
+13280
+13281
+13282
+13283</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11422</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13280</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#SetRetiringPrincipal-instance_method" title="kms.GrantListEntry.SetRetiringPrincipal() (method)">SetRetiringPrincipal</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span> {
 	s.RetiringPrincipal = &v
@@ -1290,7 +1292,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -1304,12 +1308,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11364
-11365
-11366</pre>
+13218
+13219
+13220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11364</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13218</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GrantListEntry (struct)">GrantListEntry</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GrantListEntry.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1326,7 +1330,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:05:29 2022 by
+  Generated on Mon Sep 19 10:14:28 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

@@ -224,27 +224,33 @@ import "../ibm-cos-sdk-go/aws/endpoints"
       <pre class="lines">
 
 
-364
-365
-366
-367
-368
-369
-370
-371
-372
-373
-374
-375</pre>
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 364</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 446</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s Service) Endpoints() <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Endpo<span class="hljs-constant">int</span> {
 	es := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Endpo<span class="hljs-constant">int</span>, len(s.p.Services[s.id].Endpoints))
 	<span class="hljs-keyword">for</span> id := <span class="hljs-keyword">range</span> s.p.Services[s.id].Endpoints {
-		es[id] = Endpo<span class="hljs-constant">int</span>{
-			id:        id,
+		<span class="hljs-keyword">if</span> id.Variant != 0 {
+			<span class="hljs-keyword">continue</span>
+		}
+		es[id.Region] = Endpo<span class="hljs-constant">int</span>{
+			id:        id.Region,
 			serviceID: s.id,
 			p:         s.p,
 		}
@@ -284,16 +290,16 @@ import "../ibm-cos-sdk-go/aws/endpoints"
       <pre class="lines">
 
 
-332
-333
-334
-335
-336
-337
-338</pre>
+410
+411
+412
+413
+414
+415
+416</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 332</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 410</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s Service) ID() <span class="hljs-constant">string</span> { <span class="hljs-keyword">return</span> s.id }
 
@@ -336,30 +342,38 @@ import "../ibm-cos-sdk-go/aws/endpoints"
       <pre class="lines">
 
 
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356
-357</pre>
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 344</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 422</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s Service) Regions() <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Region {
 	rs := <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Region{}
-	<span class="hljs-keyword">for</span> id := <span class="hljs-keyword">range</span> s.p.Services[s.id].Endpoints {
-		<span class="hljs-keyword">if</span> r, ok := s.p.Regions[id]; ok {
-			rs[id] = Region{
-				id:   id,
+	service := s.p.Services[s.id]
+	<span class="hljs-keyword">for</span> id := <span class="hljs-keyword">range</span> service.Endpoints {
+		<span class="hljs-keyword">if</span> id.Variant != 0 {
+			<span class="hljs-keyword">continue</span>
+		}
+		<span class="hljs-keyword">if</span> r, ok := s.p.Regions[id.Region]; ok {
+			rs[id.Region] = Region{
+				id:   id.Region,
 				desc: r.Description,
 				p:    s.p,
 			}
@@ -380,7 +394,7 @@ import "../ibm-cos-sdk-go/aws/endpoints"
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:04:39 2022 by
+  Generated on Mon Sep 19 10:13:41 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

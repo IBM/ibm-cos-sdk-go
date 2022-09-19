@@ -1894,16 +1894,16 @@ import "../ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-618
-619
-620
-621
-622
-623
-624</pre>
+642
+643
+644
+645
+646
+647
+648</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 618</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 642</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AddToUserAgent(r *Request, s <span class="hljs-constant">string</span>) {
 	curUA := r.HTTPRequest.Header.Get(<span class="hljs-string">"User-Agent"</span>)
@@ -2330,16 +2330,16 @@ import "../ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-627
-628
-629
-630
-631
-632
-633</pre>
+651
+652
+653
+654
+655
+656
+657</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 627</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 651</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> SanitizeHostForHeader(r *http.Request) {
 	host := getHost(r)
@@ -2434,16 +2434,16 @@ import "../ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-173
-174
-175
-176
-177
-178
-179</pre>
+189
+190
+191
+192
+193
+194
+195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 173</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 189</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithGetResponseHeader(key <span class="hljs-constant">string</span>, val *<span class="hljs-constant">string</span>) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2486,16 +2486,16 @@ import "../ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-187
-188
-189
-190
-191
-192
-193</pre>
+203
+204
+205
+206
+207
+208
+209</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 187</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 203</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithGetResponseHeaders(headers *http.Header) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2539,14 +2539,14 @@ import "../ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-199
-200
-201
-202
-203</pre>
+215
+216
+217
+218
+219</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 199</span>
+      <pre class="code"><span class="info file">// File 'aws/request/request.go', line 215</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithLogLevel(l aws.LogLevelType) Option {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(r *Request) {
@@ -2710,6 +2710,8 @@ import "../ibm-cos-sdk-go/aws/request"
     
 <p>WithSetRequestHeaders updates the operation request&#39;s HTTP header to contain the header key value pairs provided. If the header key already exists in the request&#39;s HTTP header set, the existing value(s) will be replaced.</p>
 
+<p>Header keys added will be added as canonical format with title casing applied via http.Header.Set method.</p>
+
 
   </div>
 </div>
@@ -2722,12 +2724,12 @@ import "../ibm-cos-sdk-go/aws/request"
       <pre class="lines">
 
 
-332
-333
-334</pre>
+335
+336
+337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 332</span>
+      <pre class="code"><span class="info file">// File 'aws/request/handlers.go', line 335</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WithSetRequestHeaders(h <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]<span class="hljs-constant">string</span>) Option {
 	<span class="hljs-keyword">return</span> withRequestHeader(h).SetRequestHeaders
@@ -2928,7 +2930,7 @@ import "../ibm-cos-sdk-go/aws/request"
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:04:32 2022 by
+  Generated on Mon Sep 19 10:13:33 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

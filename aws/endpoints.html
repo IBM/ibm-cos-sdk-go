@@ -521,6 +521,29 @@ sess := session.Must(session.NewSession(&aws.Config{
             <pre class="code"><div class="hljs"><span class="hljs-string">"us-isob-east-1"</span> <span class="hljs-comment">// US ISOB East (Ohio).</span></div></pre>
           </dd>
         
+          <dt id="DualStackEndpointStateUnset-constant" class="">
+          <div class="defn">const <strong>DualStackEndpointStateUnset</strong> DualStackEndpointState = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            <div class="docstring">
+  <div class="discussion">
+    
+<p>DualStackEndpointStateUnset is the default value behavior for dual-stack endpoint resolution.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">iota</div></pre>
+          </dd>
+        
           <dt id="UnsetS3UsEast1Endpoint-constant" class="">
           <div class="defn">const <strong>UnsetS3UsEast1Endpoint</strong> <span class='object_link'><a href="#type-S3UsEast1RegionalEndpoint" title="endpoints (package)">S3UsEast1RegionalEndpoint</a></span> = 
           <span class="note title readonly">readonly</span>
@@ -2519,6 +2542,31 @@ sess := session.Must(session.NewSession(&aws.Config{
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="endpoints/Logger.html" title="endpoints.Logger (interface)"><strong>Logger</strong></a></span></span>
+  
+  
+  
+  
+  
+  <span class="note title interface">interface</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A Logger is a minimalistic interface for the SDK to log messages to.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="endpoints/Resolver.html" title="endpoints.Resolver (interface)"><strong>Resolver</strong></a></span></span>
   
   
@@ -3005,6 +3053,31 @@ sess := session.Must(session.NewSession(&aws.Config{
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#UseDualStackEndpointOption-class_method" title="endpoints.UseDualStackEndpointOption() (method)">func <strong>UseDualStackEndpointOption</strong>(o *Options) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>UseDualStackEndpointOption sets the UseDualStackEndpoint option to enabled.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#UseDualStackOption-class_method" title="endpoints.UseDualStackOption() (method)">func <strong>UseDualStackOption</strong>(o *Options) </a></span></span>
   
   
@@ -3256,20 +3329,20 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167</pre>
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 157</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 235</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AddScheme(endpo<span class="hljs-constant">int</span> <span class="hljs-constant">string</span>, disableSSL <span class="hljs-constant">bool</span>) <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">if</span> !schemeRE.MatchString(endpo<span class="hljs-constant">int</span>) {
@@ -3314,12 +3387,12 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-7328
-7329
-7330</pre>
+24028
+24029
+24030</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 7328</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 24028</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsCnPartition() Partition {
 	<span class="hljs-keyword">return</span> awscnPartition.Partition()
@@ -3356,12 +3429,12 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-10547
-10548
-10549</pre>
+31402
+31403
+31404</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 10547</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 31402</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsIsoBPartition() Partition {
 	<span class="hljs-keyword">return</span> awsisobPartition.Partition()
@@ -3398,12 +3471,12 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-10118
-10119
-10120</pre>
+30630
+30631
+30632</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 10118</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 30630</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsIsoPartition() Partition {
 	<span class="hljs-keyword">return</span> awsisoPartition.Partition()
@@ -3482,12 +3555,12 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-8223
-8224
-8225</pre>
+25695
+25696
+25697</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 8223</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/defaults.go', line 25695</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AwsUsGovPartition() Partition {
 	<span class="hljs-keyword">return</span> awsusgovPartition.Partition()
@@ -3524,7 +3597,6 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-34
 35
 36
 37
@@ -3549,10 +3621,11 @@ sess := session.Must(session.NewSession(&aws.Config{
 56
 57
 58
-59</pre>
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/v3model_codegen.go', line 34</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/v3model_codegen.go', line 35</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> CodeGenModel(modelFile io.Reader, outFile io.Writer, optFns ...<span class="hljs-keyword">func</span>(*CodeGenOptions)) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">var</span> opts CodeGenOptions
@@ -3792,12 +3865,12 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-112
-113
-114</pre>
+181
+182
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 112</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 181</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> DisableSSLOption(o *Options) {
 	o.DisableSSL = <span class="hljs-constant">true</span>
@@ -3836,20 +3909,20 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101</pre>
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 91</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 160</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> GetS3UsEast1RegionalEndpo<span class="hljs-constant">int</span>(s <span class="hljs-constant">string</span>) (S3UsEast1RegionalEndpo<span class="hljs-constant">int</span>, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">switch</span> {
@@ -3894,19 +3967,19 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-483
-484
-485
-486
-487
-488
-489
-490
-491
-492</pre>
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 483</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 568</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewUnknownEndpointError(p, s, r <span class="hljs-constant">string</span>, known []<span class="hljs-constant">string</span>) UnknownEndpointError {
 	<span class="hljs-keyword">return</span> UnknownEndpointError{
@@ -3950,18 +4023,18 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-446
-447
-448
-449
-450
-451
-452
-453
-454</pre>
+531
+532
+533
+534
+535
+536
+537
+538
+539</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 446</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 531</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewUnknownServiceError(p, s <span class="hljs-constant">string</span>, known []<span class="hljs-constant">string</span>) UnknownServiceError {
 	<span class="hljs-keyword">return</span> UnknownServiceError{
@@ -4004,18 +4077,18 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-212
-213
-214
-215
-216
-217
-218
-219
-220</pre>
+290
+291
+292
+293
+294
+295
+296
+297
+298</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 212</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 290</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> PartitionForRegion(ps []Partition, regionID <span class="hljs-constant">string</span>) (Partition, <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">for</span> _, p := <span class="hljs-keyword">range</span> ps {
@@ -4062,27 +4135,27 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205</pre>
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 188</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 266</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RegionsForService(ps []Partition, partitionID, serviceID <span class="hljs-constant">string</span>) (<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Region, <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">for</span> _, p := <span class="hljs-keyword">range</span> ps {
@@ -4134,12 +4207,12 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-130
-131
-132</pre>
+208
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 130</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 208</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ResolveUnknownServiceOption(o *Options) {
 	o.ResolveUnknownService = <span class="hljs-constant">true</span>
@@ -4176,15 +4249,57 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-124
-125
-126</pre>
+202
+203
+204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 124</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 202</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> StrictMatchingOption(o *Options) {
 	o.StrictMatching = <span class="hljs-constant">true</span>
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="UseDualStackEndpointOption-class_method">
+  
+    func <strong><span class='object_link'><a href="#UseDualStackEndpointOption-class_method" title="endpoints.UseDualStackEndpointOption() (method)">UseDualStackEndpointOption</a></span></strong>(o *<span class='object_link'><a href="endpoints/Options.html" title="endpoints.Options (struct)">Options</a></span>) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>UseDualStackEndpointOption sets the UseDualStackEndpoint option to enabled. Can be used as a functional option when resolving endpoints.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+196
+197
+198</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 196</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> UseDualStackEndpointOption(o *Options) {
+	o.UseDualStackEndpo<span class="hljs-constant">int</span> = DualStackEndpointStateEnabled
 }</div></pre>
     </td>
   </tr>
@@ -4206,6 +4321,8 @@ sess := session.Must(session.NewSession(&aws.Config{
     
 <p>UseDualStackOption sets the UseDualStack option. Can be used as a functional option when resolving endpoints.</p>
 
+<p>Deprecated: UseDualStackEndpointOption should be used to enable usage of a service&#39;s dual-stack endpoint. When DualStackEndpointState is set to a non-zero value it takes higher precedence then this option.</p>
+
 
   </div>
 </div>
@@ -4218,12 +4335,12 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-118
-119
-120</pre>
+190
+191
+192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 118</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 190</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> UseDualStackOption(o *Options) {
 	o.UseDualStack = <span class="hljs-constant">true</span>
@@ -4240,7 +4357,7 @@ sess := session.Must(session.NewSession(&aws.Config{
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:04:31 2022 by
+  Generated on Mon Sep 19 10:13:33 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

@@ -134,6 +134,56 @@ import "../ibm-cos-sdk-go/aws/endpoints"
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#LogDeprecated-field" title="endpoints.Options.LogDeprecated (field)"><strong>LogDeprecated</strong> bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Determines whether logging of deprecated endpoints usage is enabled.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#Logger-field" title="endpoints.Options.Logger (field)"><strong>Logger</strong> Logger</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Logger is the logger that will be used to log messages.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#ResolveUnknownService-field" title="endpoints.Options.ResolveUnknownService (field)"><strong>ResolveUnknownService</strong> bool</a></span></span>
   
   
@@ -151,6 +201,31 @@ import "../ibm-cos-sdk-go/aws/endpoints"
   
     <span class="summary_desc"><div class='inline'>
 <p>Enables resolving a service endpoint based on the region provided if the service does not exist.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#ResolvedRegion-field" title="endpoints.Options.ResolvedRegion (field)"><strong>ResolvedRegion</strong> string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ResolvedRegion is the resolved region string.</p>
 </div></span>
   
 </li>
@@ -232,6 +307,31 @@ import "../ibm-cos-sdk-go/aws/endpoints"
 
 
     
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#UseDualStackEndpoint-field" title="endpoints.Options.UseDualStackEndpoint (field)"><strong>UseDualStackEndpoint</strong> DualStackEndpointState</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets the resolver to resolve a dual-stack endpoint for the service.</p>
+</div></span>
+  
+</li>
+
+
+    
   </ul>
 
 
@@ -299,6 +399,44 @@ import "../ibm-cos-sdk-go/aws/endpoints"
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="LogDeprecated-field">
+  <strong>LogDeprecated</strong> bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Determines whether logging of deprecated endpoints usage is enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Logger-field">
+  <strong>Logger</strong> <span class='object_link'><a href="#Logger-field" title="endpoints.Options.Logger (field)">Logger</a></span> 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Logger is the logger that will be used to log messages.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="ResolveUnknownService-field">
   <strong>ResolveUnknownService</strong> bool 
   
@@ -313,6 +451,25 @@ import "../ibm-cos-sdk-go/aws/endpoints"
 <p>If resolving and endpoint on a partition specific resolver that partition&#39;s domain name pattern will be used with the service endpoint ID. If both region and service do not exist when resolving an endpoint on a specific partition the partition&#39;s domain pattern will be used to combine the endpoint and region together.</p>
 
 <p>This option is ignored if StrictMatching is enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ResolvedRegion-field">
+  <strong>ResolvedRegion</strong> string 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>ResolvedRegion is the resolved region string. If provided (non-zero length) it takes priority over the region name passed to the ResolveEndpoint call.</p>
 
 
   </div>
@@ -371,6 +528,27 @@ import "../ibm-cos-sdk-go/aws/endpoints"
     
 <p>Sets the resolver to resolve the endpoint as a dualstack endpoint for the service. If dualstack support for a service is not known and StrictMatching is not enabled a dualstack endpoint for the service will be returned. This endpoint may not be valid. If StrictMatching is enabled only services that are known to support dualstack will return dualstack endpoints.</p>
 
+<p>Deprecated: This option will continue to function for S3 and S3 Control for backwards compatibility. UseDualStackEndpoint should be used to enable usage of a service&#39;s dual-stack endpoint for all service clients moving forward. For S3 and S3 Control, when UseDualStackEndpoint is set to a non-zero value it takes higher precedence then this option.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="UseDualStackEndpoint-field">
+  <strong>UseDualStackEndpoint</strong> DualStackEndpointState 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Sets the resolver to resolve a dual-stack endpoint for the service.</p>
+
 
   </div>
 </div>
@@ -413,14 +591,14 @@ import "../ibm-cos-sdk-go/aws/endpoints"
       <pre class="lines">
 
 
-104
-105
-106
-107
-108</pre>
+173
+174
+175
+176
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 104</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 173</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (o *Options) Set(optFns ...<span class="hljs-keyword">func</span>(*Options)) {
 	<span class="hljs-keyword">for</span> _, fn := <span class="hljs-keyword">range</span> optFns {
@@ -439,7 +617,7 @@ import "../ibm-cos-sdk-go/aws/endpoints"
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:04:39 2022 by
+  Generated on Mon Sep 19 10:13:40 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

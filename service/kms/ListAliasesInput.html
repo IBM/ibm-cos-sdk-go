@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Lists only aliases that are associated with the specified CMK.</p>
+<p>Lists only aliases that are associated with the specified KMS key.</p>
 </div></span>
   
 </li>
@@ -374,11 +374,11 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Lists only aliases that are associated with the specified CMK. Enter a CMK in your AWS account.</p>
+<p>Lists only aliases that are associated with the specified KMS key. Enter a KMS key in your Amazon Web Services account.</p>
 
 <p>This parameter is optional. If you omit it, ListAliases returns all aliases in the account and Region.</p>
 
-<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
+<p>Specify the key ID or key ARN of the KMS key.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -387,7 +387,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
+<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.</p>
 
 
   </div>
@@ -406,7 +406,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.</p>
+<p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
 
 <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
 
@@ -465,7 +465,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -479,12 +481,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12784
-12785
-12786</pre>
+14967
+14968
+14969</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12784</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14967</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.ListAliasesInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -521,13 +523,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12808
-12809
-12810
-12811</pre>
+14991
+14992
+14993
+14994</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12808</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14991</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.ListAliasesInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span> {
 	s.KeyId = &v
@@ -565,13 +567,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12814
-12815
-12816
-12817</pre>
+14997
+14998
+14999
+15000</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12814</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14997</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>) <span class='object_link'><a href="#SetLimit-instance_method" title="kms.ListAliasesInput.SetLimit() (method)">SetLimit</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span> {
 	s.Limit = &v
@@ -609,13 +611,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12820
-12821
-12822
-12823</pre>
+15003
+15004
+15005
+15006</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12820</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15003</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>) <span class='object_link'><a href="#SetMarker-instance_method" title="kms.ListAliasesInput.SetMarker() (method)">SetMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span> {
 	s.Marker = &v
@@ -639,7 +641,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -653,12 +657,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12779
-12780
-12781</pre>
+14958
+14959
+14960</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12779</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14958</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.ListAliasesInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -695,26 +699,26 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12789
-12790
-12791
-12792
-12793
-12794
-12795
-12796
-12797
-12798
-12799
-12800
-12801
-12802
-12803
-12804
-12805</pre>
+14972
+14973
+14974
+14975
+14976
+14977
+14978
+14979
+14980
+14981
+14982
+14983
+14984
+14985
+14986
+14987
+14988</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12789</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14972</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.ListAliasesInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.ListAliasesInput (struct)">ListAliasesInput</a></span>"</span>}
@@ -745,7 +749,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:05:31 2022 by
+  Generated on Mon Sep 19 10:14:30 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

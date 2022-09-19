@@ -342,16 +342,16 @@ import "../ibm-cos-sdk-go/aws/session"
       <pre class="lines">
 
 
-303
 304
 305
 306
 307
 308
-309</pre>
+309
+310</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 303</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 304</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> Must(sess *Session, err <span class="hljs-constant">error</span>) *Session {
 	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
@@ -398,14 +398,6 @@ import "../ibm-cos-sdk-go/aws/session"
       <pre class="lines">
 
 
-638
-639
-640
-641
-642
-643
-644
-645
 646
 647
 648
@@ -424,16 +416,29 @@ import "../ibm-cos-sdk-go/aws/session"
 661
 662
 663
-664</pre>
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 638</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 646</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *Session) ClientConfig(service <span class="hljs-constant">string</span>, cfgs ...*aws.Config) client.Config {
 	s = s.Copy(cfgs...)
 
+	resolvedRegion := normalizeRegion(s.Config)
+
 	region := aws.StringValue(s.Config.Region)
-	resolved, err := s.resolveEndpo<span class="hljs-constant">int</span>(service, region, s.Config)
+	resolved, err := s.resolveEndpo<span class="hljs-constant">int</span>(service, region, resolvedRegion, s.Config)
 	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
 		s.Handlers.Validate.PushBack(<span class="hljs-keyword">func</span>(r *request.Request) {
 			<span class="hljs-keyword">if</span> len(r.ClientInfo.Endpo<span class="hljs-constant">int</span>) != 0 {
@@ -454,6 +459,7 @@ import "../ibm-cos-sdk-go/aws/session"
 		SigningRegion:      resolved.SigningRegion,
 		SigningNameDerived: resolved.SigningNameDerived,
 		SigningName:        resolved.SigningName,
+		ResolvedRegion:     resolvedRegion,
 	}
 }</div></pre>
     </td>
@@ -488,30 +494,35 @@ import "../ibm-cos-sdk-go/aws/session"
       <pre class="lines">
 
 
-700
-701
-702
-703
-704
-705
-706
-707
-708
-709
-710
-711
-712
-713
-714
-715
-716
-717</pre>
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 700</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 717</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *Session) ClientConfigNoResolveEndpo<span class="hljs-constant">int</span>(cfgs ...*aws.Config) client.Config {
 	s = s.Copy(cfgs...)
+
+	resolvedRegion := normalizeRegion(s.Config)
 
 	<span class="hljs-keyword">var</span> resolved endpoints.ResolvedEndpo<span class="hljs-constant">int</span>
 	<span class="hljs-keyword">if</span> ep := aws.StringValue(s.Config.Endpo<span class="hljs-constant">int</span>); len(ep) > 0 {
@@ -526,6 +537,7 @@ import "../ibm-cos-sdk-go/aws/session"
 		SigningRegion:      resolved.SigningRegion,
 		SigningNameDerived: resolved.SigningNameDerived,
 		SigningName:        resolved.SigningName,
+		ResolvedRegion:     resolvedRegion,
 	}
 }</div></pre>
     </td>
@@ -564,20 +576,20 @@ sess.Copy(&aws.Config{Region: aws.String(<span class="hljs-string">"us-west-2"</
       <pre class="lines">
 
 
-623
-624
-625
-626
-627
-628
-629
-630
 631
 632
-633</pre>
+633
+634
+635
+636
+637
+638
+639
+640
+641</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 623</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 631</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *Session) Copy(cfgs ...*aws.Config) *Session {
 	newSession := &Session{
@@ -602,7 +614,7 @@ sess.Copy(&aws.Config{Region: aws.String(<span class="hljs-string">"us-west-2"</
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:04:39 2022 by
+  Generated on Mon Sep 19 10:13:40 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

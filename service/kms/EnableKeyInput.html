@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A unique identifier for the customer master key (CMK).</p>
+<p>Identifies the KMS key to enable.</p>
 </div></span>
   
 </li>
@@ -274,9 +274,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>A unique identifier for the customer master key (CMK).</p>
+<p>Identifies the KMS key to enable.</p>
 
-<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
+<p>Specify the key ID or key ARN of the KMS key.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -285,7 +285,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
+<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.</p>
 
 <p>KeyId is a required field</p>
 
@@ -325,7 +325,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -339,12 +341,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9715
-9716
-9717</pre>
+11130
+11131
+11132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9715</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11130</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.EnableKeyInput (struct)">EnableKeyInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.EnableKeyInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -381,13 +383,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9736
-9737
-9738
-9739</pre>
+11151
+11152
+11153
+11154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9736</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11151</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EnableKeyInput (struct)">EnableKeyInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.EnableKeyInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.EnableKeyInput (struct)">EnableKeyInput</a></span> {
 	s.KeyId = &v
@@ -411,7 +413,9 @@ import "../ibm-cos-sdk-go/service/kms"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -425,12 +429,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9710
-9711
-9712</pre>
+11121
+11122
+11123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9710</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11121</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.EnableKeyInput (struct)">EnableKeyInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.EnableKeyInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -467,23 +471,23 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9720
-9721
-9722
-9723
-9724
-9725
-9726
-9727
-9728
-9729
-9730
-9731
-9732
-9733</pre>
+11135
+11136
+11137
+11138
+11139
+11140
+11141
+11142
+11143
+11144
+11145
+11146
+11147
+11148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9720</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11135</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EnableKeyInput (struct)">EnableKeyInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.EnableKeyInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.EnableKeyInput (struct)">EnableKeyInput</a></span>"</span>}
@@ -511,7 +515,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Fri Aug 12 08:05:27 2022 by
+  Generated on Mon Sep 19 10:14:25 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>
