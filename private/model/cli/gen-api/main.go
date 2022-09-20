@@ -1,3 +1,4 @@
+//go:build codegen
 // +build codegen
 
 // Command aws-gen-gocli parses a JSON description of an AWS API and generates a
@@ -9,15 +10,14 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/IBM/ibm-cos-sdk-go/private/model/api"
+	"github.com/IBM/ibm-cos-sdk-go/private/util"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"runtime/debug"
 	"strings"
 	"sync"
-
-	"github.com/IBM/ibm-cos-sdk-go/private/model/api"
-	"github.com/IBM/ibm-cos-sdk-go/private/util"
 )
 
 func usage() {
@@ -58,6 +58,10 @@ func main() {
 		true,
 		"Ignores API models that use unsupported features",
 	)
+
+	var strictServiceId bool
+	flag.BoolVar(&strictServiceId, "use-service-id", false, "enforce strict usage of the serviceId from the model")
+
 	flag.Usage = usage
 	flag.Parse()
 
@@ -82,6 +86,7 @@ func main() {
 	loader := api.Loader{
 		BaseImport:            svcImportPath,
 		IgnoreUnsupportedAPIs: ignoreUnsupportedAPIs,
+		StrictServiceId:       strictServiceId,
 	}
 
 	apis, err := loader.Load(modelPaths)
@@ -293,7 +298,7 @@ func writeAPIErrorsFile(g *generateInfo) error {
 func writeAPIEventStreamTestFile(g *generateInfo) error {
 	return writeGoFile(filepath.Join(g.PackageDir, "eventstream_test.go"),
 		codeLayout,
-		"// +build go1.10\n",
+		"//go:build go1.16\n// +build go1.16\n",
 		g.API.PackageName(),
 		g.API.APIEventStreamTestGoCode(),
 	)
@@ -311,7 +316,7 @@ func writeS3ManagerUploadInputFile(g *generateInfo) error {
 func writeAPISmokeTestsFile(g *generateInfo) error {
 	return writeGoFile(filepath.Join(g.PackageDir, "integ_test.go"),
 		codeLayout,
-		"// +build go1.10,integration\n",
+		"//go:build go1.16 && integration\n// +build go1.16,integration\n",
 		g.API.PackageName()+"_test",
 		g.API.APISmokeTestsGoCode(),
 	)

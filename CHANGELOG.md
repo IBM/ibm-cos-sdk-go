@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.9.2
+
+### Content
+
+#### Defect Fixes
+
+* AWS Patches aligned to version 1.44.52 of the AWS SDK for Go
+
 ## 1.9.1
 
 ### Content

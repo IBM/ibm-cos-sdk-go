@@ -1,3 +1,4 @@
+//go:build go1.7
 // +build go1.7
 
 package ini
@@ -14,6 +15,9 @@ import (
 func TestValidDataFiles(t *testing.T) {
 	const expectedFileSuffix = "_expected"
 	filepath.Walk("./testdata/valid", func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
 		if strings.HasSuffix(path, expectedFileSuffix) {
 			return nil
 		}
@@ -106,11 +110,23 @@ func TestInvalidDataFiles(t *testing.T) {
 			expectedParseError: true,
 		},
 		{
+			path:               "./testdata/invalid/bad_syntax_2",
+			expectedParseError: true,
+		},
+		{
 			path:               "./testdata/invalid/incomplete_section_profile",
 			expectedParseError: true,
 		},
 		{
 			path:               "./testdata/invalid/syntax_error_comment",
+			expectedParseError: true,
+		},
+		{
+			path:               "./testdata/invalid/invalid_keys",
+			expectedParseError: true,
+		},
+		{
+			path:               "./testdata/invalid/bad_section_name",
 			expectedParseError: true,
 		},
 	}

@@ -1,3 +1,6 @@
+//go:build go1.9
+// +build go1.9
+
 package endpoints
 
 import (
@@ -6,10 +9,101 @@ import (
 )
 
 func TestDecodeEndpoints_V3(t *testing.T) {
-	const v3Doc = `
-{
-  "version": 3,
+	const v3Doc = `{
   "partitions": [
+    {
+      "defaults": {
+        "hostname": "{service}.{region}.{dnsSuffix}",
+        "protocols": [
+          "https"
+        ],
+        "signatureVersions": [
+          "v4"
+        ],
+        "variants": [
+          {
+            "hostname": "{service}-fips.{region}.{dnsSuffix}",
+            "tags": [
+              "fips"
+            ]
+          },
+          {
+            "dnsSuffix": "api.aws",
+            "hostname": "{service}.{region}.{dnsSuffix}",
+            "tags": [
+              "dualstack"
+            ]
+          },
+          {
+            "dnsSuffix": "api.aws",
+            "hostname": "{service}-fips.{region}.{dnsSuffix}",
+            "tags": [
+              "dualstack",
+              "fips"
+            ]
+          }
+        ]
+      },
+      "dnsSuffix": "amazonaws.com",
+      "partition": "aws",
+      "regionRegex": "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
+      "regions": {
+        "us-east-1": {
+          "description": "US East (N. Virginia)"
+        },
+        "us-west-2": {
+          "description": "US West (Oregon)"
+        }
+      },
+      "services": {
+        "s3": {
+          "defaults": {
+            "protocols": [
+              "http",
+              "https"
+            ],
+            "signatureVersions": [
+              "s3v4"
+            ],
+            "variants": [
+              {
+                "dnsSuffix": "amazonaws.com",
+                "hostname": "s3-fips.{region}.{dnsSuffix}",
+                "tags": [
+                  "fips"
+                ]
+              },
+              {
+                "dnsSuffix": "amazonaws.com",
+                "hostname": "s3.dualstack.{region}.{dnsSuffix}",
+                "tags": ["dualstack"]
+              }
+            ]
+          },
+          "endpoints": {
+            "us-west-2": {
+              "hostname": "s3.api.us-west-2.amazonaws.com",
+              "signatureVersions": [
+                "s3",
+                "s3v4"
+              ],
+              "variants": [
+                {
+                  "hostname": "s3-fips.api.us-west-2.amazonaws.com",
+                  "tags": [
+                    "fips"
+                  ]
+                },
+                {
+                  "hostname": "s3.api.dualstack.us-west-2.amazonaws.com",
+                  "tags": ["dualstack"]
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
     {
       "defaults": {
         "hostname": "{service}.{region}.{dnsSuffix}",
@@ -20,29 +114,24 @@ func TestDecodeEndpoints_V3(t *testing.T) {
           "v4"
         ]
       },
-      "dnsSuffix": "amazonaws.com",
-      "partition": "aws",
-      "partitionName": "AWS Standard",
-      "regionRegex": "^(us|eu|ap|sa|ca)\\-\\w+\\-\\d+$",
+      "dnsSuffix": "c2s.ic.gov",
+      "partition": "aws-iso",
+      "regionRegex": "^us\\-iso\\-\\w+\\-\\d+$",
       "regions": {
-        "ap-northeast-1": {
-          "description": "Asia Pacific (Tokyo)"
+        "us-iso-east-1": {
+          "description": "US ISO East"
         }
       },
       "services": {
-        "acm": {
+        "ec2": {
           "endpoints": {
-             "ap-northeast-1": {}
-    	  }
-        },
-        "s3": {
-          "endpoints": {
-             "ap-northeast-1": {}
-    	  }
+            "us-iso-east-1": {}
+          }
         }
       }
     }
-  ]
+  ],
+  "version": 3
 }`
 
 	resolver, err := DecodeModel(strings.NewReader(v3Doc))
@@ -50,28 +139,40 @@ func TestDecodeEndpoints_V3(t *testing.T) {
 		t.Fatalf("expected no error, got %v", err)
 	}
 
-	endpoint, err := resolver.EndpointFor("acm", "ap-northeast-1")
+	endpoint, err := resolver.EndpointFor("ec2", "us-west-2")
 	if err != nil {
 		t.Fatalf("failed to resolve endpoint, %v", err)
 	}
 
-	if a, e := endpoint.URL, "https://acm.ap-northeast-1.amazonaws.com"; a != e {
+	if a, e := endpoint.URL, "https://ec2.us-west-2.amazonaws.com"; a != e {
 		t.Errorf("expected %q URL got %q", e, a)
 	}
 
 	p := resolver.(partitions)[0]
 
-	s3Defaults := p.Services["s3"].Defaults
-	if a, e := s3Defaults.HasDualStack, boxedTrue; a != e {
-		t.Errorf("expect s3 service to have dualstack enabled")
-	}
-	if a, e := s3Defaults.DualStackHostname, "{service}.dualstack.{region}.{dnsSuffix}"; a != e {
-		t.Errorf("expect s3 dualstack host pattern to be %q, got %q", e, a)
+	resolved, err := p.EndpointFor("s3", "us-west-2", func(options *Options) {
+		options.UseDualStackEndpoint = DualStackEndpointStateEnabled
+	})
+	if err != nil {
+		t.Fatalf("expect no error, got %v", err)
 	}
 
-	ec2metaEndpoint := p.Services["ec2metadata"].Endpoints["aws-global"]
-	if a, e := ec2metaEndpoint.Hostname, "169.254.169.254/latest"; a != e {
-		t.Errorf("expect ec2metadata host to be %q, got %q", e, a)
+	assertEndpoint(t, resolved, "https://s3.api.dualstack.us-west-2.amazonaws.com", "s3", "us-west-2")
+}
+
+func assertEndpoint(t *testing.T, endpoint ResolvedEndpoint, expectedURL, expectedSigningName, expectedSigningRegion string) {
+	t.Helper()
+
+	if e, a := expectedURL, endpoint.URL; e != a {
+		t.Errorf("expect %v, got %v", e, a)
+	}
+
+	if e, a := expectedSigningName, endpoint.SigningName; e != a {
+		t.Errorf("expect %v, got %v", e, a)
+	}
+
+	if e, a := expectedSigningRegion, endpoint.SigningRegion; e != a {
+		t.Errorf("expect %v, got %v", e, a)
 	}
 }
 

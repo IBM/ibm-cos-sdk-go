@@ -1,3 +1,4 @@
+//go:build go1.7
 // +build go1.7
 
 package session
@@ -106,6 +107,7 @@ func TestLoadEnvConfig(t *testing.T) {
 		Env                 map[string]string
 		UseSharedConfigCall bool
 		Config              envConfig
+		WantErr             bool
 	}{
 		0: {
 			Env: map[string]string{
@@ -368,13 +370,19 @@ func TestLoadEnvConfig(t *testing.T) {
 			var err error
 			if c.UseSharedConfigCall {
 				cfg, err = loadSharedEnvConfig()
-				if err != nil {
-					t.Errorf("failed to load shared env config, %v", err)
+				if (err != nil) != c.WantErr {
+					t.Errorf("WantErr=%v, got err=%v", c.WantErr, err)
+					return
+				} else if c.WantErr {
+					return
 				}
 			} else {
 				cfg, err = loadEnvConfig()
-				if err != nil {
-					t.Errorf("failed to load env config, %v", err)
+				if (err != nil) != c.WantErr {
+					t.Errorf("WantErr=%v, got err=%v", c.WantErr, err)
+					return
+				} else if c.WantErr {
+					return
 				}
 			}
 

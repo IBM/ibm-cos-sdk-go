@@ -1,3 +1,4 @@
+//go:build codegen
 // +build codegen
 
 package api
@@ -49,8 +50,7 @@ func (d *apiDocumentation) setup(a *API) error {
 
 	for opName, doc := range d.Operations {
 		if _, ok := a.Operations[opName]; !ok {
-			return fmt.Errorf("%s, doc op %q not found in API op set",
-				a.name, opName)
+			continue
 		}
 		a.Operations[opName].Documentation = docstring(doc)
 	}
@@ -543,4 +543,12 @@ func getHTMLTokenAttr(attr []xhtml.Attribute, name string) (string, bool) {
 		}
 	}
 	return "", false
+}
+
+func AppendDocstring(base, toAdd string) string {
+	if base != "" {
+		base += "\n//\n"
+	}
+
+	return base + docstring(toAdd)
 }

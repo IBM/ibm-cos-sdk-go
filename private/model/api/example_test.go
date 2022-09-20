@@ -1,3 +1,4 @@
+//go:build go1.10 && codegen
 // +build go1.10,codegen
 
 package api
@@ -170,34 +171,34 @@ func buildAPI() *API {
 
 // IBM COS SDK Code -- START
 func TestExampleGeneration(t *testing.T) {
-	example := `
-{
+	example := `{
   "version": "1.0",
   "examples": {
     "Foo": [
       {
         "input": {
           "BarShape": "Hello world",
-					"ComplexField": {
-						"Field": "bar",
-						"List": [
-							{
-								"NestedField": "qux"
-							}
-						]
-					},
-					"ListField": [
-						{
-							"Field": "baz"
-						}
-					],
-					"ListsField": [
-						[
-							{
-								"Field": "baz"
-							}
-						]
-					]
+          "ComplexField": {
+            "Field": "bar",
+            "List": [
+              {
+                "NestedField": "qux"
+              }
+            ]
+          },
+          "ListField": [
+            {
+              "Field": "baz"
+            }
+          ],
+          "ListsField": [
+            [
+              {
+                "Field": "baz"
+              }
+            ]
+          ],
+          "FieldDoesNotExistInModel": true
         },
         "output": {
           "BazShape": 1
@@ -210,6 +211,20 @@ func TestExampleGeneration(t *testing.T) {
         },
         "description": "Foo bar baz qux",
         "title": "I pity the foo"
+      }
+    ],
+    "NotInTheModel": [
+      {
+        "input": {},
+        "output": {},
+        "comments": {
+          "input": {
+          },
+          "output": {
+          }
+        },
+        "description": "Look the other way",
+        "title": "I am not modeled"
       }
     ]
   }
