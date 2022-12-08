@@ -130,7 +130,7 @@ func parseVariantTags(tags []string) (ev endpointVariant, unknown bool) {
 		switch {
 		//IBM UNSUPPORTED
 		/*case strings.EqualFold("fips", tag):
-			ev |= fipsVariant*/
+		ev |= fipsVariant*/
 		case strings.EqualFold("dualstack", tag):
 			ev |= dualStackVariant
 		default:
@@ -216,8 +216,8 @@ func (p partition) EndpointFor(service, region string, opts ...func(*Options)) (
 	}
 
 	if service == "s3" && opt.S3UsEast1RegionalEndpoint != RegionalS3UsEast1Endpoint {
-	if r, ok := isLegacyGlobalRegion(service, region, opt); ok {
-		region = r
+		if r, ok := isLegacyGlobalRegion(service, region, opt); ok {
+			region = r
 		}
 	}
 	variant := opt.getEndpointVariant(service)

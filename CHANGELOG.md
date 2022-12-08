@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.9.3
+
+### Content
+
+#### Defect Fixes
+
+* COSSDK-95022: <https://github.com/IBM/ibm-cos-sdk-go/issues/8>
+* Internal fixes and improvements
+
 ## 1.9.2
 
 ### Content

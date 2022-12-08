@@ -767,8 +767,8 @@ func TestEndpointVariants(t *testing.T) {
 	}
 
 	type testCase struct {
-		Service   string `json:"service"`
-		Region    string `json:"region"`
+		Service string `json:"service"`
+		Region  string `json:"region"`
 		//FIPS      bool   `json:"FIPS"`
 		DualStack bool   `json:"DualStack"`
 		Endpoint  string `json:"Endpoint"`

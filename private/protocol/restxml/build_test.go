@@ -6152,9 +6152,6 @@ func TestInputService1ProtocolTestBasicXMLSerializationCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/hostedzone", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService1ProtocolTestBasicXMLSerializationCase2(t *testing.T) {
@@ -6189,9 +6186,6 @@ func TestInputService1ProtocolTestBasicXMLSerializationCase2(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/hostedzone", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService1ProtocolTestBasicXMLSerializationCase3(t *testing.T) {
@@ -6212,9 +6206,6 @@ func TestInputService1ProtocolTestBasicXMLSerializationCase3(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/hostedzone", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService2ProtocolTestSerializeOtherScalarTypesCase1(t *testing.T) {
@@ -6251,9 +6242,6 @@ func TestInputService2ProtocolTestSerializeOtherScalarTypesCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/hostedzone", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService3ProtocolTestNestedStructuresCase1(t *testing.T) {
@@ -6291,9 +6279,6 @@ func TestInputService3ProtocolTestNestedStructuresCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/hostedzone", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService3ProtocolTestNestedStructuresCase2(t *testing.T) {
@@ -6330,9 +6315,6 @@ func TestInputService3ProtocolTestNestedStructuresCase2(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/hostedzone", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService4ProtocolTestNestedStructuresCase1(t *testing.T) {
@@ -6367,9 +6349,6 @@ func TestInputService4ProtocolTestNestedStructuresCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/hostedzone", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService5ProtocolTestNonFlattenedListsCase1(t *testing.T) {
@@ -6407,9 +6386,6 @@ func TestInputService5ProtocolTestNonFlattenedListsCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/hostedzone", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService6ProtocolTestNonFlattenedListsWithLocationNameCase1(t *testing.T) {
@@ -6447,9 +6423,6 @@ func TestInputService6ProtocolTestNonFlattenedListsWithLocationNameCase1(t *test
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/hostedzone", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService7ProtocolTestFlattenedListsCase1(t *testing.T) {
@@ -6487,9 +6460,6 @@ func TestInputService7ProtocolTestFlattenedListsCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/hostedzone", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService8ProtocolTestFlattenedListsWithLocationNameCase1(t *testing.T) {
@@ -6527,9 +6497,6 @@ func TestInputService8ProtocolTestFlattenedListsWithLocationNameCase1(t *testing
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/hostedzone", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService9ProtocolTestListOfStructuresCase1(t *testing.T) {
@@ -6573,9 +6540,6 @@ func TestInputService9ProtocolTestListOfStructuresCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/hostedzone", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService10ProtocolTestBlobShapesCase1(t *testing.T) {
@@ -6611,9 +6575,6 @@ func TestInputService10ProtocolTestBlobShapesCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/hostedzone", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService11ProtocolTestTimestampShapesCase1(t *testing.T) {
@@ -6724,9 +6685,6 @@ func TestInputService13ProtocolTestQuerystringListOfStringsCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/path?item=value1&item=value2", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService14ProtocolTestStringToStringMapsInQuerystringCase1(t *testing.T) {
@@ -6753,9 +6711,6 @@ func TestInputService14ProtocolTestStringToStringMapsInQuerystringCase1(t *testi
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/jobsByPipeline/foo?bar=baz&fizz=buzz", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService15ProtocolTestStringToStringListMapsInQuerystringCase1(t *testing.T) {
@@ -6788,9 +6743,6 @@ func TestInputService15ProtocolTestStringToStringListMapsInQuerystringCase1(t *t
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/2014-01-01/jobsByPipeline/id?foo=bar&foo=baz&fizz=buzz&fizz=pop", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService16ProtocolTestBooleanInQuerystringCase1(t *testing.T) {
@@ -6813,9 +6765,6 @@ func TestInputService16ProtocolTestBooleanInQuerystringCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/path?bool-query=true", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService16ProtocolTestBooleanInQuerystringCase2(t *testing.T) {
@@ -6838,9 +6787,6 @@ func TestInputService16ProtocolTestBooleanInQuerystringCase2(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/path?bool-query=false", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService17ProtocolTestStringPayloadCase1(t *testing.T) {
@@ -6876,9 +6822,6 @@ func TestInputService17ProtocolTestStringPayloadCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService18ProtocolTestBlobPayloadCase1(t *testing.T) {
@@ -6914,9 +6857,6 @@ func TestInputService18ProtocolTestBlobPayloadCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService18ProtocolTestBlobPayloadCase2(t *testing.T) {
@@ -6937,9 +6877,6 @@ func TestInputService18ProtocolTestBlobPayloadCase2(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService19ProtocolTestStructurePayloadCase1(t *testing.T) {
@@ -6975,9 +6912,6 @@ func TestInputService19ProtocolTestStructurePayloadCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService19ProtocolTestStructurePayloadCase2(t *testing.T) {
@@ -6998,9 +6932,6 @@ func TestInputService19ProtocolTestStructurePayloadCase2(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService19ProtocolTestStructurePayloadCase3(t *testing.T) {
@@ -7034,9 +6965,6 @@ func TestInputService19ProtocolTestStructurePayloadCase3(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService19ProtocolTestStructurePayloadCase4(t *testing.T) {
@@ -7057,9 +6985,6 @@ func TestInputService19ProtocolTestStructurePayloadCase4(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService20ProtocolTestXMLAttributeCase1(t *testing.T) {
@@ -7098,9 +7023,6 @@ func TestInputService20ProtocolTestXMLAttributeCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService21ProtocolTestGreedyKeysCase1(t *testing.T) {
@@ -7124,9 +7046,6 @@ func TestInputService21ProtocolTestGreedyKeysCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/my%2Fbucket/testing%20/123", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService22ProtocolTestOmitsNullQueryParamsButSerializesEmptyStringsCase1(t *testing.T) {
@@ -7147,9 +7066,6 @@ func TestInputService22ProtocolTestOmitsNullQueryParamsButSerializesEmptyStrings
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/path", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService22ProtocolTestOmitsNullQueryParamsButSerializesEmptyStringsCase2(t *testing.T) {
@@ -7172,9 +7088,6 @@ func TestInputService22ProtocolTestOmitsNullQueryParamsButSerializesEmptyStrings
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/path?abc=mno&param-name=", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService23ProtocolTestRecursiveShapesCase1(t *testing.T) {
@@ -7210,9 +7123,6 @@ func TestInputService23ProtocolTestRecursiveShapesCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/path", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService23ProtocolTestRecursiveShapesCase2(t *testing.T) {
@@ -7250,9 +7160,6 @@ func TestInputService23ProtocolTestRecursiveShapesCase2(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/path", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService23ProtocolTestRecursiveShapesCase3(t *testing.T) {
@@ -7294,9 +7201,6 @@ func TestInputService23ProtocolTestRecursiveShapesCase3(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/path", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService23ProtocolTestRecursiveShapesCase4(t *testing.T) {
@@ -7339,9 +7243,6 @@ func TestInputService23ProtocolTestRecursiveShapesCase4(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/path", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService23ProtocolTestRecursiveShapesCase5(t *testing.T) {
@@ -7386,9 +7287,6 @@ func TestInputService23ProtocolTestRecursiveShapesCase5(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/path", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService23ProtocolTestRecursiveShapesCase6(t *testing.T) {
@@ -7431,9 +7329,6 @@ func TestInputService23ProtocolTestRecursiveShapesCase6(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/path", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService24ProtocolTestIdempotencyTokenAutoFillCase1(t *testing.T) {
@@ -7467,9 +7362,6 @@ func TestInputService24ProtocolTestIdempotencyTokenAutoFillCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/path", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService24ProtocolTestIdempotencyTokenAutoFillCase2(t *testing.T) {
@@ -7501,9 +7393,6 @@ func TestInputService24ProtocolTestIdempotencyTokenAutoFillCase2(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/path", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService25ProtocolTestEnumCase1(t *testing.T) {
@@ -7576,9 +7465,6 @@ func TestInputService25ProtocolTestEnumCase2(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/Enum/bar", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService26ProtocolTestEndpointHostTraitCase1(t *testing.T) {
@@ -7612,9 +7498,6 @@ func TestInputService26ProtocolTestEndpointHostTraitCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://data-service.region.amazonaws.com/path", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService26ProtocolTestEndpointHostTraitCase2(t *testing.T) {
@@ -7648,9 +7531,6 @@ func TestInputService26ProtocolTestEndpointHostTraitCase2(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://foo-myname.service.region.amazonaws.com/path", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService27ProtocolTestHeaderWhitespaceCase1(t *testing.T) {

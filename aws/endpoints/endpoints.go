@@ -34,14 +34,14 @@ const (
 // type FIPSEndpointState uint
 
 //const (
-	// FIPSEndpointStateUnset is the default value behavior for FIPS endpoint resolution.
-	// FIPSEndpointStateUnset FIPSEndpointState = iota
+// FIPSEndpointStateUnset is the default value behavior for FIPS endpoint resolution.
+// FIPSEndpointStateUnset FIPSEndpointState = iota
 
-	// FIPSEndpointStateEnabled enables FIPS endpoint resolution for service endpoints.
-	// FIPSEndpointStateEnabled
+// FIPSEndpointStateEnabled enables FIPS endpoint resolution for service endpoints.
+// FIPSEndpointStateEnabled
 
-	// FIPSEndpointStateDisabled disables FIPS endpoint resolution for endpoints.
-	// FIPSEndpointStateDisabled
+// FIPSEndpointStateDisabled disables FIPS endpoint resolution for endpoints.
+// FIPSEndpointStateDisabled
 //)
 
 // Options provide the configuration needed to direct how the
@@ -106,6 +106,7 @@ type Options struct {
 	// Determines whether logging of deprecated endpoints usage is enabled.
 	LogDeprecated bool
 }
+
 func (o Options) getEndpointVariant(service string) (v endpointVariant) {
 	const s3 = "s3"
 	const s3Control = "s3-control"

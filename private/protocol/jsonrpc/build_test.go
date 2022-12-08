@@ -2900,9 +2900,6 @@ func TestInputService7ProtocolTestIdempotencyTokenAutoFillCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService7ProtocolTestIdempotencyTokenAutoFillCase2(t *testing.T) {
@@ -2934,9 +2931,6 @@ func TestInputService7ProtocolTestIdempotencyTokenAutoFillCase2(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService8ProtocolTestEnumCase1(t *testing.T) {
@@ -2975,9 +2969,6 @@ func TestInputService8ProtocolTestEnumCase1(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService8ProtocolTestEnumCase2(t *testing.T) {
@@ -2998,9 +2989,6 @@ func TestInputService8ProtocolTestEnumCase2(t *testing.T) {
 
 	// assert URL
 	awstesting.AssertURL(t, "https://test/", r.URL.String())
-
-	// assert headers
-
 }
 
 func TestInputService9ProtocolTestEndpointHostTraitStaticPrefixCase1(t *testing.T) {
