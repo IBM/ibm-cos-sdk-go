@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Creates the KMS key in the specified custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) and the key material in its associated CloudHSM cluster.</p>
+<p>Creates the CMK in the specified custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) and the key material in its associated AWS CloudHSM cluster.</p>
 </div></span>
   
 </li>
@@ -164,7 +164,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Instead, use the KeySpec parameter.</p>
+<p>Specifies the type of CMK to create.</p>
 </div></span>
   
 </li>
@@ -189,32 +189,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A description of the KMS key.</p>
-</div></span>
-  
-</li>
-
-
-    
-      
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#KeySpec-field" title="kms.CreateKeyInput.KeySpec (field)"><strong>KeySpec</strong> *string</a></span></span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Specifies the type of KMS key to create.</p>
+<p>A description of the CMK.</p>
 </div></span>
   
 </li>
@@ -239,32 +214,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Determines the cryptographic operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) for which you can use the KMS key.</p>
-</div></span>
-  
-</li>
-
-
-    
-      
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#MultiRegion-field" title="kms.CreateKeyInput.MultiRegion (field)"><strong>MultiRegion</strong> *bool</a></span></span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Creates a multi-Region primary key that you can replicate into other Amazon Web Services Regions.</p>
+<p>Determines the cryptographic operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) for which you can use the CMK.</p>
 </div></span>
   
 </li>
@@ -289,7 +239,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The source of the key material for the KMS key.</p>
+<p>The source of the key material for the CMK.</p>
 </div></span>
   
 </li>
@@ -314,7 +264,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The key policy to attach to the KMS key.</p>
+<p>The key policy to attach to the CMK.</p>
 </div></span>
   
 </li>
@@ -339,7 +289,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Assigns one or more tags to the KMS key.</p>
+<p>One or more tags.</p>
 </div></span>
   
 </li>
@@ -508,31 +458,6 @@ import "../ibm-cos-sdk-go/service/kms"
       
         
 <li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#SetKeySpec-instance_method" title="kms.CreateKeyInput.SetKeySpec() (method)"><strong>SetKeySpec</strong>(string)  *CreateKeyInput </a></span></span>
-  
-  
-  
-  
-  <span class="note title readonly">operation</span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>SetKeySpec sets the KeySpec field&#39;s value.</p>
-</div></span>
-  
-</li>
-
-
-      
-        
-<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetKeyUsage-instance_method" title="kms.CreateKeyInput.SetKeyUsage() (method)"><strong>SetKeyUsage</strong>(string)  *CreateKeyInput </a></span></span>
   
   
@@ -550,31 +475,6 @@ import "../ibm-cos-sdk-go/service/kms"
   
     <span class="summary_desc"><div class='inline'>
 <p>SetKeyUsage sets the KeyUsage field&#39;s value.</p>
-</div></span>
-  
-</li>
-
-
-      
-        
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#SetMultiRegion-instance_method" title="kms.CreateKeyInput.SetMultiRegion() (method)"><strong>SetMultiRegion</strong>(bool)  *CreateKeyInput </a></span></span>
-  
-  
-  
-  
-  <span class="note title readonly">operation</span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>SetMultiRegion sets the MultiRegion field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -726,11 +626,11 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>A flag to indicate whether to bypass the key policy lockout safety check.</p>
 
-<p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.</p>
+<p>Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.</p>
 
-<p>For more information, refer to the scenario in the Default Key Policy (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam</a>) section in the Key Management Service Developer Guide .</p>
+<p>For more information, refer to the scenario in the Default Key Policy (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam</a>) section in the AWS Key Management Service Developer Guide .</p>
 
-<p>Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutKeyPolicy request on the KMS key.</p>
+<p>Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutKeyPolicy request on the CMK.</p>
 
 <p>The default value is false.</p>
 
@@ -751,15 +651,15 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Creates the KMS key in the specified custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) and the key material in its associated CloudHSM cluster. To create a KMS key in a custom key store, you must also specify the Origin parameter with a value of AWS_CLOUDHSM. The CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.</p>
+<p>Creates the CMK in the specified custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) and the key material in its associated AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the Origin parameter with a value of AWS_CLOUDHSM. The AWS CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.</p>
 
-<p>This parameter is valid only for symmetric encryption KMS keys in a single Region. You cannot create any other type of KMS key in a custom key store.</p>
+<p>This parameter is valid only for symmetric CMKs. You cannot create an asymmetric CMK in a custom key store.</p>
 
 <p>To find the ID of a custom key store, use the DescribeCustomKeyStores operation.</p>
 
-<p>The response includes the custom key store ID and the ID of the CloudHSM cluster.</p>
+<p>The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.</p>
 
-<p>This operation is part of the Custom Key Store feature (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) feature in KMS, which combines the convenience and extensive integration of KMS with the isolation and control of a single-tenant key store.</p>
+<p>This operation is part of the Custom Key Store feature (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.</p>
 
 
   </div>
@@ -773,68 +673,20 @@ import "../ibm-cos-sdk-go/service/kms"
       <div class="method_details ">
   <h3 class="signature " id="CustomerMasterKeySpec-field">
   <strong>CustomerMasterKeySpec</strong> *string 
-  <code>`deprecated:"true" type:"string" enum:"CustomerMasterKeySpec"`</code>
+  <code>`type:"string" enum:"CustomerMasterKeySpec"`</code>
 </h3>
 <div class="docstring">
   <div class="discussion">
     
-<p>Instead, use the KeySpec parameter.</p>
+<p>Specifies the type of CMK to create. The default value, SYMMETRIC_DEFAULT, creates a CMK with a 256-bit symmetric key for encryption and decryption. For help choosing a key spec for your CMK, see How to Choose Your CMK Configuration (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html">docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html</a>) in the AWS Key Management Service Developer Guide.</p>
 
-<p>The KeySpec and CustomerMasterKeySpec parameters work the same way. Only the names differ. We recommend that you use KeySpec parameter in your code. However, to avoid breaking changes, KMS will support both parameters.</p>
+<p>The CustomerMasterKeySpec determines whether the CMK contains a symmetric key or an asymmetric key pair. It also determines the encryption algorithms or signing algorithms that the CMK supports. You can&#39;t change the CustomerMasterKeySpec after the CMK is created. To further restrict the algorithms that can be used with the CMK, use a condition key in its key policy or IAM policy. For more information, see kms:EncryptionAlgorithm (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm</a>) or kms:Signing Algorithm (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm</a>) in the AWS Key Management Service Developer Guide.</p>
 
-<p>Deprecated: This parameter has been deprecated. Instead, use the KeySpec parameter.</p>
+<p>AWS services that are integrated with AWS KMS (<a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">aws.amazon.com/kms/features/#AWS_Service_Integration</a>) use symmetric CMKs to protect your data. These services do not support asymmetric CMKs. For help determining whether a CMK is symmetric or asymmetric, see Identifying Symmetric and Asymmetric CMKs (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html">docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html</a>) in the AWS Key Management Service Developer Guide.</p>
 
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="Description-field">
-  <strong>Description</strong> *string 
-  <code>`type:"string"`</code>
-</h3>
-<div class="docstring">
-  <div class="discussion">
-    
-<p>A description of the KMS key.</p>
-
-<p>Use a description that helps you decide whether the KMS key is appropriate for a task. The default value is an empty string (no description).</p>
-
-<p>To set or change the description after the key is created, use UpdateKeyDescription.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="KeySpec-field">
-  <strong>KeySpec</strong> *string 
-  <code>`type:"string" enum:"KeySpec"`</code>
-</h3>
-<div class="docstring">
-  <div class="discussion">
-    
-<p>Specifies the type of KMS key to create. The default value, SYMMETRIC_DEFAULT, creates a KMS key with a 256-bit symmetric key for encryption and decryption. For help choosing a key spec for your KMS key, see Choosing a KMS key type (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose">docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose</a>) in the Key Management Service Developer Guide .</p>
-
-<p>The KeySpec determines whether the KMS key contains a symmetric key or an asymmetric key pair. It also determines the cryptographic algorithms that the KMS key supports. You can&#39;t change the KeySpec after the KMS key is created. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see kms:EncryptionAlgorithm (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm</a>), kms:MacAlgorithm (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-mac-algorithm">docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-mac-algorithm</a>) or kms:Signing Algorithm (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm</a>) in the Key Management Service Developer Guide .</p>
-
-<p>Amazon Web Services services that are integrated with KMS (<a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">aws.amazon.com/kms/features/#AWS_Service_Integration</a>) use symmetric encryption KMS keys to protect your data. These services do not support asymmetric KMS keys or HMAC KMS keys.</p>
-
-<p>KMS supports the following key specs for KMS keys:</p>
+<p>AWS KMS supports the following key specs for CMKs:</p>
 <ul><li>
-<p>Symmetric encryption key (default) SYMMETRIC_DEFAULT (AES-256-GCM)</p>
-</li><li>
-<p>HMAC keys (symmetric) HMAC_224 HMAC_256 HMAC_384 HMAC_512</p>
+<p>Symmetric key (default) SYMMETRIC_DEFAULT (AES-256-GCM)</p>
 </li><li>
 <p>Asymmetric RSA key pairs RSA_2048 RSA_3072 RSA_4096</p>
 </li><li>
@@ -853,25 +705,16 @@ import "../ibm-cos-sdk-go/service/kms"
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="KeyUsage-field">
-  <strong>KeyUsage</strong> *string 
-  <code>`type:"string" enum:"KeyUsageType"`</code>
+  <h3 class="signature " id="Description-field">
+  <strong>Description</strong> *string 
+  <code>`type:"string"`</code>
 </h3>
 <div class="docstring">
   <div class="discussion">
     
-<p>Determines the cryptographic operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) for which you can use the KMS key. The default value is ENCRYPT_DECRYPT. This parameter is optional when you are creating a symmetric encryption KMS key; otherwise, it is required. You can&#39;t change the KeyUsage value after the KMS key is created.</p>
+<p>A description of the CMK.</p>
 
-<p>Select only one valid value.</p>
-<ul><li>
-<p>For symmetric encryption KMS keys, omit the parameter or specify ENCRYPT_DECRYPT.</p>
-</li><li>
-<p>For HMAC KMS keys (symmetric), specify GENERATE_VERIFY_MAC.</p>
-</li><li>
-<p>For asymmetric KMS keys with RSA key material, specify ENCRYPT_DECRYPT  or SIGN_VERIFY.</p>
-</li><li>
-<p>For asymmetric KMS keys with ECC key material, specify SIGN_VERIFY.</p>
-</li></ul>
+<p>Use a description that helps you decide whether the CMK is appropriate for a task.</p>
 
 
   </div>
@@ -883,22 +726,23 @@ import "../ibm-cos-sdk-go/service/kms"
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="MultiRegion-field">
-  <strong>MultiRegion</strong> *bool 
-  <code>`type:"boolean"`</code>
+  <h3 class="signature " id="KeyUsage-field">
+  <strong>KeyUsage</strong> *string 
+  <code>`type:"string" enum:"KeyUsageType"`</code>
 </h3>
 <div class="docstring">
   <div class="discussion">
     
-<p>Creates a multi-Region primary key that you can replicate into other Amazon Web Services Regions. You cannot change this value after you create the KMS key.</p>
+<p>Determines the cryptographic operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This parameter is required only for asymmetric CMKs. You can&#39;t change the KeyUsage value after the CMK is created.</p>
 
-<p>For a multi-Region key, set this parameter to True. For a single-Region KMS key, omit this parameter or set it to False. The default value is False.</p>
-
-<p>This operation supports multi-Region keys, an KMS feature that lets you create multiple interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see Multi-Region keys in KMS (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html</a>) in the Key Management Service Developer Guide.</p>
-
-<p>This value creates a primary key, not a replica. To create a replica key, use the ReplicateKey operation.</p>
-
-<p>You can create a multi-Region version of a symmetric encryption KMS key, an HMAC KMS key, an asymmetric KMS key, or a KMS key with imported key material. However, you cannot create a multi-Region key in a custom key store.</p>
+<p>Select only one valid value.</p>
+<ul><li>
+<p>For symmetric CMKs, omit the parameter or specify ENCRYPT_DECRYPT.</p>
+</li><li>
+<p>For asymmetric CMKs with RSA key material, specify ENCRYPT_DECRYPT or  SIGN_VERIFY.</p>
+</li><li>
+<p>For asymmetric CMKs with ECC key material, specify SIGN_VERIFY.</p>
+</li></ul>
 
 
   </div>
@@ -917,11 +761,11 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that KMS creates the key material.</p>
+<p>The source of the key material for the CMK. You cannot change the origin after you create the CMK. The default is AWS_KMS, which means AWS KMS creates the key material.</p>
 
-<p>To create a KMS key with no key material (for imported key material), set the value to EXTERNAL. For more information about importing key material into KMS, see Importing Key Material (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html</a>) in the Key Management Service Developer Guide. This value is valid only for symmetric encryption KMS keys.</p>
+<p>When the parameter value is EXTERNAL, AWS KMS creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see Importing Key Material (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html</a>) in the AWS Key Management Service Developer Guide. This value is valid only for symmetric CMKs.</p>
 
-<p>To create a KMS key in an KMS custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) and create its key material in the associated CloudHSM cluster, set this value to AWS_CLOUDHSM. You must also use the CustomKeyStoreId parameter to identify the custom key store. This value is valid only for symmetric encryption KMS keys.</p>
+<p>When the parameter value is AWS_CLOUDHSM, AWS KMS creates the CMK in an AWS KMS custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) and creates its key material in the associated AWS CloudHSM cluster. You must also use the CustomKeyStoreId parameter to identify the custom key store. This value is valid only for symmetric CMKs.</p>
 
 
   </div>
@@ -940,27 +784,20 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The key policy to attach to the KMS key. If you do not specify a key policy, KMS attaches a default key policy to the KMS key. For more information, see Default key policy (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default</a>) in the Key Management Service Developer Guide.</p>
+<p>The key policy to attach to the CMK.</p>
 
 <p>If you provide a key policy, it must meet the following criteria:</p>
 <ul><li>
-<p>If you don&#39;t set BypassPolicyLockoutSafetyCheck to True, the key policy  must allow the principal that is making the CreateKey request to make  a subsequent PutKeyPolicy request on the KMS key. This reduces the risk  that the KMS key becomes unmanageable. For more information, refer to  the scenario in the Default Key Policy (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam</a>)  section of the Key Management Service Developer Guide .</p>
+<p>If you don&#39;t set BypassPolicyLockoutSafetyCheck to true, the key policy  must allow the principal that is making the CreateKey request to make  a subsequent PutKeyPolicy request on the CMK. This reduces the risk that  the CMK becomes unmanageable. For more information, refer to the scenario  in the Default Key Policy (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam</a>)  section of the AWS Key Management Service Developer Guide .</p>
 </li><li>
-<p>Each statement in the key policy must contain one or more principals.  The principals in the key policy must exist and be visible to KMS. When  you create a new Amazon Web Services principal (for example, an IAM user  or role), you might need to enforce a delay before including the new principal  in a key policy because the new principal might not be immediately visible  to KMS. For more information, see Changes that I make are not always immediately  visible (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency</a>)  in the Amazon Web Services Identity and Access Management User Guide.</p>
+<p>Each statement in the key policy must contain one or more principals.  The principals in the key policy must exist and be visible to AWS KMS.  When you create a new AWS principal (for example, an IAM user or role),  you might need to enforce a delay before including the new principal in  a key policy because the new principal might not be immediately visible  to AWS KMS. For more information, see Changes that I make are not always  immediately visible (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency</a>)  in the AWS Identity and Access Management User Guide.</p>
 </li></ul>
 
-<p>A key policy document must conform to the following rules.</p>
-<ul><li>
-<p>Up to 32 kilobytes (32768 bytes)</p>
-</li><li>
-<p>Must be UTF-8 encoded</p>
-</li><li>
-<p>The only Unicode characters that are permitted in a key policy document  are the horizontal tab (U+0009), linefeed (U+000A), carriage return (U+000D),  and characters in the range U+0020 to U+00FF.</p>
-</li><li>
-<p>The Sid element in a key policy statement can include spaces. (Spaces  are prohibited in the Sid element of an IAM policy document.)</p>
-</li></ul>
+<p>If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK. For more information, see Default Key Policy (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default</a>) in the AWS Key Management Service Developer Guide.</p>
 
-<p>For help writing and formatting a JSON policy document, see the IAM JSON Policy Reference (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html</a>) in the Identity and Access Management User Guide .</p>
+<p>The key policy size quota is 32 kilobytes (32768 bytes).</p>
+
+<p>For help writing and formatting a JSON policy document, see the IAM JSON Policy Reference (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html</a>) in the IAM User Guide .</p>
 
 
   </div>
@@ -979,15 +816,13 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the TagResource operation.</p>
+<p>One or more tags. Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string.</p>
 
-<p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see ABAC in KMS (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">docs.aws.amazon.com/kms/latest/developerguide/abac.html</a>) in the Key Management Service Developer Guide.</p>
+<p>When you add tags to an AWS resource, AWS generates a cost allocation report with usage and costs aggregated by tags. For information about adding, changing, deleting and listing tags for CMKs, see Tagging Keys (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html</a>).</p>
+
+<p>Use this parameter to tag the CMK when it is created. To add tags to an existing CMK, use the TagResource operation.</p>
 
 <p>To use this parameter, you must have kms:TagResource (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html</a>) permission in an IAM policy.</p>
-
-<p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, KMS replaces the current tag value with the specified one.</p>
-
-<p>When you add tags to an Amazon Web Services resource, Amazon Web Services generates a cost allocation report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details, see Tagging Keys (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html</a>).</p>
 
 
   </div>
@@ -1041,12 +876,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9480
-9481
-9482</pre>
+8457
+8458
+8459</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9480</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8457</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.CreateKeyInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1083,13 +918,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9511
-9512
-9513
-9514</pre>
+8488
+8489
+8490
+8491</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9511</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8488</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetBypassPolicyLockoutSafetyCheck-instance_method" title="kms.CreateKeyInput.SetBypassPolicyLockoutSafetyCheck() (method)">SetBypassPolicyLockoutSafetyCheck</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.BypassPolicyLockoutSafetyCheck = &v
@@ -1127,13 +962,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9523
-9524
-9525
-9526</pre>
+8500
+8501
+8502
+8503</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9523</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8500</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetCustomerMasterKeySpec-instance_method" title="kms.CreateKeyInput.SetCustomerMasterKeySpec() (method)">SetCustomerMasterKeySpec</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.CustomerMasterKeySpec = &v
@@ -1171,13 +1006,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9517
-9518
-9519
-9520</pre>
+8494
+8495
+8496
+8497</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9517</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8494</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetCustomKeyStoreId-instance_method" title="kms.CreateKeyInput.SetCustomKeyStoreId() (method)">SetCustomKeyStoreId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.CustomKeyStoreId = &v
@@ -1215,60 +1050,16 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9529
-9530
-9531
-9532</pre>
+8506
+8507
+8508
+8509</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9529</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8506</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetDescription-instance_method" title="kms.CreateKeyInput.SetDescription() (method)">SetDescription</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.Description = &v
-	<span class="hljs-keyword">return</span> s
-}</div></pre>
-    </td>
-  </tr>
-</table>
-
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="SetKeySpec-instance_method">
-  
-    func (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <strong><span class='object_link'><a href="#SetKeySpec-instance_method" title="kms.CreateKeyInput.SetKeySpec() (method)">SetKeySpec</a></span></strong>(v string) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>SetKeySpec sets the KeySpec field&#39;s value.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-9535
-9536
-9537
-9538</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9535</span>
-
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetKeySpec-instance_method" title="kms.CreateKeyInput.SetKeySpec() (method)">SetKeySpec</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
-	s.KeySpec = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -1303,60 +1094,16 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9541
-9542
-9543
-9544</pre>
+8512
+8513
+8514
+8515</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9541</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8512</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetKeyUsage-instance_method" title="kms.CreateKeyInput.SetKeyUsage() (method)">SetKeyUsage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.KeyUsage = &v
-	<span class="hljs-keyword">return</span> s
-}</div></pre>
-    </td>
-  </tr>
-</table>
-
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="SetMultiRegion-instance_method">
-  
-    func (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <strong><span class='object_link'><a href="#SetMultiRegion-instance_method" title="kms.CreateKeyInput.SetMultiRegion() (method)">SetMultiRegion</a></span></strong>(v bool) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>SetMultiRegion sets the MultiRegion field&#39;s value.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-9547
-9548
-9549
-9550</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9547</span>
-
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetMultiRegion-instance_method" title="kms.CreateKeyInput.SetMultiRegion() (method)">SetMultiRegion</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
-	s.MultiRegion = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -1391,13 +1138,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9553
-9554
-9555
-9556</pre>
+8518
+8519
+8520
+8521</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9553</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8518</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetOrigin-instance_method" title="kms.CreateKeyInput.SetOrigin() (method)">SetOrigin</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.Origin = &v
@@ -1435,13 +1182,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9559
-9560
-9561
-9562</pre>
+8524
+8525
+8526
+8527</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9559</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8524</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetPolicy-instance_method" title="kms.CreateKeyInput.SetPolicy() (method)">SetPolicy</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.Policy = &v
@@ -1479,13 +1226,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9565
-9566
-9567
-9568</pre>
+8530
+8531
+8532
+8533</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9565</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8530</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#SetTags-instance_method" title="kms.CreateKeyInput.SetTags() (method)">SetTags</a></span>(v []*<span class='object_link'><a href="Tag.html" title="kms.Tag (struct)">Tag</a></span>) *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span> {
 	s.Tags = v
@@ -1525,12 +1272,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9471
-9472
-9473</pre>
+8448
+8449
+8450</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9471</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8448</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.CreateKeyInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1567,33 +1314,33 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9485
-9486
-9487
-9488
-9489
-9490
-9491
-9492
-9493
-9494
-9495
-9496
-9497
-9498
-9499
-9500
-9501
-9502
-9503
-9504
-9505
-9506
-9507
-9508</pre>
+8462
+8463
+8464
+8465
+8466
+8467
+8468
+8469
+8470
+8471
+8472
+8473
+8474
+8475
+8476
+8477
+8478
+8479
+8480
+8481
+8482
+8483
+8484
+8485</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9485</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8462</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.CreateKeyInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.CreateKeyInput (struct)">CreateKeyInput</a></span>"</span>}
@@ -1631,7 +1378,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:23 2022 by
+  Generated on Wed Dec  7 13:39:44 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

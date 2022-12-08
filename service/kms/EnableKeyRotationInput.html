@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies a symmetric encryption KMS key.</p>
+<p>Identifies a symmetric customer master key (CMK).</p>
 </div></span>
   
 </li>
@@ -274,9 +274,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies a symmetric encryption KMS key. You cannot enable or disable automatic rotation of asymmetric KMS keys (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html</a>), HMAC KMS keys (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">docs.aws.amazon.com/kms/latest/developerguide/hmac.html</a>), KMS keys with imported key material (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html</a>), or KMS keys in a custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>). The key rotation status of these KMS keys is always false. To enable or disable automatic rotation of a set of related multi-Region keys (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate</a>), set the property on the primary key.</p>
+<p>Identifies a symmetric customer master key (CMK). You cannot enable automatic rotation of asymmetric CMKs, CMKs with imported key material, or CMKs in a custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>).</p>
 
-<p>Specify the key ID or key ARN of the KMS key.</p>
+<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -285,7 +285,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.</p>
+<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
 
 <p>KeyId is a required field</p>
 
@@ -341,12 +341,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11218
-11219
-11220</pre>
+10165
+10166
+10167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11218</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10165</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.EnableKeyRotationInput (struct)">EnableKeyRotationInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.EnableKeyRotationInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -383,13 +383,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11239
-11240
-11241
-11242</pre>
+10186
+10187
+10188
+10189</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11239</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10186</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EnableKeyRotationInput (struct)">EnableKeyRotationInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.EnableKeyRotationInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.EnableKeyRotationInput (struct)">EnableKeyRotationInput</a></span> {
 	s.KeyId = &v
@@ -429,12 +429,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11209
-11210
-11211</pre>
+10156
+10157
+10158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11209</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10156</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.EnableKeyRotationInput (struct)">EnableKeyRotationInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.EnableKeyRotationInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -471,23 +471,23 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11223
-11224
-11225
-11226
-11227
-11228
-11229
-11230
-11231
-11232
-11233
-11234
-11235
-11236</pre>
+10170
+10171
+10172
+10173
+10174
+10175
+10176
+10177
+10178
+10179
+10180
+10181
+10182
+10183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11223</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10170</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.EnableKeyRotationInput (struct)">EnableKeyRotationInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.EnableKeyRotationInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.EnableKeyRotationInput (struct)">EnableKeyRotationInput</a></span>"</span>}
@@ -515,7 +515,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:25 2022 by
+  Generated on Wed Dec  7 13:39:46 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

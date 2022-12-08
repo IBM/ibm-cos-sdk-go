@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies a customer managed key in the account and Region.</p>
+<p>Identifies a customer managed CMK in the account and Region.</p>
 </div></span>
   
 </li>
@@ -324,9 +324,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies a customer managed key in the account and Region.</p>
+<p>Identifies a customer managed CMK in the account and Region.</p>
 
-<p>Specify the key ID or key ARN of the KMS key.</p>
+<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -335,7 +335,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.</p>
+<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
 
 <p>KeyId is a required field</p>
 
@@ -360,7 +360,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
 <p>Each tag consists of a tag key and a tag value. The tag value can be an empty (null) string.</p>
 
-<p>You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, KMS replaces the current tag value with the specified one.</p>
+<p>You cannot have more than one tag on a CMK with the same tag key. If you specify an existing tag key with a different tag value, AWS KMS replaces the current tag value with the specified one.</p>
 
 <p>Tags is a required field</p>
 
@@ -416,12 +416,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17430
-17431
-17432</pre>
+15549
+15550
+15551</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17430</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15549</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.TagResourceInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -458,13 +458,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17464
-17465
-17466
-17467</pre>
+15583
+15584
+15585
+15586</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17464</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15583</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.TagResourceInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span> {
 	s.KeyId = &v
@@ -502,13 +502,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17470
-17471
-17472
-17473</pre>
+15589
+15590
+15591
+15592</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17470</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15589</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#SetTags-instance_method" title="kms.TagResourceInput.SetTags() (method)">SetTags</a></span>(v []*<span class='object_link'><a href="Tag.html" title="kms.Tag (struct)">Tag</a></span>) *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span> {
 	s.Tags = v
@@ -548,12 +548,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17421
-17422
-17423</pre>
+15540
+15541
+15542</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17421</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15540</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.TagResourceInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -590,36 +590,36 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17435
-17436
-17437
-17438
-17439
-17440
-17441
-17442
-17443
-17444
-17445
-17446
-17447
-17448
-17449
-17450
-17451
-17452
-17453
-17454
-17455
-17456
-17457
-17458
-17459
-17460
-17461</pre>
+15554
+15555
+15556
+15557
+15558
+15559
+15560
+15561
+15562
+15563
+15564
+15565
+15566
+15567
+15568
+15569
+15570
+15571
+15572
+15573
+15574
+15575
+15576
+15577
+15578
+15579
+15580</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17435</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15554</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.TagResourceInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>"</span>}
@@ -660,7 +660,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:34 2022 by
+  Generated on Wed Dec  7 13:39:56 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

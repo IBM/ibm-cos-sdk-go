@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies a grant constraint.</p>
+<p>Allows a cryptographic operation (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) only when the encryption context matches or includes the encryption context specified in this structure.</p>
 </div></span>
   
 </li>
@@ -164,7 +164,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The identity that gets the permissions specified in the grant.</p>
+<p>The principal that is given permission to perform the operations that the grant permits.</p>
 </div></span>
   
 </li>
@@ -189,7 +189,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies the KMS key for the grant.</p>
+<p>The unique identifier for the customer master key (CMK) that the grant applies to.</p>
 </div></span>
   
 </li>
@@ -264,7 +264,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The principal that has permission to use the RetireGrant operation to retire the grant.</p>
+<p>The principal that is given permission to retire the grant by using RetireGrant operation.</p>
 </div></span>
   
 </li>
@@ -574,15 +574,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies a grant constraint.</p>
+<p>Allows a cryptographic operation (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) only when the encryption context matches or includes the encryption context specified in this structure. For more information about encryption context, see Encryption Context (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>) in the AWS Key Management Service Developer Guide .</p>
 
-<p>KMS supports the EncryptionContextEquals and EncryptionContextSubset grant constraints. Each constraint value can include up to 8 encryption context pairs. The encryption context value in each constraint cannot exceed 384 characters. For information about grant constraints, see Using grant constraints (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints</a>) in the Key Management Service Developer Guide. For more information about encryption context, see Encryption context (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>) in the Key Management Service Developer Guide .</p>
-
-<p>The encryption context grant constraints allow the permissions in the grant only when the encryption context in the request matches (EncryptionContextEquals) or includes (EncryptionContextSubset) the encryption context specified in this structure.</p>
-
-<p>The encryption context grant constraints are supported only on grant operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations</a>) that include an EncryptionContext parameter, such as cryptographic operations on symmetric encryption KMS keys. Grants with grant constraints can include the DescribeKey and RetireGrant operations, but the constraint doesn&#39;t apply to these operations. If a grant with a grant constraint includes the CreateGrant operation, the constraint requires that any grants created with the CreateGrant permission have an equally strict or stricter encryption context constraint.</p>
-
-<p>You cannot use an encryption context grant constraint for cryptographic operations with asymmetric KMS keys or HMAC KMS keys. These keys don&#39;t support an encryption context.</p>
+<p>Grant constraints are not applied to operations that do not support an encryption context, such as cryptographic operations with asymmetric CMKs and management operations, such as DescribeKey or RetireGrant.</p>
 
 
   </div>
@@ -603,7 +597,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>A list of grant tokens.</p>
 
-<p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved eventual consistency. For more information, see Grant token (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token</a>) and Using a grant token (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token</a>) in the Key Management Service Developer Guide.</p>
+<p>For more information, see Grant Tokens (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token</a>) in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -622,9 +616,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The identity that gets the permissions specified in the grant.</p>
+<p>The principal that is given permission to perform the operations that the grant permits.</p>
 
-<p>To specify the principal, use the Amazon Resource Name (ARN) (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html</a>) of an Amazon Web Services principal. Valid Amazon Web Services principals include Amazon Web Services accounts (root), IAM users, IAM roles, federated users, and assumed role users. For examples of the ARN syntax to use for specifying a principal, see Amazon Web Services Identity and Access Management (IAM) (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam</a>) in the Example ARNs section of the Amazon Web Services General Reference.</p>
+<p>To specify the principal, use the Amazon Resource Name (ARN) (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html</a>) of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, IAM roles, federated users, and assumed role users. For examples of the ARN syntax to use for specifying a principal, see AWS Identity and Access Management (IAM) (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam</a>) in the Example ARNs section of the AWS General Reference.</p>
 
 <p>GranteePrincipal is a required field</p>
 
@@ -645,9 +639,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies the KMS key for the grant. The grant gives principals permission to use this KMS key.</p>
+<p>The unique identifier for the customer master key (CMK) that the grant applies to.</p>
 
-<p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
+<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -656,7 +650,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.</p>
+<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
 
 <p>KeyId is a required field</p>
 
@@ -702,8 +696,6 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>A list of operations that the grant permits.</p>
 
-<p>This list must include only operations that are permitted in a grant. Also, the operation must be supported on the KMS key. For example, you cannot create a grant for a symmetric encryption KMS key that allows the Sign operation, or a grant for an asymmetric KMS key that allows the GenerateDataKey operation. If you try, KMS returns a ValidationError exception. For details, see Grant operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations</a>) in the Key Management Service Developer Guide.</p>
-
 <p>Operations is a required field</p>
 
 
@@ -723,11 +715,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The principal that has permission to use the RetireGrant operation to retire the grant.</p>
+<p>The principal that is given permission to retire the grant by using RetireGrant operation.</p>
 
-<p>To specify the principal, use the Amazon Resource Name (ARN) (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html</a>) of an Amazon Web Services principal. Valid Amazon Web Services principals include Amazon Web Services accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax to use for specifying a principal, see Amazon Web Services Identity and Access Management (IAM) (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam</a>) in the Example ARNs section of the Amazon Web Services General Reference.</p>
-
-<p>The grant determines the retiring principal. Other principals might have permission to retire the grant or revoke the grant. For details, see RevokeGrant and Retiring and revoking grants (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete</a>) in the Key Management Service Developer Guide.</p>
+<p>To specify the principal, use the Amazon Resource Name (ARN) (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html</a>) of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax to use for specifying a principal, see AWS Identity and Access Management (IAM) (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam</a>) in the Example ARNs section of the AWS General Reference.</p>
 
 
   </div>
@@ -781,12 +771,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9128
-9129
-9130</pre>
+8163
+8164
+8165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9128</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8163</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.CreateGrantInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -823,13 +813,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9164
-9165
-9166
-9167</pre>
+8199
+8200
+8201
+8202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9164</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8199</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span>) <span class='object_link'><a href="#SetConstraints-instance_method" title="kms.CreateGrantInput.SetConstraints() (method)">SetConstraints</a></span>(v *<span class='object_link'><a href="GrantConstraints.html" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span> {
 	s.Constraints = v
@@ -867,13 +857,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9176
-9177
-9178
-9179</pre>
+8211
+8212
+8213
+8214</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9176</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8211</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span>) <span class='object_link'><a href="#SetGranteePrincipal-instance_method" title="kms.CreateGrantInput.SetGranteePrincipal() (method)">SetGranteePrincipal</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span> {
 	s.GranteePrincipal = &v
@@ -911,13 +901,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9170
-9171
-9172
-9173</pre>
+8205
+8206
+8207
+8208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9170</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8205</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.CreateGrantInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span> {
 	s.GrantTokens = v
@@ -955,13 +945,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9182
-9183
-9184
-9185</pre>
+8217
+8218
+8219
+8220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9182</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8217</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.CreateGrantInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span> {
 	s.KeyId = &v
@@ -999,13 +989,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9188
-9189
-9190
-9191</pre>
+8223
+8224
+8225
+8226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9188</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8223</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span>) <span class='object_link'><a href="#SetName-instance_method" title="kms.CreateGrantInput.SetName() (method)">SetName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span> {
 	s.Name = &v
@@ -1043,13 +1033,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9194
-9195
-9196
-9197</pre>
+8229
+8230
+8231
+8232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9194</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8229</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span>) <span class='object_link'><a href="#SetOperations-instance_method" title="kms.CreateGrantInput.SetOperations() (method)">SetOperations</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span> {
 	s.Operations = v
@@ -1087,13 +1077,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9200
-9201
-9202
-9203</pre>
+8235
+8236
+8237
+8238</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9200</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8235</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span>) <span class='object_link'><a href="#SetRetiringPrincipal-instance_method" title="kms.CreateGrantInput.SetRetiringPrincipal() (method)">SetRetiringPrincipal</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span> {
 	s.RetiringPrincipal = &v
@@ -1133,12 +1123,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9119
-9120
-9121</pre>
+8154
+8155
+8156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9119</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8154</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.CreateGrantInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1175,38 +1165,38 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9133
-9134
-9135
-9136
-9137
-9138
-9139
-9140
-9141
-9142
-9143
-9144
-9145
-9146
-9147
-9148
-9149
-9150
-9151
-9152
-9153
-9154
-9155
-9156
-9157
-9158
-9159
-9160
-9161</pre>
+8168
+8169
+8170
+8171
+8172
+8173
+8174
+8175
+8176
+8177
+8178
+8179
+8180
+8181
+8182
+8183
+8184
+8185
+8186
+8187
+8188
+8189
+8190
+8191
+8192
+8193
+8194
+8195
+8196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9133</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8168</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.CreateGrantInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.CreateGrantInput (struct)">CreateGrantInput</a></span>"</span>}
@@ -1249,7 +1239,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:22 2022 by
+  Generated on Wed Dec  7 13:39:43 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

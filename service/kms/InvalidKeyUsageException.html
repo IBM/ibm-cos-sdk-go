@@ -78,14 +78,14 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>The request was rejected for one of the following reasons:</p>
 <ul><li>
-<p>The KeyUsage value of the KMS key is incompatible with the API operation.</p>
+<p>The KeyUsage value of the CMK is incompatible with the API operation.</p>
 </li><li>
-<p>The encryption algorithm or signing algorithm specified for the operation  is incompatible with the type of key material in the KMS key (KeySpec).</p>
+<p>The encryption algorithm or signing algorithm specified for the operation  is incompatible with the type of key material in the CMK (CustomerMasterKeySpec).</p>
 </li></ul>
 
-<p>For encrypting, decrypting, re-encrypting, and generating data keys, the KeyUsage must be ENCRYPT_DECRYPT. For signing and verifying messages, the KeyUsage must be SIGN_VERIFY. For generating and verifying message authentication codes (MACs), the KeyUsage must be GENERATE_VERIFY_MAC. To find the KeyUsage of a KMS key, use the DescribeKey operation.</p>
+<p>For encrypting, decrypting, re-encrypting, and generating data keys, the KeyUsage must be ENCRYPT_DECRYPT. For signing and verifying, the KeyUsage must be SIGN_VERIFY. To find the KeyUsage of a CMK, use the DescribeKey operation.</p>
 
-<p>To find the encryption or signing algorithms supported for a particular KMS key, use the DescribeKey operation.</p>
+<p>To find the encryption or signing algorithms supported for a particular CMK, use the DescribeKey operation.</p>
 
 
   </div>
@@ -462,12 +462,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14140
-14141
-14142</pre>
+12863
+12864
+12865</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14140</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12863</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.InvalidKeyUsageException (struct)">InvalidKeyUsageException</a></span>) <span class='object_link'><a href="#Code-instance_method" title="kms.InvalidKeyUsageException.Code() (method)">Code</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> <span class="hljs-string">"<span class='object_link'><a href="" title="kms.InvalidKeyUsageException (struct)">InvalidKeyUsageException</a></span>"</span>
@@ -493,12 +493,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14157
-14158
-14159</pre>
+12880
+12881
+12882</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14157</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12880</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.InvalidKeyUsageException (struct)">InvalidKeyUsageException</a></span>) <span class='object_link'><a href="#Error-instance_method" title="kms.InvalidKeyUsageException.Error() (method)">Error</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> fmt.Sprintf(<span class="hljs-string">"%s: %s"</span>, s.Code(), s.Message())
@@ -537,12 +537,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14129
-14130
-14131</pre>
+12852
+12853
+12854</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14129</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12852</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.InvalidKeyUsageException (struct)">InvalidKeyUsageException</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.InvalidKeyUsageException.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -579,15 +579,15 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14145
-14146
-14147
-14148
-14149
-14150</pre>
+12868
+12869
+12870
+12871
+12872
+12873</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14145</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12868</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.InvalidKeyUsageException (struct)">InvalidKeyUsageException</a></span>) <span class='object_link'><a href="#Message-instance_method" title="kms.InvalidKeyUsageException.Message() (method)">Message</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">if</span> s.Message_ != <span class="hljs-constant">nil</span> {
@@ -627,12 +627,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14153
-14154
-14155</pre>
+12876
+12877
+12878</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14153</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12876</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.InvalidKeyUsageException (struct)">InvalidKeyUsageException</a></span>) <span class='object_link'><a href="#OrigErr-instance_method" title="kms.InvalidKeyUsageException.OrigErr() (method)">OrigErr</a></span>() <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
@@ -669,12 +669,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14167
-14168
-14169</pre>
+12890
+12891
+12892</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14167</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12890</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.InvalidKeyUsageException (struct)">InvalidKeyUsageException</a></span>) <span class='object_link'><a href="#RequestID-instance_method" title="kms.InvalidKeyUsageException.RequestID() (method)">RequestID</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.RespMetadata.<span class='object_link'><a href="#RequestID-instance_method" title="kms.InvalidKeyUsageException.RequestID() (method)">RequestID</a></span>
@@ -711,12 +711,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14162
-14163
-14164</pre>
+12885
+12886
+12887</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14162</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12885</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.InvalidKeyUsageException (struct)">InvalidKeyUsageException</a></span>) <span class='object_link'><a href="#StatusCode-instance_method" title="kms.InvalidKeyUsageException.StatusCode() (method)">StatusCode</a></span>() <span class="hljs-constant">int</span> {
 	<span class="hljs-keyword">return</span> s.RespMetadata.<span class='object_link'><a href="#StatusCode-instance_method" title="kms.InvalidKeyUsageException.StatusCode() (method)">StatusCode</a></span>
@@ -755,12 +755,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14120
-14121
-14122</pre>
+12843
+12844
+12845</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14120</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12843</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.InvalidKeyUsageException (struct)">InvalidKeyUsageException</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.InvalidKeyUsageException.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -777,7 +777,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:29 2022 by
+  Generated on Wed Dec  7 13:39:51 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

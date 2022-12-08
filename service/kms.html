@@ -78,35 +78,31 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>Package kms provides the client and types for making API requests to AWS Key Management Service.</p>
 
-<p>Key Management Service (KMS) is an encryption and key management web service. This guide describes the KMS operations that you can call programmatically. For general information about KMS, see the Key Management Service Developer Guide (<a href="https://docs.aws.amazon.com/kms/latest/developerguide">docs.aws.amazon.com/kms/latest/developerguide</a>/).</p>
+<p>AWS Key Management Service (AWS KMS) is an encryption and key management web service. This guide describes the AWS KMS operations that you can call programmatically. For general information about AWS KMS, see the AWS Key Management Service Developer Guide (<a href="https://docs.aws.amazon.com/kms/latest/developerguide">docs.aws.amazon.com/kms/latest/developerguide</a>/).</p>
 
-<p>KMS is replacing the term customer master key (CMK) with KMS key and KMS key. The concept has not changed. To prevent breaking changes, KMS is keeping some variations of this term.</p>
+<p>AWS provides SDKs that consist of libraries and sample code for various programming languages and platforms (Java, Ruby, .Net, macOS, Android, etc.). The SDKs provide a convenient way to create programmatic access to AWS KMS and other AWS services. For example, the SDKs take care of tasks such as signing requests (see below), managing errors, and retrying requests automatically. For more information about the AWS SDKs, including how to download and install them, see Tools for Amazon Web Services (<a href="http://aws.amazon.com/tools">aws.amazon.com/tools</a>/).</p>
 
-<p>Amazon Web Services provides SDKs that consist of libraries and sample code for various programming languages and platforms (Java, Ruby, .Net, macOS, Android, etc.). The SDKs provide a convenient way to create programmatic access to KMS and other Amazon Web Services services. For example, the SDKs take care of tasks such as signing requests (see below), managing errors, and retrying requests automatically. For more information about the Amazon Web Services SDKs, including how to download and install them, see Tools for Amazon Web Services (<a href="http://aws.amazon.com/tools">aws.amazon.com/tools</a>/).</p>
+<p>We recommend that you use the AWS SDKs to make programmatic API calls to AWS KMS.</p>
 
-<p>We recommend that you use the Amazon Web Services SDKs to make programmatic API calls to KMS.</p>
-
-<p>If you need to use FIPS 140-2 validated cryptographic modules when communicating with Amazon Web Services, use the FIPS endpoint in your preferred Amazon Web Services Region. For more information about the available FIPS endpoints, see Service endpoints (<a href="https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region">docs.aws.amazon.com/general/latest/gr/kms.html#kms_region</a>) in the Key Management Service topic of the Amazon Web Services General Reference.</p>
-
-<p>All KMS API calls must be signed and be transmitted using Transport Layer Security (TLS). KMS recommends you always use the latest supported TLS version. Clients must also support cipher suites with Perfect Forward Secrecy (PFS) such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems such as Java 7 and later support these modes.</p>
+<p>Clients must support TLS (Transport Layer Security) 1.0. We recommend TLS 1.2. Clients must also support cipher suites with Perfect Forward Secrecy (PFS) such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems such as Java 7 and later support these modes.</p>
 
 <p>Signing Requests</p>
 
-<p>Requests must be signed by using an access key ID and a secret access key. We strongly recommend that you do not use your Amazon Web Services account (root) access key ID and secret key for everyday work with KMS. Instead, use the access key ID and secret access key for an IAM user. You can also use the Amazon Web Services Security Token Service to generate temporary security credentials that you can use to sign requests.</p>
+<p>Requests must be signed by using an access key ID and a secret access key. We strongly recommend that you do not use your AWS account (root) access key ID and secret key for everyday work with AWS KMS. Instead, use the access key ID and secret access key for an IAM user. You can also use the AWS Security Token Service to generate temporary security credentials that you can use to sign requests.</p>
 
-<p>All KMS operations require Signature Version 4 (<a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>).</p>
+<p>All AWS KMS operations require Signature Version 4 (<a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>).</p>
 
 <p>Logging API Requests</p>
 
-<p>KMS supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to KMS, who made the request, when it was made, and so on. To learn more about CloudTrail, including how to turn it on and find your log files, see the CloudTrail User Guide (<a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide">docs.aws.amazon.com/awscloudtrail/latest/userguide</a>/).</p>
+<p>AWS KMS supports AWS CloudTrail, a service that logs AWS API calls and related events for your AWS account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to AWS KMS, who made the request, when it was made, and so on. To learn more about CloudTrail, including how to turn it on and find your log files, see the AWS CloudTrail User Guide (<a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide">docs.aws.amazon.com/awscloudtrail/latest/userguide</a>/).</p>
 
 <p>Additional Resources</p>
 
 <p>For more information about credentials and request signing, see the following:</p>
 <ul><li>
-<p>Amazon Web Services Security Credentials (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a>)</p>
+<p>AWS Security Credentials (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a>)</p>
 </li><li>
-<p>This topic provides general information about the types of credentials  used to access Amazon Web Services.</p>
+<p>This topic provides general information about the types of credentials  used for accessing AWS.</p>
 </li><li>
 <p>Temporary Security Credentials (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html</a>)</p>
 </li><li>
@@ -762,98 +758,6 @@ import "../ibm-cos-sdk-go/service/kms"
             <pre class="code"><div class="hljs"><span class="hljs-string">"SYMMETRIC_DEFAULT"</span></div></pre>
           </dd>
         
-          <dt id="CustomerMasterKeySpecHmac224-constant" class="">
-          <div class="defn">const <strong>CustomerMasterKeySpecHmac224</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>CustomerMasterKeySpecHmac224 is a CustomerMasterKeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"HMAC_224"</span></div></pre>
-          </dd>
-        
-          <dt id="CustomerMasterKeySpecHmac256-constant" class="">
-          <div class="defn">const <strong>CustomerMasterKeySpecHmac256</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>CustomerMasterKeySpecHmac256 is a CustomerMasterKeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"HMAC_256"</span></div></pre>
-          </dd>
-        
-          <dt id="CustomerMasterKeySpecHmac384-constant" class="">
-          <div class="defn">const <strong>CustomerMasterKeySpecHmac384</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>CustomerMasterKeySpecHmac384 is a CustomerMasterKeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"HMAC_384"</span></div></pre>
-          </dd>
-        
-          <dt id="CustomerMasterKeySpecHmac512-constant" class="">
-          <div class="defn">const <strong>CustomerMasterKeySpecHmac512</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>CustomerMasterKeySpecHmac512 is a CustomerMasterKeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"HMAC_512"</span></div></pre>
-          </dd>
-        
           <dt id="DataKeyPairSpecRsa2048-constant" class="">
           <div class="defn">const <strong>DataKeyPairSpecRsa2048</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -1498,52 +1402,6 @@ import "../ibm-cos-sdk-go/service/kms"
             <pre class="code"><div class="hljs"><span class="hljs-string">"GenerateDataKeyPairWithoutPlaintext"</span></div></pre>
           </dd>
         
-          <dt id="GrantOperationGenerateMac-constant" class="">
-          <div class="defn">const <strong>GrantOperationGenerateMac</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>GrantOperationGenerateMac is a GrantOperation enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"GenerateMac"</span></div></pre>
-          </dd>
-        
-          <dt id="GrantOperationVerifyMac-constant" class="">
-          <div class="defn">const <strong>GrantOperationVerifyMac</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>GrantOperationVerifyMac is a GrantOperation enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"VerifyMac"</span></div></pre>
-          </dd>
-        
           <dt id="KeyManagerTypeAws-constant" class="">
           <div class="defn">const <strong>KeyManagerTypeAws</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -1588,305 +1446,6 @@ import "../ibm-cos-sdk-go/service/kms"
           <dd>
             <h3>Value:</h3>
             <pre class="code"><div class="hljs"><span class="hljs-string">"CUSTOMER"</span></div></pre>
-          </dd>
-        
-          <dt id="KeySpecRsa2048-constant" class="">
-          <div class="defn">const <strong>KeySpecRsa2048</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeySpecRsa2048 is a KeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"RSA_2048"</span></div></pre>
-          </dd>
-        
-          <dt id="KeySpecRsa3072-constant" class="">
-          <div class="defn">const <strong>KeySpecRsa3072</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeySpecRsa3072 is a KeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"RSA_3072"</span></div></pre>
-          </dd>
-        
-          <dt id="KeySpecRsa4096-constant" class="">
-          <div class="defn">const <strong>KeySpecRsa4096</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeySpecRsa4096 is a KeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"RSA_4096"</span></div></pre>
-          </dd>
-        
-          <dt id="KeySpecEccNistP256-constant" class="">
-          <div class="defn">const <strong>KeySpecEccNistP256</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeySpecEccNistP256 is a KeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"ECC_NIST_P256"</span></div></pre>
-          </dd>
-        
-          <dt id="KeySpecEccNistP384-constant" class="">
-          <div class="defn">const <strong>KeySpecEccNistP384</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeySpecEccNistP384 is a KeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"ECC_NIST_P384"</span></div></pre>
-          </dd>
-        
-          <dt id="KeySpecEccNistP521-constant" class="">
-          <div class="defn">const <strong>KeySpecEccNistP521</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeySpecEccNistP521 is a KeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"ECC_NIST_P521"</span></div></pre>
-          </dd>
-        
-          <dt id="KeySpecEccSecgP256k1-constant" class="">
-          <div class="defn">const <strong>KeySpecEccSecgP256k1</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeySpecEccSecgP256k1 is a KeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"ECC_SECG_P256K1"</span></div></pre>
-          </dd>
-        
-          <dt id="KeySpecSymmetricDefault-constant" class="">
-          <div class="defn">const <strong>KeySpecSymmetricDefault</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeySpecSymmetricDefault is a KeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"SYMMETRIC_DEFAULT"</span></div></pre>
-          </dd>
-        
-          <dt id="KeySpecHmac224-constant" class="">
-          <div class="defn">const <strong>KeySpecHmac224</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeySpecHmac224 is a KeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"HMAC_224"</span></div></pre>
-          </dd>
-        
-          <dt id="KeySpecHmac256-constant" class="">
-          <div class="defn">const <strong>KeySpecHmac256</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeySpecHmac256 is a KeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"HMAC_256"</span></div></pre>
-          </dd>
-        
-          <dt id="KeySpecHmac384-constant" class="">
-          <div class="defn">const <strong>KeySpecHmac384</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeySpecHmac384 is a KeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"HMAC_384"</span></div></pre>
-          </dd>
-        
-          <dt id="KeySpecHmac512-constant" class="">
-          <div class="defn">const <strong>KeySpecHmac512</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeySpecHmac512 is a KeySpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"HMAC_512"</span></div></pre>
-          </dd>
-        
-          <dt id="KeyStateCreating-constant" class="">
-          <div class="defn">const <strong>KeyStateCreating</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeyStateCreating is a KeyState enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"Creating"</span></div></pre>
           </dd>
         
           <dt id="KeyStateEnabled-constant" class="">
@@ -1981,29 +1540,6 @@ import "../ibm-cos-sdk-go/service/kms"
             <pre class="code"><div class="hljs"><span class="hljs-string">"PendingImport"</span></div></pre>
           </dd>
         
-          <dt id="KeyStatePendingReplicaDeletion-constant" class="">
-          <div class="defn">const <strong>KeyStatePendingReplicaDeletion</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeyStatePendingReplicaDeletion is a KeyState enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"PendingReplicaDeletion"</span></div></pre>
-          </dd>
-        
           <dt id="KeyStateUnavailable-constant" class="">
           <div class="defn">const <strong>KeyStateUnavailable</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -2025,29 +1561,6 @@ import "../ibm-cos-sdk-go/service/kms"
           <dd>
             <h3>Value:</h3>
             <pre class="code"><div class="hljs"><span class="hljs-string">"Unavailable"</span></div></pre>
-          </dd>
-        
-          <dt id="KeyStateUpdating-constant" class="">
-          <div class="defn">const <strong>KeyStateUpdating</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeyStateUpdating is a KeyState enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"Updating"</span></div></pre>
           </dd>
         
           <dt id="KeyUsageTypeSignVerify-constant" class="">
@@ -2096,121 +1609,6 @@ import "../ibm-cos-sdk-go/service/kms"
             <pre class="code"><div class="hljs"><span class="hljs-string">"ENCRYPT_DECRYPT"</span></div></pre>
           </dd>
         
-          <dt id="KeyUsageTypeGenerateVerifyMac-constant" class="">
-          <div class="defn">const <strong>KeyUsageTypeGenerateVerifyMac</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>KeyUsageTypeGenerateVerifyMac is a KeyUsageType enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"GENERATE_VERIFY_MAC"</span></div></pre>
-          </dd>
-        
-          <dt id="MacAlgorithmSpecHmacSha224-constant" class="">
-          <div class="defn">const <strong>MacAlgorithmSpecHmacSha224</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>MacAlgorithmSpecHmacSha224 is a MacAlgorithmSpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"HMAC_SHA_224"</span></div></pre>
-          </dd>
-        
-          <dt id="MacAlgorithmSpecHmacSha256-constant" class="">
-          <div class="defn">const <strong>MacAlgorithmSpecHmacSha256</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>MacAlgorithmSpecHmacSha256 is a MacAlgorithmSpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"HMAC_SHA_256"</span></div></pre>
-          </dd>
-        
-          <dt id="MacAlgorithmSpecHmacSha384-constant" class="">
-          <div class="defn">const <strong>MacAlgorithmSpecHmacSha384</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>MacAlgorithmSpecHmacSha384 is a MacAlgorithmSpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"HMAC_SHA_384"</span></div></pre>
-          </dd>
-        
-          <dt id="MacAlgorithmSpecHmacSha512-constant" class="">
-          <div class="defn">const <strong>MacAlgorithmSpecHmacSha512</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>MacAlgorithmSpecHmacSha512 is a MacAlgorithmSpec enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"HMAC_SHA_512"</span></div></pre>
-          </dd>
-        
           <dt id="MessageTypeRaw-constant" class="">
           <div class="defn">const <strong>MessageTypeRaw</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -2255,52 +1653,6 @@ import "../ibm-cos-sdk-go/service/kms"
           <dd>
             <h3>Value:</h3>
             <pre class="code"><div class="hljs"><span class="hljs-string">"DIGEST"</span></div></pre>
-          </dd>
-        
-          <dt id="MultiRegionKeyTypePrimary-constant" class="">
-          <div class="defn">const <strong>MultiRegionKeyTypePrimary</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>MultiRegionKeyTypePrimary is a MultiRegionKeyType enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"PRIMARY"</span></div></pre>
-          </dd>
-        
-          <dt id="MultiRegionKeyTypeReplica-constant" class="">
-          <div class="defn">const <strong>MultiRegionKeyTypeReplica</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>MultiRegionKeyTypeReplica is a MultiRegionKeyType enum value</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"REPLICA"</span></div></pre>
           </dd>
         
           <dt id="OriginTypeAwsKms-constant" class="">
@@ -2637,7 +1989,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeCloudHsmClusterInUseException for service response error code “CloudHsmClusterInUseException”.</p>
 
-<p>The request was rejected because the specified CloudHSM cluster is already associated with a custom key store or it shares a backup history with a cluster that is associated with a custom key store. Each custom key store must be associated with a different CloudHSM cluster.</p>
+<p>The request was rejected because the specified AWS CloudHSM cluster is already associated with a custom key store or it shares a backup history with a cluster that is associated with a custom key store. Each custom key store must be associated with a different AWS CloudHSM cluster.</p>
 
 <p>Clusters that share a backup history have the same cluster certificate. To view the cluster certificate of a cluster, use the DescribeClusters (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>) operation.</p>
 
@@ -2664,16 +2016,16 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeCloudHsmClusterInvalidConfigurationException for service response error code “CloudHsmClusterInvalidConfigurationException”.</p>
 
-<p>The request was rejected because the associated CloudHSM cluster did not meet the configuration requirements for a custom key store.</p>
+<p>The request was rejected because the associated AWS CloudHSM cluster did not meet the configuration requirements for a custom key store.</p>
 <ul><li>
 <p>The cluster must be configured with private subnets in at least two  different Availability Zones in the Region.</p>
 </li><li>
 <p>The security group for the cluster (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>)  (cloudhsm-cluster-&lt;cluster-id&gt;-sg) must include inbound rules and outbound  rules that allow TCP traffic on ports 2223-2225. The Source in the inbound  rules and the Destination in the outbound rules must match the security  group ID. These rules are set by default when you create the cluster.  Do not delete or change them. To get information about a particular security  group, use the DescribeSecurityGroups (<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html">docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html</a>)  operation.</p>
 </li><li>
-<p>The cluster must contain at least as many HSMs as the operation requires.  To add HSMs, use the CloudHSM CreateHsm (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html</a>)  operation. For the CreateCustomKeyStore, UpdateCustomKeyStore, and CreateKey  operations, the CloudHSM cluster must have at least two active HSMs, each  in a different Availability Zone. For the ConnectCustomKeyStore operation,  the CloudHSM must contain at least one active HSM.</p>
+<p>The cluster must contain at least as many HSMs as the operation requires.  To add HSMs, use the AWS CloudHSM CreateHsm (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html</a>)  operation. For the CreateCustomKeyStore, UpdateCustomKeyStore, and CreateKey  operations, the AWS CloudHSM cluster must have at least two active HSMs,  each in a different Availability Zone. For the ConnectCustomKeyStore operation,  the AWS CloudHSM must contain at least one active HSM.</p>
 </li></ul>
 
-<p>For information about the requirements for an CloudHSM cluster that is associated with a custom key store, see Assemble the Prerequisites (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore</a>) in the Key Management Service Developer Guide. For information about creating a private subnet for an CloudHSM cluster, see Create a Private Subnet (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html</a>) in the CloudHSM User Guide. For information about cluster security groups, see Configure a Default Security Group (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>) in the CloudHSM User Guide .</p>
+<p>For information about the requirements for an AWS CloudHSM cluster that is associated with a custom key store, see Assemble the Prerequisites (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore</a>) in the AWS Key Management Service Developer Guide. For information about creating a private subnet for an AWS CloudHSM cluster, see Create a Private Subnet (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html</a>) in the AWS CloudHSM User Guide. For information about cluster security groups, see Configure a Default Security Group (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>) in the AWS CloudHSM User Guide .</p>
 
 
   </div>
@@ -2698,7 +2050,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeCloudHsmClusterNotActiveException for service response error code “CloudHsmClusterNotActiveException”.</p>
 
-<p>The request was rejected because the CloudHSM cluster that is associated with the custom key store is not active. Initialize and activate the cluster and try the command again. For detailed instructions, see Getting Started (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html</a>) in the CloudHSM User Guide.</p>
+<p>The request was rejected because the AWS CloudHSM cluster that is associated with the custom key store is not active. Initialize and activate the cluster and try the command again. For detailed instructions, see Getting Started (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html</a>) in the AWS CloudHSM User Guide.</p>
 
 
   </div>
@@ -2723,7 +2075,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeCloudHsmClusterNotFoundException for service response error code “CloudHsmClusterNotFoundException”.</p>
 
-<p>The request was rejected because KMS cannot find the CloudHSM cluster with the specified cluster ID. Retry the request with a different cluster ID.</p>
+<p>The request was rejected because AWS KMS cannot find the AWS CloudHSM cluster with the specified cluster ID. Retry the request with a different cluster ID.</p>
 
 
   </div>
@@ -2748,7 +2100,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeCloudHsmClusterNotRelatedException for service response error code “CloudHsmClusterNotRelatedException”.</p>
 
-<p>The request was rejected because the specified CloudHSM cluster has a different cluster certificate than the original cluster. You cannot use the operation to specify an unrelated cluster.</p>
+<p>The request was rejected because the specified AWS CloudHSM cluster has a different cluster certificate than the original cluster. You cannot use the operation to specify an unrelated cluster.</p>
 
 <p>Specify a cluster that shares a backup history with the original cluster. This includes clusters that were created from a backup of the current cluster, and clusters that were created from the same backup that produced the current cluster.</p>
 
@@ -2777,7 +2129,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeCustomKeyStoreHasCMKsException for service response error code “CustomKeyStoreHasCMKsException”.</p>
 
-<p>The request was rejected because the custom key store contains KMS keys. After verifying that you do not need to use the KMS keys, use the ScheduleKeyDeletion operation to delete the KMS keys. After they are deleted, you can delete the custom key store.</p>
+<p>The request was rejected because the custom key store contains AWS KMS customer master keys (CMKs). After verifying that you do not need to use the CMKs, use the ScheduleKeyDeletion operation to delete the CMKs. After they are deleted, you can delete the custom key store.</p>
 
 
   </div>
@@ -2861,7 +2213,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeCustomKeyStoreNotFoundException for service response error code “CustomKeyStoreNotFoundException”.</p>
 
-<p>The request was rejected because KMS cannot find a custom key store with the specified key store name or ID.</p>
+<p>The request was rejected because AWS KMS cannot find a custom key store with the specified key store name or ID.</p>
 
 
   </div>
@@ -2911,7 +2263,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeDisabledException for service response error code “DisabledException”.</p>
 
-<p>The request was rejected because the specified KMS key is not enabled.</p>
+<p>The request was rejected because the specified CMK is not enabled.</p>
 
 
   </div>
@@ -2961,7 +2313,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeIncorrectKeyException for service response error code “IncorrectKeyException”.</p>
 
-<p>The request was rejected because the specified KMS key cannot decrypt the data. The KeyId in a Decrypt request and the SourceKeyId in a ReEncrypt request must identify the same KMS key that was used to encrypt the ciphertext.</p>
+<p>The request was rejected because the specified CMK cannot decrypt the data. The KeyId in a Decrypt request and the SourceKeyId in a ReEncrypt request must identify the same CMK that was used to encrypt the ciphertext.</p>
 
 
   </div>
@@ -2986,7 +2338,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeIncorrectKeyMaterialException for service response error code “IncorrectKeyMaterialException”.</p>
 
-<p>The request was rejected because the key material in the request is, expired, invalid, or is not the same key material that was previously imported into this KMS key.</p>
+<p>The request was rejected because the key material in the request is, expired, invalid, or is not the same key material that was previously imported into this customer master key (CMK).</p>
 
 
   </div>
@@ -3011,7 +2363,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeIncorrectTrustAnchorException for service response error code “IncorrectTrustAnchorException”.</p>
 
-<p>The request was rejected because the trust anchor certificate in the request is not the trust anchor certificate for the specified CloudHSM cluster.</p>
+<p>The request was rejected because the trust anchor certificate in the request is not the trust anchor certificate for the specified AWS CloudHSM cluster.</p>
 
 <p>When you initialize the cluster (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr</a>), you create the trust anchor certificate and save it in the customerCA.crt file.</p>
 
@@ -3115,7 +2467,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
 <p>From the Decrypt or ReEncrypt operation, the request was rejected because the specified ciphertext, or additional authenticated data incorporated into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise invalid.</p>
 
-<p>From the ImportKeyMaterial operation, the request was rejected because KMS could not decrypt the encrypted (wrapped) key material.</p>
+<p>From the ImportKeyMaterial operation, the request was rejected because AWS KMS could not decrypt the encrypted (wrapped) key material.</p>
 
 
   </div>
@@ -3190,7 +2542,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeInvalidImportTokenException for service response error code “InvalidImportTokenException”.</p>
 
-<p>The request was rejected because the provided import token is invalid or is associated with a different KMS key.</p>
+<p>The request was rejected because the provided import token is invalid or is associated with a different customer master key (CMK).</p>
 
 
   </div>
@@ -3217,14 +2569,14 @@ import "../ibm-cos-sdk-go/service/kms"
 
 <p>The request was rejected for one of the following reasons:</p>
 <ul><li>
-<p>The KeyUsage value of the KMS key is incompatible with the API operation.</p>
+<p>The KeyUsage value of the CMK is incompatible with the API operation.</p>
 </li><li>
-<p>The encryption algorithm or signing algorithm specified for the operation  is incompatible with the type of key material in the KMS key (KeySpec).</p>
+<p>The encryption algorithm or signing algorithm specified for the operation  is incompatible with the type of key material in the CMK (CustomerMasterKeySpec).</p>
 </li></ul>
 
-<p>For encrypting, decrypting, re-encrypting, and generating data keys, the KeyUsage must be ENCRYPT_DECRYPT. For signing and verifying messages, the KeyUsage must be SIGN_VERIFY. For generating and verifying message authentication codes (MACs), the KeyUsage must be GENERATE_VERIFY_MAC. To find the KeyUsage of a KMS key, use the DescribeKey operation.</p>
+<p>For encrypting, decrypting, re-encrypting, and generating data keys, the KeyUsage must be ENCRYPT_DECRYPT. For signing and verifying, the KeyUsage must be SIGN_VERIFY. To find the KeyUsage of a CMK, use the DescribeKey operation.</p>
 
-<p>To find the encryption or signing algorithms supported for a particular KMS key, use the DescribeKey operation.</p>
+<p>To find the encryption or signing algorithms supported for a particular CMK, use the DescribeKey operation.</p>
 
 
   </div>
@@ -3276,7 +2628,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
 <p>The request was rejected because the state of the specified resource is not valid for this request.</p>
 
-<p>For more information about how key state affects the use of a KMS key, see Key states of KMS keys (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>) in the Key Management Service Developer Guide .</p>
+<p>For more information about how key state affects the use of a CMK, see How Key State Affects Use of a Customer Master Key (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>) in the AWS Key Management Service Developer Guide .</p>
 
 
   </div>
@@ -3291,31 +2643,6 @@ import "../ibm-cos-sdk-go/service/kms"
             <pre class="code"><div class="hljs"><span class="hljs-string">"KMSInvalidStateException"</span></div></pre>
           </dd>
         
-          <dt id="ErrCodeKMSInvalidMacException-constant" class="">
-          <div class="defn">const <strong>ErrCodeKMSInvalidMacException</strong>  = 
-          <span class="note title readonly">readonly</span>
-          
-          </div>
-            <div class="docstring">
-  <div class="discussion">
-    
-<p>ErrCodeKMSInvalidMacException for service response error code “KMSInvalidMacException”.</p>
-
-<p>The request was rejected because the HMAC verification failed. HMAC verification fails when the HMAC computed by using the specified message, HMAC KMS key, and MAC algorithm does not match the HMAC specified in the request.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-          </dt>
-          <dd>
-            <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class="hljs-string">"<span class='object_link'><a href="kms/KMSInvalidMacException.html" title="kms.KMSInvalidMacException (struct)">KMSInvalidMacException</a></span>"</span></div></pre>
-          </dd>
-        
           <dt id="ErrCodeKMSInvalidSignatureException-constant" class="">
           <div class="defn">const <strong>ErrCodeKMSInvalidSignatureException</strong>  = 
           <span class="note title readonly">readonly</span>
@@ -3326,7 +2653,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeKMSInvalidSignatureException for service response error code “KMSInvalidSignatureException”.</p>
 
-<p>The request was rejected because the signature verification failed. Signature verification fails when it cannot confirm that signature was produced by signing the specified message with the specified KMS key and signing algorithm.</p>
+<p>The request was rejected because the signature verification failed. Signature verification fails when it cannot confirm that signature was produced by signing the specified message with the specified CMK and signing algorithm.</p>
 
 
   </div>
@@ -3351,7 +2678,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeKeyUnavailableException for service response error code “KeyUnavailableException”.</p>
 
-<p>The request was rejected because the specified KMS key was not available. You can retry the request.</p>
+<p>The request was rejected because the specified CMK was not available. You can retry the request.</p>
 
 
   </div>
@@ -3376,7 +2703,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>ErrCodeLimitExceededException for service response error code “LimitExceededException”.</p>
 
-<p>The request was rejected because a quota was exceeded. For more information, see Quotas (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">docs.aws.amazon.com/kms/latest/developerguide/limits.html</a>) in the Key Management Service Developer Guide.</p>
+<p>The request was rejected because a quota was exceeded. For more information, see Quotas (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">docs.aws.amazon.com/kms/latest/developerguide/limits.html</a>) in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -3983,29 +3310,6 @@ import "../ibm-cos-sdk-go/service/kms"
 
 
     
-      
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#type-UpdatePrimaryRegionOutput" title="kms (package)"><strong>UpdatePrimaryRegionOutput</strong></a></span></span>
-  
-  
-  <span class="note title readonly">struct</span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-
-    
   </ul>
 
 
@@ -4270,31 +3574,6 @@ import "../ibm-cos-sdk-go/service/kms"
       
         
 <li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#KeySpec_Values-class_method" title="kms.KeySpec_Values() (method)">func <strong>KeySpec_Values</strong>() []string </a></span></span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>KeySpec_Values returns all elements of the KeySpec enum.</p>
-</div></span>
-  
-</li>
-
-
-      
-        
-<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#KeyState_Values-class_method" title="kms.KeyState_Values() (method)">func <strong>KeyState_Values</strong>() []string </a></span></span>
   
   
@@ -4345,31 +3624,6 @@ import "../ibm-cos-sdk-go/service/kms"
       
         
 <li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#MacAlgorithmSpec_Values-class_method" title="kms.MacAlgorithmSpec_Values() (method)">func <strong>MacAlgorithmSpec_Values</strong>() []string </a></span></span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>MacAlgorithmSpec_Values returns all elements of the MacAlgorithmSpec enum.</p>
-</div></span>
-  
-</li>
-
-
-      
-        
-<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#MessageType_Values-class_method" title="kms.MessageType_Values() (method)">func <strong>MessageType_Values</strong>() []string </a></span></span>
   
   
@@ -4387,31 +3641,6 @@ import "../ibm-cos-sdk-go/service/kms"
   
     <span class="summary_desc"><div class='inline'>
 <p>MessageType_Values returns all elements of the MessageType enum.</p>
-</div></span>
-  
-</li>
-
-
-      
-        
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#MultiRegionKeyType_Values-class_method" title="kms.MultiRegionKeyType_Values() (method)">func <strong>MultiRegionKeyType_Values</strong>() []string </a></span></span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>MultiRegionKeyType_Values returns all elements of the MultiRegionKeyType enum.</p>
 </div></span>
   
 </li>
@@ -5054,35 +4283,6 @@ import "../ibm-cos-sdk-go/service/kms"
 
 </div>
     
-      <div class="method_details ">
-  <h3 class="signature " id="type-UpdatePrimaryRegionOutput">
-  
-    <strong>UpdatePrimaryRegionOutput</strong> struct
-  
-
-  
-</h3>
-<div class="tags">
-<p class="tag_title">Structure Fields:</p>
-<dl class="fields">
-
-  <dt><code>
-    <strong>_</strong> struct{} 
-    
-    
-  </code></dt>
-  <dd>
-    
-    
-  </dd>
-
-
-</dl>
-</div>
-
-
-</div>
-    
   </div>
 
 
@@ -5116,16 +4316,16 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18505
-18506
-18507
-18508
-18509
-18510
-18511</pre>
+16329
+16330
+16331
+16332
+16333
+16334
+16335</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18505</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16329</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AlgorithmSpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5166,22 +4366,22 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18543
-18544
-18545
-18546
-18547
-18548
-18549
-18550
-18551
-18552
-18553
-18554
-18555</pre>
+16367
+16368
+16369
+16370
+16371
+16372
+16373
+16374
+16375
+16376
+16377
+16378
+16379</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18543</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16367</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ConnectionErrorCodeType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5228,18 +4428,18 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18575
-18576
-18577
-18578
-18579
-18580
-18581
-18582
-18583</pre>
+16399
+16400
+16401
+16402
+16403
+16404
+16405
+16406
+16407</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18575</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16399</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ConnectionStateType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5282,25 +4482,21 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18624
-18625
-18626
-18627
-18628
-18629
-18630
-18631
-18632
-18633
-18634
-18635
-18636
-18637
-18638
-18639</pre>
+16436
+16437
+16438
+16439
+16440
+16441
+16442
+16443
+16444
+16445
+16446
+16447</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18624</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16436</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> CustomerMasterKeySpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5312,10 +4508,6 @@ import "../ibm-cos-sdk-go/service/kms"
 		CustomerMasterKeySpecEccNistP521,
 		CustomerMasterKeySpecEccSecgP256k1,
 		CustomerMasterKeySpecSymmetricDefault,
-		CustomerMasterKeySpecHmac224,
-		CustomerMasterKeySpecHmac256,
-		CustomerMasterKeySpecHmac384,
-		CustomerMasterKeySpecHmac512,
 	}
 }</div></pre>
     </td>
@@ -5350,20 +4542,20 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18665
-18666
-18667
-18668
-18669
-18670
-18671
-18672
-18673
-18674
-18675</pre>
+16473
+16474
+16475
+16476
+16477
+16478
+16479
+16480
+16481
+16482
+16483</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18665</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16473</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> DataKeyPairSpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5408,15 +4600,15 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18686
-18687
-18688
-18689
-18690
-18691</pre>
+16494
+16495
+16496
+16497
+16498
+16499</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18686</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16494</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> DataKeySpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5456,16 +4648,16 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18705
-18706
-18707
-18708
-18709
-18710
-18711</pre>
+16513
+16514
+16515
+16516
+16517
+16518
+16519</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18705</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16513</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> EncryptionAlgorithmSpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5506,15 +4698,15 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18722
-18723
-18724
-18725
-18726
-18727</pre>
+16530
+16531
+16532
+16533
+16534
+16535</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18722</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16530</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ExpirationModelType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5554,29 +4746,27 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18780
-18781
-18782
-18783
-18784
-18785
-18786
-18787
-18788
-18789
-18790
-18791
-18792
-18793
-18794
-18795
-18796
-18797
-18798
-18799</pre>
+16582
+16583
+16584
+16585
+16586
+16587
+16588
+16589
+16590
+16591
+16592
+16593
+16594
+16595
+16596
+16597
+16598
+16599</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18780</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16582</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> GrantOperation_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5594,8 +4784,6 @@ import "../ibm-cos-sdk-go/service/kms"
 		GrantOperationDescribeKey,
 		GrantOperationGenerateDataKeyPair,
 		GrantOperationGenerateDataKeyPairWithoutPlaintext,
-		GrantOperationGenerateMac,
-		GrantOperationVerifyMac,
 	}
 }</div></pre>
     </td>
@@ -5630,88 +4818,20 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18810
-18811
-18812
-18813
-18814
-18815</pre>
+16610
+16611
+16612
+16613
+16614
+16615</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18810</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16610</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> KeyManagerType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
 		KeyManagerTypeAws,
 		KeyManagerTypeCustomer,
-	}
-}</div></pre>
-    </td>
-  </tr>
-</table>
-
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="KeySpec_Values-class_method">
-  
-    func <strong><span class='object_link'><a href="#KeySpec_Values-class_method" title="kms.KeySpec_Values() (method)">KeySpec_Values</a></span></strong>() []string 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>KeySpec_Values returns all elements of the KeySpec enum</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-18856
-18857
-18858
-18859
-18860
-18861
-18862
-18863
-18864
-18865
-18866
-18867
-18868
-18869
-18870
-18871</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18856</span>
-
-<div class="hljs"><span class="hljs-keyword">func</span> KeySpec_Values() []<span class="hljs-constant">string</span> {
-	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
-		KeySpecRsa2048,
-		KeySpecRsa3072,
-		KeySpecRsa4096,
-		KeySpecEccNistP256,
-		KeySpecEccNistP384,
-		KeySpecEccNistP521,
-		KeySpecEccSecgP256k1,
-		KeySpecSymmetricDefault,
-		KeySpecHmac224,
-		KeySpecHmac256,
-		KeySpecHmac384,
-		KeySpecHmac512,
 	}
 }</div></pre>
     </td>
@@ -5746,32 +4866,26 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18900
-18901
-18902
-18903
-18904
-18905
-18906
-18907
-18908
-18909
-18910
-18911</pre>
+16635
+16636
+16637
+16638
+16639
+16640
+16641
+16642
+16643</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18900</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16635</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> KeyState_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
-		KeyStateCreating,
 		KeyStateEnabled,
 		KeyStateDisabled,
 		KeyStatePendingDeletion,
 		KeyStatePendingImport,
-		KeyStatePendingReplicaDeletion,
 		KeyStateUnavailable,
-		KeyStateUpdating,
 	}
 }</div></pre>
     </td>
@@ -5806,74 +4920,20 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18925
-18926
-18927
-18928
-18929
-18930
-18931</pre>
+16654
+16655
+16656
+16657
+16658
+16659</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18925</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16654</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> KeyUsageType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
 		KeyUsageTypeSignVerify,
 		KeyUsageTypeEncryptDecrypt,
-		KeyUsageTypeGenerateVerifyMac,
-	}
-}</div></pre>
-    </td>
-  </tr>
-</table>
-
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="MacAlgorithmSpec_Values-class_method">
-  
-    func <strong><span class='object_link'><a href="#MacAlgorithmSpec_Values-class_method" title="kms.MacAlgorithmSpec_Values() (method)">MacAlgorithmSpec_Values</a></span></strong>() []string 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>MacAlgorithmSpec_Values returns all elements of the MacAlgorithmSpec enum</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-18948
-18949
-18950
-18951
-18952
-18953
-18954
-18955</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18948</span>
-
-<div class="hljs"><span class="hljs-keyword">func</span> MacAlgorithmSpec_Values() []<span class="hljs-constant">string</span> {
-	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
-		MacAlgorithmSpecHmacSha224,
-		MacAlgorithmSpecHmacSha256,
-		MacAlgorithmSpecHmacSha384,
-		MacAlgorithmSpecHmacSha512,
 	}
 }</div></pre>
     </td>
@@ -5908,68 +4968,20 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18966
-18967
-18968
-18969
-18970
-18971</pre>
+16670
+16671
+16672
+16673
+16674
+16675</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18966</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16670</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> MessageType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
 		MessageTypeRaw,
 		MessageTypeDigest,
-	}
-}</div></pre>
-    </td>
-  </tr>
-</table>
-
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="MultiRegionKeyType_Values-class_method">
-  
-    func <strong><span class='object_link'><a href="#MultiRegionKeyType_Values-class_method" title="kms.MultiRegionKeyType_Values() (method)">MultiRegionKeyType_Values</a></span></strong>() []string 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>MultiRegionKeyType_Values returns all elements of the MultiRegionKeyType enum</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-18982
-18983
-18984
-18985
-18986
-18987</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18982</span>
-
-<div class="hljs"><span class="hljs-keyword">func</span> MultiRegionKeyType_Values() []<span class="hljs-constant">string</span> {
-	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
-		MultiRegionKeyTypePrimary,
-		MultiRegionKeyTypeReplica,
 	}
 }</div></pre>
     </td>
@@ -6004,16 +5016,16 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-19001
-19002
-19003
-19004
-19005
-19006
-19007</pre>
+16689
+16690
+16691
+16692
+16693
+16694
+16695</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 19001</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16689</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> OriginType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6054,22 +5066,22 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-19039
-19040
-19041
-19042
-19043
-19044
-19045
-19046
-19047
-19048
-19049
-19050
-19051</pre>
+16727
+16728
+16729
+16730
+16731
+16732
+16733
+16734
+16735
+16736
+16737
+16738
+16739</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 19039</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16727</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> SigningAlgorithmSpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6116,14 +5128,14 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-19059
-19060
-19061
-19062
-19063</pre>
+16747
+16748
+16749
+16750
+16751</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 19059</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16747</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WrappingKeySpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6142,7 +5154,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:13:36 2022 by
+  Generated on Wed Dec  7 13:38:52 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

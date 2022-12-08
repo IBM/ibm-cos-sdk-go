@@ -345,7 +345,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Ignored by COS</p>
+<p>Ignored by COS.</p>
 
 
   </div>
@@ -383,7 +383,9 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -397,12 +399,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10702
-10703
-10704</pre>
+11206
+11207
+11208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10702</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11206</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetBucketAclInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -439,13 +441,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10723
-10724
-10725
-10726</pre>
+11227
+11228
+11229
+11230</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10723</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11227</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetBucketAclInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span> {
 	s.Bucket = &v
@@ -483,13 +485,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10736
-10737
-10738
-10739</pre>
+11240
+11241
+11242
+11243</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10736</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11240</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetBucketAclInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -513,7 +515,9 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -527,12 +531,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10697
-10698
-10699</pre>
+11197
+11198
+11199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10697</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11197</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetBucketAclInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -569,23 +573,23 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10707
-10708
-10709
-10710
-10711
-10712
-10713
-10714
-10715
-10716
-10717
-10718
-10719
-10720</pre>
+11211
+11212
+11213
+11214
+11215
+11216
+11217
+11218
+11219
+11220
+11221
+11222
+11223
+11224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10707</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11211</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.GetBucketAclInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.GetBucketAclInput (struct)">GetBucketAclInput</a></span>"</span>}
@@ -613,7 +617,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:13:57 2022 by
+  Generated on Wed Dec  7 13:39:17 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

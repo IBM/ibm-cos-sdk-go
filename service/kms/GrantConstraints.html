@@ -78,13 +78,13 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>Use this structure to allow cryptographic operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) in the grant only when the operation request includes the specified encryption context (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>).</p>
 
-<p>KMS applies the grant constraints only to cryptographic operations that support an encryption context, that is, all cryptographic operations with a symmetric encryption KMS key (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks">docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks</a>). Grant constraints are not applied to operations that do not support an encryption context, such as cryptographic operations with HMAC KMS keys or asymmetric KMS keys, and management operations, such as DescribeKey or RetireGrant.</p>
+<p>AWS KMS applies the grant constraints only to cryptographic operations that support an encryption context, that is, all cryptographic operations with a symmetric CMK (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks">docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks</a>). Grant constraints are not applied to operations that do not support an encryption context, such as cryptographic operations with asymmetric CMKs and management operations, such as DescribeKey or RetireGrant.</p>
 
 <p>In a cryptographic operation, the encryption context in the decryption operation must be an exact, case-sensitive match for the keys and values in the encryption context of the encryption operation. Only the order of the pairs can vary.</p>
 
 <p>However, in a grant constraint, the key in each key-value pair is not case sensitive, but the value is case sensitive.</p>
 
-<p>To avoid confusion, do not use multiple encryption context pairs that differ only by case. To require a fully case-sensitive encryption context, use the kms:EncryptionContext: and kms:EncryptionContextKeys conditions in an IAM or key policy. For details, see kms:EncryptionContext: (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context">docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context</a>) in the Key Management Service Developer Guide .</p>
+<p>To avoid confusion, do not use multiple encryption context pairs that differ only by case. To require a fully case-sensitive encryption context, use the kms:EncryptionContext: and kms:EncryptionContextKeys conditions in an IAM or key policy. For details, see kms:EncryptionContext: (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context">docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context</a>) in the AWS Key Management Service Developer Guide .</p>
 
 
   </div>
@@ -391,12 +391,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13157
-13158
-13159</pre>
+11884
+11885
+11886</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13157</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11884</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GrantConstraints.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -433,13 +433,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13162
-13163
-13164
-13165</pre>
+11889
+11890
+11891
+11892</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13162</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11889</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) <span class='object_link'><a href="#SetEncryptionContextEquals-instance_method" title="kms.GrantConstraints.SetEncryptionContextEquals() (method)">SetEncryptionContextEquals</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span> {
 	s.EncryptionContextEquals = v
@@ -477,13 +477,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13168
-13169
-13170
-13171</pre>
+11895
+11896
+11897
+11898</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13168</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11895</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) <span class='object_link'><a href="#SetEncryptionContextSubset-instance_method" title="kms.GrantConstraints.SetEncryptionContextSubset() (method)">SetEncryptionContextSubset</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span> {
 	s.EncryptionContextSubset = v
@@ -523,12 +523,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-13148
-13149
-13150</pre>
+11875
+11876
+11877</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13148</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11875</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GrantConstraints (struct)">GrantConstraints</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GrantConstraints.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -545,7 +545,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:28 2022 by
+  Generated on Wed Dec  7 13:39:49 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

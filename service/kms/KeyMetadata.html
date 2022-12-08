@@ -76,7 +76,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Contains metadata about a KMS key.</p>
+<p>Contains metadata about a customer master key (CMK).</p>
 
 <p>This data type is used as a response element for the CreateKey and DescribeKey operations.</p>
 
@@ -127,7 +127,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The twelve-digit account ID of the Amazon Web Services account that owns the KMS key.</p>
+<p>The twelve-digit account ID of the AWS account that owns the CMK.</p>
 </div></span>
   
 </li>
@@ -152,7 +152,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Amazon Resource Name (ARN) of the KMS key.</p>
+<p>The Amazon Resource Name (ARN) of the CMK.</p>
 </div></span>
   
 </li>
@@ -177,7 +177,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The cluster ID of the CloudHSM cluster that contains the key material for the KMS key.</p>
+<p>The cluster ID of the AWS CloudHSM cluster that contains the key material for the CMK.</p>
 </div></span>
   
 </li>
@@ -202,7 +202,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The date and time when the KMS key was created.</p>
+<p>The date and time when the CMK was created.</p>
 </div></span>
   
 </li>
@@ -227,7 +227,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A unique identifier for the custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) that contains the KMS key.</p>
+<p>A unique identifier for the custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) that contains the CMK.</p>
 </div></span>
   
 </li>
@@ -252,7 +252,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Instead, use the KeySpec field.</p>
+<p>Describes the type of key material in the CMK.</p>
 </div></span>
   
 </li>
@@ -277,7 +277,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The date and time after which KMS deletes this KMS key.</p>
+<p>The date and time after which AWS KMS deletes the CMK.</p>
 </div></span>
   
 </li>
@@ -302,7 +302,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The description of the KMS key.</p>
+<p>The description of the CMK.</p>
 </div></span>
   
 </li>
@@ -327,7 +327,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies whether the KMS key is enabled.</p>
+<p>Specifies whether the CMK is enabled.</p>
 </div></span>
   
 </li>
@@ -352,7 +352,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The encryption algorithms that the KMS key supports.</p>
+<p>The encryption algorithms that the CMK supports.</p>
 </div></span>
   
 </li>
@@ -377,7 +377,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies whether the KMS key&#39;s key material expires.</p>
+<p>Specifies whether the CMK&#39;s key material expires.</p>
 </div></span>
   
 </li>
@@ -402,7 +402,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The globally unique identifier for the KMS key.</p>
+<p>The globally unique identifier for the CMK.</p>
 </div></span>
   
 </li>
@@ -427,32 +427,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The manager of the KMS key.</p>
-</div></span>
-  
-</li>
-
-
-    
-      
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#KeySpec-field" title="kms.KeyMetadata.KeySpec (field)"><strong>KeySpec</strong> *string</a></span></span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Describes the type of key material in the KMS key.</p>
+<p>The manager of the CMK.</p>
 </div></span>
   
 </li>
@@ -477,7 +452,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The current status of the KMS key.</p>
+<p>The current status of the CMK.</p>
 </div></span>
   
 </li>
@@ -502,82 +477,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The cryptographic operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) for which you can use the KMS key.</p>
-</div></span>
-  
-</li>
-
-
-    
-      
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#MacAlgorithms-field" title="kms.KeyMetadata.MacAlgorithms (field)"><strong>MacAlgorithms</strong> []*string</a></span></span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>The message authentication code (MAC) algorithm that the HMAC KMS key supports.</p>
-</div></span>
-  
-</li>
-
-
-    
-      
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#MultiRegion-field" title="kms.KeyMetadata.MultiRegion (field)"><strong>MultiRegion</strong> *bool</a></span></span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Indicates whether the KMS key is a multi-Region (True) or regional (False) key.</p>
-</div></span>
-  
-</li>
-
-
-    
-      
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#MultiRegionConfiguration-field" title="kms.KeyMetadata.MultiRegionConfiguration (field)"><strong>MultiRegionConfiguration</strong> *MultiRegionConfiguration</a></span></span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Lists the primary and replica keys in same multi-Region key.</p>
+<p>The cryptographic operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) for which you can use the CMK.</p>
 </div></span>
   
 </li>
@@ -602,32 +502,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The source of the key material for the KMS key.</p>
-</div></span>
-  
-</li>
-
-
-    
-      
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#PendingDeletionWindowInDays-field" title="kms.KeyMetadata.PendingDeletionWindowInDays (field)"><strong>PendingDeletionWindowInDays</strong> *int64</a></span></span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>The waiting period before the primary key in a multi-Region key is deleted.</p>
+<p>The source of the CMK&#39;s key material.</p>
 </div></span>
   
 </li>
@@ -652,7 +527,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The signing algorithms that the KMS key supports.</p>
+<p>The signing algorithms that the CMK supports.</p>
 </div></span>
   
 </li>
@@ -1071,31 +946,6 @@ import "../ibm-cos-sdk-go/service/kms"
       
         
 <li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#SetKeySpec-instance_method" title="kms.KeyMetadata.SetKeySpec() (method)"><strong>SetKeySpec</strong>(string)  *KeyMetadata </a></span></span>
-  
-  
-  
-  
-  <span class="note title readonly">operation</span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>SetKeySpec sets the KeySpec field&#39;s value.</p>
-</div></span>
-  
-</li>
-
-
-      
-        
-<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetKeyState-instance_method" title="kms.KeyMetadata.SetKeyState() (method)"><strong>SetKeyState</strong>(string)  *KeyMetadata </a></span></span>
   
   
@@ -1146,81 +996,6 @@ import "../ibm-cos-sdk-go/service/kms"
       
         
 <li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#SetMacAlgorithms-instance_method" title="kms.KeyMetadata.SetMacAlgorithms() (method)"><strong>SetMacAlgorithms</strong>([]*string)  *KeyMetadata </a></span></span>
-  
-  
-  
-  
-  <span class="note title readonly">operation</span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>SetMacAlgorithms sets the MacAlgorithms field&#39;s value.</p>
-</div></span>
-  
-</li>
-
-
-      
-        
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#SetMultiRegion-instance_method" title="kms.KeyMetadata.SetMultiRegion() (method)"><strong>SetMultiRegion</strong>(bool)  *KeyMetadata </a></span></span>
-  
-  
-  
-  
-  <span class="note title readonly">operation</span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>SetMultiRegion sets the MultiRegion field&#39;s value.</p>
-</div></span>
-  
-</li>
-
-
-      
-        
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#SetMultiRegionConfiguration-instance_method" title="kms.KeyMetadata.SetMultiRegionConfiguration() (method)"><strong>SetMultiRegionConfiguration</strong>(*MultiRegionConfiguration)  *KeyMetadata </a></span></span>
-  
-  
-  
-  
-  <span class="note title readonly">operation</span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>SetMultiRegionConfiguration sets the MultiRegionConfiguration field&#39;s value.</p>
-</div></span>
-  
-</li>
-
-
-      
-        
-<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetOrigin-instance_method" title="kms.KeyMetadata.SetOrigin() (method)"><strong>SetOrigin</strong>(string)  *KeyMetadata </a></span></span>
   
   
@@ -1238,31 +1013,6 @@ import "../ibm-cos-sdk-go/service/kms"
   
     <span class="summary_desc"><div class='inline'>
 <p>SetOrigin sets the Origin field&#39;s value.</p>
-</div></span>
-  
-</li>
-
-
-      
-        
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#SetPendingDeletionWindowInDays-instance_method" title="kms.KeyMetadata.SetPendingDeletionWindowInDays() (method)"><strong>SetPendingDeletionWindowInDays</strong>(int64)  *KeyMetadata </a></span></span>
-  
-  
-  
-  
-  <span class="note title readonly">operation</span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>SetPendingDeletionWindowInDays sets the PendingDeletionWindowInDays field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -1362,7 +1112,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The twelve-digit account ID of the Amazon Web Services account that owns the KMS key.</p>
+<p>The twelve-digit account ID of the AWS account that owns the CMK.</p>
 
 
   </div>
@@ -1381,7 +1131,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The Amazon Resource Name (ARN) of the KMS key. For examples, see Key Management Service (KMS) (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms</a>) in the Example ARNs section of the Amazon Web Services General Reference.</p>
+<p>The Amazon Resource Name (ARN) of the CMK. For examples, see AWS Key Management Service (AWS KMS) (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms</a>) in the Example ARNs section of the AWS General Reference.</p>
 
 
   </div>
@@ -1400,7 +1150,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The cluster ID of the CloudHSM cluster that contains the key material for the KMS key. When you create a KMS key in a custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>), KMS creates the key material for the KMS key in the associated CloudHSM cluster. This value is present only when the KMS key is created in a custom key store.</p>
+<p>The cluster ID of the AWS CloudHSM cluster that contains the key material for the CMK. When you create a CMK in a custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>), AWS KMS creates the key material for the CMK in the associated AWS CloudHSM cluster. This value is present only when the CMK is created in a custom key store.</p>
 
 
   </div>
@@ -1419,7 +1169,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The date and time when the KMS key was created.</p>
+<p>The date and time when the CMK was created.</p>
 
 
   </div>
@@ -1438,7 +1188,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>A unique identifier for the custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) that contains the KMS key. This value is present only when the KMS key is created in a custom key store.</p>
+<p>A unique identifier for the custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>) that contains the CMK. This value is present only when the CMK is created in a custom key store.</p>
 
 
   </div>
@@ -1452,16 +1202,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <div class="method_details ">
   <h3 class="signature " id="CustomerMasterKeySpec-field">
   <strong>CustomerMasterKeySpec</strong> *string 
-  <code>`deprecated:"true" type:"string" enum:"CustomerMasterKeySpec"`</code>
+  <code>`type:"string" enum:"CustomerMasterKeySpec"`</code>
 </h3>
 <div class="docstring">
   <div class="discussion">
     
-<p>Instead, use the KeySpec field.</p>
-
-<p>The KeySpec and CustomerMasterKeySpec fields have the same value. We recommend that you use the KeySpec field in your code. However, to avoid breaking changes, KMS will support both fields.</p>
-
-<p>Deprecated: This field has been deprecated. Instead, use the KeySpec field.</p>
+<p>Describes the type of key material in the CMK.</p>
 
 
   </div>
@@ -1480,9 +1226,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The date and time after which KMS deletes this KMS key. This value is present only when the KMS key is scheduled for deletion, that is, when its KeyState is PendingDeletion.</p>
-
-<p>When the primary key in a multi-Region key is scheduled for deletion but still has replica keys, its key state is PendingReplicaDeletion and the length of its waiting period is displayed in the PendingDeletionWindowInDays field.</p>
+<p>The date and time after which AWS KMS deletes the CMK. This value is present only when KeyState is PendingDeletion.</p>
 
 
   </div>
@@ -1501,7 +1245,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The description of the KMS key.</p>
+<p>The description of the CMK.</p>
 
 
   </div>
@@ -1520,7 +1264,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies whether the KMS key is enabled. When KeyState is Enabled this value is true, otherwise it is false.</p>
+<p>Specifies whether the CMK is enabled. When KeyState is Enabled this value is true, otherwise it is false.</p>
 
 
   </div>
@@ -1539,9 +1283,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The encryption algorithms that the KMS key supports. You cannot use the KMS key with other encryption algorithms within KMS.</p>
+<p>The encryption algorithms that the CMK supports. You cannot use the CMK with other encryption algorithms within AWS KMS.</p>
 
-<p>This value is present only when the KeyUsage of the KMS key is ENCRYPT_DECRYPT.</p>
+<p>This field appears only when the KeyUsage of the CMK is ENCRYPT_DECRYPT.</p>
 
 
   </div>
@@ -1560,7 +1304,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies whether the KMS key&#39;s key material expires. This value is present only when Origin is EXTERNAL, otherwise this value is omitted.</p>
+<p>Specifies whether the CMK&#39;s key material expires. This value is present only when Origin is EXTERNAL, otherwise this value is omitted.</p>
 
 
   </div>
@@ -1579,7 +1323,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The globally unique identifier for the KMS key.</p>
+<p>The globally unique identifier for the CMK.</p>
 
 <p>KeyId is a required field</p>
 
@@ -1600,26 +1344,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The manager of the KMS key. KMS keys in your Amazon Web Services account are either customer managed or Amazon Web Services managed. For more information about the difference, see KMS keys (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys</a>) in the Key Management Service Developer Guide.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="KeySpec-field">
-  <strong>KeySpec</strong> *string 
-  <code>`type:"string" enum:"KeySpec"`</code>
-</h3>
-<div class="docstring">
-  <div class="discussion">
-    
-<p>Describes the type of key material in the KMS key.</p>
+<p>The manager of the CMK. CMKs in your AWS account are either customer managed or AWS managed. For more information about the difference, see Customer Master Keys (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys</a>) in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -1638,9 +1363,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The current status of the KMS key.</p>
+<p>The current status of the CMK.</p>
 
-<p>For more information about how key state affects the use of a KMS key, see Key states of KMS keys (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>) in the Key Management Service Developer Guide.</p>
+<p>For more information about how key state affects the use of a CMK, see Key state: Effect on your CMK (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>) in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -1659,77 +1384,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The cryptographic operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) for which you can use the KMS key.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="MacAlgorithms-field">
-  <strong>MacAlgorithms</strong> []*string 
-  <code>`type:"list" enum:"MacAlgorithmSpec"`</code>
-</h3>
-<div class="docstring">
-  <div class="discussion">
-    
-<p>The message authentication code (MAC) algorithm that the HMAC KMS key supports.</p>
-
-<p>This value is present only when the KeyUsage of the KMS key is GENERATE_VERIFY_MAC.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="MultiRegion-field">
-  <strong>MultiRegion</strong> *bool 
-  <code>`type:"boolean"`</code>
-</h3>
-<div class="docstring">
-  <div class="discussion">
-    
-<p>Indicates whether the KMS key is a multi-Region (True) or regional (False) key. This value is True for multi-Region primary and replica keys and False for regional KMS keys.</p>
-
-<p>For more information about multi-Region keys, see Multi-Region keys in KMS (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html</a>) in the Key Management Service Developer Guide.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="MultiRegionConfiguration-field">
-  <strong>MultiRegionConfiguration</strong> *<span class='object_link'><a href="#MultiRegionConfiguration-field" title="kms.KeyMetadata.MultiRegionConfiguration (field)">MultiRegionConfiguration</a></span> 
-  <code>`type:"structure"`</code>
-</h3>
-<div class="docstring">
-  <div class="discussion">
-    
-<p>Lists the primary and replica keys in same multi-Region key. This field is present only when the value of the MultiRegion field is True.</p>
-
-<p>For more information about any listed KMS key, use the DescribeKey operation.</p>
-<ul><li>
-<p>MultiRegionKeyType indicates whether the KMS key is a PRIMARY or REPLICA  key.</p>
-</li><li>
-<p>PrimaryKey displays the key ARN and Region of the primary key. This  field displays the current KMS key if it is the primary key.</p>
-</li><li>
-<p>ReplicaKeys displays the key ARNs and Regions of all replica keys. This  field includes the current KMS key if it is a replica key.</p>
-</li></ul>
+<p>The cryptographic operations (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations</a>) for which you can use the CMK.</p>
 
 
   </div>
@@ -1748,28 +1403,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The source of the key material for the KMS key. When this value is AWS_KMS, KMS created the key material. When this value is EXTERNAL, the key material was imported or the KMS key doesn&#39;t have any key material. When this value is AWS_CLOUDHSM, the key material was created in the CloudHSM cluster associated with a custom key store.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="PendingDeletionWindowInDays-field">
-  <strong>PendingDeletionWindowInDays</strong> *int64 
-  <code>`min:"1" type:"integer"`</code>
-</h3>
-<div class="docstring">
-  <div class="discussion">
-    
-<p>The waiting period before the primary key in a multi-Region key is deleted. This waiting period begins when the last of its replica keys is deleted. This value is present only when the KeyState of the KMS key is PendingReplicaDeletion. That indicates that the KMS key is the primary key in a multi-Region key, it is scheduled for deletion, and it still has existing replica keys.</p>
-
-<p>When a single-Region KMS key or a multi-Region replica key is scheduled for deletion, its deletion date is displayed in the DeletionDate field. However, when the primary key in a multi-Region key is scheduled for deletion, its waiting period doesn&#39;t begin until all of its replica keys are deleted. This value displays that waiting period. When the last replica key in the multi-Region key is deleted, the KeyState of the scheduled primary key changes from PendingReplicaDeletion to PendingDeletion and the deletion date appears in the DeletionDate field.</p>
+<p>The source of the CMK&#39;s key material. When this value is AWS_KMS, AWS KMS created the key material. When this value is EXTERNAL, the key material was imported from your existing key management infrastructure or the CMK lacks key material. When this value is AWS_CLOUDHSM, the key material was created in the AWS CloudHSM cluster associated with a custom key store.</p>
 
 
   </div>
@@ -1788,9 +1422,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The signing algorithms that the KMS key supports. You cannot use the KMS key with other signing algorithms within KMS.</p>
+<p>The signing algorithms that the CMK supports. You cannot use the CMK with other signing algorithms within AWS KMS.</p>
 
-<p>This field appears only when the KeyUsage of the KMS key is SIGN_VERIFY.</p>
+<p>This field appears only when the KeyUsage of the CMK is SIGN_VERIFY.</p>
 
 
   </div>
@@ -1809,7 +1443,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The time at which the imported key material expires. When the key material expires, KMS deletes the key material and the KMS key becomes unusable. This value is present only for KMS keys whose Origin is EXTERNAL and whose ExpirationModel is KEY_MATERIAL_EXPIRES, otherwise this value is omitted.</p>
+<p>The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. This value is present only for CMKs whose Origin is EXTERNAL and whose ExpirationModel is KEY_MATERIAL_EXPIRES, otherwise this value is omitted.</p>
 
 
   </div>
@@ -1863,12 +1497,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14646
-14647
-14648</pre>
+13245
+13246
+13247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14646</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13245</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.KeyMetadata.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1905,13 +1539,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14657
-14658
-14659
-14660</pre>
+13256
+13257
+13258
+13259</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14657</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13256</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetArn-instance_method" title="kms.KeyMetadata.SetArn() (method)">SetArn</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.Arn = &v
@@ -1949,13 +1583,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14651
-14652
-14653
-14654</pre>
+13250
+13251
+13252
+13253</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14651</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13250</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetAWSAccountId-instance_method" title="kms.KeyMetadata.SetAWSAccountId() (method)">SetAWSAccountId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.AWSAccountId = &v
@@ -1993,13 +1627,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14663
-14664
-14665
-14666</pre>
+13262
+13263
+13264
+13265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14663</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13262</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetCloudHsmClusterId-instance_method" title="kms.KeyMetadata.SetCloudHsmClusterId() (method)">SetCloudHsmClusterId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.CloudHsmClusterId = &v
@@ -2037,13 +1671,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14669
-14670
-14671
-14672</pre>
+13268
+13269
+13270
+13271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14669</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13268</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetCreationDate-instance_method" title="kms.KeyMetadata.SetCreationDate() (method)">SetCreationDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.CreationDate = &v
@@ -2081,13 +1715,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14681
-14682
-14683
-14684</pre>
+13280
+13281
+13282
+13283</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14681</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13280</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetCustomerMasterKeySpec-instance_method" title="kms.KeyMetadata.SetCustomerMasterKeySpec() (method)">SetCustomerMasterKeySpec</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.CustomerMasterKeySpec = &v
@@ -2125,13 +1759,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14675
-14676
-14677
-14678</pre>
+13274
+13275
+13276
+13277</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14675</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13274</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetCustomKeyStoreId-instance_method" title="kms.KeyMetadata.SetCustomKeyStoreId() (method)">SetCustomKeyStoreId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.CustomKeyStoreId = &v
@@ -2169,13 +1803,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14687
-14688
-14689
-14690</pre>
+13286
+13287
+13288
+13289</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14687</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13286</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetDeletionDate-instance_method" title="kms.KeyMetadata.SetDeletionDate() (method)">SetDeletionDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.DeletionDate = &v
@@ -2213,13 +1847,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14693
-14694
-14695
-14696</pre>
+13292
+13293
+13294
+13295</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14693</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13292</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetDescription-instance_method" title="kms.KeyMetadata.SetDescription() (method)">SetDescription</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.Description = &v
@@ -2257,13 +1891,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14699
-14700
-14701
-14702</pre>
+13298
+13299
+13300
+13301</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14699</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13298</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetEnabled-instance_method" title="kms.KeyMetadata.SetEnabled() (method)">SetEnabled</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.Enabled = &v
@@ -2301,13 +1935,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14705
-14706
-14707
-14708</pre>
+13304
+13305
+13306
+13307</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14705</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13304</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetEncryptionAlgorithms-instance_method" title="kms.KeyMetadata.SetEncryptionAlgorithms() (method)">SetEncryptionAlgorithms</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.EncryptionAlgorithms = v
@@ -2345,13 +1979,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14711
-14712
-14713
-14714</pre>
+13310
+13311
+13312
+13313</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14711</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13310</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetExpirationModel-instance_method" title="kms.KeyMetadata.SetExpirationModel() (method)">SetExpirationModel</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.ExpirationModel = &v
@@ -2389,13 +2023,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14717
-14718
-14719
-14720</pre>
+13316
+13317
+13318
+13319</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14717</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13316</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.KeyMetadata.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.KeyId = &v
@@ -2433,60 +2067,16 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14723
-14724
-14725
-14726</pre>
+13322
+13323
+13324
+13325</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14723</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13322</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetKeyManager-instance_method" title="kms.KeyMetadata.SetKeyManager() (method)">SetKeyManager</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.KeyManager = &v
-	<span class="hljs-keyword">return</span> s
-}</div></pre>
-    </td>
-  </tr>
-</table>
-
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="SetKeySpec-instance_method">
-  
-    func (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <strong><span class='object_link'><a href="#SetKeySpec-instance_method" title="kms.KeyMetadata.SetKeySpec() (method)">SetKeySpec</a></span></strong>(v string) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>SetKeySpec sets the KeySpec field&#39;s value.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-14729
-14730
-14731
-14732</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14729</span>
-
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetKeySpec-instance_method" title="kms.KeyMetadata.SetKeySpec() (method)">SetKeySpec</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
-	s.KeySpec = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -2521,13 +2111,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14735
-14736
-14737
-14738</pre>
+13328
+13329
+13330
+13331</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14735</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13328</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetKeyState-instance_method" title="kms.KeyMetadata.SetKeyState() (method)">SetKeyState</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.KeyState = &v
@@ -2565,148 +2155,16 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14741
-14742
-14743
-14744</pre>
+13334
+13335
+13336
+13337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14741</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13334</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetKeyUsage-instance_method" title="kms.KeyMetadata.SetKeyUsage() (method)">SetKeyUsage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.KeyUsage = &v
-	<span class="hljs-keyword">return</span> s
-}</div></pre>
-    </td>
-  </tr>
-</table>
-
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="SetMacAlgorithms-instance_method">
-  
-    func (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <strong><span class='object_link'><a href="#SetMacAlgorithms-instance_method" title="kms.KeyMetadata.SetMacAlgorithms() (method)">SetMacAlgorithms</a></span></strong>(v []*string) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>SetMacAlgorithms sets the MacAlgorithms field&#39;s value.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-14747
-14748
-14749
-14750</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14747</span>
-
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetMacAlgorithms-instance_method" title="kms.KeyMetadata.SetMacAlgorithms() (method)">SetMacAlgorithms</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
-	s.MacAlgorithms = v
-	<span class="hljs-keyword">return</span> s
-}</div></pre>
-    </td>
-  </tr>
-</table>
-
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="SetMultiRegion-instance_method">
-  
-    func (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <strong><span class='object_link'><a href="#SetMultiRegion-instance_method" title="kms.KeyMetadata.SetMultiRegion() (method)">SetMultiRegion</a></span></strong>(v bool) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>SetMultiRegion sets the MultiRegion field&#39;s value.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-14753
-14754
-14755
-14756</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14753</span>
-
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetMultiRegion-instance_method" title="kms.KeyMetadata.SetMultiRegion() (method)">SetMultiRegion</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
-	s.MultiRegion = &v
-	<span class="hljs-keyword">return</span> s
-}</div></pre>
-    </td>
-  </tr>
-</table>
-
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="SetMultiRegionConfiguration-instance_method">
-  
-    func (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <strong><span class='object_link'><a href="#SetMultiRegionConfiguration-instance_method" title="kms.KeyMetadata.SetMultiRegionConfiguration() (method)">SetMultiRegionConfiguration</a></span></strong>(v *<span class='object_link'><a href="#MultiRegionConfiguration-field" title="kms.KeyMetadata.MultiRegionConfiguration (field)">MultiRegionConfiguration</a></span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>SetMultiRegionConfiguration sets the MultiRegionConfiguration field&#39;s value.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-14759
-14760
-14761
-14762</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14759</span>
-
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetMultiRegionConfiguration-instance_method" title="kms.KeyMetadata.SetMultiRegionConfiguration() (method)">SetMultiRegionConfiguration</a></span>(v *<span class='object_link'><a href="#MultiRegionConfiguration-field" title="kms.KeyMetadata.MultiRegionConfiguration (field)">MultiRegionConfiguration</a></span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
-	s.MultiRegionConfiguration = v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -2741,60 +2199,16 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14765
-14766
-14767
-14768</pre>
+13340
+13341
+13342
+13343</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14765</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13340</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetOrigin-instance_method" title="kms.KeyMetadata.SetOrigin() (method)">SetOrigin</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.Origin = &v
-	<span class="hljs-keyword">return</span> s
-}</div></pre>
-    </td>
-  </tr>
-</table>
-
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="SetPendingDeletionWindowInDays-instance_method">
-  
-    func (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <strong><span class='object_link'><a href="#SetPendingDeletionWindowInDays-instance_method" title="kms.KeyMetadata.SetPendingDeletionWindowInDays() (method)">SetPendingDeletionWindowInDays</a></span></strong>(v int64) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>SetPendingDeletionWindowInDays sets the PendingDeletionWindowInDays field&#39;s value.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-14771
-14772
-14773
-14774</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14771</span>
-
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetPendingDeletionWindowInDays-instance_method" title="kms.KeyMetadata.SetPendingDeletionWindowInDays() (method)">SetPendingDeletionWindowInDays</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
-	s.PendingDeletionWindowInDays = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -2829,13 +2243,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14777
-14778
-14779
-14780</pre>
+13346
+13347
+13348
+13349</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14777</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13346</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetSigningAlgorithms-instance_method" title="kms.KeyMetadata.SetSigningAlgorithms() (method)">SetSigningAlgorithms</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.SigningAlgorithms = v
@@ -2873,13 +2287,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14783
-14784
-14785
-14786</pre>
+13352
+13353
+13354
+13355</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14783</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13352</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#SetValidTo-instance_method" title="kms.KeyMetadata.SetValidTo() (method)">SetValidTo</a></span>(v time.Time) *<span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span> {
 	s.ValidTo = &v
@@ -2919,12 +2333,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-14637
-14638
-14639</pre>
+13236
+13237
+13238</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 14637</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13236</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.KeyMetadata (struct)">KeyMetadata</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.KeyMetadata.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -2941,7 +2355,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:30 2022 by
+  Generated on Wed Dec  7 13:39:52 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

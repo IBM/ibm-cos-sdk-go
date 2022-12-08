@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies an asymmetric KMS key.</p>
+<p>Identifies an asymmetric CMK.</p>
 </div></span>
   
 </li>
@@ -189,7 +189,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Tells KMS whether the value of the Message parameter is a message or message digest.</p>
+<p>Tells AWS KMS whether the value of the Message parameter is a message or message digest.</p>
 </div></span>
   
 </li>
@@ -476,7 +476,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>A list of grant tokens.</p>
 
-<p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved eventual consistency. For more information, see Grant token (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token</a>) and Using a grant token (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token</a>) in the Key Management Service Developer Guide.</p>
+<p>For more information, see Grant Tokens (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token</a>) in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -495,9 +495,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies an asymmetric KMS key. KMS uses the private key in the asymmetric KMS key to sign the message. The KeyUsage type of the KMS key must be SIGN_VERIFY. To find the KeyUsage of a KMS key, use the DescribeKey operation.</p>
+<p>Identifies an asymmetric CMK. AWS KMS uses the private key in the asymmetric CMK to sign the message. The KeyUsage type of the CMK must be SIGN_VERIFY. To find the KeyUsage of a CMK, use the DescribeKey operation.</p>
 
-<p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+<p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -510,7 +510,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
+<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
 
 <p>KeyId is a required field</p>
 
@@ -533,7 +533,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide the message digest.</p>
 
-<p>If you provide a message, KMS generates a hash digest of the message and then signs it.</p>
+<p>If you provide a message, AWS KMS generates a hash digest of the message and then signs it.</p>
 
 <p>Message is a sensitive parameter and its value will be replaced with “sensitive” in string returned by SignInput&#39;s String and GoString methods.</p>
 
@@ -558,7 +558,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Tells KMS whether the value of the Message parameter is a message or message digest. The default value, RAW, indicates a message. To indicate a message digest, enter DIGEST.</p>
+<p>Tells AWS KMS whether the value of the Message parameter is a message or message digest. The default value, RAW, indicates a message. To indicate a message digest, enter DIGEST.</p>
 
 
   </div>
@@ -579,7 +579,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>Specifies the signing algorithm to use when signing the message.</p>
 
-<p>Choose an algorithm that is compatible with the type and size of the specified asymmetric KMS key.</p>
+<p>Choose an algorithm that is compatible with the type and size of the specified asymmetric CMK.</p>
 
 <p>SigningAlgorithm is a required field</p>
 
@@ -635,12 +635,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17130
-17131
-17132</pre>
+15249
+15250
+15251</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17130</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15249</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.SignInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -677,13 +677,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17160
-17161
-17162
-17163</pre>
+15279
+15280
+15281
+15282</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17160</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15279</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.SignInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span> {
 	s.GrantTokens = v
@@ -721,13 +721,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17166
-17167
-17168
-17169</pre>
+15285
+15286
+15287
+15288</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17166</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15285</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.SignInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span> {
 	s.KeyId = &v
@@ -765,13 +765,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17172
-17173
-17174
-17175</pre>
+15291
+15292
+15293
+15294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17172</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15291</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#SetMessage-instance_method" title="kms.SignInput.SetMessage() (method)">SetMessage</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span> {
 	s.Message = v
@@ -809,13 +809,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17178
-17179
-17180
-17181</pre>
+15297
+15298
+15299
+15300</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17178</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15297</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#SetMessageType-instance_method" title="kms.SignInput.SetMessageType() (method)">SetMessageType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span> {
 	s.MessageType = &v
@@ -853,13 +853,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17184
-17185
-17186
-17187</pre>
+15303
+15304
+15305
+15306</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17184</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15303</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#SetSigningAlgorithm-instance_method" title="kms.SignInput.SetSigningAlgorithm() (method)">SetSigningAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span> {
 	s.SigningAlgorithm = &v
@@ -899,12 +899,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17121
-17122
-17123</pre>
+15240
+15241
+15242</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17121</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15240</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.SignInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -941,32 +941,32 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17135
-17136
-17137
-17138
-17139
-17140
-17141
-17142
-17143
-17144
-17145
-17146
-17147
-17148
-17149
-17150
-17151
-17152
-17153
-17154
-17155
-17156
-17157</pre>
+15254
+15255
+15256
+15257
+15258
+15259
+15260
+15261
+15262
+15263
+15264
+15265
+15266
+15267
+15268
+15269
+15270
+15271
+15272
+15273
+15274
+15275
+15276</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17135</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15254</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.SignInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.SignInput (struct)">SignInput</a></span>"</span>}
@@ -1003,7 +1003,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:34 2022 by
+  Generated on Wed Dec  7 13:39:56 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

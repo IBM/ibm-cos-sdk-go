@@ -1698,6 +1698,8 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.</p>
 
+<p>SSECustomerKey is a sensitive parameter and its value will be replaced with “sensitive” in string returned by CreateMultipartUploadInput&#39;s String and GoString methods.</p>
+
 
   </div>
 </div>
@@ -1735,6 +1737,8 @@ import "../ibm-cos-sdk-go/service/s3"
   <div class="discussion">
     
 <p>Specifies the ID of the symmetric customer managed AWS KMS CMK to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see Specifying the Signature Version in Request Authentication (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</a>) in the Amazon S3 Developer Guide.</p>
+
+<p>SSEKMSKeyId is a sensitive parameter and its value will be replaced with “sensitive” in string returned by CreateMultipartUploadInput&#39;s String and GoString methods.</p>
 
 
   </div>
@@ -1848,7 +1852,9 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -1862,12 +1868,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8556
-8557
-8558</pre>
+8808
+8809
+8810</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8556</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8808</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.CreateMultipartUploadInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1904,13 +1910,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8583
-8584
-8585
-8586</pre>
+8835
+8836
+8837
+8838</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8583</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8835</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetACL-instance_method" title="s3.CreateMultipartUploadInput.SetACL() (method)">SetACL</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.ACL = &v
@@ -1948,13 +1954,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8589
-8590
-8591
-8592</pre>
+8841
+8842
+8843
+8844</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8589</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8841</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.CreateMultipartUploadInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.Bucket = &v
@@ -1992,13 +1998,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8602
-8603
-8604
-8605</pre>
+8854
+8855
+8856
+8857</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8602</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8854</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetCacheControl-instance_method" title="s3.CreateMultipartUploadInput.SetCacheControl() (method)">SetCacheControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.CacheControl = &v
@@ -2036,13 +2042,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8608
-8609
-8610
-8611</pre>
+8860
+8861
+8862
+8863</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8608</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8860</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetContentDisposition-instance_method" title="s3.CreateMultipartUploadInput.SetContentDisposition() (method)">SetContentDisposition</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.ContentDisposition = &v
@@ -2080,13 +2086,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8614
-8615
-8616
-8617</pre>
+8866
+8867
+8868
+8869</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8614</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8866</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetContentEncoding-instance_method" title="s3.CreateMultipartUploadInput.SetContentEncoding() (method)">SetContentEncoding</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.ContentEncoding = &v
@@ -2124,13 +2130,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8620
-8621
-8622
-8623</pre>
+8872
+8873
+8874
+8875</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8620</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8872</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetContentLanguage-instance_method" title="s3.CreateMultipartUploadInput.SetContentLanguage() (method)">SetContentLanguage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.ContentLanguage = &v
@@ -2168,13 +2174,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8626
-8627
-8628
-8629</pre>
+8878
+8879
+8880
+8881</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8626</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8878</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetContentType-instance_method" title="s3.CreateMultipartUploadInput.SetContentType() (method)">SetContentType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.ContentType = &v
@@ -2212,13 +2218,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8632
-8633
-8634
-8635</pre>
+8884
+8885
+8886
+8887</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8632</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8884</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetExpires-instance_method" title="s3.CreateMultipartUploadInput.SetExpires() (method)">SetExpires</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.Expires = &v
@@ -2256,13 +2262,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8638
-8639
-8640
-8641</pre>
+8890
+8891
+8892
+8893</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8638</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8890</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetGrantFullControl-instance_method" title="s3.CreateMultipartUploadInput.SetGrantFullControl() (method)">SetGrantFullControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.GrantFullControl = &v
@@ -2300,13 +2306,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8644
-8645
-8646
-8647</pre>
+8896
+8897
+8898
+8899</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8644</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8896</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetGrantRead-instance_method" title="s3.CreateMultipartUploadInput.SetGrantRead() (method)">SetGrantRead</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.GrantRead = &v
@@ -2344,13 +2350,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8650
-8651
-8652
-8653</pre>
+8902
+8903
+8904
+8905</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8650</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8902</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetGrantReadACP-instance_method" title="s3.CreateMultipartUploadInput.SetGrantReadACP() (method)">SetGrantReadACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.GrantReadACP = &v
@@ -2388,13 +2394,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8656
-8657
-8658
-8659</pre>
+8908
+8909
+8910
+8911</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8656</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8908</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetGrantWriteACP-instance_method" title="s3.CreateMultipartUploadInput.SetGrantWriteACP() (method)">SetGrantWriteACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.GrantWriteACP = &v
@@ -2432,13 +2438,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8662
-8663
-8664
-8665</pre>
+8914
+8915
+8916
+8917</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8662</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8914</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.CreateMultipartUploadInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.Key = &v
@@ -2476,13 +2482,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8668
-8669
-8670
-8671</pre>
+8920
+8921
+8922
+8923</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8668</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8920</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetMetadata-instance_method" title="s3.CreateMultipartUploadInput.SetMetadata() (method)">SetMetadata</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.Metadata = v
@@ -2520,13 +2526,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8674
-8675
-8676
-8677</pre>
+8926
+8927
+8928
+8929</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8674</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8926</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.CreateMultipartUploadInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.RequestPayer = &v
@@ -2564,13 +2570,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8711
-8712
-8713
-8714</pre>
+8963
+8964
+8965
+8966</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8711</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8963</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.CreateMultipartUploadInput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.ServerSideEncryption = &v
@@ -2608,13 +2614,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8680
-8681
-8682
-8683</pre>
+8932
+8933
+8934
+8935</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8680</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8932</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.CreateMultipartUploadInput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -2652,13 +2658,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8686
-8687
-8688
-8689</pre>
+8938
+8939
+8940
+8941</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8686</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8938</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.CreateMultipartUploadInput.SetSSECustomerKey() (method)">SetSSECustomerKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.SSECustomerKey = &v
@@ -2696,13 +2702,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8699
-8700
-8701
-8702</pre>
+8951
+8952
+8953
+8954</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8699</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8951</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.CreateMultipartUploadInput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -2740,13 +2746,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8705
-8706
-8707
-8708</pre>
+8957
+8958
+8959
+8960</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8705</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8957</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.CreateMultipartUploadInput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -2784,13 +2790,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8717
-8718
-8719
-8720</pre>
+8969
+8970
+8971
+8972</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8717</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8969</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetStorageClass-instance_method" title="s3.CreateMultipartUploadInput.SetStorageClass() (method)">SetStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.StorageClass = &v
@@ -2828,13 +2834,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8723
-8724
-8725
-8726</pre>
+8975
+8976
+8977
+8978</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8723</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8975</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetTagging-instance_method" title="s3.CreateMultipartUploadInput.SetTagging() (method)">SetTagging</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.Tagging = &v
@@ -2872,13 +2878,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8729
-8730
-8731
-8732</pre>
+8981
+8982
+8983
+8984</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8729</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8981</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#SetWebsiteRedirectLocation-instance_method" title="s3.CreateMultipartUploadInput.SetWebsiteRedirectLocation() (method)">SetWebsiteRedirectLocation</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span> {
 	s.WebsiteRedirectLocation = &v
@@ -2902,7 +2908,9 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -2916,12 +2924,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8551
-8552
-8553</pre>
+8799
+8800
+8801</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8551</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8799</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.CreateMultipartUploadInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -2958,29 +2966,29 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-8561
-8562
-8563
-8564
-8565
-8566
-8567
-8568
-8569
-8570
-8571
-8572
-8573
-8574
-8575
-8576
-8577
-8578
-8579
-8580</pre>
+8813
+8814
+8815
+8816
+8817
+8818
+8819
+8820
+8821
+8822
+8823
+8824
+8825
+8826
+8827
+8828
+8829
+8830
+8831
+8832</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8561</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 8813</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.CreateMultipartUploadInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.CreateMultipartUploadInput (struct)">CreateMultipartUploadInput</a></span>"</span>}
@@ -3014,7 +3022,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:13:55 2022 by
+  Generated on Wed Dec  7 13:39:14 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

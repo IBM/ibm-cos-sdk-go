@@ -577,6 +577,8 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) was used for the object.</p>
 
+<p>SSEKMSKeyId is a sensitive parameter and its value will be replaced with “sensitive” in string returned by UploadPartOutput&#39;s String and GoString methods.</p>
+
 
   </div>
 </div>
@@ -632,7 +634,9 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -646,12 +650,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19409
-19410
-19411</pre>
+20817
+20818
+20819</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19409</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20817</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.UploadPartOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -688,13 +692,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19414
-19415
-19416
-19417</pre>
+20822
+20823
+20824
+20825</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19414</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20822</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span>) <span class='object_link'><a href="#SetETag-instance_method" title="s3.UploadPartOutput.SetETag() (method)">SetETag</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span> {
 	s.ETag = &v
@@ -732,13 +736,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19420
-19421
-19422
-19423</pre>
+20828
+20829
+20830
+20831</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19420</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20828</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span>) <span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.UploadPartOutput.SetRequestCharged() (method)">SetRequestCharged</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span> {
 	s.RequestCharged = &v
@@ -776,13 +780,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19444
-19445
-19446
-19447</pre>
+20852
+20853
+20854
+20855</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19444</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20852</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.UploadPartOutput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span> {
 	s.ServerSideEncryption = &v
@@ -820,13 +824,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19426
-19427
-19428
-19429</pre>
+20834
+20835
+20836
+20837</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19426</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20834</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.UploadPartOutput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -864,13 +868,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19432
-19433
-19434
-19435</pre>
+20840
+20841
+20842
+20843</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19432</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20840</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.UploadPartOutput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -908,13 +912,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19438
-19439
-19440
-19441</pre>
+20846
+20847
+20848
+20849</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19438</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20846</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.UploadPartOutput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -938,7 +942,9 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -952,12 +958,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19404
-19405
-19406</pre>
+20808
+20809
+20810</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19404</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20808</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartOutput (struct)">UploadPartOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.UploadPartOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -974,7 +980,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:11 2022 by
+  Generated on Wed Dec  7 13:39:33 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

@@ -696,6 +696,8 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>If x-amz-server-side-encryption is present and has the value of aws:kms, this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.</p>
 
+<p>SSEKMSKeyId is a sensitive parameter and its value will be replaced with “sensitive” in string returned by PutObjectOutput&#39;s String and GoString methods.</p>
+
 
   </div>
 </div>
@@ -770,7 +772,9 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -784,12 +788,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-17533
-17534
-17535</pre>
+18745
+18746
+18747</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17533</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18745</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.PutObjectOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -826,13 +830,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-17538
-17539
-17540
-17541</pre>
+18750
+18751
+18752
+18753</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17538</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18750</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span>) <span class='object_link'><a href="#SetETag-instance_method" title="s3.PutObjectOutput.SetETag() (method)">SetETag</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span> {
 	s.ETag = &v
@@ -870,13 +874,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-17544
-17545
-17546
-17547</pre>
+18756
+18757
+18758
+18759</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17544</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18756</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span>) <span class='object_link'><a href="#SetExpiration-instance_method" title="s3.PutObjectOutput.SetExpiration() (method)">SetExpiration</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span> {
 	s.Expiration = &v
@@ -914,13 +918,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-17550
-17551
-17552
-17553</pre>
+18762
+18763
+18764
+18765</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17550</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18762</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span>) <span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.PutObjectOutput.SetRequestCharged() (method)">SetRequestCharged</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span> {
 	s.RequestCharged = &v
@@ -958,13 +962,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-17574
-17575
-17576
-17577</pre>
+18786
+18787
+18788
+18789</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17574</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18786</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.PutObjectOutput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span> {
 	s.ServerSideEncryption = &v
@@ -1002,13 +1006,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-17556
-17557
-17558
-17559</pre>
+18768
+18769
+18770
+18771</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17556</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18768</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.PutObjectOutput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -1046,13 +1050,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-17562
-17563
-17564
-17565</pre>
+18774
+18775
+18776
+18777</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17562</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18774</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.PutObjectOutput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -1090,13 +1094,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-17568
-17569
-17570
-17571</pre>
+18780
+18781
+18782
+18783</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17568</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18780</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.PutObjectOutput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -1134,13 +1138,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-17580
-17581
-17582
-17583</pre>
+18792
+18793
+18794
+18795</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17580</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18792</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.PutObjectOutput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span> {
 	s.VersionId = &v
@@ -1164,7 +1168,9 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -1178,12 +1184,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-17528
-17529
-17530</pre>
+18736
+18737
+18738</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17528</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 18736</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutObjectOutput (struct)">PutObjectOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.PutObjectOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1200,7 +1206,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:08 2022 by
+  Generated on Wed Dec  7 13:39:29 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

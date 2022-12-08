@@ -164,7 +164,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key pair.</p>
+<p>Specifies the CMK that encrypts the private key in the data key pair.</p>
 </div></span>
   
 </li>
@@ -426,9 +426,9 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>Specifies the encryption context that will be used when encrypting the private key in the data key pair.</p>
 
-<p>An encryption context is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
+<p>An encryption context is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
 
-<p>For more information, see Encryption context (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>) in the Key Management Service Developer Guide.</p>
+<p>For more information, see Encryption Context (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context</a>) in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -449,7 +449,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>A list of grant tokens.</p>
 
-<p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved eventual consistency. For more information, see Grant token (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token</a>) and Using a grant token (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token</a>) in the Key Management Service Developer Guide.</p>
+<p>For more information, see Grant Tokens (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token</a>) in the AWS Key Management Service Developer Guide.</p>
 
 
   </div>
@@ -468,9 +468,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your KMS key, use the DescribeKey operation.</p>
+<p>Specifies the CMK that encrypts the private key in the data key pair. You must specify a symmetric CMK. You cannot use an asymmetric CMK or a CMK in a custom key store. To get the type and origin of your CMK, use the DescribeKey operation.</p>
 
-<p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+<p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -483,7 +483,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
+<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
 
 <p>KeyId is a required field</p>
 
@@ -506,7 +506,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>Determines the type of data key pair that is generated.</p>
 
-<p>The KMS rule that restricts the use of asymmetric RSA KMS keys to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC KMS keys only to sign and verify, are not effective on data key pairs, which are used outside of KMS.</p>
+<p>The AWS KMS rule that restricts the use of asymmetric RSA CMKs to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC CMKs only to sign and verify, are not effective outside of AWS KMS.</p>
 
 <p>KeyPairSpec is a required field</p>
 
@@ -562,12 +562,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12006
-12007
-12008</pre>
+10923
+10924
+10925</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12006</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10923</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -604,13 +604,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12030
-12031
-12032
-12033</pre>
+10947
+10948
+10949
+10950</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12030</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10947</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#SetEncryptionContext-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.SetEncryptionContext() (method)">SetEncryptionContext</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span> {
 	s.EncryptionContext = v
@@ -648,13 +648,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12036
-12037
-12038
-12039</pre>
+10953
+10954
+10955
+10956</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12036</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10953</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span> {
 	s.GrantTokens = v
@@ -692,13 +692,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12042
-12043
-12044
-12045</pre>
+10959
+10960
+10961
+10962</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12042</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10959</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span> {
 	s.KeyId = &v
@@ -736,13 +736,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12048
-12049
-12050
-12051</pre>
+10965
+10966
+10967
+10968</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12048</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10965</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#SetKeyPairSpec-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.SetKeyPairSpec() (method)">SetKeyPairSpec</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span> {
 	s.KeyPairSpec = &v
@@ -782,12 +782,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11997
-11998
-11999</pre>
+10914
+10915
+10916</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11997</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10914</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -824,26 +824,26 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12011
-12012
-12013
-12014
-12015
-12016
-12017
-12018
-12019
-12020
-12021
-12022
-12023
-12024
-12025
-12026
-12027</pre>
+10928
+10929
+10930
+10931
+10932
+10933
+10934
+10935
+10936
+10937
+10938
+10939
+10940
+10941
+10942
+10943
+10944</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12011</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10928</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.GenerateDataKeyPairWithoutPlaintextInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.GenerateDataKeyPairWithoutPlaintextInput (struct)">GenerateDataKeyPairWithoutPlaintextInput</a></span>"</span>}
@@ -874,7 +874,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:26 2022 by
+  Generated on Wed Dec  7 13:39:48 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

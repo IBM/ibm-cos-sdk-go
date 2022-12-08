@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies the alias that is changing its KMS key.</p>
+<p>Identifies the alias that is changing its CMK.</p>
 </div></span>
   
 </li>
@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies the customer managed key (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk</a>) to associate with the alias.</p>
+<p>Identifies the customer managed CMK (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk</a>) to associate with the alias.</p>
 </div></span>
   
 </li>
@@ -324,7 +324,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies the alias that is changing its KMS key. This value must begin with alias/ followed by the alias name, such as alias/ExampleAlias. You cannot use UpdateAlias to change the alias name.</p>
+<p>Identifies the alias that is changing its CMK. This value must begin with alias/ followed by the alias name, such as alias/ExampleAlias. You cannot use UpdateAlias to change the alias name.</p>
 
 <p>AliasName is a required field</p>
 
@@ -345,11 +345,11 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies the customer managed key (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk</a>) to associate with the alias. You don&#39;t have permission to associate an alias with an Amazon Web Services managed key (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk</a>).</p>
+<p>Identifies the customer managed CMK (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk</a>) to associate with the alias. You don&#39;t have permission to associate an alias with an AWS managed CMK (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk</a>).</p>
 
-<p>The KMS key must be in the same Amazon Web Services account and Region as the alias. Also, the new target KMS key must be the same type as the current target KMS key (both symmetric or both asymmetric) and they must have the same key usage.</p>
+<p>The CMK must be in the same AWS account and Region as the alias. Also, the new target CMK must be the same type as the current target CMK (both symmetric or both asymmetric) and they must have the same key usage.</p>
 
-<p>Specify the key ID or key ARN of the KMS key.</p>
+<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -358,9 +358,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.</p>
+<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
 
-<p>To verify that the alias is mapped to the correct KMS key, use ListAliases.</p>
+<p>To verify that the alias is mapped to the correct CMK, use ListAliases.</p>
 
 <p>TargetKeyId is a required field</p>
 
@@ -416,12 +416,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17706
-17707
-17708</pre>
+15824
+15825
+15826</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17706</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15824</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.UpdateAliasInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -458,13 +458,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17733
-17734
-17735
-17736</pre>
+15851
+15852
+15853
+15854</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17733</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15851</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#SetAliasName-instance_method" title="kms.UpdateAliasInput.SetAliasName() (method)">SetAliasName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span> {
 	s.AliasName = &v
@@ -502,13 +502,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17739
-17740
-17741
-17742</pre>
+15857
+15858
+15859
+15860</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17739</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15857</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#SetTargetKeyId-instance_method" title="kms.UpdateAliasInput.SetTargetKeyId() (method)">SetTargetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span> {
 	s.TargetKeyId = &v
@@ -548,12 +548,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17697
-17698
-17699</pre>
+15815
+15816
+15817</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17697</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15815</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.UpdateAliasInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -590,29 +590,29 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17711
-17712
-17713
-17714
-17715
-17716
-17717
-17718
-17719
-17720
-17721
-17722
-17723
-17724
-17725
-17726
-17727
-17728
-17729
-17730</pre>
+15829
+15830
+15831
+15832
+15833
+15834
+15835
+15836
+15837
+15838
+15839
+15840
+15841
+15842
+15843
+15844
+15845
+15846
+15847
+15848</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17711</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15829</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.UpdateAliasInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.UpdateAliasInput (struct)">UpdateAliasInput</a></span>"</span>}
@@ -646,7 +646,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:34 2022 by
+  Generated on Wed Dec  7 13:39:56 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

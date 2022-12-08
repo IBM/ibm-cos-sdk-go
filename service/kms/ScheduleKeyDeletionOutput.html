@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The date and time after which KMS deletes the KMS key.</p>
+<p>The date and time after which AWS KMS deletes the customer master key (CMK).</p>
 </div></span>
   
 </li>
@@ -139,57 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the KMS key whose deletion is scheduled.</p>
-</div></span>
-  
-</li>
-
-
-    
-      
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#KeyState-field" title="kms.ScheduleKeyDeletionOutput.KeyState (field)"><strong>KeyState</strong> *string</a></span></span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>The current status of the KMS key.</p>
-</div></span>
-  
-</li>
-
-
-    
-      
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#PendingWindowInDays-field" title="kms.ScheduleKeyDeletionOutput.PendingWindowInDays (field)"><strong>PendingWindowInDays</strong> *int64</a></span></span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>The waiting period before the KMS key is deleted.</p>
+<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the CMK whose deletion is scheduled.</p>
 </div></span>
   
 </li>
@@ -308,56 +258,6 @@ import "../ibm-cos-sdk-go/service/kms"
       
         
 <li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#SetKeyState-instance_method" title="kms.ScheduleKeyDeletionOutput.SetKeyState() (method)"><strong>SetKeyState</strong>(string)  *ScheduleKeyDeletionOutput </a></span></span>
-  
-  
-  
-  
-  <span class="note title readonly">operation</span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>SetKeyState sets the KeyState field&#39;s value.</p>
-</div></span>
-  
-</li>
-
-
-      
-        
-<li class="public ">
-  <span class="summary_signature"><span class='object_link'><a href="#SetPendingWindowInDays-instance_method" title="kms.ScheduleKeyDeletionOutput.SetPendingWindowInDays() (method)"><strong>SetPendingWindowInDays</strong>(int64)  *ScheduleKeyDeletionOutput </a></span></span>
-  
-  
-  
-  
-  <span class="note title readonly">operation</span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>SetPendingWindowInDays sets the PendingWindowInDays field&#39;s value.</p>
-</div></span>
-  
-</li>
-
-
-      
-        
-<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#String-instance_method" title="kms.ScheduleKeyDeletionOutput.String() (method)"><strong>String</strong>()  string </a></span></span>
   
   
@@ -399,9 +299,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The date and time after which KMS deletes the KMS key.</p>
-
-<p>If the KMS key is a multi-Region primary key with replica keys, this field does not appear. The deletion date for the primary key isn&#39;t known until its last replica key is deleted.</p>
+<p>The date and time after which AWS KMS deletes the customer master key (CMK).</p>
 
 
   </div>
@@ -420,49 +318,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the KMS key whose deletion is scheduled.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="KeyState-field">
-  <strong>KeyState</strong> *string 
-  <code>`type:"string" enum:"KeyState"`</code>
-</h3>
-<div class="docstring">
-  <div class="discussion">
-    
-<p>The current status of the KMS key.</p>
-
-<p>For more information about how key state affects the use of a KMS key, see Key states of KMS keys (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>) in the Key Management Service Developer Guide.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="PendingWindowInDays-field">
-  <strong>PendingWindowInDays</strong> *int64 
-  <code>`min:"1" type:"integer"`</code>
-</h3>
-<div class="docstring">
-  <div class="discussion">
-    
-<p>The waiting period before the KMS key is deleted.</p>
-
-<p>If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.</p>
+<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the CMK whose deletion is scheduled.</p>
 
 
   </div>
@@ -516,12 +372,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17022
-17023
-17024</pre>
+15157
+15158
+15159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17022</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15157</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.ScheduleKeyDeletionOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -558,13 +414,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17027
-17028
-17029
-17030</pre>
+15162
+15163
+15164
+15165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17027</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15162</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span>) <span class='object_link'><a href="#SetDeletionDate-instance_method" title="kms.ScheduleKeyDeletionOutput.SetDeletionDate() (method)">SetDeletionDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span> {
 	s.DeletionDate = &v
@@ -602,104 +458,16 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17033
-17034
-17035
-17036</pre>
+15168
+15169
+15170
+15171</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17033</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15168</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.ScheduleKeyDeletionOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span> {
 	s.KeyId = &v
-	<span class="hljs-keyword">return</span> s
-}</div></pre>
-    </td>
-  </tr>
-</table>
-
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="SetKeyState-instance_method">
-  
-    func (s *<span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span>) <strong><span class='object_link'><a href="#SetKeyState-instance_method" title="kms.ScheduleKeyDeletionOutput.SetKeyState() (method)">SetKeyState</a></span></strong>(v string) *<span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>SetKeyState sets the KeyState field&#39;s value.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-17039
-17040
-17041
-17042</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17039</span>
-
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span>) <span class='object_link'><a href="#SetKeyState-instance_method" title="kms.ScheduleKeyDeletionOutput.SetKeyState() (method)">SetKeyState</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span> {
-	s.KeyState = &v
-	<span class="hljs-keyword">return</span> s
-}</div></pre>
-    </td>
-  </tr>
-</table>
-
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="SetPendingWindowInDays-instance_method">
-  
-    func (s *<span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span>) <strong><span class='object_link'><a href="#SetPendingWindowInDays-instance_method" title="kms.ScheduleKeyDeletionOutput.SetPendingWindowInDays() (method)">SetPendingWindowInDays</a></span></strong>(v int64) *<span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>SetPendingWindowInDays sets the PendingWindowInDays field&#39;s value.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-17045
-17046
-17047
-17048</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17045</span>
-
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span>) <span class='object_link'><a href="#SetPendingWindowInDays-instance_method" title="kms.ScheduleKeyDeletionOutput.SetPendingWindowInDays() (method)">SetPendingWindowInDays</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span> {
-	s.PendingWindowInDays = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -736,12 +504,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17013
-17014
-17015</pre>
+15148
+15149
+15150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17013</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15148</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ScheduleKeyDeletionOutput (struct)">ScheduleKeyDeletionOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.ScheduleKeyDeletionOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -758,7 +526,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:33 2022 by
+  Generated on Wed Dec  7 13:39:55 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

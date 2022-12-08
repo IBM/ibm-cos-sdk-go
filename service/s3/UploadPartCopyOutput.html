@@ -646,6 +646,8 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.</p>
 
+<p>SSEKMSKeyId is a sensitive parameter and its value will be replaced with “sensitive” in string returned by UploadPartCopyOutput&#39;s String and GoString methods.</p>
+
 
   </div>
 </div>
@@ -701,7 +703,9 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -715,12 +719,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19125
-19126
-19127</pre>
+20509
+20510
+20511</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19125</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20509</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.UploadPartCopyOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -757,13 +761,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19130
-19131
-19132
-19133</pre>
+20514
+20515
+20516
+20517</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19130</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20514</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetCopyPartResult-instance_method" title="s3.UploadPartCopyOutput.SetCopyPartResult() (method)">SetCopyPartResult</a></span>(v *<span class='object_link'><a href="#CopyPartResult-field" title="s3.UploadPartCopyOutput.CopyPartResult (field)">CopyPartResult</a></span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.CopyPartResult = v
@@ -801,13 +805,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19136
-19137
-19138
-19139</pre>
+20520
+20521
+20522
+20523</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19136</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20520</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetCopySourceVersionId-instance_method" title="s3.UploadPartCopyOutput.SetCopySourceVersionId() (method)">SetCopySourceVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.CopySourceVersionId = &v
@@ -845,13 +849,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19142
-19143
-19144
-19145</pre>
+20526
+20527
+20528
+20529</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19142</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20526</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.UploadPartCopyOutput.SetRequestCharged() (method)">SetRequestCharged</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.RequestCharged = &v
@@ -889,13 +893,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19166
-19167
-19168
-19169</pre>
+20550
+20551
+20552
+20553</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19166</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20550</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.UploadPartCopyOutput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.ServerSideEncryption = &v
@@ -933,13 +937,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19148
-19149
-19150
-19151</pre>
+20532
+20533
+20534
+20535</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19148</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20532</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.UploadPartCopyOutput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -977,13 +981,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19154
-19155
-19156
-19157</pre>
+20538
+20539
+20540
+20541</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19154</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20538</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.UploadPartCopyOutput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -1021,13 +1025,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19160
-19161
-19162
-19163</pre>
+20544
+20545
+20546
+20547</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19160</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20544</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.UploadPartCopyOutput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -1051,7 +1055,9 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -1065,12 +1071,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19120
-19121
-19122</pre>
+20500
+20501
+20502</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19120</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20500</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.UploadPartCopyOutput (struct)">UploadPartCopyOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.UploadPartCopyOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1087,7 +1093,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:10 2022 by
+  Generated on Wed Dec  7 13:39:32 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>

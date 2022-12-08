@@ -2171,6 +2171,8 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.</p>
 
+<p>SSEKMSKeyId is a sensitive parameter and its value will be replaced with “sensitive” in string returned by HeadObjectOutput&#39;s String and GoString methods.</p>
+
 
   </div>
 </div>
@@ -2285,7 +2287,9 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>GoString returns the string representation</p>
+<p>GoString returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -2299,12 +2303,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13123
-13124
-13125</pre>
+13899
+13900
+13901</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13123</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13899</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.HeadObjectOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -2341,13 +2345,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13128
-13129
-13130
-13131</pre>
+13904
+13905
+13906
+13907</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13128</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13904</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetAcceptRanges-instance_method" title="s3.HeadObjectOutput.SetAcceptRanges() (method)">SetAcceptRanges</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.AcceptRanges = &v
@@ -2385,13 +2389,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13134
-13135
-13136
-13137</pre>
+13910
+13911
+13912
+13913</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13134</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13910</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetCacheControl-instance_method" title="s3.HeadObjectOutput.SetCacheControl() (method)">SetCacheControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.CacheControl = &v
@@ -2429,13 +2433,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13140
-13141
-13142
-13143</pre>
+13916
+13917
+13918
+13919</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13140</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13916</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetContentDisposition-instance_method" title="s3.HeadObjectOutput.SetContentDisposition() (method)">SetContentDisposition</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ContentDisposition = &v
@@ -2473,13 +2477,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13146
-13147
-13148
-13149</pre>
+13922
+13923
+13924
+13925</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13146</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13922</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetContentEncoding-instance_method" title="s3.HeadObjectOutput.SetContentEncoding() (method)">SetContentEncoding</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ContentEncoding = &v
@@ -2517,13 +2521,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13152
-13153
-13154
-13155</pre>
+13928
+13929
+13930
+13931</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13152</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13928</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetContentLanguage-instance_method" title="s3.HeadObjectOutput.SetContentLanguage() (method)">SetContentLanguage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ContentLanguage = &v
@@ -2561,13 +2565,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13158
-13159
-13160
-13161</pre>
+13934
+13935
+13936
+13937</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13158</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13934</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetContentLength-instance_method" title="s3.HeadObjectOutput.SetContentLength() (method)">SetContentLength</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ContentLength = &v
@@ -2605,13 +2609,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13164
-13165
-13166
-13167</pre>
+13940
+13941
+13942
+13943</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13164</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13940</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetContentType-instance_method" title="s3.HeadObjectOutput.SetContentType() (method)">SetContentType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ContentType = &v
@@ -2649,13 +2653,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13170
-13171
-13172
-13173</pre>
+13946
+13947
+13948
+13949</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13170</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13946</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetDeleteMarker-instance_method" title="s3.HeadObjectOutput.SetDeleteMarker() (method)">SetDeleteMarker</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.DeleteMarker = &v
@@ -2693,13 +2697,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13176
-13177
-13178
-13179</pre>
+13952
+13953
+13954
+13955</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13176</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13952</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetETag-instance_method" title="s3.HeadObjectOutput.SetETag() (method)">SetETag</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ETag = &v
@@ -2737,13 +2741,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13182
-13183
-13184
-13185</pre>
+13958
+13959
+13960
+13961</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13182</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13958</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetExpiration-instance_method" title="s3.HeadObjectOutput.SetExpiration() (method)">SetExpiration</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.Expiration = &v
@@ -2781,13 +2785,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13188
-13189
-13190
-13191</pre>
+13964
+13965
+13966
+13967</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13188</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13964</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetExpires-instance_method" title="s3.HeadObjectOutput.SetExpires() (method)">SetExpires</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.Expires = &v
@@ -2825,13 +2829,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13194
-13195
-13196
-13197</pre>
+13970
+13971
+13972
+13973</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13194</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13970</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetIBMRestoredCopyStorageClass-instance_method" title="s3.HeadObjectOutput.SetIBMRestoredCopyStorageClass() (method)">SetIBMRestoredCopyStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.IBMRestoredCopyStorageClass = &v
@@ -2869,13 +2873,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13200
-13201
-13202
-13203</pre>
+13976
+13977
+13978
+13979</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13200</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13976</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetIBMTransition-instance_method" title="s3.HeadObjectOutput.SetIBMTransition() (method)">SetIBMTransition</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.IBMTransition = &v
@@ -2913,13 +2917,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13206
-13207
-13208
-13209</pre>
+13982
+13983
+13984
+13985</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13206</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13982</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetLastModified-instance_method" title="s3.HeadObjectOutput.SetLastModified() (method)">SetLastModified</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.LastModified = &v
@@ -2957,13 +2961,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13212
-13213
-13214
-13215</pre>
+13988
+13989
+13990
+13991</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13212</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13988</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetMetadata-instance_method" title="s3.HeadObjectOutput.SetMetadata() (method)">SetMetadata</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.Metadata = v
@@ -3001,13 +3005,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13218
-13219
-13220
-13221</pre>
+13994
+13995
+13996
+13997</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13218</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13994</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetMissingMeta-instance_method" title="s3.HeadObjectOutput.SetMissingMeta() (method)">SetMissingMeta</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.MissingMeta = &v
@@ -3045,13 +3049,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13224
-13225
-13226
-13227</pre>
+14000
+14001
+14002
+14003</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13224</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14000</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetPartsCount-instance_method" title="s3.HeadObjectOutput.SetPartsCount() (method)">SetPartsCount</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.PartsCount = &v
@@ -3089,13 +3093,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13230
-13231
-13232
-13233</pre>
+14006
+14007
+14008
+14009</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13230</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14006</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetReplicationStatus-instance_method" title="s3.HeadObjectOutput.SetReplicationStatus() (method)">SetReplicationStatus</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ReplicationStatus = &v
@@ -3133,13 +3137,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13236
-13237
-13238
-13239</pre>
+14012
+14013
+14014
+14015</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13236</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14012</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.HeadObjectOutput.SetRequestCharged() (method)">SetRequestCharged</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.RequestCharged = &v
@@ -3177,13 +3181,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13242
-13243
-13244
-13245</pre>
+14018
+14019
+14020
+14021</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13242</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14018</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetRestore-instance_method" title="s3.HeadObjectOutput.SetRestore() (method)">SetRestore</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.Restore = &v
@@ -3221,13 +3225,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13248
-13249
-13250
-13251</pre>
+14024
+14025
+14026
+14027</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13248</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14024</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetRetentionExpirationDate-instance_method" title="s3.HeadObjectOutput.SetRetentionExpirationDate() (method)">SetRetentionExpirationDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.RetentionExpirationDate = &v
@@ -3265,13 +3269,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13254
-13255
-13256
-13257</pre>
+14030
+14031
+14032
+14033</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13254</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14030</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetRetentionLegalHoldCount-instance_method" title="s3.HeadObjectOutput.SetRetentionLegalHoldCount() (method)">SetRetentionLegalHoldCount</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.RetentionLegalHoldCount = &v
@@ -3309,13 +3313,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13260
-13261
-13262
-13263</pre>
+14036
+14037
+14038
+14039</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13260</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14036</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetRetentionPeriod-instance_method" title="s3.HeadObjectOutput.SetRetentionPeriod() (method)">SetRetentionPeriod</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.RetentionPeriod = &v
@@ -3353,13 +3357,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13284
-13285
-13286
-13287</pre>
+14060
+14061
+14062
+14063</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13284</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14060</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.HeadObjectOutput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.ServerSideEncryption = &v
@@ -3397,13 +3401,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13266
-13267
-13268
-13269</pre>
+14042
+14043
+14044
+14045</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13266</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14042</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.HeadObjectOutput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -3441,13 +3445,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13272
-13273
-13274
-13275</pre>
+14048
+14049
+14050
+14051</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13272</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14048</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.HeadObjectOutput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -3485,13 +3489,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13278
-13279
-13280
-13281</pre>
+14054
+14055
+14056
+14057</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13278</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14054</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.HeadObjectOutput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -3529,13 +3533,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13290
-13291
-13292
-13293</pre>
+14066
+14067
+14068
+14069</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13290</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14066</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetStorageClass-instance_method" title="s3.HeadObjectOutput.SetStorageClass() (method)">SetStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.StorageClass = &v
@@ -3573,13 +3577,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13296
-13297
-13298
-13299</pre>
+14072
+14073
+14074
+14075</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13296</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14072</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.HeadObjectOutput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.VersionId = &v
@@ -3617,13 +3621,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13302
-13303
-13304
-13305</pre>
+14078
+14079
+14080
+14081</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13302</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14078</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#SetWebsiteRedirectLocation-instance_method" title="s3.HeadObjectOutput.SetWebsiteRedirectLocation() (method)">SetWebsiteRedirectLocation</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span> {
 	s.WebsiteRedirectLocation = &v
@@ -3647,7 +3651,9 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>String returns the string representation</p>
+<p>String returns the string representation.</p>
+
+<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
 
 
   </div>
@@ -3661,12 +3667,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13118
-13119
-13120</pre>
+13890
+13891
+13892</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13118</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13890</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.HeadObjectOutput (struct)">HeadObjectOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.HeadObjectOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -3683,7 +3689,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Mon Sep 19 10:14:02 2022 by
+  Generated on Wed Dec  7 13:39:22 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>
