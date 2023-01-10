@@ -1,4 +1,4 @@
-module github.com/IBM/ibm-cos-sdk-go
+module github.com/guruprasad0110/ibm-cos-sdk-go
 
 require (
 	github.com/jmespath/go-jmespath v0.4.0
