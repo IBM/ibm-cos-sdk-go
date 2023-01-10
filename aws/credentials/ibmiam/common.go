@@ -97,6 +97,20 @@ func NewProvider(providerName string, config *aws.Config, apiKey, authEndPoint, 
 	return
 }
 
+func (p *Provider) DisableBackgroundRefresh() {
+	if p.logLevel.Matches(aws.LogDebug) {
+		p.logger.Log(debugLog, ibmiamProviderLog, p.providerName, "Disabling background refresh of tokens")
+	}
+	p.tokenManager.StopBackgroundRefresh()
+}
+
+func (p *Provider) EnableBackgroundRefresh() {
+	if p.logLevel.Matches(aws.LogDebug) {
+		p.logger.Log(debugLog, ibmiamProviderLog, p.providerName, "Disabling background refresh of tokens")
+	}
+	p.tokenManager.StartBackgroundRefresh()
+}
+
 // IsValid ...
 // Returns:
 //	Provider validation - boolean
