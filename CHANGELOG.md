@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.10.0
+
+### Content
+
+#### Features
+
+* S3 Compatible Object Lock Support
+* One Rate Active Plan Support
+
 ## 1.9.4
 
 ### Content

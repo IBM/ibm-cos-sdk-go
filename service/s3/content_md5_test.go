@@ -143,6 +143,46 @@ func TestMD5InPutBucketWebsite(t *testing.T) {
 
 	assertMD5(t, req)
 }
+func TestMD5InPutObjectLegalHold(t *testing.T) {
+	svc := s3.New(unit.Session)
+	req, _ := svc.PutObjectLegalHoldRequest(&s3.PutObjectLegalHoldInput{
+		Bucket: aws.String("bucketname"),
+		Key:    aws.String("key"),
+		LegalHold: &s3.ObjectLockLegalHold{
+			Status: aws.String(s3.ObjectLockLegalHoldStatusOff),
+		},
+	})
+
+	assertMD5(t, req)
+}
+
+func TestMD5InPutObjectRetention(t *testing.T) {
+	svc := s3.New(unit.Session)
+	req, _ := svc.PutObjectRetentionRequest(&s3.PutObjectRetentionInput{
+		Bucket:                    aws.String("bucket name"),
+		BypassGovernanceRetention: nil,
+		Key:                       aws.String("key"),
+		RequestPayer:              nil,
+		Retention: &s3.ObjectLockRetention{
+			Mode: aws.String("mode"),
+		},
+		VersionId: nil,
+	})
+
+	assertMD5(t, req)
+}
+
+func TestMD5InPutObjectLockConfiguration(t *testing.T) {
+	svc := s3.New(unit.Session)
+	req, _ := svc.PutObjectLockConfigurationRequest(&s3.PutObjectLockConfigurationInput{
+		Bucket: aws.String("bucket name"),
+		ObjectLockConfiguration: &s3.ObjectLockConfiguration{
+			ObjectLockEnabled: aws.String(s3.ObjectLockEnabledEnabled),
+		},
+	})
+
+	assertMD5(t, req)
+}
 
 func TestMD5InPutObjectAcl(t *testing.T) {
 	svc := s3.New(unit.Session)
