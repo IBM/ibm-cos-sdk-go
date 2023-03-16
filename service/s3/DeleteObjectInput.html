@@ -123,6 +123,31 @@ import "../ibm-cos-sdk-go/service/s3"
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#BypassGovernanceRetention-field" title="s3.DeleteObjectInput.BypassGovernanceRetention (field)"><strong>BypassGovernanceRetention</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#ExpectedBucketOwner-field" title="s3.DeleteObjectInput.ExpectedBucketOwner (field)"><strong>ExpectedBucketOwner</strong> *string</a></span></span>
   
   
@@ -325,6 +350,31 @@ import "../ibm-cos-sdk-go/service/s3"
   
     <span class="summary_desc"><div class='inline'>
 <p>SetBucket sets the Bucket field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetBypassGovernanceRetention-instance_method" title="s3.DeleteObjectInput.SetBypassGovernanceRetention() (method)"><strong>SetBypassGovernanceRetention</strong>(bool)  *DeleteObjectInput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetBypassGovernanceRetention sets the BypassGovernanceRetention field&#39;s value.</p>
 </div></span>
   
 </li>
@@ -542,6 +592,25 @@ import "../ibm-cos-sdk-go/service/s3"
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="BypassGovernanceRetention-field">
+  <strong>BypassGovernanceRetention</strong> *bool 
+  <code>`location:"header" locationName:"x-amz-bypass-governance-retention" type:"boolean"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="ExpectedBucketOwner-field">
   <strong>ExpectedBucketOwner</strong> *string 
   <code>`location:"header" locationName:"x-amz-expected-bucket-owner" type:"string"`</code>
@@ -681,12 +750,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9939
-9940
-9941</pre>
+10566
+10567
+10568</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9939</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10566</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.DeleteObjectInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -723,16 +792,60 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9966
-9967
-9968
-9969</pre>
+10593
+10594
+10595
+10596</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9966</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10593</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.DeleteObjectInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.Bucket = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetBypassGovernanceRetention-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <strong><span class='object_link'><a href="#SetBypassGovernanceRetention-instance_method" title="s3.DeleteObjectInput.SetBypassGovernanceRetention() (method)">SetBypassGovernanceRetention</a></span></strong>(v bool) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetBypassGovernanceRetention sets the BypassGovernanceRetention field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10606
+10607
+10608
+10609</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10606</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetBypassGovernanceRetention-instance_method" title="s3.DeleteObjectInput.SetBypassGovernanceRetention() (method)">SetBypassGovernanceRetention</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
+	s.BypassGovernanceRetention = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -767,13 +880,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9979
-9980
-9981
-9982</pre>
+10612
+10613
+10614
+10615</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9979</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10612</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.DeleteObjectInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -811,13 +924,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9985
-9986
-9987
-9988</pre>
+10618
+10619
+10620
+10621</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9985</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10618</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.DeleteObjectInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.Key = &v
@@ -855,13 +968,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9991
-9992
-9993
-9994</pre>
+10624
+10625
+10626
+10627</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9991</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10624</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetMFA-instance_method" title="s3.DeleteObjectInput.SetMFA() (method)">SetMFA</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.MFA = &v
@@ -899,13 +1012,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9997
-9998
-9999
-10000</pre>
+10630
+10631
+10632
+10633</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9997</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10630</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.DeleteObjectInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.RequestPayer = &v
@@ -943,13 +1056,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10003
-10004
-10005
-10006</pre>
+10636
+10637
+10638
+10639</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10003</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10636</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.DeleteObjectInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.VersionId = &v
@@ -989,12 +1102,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9930
-9931
-9932</pre>
+10557
+10558
+10559</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9930</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10557</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.DeleteObjectInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1031,29 +1144,29 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9944
-9945
-9946
-9947
-9948
-9949
-9950
-9951
-9952
-9953
-9954
-9955
-9956
-9957
-9958
-9959
-9960
-9961
-9962
-9963</pre>
+10571
+10572
+10573
+10574
+10575
+10576
+10577
+10578
+10579
+10580
+10581
+10582
+10583
+10584
+10585
+10586
+10587
+10588
+10589
+10590</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9944</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10571</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.DeleteObjectInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>"</span>}
@@ -1087,7 +1200,7 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Jan 12 09:30:33 2023 by
+  Generated on Thu Mar 16 05:14:58 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-2.7.0).
 </div>
