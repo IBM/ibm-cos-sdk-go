@@ -42,7 +42,7 @@ type TrustedProfileProvider struct {
 // Returns:
 //
 //	TrustedProfileProvider
-func NewTrustedProfileProvider(providerName string, config *aws.Config, trustedProfileName, crTokenFilePath,
+func NewTrustedProfileProvider(providerName string, config *aws.Config, trustedProfileName, trustedProfileID, crTokenFilePath,
 	authEndPoint string) *TrustedProfileProvider {
 	provider := new(TrustedProfileProvider)
 
@@ -65,8 +65,8 @@ func NewTrustedProfileProvider(providerName string, config *aws.Config, trustedP
 		return provider
 	}
 
-	if trustedProfileName == "" {
-		provider.ErrorStatus = awserr.New("trustedProfileNameNotFound", "Trusted Profile name not found", nil)
+	if trustedProfileName == "" && trustedProfileID == "" {
+		provider.ErrorStatus = awserr.New("trustedProfileNotFound", "Trusted profile name or id not found", nil)
 		if provider.logLevel.Matches(aws.LogDebug) {
 			provider.logger.Log(debugLog, "<IBM IAM PROVIDER BUILD>", provider.ErrorStatus)
 		}
@@ -83,6 +83,7 @@ func NewTrustedProfileProvider(providerName string, config *aws.Config, trustedP
 
 	authenticator, err := core.NewContainerAuthenticatorBuilder().
 		SetIAMProfileName(trustedProfileName).
+		SetIAMProfileID(trustedProfileID).
 		SetCRTokenFilename(crTokenFilePath).
 		SetURL(authEndPoint).
 		Build()
@@ -103,7 +104,7 @@ func NewTrustedProfileProvider(providerName string, config *aws.Config, trustedP
 // IsValid ...
 // Returns:
 //
-//	Provider validation - boolean
+//	TrustedProfileProvider validation - boolean
 func (p *TrustedProfileProvider) IsValid() bool {
 	return nil == p.ErrorStatus
 }
@@ -126,9 +127,9 @@ func (p *TrustedProfileProvider) Retrieve() (credentials.Value, error) {
 		var returnErr error
 		if p.logLevel.Matches(aws.LogDebug) {
 			p.logger.Log(debugLog, ibmiamProviderLog, p.providerName, "ERROR ON GET token", err)
-			returnErr = awserr.New("TokenManagerRetrieveError", "error retrieving the token", err)
+			returnErr = awserr.New("TokenRetrieveError", "error retrieving the token", err)
 		} else {
-			returnErr = awserr.New("TokenManagerRetrieveError", "error retrieving the token", nil)
+			returnErr = awserr.New("TokenRetrieveError", "error retrieving the token", nil)
 		}
 		return credentials.Value{}, returnErr
 	}
@@ -156,12 +157,12 @@ func (p *TrustedProfileProvider) IsExpired() bool {
 
 // NewTPProvider constructor of the IBM IAM provider that uses trusted profile and CR token passed directly
 // Returns: NewTrustedProfileProvider (AWS type)
-func NewTPProvider(config *aws.Config, authEndPoint, trusterProfileName, crTokenFilePath string) *TrustedProfileProvider {
-	return NewTrustedProfileProvider(TrustedProfileProviderName, config, trusterProfileName, crTokenFilePath, authEndPoint)
+func NewTPProvider(config *aws.Config, authEndPoint, trusterProfileName, trustedProfileID, crTokenFilePath string) *TrustedProfileProvider {
+	return NewTrustedProfileProvider(TrustedProfileProviderName, config, trusterProfileName, trustedProfileID, crTokenFilePath, authEndPoint)
 }
 
 // NewTrustedProfileCredentials constructor for IBM IAM that uses IAM credentials passed in
 // Returns: credentials.NewCredentials(NewTPProvider()) (AWS type)
-func NewTrustedProfileCredentials(config *aws.Config, authEndPoint, trusterProfileName, crTokenFilePath string) *credentials.Credentials {
-	return credentials.NewCredentials(NewTPProvider(config, authEndPoint, trusterProfileName, crTokenFilePath))
+func NewTrustedProfileCredentials(config *aws.Config, authEndPoint, trusterProfileName, trustedProfileID, crTokenFilePath string) *credentials.Credentials {
+	return credentials.NewCredentials(NewTPProvider(config, authEndPoint, trusterProfileName, trustedProfileID, crTokenFilePath))
 }

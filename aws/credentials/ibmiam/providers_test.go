@@ -24,6 +24,8 @@ const (
 	authendpoint = "aep"
 	// trustedProfileName
 	trustedProfileName = "test-trusted-profile"
+	// trustedProfileID
+	trustedProfileID = "test-trusted-profile-id"
 	// crTokenFilePath
 	crTokenFilePath = "/tmp/token"
 )
@@ -118,9 +120,10 @@ func TestStaticApiKey(t *testing.T) {
 
 // Test Trusted Profile Authentication using cr token
 func TestTrustedProfile(t *testing.T) {
-	prov := NewTrustedProfileProvider(TrustedProfileProviderName, &aws.Config{}, trustedProfileName, crTokenFilePath, authendpoint)
+	prov := NewTrustedProfileProvider(TrustedProfileProviderName, &aws.Config{}, trustedProfileName, trustedProfileID, crTokenFilePath, authendpoint)
 
 	assert.Equal(t, trustedProfileName, prov.authenticator.IAMProfileName, "trusted profile name did not match")
+	assert.Equal(t, trustedProfileID, prov.authenticator.IAMProfileID, "trusted profile ID did not match")
 	assert.Equal(t, authendpoint, prov.authenticator.URL, "auth endpoint did not match")
 	assert.Equal(t, crTokenFilePath, prov.authenticator.CRTokenFilename, "cr token filepath did not match")
 	assert.Equal(t, TrustedProfileProviderName, prov.providerName, "provider name did not match")
