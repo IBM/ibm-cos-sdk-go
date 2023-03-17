@@ -133,19 +133,12 @@ func (p *TrustedProfileProvider) Retrieve() (credentials.Value, error) {
 		}
 		return credentials.Value{}, returnErr
 	}
-	if p.logLevel.Matches(aws.LogDebug) {
-		p.logger.Log(debugLog, ibmiamProviderLog, p.providerName, "GET TOKEN", tokenValue)
-	}
 
-	token := token.Token{
-		AccessToken:  tokenValue.AccessToken,
-		RefreshToken: tokenValue.RefreshToken,
-		TokenType:    tokenValue.TokenType,
-		ExpiresIn:    tokenValue.ExpiresIn,
-		Expiration:   tokenValue.Expiration,
-	}
-
-	return credentials.Value{Token: token, ProviderName: p.providerName, ProviderType: p.providerType}, nil
+	return credentials.Value{
+		Token:        token.Token(*tokenValue),
+		ProviderName: p.providerName,
+		ProviderType: p.providerType,
+	}, nil
 }
 
 // IsExpired ...
