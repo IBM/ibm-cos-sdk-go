@@ -22,6 +22,10 @@ const (
 	serviceinstanceid = "sii"
 	// IBM IAM Authentication Server Endpoint
 	authendpoint = "aep"
+	// trustedProfileName
+	trustedProfileName = "test-trusted-profile"
+	// crTokenFilePath
+	crTokenFilePath = "/tmp/token"
 )
 
 // Mock Token Manager
@@ -35,13 +39,14 @@ type tokenManagerMock struct {
 
 // Mock Token Manager Using GET Function
 // Returns:
-//		Token object that has following
-//		- Access Token
-//		- Refresh Token
-//		- Token Type
-//		- Expires in (terms of seconds)
-//		- Expiration time
-//		Error object
+//
+//	Token object that has following
+//	- Access Token
+//	- Refresh Token
+//	- Token Type
+//	- Expires in (terms of seconds)
+//	- Expiration time
+//	Error object
 func (tmm *tokenManagerMock) Get() (*token.Token, error) {
 	return &token.Token{
 		AccessToken:  "A",
@@ -69,15 +74,18 @@ func (tmm *tokenManagerMock) StartBackgroundRefresh() {
 
 // Mock Token Manager Constructor
 // Parameters:
-//		AWS Config
-//		IBM IAM API Key
-//		IBM IAM Authentication Server Endpoint
-//		Advisory Refresh Timeout
-//		Manadatory Refresh Timeout
-//		Timer
-//		Token Manager Client Do Operation
+//
+//	AWS Config
+//	IBM IAM API Key
+//	IBM IAM Authentication Server Endpoint
+//	Advisory Refresh Timeout
+//	Manadatory Refresh Timeout
+//	Timer
+//	Token Manager Client Do Operation
+//
 // Returns:
-//		Mock Token Manager with API KEY and IBM IAM Authentication Server Endpoint
+//
+//	Mock Token Manager with API KEY and IBM IAM Authentication Server Endpoint
 func newTMMock(_ *aws.Config, apiKey string, authEndPoint string, _,
 	_ func(time.Duration) time.Duration, _ func() time.Time,
 	_ tokenmanager.IBMClientDo) tokenmanager.API {
@@ -108,6 +116,16 @@ func TestStaticApiKey(t *testing.T) {
 	assert.Equal(t, tk.ServiceInstanceID, serviceinstanceid, "e4")
 }
 
+// Test Trusted Profile Authentication using cr token
+func TestTrustedProfile(t *testing.T) {
+	prov := NewTrustedProfileProvider(TrustedProfileProviderName, &aws.Config{}, trustedProfileName, crTokenFilePath, authendpoint)
+
+	assert.Equal(t, trustedProfileName, prov.authenticator.IAMProfileName, "trusted profile name did not match")
+	assert.Equal(t, authendpoint, prov.authenticator.URL, "auth endpoint did not match")
+	assert.Equal(t, crTokenFilePath, prov.authenticator.CRTokenFilename, "cr token filepath did not match")
+	assert.Equal(t, TrustedProfileProviderName, prov.providerName, "provider name did not match")
+}
+
 // Test Environment Variable Provider with IBM IAM API Key
 func TestEnvApiKey(t *testing.T) {
 	os.Setenv("IBM_API_KEY_ID", apikey)
@@ -127,9 +145,11 @@ func TestEnvApiKey(t *testing.T) {
 }
 
 // Create an INI variable with IBM IAM credentials with three profiles:
+//
 //	-Default with IBM IAM credentials
 //	-Shared Credentials with IBM IAM credentials
 //	-Shared Config with IBM IAM credentials
+//
 // Each one has API Key, Service Instance ID, IBM IAM Authentication Endpoint
 var iniContent = `
 [default]
@@ -266,7 +286,6 @@ func TestSharedCredProfileApiKey(t *testing.T) {
 	assert.Equal(t, serviceinstanceid+"CRED", tk.ServiceInstanceID, "e4")
 }
 
-//
 // Mock Token Manager Two
 // Uses the first mock of token manager
 type tokenManagerMock2 struct {
@@ -281,7 +300,8 @@ func (tmm *tokenManagerMock2) Get() (*token.Token, error) {
 
 // Mock Token Manager Two Constructor
 // Returns:
-//		Mock Token Manager with IBM IAM Authentication Server Endpoint
+//
+//	Mock Token Manager with IBM IAM Authentication Server Endpoint
 func newTMMock2(_ *aws.Config, init func() (*token.Token, error), authEndPoint string, _,
 	_ func(time.Duration) time.Duration, _ func() time.Time,
 	_ tokenmanager.IBMClientDo) tokenmanager.API {

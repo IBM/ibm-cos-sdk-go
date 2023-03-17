@@ -84,7 +84,7 @@ func NewTrustedProfileProvider(providerName string, config *aws.Config, trustedP
 	authenticator, err := core.NewContainerAuthenticatorBuilder().
 		SetIAMProfileName(trustedProfileName).
 		SetCRTokenFilename(crTokenFilePath).
-		SetURL("").
+		SetURL(authEndPoint).
 		Build()
 	if err != nil {
 		provider.ErrorStatus = awserr.New("errCreatingAuthenticatorClient", "cannot setup new Authenticator client", err)
