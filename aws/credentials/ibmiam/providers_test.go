@@ -1,8 +1,11 @@
 package ibmiam
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"net/http"
+	"net/http/httptest"
 	"os"
 	"testing"
 	"time"
@@ -11,6 +14,7 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/credentials/ibmiam/token"
 	"github.com/IBM/ibm-cos-sdk-go/aws/credentials/ibmiam/tokenmanager"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 const (
@@ -26,8 +30,6 @@ const (
 	trustedProfileName = "test-trusted-profile"
 	// trustedProfileID
 	trustedProfileID = "test-trusted-profile-id"
-	// crTokenFilePath
-	crTokenFilePath = "/tmp/token"
 )
 
 // Mock Token Manager
@@ -120,13 +122,50 @@ func TestStaticApiKey(t *testing.T) {
 
 // Test Trusted Profile Authentication using cr token
 func TestTrustedProfile(t *testing.T) {
-	prov := NewTrustedProfileProvider(TrustedProfileProviderName, &aws.Config{}, trustedProfileName, trustedProfileID, crTokenFilePath, authendpoint)
+	testToken := "test"
+
+	authServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		token := token.Token{
+			AccessToken:  testToken,
+			RefreshToken: "not-supported",
+			TokenType:    tokenType,
+			ExpiresIn:    int64((time.Hour * 24).Seconds()),
+			Expiration:   time.Now().Add(time.Hour * 24).Unix(),
+		}
+
+		data, err := json.Marshal(token)
+		require.NoError(t, err)
+
+		w.WriteHeader(http.StatusAccepted)
+		_, err = w.Write(data)
+		require.NoError(t, err)
+	}))
+
+	file, err := ioutil.TempFile(os.TempDir(), "crtoken")
+	require.NoError(t, err)
+	fmt.Println(file.Name())
+	defer os.Remove(file.Name())
+
+	_, err = file.Write([]byte("test cr token"))
+	require.NoError(t, err)
+	defer file.Close()
+
+	prov := NewTrustedProfileProvider(TrustedProfileProviderName, &aws.Config{}, trustedProfileName,
+		trustedProfileID, file.Name(), authServer.URL)
 
 	assert.Equal(t, trustedProfileName, prov.authenticator.IAMProfileName, "trusted profile name did not match")
 	assert.Equal(t, trustedProfileID, prov.authenticator.IAMProfileID, "trusted profile ID did not match")
-	assert.Equal(t, authendpoint, prov.authenticator.URL, "auth endpoint did not match")
-	assert.Equal(t, crTokenFilePath, prov.authenticator.CRTokenFilename, "cr token filepath did not match")
+	assert.Equal(t, authServer.URL, prov.authenticator.URL, "auth endpoint did not match")
+	assert.Equal(t, file.Name(), prov.authenticator.CRTokenFilename, "cr token filepath did not match")
 	assert.Equal(t, TrustedProfileProviderName, prov.providerName, "provider name did not match")
+
+	cred, err := prov.Retrieve()
+	require.NoError(t, err)
+
+	assert.Equal(t, testToken, cred.AccessToken)
+	assert.Equal(t, tokenType, cred.TokenType)
+	assert.Equal(t, TrustedProfileProviderName, prov.providerName)
+	assert.Equal(t, "oauth", prov.providerType)
 }
 
 // Test Environment Variable Provider with IBM IAM API Key

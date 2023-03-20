@@ -8,9 +8,13 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/credentials/ibmiam/token"
 )
 
-const TrustedProfileProviderName = "TrustedProfileProviderNameIBM"
+const (
+	TrustedProfileProviderName = "TrustedProfileProviderNameIBM"
+	tokenType                  = "Bearer"
+)
 
 // TrustedProfileProvider Struct
+// This implements Provider interface
 type TrustedProfileProvider struct {
 	// Name of Provider
 	providerName string
@@ -122,7 +126,7 @@ func (p *TrustedProfileProvider) Retrieve() (credentials.Value, error) {
 		return credentials.Value{ProviderName: p.providerName}, p.ErrorStatus
 	}
 
-	tokenValue, err := p.authenticator.RequestToken()
+	tokenValue, err := p.authenticator.GetToken()
 	if err != nil {
 		var returnErr error
 		if p.logLevel.Matches(aws.LogDebug) {
@@ -135,7 +139,10 @@ func (p *TrustedProfileProvider) Retrieve() (credentials.Value, error) {
 	}
 
 	return credentials.Value{
-		Token:        token.Token(*tokenValue),
+		Token: token.Token{
+			AccessToken: tokenValue,
+			TokenType:   tokenType,
+		},
 		ProviderName: p.providerName,
 		ProviderType: p.providerType,
 	}, nil
