@@ -39,9 +39,9 @@ type TrustedProfileProvider struct {
 //	Provider Name
 //	AWS Config
 //	Trusted Profile Name
+//	Trusted Profile ID
 //	Compute Resource Token File Path
 //	IBM IAM Authentication Server Endpoint
-//	Service Instance ID
 //
 // Returns:
 //
@@ -150,7 +150,10 @@ func (p *TrustedProfileProvider) Retrieve() (credentials.Value, error) {
 
 // IsExpired ...
 //
-//	TrustedProfileProvider expired or not - boolean
+// TrustedProfileProvider expired or not - boolean
+// The GetToken function in Retrieve method is checking whether the token is expired
+// or not before making the call to the server. Here we are skipping the expiry check
+// since the token variable in authenticator is not an exported variable.
 func (p *TrustedProfileProvider) IsExpired() bool {
 	return true
 }
