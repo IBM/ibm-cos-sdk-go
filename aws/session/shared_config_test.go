@@ -11,7 +11,9 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/aws/credentials"
+	"github.com/IBM/ibm-cos-sdk-go/aws/endpoints"
 	"github.com/IBM/ibm-cos-sdk-go/internal/ini"
 )
 

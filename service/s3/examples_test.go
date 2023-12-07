@@ -128,17 +128,13 @@ func ExampleS3_CopyObject_shared00() {
 	fmt.Println(result)
 }
 
-// To create a bucket in a specific region
+// To create a bucket
 //
-// The following example creates a bucket. The request specifies an AWS region where
-// to create the bucket.
+// The following example creates a bucket.
 func ExampleS3_CreateBucket_shared00() {
 	svc := s3.New(session.Must(session.NewSession()))
 	input := &s3.CreateBucketInput{
 		Bucket: aws.String("examplebucket"),
-		CreateBucketConfiguration: &s3.CreateBucketConfiguration{
-			LocationConstraint: aws.String("eu-west-1"),
-		},
 	}
 
 	result, err := svc.CreateBucket(input)
@@ -163,13 +159,17 @@ func ExampleS3_CreateBucket_shared00() {
 	fmt.Println(result)
 }
 
-// To create a bucket
+// To create a bucket in a specific region
 //
-// The following example creates a bucket.
+// The following example creates a bucket. The request specifies an AWS region where
+// to create the bucket.
 func ExampleS3_CreateBucket_shared01() {
 	svc := s3.New(session.Must(session.NewSession()))
 	input := &s3.CreateBucketInput{
 		Bucket: aws.String("examplebucket"),
+		CreateBucketConfiguration: &s3.CreateBucketConfiguration{
+			LocationConstraint: aws.String("eu-west-1"),
+		},
 	}
 
 	result, err := svc.CreateBucket(input)
@@ -367,8 +367,9 @@ func ExampleS3_DeleteObject_shared01() {
 func ExampleS3_DeleteObjectTagging_shared00() {
 	svc := s3.New(session.Must(session.NewSession()))
 	input := &s3.DeleteObjectTaggingInput{
-		Bucket: aws.String("examplebucket"),
-		Key:    aws.String("HappyFace.jpg"),
+		Bucket:    aws.String("examplebucket"),
+		Key:       aws.String("HappyFace.jpg"),
+		VersionId: aws.String("ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"),
 	}
 
 	result, err := svc.DeleteObjectTagging(input)
@@ -610,14 +611,16 @@ func ExampleS3_GetBucketWebsite_shared00() {
 	fmt.Println(result)
 }
 
-// To retrieve an object
+// To retrieve a byte range of an object
 //
-// The following example retrieves an object for an S3 bucket.
+// The following example retrieves an object for an S3 bucket. The request specifies
+// the range header to retrieve a specific byte range.
 func ExampleS3_GetObject_shared00() {
 	svc := s3.New(session.Must(session.NewSession()))
 	input := &s3.GetObjectInput{
 		Bucket: aws.String("examplebucket"),
-		Key:    aws.String("HappyFace.jpg"),
+		Key:    aws.String("SampleFile.txt"),
+		Range:  aws.String("bytes=0-9"),
 	}
 
 	result, err := svc.GetObject(input)
@@ -642,16 +645,14 @@ func ExampleS3_GetObject_shared00() {
 	fmt.Println(result)
 }
 
-// To retrieve a byte range of an object
+// To retrieve an object
 //
-// The following example retrieves an object for an S3 bucket. The request specifies
-// the range header to retrieve a specific byte range.
+// The following example retrieves an object for an S3 bucket.
 func ExampleS3_GetObject_shared01() {
 	svc := s3.New(session.Must(session.NewSession()))
 	input := &s3.GetObjectInput{
 		Bucket: aws.String("examplebucket"),
-		Key:    aws.String("SampleFile.txt"),
-		Range:  aws.String("bytes=0-9"),
+		Key:    aws.String("HappyFace.jpg"),
 	}
 
 	result, err := svc.GetObject(input)
@@ -821,12 +822,9 @@ func ExampleS3_HeadObject_shared00() {
 	fmt.Println(result)
 }
 
-// To list object versions
+// To list all buckets
 //
-// The following example return versions of an object with specific key name prefix.
-// The request limits the number of items returned to two. If there are are more than
-// two object version, S3 returns NextToken in the response. You can specify this token
-// value in your next request to fetch next set of object versions.
+// The following example returns all the buckets owned by the sender of this request.
 func ExampleS3_ListBuckets_shared00() {
 	svc := s3.New(session.Must(session.NewSession()))
 	input := &s3.ListBucketsInput{}
@@ -975,7 +973,7 @@ func ExampleS3_ListObjects_shared00() {
 func ExampleS3_ListObjectsV2_shared00() {
 	svc := s3.New(session.Must(session.NewSession()))
 	input := &s3.ListObjectsV2Input{
-		Bucket:  aws.String("examplebucket"),
+		Bucket:  aws.String("DOC-EXAMPLE-BUCKET"),
 		MaxKeys: aws.Int64(2),
 	}
 
@@ -1156,17 +1154,19 @@ func ExampleS3_PutBucketWebsite_shared00() {
 	fmt.Println(result)
 }
 
-// To upload an object and specify optional tags
+// To upload an object and specify server-side encryption and object tags
 //
-// The following example uploads an object. The request specifies optional object tags.
-// The bucket is versioned, therefore S3 returns version ID of the newly created object.
+// The following example uploads an object. The request specifies the optional server-side
+// encryption option. The request also specifies optional object tags. If the bucket
+// is versioning enabled, S3 returns version ID in response.
 func ExampleS3_PutObject_shared00() {
 	svc := s3.New(session.Must(session.NewSession()))
 	input := &s3.PutObjectInput{
-		Body:    aws.ReadSeekCloser(strings.NewReader("c:\\HappyFace.jpg")),
-		Bucket:  aws.String("examplebucket"),
-		Key:     aws.String("HappyFace.jpg"),
-		Tagging: aws.String("key1=value1&key2=value2"),
+		Body:                 aws.ReadSeekCloser(strings.NewReader("filetoupload")),
+		Bucket:               aws.String("examplebucket"),
+		Key:                  aws.String("exampleobject"),
+		ServerSideEncryption: aws.String("AES256"),
+		Tagging:              aws.String("key1=value1&key2=value2"),
 	}
 
 	result, err := svc.PutObject(input)
@@ -1217,11 +1217,75 @@ func ExampleS3_PutObject_shared01() {
 	fmt.Println(result)
 }
 
+// To upload an object
+//
+// The following example uploads an object to a versioning-enabled bucket. The source
+// file is specified using Windows file syntax. S3 returns VersionId of the newly created
+// object.
+func ExampleS3_PutObject_shared02() {
+	svc := s3.New(session.Must(session.NewSession()))
+	input := &s3.PutObjectInput{
+		Body:                 aws.ReadSeekCloser(strings.NewReader("HappyFace.jpg")),
+		Bucket:               aws.String("examplebucket"),
+		Key:                  aws.String("HappyFace.jpg"),
+		ServerSideEncryption: aws.String("AES256"),
+		StorageClass:         aws.String("STANDARD_IA"),
+	}
+
+	result, err := svc.PutObject(input)
+	if err != nil {
+		if aerr, ok := err.(awserr.Error); ok {
+			switch aerr.Code() {
+			default:
+				fmt.Println(aerr.Error())
+			}
+		} else {
+			// Print the error, cast err to awserr.Error to get the Code and
+			// Message from an error.
+			fmt.Println(err.Error())
+		}
+		return
+	}
+
+	fmt.Println(result)
+}
+
+// To upload an object and specify optional tags
+//
+// The following example uploads an object. The request specifies optional object tags.
+// The bucket is versioned, therefore S3 returns version ID of the newly created object.
+func ExampleS3_PutObject_shared03() {
+	svc := s3.New(session.Must(session.NewSession()))
+	input := &s3.PutObjectInput{
+		Body:    aws.ReadSeekCloser(strings.NewReader("c:\\HappyFace.jpg")),
+		Bucket:  aws.String("examplebucket"),
+		Key:     aws.String("HappyFace.jpg"),
+		Tagging: aws.String("key1=value1&key2=value2"),
+	}
+
+	result, err := svc.PutObject(input)
+	if err != nil {
+		if aerr, ok := err.(awserr.Error); ok {
+			switch aerr.Code() {
+			default:
+				fmt.Println(aerr.Error())
+			}
+		} else {
+			// Print the error, cast err to awserr.Error to get the Code and
+			// Message from an error.
+			fmt.Println(err.Error())
+		}
+		return
+	}
+
+	fmt.Println(result)
+}
+
 // To upload object and specify user-defined metadata
 //
 // The following example creates an object. The request also specifies optional metadata.
 // If the bucket is versioning enabled, S3 returns version ID in response.
-func ExampleS3_PutObject_shared02() {
+func ExampleS3_PutObject_shared04() {
 	svc := s3.New(session.Must(session.NewSession()))
 	input := &s3.PutObjectInput{
 		Body:   aws.ReadSeekCloser(strings.NewReader("filetoupload")),
@@ -1231,70 +1295,6 @@ func ExampleS3_PutObject_shared02() {
 			"metadata1": aws.String("value1"),
 			"metadata2": aws.String("value2"),
 		},
-	}
-
-	result, err := svc.PutObject(input)
-	if err != nil {
-		if aerr, ok := err.(awserr.Error); ok {
-			switch aerr.Code() {
-			default:
-				fmt.Println(aerr.Error())
-			}
-		} else {
-			// Print the error, cast err to awserr.Error to get the Code and
-			// Message from an error.
-			fmt.Println(err.Error())
-		}
-		return
-	}
-
-	fmt.Println(result)
-}
-
-// To upload an object
-//
-// The following example uploads an object to a versioning-enabled bucket. The source
-// file is specified using Windows file syntax. S3 returns VersionId of the newly created
-// object.
-func ExampleS3_PutObject_shared03() {
-	svc := s3.New(session.Must(session.NewSession()))
-	input := &s3.PutObjectInput{
-		Body:   aws.ReadSeekCloser(strings.NewReader("HappyFace.jpg")),
-		Bucket: aws.String("examplebucket"),
-		Key:    aws.String("HappyFace.jpg"),
-	}
-
-	result, err := svc.PutObject(input)
-	if err != nil {
-		if aerr, ok := err.(awserr.Error); ok {
-			switch aerr.Code() {
-			default:
-				fmt.Println(aerr.Error())
-			}
-		} else {
-			// Print the error, cast err to awserr.Error to get the Code and
-			// Message from an error.
-			fmt.Println(err.Error())
-		}
-		return
-	}
-
-	fmt.Println(result)
-}
-
-// To upload an object and specify server-side encryption and object tags
-//
-// The following example uploads and object. The request specifies the optional server-side
-// encryption option. The request also specifies optional object tags. If the bucket
-// is versioning enabled, S3 returns version ID in response.
-func ExampleS3_PutObject_shared04() {
-	svc := s3.New(session.Must(session.NewSession()))
-	input := &s3.PutObjectInput{
-		Body:                 aws.ReadSeekCloser(strings.NewReader("filetoupload")),
-		Bucket:               aws.String("examplebucket"),
-		Key:                  aws.String("exampleobject"),
-		ServerSideEncryption: aws.String("AES256"),
-		Tagging:              aws.String("key1=value1&key2=value2"),
 	}
 
 	result, err := svc.PutObject(input)
@@ -1347,18 +1347,17 @@ func ExampleS3_PutObject_shared05() {
 	fmt.Println(result)
 }
 
-// To upload an object (specify optional headers)
+// To upload an object
 //
-// The following example uploads an object. The request specifies optional request headers
-// to directs S3 to use specific storage class and use server-side encryption.
+// The following example uploads an object to a versioning-enabled bucket. The source
+// file is specified using Windows file syntax. S3 returns VersionId of the newly created
+// object.
 func ExampleS3_PutObject_shared06() {
 	svc := s3.New(session.Must(session.NewSession()))
 	input := &s3.PutObjectInput{
-		Body:                 aws.ReadSeekCloser(strings.NewReader("HappyFace.jpg")),
-		Bucket:               aws.String("examplebucket"),
-		Key:                  aws.String("HappyFace.jpg"),
-		ServerSideEncryption: aws.String("AES256"),
-		StorageClass:         aws.String("STANDARD_IA"),
+		Body:   aws.ReadSeekCloser(strings.NewReader("HappyFace.jpg")),
+		Bucket: aws.String("examplebucket"),
+		Key:    aws.String("HappyFace.jpg"),
 	}
 
 	result, err := svc.PutObject(input)

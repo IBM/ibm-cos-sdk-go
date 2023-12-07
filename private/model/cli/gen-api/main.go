@@ -162,7 +162,7 @@ func writeServiceFiles(g *generateInfo, pkgDir string) {
 	defer func() {
 		if r := recover(); r != nil {
 			fmt.Fprintf(os.Stderr, "Error generating %s\n%s\n%s\n",
-				pkgDir, r, debug.Stack())
+				pkgDir, r, string(debug.Stack()))
 			os.Exit(1)
 		}
 	}()
@@ -187,7 +187,9 @@ func writeServiceFiles(g *generateInfo, pkgDir string) {
 		Must(writeS3ManagerUploadInputFile(g))
 	}
 
-	if len(g.API.SmokeTests.TestCases) > 0 {
+	// SMS service is deprecated and endpoints are turned off, so dont generate
+	// integration tests for that service.
+	if len(g.API.SmokeTests.TestCases) > 0 && g.API.PackageName() != "sms" {
 		Must(writeAPISmokeTestsFile(g))
 	}
 }

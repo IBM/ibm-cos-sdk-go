@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.10.1
+
+### Content
+
+#### Defect Fixes
+
+* AWS Patches aligned to version 1.47.10 of the AWS SDK for Go
+
 ## 1.10.0
 
 ### Content

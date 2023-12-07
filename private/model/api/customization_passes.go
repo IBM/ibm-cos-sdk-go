@@ -47,7 +47,7 @@ func (a *API) setServiceAliaseName() {
 // customizationPasses Executes customization logic for the API by package name.
 func (a *API) customizationPasses() error {
 	var svcCustomizations = map[string]func(*API) error{
-		"s3":         s3Customizations,
+		"s3": s3Customizations,
 	}
 
 	for k := range mergeServices {
@@ -119,7 +119,6 @@ func addHTTPChecksumCustomDocumentation(a *API) error {
 
 	return nil
 }
-
 
 func appendDocString(sb *strings.Builder, doc, content string) string {
 	if len(content) == 0 {

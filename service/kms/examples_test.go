@@ -27,7 +27,7 @@ func parseTime(layout, value string) *time.Time {
 
 // To cancel deletion of a customer master key (CMK)
 //
-// The following example cancels deletion of the specified CMK.
+// The following example cancels deletion of the specified KMS key.
 func ExampleKMS_CancelKeyDeletion_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
 	input := &kms.CancelKeyDeletionInput{
@@ -64,7 +64,7 @@ func ExampleKMS_CancelKeyDeletion_shared00() {
 
 // To create an alias
 //
-// The following example creates an alias for the specified customer master key (CMK).
+// The following example creates an alias for the specified KMS key.
 func ExampleKMS_CreateAlias_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
 	input := &kms.CreateAliasInput{
@@ -291,8 +291,7 @@ func ExampleKMS_DeleteAlias_shared00() {
 
 // To delete imported key material
 //
-// The following example deletes the imported key material from the specified customer
-// master key (CMK).
+// The following example deletes the imported key material from the specified KMS key.
 func ExampleKMS_DeleteImportedKeyMaterial_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
 	input := &kms.DeleteImportedKeyMaterialInput{
@@ -572,7 +571,7 @@ func ExampleKMS_Encrypt_shared00() {
 //
 // The following example generates a 256-bit symmetric data encryption key (data key)
 // in two formats. One is the unencrypted (plainext) data key, and the other is the
-// data key encrypted with the specified customer master key (CMK).
+// data key encrypted with the specified KMS key.
 func ExampleKMS_GenerateDataKey_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
 	input := &kms.GenerateDataKeyInput{
@@ -677,6 +676,8 @@ func ExampleKMS_GenerateRandom_shared00() {
 				fmt.Println(kms.ErrCodeDependencyTimeoutException, aerr.Error())
 			case kms.ErrCodeInternalException:
 				fmt.Println(kms.ErrCodeInternalException, aerr.Error())
+			case kms.ErrCodeUnsupportedOperationException:
+				fmt.Println(kms.ErrCodeUnsupportedOperationException, aerr.Error())
 			case kms.ErrCodeCustomKeyStoreNotFoundException:
 				fmt.Println(kms.ErrCodeCustomKeyStoreNotFoundException, aerr.Error())
 			case kms.ErrCodeCustomKeyStoreInvalidStateException:
@@ -1130,7 +1131,7 @@ func ExampleKMS_PutKeyPolicy_shared00() {
 
 // To reencrypt data
 //
-// The following example reencrypts data with the specified CMK.
+// The following example reencrypts data with the specified KMS key.
 func ExampleKMS_ReEncrypt_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
 	input := &kms.ReEncryptInput{
@@ -1260,7 +1261,7 @@ func ExampleKMS_RevokeGrant_shared00() {
 
 // To schedule a customer master key (CMK) for deletion
 //
-// The following example schedules the specified CMK for deletion.
+// The following example schedules the specified KMS key for deletion.
 func ExampleKMS_ScheduleKeyDeletion_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
 	input := &kms.ScheduleKeyDeletionInput{
@@ -1384,8 +1385,7 @@ func ExampleKMS_UntagResource_shared00() {
 
 // To update an alias
 //
-// The following example updates the specified alias to refer to the specified customer
-// master key (CMK).
+// The following example updates the specified alias to refer to the specified KMS key.
 func ExampleKMS_UpdateAlias_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
 	input := &kms.UpdateAliasInput{
@@ -1421,13 +1421,13 @@ func ExampleKMS_UpdateAlias_shared00() {
 	fmt.Println(result)
 }
 
-// To update the description of a customer master key (CMK)
+// To update the description of a KMS key
 //
-// The following example updates the description of the specified CMK.
+// The following example updates the description of the specified KMS key.
 func ExampleKMS_UpdateKeyDescription_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
 	input := &kms.UpdateKeyDescriptionInput{
-		Description: aws.String("Example description that indicates the intended use of this CMK."),
+		Description: aws.String("Example description that indicates the intended use of this KMS key."),
 		KeyId:       aws.String("1234abcd-12ab-34cd-56ef-1234567890ab"),
 	}
 

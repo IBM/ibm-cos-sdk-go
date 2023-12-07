@@ -77,7 +77,8 @@
         {"shape":"KMSInternalException"},
         {"shape":"CloudHsmClusterNotActiveException"},
         {"shape":"IncorrectTrustAnchorException"},
-        {"shape":"CloudHsmClusterInvalidConfigurationException"}
+        {"shape":"CloudHsmClusterInvalidConfigurationException"},
+        {"shape":"LimitExceededException"}
       ]
     },
     "CreateGrant":{
@@ -401,6 +402,7 @@
       "errors":[
         {"shape":"DependencyTimeoutException"},
         {"shape":"KMSInternalException"},
+        {"shape":"UnsupportedOperationException"},
         {"shape":"CustomKeyStoreNotFoundException"},
         {"shape":"CustomKeyStoreInvalidStateException"}
       ]
@@ -807,7 +809,9 @@
       "enum":[
         "RSAES_PKCS1_V1_5",
         "RSAES_OAEP_SHA_1",
-        "RSAES_OAEP_SHA_256"
+        "RSAES_OAEP_SHA_256",
+        "RSA_AES_KEY_WRAP_SHA_1",
+        "RSA_AES_KEY_WRAP_SHA_256"
       ]
     },
     "AliasList":{
@@ -842,6 +846,11 @@
       "max":2048,
       "min":20
     },
+    "AttestationDocumentType":{
+      "type":"blob",
+      "max":262144,
+      "min":1
+    },
     "BooleanType":{"type":"boolean"},
     "CancelKeyDeletionRequest":{
       "type":"structure",
@@ -864,7 +873,8 @@
     "CloudHsmClusterIdType":{
       "type":"string",
       "max":24,
-      "min":19
+      "min":19,
+      "pattern":"cluster-[2-7a-zA-Z]{11,16}"
     },
     "CloudHsmClusterInUseException":{
       "type":"structure",
@@ -999,7 +1009,12 @@
         "Policy":{"shape":"PolicyType"},
         "Description":{"shape":"DescriptionType"},
         "KeyUsage":{"shape":"KeyUsageType"},
-        "CustomerMasterKeySpec":{"shape":"CustomerMasterKeySpec"},
+        "CustomerMasterKeySpec":{
+          "shape":"CustomerMasterKeySpec",
+          "deprecated":true,
+          "deprecatedMessage":"This parameter has been deprecated. Instead, use the KeySpec parameter."
+        },
+        "KeySpec":{"shape":"KeySpec"},
         "Origin":{"shape":"OriginType"},
         "CustomKeyStoreId":{"shape":"CustomKeyStoreIdType"},
         "BypassPolicyLockoutSafetyCheck":{"shape":"BooleanType"},
@@ -1076,7 +1091,12 @@
         "ECC_NIST_P384",
         "ECC_NIST_P521",
         "ECC_SECG_P256K1",
-        "SYMMETRIC_DEFAULT"
+        "SYMMETRIC_DEFAULT",
+        "HMAC_224",
+        "HMAC_256",
+        "HMAC_384",
+        "HMAC_512",
+        "SM2"
       ]
     },
     "DataKeyPairSpec":{
@@ -1088,7 +1108,8 @@
         "ECC_NIST_P256",
         "ECC_NIST_P384",
         "ECC_NIST_P521",
-        "ECC_SECG_P256K1"
+        "ECC_SECG_P256K1",
+        "SM2"
       ]
     },
     "DataKeySpec":{
@@ -1262,7 +1283,8 @@
       "enum":[
         "SYMMETRIC_DEFAULT",
         "RSAES_OAEP_SHA_1",
-        "RSAES_OAEP_SHA_256"
+        "RSAES_OAEP_SHA_256",
+        "SM2PKE"
       ]
     },
     "EncryptionAlgorithmSpecList":{
@@ -1688,19 +1710,45 @@
         "CloudHsmClusterId":{"shape":"CloudHsmClusterIdType"},
         "ExpirationModel":{"shape":"ExpirationModelType"},
         "KeyManager":{"shape":"KeyManagerType"},
-        "CustomerMasterKeySpec":{"shape":"CustomerMasterKeySpec"},
+        "CustomerMasterKeySpec":{
+          "shape":"CustomerMasterKeySpec",
+          "deprecated":true,
+          "deprecatedMessage":"This field has been deprecated. Instead, use the KeySpec field."
+        },
+        "KeySpec":{"shape":"KeySpec"},
         "EncryptionAlgorithms":{"shape":"EncryptionAlgorithmSpecList"},
         "SigningAlgorithms":{"shape":"SigningAlgorithmSpecList"}
       }
     },
+    "KeySpec":{
+      "type":"string",
+      "enum":[
+        "RSA_2048",
+        "RSA_3072",
+        "RSA_4096",
+        "ECC_NIST_P256",
+        "ECC_NIST_P384",
+        "ECC_NIST_P521",
+        "ECC_SECG_P256K1",
+        "SYMMETRIC_DEFAULT",
+        "HMAC_224",
+        "HMAC_256",
+        "HMAC_384",
+        "HMAC_512",
+        "SM2"
+      ]
+    },
     "KeyState":{
       "type":"string",
       "enum":[
+        "Creating",
         "Enabled",
         "Disabled",
         "PendingDeletion",
         "PendingImport",
-        "Unavailable"
+        "PendingReplicaDeletion",
+        "Unavailable",
+        "Updating"
       ]
     },
     "KeyStorePasswordType":{
@@ -1866,7 +1914,8 @@
       "enum":[
         "AWS_KMS",
         "EXTERNAL",
-        "AWS_CLOUDHSM"
+        "AWS_CLOUDHSM",
+        "EXTERNAL_KEY_STORE"
       ]
     },
     "PendingWindowInDaysType":{
@@ -2016,7 +2065,8 @@
         "RSASSA_PKCS1_V1_5_SHA_512",
         "ECDSA_SHA_256",
         "ECDSA_SHA_384",
-        "ECDSA_SHA_512"
+        "ECDSA_SHA_512",
+        "SM2DSA"
       ]
     },
     "SigningAlgorithmSpecList":{
@@ -2157,7 +2207,11 @@
     },
     "WrappingKeySpec":{
       "type":"string",
-      "enum":["RSA_2048"]
+      "enum":[
+        "RSA_2048",
+        "RSA_3072",
+        "RSA_4096"
+      ]
     }
   }
 }
