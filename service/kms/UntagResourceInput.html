@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies the CMK from which you are removing tags.</p>
+<p>Identifies the KMS key from which you are removing tags.</p>
 </div></span>
   
 </li>
@@ -324,9 +324,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies the CMK from which you are removing tags.</p>
+<p>Identifies the KMS key from which you are removing tags.</p>
 
-<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
+<p>Specify the key ID or key ARN of the KMS key.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -335,7 +335,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
+<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.</p>
 
 <p>KeyId is a required field</p>
 
@@ -412,12 +412,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15719
-15720
-15721</pre>
+16844
+16845
+16846</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15719</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16844</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.UntagResourceInput (struct)">UntagResourceInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.UntagResourceInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -454,13 +454,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15743
-15744
-15745
-15746</pre>
+16868
+16869
+16870
+16871</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15743</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16868</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UntagResourceInput (struct)">UntagResourceInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.UntagResourceInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.UntagResourceInput (struct)">UntagResourceInput</a></span> {
 	s.KeyId = &v
@@ -498,13 +498,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15749
-15750
-15751
-15752</pre>
+16874
+16875
+16876
+16877</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15749</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16874</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UntagResourceInput (struct)">UntagResourceInput</a></span>) <span class='object_link'><a href="#SetTagKeys-instance_method" title="kms.UntagResourceInput.SetTagKeys() (method)">SetTagKeys</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.UntagResourceInput (struct)">UntagResourceInput</a></span> {
 	s.TagKeys = v
@@ -544,12 +544,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15710
-15711
-15712</pre>
+16835
+16836
+16837</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15710</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16835</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.UntagResourceInput (struct)">UntagResourceInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.UntagResourceInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -586,26 +586,26 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15724
-15725
-15726
-15727
-15728
-15729
-15730
-15731
-15732
-15733
-15734
-15735
-15736
-15737
-15738
-15739
-15740</pre>
+16849
+16850
+16851
+16852
+16853
+16854
+16855
+16856
+16857
+16858
+16859
+16860
+16861
+16862
+16863
+16864
+16865</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15724</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16849</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.UntagResourceInput (struct)">UntagResourceInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.UntagResourceInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.UntagResourceInput (struct)">UntagResourceInput</a></span>"</span>}
@@ -636,9 +636,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:46 2023 by
+  Generated on Wed Dec  6 15:48:10 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

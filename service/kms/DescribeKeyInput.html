@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Describes the specified customer master key (CMK).</p>
+<p>Describes the specified KMS key.</p>
 </div></span>
   
 </li>
@@ -345,11 +345,11 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Describes the specified customer master key (CMK).</p>
+<p>Describes the specified KMS key.</p>
 
-<p>If you specify a predefined AWS alias (an AWS alias with no key ID), KMS associates the alias with an AWS managed CMK (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys</a>) and returns its KeyId and Arn in the response.</p>
+<p>If you specify a predefined Amazon Web Services alias (an Amazon Web Services alias with no key ID), KMS associates the alias with an Amazon Web Services managed key (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html##aws-managed-cmk">docs.aws.amazon.com/kms/latest/developerguide/concepts.html##aws-managed-cmk</a>) and returns its KeyId and Arn in the response.</p>
 
-<p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
+<p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -362,7 +362,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
+<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
 
 <p>KeyId is a required field</p>
 
@@ -418,12 +418,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9685
-9686
-9687</pre>
+10636
+10637
+10638</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9685</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10636</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.DescribeKeyInput (struct)">DescribeKeyInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.DescribeKeyInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -460,13 +460,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9706
-9707
-9708
-9709</pre>
+10657
+10658
+10659
+10660</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9706</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10657</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DescribeKeyInput (struct)">DescribeKeyInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.DescribeKeyInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DescribeKeyInput (struct)">DescribeKeyInput</a></span> {
 	s.GrantTokens = v
@@ -504,13 +504,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9712
-9713
-9714
-9715</pre>
+10663
+10664
+10665
+10666</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9712</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10663</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DescribeKeyInput (struct)">DescribeKeyInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.DescribeKeyInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DescribeKeyInput (struct)">DescribeKeyInput</a></span> {
 	s.KeyId = &v
@@ -550,12 +550,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9676
-9677
-9678</pre>
+10627
+10628
+10629</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9676</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10627</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.DescribeKeyInput (struct)">DescribeKeyInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.DescribeKeyInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -592,23 +592,23 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9690
-9691
-9692
-9693
-9694
-9695
-9696
-9697
-9698
-9699
-9700
-9701
-9702
-9703</pre>
+10641
+10642
+10643
+10644
+10645
+10646
+10647
+10648
+10649
+10650
+10651
+10652
+10653
+10654</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9690</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10641</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DescribeKeyInput (struct)">DescribeKeyInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.DescribeKeyInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.DescribeKeyInput (struct)">DescribeKeyInput</a></span>"</span>}
@@ -636,9 +636,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:36 2023 by
+  Generated on Wed Dec  6 15:47:59 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

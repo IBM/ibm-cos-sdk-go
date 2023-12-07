@@ -551,9 +551,16 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 
 <p>It is safe to call this method concurrently across goroutines.</p>
 
-<p>Example:  // Upload input parameters  upParams := &amp;s3manager.UploadInput{  Bucket: &amp;bucketName,  Key: &amp;keyName,  Body: file,  }</p>
+<p>Example:</p>
 
-<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Perform an upload.</span>
+<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Upload input parameters</span>
+upParams := &s3manager.UploadInput{
+    Bucket: &bucketName,
+    Key:    &keyName,
+    Body:   file,
+}
+
+<span class="hljs-comment">// Perform an upload.</span>
 result, err := uploader.Upload(upParams)
 
 <span class="hljs-comment">// Perform upload with options different than the those in the Uploader.</span>
@@ -575,12 +582,12 @@ result, err := uploader.Upload(upParams, <span class="hljs-keyword">func</span>(
       <pre class="lines">
 
 
-273
-274
-275</pre>
+275
+276
+277</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 273</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 275</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) Upload(input *UploadInput, options ...<span class="hljs-keyword">func</span>(*Uploader)) (*UploadOutput, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">return</span> u.UploadWithContext(aws.BackgroundContext(), input, options...)
@@ -625,8 +632,6 @@ result, err := uploader.Upload(upParams, <span class="hljs-keyword">func</span>(
       <pre class="lines">
 
 
-295
-296
 297
 298
 299
@@ -635,10 +640,12 @@ result, err := uploader.Upload(upParams, <span class="hljs-keyword">func</span>(
 302
 303
 304
-305</pre>
+305
+306
+307</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 295</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 297</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) UploadWithContext(ctx aws.Context, input *UploadInput, opts ...<span class="hljs-keyword">func</span>(*Uploader)) (*UploadOutput, <span class="hljs-constant">error</span>) {
 	i := uploader{in: input, cfg: u, ctx: ctx}
@@ -671,9 +678,11 @@ result, err := uploader.Upload(upParams, <span class="hljs-keyword">func</span>(
     
 <p>UploadWithIterator will upload a batched amount of objects to S3. This operation uses the iterator pattern to know which object to upload next. Since this is an interface this allows for custom defined functionality.</p>
 
-<p>Example:  svc:= s3manager.NewUploader(sess)</p>
+<p>Example:</p>
 
-<pre class="code go"><code class="go"><div class="hljs">objects := []BatchUploadObject{
+<pre class="code go"><code class="go"><div class="hljs">svc:= s3manager.NewUploader(sess)
+
+objects := []BatchUploadObject{
 	{
 		Object:	&s3manager.UploadInput {
 			Key: aws.String(<span class="hljs-string">"key"</span>),
@@ -700,9 +709,6 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
       <pre class="lines">
 
 
-327
-328
-329
 330
 331
 332
@@ -733,10 +739,13 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
 357
 358
 359
-360</pre>
+360
+361
+362
+363</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 327</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/upload.go', line 330</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (u Uploader) UploadWithIterator(ctx aws.Context, iter BatchUploadIterator, opts ...<span class="hljs-keyword">func</span>(*Uploader)) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">var</span> errs []Error
@@ -784,9 +793,9 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:47 2023 by
+  Generated on Wed Dec  6 15:48:11 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

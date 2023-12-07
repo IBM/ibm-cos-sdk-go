@@ -476,7 +476,7 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>The bucket name that contains the object for which to get the ACL information.</p>
 
-<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using access points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -537,7 +537,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 Developer Guide.</p>
+<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination Amazon S3 bucket has Requester Pays enabled, the requester will pay for corresponding charges to copy the object. For information about downloading objects from Requester Pays buckets, see Downloading Objects in Requester Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 User Guide.</p>
 
 
   </div>
@@ -610,12 +610,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-12780
-12781
-12782</pre>
+12981
+12982
+12983</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12780</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12981</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetObjectAclInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -652,13 +652,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-12807
-12808
-12809
-12810</pre>
+13008
+13009
+13010
+13011</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12807</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13008</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetObjectAclInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span> {
 	s.Bucket = &v
@@ -696,13 +696,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-12820
-12821
-12822
-12823</pre>
+13021
+13022
+13023
+13024</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12820</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13021</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetObjectAclInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -740,13 +740,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-12826
-12827
-12828
-12829</pre>
+13027
+13028
+13029
+13030</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12826</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13027</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.GetObjectAclInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span> {
 	s.Key = &v
@@ -784,13 +784,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-12832
-12833
-12834
-12835</pre>
+13033
+13034
+13035
+13036</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12832</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13033</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.GetObjectAclInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span> {
 	s.RequestPayer = &v
@@ -828,13 +828,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-12838
-12839
-12840
-12841</pre>
+13039
+13040
+13041
+13042</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12838</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13039</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.GetObjectAclInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span> {
 	s.VersionId = &v
@@ -874,12 +874,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-12771
-12772
-12773</pre>
+12972
+12973
+12974</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12771</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12972</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetObjectAclInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -916,29 +916,29 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-12785
-12786
-12787
-12788
-12789
-12790
-12791
-12792
-12793
-12794
-12795
-12796
-12797
-12798
-12799
-12800
-12801
-12802
-12803
-12804</pre>
+12986
+12987
+12988
+12989
+12990
+12991
+12992
+12993
+12994
+12995
+12996
+12997
+12998
+12999
+13000
+13001
+13002
+13003
+13004
+13005</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12785</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12986</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.GetObjectAclInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.GetObjectAclInput (struct)">GetObjectAclInput</a></span>"</span>}
@@ -972,9 +972,9 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:02 2023 by
+  Generated on Wed Dec  6 15:47:28 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

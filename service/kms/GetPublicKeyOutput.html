@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The type of the of the public key that was downloaded.</p>
+<p>Instead, use the KeySpec field in the GetPublicKey response.</p>
 </div></span>
   
 </li>
@@ -164,7 +164,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the asymmetric CMK from which the public key was downloaded.</p>
+<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the asymmetric KMS key from which the public key was downloaded.</p>
 </div></span>
   
 </li>
@@ -239,7 +239,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The signing algorithms that AWS KMS supports for this key.</p>
+<p>The signing algorithms that KMS supports for this key.</p>
 </div></span>
   
 </li>
@@ -499,7 +499,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The type of the of the public key that was downloaded.</p>
+<p>Instead, use the KeySpec field in the GetPublicKey response.</p>
+
+<p>The KeySpec and CustomerMasterKeySpec fields have the same value. We recommend that you use the KeySpec field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
 
 
   </div>
@@ -541,7 +543,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the asymmetric CMK from which the public key was downloaded.</p>
+<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the asymmetric KMS key from which the public key was downloaded.</p>
 
 
   </div>
@@ -562,7 +564,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>The permitted use of the public key. Valid values are ENCRYPT_DECRYPT or SIGN_VERIFY.</p>
 
-<p>This information is critical. If a public key with SIGN_VERIFY key usage encrypts data outside of AWS KMS, the ciphertext cannot be decrypted.</p>
+<p>This information is critical. If a public key with SIGN_VERIFY key usage encrypts data outside of KMS, the ciphertext cannot be decrypted.</p>
 
 
   </div>
@@ -583,7 +585,7 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>The exported public key.</p>
 
-<p>The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in RFC 5280 (<a href="https://tools.ietf.org/html/rfc5280">tools.ietf.org/html/rfc5280</a>). When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. PublicKey is automatically base64 encoded/decoded by the SDK.</p>
+<p>The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in RFC 5280 (<a href="https://tools.ietf.org/html/rfc5280">tools.ietf.org/html/rfc5280</a>). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. PublicKey is automatically base64 encoded/decoded by the SDK.</p>
 
 
   </div>
@@ -602,7 +604,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The signing algorithms that AWS KMS supports for this key.</p>
+<p>The signing algorithms that KMS supports for this key.</p>
 
 <p>This field appears in the response only when the KeyUsage of the public key is SIGN_VERIFY.</p>
 
@@ -658,12 +660,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11790
-11791
-11792</pre>
+12836
+12837
+12838</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11790</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12836</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GetPublicKeyOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -700,13 +702,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11795
-11796
-11797
-11798</pre>
+12841
+12842
+12843
+12844</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11795</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12841</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#SetCustomerMasterKeySpec-instance_method" title="kms.GetPublicKeyOutput.SetCustomerMasterKeySpec() (method)">SetCustomerMasterKeySpec</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span> {
 	s.CustomerMasterKeySpec = &v
@@ -744,13 +746,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11801
-11802
-11803
-11804</pre>
+12847
+12848
+12849
+12850</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11801</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12847</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#SetEncryptionAlgorithms-instance_method" title="kms.GetPublicKeyOutput.SetEncryptionAlgorithms() (method)">SetEncryptionAlgorithms</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span> {
 	s.EncryptionAlgorithms = v
@@ -788,13 +790,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11807
-11808
-11809
-11810</pre>
+12853
+12854
+12855
+12856</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11807</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12853</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.GetPublicKeyOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span> {
 	s.KeyId = &v
@@ -832,13 +834,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11813
-11814
-11815
-11816</pre>
+12859
+12860
+12861
+12862</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11813</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12859</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#SetKeyUsage-instance_method" title="kms.GetPublicKeyOutput.SetKeyUsage() (method)">SetKeyUsage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span> {
 	s.KeyUsage = &v
@@ -876,13 +878,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11819
-11820
-11821
-11822</pre>
+12865
+12866
+12867
+12868</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11819</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12865</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#SetPublicKey-instance_method" title="kms.GetPublicKeyOutput.SetPublicKey() (method)">SetPublicKey</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span> {
 	s.PublicKey = v
@@ -920,13 +922,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11825
-11826
-11827
-11828</pre>
+12871
+12872
+12873
+12874</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11825</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12871</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#SetSigningAlgorithms-instance_method" title="kms.GetPublicKeyOutput.SetSigningAlgorithms() (method)">SetSigningAlgorithms</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span> {
 	s.SigningAlgorithms = v
@@ -966,12 +968,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11781
-11782
-11783</pre>
+12827
+12828
+12829</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11781</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12827</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GetPublicKeyOutput (struct)">GetPublicKeyOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GetPublicKeyOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -988,9 +990,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:39 2023 by
+  Generated on Wed Dec  6 15:48:04 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

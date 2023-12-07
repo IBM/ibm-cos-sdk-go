@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Generates the random byte string in the AWS CloudHSM cluster that is associated with the specified custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>).</p>
+<p>Generates the random byte string in the CloudHSM cluster that is associated with the specified CloudHSM key store.</p>
 </div></span>
   
 </li>
@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The length of the byte string.</p>
+<p>The length of the random byte string.</p>
 </div></span>
   
 </li>
@@ -324,7 +324,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Generates the random byte string in the AWS CloudHSM cluster that is associated with the specified custom key store (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html</a>). To find the ID of a custom key store, use the DescribeCustomKeyStores operation.</p>
+<p>Generates the random byte string in the CloudHSM cluster that is associated with the specified CloudHSM key store. To find the ID of a custom key store, use the DescribeCustomKeyStores operation.</p>
+
+<p>External key store IDs are not valid for this parameter. If you specify the ID of an external key store, GenerateRandom throws an UnsupportedOperationException.</p>
 
 
   </div>
@@ -343,7 +345,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The length of the byte string.</p>
+<p>The length of the random byte string. This parameter is required.</p>
 
 
   </div>
@@ -397,12 +399,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11224
-11225
-11226</pre>
+12232
+12233
+12234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11224</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12232</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateRandomInput (struct)">GenerateRandomInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GenerateRandomInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -439,13 +441,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11245
-11246
-11247
-11248</pre>
+12253
+12254
+12255
+12256</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11245</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12253</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateRandomInput (struct)">GenerateRandomInput</a></span>) <span class='object_link'><a href="#SetCustomKeyStoreId-instance_method" title="kms.GenerateRandomInput.SetCustomKeyStoreId() (method)">SetCustomKeyStoreId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateRandomInput (struct)">GenerateRandomInput</a></span> {
 	s.CustomKeyStoreId = &v
@@ -483,13 +485,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11251
-11252
-11253
-11254</pre>
+12259
+12260
+12261
+12262</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11251</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12259</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateRandomInput (struct)">GenerateRandomInput</a></span>) <span class='object_link'><a href="#SetNumberOfBytes-instance_method" title="kms.GenerateRandomInput.SetNumberOfBytes() (method)">SetNumberOfBytes</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="kms.GenerateRandomInput (struct)">GenerateRandomInput</a></span> {
 	s.NumberOfBytes = &v
@@ -529,12 +531,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11215
-11216
-11217</pre>
+12223
+12224
+12225</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11215</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12223</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateRandomInput (struct)">GenerateRandomInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GenerateRandomInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -571,23 +573,23 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11229
-11230
-11231
-11232
-11233
-11234
-11235
-11236
-11237
-11238
-11239
-11240
-11241
-11242</pre>
+12237
+12238
+12239
+12240
+12241
+12242
+12243
+12244
+12245
+12246
+12247
+12248
+12249
+12250</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11229</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12237</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateRandomInput (struct)">GenerateRandomInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.GenerateRandomInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.GenerateRandomInput (struct)">GenerateRandomInput</a></span>"</span>}
@@ -615,9 +617,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:39 2023 by
+  Generated on Wed Dec  6 15:48:03 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

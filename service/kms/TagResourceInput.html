@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies a customer managed CMK in the account and Region.</p>
+<p>Identifies a customer managed key in the account and Region.</p>
 </div></span>
   
 </li>
@@ -324,9 +324,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies a customer managed CMK in the account and Region.</p>
+<p>Identifies a customer managed key in the account and Region.</p>
 
-<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
+<p>Specify the key ID or key ARN of the KMS key.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -335,7 +335,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
+<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.</p>
 
 <p>KeyId is a required field</p>
 
@@ -356,11 +356,11 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>One or more tags.</p>
+<p>One or more tags. Each tag consists of a tag key and a tag value. The tag value can be an empty (null) string.</p>
 
-<p>Each tag consists of a tag key and a tag value. The tag value can be an empty (null) string.</p>
+<p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 
-<p>You cannot have more than one tag on a CMK with the same tag key. If you specify an existing tag key with a different tag value, AWS KMS replaces the current tag value with the specified one.</p>
+<p>You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, KMS replaces the current tag value with the specified one.</p>
 
 <p>Tags is a required field</p>
 
@@ -416,12 +416,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15549
-15550
-15551</pre>
+16674
+16675
+16676</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15549</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16674</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.TagResourceInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -458,13 +458,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15583
-15584
-15585
-15586</pre>
+16708
+16709
+16710
+16711</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15583</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16708</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.TagResourceInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span> {
 	s.KeyId = &v
@@ -502,13 +502,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15589
-15590
-15591
-15592</pre>
+16714
+16715
+16716
+16717</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15589</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16714</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#SetTags-instance_method" title="kms.TagResourceInput.SetTags() (method)">SetTags</a></span>(v []*<span class='object_link'><a href="Tag.html" title="kms.Tag (struct)">Tag</a></span>) *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span> {
 	s.Tags = v
@@ -548,12 +548,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15540
-15541
-15542</pre>
+16665
+16666
+16667</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15540</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16665</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.TagResourceInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -590,36 +590,36 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15554
-15555
-15556
-15557
-15558
-15559
-15560
-15561
-15562
-15563
-15564
-15565
-15566
-15567
-15568
-15569
-15570
-15571
-15572
-15573
-15574
-15575
-15576
-15577
-15578
-15579
-15580</pre>
+16679
+16680
+16681
+16682
+16683
+16684
+16685
+16686
+16687
+16688
+16689
+16690
+16691
+16692
+16693
+16694
+16695
+16696
+16697
+16698
+16699
+16700
+16701
+16702
+16703
+16704
+16705</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15554</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16679</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.TagResourceInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.TagResourceInput (struct)">TagResourceInput</a></span>"</span>}
@@ -660,9 +660,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:45 2023 by
+  Generated on Wed Dec  6 15:48:10 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

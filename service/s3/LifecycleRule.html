@@ -78,6 +78,8 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
 
+<p>For more information see, Managing your storage lifecycle (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html</a>) in the Amazon S3 User Guide.</p>
+
 
   </div>
 </div>
@@ -585,7 +587,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config</a>) in the Amazon S3 User Guide.</p>
+<p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config</a>) in the Amazon S3 User Guide.</p>
 
 
   </div>
@@ -757,12 +759,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15471
-15472
-15473</pre>
+15689
+15690
+15691</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15471</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15689</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.LifecycleRule.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -799,13 +801,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15492
-15493
-15494
-15495</pre>
+15710
+15711
+15712
+15713</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15492</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15710</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#SetAbortIncompleteMultipartUpload-instance_method" title="s3.LifecycleRule.SetAbortIncompleteMultipartUpload() (method)">SetAbortIncompleteMultipartUpload</a></span>(v *<span class='object_link'><a href="#AbortIncompleteMultipartUpload-field" title="s3.LifecycleRule.AbortIncompleteMultipartUpload (field)">AbortIncompleteMultipartUpload</a></span>) *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span> {
 	s.AbortIncompleteMultipartUpload = v
@@ -843,13 +845,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15498
-15499
-15500
-15501</pre>
+15716
+15717
+15718
+15719</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15498</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15716</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#SetExpiration-instance_method" title="s3.LifecycleRule.SetExpiration() (method)">SetExpiration</a></span>(v *<span class='object_link'><a href="LifecycleExpiration.html" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span>) *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span> {
 	s.Expiration = v
@@ -887,13 +889,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15504
-15505
-15506
-15507</pre>
+15722
+15723
+15724
+15725</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15504</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15722</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#SetFilter-instance_method" title="s3.LifecycleRule.SetFilter() (method)">SetFilter</a></span>(v *<span class='object_link'><a href="LifecycleRuleFilter.html" title="s3.LifecycleRuleFilter (struct)">LifecycleRuleFilter</a></span>) *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span> {
 	s.Filter = v
@@ -931,13 +933,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15510
-15511
-15512
-15513</pre>
+15728
+15729
+15730
+15731</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15510</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15728</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#SetID-instance_method" title="s3.LifecycleRule.SetID() (method)">SetID</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span> {
 	s.ID = &v
@@ -975,13 +977,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15516
-15517
-15518
-15519</pre>
+15734
+15735
+15736
+15737</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15516</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15734</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#SetNoncurrentVersionExpiration-instance_method" title="s3.LifecycleRule.SetNoncurrentVersionExpiration() (method)">SetNoncurrentVersionExpiration</a></span>(v *<span class='object_link'><a href="#NoncurrentVersionExpiration-field" title="s3.LifecycleRule.NoncurrentVersionExpiration (field)">NoncurrentVersionExpiration</a></span>) *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span> {
 	s.NoncurrentVersionExpiration = v
@@ -1019,13 +1021,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15522
-15523
-15524
-15525</pre>
+15740
+15741
+15742
+15743</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15522</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15740</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#SetStatus-instance_method" title="s3.LifecycleRule.SetStatus() (method)">SetStatus</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span> {
 	s.Status = &v
@@ -1063,13 +1065,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15528
-15529
-15530
-15531</pre>
+15746
+15747
+15748
+15749</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15528</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15746</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#SetTransitions-instance_method" title="s3.LifecycleRule.SetTransitions() (method)">SetTransitions</a></span>(v []*<span class='object_link'><a href="Transition.html" title="s3.Transition (struct)">Transition</a></span>) *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span> {
 	s.Transitions = v
@@ -1109,12 +1111,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15462
-15463
-15464</pre>
+15680
+15681
+15682</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15462</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15680</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.LifecycleRule.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1151,23 +1153,23 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15476
-15477
-15478
-15479
-15480
-15481
-15482
-15483
-15484
-15485
-15486
-15487
-15488
-15489</pre>
+15694
+15695
+15696
+15697
+15698
+15699
+15700
+15701
+15702
+15703
+15704
+15705
+15706
+15707</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15476</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15694</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.LifecycleRule.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.LifecycleRule (struct)">LifecycleRule</a></span>"</span>}
@@ -1195,9 +1197,9 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:07 2023 by
+  Generated on Wed Dec  6 15:47:33 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

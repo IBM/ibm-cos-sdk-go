@@ -326,9 +326,11 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>The bucket name.</p>
 
-<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using access points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
-<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see Using S3 on Outposts (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
+<p>When you use this action with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code InvalidAccessPointAliasError is returned. For more information about InvalidAccessPointAliasError, see List of Error Codes (<a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList</a>).</p>
+
+<p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see What is S3 on Outposts? (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -403,12 +405,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-14450
-14451
-14452</pre>
+14662
+14663
+14664</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14450</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14662</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.HeadBucketInput (struct)">HeadBucketInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.HeadBucketInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -445,13 +447,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-14471
-14472
-14473
-14474</pre>
+14683
+14684
+14685
+14686</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14471</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14683</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadBucketInput (struct)">HeadBucketInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.HeadBucketInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadBucketInput (struct)">HeadBucketInput</a></span> {
 	s.Bucket = &v
@@ -489,13 +491,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-14484
-14485
-14486
-14487</pre>
+14696
+14697
+14698
+14699</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14484</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14696</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadBucketInput (struct)">HeadBucketInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.HeadBucketInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.HeadBucketInput (struct)">HeadBucketInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -535,12 +537,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-14441
-14442
-14443</pre>
+14653
+14654
+14655</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14441</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14653</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.HeadBucketInput (struct)">HeadBucketInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.HeadBucketInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -577,23 +579,23 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-14455
-14456
-14457
-14458
-14459
-14460
-14461
-14462
-14463
-14464
-14465
-14466
-14467
-14468</pre>
+14667
+14668
+14669
+14670
+14671
+14672
+14673
+14674
+14675
+14676
+14677
+14678
+14679
+14680</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14455</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14667</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.HeadBucketInput (struct)">HeadBucketInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.HeadBucketInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.HeadBucketInput (struct)">HeadBucketInput</a></span>"</span>}
@@ -621,9 +623,9 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:05 2023 by
+  Generated on Wed Dec  6 15:47:31 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

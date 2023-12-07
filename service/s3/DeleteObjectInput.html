@@ -576,9 +576,9 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>The bucket name of the bucket containing the object.</p>
 
-<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using access points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
-<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see Using S3 on Outposts (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
+<p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see What is S3 on Outposts? (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -677,7 +677,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 Developer Guide.</p>
+<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination Amazon S3 bucket has Requester Pays enabled, the requester will pay for corresponding charges to copy the object. For information about downloading objects from Requester Pays buckets, see Downloading Objects in Requester Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 User Guide.</p>
 
 
   </div>
@@ -750,12 +750,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10566
-10567
-10568</pre>
+10734
+10735
+10736</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10566</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10734</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.DeleteObjectInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -792,13 +792,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10593
-10594
-10595
-10596</pre>
+10761
+10762
+10763
+10764</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10593</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10761</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.DeleteObjectInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.Bucket = &v
@@ -836,13 +836,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10606
-10607
-10608
-10609</pre>
+10774
+10775
+10776
+10777</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10606</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10774</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetBypassGovernanceRetention-instance_method" title="s3.DeleteObjectInput.SetBypassGovernanceRetention() (method)">SetBypassGovernanceRetention</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.BypassGovernanceRetention = &v
@@ -880,13 +880,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10612
-10613
-10614
-10615</pre>
+10780
+10781
+10782
+10783</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10612</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10780</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.DeleteObjectInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -924,13 +924,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10618
-10619
-10620
-10621</pre>
+10786
+10787
+10788
+10789</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10618</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10786</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.DeleteObjectInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.Key = &v
@@ -968,13 +968,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10624
-10625
-10626
-10627</pre>
+10792
+10793
+10794
+10795</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10624</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10792</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetMFA-instance_method" title="s3.DeleteObjectInput.SetMFA() (method)">SetMFA</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.MFA = &v
@@ -1012,13 +1012,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10630
-10631
-10632
-10633</pre>
+10798
+10799
+10800
+10801</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10630</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10798</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.DeleteObjectInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.RequestPayer = &v
@@ -1056,13 +1056,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10636
-10637
-10638
-10639</pre>
+10804
+10805
+10806
+10807</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10636</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10804</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.DeleteObjectInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span> {
 	s.VersionId = &v
@@ -1102,12 +1102,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10557
-10558
-10559</pre>
+10725
+10726
+10727</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10557</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10725</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.DeleteObjectInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1144,29 +1144,29 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-10571
-10572
-10573
-10574
-10575
-10576
-10577
-10578
-10579
-10580
-10581
-10582
-10583
-10584
-10585
-10586
-10587
-10588
-10589
-10590</pre>
+10739
+10740
+10741
+10742
+10743
+10744
+10745
+10746
+10747
+10748
+10749
+10750
+10751
+10752
+10753
+10754
+10755
+10756
+10757
+10758</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10571</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 10739</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.DeleteObjectInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.DeleteObjectInput (struct)">DeleteObjectInput</a></span>"</span>}
@@ -1200,9 +1200,9 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:14:58 2023 by
+  Generated on Wed Dec  6 15:47:25 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

@@ -222,12 +222,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-101
-102
-103</pre>
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client_v2.go', line 101</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client_v2.go', line 103</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EncryptionClientV2) PutObject(input *s3.PutObjectInput) (*s3.PutObjectOutput, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">return</span> putObject(c.options, input)
@@ -252,7 +252,15 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>PutObjectRequest creates a temp file to encrypt the contents into. It then streams that data to S3.</p>
 
-<p>Example:  req, out := svc.PutObjectRequest(&amp;s3.PutObjectInput {  Key: aws.String(“testKey”),  Bucket: aws.String(“testBucket”),  Body: strings.NewReader(“test data”),  })  err := req.Send()</p>
+<p>Example:</p>
+
+<pre class="code go"><code class="go"><div class="hljs">req, out := svc.PutObjectRequest(&s3.PutObjectInput {
+  Key: aws.String(<span class="hljs-string">"testKey"</span>),
+  Bucket: aws.String(<span class="hljs-string">"testBucket"</span>),
+  Body: strings.NewReader(<span class="hljs-string">"test data"</span>),
+})
+err := req.Send()
+</div></code></pre>
 
 
   </div>
@@ -266,12 +274,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-96
-97
-98</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client_v2.go', line 96</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client_v2.go', line 98</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EncryptionClientV2) PutObjectRequest(input *s3.PutObjectInput) (*request.Request, *s3.PutObjectOutput) {
 	<span class="hljs-keyword">return</span> putObjectRequest(c.options, input)
@@ -310,12 +318,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-112
-113
-114</pre>
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client_v2.go', line 112</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client_v2.go', line 114</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *EncryptionClientV2) PutObjectWithContext(ctx aws.Context, input *s3.PutObjectInput, opts ...request.Option) (*s3.PutObjectOutput, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">return</span> putObjectWithContext(c.options, ctx, input, opts...)
@@ -332,9 +340,9 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:48 2023 by
+  Generated on Wed Dec  6 15:48:12 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

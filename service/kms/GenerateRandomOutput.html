@@ -249,7 +249,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+<p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+
+<p>If the response includes the CiphertextForRecipient field, the Plaintext field is null or empty.</p>
 
 <p>Plaintext is a sensitive parameter and its value will be replaced with “sensitive” in string returned by GenerateRandomOutput&#39;s String and GoString methods.</p>
 
@@ -307,12 +309,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11284
-11285
-11286</pre>
+12295
+12296
+12297</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11284</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12295</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateRandomOutput (struct)">GenerateRandomOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GenerateRandomOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -349,13 +351,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11289
-11290
-11291
-11292</pre>
+12300
+12301
+12302
+12303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11289</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12300</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateRandomOutput (struct)">GenerateRandomOutput</a></span>) <span class='object_link'><a href="#SetPlaintext-instance_method" title="kms.GenerateRandomOutput.SetPlaintext() (method)">SetPlaintext</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.GenerateRandomOutput (struct)">GenerateRandomOutput</a></span> {
 	s.Plaintext = v
@@ -395,12 +397,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11275
-11276
-11277</pre>
+12286
+12287
+12288</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11275</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12286</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateRandomOutput (struct)">GenerateRandomOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GenerateRandomOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -417,9 +419,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:39 2023 by
+  Generated on Wed Dec  6 15:48:03 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

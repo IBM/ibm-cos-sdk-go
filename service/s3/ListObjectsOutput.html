@@ -364,7 +364,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects.</p>
+<p>When the response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as the marker parameter in the subsequent request to get the next set of objects.</p>
 </div></span>
   
 </li>
@@ -807,7 +807,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
 <p>CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix.</p>
 
-<p>For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.</p>
+<p>For example, if the prefix is notes/ and the delimiter is a slash (/), as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.</p>
 
 
   </div>
@@ -997,7 +997,9 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMarker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.</p>
+<p>When the response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as the marker parameter in the subsequent request to get the next set of objects. Amazon S3 lists objects in alphabetical order.</p>
+
+<p>This element is returned only if you have the delimiter request parameter specified. If the response does not include the NextMarker element and it is truncated, you can use the value of the last Key element in the response as the marker parameter in the subsequent request to get the next set of object keys.</p>
 
 
   </div>
@@ -1070,12 +1072,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16746
-16747
-16748</pre>
+16988
+16989
+16990</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16746</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16988</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ListObjectsOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1112,13 +1114,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16751
-16752
-16753
-16754</pre>
+16993
+16994
+16995
+16996</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16751</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16993</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetCommonPrefixes-instance_method" title="s3.ListObjectsOutput.SetCommonPrefixes() (method)">SetCommonPrefixes</a></span>(v []*<span class='object_link'><a href="CommonPrefix.html" title="s3.CommonPrefix (struct)">CommonPrefix</a></span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.CommonPrefixes = v
@@ -1156,13 +1158,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16757
-16758
-16759
-16760</pre>
+16999
+17000
+17001
+17002</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16757</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16999</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetContents-instance_method" title="s3.ListObjectsOutput.SetContents() (method)">SetContents</a></span>(v []*<span class='object_link'><a href="Object.html" title="s3.Object (struct)">Object</a></span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.Contents = v
@@ -1200,13 +1202,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16763
-16764
-16765
-16766</pre>
+17005
+17006
+17007
+17008</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16763</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17005</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetDelimiter-instance_method" title="s3.ListObjectsOutput.SetDelimiter() (method)">SetDelimiter</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.Delimiter = &v
@@ -1244,13 +1246,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16769
-16770
-16771
-16772</pre>
+17011
+17012
+17013
+17014</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16769</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17011</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetEncodingType-instance_method" title="s3.ListObjectsOutput.SetEncodingType() (method)">SetEncodingType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.EncodingType = &v
@@ -1288,13 +1290,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16775
-16776
-16777
-16778</pre>
+17017
+17018
+17019
+17020</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16775</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17017</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetIBMSSEKPCrkId-instance_method" title="s3.ListObjectsOutput.SetIBMSSEKPCrkId() (method)">SetIBMSSEKPCrkId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.IBMSSEKPCrkId = &v
@@ -1332,13 +1334,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16781
-16782
-16783
-16784</pre>
+17023
+17024
+17025
+17026</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16781</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17023</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetIBMSSEKPEnabled-instance_method" title="s3.ListObjectsOutput.SetIBMSSEKPEnabled() (method)">SetIBMSSEKPEnabled</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.IBMSSEKPEnabled = &v
@@ -1376,13 +1378,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16787
-16788
-16789
-16790</pre>
+17029
+17030
+17031
+17032</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16787</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17029</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetIsTruncated-instance_method" title="s3.ListObjectsOutput.SetIsTruncated() (method)">SetIsTruncated</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.IsTruncated = &v
@@ -1420,13 +1422,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16793
-16794
-16795
-16796</pre>
+17035
+17036
+17037
+17038</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16793</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17035</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetMarker-instance_method" title="s3.ListObjectsOutput.SetMarker() (method)">SetMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.Marker = &v
@@ -1464,13 +1466,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16799
-16800
-16801
-16802</pre>
+17041
+17042
+17043
+17044</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16799</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17041</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetMaxKeys-instance_method" title="s3.ListObjectsOutput.SetMaxKeys() (method)">SetMaxKeys</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.MaxKeys = &v
@@ -1508,13 +1510,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16805
-16806
-16807
-16808</pre>
+17047
+17048
+17049
+17050</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16805</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17047</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetName-instance_method" title="s3.ListObjectsOutput.SetName() (method)">SetName</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.Name = &v
@@ -1552,13 +1554,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16811
-16812
-16813
-16814</pre>
+17053
+17054
+17055
+17056</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16811</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17053</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetNextMarker-instance_method" title="s3.ListObjectsOutput.SetNextMarker() (method)">SetNextMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.NextMarker = &v
@@ -1596,13 +1598,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16817
-16818
-16819
-16820</pre>
+17059
+17060
+17061
+17062</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16817</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 17059</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#SetPrefix-instance_method" title="s3.ListObjectsOutput.SetPrefix() (method)">SetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span> {
 	s.Prefix = &v
@@ -1642,12 +1644,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16737
-16738
-16739</pre>
+16979
+16980
+16981</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16737</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16979</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListObjectsOutput (struct)">ListObjectsOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ListObjectsOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1664,9 +1666,9 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:09 2023 by
+  Generated on Wed Dec  6 15:47:35 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

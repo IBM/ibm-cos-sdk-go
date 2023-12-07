@@ -626,9 +626,9 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>The name of the bucket to which the multipart upload was initiated.</p>
 
-<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using access points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
-<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see Using S3 on Outposts (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
+<p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see What is S3 on Outposts? (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -670,7 +670,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>
+<p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key can contain any Unicode character; however, the XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>
 
 
   </div>
@@ -750,7 +750,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you&#39;d use a folder in a file system.)</p>
+<p>Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way that you&#39;d use a folder in a file system.)</p>
 
 
   </div>
@@ -823,12 +823,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15996
-15997
-15998</pre>
+16214
+16215
+16216</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15996</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16214</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ListMultipartUploadsInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -865,13 +865,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16017
-16018
-16019
-16020</pre>
+16235
+16236
+16237
+16238</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16017</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16235</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.ListMultipartUploadsInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.Bucket = &v
@@ -909,13 +909,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16030
-16031
-16032
-16033</pre>
+16248
+16249
+16250
+16251</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16030</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16248</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetDelimiter-instance_method" title="s3.ListMultipartUploadsInput.SetDelimiter() (method)">SetDelimiter</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.Delimiter = &v
@@ -953,13 +953,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16036
-16037
-16038
-16039</pre>
+16254
+16255
+16256
+16257</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16036</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16254</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetEncodingType-instance_method" title="s3.ListMultipartUploadsInput.SetEncodingType() (method)">SetEncodingType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.EncodingType = &v
@@ -997,13 +997,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16042
-16043
-16044
-16045</pre>
+16260
+16261
+16262
+16263</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16042</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16260</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.ListMultipartUploadsInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -1041,13 +1041,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16048
-16049
-16050
-16051</pre>
+16266
+16267
+16268
+16269</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16048</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16266</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetKeyMarker-instance_method" title="s3.ListMultipartUploadsInput.SetKeyMarker() (method)">SetKeyMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.KeyMarker = &v
@@ -1085,13 +1085,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16054
-16055
-16056
-16057</pre>
+16272
+16273
+16274
+16275</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16054</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16272</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetMaxUploads-instance_method" title="s3.ListMultipartUploadsInput.SetMaxUploads() (method)">SetMaxUploads</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.MaxUploads = &v
@@ -1129,13 +1129,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16060
-16061
-16062
-16063</pre>
+16278
+16279
+16280
+16281</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16060</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16278</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetPrefix-instance_method" title="s3.ListMultipartUploadsInput.SetPrefix() (method)">SetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.Prefix = &v
@@ -1173,13 +1173,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16066
-16067
-16068
-16069</pre>
+16284
+16285
+16286
+16287</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16066</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16284</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#SetUploadIdMarker-instance_method" title="s3.ListMultipartUploadsInput.SetUploadIdMarker() (method)">SetUploadIdMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span> {
 	s.UploadIdMarker = &v
@@ -1219,12 +1219,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15987
-15988
-15989</pre>
+16205
+16206
+16207</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15987</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16205</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ListMultipartUploadsInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1261,23 +1261,23 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16001
-16002
-16003
-16004
-16005
-16006
-16007
-16008
-16009
-16010
-16011
-16012
-16013
-16014</pre>
+16219
+16220
+16221
+16222
+16223
+16224
+16225
+16226
+16227
+16228
+16229
+16230
+16231
+16232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16001</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16219</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.ListMultipartUploadsInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.ListMultipartUploadsInput (struct)">ListMultipartUploadsInput</a></span>"</span>}
@@ -1305,9 +1305,9 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:08 2023 by
+  Generated on Wed Dec  6 15:47:34 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

@@ -505,9 +505,9 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>The bucket name containing the object to restore.</p>
 
-<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using access points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
-<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see Using S3 on Outposts (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
+<p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see What is S3 on Outposts? (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -568,7 +568,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 Developer Guide.</p>
+<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination Amazon S3 bucket has Requester Pays enabled, the requester will pay for corresponding charges to copy the object. For information about downloading objects from Requester Pays buckets, see Downloading Objects in Requester Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 User Guide.</p>
 
 
   </div>
@@ -660,12 +660,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-21371
-21372
-21373</pre>
+21632
+21633
+21634</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21371</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21632</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.RestoreObjectInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -702,13 +702,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-21403
-21404
-21405
-21406</pre>
+21664
+21665
+21666
+21667</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21403</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21664</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.RestoreObjectInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> {
 	s.Bucket = &v
@@ -746,13 +746,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-21416
-21417
-21418
-21419</pre>
+21677
+21678
+21679
+21680</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21416</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21677</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.RestoreObjectInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -790,13 +790,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-21422
-21423
-21424
-21425</pre>
+21683
+21684
+21685
+21686</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21422</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21683</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.RestoreObjectInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> {
 	s.Key = &v
@@ -834,13 +834,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-21428
-21429
-21430
-21431</pre>
+21689
+21690
+21691
+21692</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21428</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21689</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.RestoreObjectInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> {
 	s.RequestPayer = &v
@@ -905,13 +905,13 @@ err := req.Send()
       <pre class="lines">
 
 
-21434
-21435
-21436
-21437</pre>
+21695
+21696
+21697
+21698</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21434</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21695</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *RestoreObjectInput) SetRestoreRequest(v *RestoreRequest) *RestoreObjectInput {
 	s.RestoreRequest = v
@@ -949,13 +949,13 @@ err := req.Send()
       <pre class="lines">
 
 
-21440
-21441
-21442
-21443</pre>
+21701
+21702
+21703
+21704</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21440</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21701</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.RestoreObjectInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span> {
 	s.VersionId = &v
@@ -995,12 +995,12 @@ err := req.Send()
       <pre class="lines">
 
 
-21362
-21363
-21364</pre>
+21623
+21624
+21625</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21362</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21623</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.RestoreObjectInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1037,34 +1037,34 @@ err := req.Send()
       <pre class="lines">
 
 
-21376
-21377
-21378
-21379
-21380
-21381
-21382
-21383
-21384
-21385
-21386
-21387
-21388
-21389
-21390
-21391
-21392
-21393
-21394
-21395
-21396
-21397
-21398
-21399
-21400</pre>
+21637
+21638
+21639
+21640
+21641
+21642
+21643
+21644
+21645
+21646
+21647
+21648
+21649
+21650
+21651
+21652
+21653
+21654
+21655
+21656
+21657
+21658
+21659
+21660
+21661</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21376</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 21637</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.RestoreObjectInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.RestoreObjectInput (struct)">RestoreObjectInput</a></span>"</span>}
@@ -1103,9 +1103,9 @@ err := req.Send()
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:17 2023 by
+  Generated on Wed Dec  6 15:47:43 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

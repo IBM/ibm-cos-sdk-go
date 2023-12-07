@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the asymmetric CMK that was used to sign the message.</p>
+<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the asymmetric KMS key that was used to sign the message.</p>
 </div></span>
   
 </li>
@@ -349,7 +349,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the asymmetric CMK that was used to sign the message.</p>
+<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the asymmetric KMS key that was used to sign the message.</p>
 
 
   </div>
@@ -372,10 +372,10 @@ import "../ibm-cos-sdk-go/service/kms"
 <ul><li>
 <p>When used with the supported RSA signing algorithms, the encoding of  this value is defined by PKCS #1 in RFC 8017 (<a href="https://tools.ietf.org/html/rfc8017">tools.ietf.org/html/rfc8017</a>).</p>
 </li><li>
-<p>When used with the ECDSA_SHA_256, ECDSA_SHA_384, or ECDSA_SHA_512 signing  algorithms, this value is a DER-encoded object as defined by ANS X9.62–2005  and RFC 3279 Section 2.2.3 (<a href="https://tools.ietf.org/html/rfc3279#section-2.2.3">tools.ietf.org/html/rfc3279#section-2.2.3</a>).  This is the most commonly used signature format and is appropriate for  most uses.</p>
+<p>When used with the ECDSA_SHA_256, ECDSA_SHA_384, or ECDSA_SHA_512 signing  algorithms, this value is a DER-encoded object as defined by ANSI X9.62–2005  and RFC 3279 Section 2.2.3 (<a href="https://tools.ietf.org/html/rfc3279#section-2.2.3">tools.ietf.org/html/rfc3279#section-2.2.3</a>).  This is the most commonly used signature format and is appropriate for  most uses.</p>
 </li></ul>
 
-<p>When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. Signature is automatically base64 encoded/decoded by the SDK.</p>
+<p>When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. Signature is automatically base64 encoded/decoded by the SDK.</p>
 
 
   </div>
@@ -448,12 +448,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15349
-15350
-15351</pre>
+16470
+16471
+16472</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15349</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16470</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.SignOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -490,13 +490,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15354
-15355
-15356
-15357</pre>
+16475
+16476
+16477
+16478</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15354</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16475</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.SignOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span> {
 	s.KeyId = &v
@@ -534,13 +534,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15360
-15361
-15362
-15363</pre>
+16481
+16482
+16483
+16484</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15360</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16481</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span>) <span class='object_link'><a href="#SetSignature-instance_method" title="kms.SignOutput.SetSignature() (method)">SetSignature</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span> {
 	s.Signature = v
@@ -578,13 +578,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15366
-15367
-15368
-15369</pre>
+16487
+16488
+16489
+16490</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15366</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16487</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span>) <span class='object_link'><a href="#SetSigningAlgorithm-instance_method" title="kms.SignOutput.SetSigningAlgorithm() (method)">SetSigningAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span> {
 	s.SigningAlgorithm = &v
@@ -624,12 +624,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15340
-15341
-15342</pre>
+16461
+16462
+16463</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15340</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16461</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.SignOutput (struct)">SignOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.SignOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -646,9 +646,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:45 2023 by
+  Generated on Wed Dec  6 15:48:10 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

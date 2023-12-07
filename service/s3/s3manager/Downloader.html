@@ -475,12 +475,12 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
       <pre class="lines">
 
 
-162
-163
-164</pre>
+164
+165
+166</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 162</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 164</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) Download(w io.WriterAt, input *s3.GetObjectInput, options ...<span class="hljs-keyword">func</span>(*Downloader)) (n <span class="hljs-constant">int64</span>, err <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">return</span> d.DownloadWithContext(aws.BackgroundContext(), w, input, options...)
@@ -529,8 +529,6 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
       <pre class="lines">
 
 
-193
-194
 195
 196
 197
@@ -555,10 +553,12 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 216
 217
 218
-219</pre>
+219
+220
+221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 193</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 195</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) DownloadWithContext(ctx aws.Context, w io.WriterAt, input *s3.GetObjectInput, options ...<span class="hljs-keyword">func</span>(*Downloader)) (n <span class="hljs-constant">int64</span>, err <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">if</span> err := validateSupportedARNType(aws.StringValue(input.Bucket)); err != <span class="hljs-constant">nil</span> {
@@ -607,9 +607,11 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
     
 <p>DownloadWithIterator will download a batched amount of objects in S3 and writes them to the io.WriterAt specificed in the iterator.</p>
 
-<p>Example:  svc := s3manager.NewDownloader(session)</p>
+<p>Example:</p>
 
-<pre class="code go"><code class="go"><div class="hljs">fooFile, err := os.Open(<span class="hljs-string">"/tmp/foo.file"</span>)
+<pre class="code go"><code class="go"><div class="hljs">svc := s3manager.NewDownloader(session)
+
+fooFile, err := os.Open(<span class="hljs-string">"/tmp/foo.file"</span>)
 <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
 	<span class="hljs-keyword">return</span> err
 }
@@ -654,9 +656,6 @@ iter := &s3manager.DownloadObjectsIterator{Objects: objects}
       <pre class="lines">
 
 
-258
-259
-260
 261
 262
 263
@@ -675,10 +674,13 @@ iter := &s3manager.DownloadObjectsIterator{Objects: objects}
 276
 277
 278
-279</pre>
+279
+280
+281
+282</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 258</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 261</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (d Downloader) DownloadWithIterator(ctx aws.Context, iter BatchDownloadIterator, opts ...<span class="hljs-keyword">func</span>(*Downloader)) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">var</span> errs []Error
@@ -714,9 +716,9 @@ iter := &s3manager.DownloadObjectsIterator{Objects: objects}
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:47 2023 by
+  Generated on Wed Dec  6 15:48:12 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

@@ -245,7 +245,7 @@ import "../ibm-cos-sdk-go/aws/session"
           </dt>
           <dd>
             <h3>Value:</h3>
-            <pre class="code"><div class="hljs"><span class='object_link'><a href="awserr.html#New-class_method" title="awserr.New() (method)">awserr.New</a></span>(<span class='object_link'><a href="#ErrCodeSharedConfig-constant" title="aws/session.ErrCodeSharedConfig (constant)">ErrCodeSharedConfig</a></span>, <span class="hljs-string">"only one credential type may be specified per profile: source profile, credential source, credential process, web identity token, or sso"</span>, <span class="hljs-constant">nil</span>)</div></pre>
+            <pre class="code"><div class="hljs"><span class='object_link'><a href="awserr.html#New-class_method" title="awserr.New() (method)">awserr.New</a></span>(<span class='object_link'><a href="#ErrCodeSharedConfig-constant" title="aws/session.ErrCodeSharedConfig (constant)">ErrCodeSharedConfig</a></span>, <span class="hljs-string">"only one credential type may be specified per profile: source profile, credential source, credential process, web identity token"</span>, <span class="hljs-constant">nil</span>)</div></pre>
           </dd>
         
           <dt id="ErrSharedConfigECSContainerEnvVarEmpty-constant" class="">
@@ -781,6 +781,7 @@ sess := session.Must(session.NewSessionWithOptions(session.Options{
       <pre class="lines">
 
 
+267
 268
 269
 270
@@ -807,11 +808,10 @@ sess := session.Must(session.NewSessionWithOptions(session.Options{
 291
 292
 293
-294
-295</pre>
+294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 268</span>
+      <pre class="code"><span class="info file">// File 'aws/session/session.go', line 267</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewSessionWithOptions(opts Options) (*Session, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">var</span> envCfg envConfig
@@ -853,9 +853,9 @@ sess := session.Must(session.NewSessionWithOptions(session.Options{
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:14:32 2023 by
+  Generated on Wed Dec  6 15:46:58 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

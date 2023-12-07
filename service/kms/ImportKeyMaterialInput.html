@@ -189,7 +189,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The identifier of the symmetric CMK that receives the imported key material.</p>
+<p>The identifier of the KMS key that will be associated with the imported key material.</p>
 </div></span>
   
 </li>
@@ -214,7 +214,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The time at which the imported key material expires.</p>
+<p>The date and time when the imported key material expires.</p>
 </div></span>
   
 </li>
@@ -474,7 +474,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The encrypted key material to import. The key material must be encrypted with the public wrapping key that GetParametersForImport returned, using the wrapping algorithm that you specified in the same GetParametersForImport request. EncryptedKeyMaterial is automatically base64 encoded/decoded by the SDK.</p>
+<p>The encrypted key material to import. The key material must be encrypted under the public wrapping key that GetParametersForImport returned, using the wrapping algorithm that you specified in the same GetParametersForImport request. EncryptedKeyMaterial is automatically base64 encoded/decoded by the SDK.</p>
 
 <p>EncryptedKeyMaterial is a required field</p>
 
@@ -495,7 +495,11 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies whether the key material expires. The default is KEY_MATERIAL_EXPIRES, in which case you must include the ValidTo parameter. When this parameter is set to KEY_MATERIAL_DOES_NOT_EXPIRE, you must omit the ValidTo parameter.</p>
+<p>Specifies whether the key material expires. The default is KEY_MATERIAL_EXPIRES. For help with this choice, see Setting an expiration time (<a href="https://docs.aws.amazon.com/en_us/kms/latest/developerguide/importing-keys.html#importing-keys-expiration">docs.aws.amazon.com/en_us/kms/latest/developerguide/importing-keys.html#importing-keys-expiration</a>) in the Key Management Service Developer Guide.</p>
+
+<p>When the value of ExpirationModel is KEY_MATERIAL_EXPIRES, you must specify a value for the ValidTo parameter. When value is KEY_MATERIAL_DOES_NOT_EXPIRE, you must omit the ValidTo parameter.</p>
+
+<p>You cannot change the ExpirationModel or ValidTo values for the current import after the request completes. To change either value, you must reimport the key material.</p>
 
 
   </div>
@@ -535,9 +539,11 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The identifier of the symmetric CMK that receives the imported key material. The CMK&#39;s Origin must be EXTERNAL. This must be the same CMK specified in the KeyID parameter of the corresponding GetParametersForImport request.</p>
+<p>The identifier of the KMS key that will be associated with the imported key material. This must be the same KMS key specified in the KeyID parameter of the corresponding GetParametersForImport request. The Origin of the KMS key must be EXTERNAL and its KeyState must be PendingImport.</p>
 
-<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
+<p>The KMS key can be a symmetric encryption KMS key, HMAC KMS key, asymmetric encryption KMS key, or asymmetric signing KMS key, including a multi-Region key (kms/latest/developerguide/multi-region-keys-overview.html) of any supported type. You cannot perform this operation on a KMS key in a custom key store, or on a KMS key in a different Amazon Web Services account.</p>
+
+<p>Specify the key ID or key ARN of the KMS key.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -546,7 +552,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
+<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.</p>
 
 <p>KeyId is a required field</p>
 
@@ -567,7 +573,13 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. You must omit this parameter when the ExpirationModel parameter is set to KEY_MATERIAL_DOES_NOT_EXPIRE. Otherwise it is required.</p>
+<p>The date and time when the imported key material expires. This parameter is required when the value of the ExpirationModel parameter is KEY_MATERIAL_EXPIRES. Otherwise it is not valid.</p>
+
+<p>The value of this parameter must be a future date and time. The maximum value is 365 days from the request date.</p>
+
+<p>When the key material expires, KMS deletes the key material from the KMS key. Without its key material, the KMS key is unusable. To use the KMS key in cryptographic operations, you must reimport the same key material.</p>
+
+<p>You cannot change the ExpirationModel or ValidTo values for the current import after the request completes. To change either value, you must delete (DeleteImportedKeyMaterial) and reimport the key material.</p>
 
 
   </div>
@@ -621,12 +633,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12076
-12077
-12078</pre>
+13146
+13147
+13148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12076</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13146</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.ImportKeyMaterialInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -663,13 +675,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12109
-12110
-12111
-12112</pre>
+13179
+13180
+13181
+13182</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12109</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13179</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span>) <span class='object_link'><a href="#SetEncryptedKeyMaterial-instance_method" title="kms.ImportKeyMaterialInput.SetEncryptedKeyMaterial() (method)">SetEncryptedKeyMaterial</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span> {
 	s.EncryptedKeyMaterial = v
@@ -707,13 +719,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12115
-12116
-12117
-12118</pre>
+13185
+13186
+13187
+13188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12115</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13185</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span>) <span class='object_link'><a href="#SetExpirationModel-instance_method" title="kms.ImportKeyMaterialInput.SetExpirationModel() (method)">SetExpirationModel</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span> {
 	s.ExpirationModel = &v
@@ -751,13 +763,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12121
-12122
-12123
-12124</pre>
+13191
+13192
+13193
+13194</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12121</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13191</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span>) <span class='object_link'><a href="#SetImportToken-instance_method" title="kms.ImportKeyMaterialInput.SetImportToken() (method)">SetImportToken</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span> {
 	s.ImportToken = v
@@ -795,13 +807,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12127
-12128
-12129
-12130</pre>
+13197
+13198
+13199
+13200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12127</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13197</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.ImportKeyMaterialInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span> {
 	s.KeyId = &v
@@ -839,13 +851,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12133
-12134
-12135
-12136</pre>
+13203
+13204
+13205
+13206</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12133</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13203</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span>) <span class='object_link'><a href="#SetValidTo-instance_method" title="kms.ImportKeyMaterialInput.SetValidTo() (method)">SetValidTo</a></span>(v time.Time) *<span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span> {
 	s.ValidTo = &v
@@ -885,12 +897,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12067
-12068
-12069</pre>
+13137
+13138
+13139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12067</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13137</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.ImportKeyMaterialInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -927,35 +939,35 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-12081
-12082
-12083
-12084
-12085
-12086
-12087
-12088
-12089
-12090
-12091
-12092
-12093
-12094
-12095
-12096
-12097
-12098
-12099
-12100
-12101
-12102
-12103
-12104
-12105
-12106</pre>
+13151
+13152
+13153
+13154
+13155
+13156
+13157
+13158
+13159
+13160
+13161
+13162
+13163
+13164
+13165
+13166
+13167
+13168
+13169
+13170
+13171
+13172
+13173
+13174
+13175
+13176</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12081</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 13151</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.ImportKeyMaterialInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.ImportKeyMaterialInput (struct)">ImportKeyMaterialInput</a></span>"</span>}
@@ -995,9 +1007,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:40 2023 by
+  Generated on Wed Dec  6 15:48:04 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

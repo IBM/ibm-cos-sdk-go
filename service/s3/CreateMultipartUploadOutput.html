@@ -289,7 +289,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.</p>
+<p>If present, specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key that was used for the object.</p>
 </div></span>
   
 </li>
@@ -699,7 +699,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, the response includes this header. The header indicates when the initiated multipart upload becomes eligible for an abort operation. For more information, see Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config</a>).</p>
+<p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, the response includes this header. The header indicates when the initiated multipart upload becomes eligible for an abort operation. For more information, see Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config</a>).</p>
 
 <p>The response also includes the x-amz-abort-rule-id header that provides the ID of the lifecycle configuration rule that defines this action.</p>
 
@@ -739,11 +739,11 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>The name of the bucket to which the multipart upload was initiated.</p>
+<p>The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.</p>
 
-<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using access points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
-<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see Using S3 on Outposts (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
+<p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see What is S3 on Outposts? (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
 
 
   </div>
@@ -838,7 +838,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.</p>
+<p>If present, specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key that was used for the object.</p>
 
 <p>SSEKMSKeyId is a sensitive parameter and its value will be replaced with “sensitive” in string returned by CreateMultipartUploadOutput&#39;s String and GoString methods.</p>
 
@@ -932,12 +932,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9635
-9636
-9637</pre>
+9801
+9802
+9803</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9635</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9801</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.CreateMultipartUploadOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -974,13 +974,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9640
-9641
-9642
-9643</pre>
+9806
+9807
+9808
+9809</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9640</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9806</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetAbortDate-instance_method" title="s3.CreateMultipartUploadOutput.SetAbortDate() (method)">SetAbortDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.AbortDate = &v
@@ -1018,13 +1018,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9646
-9647
-9648
-9649</pre>
+9812
+9813
+9814
+9815</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9646</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9812</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetAbortRuleId-instance_method" title="s3.CreateMultipartUploadOutput.SetAbortRuleId() (method)">SetAbortRuleId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.AbortRuleId = &v
@@ -1062,13 +1062,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9652
-9653
-9654
-9655</pre>
+9818
+9819
+9820
+9821</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9652</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9818</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.CreateMultipartUploadOutput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.Bucket = &v
@@ -1106,13 +1106,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9665
-9666
-9667
-9668</pre>
+9831
+9832
+9833
+9834</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9665</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9831</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.CreateMultipartUploadOutput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.Key = &v
@@ -1150,13 +1150,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9671
-9672
-9673
-9674</pre>
+9837
+9838
+9839
+9840</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9671</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9837</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.CreateMultipartUploadOutput.SetRequestCharged() (method)">SetRequestCharged</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.RequestCharged = &v
@@ -1194,13 +1194,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9695
-9696
-9697
-9698</pre>
+9861
+9862
+9863
+9864</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9695</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9861</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.CreateMultipartUploadOutput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.ServerSideEncryption = &v
@@ -1238,13 +1238,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9677
-9678
-9679
-9680</pre>
+9843
+9844
+9845
+9846</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9677</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9843</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.CreateMultipartUploadOutput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -1282,13 +1282,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9683
-9684
-9685
-9686</pre>
+9849
+9850
+9851
+9852</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9683</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9849</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.CreateMultipartUploadOutput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -1326,13 +1326,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9689
-9690
-9691
-9692</pre>
+9855
+9856
+9857
+9858</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9689</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9855</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.CreateMultipartUploadOutput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -1370,13 +1370,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9701
-9702
-9703
-9704</pre>
+9867
+9868
+9869
+9870</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9701</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9867</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#SetUploadId-instance_method" title="s3.CreateMultipartUploadOutput.SetUploadId() (method)">SetUploadId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span> {
 	s.UploadId = &v
@@ -1416,12 +1416,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-9626
-9627
-9628</pre>
+9792
+9793
+9794</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9626</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 9792</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.CreateMultipartUploadOutput (struct)">CreateMultipartUploadOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.CreateMultipartUploadOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1438,9 +1438,9 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:14:57 2023 by
+  Generated on Wed Dec  6 15:47:24 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

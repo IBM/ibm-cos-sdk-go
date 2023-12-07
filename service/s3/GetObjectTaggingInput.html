@@ -476,9 +476,9 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>The bucket name containing the object for which to get the tagging information.</p>
 
-<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using access points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
-<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see Using S3 on Outposts (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
+<p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see What is S3 on Outposts? (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -539,7 +539,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 Developer Guide.</p>
+<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination Amazon S3 bucket has Requester Pays enabled, the requester will pay for corresponding charges to copy the object. For information about downloading objects from Requester Pays buckets, see Downloading Objects in Requester Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 User Guide.</p>
 
 
   </div>
@@ -612,12 +612,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13997
-13998
-13999</pre>
+14203
+14204
+14205</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13997</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14203</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetObjectTaggingInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -654,13 +654,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-14024
-14025
-14026
-14027</pre>
+14230
+14231
+14232
+14233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14024</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14230</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetObjectTaggingInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.Bucket = &v
@@ -698,13 +698,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-14037
-14038
-14039
-14040</pre>
+14243
+14244
+14245
+14246</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14037</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14243</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetObjectTaggingInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -742,13 +742,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-14043
-14044
-14045
-14046</pre>
+14249
+14250
+14251
+14252</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14043</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14249</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.GetObjectTaggingInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.Key = &v
@@ -786,13 +786,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-14049
-14050
-14051
-14052</pre>
+14255
+14256
+14257
+14258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14049</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14255</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.GetObjectTaggingInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.RequestPayer = &v
@@ -830,13 +830,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-14055
-14056
-14057
-14058</pre>
+14261
+14262
+14263
+14264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14055</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14261</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#SetVersionId-instance_method" title="s3.GetObjectTaggingInput.SetVersionId() (method)">SetVersionId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span> {
 	s.VersionId = &v
@@ -876,12 +876,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-13988
-13989
-13990</pre>
+14194
+14195
+14196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 13988</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14194</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetObjectTaggingInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -918,29 +918,29 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-14002
-14003
-14004
-14005
-14006
-14007
-14008
-14009
-14010
-14011
-14012
-14013
-14014
-14015
-14016
-14017
-14018
-14019
-14020
-14021</pre>
+14208
+14209
+14210
+14211
+14212
+14213
+14214
+14215
+14216
+14217
+14218
+14219
+14220
+14221
+14222
+14223
+14224
+14225
+14226
+14227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14002</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 14208</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.GetObjectTaggingInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.GetObjectTaggingInput (struct)">GetObjectTaggingInput</a></span>"</span>}
@@ -974,9 +974,9 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:04 2023 by
+  Generated on Wed Dec  6 15:47:30 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

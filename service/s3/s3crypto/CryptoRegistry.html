@@ -450,7 +450,11 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>AddCEK registers CEKEntry under the given name, returns an error if a CEKEntry is already present for the given name.</p>
 
-<p>This method should only be used if you need to register custom content encryption algorithms. Please see the following methods for helpers to register AWS provided algorithms:  RegisterAESGCMContentCipher (AES/GCM)  RegisterAESCBCContentCipher (AES/CBC)</p>
+<p>This method should only be used if you need to register custom content encryption algorithms. Please see the following methods for helpers to register AWS provided algorithms:</p>
+
+<pre class="code go"><code class="go"><div class="hljs">RegisterAESGCMContentCipher (AES/GCM)
+RegisterAESCBCContentCipher (AES/CBC)
+</div></code></pre>
 
 
   </div>
@@ -464,8 +468,6 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-91
-92
 93
 94
 95
@@ -473,10 +475,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 97
 98
 99
-100</pre>
+100
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 91</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 93</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *CryptoRegistry) AddCEK(name <span class="hljs-constant">string</span>, entry CEKEntry) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">if</span> entry == <span class="hljs-constant">nil</span> {
@@ -522,8 +526,6 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-126
-127
 128
 129
 130
@@ -531,10 +533,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 132
 133
 134
-135</pre>
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 126</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 128</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *CryptoRegistry) AddPadder(name <span class="hljs-constant">string</span>, padder Padder) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">if</span> padder == <span class="hljs-constant">nil</span> {
@@ -566,7 +570,13 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>AddWrap registers the provided WrapEntry under the given name, returns an error if a WrapEntry is already present for the given name.</p>
 
-<p>This method should only be used if you need to register custom wrapping algorithms. Please see the following methods for helpers to register AWS provided algorithms:  RegisterKMSContextWrapWithAnyCMK (kms+context)  RegisterKMSContextWrapWithCMK (kms+context)  RegisterKMSWrapWithAnyCMK (kms)  RegisterKMSWrapWithCMK (kms)</p>
+<p>This method should only be used if you need to register custom wrapping algorithms. Please see the following methods for helpers to register AWS provided algorithms:</p>
+
+<pre class="code go"><code class="go"><div class="hljs">RegisterKMSContextWrapWithAnyCMK (kms+context)
+RegisterKMSContextWrapWithCMK (kms+context)
+RegisterKMSWrapWithAnyCMK (kms)
+RegisterKMSWrapWithCMK (kms)
+</div></code></pre>
 
 
   </div>
@@ -580,7 +590,6 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-52
 53
 54
 55
@@ -590,10 +599,11 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 59
 60
 61
-62</pre>
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 52</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 53</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *CryptoRegistry) AddWrap(name <span class="hljs-constant">string</span>, entry WrapEntry) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">if</span> entry == <span class="hljs-constant">nil</span> {
@@ -638,16 +648,16 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-77
 78
 79
 80
 81
 82
-83</pre>
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 77</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 78</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c CryptoRegistry) GetCEK(name <span class="hljs-constant">string</span>) (CEKEntry, <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">if</span> c.cek == <span class="hljs-constant">nil</span> {
@@ -688,16 +698,16 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-115
-116
 117
 118
 119
 120
-121</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 115</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 117</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *CryptoRegistry) GetPadder(name <span class="hljs-constant">string</span>) (Padder, <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">if</span> c.padder == <span class="hljs-constant">nil</span> {
@@ -788,8 +798,6 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-103
-104
 105
 106
 107
@@ -797,10 +805,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 109
 110
 111
-112</pre>
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 103</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 105</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *CryptoRegistry) RemoveCEK(name <span class="hljs-constant">string</span>) (CEKEntry, <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">if</span> c.cek == <span class="hljs-constant">nil</span> {
@@ -844,8 +854,6 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-138
-139
 140
 141
 142
@@ -853,10 +861,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 144
 145
 146
-147</pre>
+147
+148
+149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 138</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 140</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *CryptoRegistry) RemovePadder(name <span class="hljs-constant">string</span>) (Padder, <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">if</span> c.padder == <span class="hljs-constant">nil</span> {
@@ -900,7 +910,6 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-65
 66
 67
 68
@@ -909,10 +918,11 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 71
 72
 73
-74</pre>
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 65</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/crypto_registry.go', line 66</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *CryptoRegistry) RemoveWrap(name <span class="hljs-constant">string</span>) (WrapEntry, <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">if</span> c.wrap == <span class="hljs-constant">nil</span> {
@@ -936,9 +946,9 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:47 2023 by
+  Generated on Wed Dec  6 15:48:12 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

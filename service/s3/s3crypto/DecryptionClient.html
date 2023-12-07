@@ -76,11 +76,14 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>DecryptionClient is an S3 crypto client. The decryption client will handle all get object requests from Amazon S3. Supported key wrapping algorithms:  *AWS KMS</p>
+<p>DecryptionClient is an S3 crypto client. The decryption client will handle all get object requests from Amazon S3. Supported key wrapping algorithms:</p>
 
-<p>Supported content ciphers: 	* AES/GCM 	* AES/CBC</p>
+<pre class="code go"><code class="go"><div class="hljs">*AWS KMS
+</div></code></pre>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<p>Supported content ciphers:  - AES/GCM  - AES/CBC</p>
+
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -399,7 +402,7 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>GetObject is a wrapper for GetObjectRequest</p>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -413,12 +416,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-102
-103
-104</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 102</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 105</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *DecryptionClient) GetObject(input *s3.GetObjectInput) (*s3.GetObjectOutput, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">return</span> getObject(c.getClientOptions(), input)
@@ -443,9 +446,18 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>GetObjectRequest will make a request to s3 and retrieve the object. In this process decryption will be done. The SDK only supports V2 reads of KMS and GCM.</p>
 
-<p>Example:  sess := session.Must(session.NewSession())  svc := s3crypto.NewDecryptionClient(sess)  req, out := svc.GetObjectRequest(&amp;s3.GetObjectInput {  Key: aws.String(“testKey”),  Bucket: aws.String(“testBucket”),  })  err := req.Send()</p>
+<p>Example:</p>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<pre class="code go"><code class="go"><div class="hljs"> sess := session.Must(session.NewSession())
+	svc := s3crypto.NewDecryptionClient(sess)
+	req, out := svc.GetObjectRequest(&s3.GetObjectInput {
+	  Key: aws.String(<span class="hljs-string">"testKey"</span>),
+	  Bucket: aws.String(<span class="hljs-string">"testBucket"</span>),
+	})
+	err := req.Send()
+</div></code></pre>
+
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -459,12 +471,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-95
-96
-97</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 95</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 98</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *DecryptionClient) GetObjectRequest(input *s3.GetObjectInput) (*request.Request, *s3.GetObjectOutput) {
 	<span class="hljs-keyword">return</span> getObjectRequest(c.getClientOptions(), input)
@@ -491,7 +503,7 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 
 <p>GetObjectWithContext is the same as GetObject with the additional support for Context input parameters. The Context must not be nil. A nil Context will cause a panic. Use the Context to add deadlining, timeouts, etc. In the future this may create sub-contexts for individual underlying requests.</p>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -505,12 +517,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-115
-116
-117</pre>
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 115</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 118</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *DecryptionClient) GetObjectWithContext(ctx aws.Context, input *s3.GetObjectInput, opts ...request.Option) (*s3.GetObjectOutput, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">return</span> getObjectWithContext(c.getClientOptions(), ctx, input, opts...)
@@ -527,9 +539,9 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:47 2023 by
+  Generated on Wed Dec  6 15:48:12 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

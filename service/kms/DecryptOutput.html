@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the CMK that was used to decrypt the ciphertext.</p>
+<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the KMS key that was used to decrypt the ciphertext.</p>
 </div></span>
   
 </li>
@@ -368,7 +368,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the CMK that was used to decrypt the ciphertext.</p>
+<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the KMS key that was used to decrypt the ciphertext.</p>
 
 
   </div>
@@ -387,7 +387,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+<p>Decrypted plaintext data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+
+<p>If the response includes the CiphertextForRecipient field, the Plaintext field is null or empty.</p>
 
 <p>Plaintext is a sensitive parameter and its value will be replaced with “sensitive” in string returned by DecryptOutput&#39;s String and GoString methods.</p>
 
@@ -445,12 +447,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9173
-9174
-9175</pre>
+10122
+10123
+10124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9173</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10122</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.DecryptOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -487,13 +489,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9178
-9179
-9180
-9181</pre>
+10127
+10128
+10129
+10130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9178</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10127</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span>) <span class='object_link'><a href="#SetEncryptionAlgorithm-instance_method" title="kms.DecryptOutput.SetEncryptionAlgorithm() (method)">SetEncryptionAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span> {
 	s.EncryptionAlgorithm = &v
@@ -531,13 +533,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9184
-9185
-9186
-9187</pre>
+10133
+10134
+10135
+10136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9184</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10133</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.DecryptOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span> {
 	s.KeyId = &v
@@ -575,13 +577,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9190
-9191
-9192
-9193</pre>
+10139
+10140
+10141
+10142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9190</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10139</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span>) <span class='object_link'><a href="#SetPlaintext-instance_method" title="kms.DecryptOutput.SetPlaintext() (method)">SetPlaintext</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span> {
 	s.Plaintext = v
@@ -621,12 +623,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9164
-9165
-9166</pre>
+10113
+10114
+10115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9164</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10113</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.DecryptOutput (struct)">DecryptOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.DecryptOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -643,9 +645,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:35 2023 by
+  Generated on Wed Dec  6 15:47:58 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

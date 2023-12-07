@@ -789,7 +789,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>If x-amz-server-side-encryption is present and has the value of aws:kms, this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetrical customer managed customer master key (CMK) that was used for the object.</p>
+<p>If x-amz-server-side-encryption has a valid value of aws:kms or aws:kms:dsse, this header specifies the ID (Key ID, Key ARN, or Key Alias) of the Key Management Service (KMS) symmetric encryption customer managed key that was used for the object.</p>
 </div></span>
   
 </li>
@@ -814,7 +814,7 @@ import "../ibm-cos-sdk-go/service/s3"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).</p>
+<p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms, aws:kms:dsse).</p>
 </div></span>
   
 </li>
@@ -1866,9 +1866,9 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>The bucket name to which the PUT action was initiated.</p>
 
-<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using Access Points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see Using access points (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html</a>) in the Amazon S3 User Guide.</p>
 
-<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see Using S3 on Outposts (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
+<p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see What is S3 on Outposts? (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html</a>) in the Amazon S3 User Guide.</p>
 
 <p>Bucket is a required field</p>
 
@@ -1908,7 +1908,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies presentational information for the object. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1">www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1</a> (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1">www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1</a>).</p>
+<p>Specifies presentational information for the object. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc6266#section-4">www.rfc-editor.org/rfc/rfc6266#section-4</a> (<a href="https://www.rfc-editor.org/rfc/rfc6266#section-4">www.rfc-editor.org/rfc/rfc6266#section-4</a>).</p>
 
 
   </div>
@@ -1927,7 +1927,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11</a> (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11</a>).</p>
+<p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding">www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding</a> (<a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding">www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding</a>).</p>
 
 
   </div>
@@ -1965,7 +1965,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13</a> (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13</a>).</p>
+<p>Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-content-length">www.rfc-editor.org/rfc/rfc9110.html#name-content-length</a> (<a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-content-length">www.rfc-editor.org/rfc/rfc9110.html#name-content-length</a>).</p>
 
 
   </div>
@@ -2003,7 +2003,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>A standard MIME type describing the format of the contents. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17</a> (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17</a>).</p>
+<p>A standard MIME type describing the format of the contents. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type">www.rfc-editor.org/rfc/rfc9110.html#name-content-type</a> (<a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type">www.rfc-editor.org/rfc/rfc9110.html#name-content-type</a>).</p>
 
 
   </div>
@@ -2022,7 +2022,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>The date and time at which the object is no longer cacheable. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21</a> (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21</a>).</p>
+<p>The date and time at which the object is no longer cacheable. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc7234#section-5.3">www.rfc-editor.org/rfc/rfc7234#section-5.3</a> (<a href="https://www.rfc-editor.org/rfc/rfc7234#section-5.3">www.rfc-editor.org/rfc/rfc7234#section-5.3</a>).</p>
 
 
   </div>
@@ -2222,7 +2222,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 Developer Guide.</p>
+<p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination Amazon S3 bucket has Requester Pays enabled, the requester will pay for corresponding charges to copy the object. For information about downloading objects from Requester Pays buckets, see Downloading Objects in Requester Pays Buckets (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</a>) in the Amazon S3 User Guide.</p>
 
 
   </div>
@@ -2357,9 +2357,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>If x-amz-server-side-encryption is present and has the value of aws:kms, this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetrical customer managed customer master key (CMK) that was used for the object.</p>
-
-<p>If the value of x-amz-server-side-encryption is aws:kms, this header specifies the ID of the symmetric customer managed AWS KMS CMK that will be used for the object. If you specify x-amz-server-side-encryption:aws:kms, but do not providex-amz-server-side-encryption-aws-kms-key-id, Amazon S3 uses the AWS managed CMK in AWS to protect the data.</p>
+<p>If x-amz-server-side-encryption has a valid value of aws:kms or aws:kms:dsse, this header specifies the ID (Key ID, Key ARN, or Key Alias) of the Key Management Service (KMS) symmetric encryption customer managed key that was used for the object. If you specify x-amz-server-side-encryption:aws:kms or x-amz-server-side-encryption:aws:kms:dsse, but do not providex-amz-server-side-encryption-aws-kms-key-id, Amazon S3 uses the Amazon Web Services managed key (aws/s3) to protect the data. If the KMS key does not exist in the same account that&#39;s issuing the command, you must use the full ARN and not just the ID.</p>
 
 <p>SSEKMSKeyId is a sensitive parameter and its value will be replaced with “sensitive” in string returned by PutObjectInput&#39;s String and GoString methods.</p>
 
@@ -2380,7 +2378,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).</p>
+<p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms, aws:kms:dsse).</p>
 
 
   </div>
@@ -2399,7 +2397,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see Storage Classes (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html</a>) in the Amazon S3 Service Developer Guide.</p>
+<p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see Storage Classes (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html</a>) in the Amazon S3 User Guide.</p>
 
 
   </div>
@@ -2501,12 +2499,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19720
-19721
-19722</pre>
+19980
+19981
+19982</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19720</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19980</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.PutObjectInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -2543,13 +2541,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19747
-19748
-19749
-19750</pre>
+20007
+20008
+20009
+20010</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19747</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20007</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetACL-instance_method" title="s3.PutObjectInput.SetACL() (method)">SetACL</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ACL = &v
@@ -2587,13 +2585,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19753
-19754
-19755
-19756</pre>
+20013
+20014
+20015
+20016</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19753</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20013</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetBody-instance_method" title="s3.PutObjectInput.SetBody() (method)">SetBody</a></span>(v io.ReadSeeker) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.Body = v
@@ -2631,13 +2629,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19759
-19760
-19761
-19762</pre>
+20019
+20020
+20021
+20022</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19759</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20019</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.PutObjectInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.Bucket = &v
@@ -2675,13 +2673,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19772
-19773
-19774
-19775</pre>
+20032
+20033
+20034
+20035</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19772</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20032</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetCacheControl-instance_method" title="s3.PutObjectInput.SetCacheControl() (method)">SetCacheControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.CacheControl = &v
@@ -2719,13 +2717,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19778
-19779
-19780
-19781</pre>
+20038
+20039
+20040
+20041</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19778</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20038</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetContentDisposition-instance_method" title="s3.PutObjectInput.SetContentDisposition() (method)">SetContentDisposition</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ContentDisposition = &v
@@ -2763,13 +2761,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19784
-19785
-19786
-19787</pre>
+20044
+20045
+20046
+20047</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19784</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20044</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetContentEncoding-instance_method" title="s3.PutObjectInput.SetContentEncoding() (method)">SetContentEncoding</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ContentEncoding = &v
@@ -2807,13 +2805,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19790
-19791
-19792
-19793</pre>
+20050
+20051
+20052
+20053</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19790</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20050</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetContentLanguage-instance_method" title="s3.PutObjectInput.SetContentLanguage() (method)">SetContentLanguage</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ContentLanguage = &v
@@ -2851,13 +2849,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19796
-19797
-19798
-19799</pre>
+20056
+20057
+20058
+20059</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19796</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20056</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetContentLength-instance_method" title="s3.PutObjectInput.SetContentLength() (method)">SetContentLength</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ContentLength = &v
@@ -2895,13 +2893,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19802
-19803
-19804
-19805</pre>
+20062
+20063
+20064
+20065</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19802</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20062</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetContentMD5-instance_method" title="s3.PutObjectInput.SetContentMD5() (method)">SetContentMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ContentMD5 = &v
@@ -2939,13 +2937,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19808
-19809
-19810
-19811</pre>
+20068
+20069
+20070
+20071</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19808</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20068</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetContentType-instance_method" title="s3.PutObjectInput.SetContentType() (method)">SetContentType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ContentType = &v
@@ -2983,13 +2981,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19814
-19815
-19816
-19817</pre>
+20074
+20075
+20076
+20077</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19814</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20074</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetExpires-instance_method" title="s3.PutObjectInput.SetExpires() (method)">SetExpires</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.Expires = &v
@@ -3027,13 +3025,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19820
-19821
-19822
-19823</pre>
+20080
+20081
+20082
+20083</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19820</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20080</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetGrantFullControl-instance_method" title="s3.PutObjectInput.SetGrantFullControl() (method)">SetGrantFullControl</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.GrantFullControl = &v
@@ -3071,13 +3069,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19826
-19827
-19828
-19829</pre>
+20086
+20087
+20088
+20089</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19826</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20086</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetGrantRead-instance_method" title="s3.PutObjectInput.SetGrantRead() (method)">SetGrantRead</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.GrantRead = &v
@@ -3115,13 +3113,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19832
-19833
-19834
-19835</pre>
+20092
+20093
+20094
+20095</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19832</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20092</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetGrantReadACP-instance_method" title="s3.PutObjectInput.SetGrantReadACP() (method)">SetGrantReadACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.GrantReadACP = &v
@@ -3159,13 +3157,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19838
-19839
-19840
-19841</pre>
+20098
+20099
+20100
+20101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19838</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20098</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetGrantWriteACP-instance_method" title="s3.PutObjectInput.SetGrantWriteACP() (method)">SetGrantWriteACP</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.GrantWriteACP = &v
@@ -3203,13 +3201,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19844
-19845
-19846
-19847</pre>
+20104
+20105
+20106
+20107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19844</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20104</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetKey-instance_method" title="s3.PutObjectInput.SetKey() (method)">SetKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.Key = &v
@@ -3247,13 +3245,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19850
-19851
-19852
-19853</pre>
+20110
+20111
+20112
+20113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19850</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20110</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetMetadata-instance_method" title="s3.PutObjectInput.SetMetadata() (method)">SetMetadata</a></span>(v <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.Metadata = v
@@ -3291,13 +3289,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19856
-19857
-19858
-19859</pre>
+20116
+20117
+20118
+20119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19856</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20116</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetObjectLockLegalHoldStatus-instance_method" title="s3.PutObjectInput.SetObjectLockLegalHoldStatus() (method)">SetObjectLockLegalHoldStatus</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ObjectLockLegalHoldStatus = &v
@@ -3335,13 +3333,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19862
-19863
-19864
-19865</pre>
+20122
+20123
+20124
+20125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19862</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20122</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetObjectLockMode-instance_method" title="s3.PutObjectInput.SetObjectLockMode() (method)">SetObjectLockMode</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ObjectLockMode = &v
@@ -3379,13 +3377,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19868
-19869
-19870
-19871</pre>
+20128
+20129
+20130
+20131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19868</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20128</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetObjectLockRetainUntilDate-instance_method" title="s3.PutObjectInput.SetObjectLockRetainUntilDate() (method)">SetObjectLockRetainUntilDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ObjectLockRetainUntilDate = &v
@@ -3423,13 +3421,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19874
-19875
-19876
-19877</pre>
+20134
+20135
+20136
+20137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19874</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20134</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetRequestPayer-instance_method" title="s3.PutObjectInput.SetRequestPayer() (method)">SetRequestPayer</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.RequestPayer = &v
@@ -3467,13 +3465,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19880
-19881
-19882
-19883</pre>
+20140
+20141
+20142
+20143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19880</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20140</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetRetentionExpirationDate-instance_method" title="s3.PutObjectInput.SetRetentionExpirationDate() (method)">SetRetentionExpirationDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.RetentionExpirationDate = &v
@@ -3511,13 +3509,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19886
-19887
-19888
-19889</pre>
+20146
+20147
+20148
+20149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19886</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20146</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetRetentionLegalHoldId-instance_method" title="s3.PutObjectInput.SetRetentionLegalHoldId() (method)">SetRetentionLegalHoldId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.RetentionLegalHoldId = &v
@@ -3555,13 +3553,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19892
-19893
-19894
-19895</pre>
+20152
+20153
+20154
+20155</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19892</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20152</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetRetentionPeriod-instance_method" title="s3.PutObjectInput.SetRetentionPeriod() (method)">SetRetentionPeriod</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.RetentionPeriod = &v
@@ -3599,13 +3597,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19929
-19930
-19931
-19932</pre>
+20189
+20190
+20191
+20192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19929</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20189</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetServerSideEncryption-instance_method" title="s3.PutObjectInput.SetServerSideEncryption() (method)">SetServerSideEncryption</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.ServerSideEncryption = &v
@@ -3643,13 +3641,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19898
-19899
-19900
-19901</pre>
+20158
+20159
+20160
+20161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19898</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20158</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetSSECustomerAlgorithm-instance_method" title="s3.PutObjectInput.SetSSECustomerAlgorithm() (method)">SetSSECustomerAlgorithm</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.SSECustomerAlgorithm = &v
@@ -3687,13 +3685,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19904
-19905
-19906
-19907</pre>
+20164
+20165
+20166
+20167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19904</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20164</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKey-instance_method" title="s3.PutObjectInput.SetSSECustomerKey() (method)">SetSSECustomerKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.SSECustomerKey = &v
@@ -3731,13 +3729,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19917
-19918
-19919
-19920</pre>
+20177
+20178
+20179
+20180</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19917</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20177</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetSSECustomerKeyMD5-instance_method" title="s3.PutObjectInput.SetSSECustomerKeyMD5() (method)">SetSSECustomerKeyMD5</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.SSECustomerKeyMD5 = &v
@@ -3775,13 +3773,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19923
-19924
-19925
-19926</pre>
+20183
+20184
+20185
+20186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19923</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20183</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetSSEKMSKeyId-instance_method" title="s3.PutObjectInput.SetSSEKMSKeyId() (method)">SetSSEKMSKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.SSEKMSKeyId = &v
@@ -3819,13 +3817,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19935
-19936
-19937
-19938</pre>
+20195
+20196
+20197
+20198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19935</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20195</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetStorageClass-instance_method" title="s3.PutObjectInput.SetStorageClass() (method)">SetStorageClass</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.StorageClass = &v
@@ -3863,13 +3861,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19941
-19942
-19943
-19944</pre>
+20201
+20202
+20203
+20204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19941</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20201</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetTagging-instance_method" title="s3.PutObjectInput.SetTagging() (method)">SetTagging</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.Tagging = &v
@@ -3907,13 +3905,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19947
-19948
-19949
-19950</pre>
+20207
+20208
+20209
+20210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19947</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 20207</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#SetWebsiteRedirectLocation-instance_method" title="s3.PutObjectInput.SetWebsiteRedirectLocation() (method)">SetWebsiteRedirectLocation</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span> {
 	s.WebsiteRedirectLocation = &v
@@ -3953,12 +3951,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19711
-19712
-19713</pre>
+19971
+19972
+19973</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19711</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19971</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.PutObjectInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -3995,29 +3993,29 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-19725
-19726
-19727
-19728
-19729
-19730
-19731
-19732
-19733
-19734
-19735
-19736
-19737
-19738
-19739
-19740
-19741
-19742
-19743
-19744</pre>
+19985
+19986
+19987
+19988
+19989
+19990
+19991
+19992
+19993
+19994
+19995
+19996
+19997
+19998
+19999
+20000
+20001
+20002
+20003
+20004</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19725</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19985</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.PutObjectInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.PutObjectInput (struct)">PutObjectInput</a></span>"</span>}
@@ -4051,9 +4049,9 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:15 2023 by
+  Generated on Wed Dec  6 15:47:40 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

@@ -76,9 +76,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>The request was rejected because the specified AWS CloudHSM cluster is already associated with a custom key store or it shares a backup history with a cluster that is associated with a custom key store. Each custom key store must be associated with a different AWS CloudHSM cluster.</p>
+<p>The request was rejected because the specified CloudHSM cluster is already associated with an CloudHSM key store in the account, or it shares a backup history with an CloudHSM key store in the account. Each CloudHSM key store in the account must be associated with a different CloudHSM cluster.</p>
 
-<p>Clusters that share a backup history have the same cluster certificate. To view the cluster certificate of a cluster, use the DescribeClusters (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>) operation.</p>
+<p>CloudHSM clusters that share a backup history have the same cluster certificate. To view the cluster certificate of an CloudHSM cluster, use the DescribeClusters (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>) operation.</p>
 
 
   </div>
@@ -455,12 +455,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-7404
-7405
-7406</pre>
+8180
+8181
+8182</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7404</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8180</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInUseException (struct)">CloudHsmClusterInUseException</a></span>) <span class='object_link'><a href="#Code-instance_method" title="kms.CloudHsmClusterInUseException.Code() (method)">Code</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> <span class="hljs-string">"<span class='object_link'><a href="" title="kms.CloudHsmClusterInUseException (struct)">CloudHsmClusterInUseException</a></span>"</span>
@@ -486,12 +486,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-7421
-7422
-7423</pre>
+8197
+8198
+8199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7421</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8197</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInUseException (struct)">CloudHsmClusterInUseException</a></span>) <span class='object_link'><a href="#Error-instance_method" title="kms.CloudHsmClusterInUseException.Error() (method)">Error</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> fmt.Sprintf(<span class="hljs-string">"%s: %s"</span>, s.Code(), s.Message())
@@ -530,12 +530,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-7393
-7394
-7395</pre>
+8169
+8170
+8171</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7393</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8169</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CloudHsmClusterInUseException (struct)">CloudHsmClusterInUseException</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.CloudHsmClusterInUseException.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -572,15 +572,15 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-7409
-7410
-7411
-7412
-7413
-7414</pre>
+8185
+8186
+8187
+8188
+8189
+8190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7409</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8185</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInUseException (struct)">CloudHsmClusterInUseException</a></span>) <span class='object_link'><a href="#Message-instance_method" title="kms.CloudHsmClusterInUseException.Message() (method)">Message</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">if</span> s.Message_ != <span class="hljs-constant">nil</span> {
@@ -620,12 +620,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-7417
-7418
-7419</pre>
+8193
+8194
+8195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7417</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8193</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInUseException (struct)">CloudHsmClusterInUseException</a></span>) <span class='object_link'><a href="#OrigErr-instance_method" title="kms.CloudHsmClusterInUseException.OrigErr() (method)">OrigErr</a></span>() <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
@@ -662,12 +662,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-7431
-7432
-7433</pre>
+8207
+8208
+8209</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7431</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8207</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInUseException (struct)">CloudHsmClusterInUseException</a></span>) <span class='object_link'><a href="#RequestID-instance_method" title="kms.CloudHsmClusterInUseException.RequestID() (method)">RequestID</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.RespMetadata.<span class='object_link'><a href="#RequestID-instance_method" title="kms.CloudHsmClusterInUseException.RequestID() (method)">RequestID</a></span>
@@ -704,12 +704,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-7426
-7427
-7428</pre>
+8202
+8203
+8204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7426</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8202</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInUseException (struct)">CloudHsmClusterInUseException</a></span>) <span class='object_link'><a href="#StatusCode-instance_method" title="kms.CloudHsmClusterInUseException.StatusCode() (method)">StatusCode</a></span>() <span class="hljs-constant">int</span> {
 	<span class="hljs-keyword">return</span> s.RespMetadata.<span class='object_link'><a href="#StatusCode-instance_method" title="kms.CloudHsmClusterInUseException.StatusCode() (method)">StatusCode</a></span>
@@ -748,12 +748,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-7384
-7385
-7386</pre>
+8160
+8161
+8162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 7384</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8160</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CloudHsmClusterInUseException (struct)">CloudHsmClusterInUseException</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.CloudHsmClusterInUseException.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -770,9 +770,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:33 2023 by
+  Generated on Wed Dec  6 15:47:55 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

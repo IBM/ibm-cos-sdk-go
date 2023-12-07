@@ -80,7 +80,7 @@ import "../ibm-cos-sdk-go/aws/endpoints"
 
 <p>The SDK&#39;s Regions and Endpoints metadata is code generated into the endpoints package, and is accessible via the DefaultResolver function. This function returns a endpoint Resolver will search the metadata and build an associated endpoint if one is found. The default resolver will search all partitions known by the SDK. e.g AWS Standard (aws), AWS China (aws-cn), and AWS GovCloud (US) (aws-us-gov). .</p>
 
-<p>Enumerating Regions and Endpoint Metadata</p>
+<h1 id="label-Enumerating+Regions+and+Endpoint+Metadata">Enumerating Regions and Endpoint Metadata</h1>
 
 <p>Casting the Resolver returned by DefaultResolver to a EnumPartitions interface will allow you to get access to the list of underlying Partitions with the Partitions method. This is helpful if you want to limit the SDK&#39;s endpoint resolving to a single partition, or enumerate regions, services, and endpoints in the partition.</p>
 
@@ -100,7 +100,7 @@ partitions := resolver.(endpoints.EnumPartitions).Partitions()
 }
 </div></code></pre>
 
-<p>Using Custom Endpoints</p>
+<h1 id="label-Using+Custom+Endpoints">Using Custom Endpoints</h1>
 
 <p>The endpoints package also gives you the ability to use your own logic how endpoints are resolved. This is a great way to define a custom endpoint for select services, without passing that logic down through your code.</p>
 
@@ -3675,9 +3675,13 @@ sess := session.Must(session.NewSession(&aws.Config{
 
 <p>Casting the return value of this func to a EnumPartitions will allow you to get a list of the partitions in the order the endpoints will be resolved in.</p>
 
-<p>resolver, err := endpoints.DecodeModel(reader)</p>
+<pre class="code go"><code class="go"><div class="hljs">resolver, err := endpoints.DecodeModel(reader)
 
-<p>partitions := resolver.(endpoints.EnumPartitions).Partitions()  for _, p := range partitions {  // … inspect partitions  }</p>
+partitions := resolver.(endpoints.EnumPartitions).Partitions()
+<span class="hljs-keyword">for</span> _, p := <span class="hljs-keyword">range</span> partitions {
+    <span class="hljs-comment">// ... inspect partitions</span>
+}
+</div></code></pre>
 
 
   </div>
@@ -3967,8 +3971,6 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-569
-570
 571
 572
 573
@@ -3976,10 +3978,12 @@ sess := session.Must(session.NewSession(&aws.Config{
 575
 576
 577
-578</pre>
+578
+579
+580</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 569</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 571</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewUnknownEndpointError(p, s, r <span class="hljs-constant">string</span>, known []<span class="hljs-constant">string</span>) UnknownEndpointError {
 	<span class="hljs-keyword">return</span> UnknownEndpointError{
@@ -4023,18 +4027,18 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-532
-533
 534
 535
 536
 537
 538
 539
-540</pre>
+540
+541
+542</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 532</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 534</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewUnknownServiceError(p, s <span class="hljs-constant">string</span>, known []<span class="hljs-constant">string</span>) UnknownServiceError {
 	<span class="hljs-keyword">return</span> UnknownServiceError{
@@ -4077,18 +4081,18 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-291
-292
 293
 294
 295
 296
 297
 298
-299</pre>
+299
+300
+301</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 291</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 293</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> PartitionForRegion(ps []Partition, regionID <span class="hljs-constant">string</span>) (Partition, <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">for</span> _, p := <span class="hljs-keyword">range</span> ps {
@@ -4119,9 +4123,15 @@ sess := session.Must(session.NewSession(&aws.Config{
     
 <p>RegionsForService returns a map of regions for the partition and service. If either the partition or service does not exist false will be returned as the second parameter.</p>
 
-<p>This example shows how to get the regions for DynamoDB in the AWS partition.  rs, exists := endpoints.RegionsForService(endpoints.DefaultPartitions(), endpoints.AwsPartitionID, endpoints.DynamodbServiceID)</p>
+<p>This example shows how to get the regions for DynamoDB in the AWS partition.</p>
 
-<p>This is equivalent to using the partition directly.  rs := <a href="endpoints.DynamodbServiceID">endpoints.AwsPartition().Services()</a>.Regions()</p>
+<pre class="code go"><code class="go"><div class="hljs">rs, exists := endpoints.RegionsForService(endpoints.DefaultPartitions(), endpoints.AwsPartitionID, endpoints.DynamodbServiceID)
+</div></code></pre>
+
+<p>This is equivalent to using the partition directly.</p>
+
+<pre class="code go"><code class="go"><div class="hljs">rs := endpoints.AwsPartition().Services()[endpoints.DynamodbServiceID].Regions()
+</div></code></pre>
 
 
   </div>
@@ -4135,8 +4145,6 @@ sess := session.Must(session.NewSession(&aws.Config{
       <pre class="lines">
 
 
-267
-268
 269
 270
 271
@@ -4152,10 +4160,12 @@ sess := session.Must(session.NewSession(&aws.Config{
 281
 282
 283
-284</pre>
+284
+285
+286</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 267</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 269</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RegionsForService(ps []Partition, partitionID, serviceID <span class="hljs-constant">string</span>) (<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Region, <span class="hljs-constant">bool</span>) {
 	<span class="hljs-keyword">for</span> _, p := <span class="hljs-keyword">range</span> ps {
@@ -4357,9 +4367,9 @@ sess := session.Must(session.NewSession(&aws.Config{
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:14:31 2023 by
+  Generated on Wed Dec  6 15:46:57 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies the CMK from which you are deleting imported key material.</p>
+<p>Identifies the KMS key from which you are deleting imported key material.</p>
 </div></span>
   
 </li>
@@ -274,9 +274,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies the CMK from which you are deleting imported key material. The Origin of the CMK must be EXTERNAL.</p>
+<p>Identifies the KMS key from which you are deleting imported key material. The Origin of the KMS key must be EXTERNAL.</p>
 
-<p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
+<p>Specify the key ID or key ARN of the KMS key.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -285,7 +285,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.</p>
+<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.</p>
 
 <p>KeyId is a required field</p>
 
@@ -341,12 +341,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9373
-9374
-9375</pre>
+10322
+10323
+10324</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9373</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10322</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.DeleteImportedKeyMaterialInput (struct)">DeleteImportedKeyMaterialInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.DeleteImportedKeyMaterialInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -383,13 +383,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9394
-9395
-9396
-9397</pre>
+10343
+10344
+10345
+10346</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9394</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10343</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DeleteImportedKeyMaterialInput (struct)">DeleteImportedKeyMaterialInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.DeleteImportedKeyMaterialInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.DeleteImportedKeyMaterialInput (struct)">DeleteImportedKeyMaterialInput</a></span> {
 	s.KeyId = &v
@@ -429,12 +429,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9364
-9365
-9366</pre>
+10313
+10314
+10315</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9364</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10313</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.DeleteImportedKeyMaterialInput (struct)">DeleteImportedKeyMaterialInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.DeleteImportedKeyMaterialInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -471,23 +471,23 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-9378
-9379
-9380
-9381
-9382
-9383
-9384
-9385
-9386
-9387
-9388
-9389
-9390
-9391</pre>
+10327
+10328
+10329
+10330
+10331
+10332
+10333
+10334
+10335
+10336
+10337
+10338
+10339
+10340</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 9378</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10327</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.DeleteImportedKeyMaterialInput (struct)">DeleteImportedKeyMaterialInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.DeleteImportedKeyMaterialInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.DeleteImportedKeyMaterialInput (struct)">DeleteImportedKeyMaterialInput</a></span>"</span>}
@@ -515,9 +515,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:36 2023 by
+  Generated on Wed Dec  6 15:47:59 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

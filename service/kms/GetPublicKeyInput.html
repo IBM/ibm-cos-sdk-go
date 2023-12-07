@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Identifies the asymmetric CMK that includes the public key.</p>
+<p>Identifies the asymmetric KMS key that includes the public key.</p>
 </div></span>
   
 </li>
@@ -345,9 +345,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>Identifies the asymmetric CMK that includes the public key.</p>
+<p>Identifies the asymmetric KMS key that includes the public key.</p>
 
-<p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
+<p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with “alias/”. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 
 <p>For example:</p>
 <ul><li>
@@ -360,7 +360,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <p>Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</p>
 </li></ul>
 
-<p>To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
+<p>To get the key ID and key ARN for a KMS key, use ListKeys or DescribeKey. To get the alias name and alias ARN, use ListAliases.</p>
 
 <p>KeyId is a required field</p>
 
@@ -416,12 +416,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11701
-11702
-11703</pre>
+12743
+12744
+12745</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11701</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12743</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GetPublicKeyInput (struct)">GetPublicKeyInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GetPublicKeyInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -458,13 +458,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11722
-11723
-11724
-11725</pre>
+12764
+12765
+12766
+12767</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11722</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12764</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyInput (struct)">GetPublicKeyInput</a></span>) <span class='object_link'><a href="#SetGrantTokens-instance_method" title="kms.GetPublicKeyInput.SetGrantTokens() (method)">SetGrantTokens</a></span>(v []*<span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GetPublicKeyInput (struct)">GetPublicKeyInput</a></span> {
 	s.GrantTokens = v
@@ -502,13 +502,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11728
-11729
-11730
-11731</pre>
+12770
+12771
+12772
+12773</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11728</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12770</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyInput (struct)">GetPublicKeyInput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.GetPublicKeyInput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GetPublicKeyInput (struct)">GetPublicKeyInput</a></span> {
 	s.KeyId = &v
@@ -548,12 +548,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11692
-11693
-11694</pre>
+12734
+12735
+12736</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11692</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12734</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GetPublicKeyInput (struct)">GetPublicKeyInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GetPublicKeyInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -590,23 +590,23 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-11706
-11707
-11708
-11709
-11710
-11711
-11712
-11713
-11714
-11715
-11716
-11717
-11718
-11719</pre>
+12748
+12749
+12750
+12751
+12752
+12753
+12754
+12755
+12756
+12757
+12758
+12759
+12760
+12761</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11706</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 12748</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GetPublicKeyInput (struct)">GetPublicKeyInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.GetPublicKeyInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.GetPublicKeyInput (struct)">GetPublicKeyInput</a></span>"</span>}
@@ -634,9 +634,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:39 2023 by
+  Generated on Wed Dec  6 15:48:04 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

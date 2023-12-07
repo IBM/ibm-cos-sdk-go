@@ -114,7 +114,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the CMK that encrypted the private key.</p>
+<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the KMS key that encrypted the private key.</p>
 </div></span>
   
 </li>
@@ -449,7 +449,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the CMK that encrypted the private key.</p>
+<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the KMS key that encrypted the private key.</p>
 
 
   </div>
@@ -487,7 +487,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The encrypted copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. PrivateKeyCiphertextBlob is automatically base64 encoded/decoded by the SDK.</p>
+<p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. PrivateKeyCiphertextBlob is automatically base64 encoded/decoded by the SDK.</p>
 
 
   </div>
@@ -506,7 +506,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The plaintext copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+<p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+
+<p>If the response includes the CiphertextForRecipient field, the PrivateKeyPlaintext field is null or empty.</p>
 
 <p>PrivateKeyPlaintext is a sensitive parameter and its value will be replaced with “sensitive” in string returned by GenerateDataKeyPairOutput&#39;s String and GoString methods.</p>
 
@@ -529,7 +531,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The public key (in plaintext). PublicKey is automatically base64 encoded/decoded by the SDK.</p>
+<p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. PublicKey is automatically base64 encoded/decoded by the SDK.</p>
 
 
   </div>
@@ -583,12 +585,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-10817
-10818
-10819</pre>
+11807
+11808
+11809</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10817</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11807</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyPairOutput (struct)">GenerateDataKeyPairOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GenerateDataKeyPairOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -625,13 +627,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-10822
-10823
-10824
-10825</pre>
+11812
+11813
+11814
+11815</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10822</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11812</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairOutput (struct)">GenerateDataKeyPairOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.GenerateDataKeyPairOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairOutput (struct)">GenerateDataKeyPairOutput</a></span> {
 	s.KeyId = &v
@@ -669,13 +671,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-10828
-10829
-10830
-10831</pre>
+11818
+11819
+11820
+11821</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10828</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11818</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairOutput (struct)">GenerateDataKeyPairOutput</a></span>) <span class='object_link'><a href="#SetKeyPairSpec-instance_method" title="kms.GenerateDataKeyPairOutput.SetKeyPairSpec() (method)">SetKeyPairSpec</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairOutput (struct)">GenerateDataKeyPairOutput</a></span> {
 	s.KeyPairSpec = &v
@@ -713,13 +715,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-10834
-10835
-10836
-10837</pre>
+11824
+11825
+11826
+11827</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10834</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11824</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairOutput (struct)">GenerateDataKeyPairOutput</a></span>) <span class='object_link'><a href="#SetPrivateKeyCiphertextBlob-instance_method" title="kms.GenerateDataKeyPairOutput.SetPrivateKeyCiphertextBlob() (method)">SetPrivateKeyCiphertextBlob</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairOutput (struct)">GenerateDataKeyPairOutput</a></span> {
 	s.PrivateKeyCiphertextBlob = v
@@ -757,13 +759,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-10840
-10841
-10842
-10843</pre>
+11830
+11831
+11832
+11833</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10840</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11830</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairOutput (struct)">GenerateDataKeyPairOutput</a></span>) <span class='object_link'><a href="#SetPrivateKeyPlaintext-instance_method" title="kms.GenerateDataKeyPairOutput.SetPrivateKeyPlaintext() (method)">SetPrivateKeyPlaintext</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairOutput (struct)">GenerateDataKeyPairOutput</a></span> {
 	s.PrivateKeyPlaintext = v
@@ -801,13 +803,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-10846
-10847
-10848
-10849</pre>
+11836
+11837
+11838
+11839</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10846</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11836</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairOutput (struct)">GenerateDataKeyPairOutput</a></span>) <span class='object_link'><a href="#SetPublicKey-instance_method" title="kms.GenerateDataKeyPairOutput.SetPublicKey() (method)">SetPublicKey</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.GenerateDataKeyPairOutput (struct)">GenerateDataKeyPairOutput</a></span> {
 	s.PublicKey = v
@@ -847,12 +849,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-10808
-10809
-10810</pre>
+11798
+11799
+11800</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10808</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11798</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyPairOutput (struct)">GenerateDataKeyPairOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GenerateDataKeyPairOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -869,9 +871,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:38 2023 by
+  Generated on Wed Dec  6 15:48:02 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

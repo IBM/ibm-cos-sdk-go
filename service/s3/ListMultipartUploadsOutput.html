@@ -348,6 +348,31 @@ import "../ibm-cos-sdk-go/service/s3"
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#RequestCharged-field" title="s3.ListMultipartUploadsOutput.RequestCharged (field)"><strong>RequestCharged</strong> *string</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>If present, indicates that the requester was successfully charged for the request.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#UploadIdMarker-field" title="s3.ListMultipartUploadsOutput.UploadIdMarker (field)"><strong>UploadIdMarker</strong> *string</a></span></span>
   
   
@@ -708,6 +733,31 @@ import "../ibm-cos-sdk-go/service/s3"
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.ListMultipartUploadsOutput.SetRequestCharged() (method)"><strong>SetRequestCharged</strong>(string)  *ListMultipartUploadsOutput </a></span></span>
+  
+  
+  
+  
+  <span class="note title readonly">operation</span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SetRequestCharged sets the RequestCharged field&#39;s value.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#SetUploadIdMarker-instance_method" title="s3.ListMultipartUploadsOutput.SetUploadIdMarker() (method)"><strong>SetUploadIdMarker</strong>(string)  *ListMultipartUploadsOutput </a></span></span>
   
   
@@ -799,7 +849,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>The name of the bucket to which the multipart upload was initiated.</p>
+<p>The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.</p>
 
 
   </div>
@@ -858,7 +908,7 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
 
-<p>If you specify encoding-type request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
+<p>If you specify the encoding-type request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
 
 <p>Delimiter, KeyMarker, Prefix, NextKeyMarker, Key.</p>
 
@@ -986,6 +1036,25 @@ import "../ibm-cos-sdk-go/service/s3"
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="RequestCharged-field">
+  <strong>RequestCharged</strong> *string 
+  <code>`location:"header" locationName:"x-amz-request-charged" type:"string" enum:"RequestCharged"`</code>
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>If present, indicates that the requester was successfully charged for the request.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="UploadIdMarker-field">
   <strong>UploadIdMarker</strong> *string 
   <code>`type:"string"`</code>
@@ -1066,12 +1135,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16142
-16143
-16144</pre>
+16365
+16366
+16367</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16142</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16365</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.ListMultipartUploadsOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -1108,13 +1177,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16147
-16148
-16149
-16150</pre>
+16370
+16371
+16372
+16373</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16147</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16370</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.ListMultipartUploadsOutput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.Bucket = &v
@@ -1152,13 +1221,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16160
-16161
-16162
-16163</pre>
+16383
+16384
+16385
+16386</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16160</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16383</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetCommonPrefixes-instance_method" title="s3.ListMultipartUploadsOutput.SetCommonPrefixes() (method)">SetCommonPrefixes</a></span>(v []*<span class='object_link'><a href="CommonPrefix.html" title="s3.CommonPrefix (struct)">CommonPrefix</a></span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.CommonPrefixes = v
@@ -1196,13 +1265,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16166
-16167
-16168
-16169</pre>
+16389
+16390
+16391
+16392</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16166</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16389</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetDelimiter-instance_method" title="s3.ListMultipartUploadsOutput.SetDelimiter() (method)">SetDelimiter</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.Delimiter = &v
@@ -1240,13 +1309,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16172
-16173
-16174
-16175</pre>
+16395
+16396
+16397
+16398</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16172</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16395</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetEncodingType-instance_method" title="s3.ListMultipartUploadsOutput.SetEncodingType() (method)">SetEncodingType</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.EncodingType = &v
@@ -1284,13 +1353,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16178
-16179
-16180
-16181</pre>
+16401
+16402
+16403
+16404</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16178</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16401</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetIsTruncated-instance_method" title="s3.ListMultipartUploadsOutput.SetIsTruncated() (method)">SetIsTruncated</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.IsTruncated = &v
@@ -1328,13 +1397,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16184
-16185
-16186
-16187</pre>
+16407
+16408
+16409
+16410</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16184</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16407</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetKeyMarker-instance_method" title="s3.ListMultipartUploadsOutput.SetKeyMarker() (method)">SetKeyMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.KeyMarker = &v
@@ -1372,13 +1441,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16190
-16191
-16192
-16193</pre>
+16413
+16414
+16415
+16416</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16190</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16413</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetMaxUploads-instance_method" title="s3.ListMultipartUploadsOutput.SetMaxUploads() (method)">SetMaxUploads</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.MaxUploads = &v
@@ -1416,13 +1485,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16196
-16197
-16198
-16199</pre>
+16419
+16420
+16421
+16422</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16196</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16419</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetNextKeyMarker-instance_method" title="s3.ListMultipartUploadsOutput.SetNextKeyMarker() (method)">SetNextKeyMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.NextKeyMarker = &v
@@ -1460,13 +1529,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16202
-16203
-16204
-16205</pre>
+16425
+16426
+16427
+16428</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16202</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16425</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetNextUploadIdMarker-instance_method" title="s3.ListMultipartUploadsOutput.SetNextUploadIdMarker() (method)">SetNextUploadIdMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.NextUploadIdMarker = &v
@@ -1504,16 +1573,60 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16208
-16209
-16210
-16211</pre>
+16431
+16432
+16433
+16434</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16208</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16431</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetPrefix-instance_method" title="s3.ListMultipartUploadsOutput.SetPrefix() (method)">SetPrefix</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.Prefix = &v
+	<span class="hljs-keyword">return</span> s
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="SetRequestCharged-instance_method">
+  
+    func (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <strong><span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.ListMultipartUploadsOutput.SetRequestCharged() (method)">SetRequestCharged</a></span></strong>(v string) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SetRequestCharged sets the RequestCharged field&#39;s value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16437
+16438
+16439
+16440</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16437</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetRequestCharged-instance_method" title="s3.ListMultipartUploadsOutput.SetRequestCharged() (method)">SetRequestCharged</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
+	s.RequestCharged = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
     </td>
@@ -1548,13 +1661,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16214
-16215
-16216
-16217</pre>
+16443
+16444
+16445
+16446</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16214</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16443</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetUploadIdMarker-instance_method" title="s3.ListMultipartUploadsOutput.SetUploadIdMarker() (method)">SetUploadIdMarker</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.UploadIdMarker = &v
@@ -1592,13 +1705,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16220
-16221
-16222
-16223</pre>
+16449
+16450
+16451
+16452</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16220</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16449</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#SetUploads-instance_method" title="s3.ListMultipartUploadsOutput.SetUploads() (method)">SetUploads</a></span>(v []*<span class='object_link'><a href="MultipartUpload.html" title="s3.MultipartUpload (struct)">MultipartUpload</a></span>) *<span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span> {
 	s.Uploads = v
@@ -1638,12 +1751,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-16133
-16134
-16135</pre>
+16356
+16357
+16358</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16133</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 16356</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.ListMultipartUploadsOutput (struct)">ListMultipartUploadsOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.ListMultipartUploadsOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -1660,9 +1773,9 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:08 2023 by
+  Generated on Wed Dec  6 15:47:34 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

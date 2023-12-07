@@ -76,9 +76,9 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>DecryptionClientV2 is an S3 crypto client. The decryption client will handle all get object requests from Amazon S3. Supported key wrapping algorithms: 	* AWS KMS 	* AWS KMS + Context</p>
+<p>DecryptionClientV2 is an S3 crypto client. The decryption client will handle all get object requests from Amazon S3. Supported key wrapping algorithms:  - AWS KMS  - AWS KMS + Context</p>
 
-<p>Supported content ciphers: 	* AES/GCM 	* AES/CBC</p>
+<p>Supported content ciphers:  - AES/GCM  - AES/CBC</p>
 
 
   </div>
@@ -224,13 +224,13 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-97
-98
 99
-100</pre>
+100
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client_v2.go', line 97</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client_v2.go', line 99</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *DecryptionClientV2) GetObject(input *s3.GetObjectInput) (*s3.GetObjectOutput, <span class="hljs-constant">error</span>) {
 	req, out := getObjectRequest(c.options, input)
@@ -256,7 +256,14 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>GetObjectRequest will make a request to s3 and retrieve the object. In this process decryption will be done. The SDK only supports V2 reads of KMS and GCM.</p>
 
-<p>Example:  req, out := svc.GetObjectRequest(&amp;s3.GetObjectInput {  Key: aws.String(“testKey”),  Bucket: aws.String(“testBucket”),  })  err := req.Send()</p>
+<p>Example:</p>
+
+<pre class="code go"><code class="go"><div class="hljs">req, out := svc.GetObjectRequest(&s3.GetObjectInput {
+  Key: aws.String(<span class="hljs-string">"testKey"</span>),
+  Bucket: aws.String(<span class="hljs-string">"testBucket"</span>),
+})
+err := req.Send()
+</div></code></pre>
 
 
   </div>
@@ -270,12 +277,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-92
-93
-94</pre>
+94
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client_v2.go', line 92</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client_v2.go', line 94</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *DecryptionClientV2) GetObjectRequest(input *s3.GetObjectInput) (*request.Request, *s3.GetObjectOutput) {
 	<span class="hljs-keyword">return</span> getObjectRequest(c.options, input)
@@ -314,15 +321,15 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-109
-110
 111
 112
 113
-114</pre>
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client_v2.go', line 109</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client_v2.go', line 111</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *DecryptionClientV2) GetObjectWithContext(ctx aws.Context, input *s3.GetObjectInput, opts ...request.Option) (*s3.GetObjectOutput, <span class="hljs-constant">error</span>) {
 	req, out := getObjectRequest(c.options, input)
@@ -342,9 +349,9 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:48 2023 by
+  Generated on Wed Dec  6 15:48:12 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

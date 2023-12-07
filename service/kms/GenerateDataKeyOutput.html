@@ -139,7 +139,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the CMK that encrypted the data key.</p>
+<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the KMS key that encrypted the data key.</p>
 </div></span>
   
 </li>
@@ -349,7 +349,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The encrypted copy of the data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. CiphertextBlob is automatically base64 encoded/decoded by the SDK.</p>
+<p>The encrypted copy of the data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. CiphertextBlob is automatically base64 encoded/decoded by the SDK.</p>
 
 
   </div>
@@ -368,7 +368,7 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the CMK that encrypted the data key.</p>
+<p>The Amazon Resource Name (key ARN (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN</a>)) of the KMS key that encrypted the data key.</p>
 
 
   </div>
@@ -387,7 +387,9 @@ import "../ibm-cos-sdk-go/service/kms"
 <div class="docstring">
   <div class="discussion">
     
-<p>The plaintext data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. Use this data key to encrypt your data outside of KMS. Then, remove it from memory as soon as possible.</p>
+<p>The plaintext data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. Use this data key to encrypt your data outside of KMS. Then, remove it from memory as soon as possible.</p>
+
+<p>If the response includes the CiphertextForRecipient field, the Plaintext field is null or empty.</p>
 
 <p>Plaintext is a sensitive parameter and its value will be replaced with “sensitive” in string returned by GenerateDataKeyOutput&#39;s String and GoString methods.</p>
 
@@ -445,12 +447,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-10633
-10634
-10635</pre>
+11611
+11612
+11613</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10633</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11611</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.GenerateDataKeyOutput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -487,13 +489,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-10638
-10639
-10640
-10641</pre>
+11616
+11617
+11618
+11619</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10638</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11616</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span>) <span class='object_link'><a href="#SetCiphertextBlob-instance_method" title="kms.GenerateDataKeyOutput.SetCiphertextBlob() (method)">SetCiphertextBlob</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span> {
 	s.CiphertextBlob = v
@@ -531,13 +533,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-10644
-10645
-10646
-10647</pre>
+11622
+11623
+11624
+11625</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10644</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11622</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span>) <span class='object_link'><a href="#SetKeyId-instance_method" title="kms.GenerateDataKeyOutput.SetKeyId() (method)">SetKeyId</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span> {
 	s.KeyId = &v
@@ -575,13 +577,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-10650
-10651
-10652
-10653</pre>
+11628
+11629
+11630
+11631</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10650</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11628</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span>) <span class='object_link'><a href="#SetPlaintext-instance_method" title="kms.GenerateDataKeyOutput.SetPlaintext() (method)">SetPlaintext</a></span>(v []byte) *<span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span> {
 	s.Plaintext = v
@@ -621,12 +623,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-10624
-10625
-10626</pre>
+11602
+11603
+11604</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 10624</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 11602</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.GenerateDataKeyOutput (struct)">GenerateDataKeyOutput</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.GenerateDataKeyOutput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -643,9 +645,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:38 2023 by
+  Generated on Wed Dec  6 15:48:01 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

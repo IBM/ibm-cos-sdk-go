@@ -326,6 +326,10 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>The bucket name for which to get the cors configuration.</p>
 
+<p>To use this API operation against an access point, provide the alias of the access point in place of the bucket name.</p>
+
+<p>To use this API operation against an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code InvalidAccessPointAliasError is returned. For more information about InvalidAccessPointAliasError, see List of Error Codes (<a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList</a>).</p>
+
 <p>Bucket is a required field</p>
 
 
@@ -399,12 +403,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-11955
-11956
-11957</pre>
+12145
+12146
+12147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11955</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12145</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetBucketCorsInput (struct)">GetBucketCorsInput</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.GetBucketCorsInput.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -441,13 +445,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-11976
-11977
-11978
-11979</pre>
+12166
+12167
+12168
+12169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11976</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12166</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketCorsInput (struct)">GetBucketCorsInput</a></span>) <span class='object_link'><a href="#SetBucket-instance_method" title="s3.GetBucketCorsInput.SetBucket() (method)">SetBucket</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetBucketCorsInput (struct)">GetBucketCorsInput</a></span> {
 	s.Bucket = &v
@@ -485,13 +489,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-11989
-11990
-11991
-11992</pre>
+12179
+12180
+12181
+12182</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11989</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12179</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketCorsInput (struct)">GetBucketCorsInput</a></span>) <span class='object_link'><a href="#SetExpectedBucketOwner-instance_method" title="s3.GetBucketCorsInput.SetExpectedBucketOwner() (method)">SetExpectedBucketOwner</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="s3.GetBucketCorsInput (struct)">GetBucketCorsInput</a></span> {
 	s.ExpectedBucketOwner = &v
@@ -531,12 +535,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-11946
-11947
-11948</pre>
+12136
+12137
+12138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11946</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12136</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.GetBucketCorsInput (struct)">GetBucketCorsInput</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.GetBucketCorsInput.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -573,23 +577,23 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-11960
-11961
-11962
-11963
-11964
-11965
-11966
-11967
-11968
-11969
-11970
-11971
-11972
-11973</pre>
+12150
+12151
+12152
+12153
+12154
+12155
+12156
+12157
+12158
+12159
+12160
+12161
+12162
+12163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 11960</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 12150</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.GetBucketCorsInput (struct)">GetBucketCorsInput</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="s3.GetBucketCorsInput.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="s3.GetBucketCorsInput (struct)">GetBucketCorsInput</a></span>"</span>}
@@ -617,9 +621,9 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:00 2023 by
+  Generated on Wed Dec  6 15:47:27 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

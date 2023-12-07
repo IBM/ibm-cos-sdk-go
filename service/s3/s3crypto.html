@@ -1627,7 +1627,7 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>AESCBCContentCipherBuilder returns a new encryption only AES/CBC mode structure using the provided padder. The provided cipher data generator will be used to provide keys for content encryption.</p>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -1673,7 +1673,7 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 
 <p>Note: This uses the Go stdlib AEAD implementation for AES/GCM. Due to this objects to be encrypted or decrypted will be fully loaded into memory before encryption or decryption can occur. Caution must be taken to avoid memory allocation failures.</p>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -1761,9 +1761,15 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>NewDecryptionClient instantiates a new S3 crypto client</p>
 
-<p>Example:  sess := session.Must(session.NewSession())  svc := s3crypto.NewDecryptionClient(sess, func(svc *s3crypto.DecryptionClient{  // Custom client options here  }))</p>
+<p>Example:</p>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<pre class="code go"><code class="go"><div class="hljs">sess := session.Must(session.NewSession())
+svc := s3crypto.NewDecryptionClient(sess, <span class="hljs-keyword">func</span>(svc *s3crypto.DecryptionClient{
+	<span class="hljs-comment">// Custom client options here</span>
+}))
+</div></code></pre>
+
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -1777,8 +1783,6 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-49
-50
 51
 52
 53
@@ -1808,10 +1812,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 77
 78
 79
-80</pre>
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 49</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/decryption_client.go', line 51</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewDecryptionClient(prov client.ConfigProvider, options ...<span class="hljs-keyword">func</span>(*DecryptionClient)) *DecryptionClient {
 	s3client := s3.New(prov)
@@ -1865,9 +1871,15 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>NewEncryptionClient instantiates a new S3 crypto client</p>
 
-<p>Example:  cmkID := “arn:aws:kms:region:000000000000:key/00000000-0000-0000-0000-000000000000”  sess := session.Must(session.NewSession())  handler := s3crypto.NewKMSKeyGenerator(kms.New(sess), cmkID)  svc := s3crypto.NewEncryptionClient(sess, s3crypto.AESGCMContentCipherBuilder(handler))</p>
+<p>Example:</p>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<pre class="code go"><code class="go"><div class="hljs">	cmkID := <span class="hljs-string">"arn:aws:kms:region:000000000000:key/00000000-0000-0000-0000-000000000000"</span>
+ sess := session.Must(session.NewSession())
+	handler := s3crypto.NewKMSKeyGenerator(kms.New(sess), cmkID)
+	svc := s3crypto.NewEncryptionClient(sess, s3crypto.AESGCMContentCipherBuilder(handler))
+</div></code></pre>
+
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -1881,7 +1893,6 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-58
 59
 60
 61
@@ -1900,10 +1911,11 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 74
 75
 76
-77</pre>
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 58</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/encryption_client.go', line 59</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewEncryptionClient(prov client.ConfigProvider, builder ContentCipherBuilder, options ...<span class="hljs-keyword">func</span>(*EncryptionClient)) *EncryptionClient {
 	s3client := s3.New(prov)
@@ -1945,7 +1957,13 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>NewKMSContextKeyGenerator builds a new kms+context key provider using the customer key ID and material description.</p>
 
-<p>Example:  sess := session.Must(session.NewSession())  cmkID := “KMS Key ARN”  var matdesc s3crypto.MaterialDescription  handler := s3crypto.NewKMSContextKeyGenerator(kms.New(sess), cmkID, matdesc)</p>
+<p>Example:</p>
+
+<pre class="code go"><code class="go"><div class="hljs">sess := session.Must(session.NewSession())
+cmkID := <span class="hljs-string">"KMS Key ARN"</span>
+<span class="hljs-keyword">var</span> matdesc s3crypto.MaterialDescription
+handler := s3crypto.NewKMSContextKeyGenerator(kms.New(sess), cmkID, matdesc)
+</div></code></pre>
 
 
   </div>
@@ -1959,12 +1977,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-27
 28
-29</pre>
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_context_key_handler.go', line 27</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_context_key_handler.go', line 28</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewKMSContextKeyGenerator(client kmsiface.KMSAPI, cmkID <span class="hljs-constant">string</span>, matdesc MaterialDescription) CipherDataGeneratorWithCEKAlg {
 	<span class="hljs-keyword">return</span> newKMSContextKeyHandler(client, cmkID, matdesc)
@@ -1989,9 +2007,15 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>NewKMSKeyGenerator builds a new KMS key provider using the customer key ID and material description.</p>
 
-<p>Example:  sess := session.Must(session.NewSession())  cmkID := “arn to key”  matdesc := s3crypto.MaterialDescription{}  handler := s3crypto.NewKMSKeyGenerator(kms.New(sess), cmkID)</p>
+<p>Example:</p>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<pre class="code go"><code class="go"><div class="hljs">sess := session.Must(session.NewSession())
+cmkID := <span class="hljs-string">"arn to key"</span>
+matdesc := s3crypto.MaterialDescription{}
+handler := s3crypto.NewKMSKeyGenerator(kms.New(sess), cmkID)
+</div></code></pre>
+
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -2005,12 +2029,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_key_handler.go', line 35</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_key_handler.go', line 36</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewKMSKeyGenerator(kmsClient kmsiface.KMSAPI, cmkID <span class="hljs-constant">string</span>) CipherDataGenerator {
 	<span class="hljs-keyword">return</span> NewKMSKeyGeneratorWithMatDesc(kmsClient, cmkID, MaterialDescription{})
@@ -2035,9 +2059,15 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>NewKMSKeyGeneratorWithMatDesc builds a new KMS key provider using the customer key ID and material description.</p>
 
-<p>Example:  sess := session.Must(session.NewSession())  cmkID := “arn to key”  matdesc := s3crypto.MaterialDescription{}  handler := s3crypto.NewKMSKeyGeneratorWithMatDesc(kms.New(sess), cmkID, matdesc)</p>
+<p>Example:</p>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<pre class="code go"><code class="go"><div class="hljs">sess := session.Must(session.NewSession())
+cmkID := <span class="hljs-string">"arn to key"</span>
+matdesc := s3crypto.MaterialDescription{}
+handler := s3crypto.NewKMSKeyGeneratorWithMatDesc(kms.New(sess), cmkID, matdesc)
+</div></code></pre>
+
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -2051,12 +2081,12 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-68
-69
-70</pre>
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_key_handler.go', line 68</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_key_handler.go', line 70</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewKMSKeyGeneratorWithMatDesc(kmsClient kmsiface.KMSAPI, cmkID <span class="hljs-constant">string</span>, matdesc MaterialDescription) CipherDataGenerator {
 	<span class="hljs-keyword">return</span> newKMSKeyHandler(kmsClient, cmkID, matdesc)
@@ -2081,14 +2111,18 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>NewKMSWrapEntry builds returns a new KMS key provider and its decrypt handler.</p>
 
-<p>Example:  sess := session.Must(session.NewSession())  customKMSClient := kms.New(sess)  decryptHandler := s3crypto.NewKMSWrapEntry(customKMSClient)</p>
+<p>Example:</p>
 
-<pre class="code go"><code class="go"><div class="hljs">svc := s3crypto.NewDecryptionClient(sess, <span class="hljs-keyword">func</span>(svc *s3crypto.DecryptionClient) {
+<pre class="code go"><code class="go"><div class="hljs">sess := session.Must(session.NewSession())
+customKMSClient := kms.New(sess)
+decryptHandler := s3crypto.NewKMSWrapEntry(customKMSClient)
+
+svc := s3crypto.NewDecryptionClient(sess, <span class="hljs-keyword">func</span>(svc *s3crypto.DecryptionClient) {
 	svc.WrapRegistry[s3crypto.KMSWrap] = decryptHandler
 }))
 </div></code></pre>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -2102,13 +2136,13 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-84
-85
-86
-87</pre>
+87
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_key_handler.go', line 84</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_key_handler.go', line 87</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewKMSWrapEntry(kmsClient kmsiface.KMSAPI) WrapEntry {
 	kp := newKMSWrapEntry(kmsClient)
@@ -2176,9 +2210,15 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>RegisterAESCBCContentCipher registers the AES/CBC cipher and padder with the provided CryptoRegistry.</p>
 
-<p>Example:  cr := s3crypto.NewCryptoRegistry()  if err := s3crypto.RegisterAESCBCContentCipher(cr, s3crypto.AESCBCPadder); err != nil {  panic(err) // handle error  }</p>
+<p>Example:</p>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<pre class="code go"><code class="go"><div class="hljs">cr := s3crypto.NewCryptoRegistry()
+<span class="hljs-keyword">if</span> err := s3crypto.RegisterAESCBCContentCipher(cr, s3crypto.AESCBCPadder); err != <span class="hljs-constant">nil</span> {
+	panic(err) <span class="hljs-comment">// handle error</span>
+}
+</div></code></pre>
+
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -2192,7 +2232,6 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-33
 34
 35
 36
@@ -2205,10 +2244,11 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
 43
 44
 45
-46</pre>
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/aes_cbc_content_cipher.go', line 33</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/aes_cbc_content_cipher.go', line 34</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RegisterAESCBCContentCipher(registry *CryptoRegistry, padder Padder) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">if</span> registry == <span class="hljs-constant">nil</span> {
@@ -2244,7 +2284,13 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>RegisterAESGCMContentCipher registers the AES/GCM content cipher algorithm with the provided CryptoRegistry.</p>
 
-<p>Example:  cr := s3crypto.NewCryptoRegistry()  if err := s3crypto.RegisterAESGCMContentCipher(cr); err != nil {  panic(err) // handle error  }</p>
+<p>Example:</p>
+
+<pre class="code go"><code class="go"><div class="hljs">cr := s3crypto.NewCryptoRegistry()
+<span class="hljs-keyword">if</span> err := s3crypto.RegisterAESGCMContentCipher(cr); err != <span class="hljs-constant">nil</span> {
+	panic(err) <span class="hljs-comment">// handle error</span>
+}
+</div></code></pre>
 
 
   </div>
@@ -2326,7 +2372,14 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>RegisterKMSContextWrapWithAnyCMK registers the kms+context wrapping algorithm to the given WrapRegistry. The wrapper will be configured to call KMS decrypt without providing a CMK.</p>
 
-<p>Example:  sess := session.Must(session.NewSession())  cr := s3crypto.NewCryptoRegistry()  if err := s3crypto.RegisterKMSContextWrapWithAnyCMK(cr, kms.New(sess)); err != nil {  panic(err) // handle error  }</p>
+<p>Example:</p>
+
+<pre class="code go"><code class="go"><div class="hljs">sess := session.Must(session.NewSession())
+cr := s3crypto.NewCryptoRegistry()
+<span class="hljs-keyword">if</span> err := s3crypto.RegisterKMSContextWrapWithAnyCMK(cr, kms.New(sess)); err != <span class="hljs-constant">nil</span> {
+	panic(err) <span class="hljs-comment">// handle error</span>
+}
+</div></code></pre>
 
 
   </div>
@@ -2340,15 +2393,15 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-55
-56
-57
 58
 59
-60</pre>
+60
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_context_key_handler.go', line 55</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_context_key_handler.go', line 58</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RegisterKMSContextWrapWithAnyCMK(registry *CryptoRegistry, client kmsiface.KMSAPI) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">if</span> registry == <span class="hljs-constant">nil</span> {
@@ -2376,7 +2429,13 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>RegisterKMSContextWrapWithCMK registers the kms+context wrapping algorithm to the given WrapRegistry. The wrapper will be configured to only call KMS Decrypt using the provided CMK.</p>
 
-<p>Example:  cr := s3crypto.NewCryptoRegistry()  if err := RegisterKMSContextWrapWithCMK(); err != nil {  panic(err) // handle error  }</p>
+<p>Example:</p>
+
+<pre class="code go"><code class="go"><div class="hljs">cr := s3crypto.NewCryptoRegistry()
+<span class="hljs-keyword">if</span> err := RegisterKMSContextWrapWithCMK(); err != <span class="hljs-constant">nil</span> {
+	panic(err) <span class="hljs-comment">// handle error</span>
+}
+</div></code></pre>
 
 
   </div>
@@ -2390,15 +2449,15 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-39
-40
 41
 42
 43
-44</pre>
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_context_key_handler.go', line 39</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_context_key_handler.go', line 41</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RegisterKMSContextWrapWithCMK(registry *CryptoRegistry, client kmsiface.KMSAPI, cmkID <span class="hljs-constant">string</span>) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">if</span> registry == <span class="hljs-constant">nil</span> {
@@ -2426,9 +2485,16 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>RegisterKMSWrapWithAnyCMK registers the <code>kms</code> wrapping algorithm to the given WrapRegistry. The wrapper will be configured to call KMS Decrypt without providing a CMK.</p>
 
-<p>Example:  sess := session.Must(session.NewSession())  cr := s3crypto.NewCryptoRegistry()  if err := s3crypto.RegisterKMSWrapWithAnyCMK(cr, kms.New(sess)); err != nil {  panic(err) // handle error  }</p>
+<p>Example:</p>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<pre class="code go"><code class="go"><div class="hljs">sess := session.Must(session.NewSession())
+cr := s3crypto.NewCryptoRegistry()
+<span class="hljs-keyword">if</span> err := s3crypto.RegisterKMSWrapWithAnyCMK(cr, kms.New(sess)); err != <span class="hljs-constant">nil</span> {
+	panic(err) <span class="hljs-comment">// handle error</span>
+}
+</div></code></pre>
+
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -2442,15 +2508,15 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-118
-119
-120
-121
-122
-123</pre>
+123
+124
+125
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_key_handler.go', line 118</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_key_handler.go', line 123</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RegisterKMSWrapWithAnyCMK(registry *CryptoRegistry, client kmsiface.KMSAPI) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">if</span> registry == <span class="hljs-constant">nil</span> {
@@ -2478,9 +2544,16 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
     
 <p>RegisterKMSWrapWithCMK registers the <code>kms</code> wrapping algorithm to the given WrapRegistry. The wrapper will be configured to call KMS Decrypt with the provided CMK.</p>
 
-<p>Example:  sess := session.Must(session.NewSession())  cr := s3crypto.NewCryptoRegistry()  if err := s3crypto.RegisterKMSWrapWithCMK(cr, kms.New(sess), “cmkId”); err != nil {  panic(err) // handle error  }</p>
+<p>Example:</p>
 
-<p>deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
+<pre class="code go"><code class="go"><div class="hljs">sess := session.Must(session.NewSession())
+cr := s3crypto.NewCryptoRegistry()
+<span class="hljs-keyword">if</span> err := s3crypto.RegisterKMSWrapWithCMK(cr, kms.New(sess), <span class="hljs-string">"cmkId"</span>); err != <span class="hljs-constant">nil</span> {
+	panic(err) <span class="hljs-comment">// handle error</span>
+}
+</div></code></pre>
+
+<p>Deprecated: This feature is in maintenance mode, no new updates will be released. Please see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html">docs.aws.amazon.com/general/latest/gr/aws_sdk_cryptography.html</a> for more information.</p>
 
 
   </div>
@@ -2494,15 +2567,15 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       <pre class="lines">
 
 
-100
-101
-102
-103
 104
-105</pre>
+105
+106
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_key_handler.go', line 100</span>
+      <pre class="code"><span class="info file">// File 'service/s3/s3crypto/kms_key_handler.go', line 104</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RegisterKMSWrapWithCMK(registry *CryptoRegistry, client kmsiface.KMSAPI, cmkID <span class="hljs-constant">string</span>) <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">if</span> registry == <span class="hljs-constant">nil</span> {
@@ -2522,9 +2595,9 @@ import "../ibm-cos-sdk-go/service/s3/s3crypto"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:14:36 2023 by
+  Generated on Wed Dec  6 15:47:04 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

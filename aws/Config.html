@@ -321,6 +321,31 @@ svc := s3.New(sess, &aws.Config{
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#EC2MetadataEnableFallback-field" title="aws.Config.EC2MetadataEnableFallback (field)"><strong>EC2MetadataEnableFallback</strong> *bool</a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set this to <code>false</code> to disable EC2Metadata client from falling back to IMDSv1.</p>
+</div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#EnableEndpointDiscovery-field" title="aws.Config.EnableEndpointDiscovery (field)"><strong>EnableEndpointDiscovery</strong> *bool</a></span></span>
   
   
@@ -1117,6 +1142,31 @@ svc := s3.New(sess, &aws.Config{
       
         
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#WithEC2MetadataEnableFallback-instance_method" title="aws.Config.WithEC2MetadataEnableFallback() (method)">func (c *Config) <strong>WithEC2MetadataEnableFallback</strong>(v bool) *Config </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>WithEC2MetadataEnableFallback sets a config EC2MetadataEnableFallback value returning a Config pointer for chaining.</p>
+</div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#WithEndpoint-instance_method" title="aws.Config.WithEndpoint() (method)">func (c *Config) <strong>WithEndpoint</strong>(endpoint string) *Config </a></span></span>
   
   
@@ -1715,6 +1765,31 @@ svc := s3.New(sess, &aws.Config{
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="EC2MetadataEnableFallback-field">
+  <strong>EC2MetadataEnableFallback</strong> *bool 
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Set this to <code>false</code> to disable EC2Metadata client from falling back to IMDSv1. By default, EC2 role credentials will fall back to IMDSv1 as needed for backwards compatibility. You can disable this behavior by explicitly setting this flag to <code>false</code>. When false, the EC2Metadata client will return any errors encountered from attempting to fetch a token instead of silently using the insecure data flow of IMDSv1.</p>
+
+<p>Example:  sess := session.Must(session.NewSession(aws.NewConfig()  .WithEC2MetadataEnableFallback(false)))</p>
+
+<p>svc := s3.New(sess)</p>
+
+<p>See <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html">configuring IMDS</a> for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="EnableEndpointDiscovery-field">
   <strong>EnableEndpointDiscovery</strong> *bool 
   
@@ -2190,12 +2265,12 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-292
-293
-294</pre>
+309
+310
+311</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 292</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 309</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewConfig() *Config {
 	<span class="hljs-keyword">return</span> &Config{}
@@ -2238,19 +2313,19 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-602
-603
-604
-605
-606
-607
-608
-609
-610
-611</pre>
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 602</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 630</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) Copy(cfgs ...*Config) *Config {
 	dst := &Config{}
@@ -2294,14 +2369,14 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-473
-474
-475
-476
-477</pre>
+497
+498
+499
+500
+501</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 473</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 497</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) MergeIn(cfgs ...*Config) {
 	<span class="hljs-keyword">for</span> _, other := <span class="hljs-keyword">range</span> cfgs {
@@ -2340,13 +2415,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-305
-306
-307
-308</pre>
+322
+323
+324
+325</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 305</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 322</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithCredentials(creds *credentials.Credentials) *Config {
 	c.Credentials = creds
@@ -2384,13 +2459,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-298
-299
-300
-301</pre>
+315
+316
+317
+318</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 298</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 315</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithCredentialsChainVerboseErrors(verboseErrs <span class="hljs-constant">bool</span>) *Config {
 	c.CredentialsChainVerboseErrors = &verboseErrs
@@ -2428,13 +2503,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-361
-362
-363
-364</pre>
+378
+379
+380
+381</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 361</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 378</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableComputeChecksums(disable <span class="hljs-constant">bool</span>) *Config {
 	c.DisableComputeChecksums = &disable
@@ -2472,13 +2547,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-446
-447
-448
-449</pre>
+470
+471
+472
+473</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 446</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 470</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableEndpointHostPrefix(t <span class="hljs-constant">bool</span>) *Config {
 	c.DisableEndpointHostPrefix = &t
@@ -2516,13 +2591,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-354
-355
-356
-357</pre>
+371
+372
+373
+374</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 354</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 371</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableParamValidation(disable <span class="hljs-constant">bool</span>) *Config {
 	c.DisableParamValidation = &disable
@@ -2560,13 +2635,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-467
-468
-469
-470</pre>
+491
+492
+493
+494</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 467</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 491</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableRestProtocolURICleaning(t <span class="hljs-constant">bool</span>) *Config {
 	c.DisableRestProtocolURICleaning = &t
@@ -2604,13 +2679,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-333
-334
-335
-336</pre>
+350
+351
+352
+353</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 333</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 350</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithDisableSSL(disable <span class="hljs-constant">bool</span>) *Config {
 	c.DisableSSL = &disable
@@ -2648,16 +2723,60 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-426
-427
-428
-429</pre>
+443
+444
+445
+446</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 426</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 443</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEC2MetadataDisableTimeoutOverride(enable <span class="hljs-constant">bool</span>) *Config {
 	c.EC2MetadataDisableTimeoutOverride = &enable
+	<span class="hljs-keyword">return</span> c
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="WithEC2MetadataEnableFallback-instance_method">
+  
+    func (c *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span>) <strong><span class='object_link'><a href="#WithEC2MetadataEnableFallback-instance_method" title="aws.Config.WithEC2MetadataEnableFallback() (method)">WithEC2MetadataEnableFallback</a></span></strong>(v bool) *<span class='object_link'><a href="" title="aws.Config (struct)">Config</a></span> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>WithEC2MetadataEnableFallback sets a config EC2MetadataEnableFallback value returning a Config pointer for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+450
+451
+452
+453</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 450</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEC2MetadataEnableFallback(v <span class="hljs-constant">bool</span>) *Config {
+	c.EC2MetadataEnableFallback = &v
 	<span class="hljs-keyword">return</span> c
 }</div></pre>
     </td>
@@ -2692,13 +2811,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-312
-313
-314
-315</pre>
+329
+330
+331
+332</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 312</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 329</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEndpo<span class="hljs-constant">int</span>(endpo<span class="hljs-constant">int</span> <span class="hljs-constant">string</span>) *Config {
 	c.Endpo<span class="hljs-constant">int</span> = &endpo<span class="hljs-constant">int</span>
@@ -2736,13 +2855,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-439
-440
-441
-442</pre>
+463
+464
+465
+466</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 439</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 463</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEndpointDiscovery(t <span class="hljs-constant">bool</span>) *Config {
 	c.EnableEndpointDiscovery = &t
@@ -2780,13 +2899,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-319
-320
-321
-322</pre>
+336
+337
+338
+339</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 319</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 336</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithEndpointResolver(resolver endpoints.Resolver) *Config {
 	c.EndpointResolver = resolver
@@ -2824,13 +2943,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-340
-341
-342
-343</pre>
+357
+358
+359
+360</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 340</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 357</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithHTTPClient(client *http.Client) *Config {
 	c.HTTPClient = client
@@ -2868,13 +2987,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-375
-376
-377
-378</pre>
+392
+393
+394
+395</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 375</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 392</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithLogger(logger Logger) *Config {
 	c.Logger = logger
@@ -2912,13 +3031,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-368
-369
-370
-371</pre>
+385
+386
+387
+388</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 368</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 385</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithLogLevel(level LogLevelType) *Config {
 	c.LogLevel = &level
@@ -2956,13 +3075,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-460
-461
-462
-463</pre>
+484
+485
+486
+487</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 460</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 484</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithLowerCaseHeaderMaps(t <span class="hljs-constant">bool</span>) *Config {
 	c.LowerCaseHeaderMaps = &t
@@ -3000,13 +3119,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-347
-348
-349
-350</pre>
+364
+365
+366
+367</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 347</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 364</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithMaxRetries(max <span class="hljs-constant">int</span>) *Config {
 	c.MaxRetries = &max
@@ -3044,13 +3163,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-326
-327
-328
-329</pre>
+343
+344
+345
+346</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 326</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 343</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithRegion(region <span class="hljs-constant">string</span>) *Config {
 	c.Region = &region
@@ -3088,13 +3207,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-389
-390
-391
-392</pre>
+406
+407
+408
+409</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 389</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 406</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3Disable100Continue(disable <span class="hljs-constant">bool</span>) *Config {
 	c.S3Disable100Continue = &disable
@@ -3132,14 +3251,14 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-404
-405
-406
-407
-408</pre>
+421
+422
+423
+424
+425</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 404</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 421</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3DisableContentMD5Validation(enable <span class="hljs-constant">bool</span>) *Config {
 	c.S3DisableContentMD5Validation = &enable
@@ -3178,13 +3297,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-382
-383
-384
-385</pre>
+399
+400
+401
+402</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 382</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 399</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3ForcePathStyle(force <span class="hljs-constant">bool</span>) *Config {
 	c.S3ForcePathStyle = &force
@@ -3222,14 +3341,14 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-396
-397
-398
-399
-400</pre>
+413
+414
+415
+416
+417</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 396</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 413</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3UseAccelerate(enable <span class="hljs-constant">bool</span>) *Config {
 	c.S3UseAccelerate = &enable
@@ -3268,13 +3387,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-412
-413
-414
-415</pre>
+429
+430
+431
+432</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 412</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 429</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3UseARNRegion(enable <span class="hljs-constant">bool</span>) *Config {
 	c.S3UseARNRegion = &enable
@@ -3312,13 +3431,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-453
-454
-455
-456</pre>
+477
+478
+479
+480</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 453</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 477</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithS3UsEast1RegionalEndpo<span class="hljs-constant">int</span>(sre endpoints.S3UsEast1RegionalEndpo<span class="hljs-constant">int</span>) *Config {
 	c.S3UsEast1RegionalEndpo<span class="hljs-constant">int</span> = sre
@@ -3356,13 +3475,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-433
-434
-435
-436</pre>
+457
+458
+459
+460</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 433</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 457</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithSleepDelay(fn <span class="hljs-keyword">func</span>(time.Duration)) *Config {
 	c.SleepDelay = fn
@@ -3400,13 +3519,13 @@ svc := s3.New(sess, aws.NewConfig().
       <pre class="lines">
 
 
-419
-420
-421
-422</pre>
+436
+437
+438
+439</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/config.go', line 419</span>
+      <pre class="code"><span class="info file">// File 'aws/config.go', line 436</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (c *Config) WithUseDualStack(enable <span class="hljs-constant">bool</span>) *Config {
 	c.UseDualStack = &enable
@@ -3424,9 +3543,9 @@ svc := s3.New(sess, aws.NewConfig().
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:14:37 2023 by
+  Generated on Wed Dec  6 15:47:05 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

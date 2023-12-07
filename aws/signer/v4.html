@@ -80,9 +80,9 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 
 <p>Provides request signing for request that need to be signed with AWS V4 Signatures.</p>
 
-<p>Standalone Signer</p>
+<h1 id="label-Standalone+Signer">Standalone Signer</h1>
 
-<p>Generally using the signer outside of the SDK should not require any additional logic when using Go v1.5 or higher. The signer does this by taking advantage of the URL.EscapedPath method. If your request URI requires additional escaping you many need to use the URL.Opaque to define what the raw URI should be sent to the service as.</p>
+<p>Generally using the signer outside of the SDK should not require any additional logic when using Go v1.5 or higher. The signer does this by taking advantage of the URL.EscapedPath method. If your request URI requires additional escaping you may need to use the URL.Opaque to define what the raw URI should be sent to the service as.</p>
 
 <p>The signer will first check the URL.Opaque field, and use its value if set. The signer does require the URL.Opaque field to be set in the form of:</p>
 
@@ -410,17 +410,17 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
       <pre class="lines">
 
 
-431
-432
 433
 434
 435
 436
 437
-438</pre>
+438
+439
+440</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 431</span>
+      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 433</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> BuildNamedHandler(name <span class="hljs-constant">string</span>, opts ...<span class="hljs-keyword">func</span>(*Signer)) request.NamedHandler {
 	<span class="hljs-keyword">return</span> request.NamedHandler{
@@ -462,8 +462,6 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
       <pre class="lines">
 
 
-553
-554
 555
 556
 557
@@ -482,10 +480,12 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 570
 571
 572
-573</pre>
+573
+574
+575</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 553</span>
+      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 555</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> GetSignedRequestSignature(r *http.Request) ([]byte, <span class="hljs-constant">error</span>) {
 
@@ -540,8 +540,6 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
       <pre class="lines">
 
 
-212
-213
 214
 215
 216
@@ -550,10 +548,12 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 219
 220
 221
-222</pre>
+222
+223
+224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 212</span>
+      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 214</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> NewSigner(credentials *credentials.Credentials, options ...<span class="hljs-keyword">func</span>(*Signer)) *Signer {
 	v4 := &Signer{
@@ -602,12 +602,12 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
       <pre class="lines">
 
 
-426
-427
-428</pre>
+428
+429
+430</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 426</span>
+      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 428</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> SignSDKRequest(req *request.Request) {
 	SignSDKRequestWithCurrentTime(req, time.Now)
@@ -644,8 +644,6 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
       <pre class="lines">
 
 
-443
-444
 445
 446
 447
@@ -692,10 +690,12 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 488
 489
 490
-491</pre>
+491
+492
+493</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 443</span>
+      <pre class="code"><span class="info file">// File 'aws/signer/v4/v4.go', line 445</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> SignSDKRequestWithCurrentTime(req *request.Request, curTimeFn <span class="hljs-keyword">func</span>() time.Time, opts ...<span class="hljs-keyword">func</span>(*Signer)) {
 	<span class="hljs-comment">// If the request does not need to be signed ignore the signing of the</span>
@@ -800,9 +800,9 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:14:30 2023 by
+  Generated on Wed Dec  6 15:46:56 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

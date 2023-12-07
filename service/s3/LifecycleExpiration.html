@@ -78,6 +78,8 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>Container for the expiration for the lifecycle of the object.</p>
 
+<p>For more information see, Managing your storage lifecycle (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html</a>) in the Amazon S3 User Guide.</p>
+
 
   </div>
 </div>
@@ -360,7 +362,7 @@ import "../ibm-cos-sdk-go/service/s3"
 <div class="docstring">
   <div class="discussion">
     
-<p>Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</p>
+<p>Indicates at what date the object is to be moved or deleted. The date value must conform to the ISO 8601 format. The time is always midnight UTC.</p>
 
 
   </div>
@@ -452,12 +454,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15393
-15394
-15395</pre>
+15608
+15609
+15610</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15393</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15608</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.LifecycleExpiration.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -494,13 +496,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15398
-15399
-15400
-15401</pre>
+15613
+15614
+15615
+15616</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15398</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15613</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span>) <span class='object_link'><a href="#SetDate-instance_method" title="s3.LifecycleExpiration.SetDate() (method)">SetDate</a></span>(v time.Time) *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span> {
 	s.Date = &v
@@ -538,13 +540,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15404
-15405
-15406
-15407</pre>
+15619
+15620
+15621
+15622</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15404</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15619</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span>) <span class='object_link'><a href="#SetDays-instance_method" title="s3.LifecycleExpiration.SetDays() (method)">SetDays</a></span>(v <span class="hljs-constant">int64</span>) *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span> {
 	s.Days = &v
@@ -582,13 +584,13 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15410
-15411
-15412
-15413</pre>
+15625
+15626
+15627
+15628</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15410</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15625</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span>) <span class='object_link'><a href="#SetExpiredObjectDeleteMarker-instance_method" title="s3.LifecycleExpiration.SetExpiredObjectDeleteMarker() (method)">SetExpiredObjectDeleteMarker</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span> {
 	s.ExpiredObjectDeleteMarker = &v
@@ -628,12 +630,12 @@ import "../ibm-cos-sdk-go/service/s3"
       <pre class="lines">
 
 
-15384
-15385
-15386</pre>
+15599
+15600
+15601</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15384</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 15599</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.LifecycleExpiration (struct)">LifecycleExpiration</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.LifecycleExpiration.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -650,9 +652,9 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:07 2023 by
+  Generated on Wed Dec  6 15:47:33 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

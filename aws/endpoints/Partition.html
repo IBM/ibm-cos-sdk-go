@@ -222,8 +222,6 @@ import "../ibm-cos-sdk-go/aws/endpoints"
       <pre class="lines">
 
 
-309
-310
 311
 312
 313
@@ -250,10 +248,12 @@ import "../ibm-cos-sdk-go/aws/endpoints"
 334
 335
 336
-337</pre>
+337
+338
+339</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 309</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 311</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (p Partition) DNSSuffix() <span class="hljs-constant">string</span> { <span class="hljs-keyword">return</span> p.dnsSuffix }
 
@@ -279,8 +279,8 @@ import "../ibm-cos-sdk-go/aws/endpoints"
 <span class="hljs-comment">// of new regions and services expansions.</span>
 //
 <span class="hljs-comment">// Errors that can be returned.</span>
-<span class="hljs-comment">//   * UnknownServiceError</span>
-<span class="hljs-comment">//   * UnknownEndpointError</span>
+<span class="hljs-comment">//   - UnknownServiceError</span>
+<span class="hljs-comment">//   - UnknownEndpointError</span>
 <span class="hljs-keyword">func</span> (p Partition) EndpointFor(service, region <span class="hljs-constant">string</span>, opts ...<span class="hljs-keyword">func</span>(*Options)) (ResolvedEndpo<span class="hljs-constant">int</span>, <span class="hljs-constant">error</span>) {
 	<span class="hljs-keyword">return</span> p.p.EndpointFor(service, region, opts...)
 }</div></pre>
@@ -316,8 +316,6 @@ import "../ibm-cos-sdk-go/aws/endpoints"
       <pre class="lines">
 
 
-341
-342
 343
 344
 345
@@ -327,10 +325,12 @@ import "../ibm-cos-sdk-go/aws/endpoints"
 349
 350
 351
-352</pre>
+352
+353
+354</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 341</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 343</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (p Partition) Regions() <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Region {
 	rs := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Region, len(p.p.Regions))
@@ -376,8 +376,6 @@ import "../ibm-cos-sdk-go/aws/endpoints"
       <pre class="lines">
 
 
-356
-357
 358
 359
 360
@@ -386,10 +384,12 @@ import "../ibm-cos-sdk-go/aws/endpoints"
 363
 364
 365
-366</pre>
+366
+367
+368</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 356</span>
+      <pre class="code"><span class="info file">// File 'aws/endpoints/endpoints.go', line 358</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (p Partition) Services() <span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Service {
 	ss := make(<span class="hljs-keyword">map</span>[<span class="hljs-constant">string</span>]Service, len(p.p.Services))
@@ -414,9 +414,9 @@ import "../ibm-cos-sdk-go/aws/endpoints"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:14:39 2023 by
+  Generated on Wed Dec  6 15:47:07 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

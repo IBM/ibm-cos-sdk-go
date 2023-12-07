@@ -542,9 +542,12 @@ import "../ibm-cos-sdk-go/aws/ec2metadata"
     
 <p>New creates a new instance of the EC2Metadata client with a session. This client is safe to use across multiple goroutines.</p>
 
-<p>Example:  // Create a EC2Metadata client from just a session.  svc := ec2metadata.New(mySession)</p>
+<p>Example:</p>
 
-<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Create a EC2Metadata client with additional configuration</span>
+<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Create a EC2Metadata client from just a session.</span>
+svc := ec2metadata.New(mySession)
+
+<span class="hljs-comment">// Create a EC2Metadata client with additional configuration</span>
 svc := ec2metadata.New(mySession, aws.NewConfig().WithLogLevel(aws.LogDebugHTTPBody))
 </div></code></pre>
 
@@ -1342,9 +1345,9 @@ svc := ec2metadata.New(mySession, aws.NewConfig().WithLogLevel(aws.LogDebugHTTPB
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:14:38 2023 by
+  Generated on Wed Dec  6 15:47:06 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->

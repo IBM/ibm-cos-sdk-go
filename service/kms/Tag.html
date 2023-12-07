@@ -78,7 +78,9 @@ import "../ibm-cos-sdk-go/service/kms"
     
 <p>A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.</p>
 
-<p>For information about the rules that apply to tag keys and tag values, see User-Defined Tag Restrictions (<a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html</a>) in the AWS Billing and Cost Management User Guide.</p>
+<p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+
+<p>For information about the rules that apply to tag keys and tag values, see User-Defined Tag Restrictions (<a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html</a>) in the Amazon Web Services Billing and Cost Management User Guide.</p>
 
 
   </div>
@@ -414,12 +416,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15405
-15406
-15407</pre>
+16529
+16530
+16531</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15405</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16529</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.Tag (struct)">Tag</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.Tag.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
@@ -456,13 +458,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15429
-15430
-15431
-15432</pre>
+16553
+16554
+16555
+16556</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15429</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16553</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.Tag (struct)">Tag</a></span>) <span class='object_link'><a href="#SetTagKey-instance_method" title="kms.Tag.SetTagKey() (method)">SetTagKey</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.Tag (struct)">Tag</a></span> {
 	s.TagKey = &v
@@ -500,13 +502,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15435
-15436
-15437
-15438</pre>
+16559
+16560
+16561
+16562</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15435</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16559</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.Tag (struct)">Tag</a></span>) <span class='object_link'><a href="#SetTagValue-instance_method" title="kms.Tag.SetTagValue() (method)">SetTagValue</a></span>(v <span class="hljs-constant">string</span>) *<span class='object_link'><a href="" title="kms.Tag (struct)">Tag</a></span> {
 	s.TagValue = &v
@@ -546,12 +548,12 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15396
-15397
-15398</pre>
+16520
+16521
+16522</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15396</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16520</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.Tag (struct)">Tag</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.Tag.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
@@ -588,26 +590,26 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-15410
-15411
-15412
-15413
-15414
-15415
-15416
-15417
-15418
-15419
-15420
-15421
-15422
-15423
-15424
-15425
-15426</pre>
+16534
+16535
+16536
+16537
+16538
+16539
+16540
+16541
+16542
+16543
+16544
+16545
+16546
+16547
+16548
+16549
+16550</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 15410</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 16534</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.Tag (struct)">Tag</a></span>) <span class='object_link'><a href="#Validate-instance_method" title="kms.Tag.Validate() (method)">Validate</a></span>() <span class="hljs-constant">error</span> {
 	invalidParams := request.ErrInvalidParams{Context: <span class="hljs-string">"<span class='object_link'><a href="" title="kms.Tag (struct)">Tag</a></span>"</span>}
@@ -638,9 +640,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar 16 05:15:45 2023 by
+  Generated on Wed Dec  6 15:48:10 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.0).
+  0.9.34 (ruby-2.7.0).
 </div>
 
 <!-- BEGIN-SECTION -->
