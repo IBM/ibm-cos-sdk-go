@@ -2420,7 +2420,12 @@ import "../ibm-cos-sdk-go/aws/request"
 
 <p>This Option can be used multiple times with a single API operation.</p>
 
-<p>var id2, versionID string  svc.PutObjectWithContext(ctx, params,  request.WithGetResponseHeader(“x-amz-id-2”, &amp;id2),  request.WithGetResponseHeader(“x-amz-version-id”, &amp;versionID),  )</p>
+<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-keyword">var</span> id2, versionID <span class="hljs-constant">string</span>
+svc.PutObjectWithContext(ctx, params,
+    request.WithGetResponseHeader(<span class="hljs-string">"x-amz-id-2"</span>, &id2),
+    request.WithGetResponseHeader(<span class="hljs-string">"x-amz-version-id"</span>, &versionID),
+)
+</div></code></pre>
 
 
   </div>
@@ -2472,7 +2477,9 @@ import "../ibm-cos-sdk-go/aws/request"
     
 <p>WithGetResponseHeaders builds a request Option which will retrieve the headers from the HTTP response and assign them to the passed in headers variable. The passed in headers pointer must be non-nil.</p>
 
-<p>var headers http.Header  svc.PutObjectWithContext(ctx, params, request.WithGetResponseHeaders(&amp;headers))</p>
+<pre class="code go"><code class="go"><div class="hljs"><span class="hljs-keyword">var</span> headers http.Header
+svc.PutObjectWithContext(ctx, params, request.WithGetResponseHeaders(&headers))
+</div></code></pre>
 
 
   </div>
@@ -2930,7 +2937,7 @@ import "../ibm-cos-sdk-go/aws/request"
       </div>
 
       <div id="footer">
-  Generated on Wed Dec  6 15:46:58 2023 by
+  Generated on Fri Feb  2 07:04:31 2024 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.0).
 </div>

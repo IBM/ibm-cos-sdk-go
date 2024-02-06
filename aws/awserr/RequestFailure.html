@@ -92,18 +92,21 @@ import "../ibm-cos-sdk-go/aws/awserr"
 
 <p>Combined with awserr.Error:</p>
 
-<p>output, err := s3manage.Upload(svc, input, opts)  if err != nil {  if awsErr, ok := err.(awserr.Error); ok {  // Generic AWS Error with Code, Message, and original error (if any)  fmt.Println(awsErr.Code(), awsErr.Message(), awsErr.OrigErr())</p>
+<pre class="code go"><code class="go"><div class="hljs">output, err := s3manage.Upload(svc, input, opts)
+<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+    <span class="hljs-keyword">if</span> awsErr, ok := err.(awserr.Error); ok {
+        <span class="hljs-comment">// Generic AWS Error with Code, Message, and original error (if any)</span>
+        fmt.Println(awsErr.Code(), awsErr.Message(), awsErr.OrigErr())
 
-<pre class="code go"><code class="go"><div class="hljs">       <span class="hljs-keyword">if</span> reqErr, ok := err.(awserr.RequestFailure); ok {
-           <span class="hljs-comment">// A service error occurred</span>
-           fmt.Println(reqErr.StatusCode(), reqErr.RequestID())
-       }
-   } <span class="hljs-keyword">else</span> {
-       fmt.Println(err.Error())
-   }
+        <span class="hljs-keyword">if</span> reqErr, ok := err.(awserr.RequestFailure); ok {
+            <span class="hljs-comment">// A service error occurred</span>
+            fmt.Println(reqErr.StatusCode(), reqErr.RequestID())
+        }
+    } <span class="hljs-keyword">else</span> {
+        fmt.Println(err.Error())
+    }
+}
 </div></code></pre>
-
-<p>}</p>
 
 
   </div>
@@ -237,10 +240,10 @@ import "../ibm-cos-sdk-go/aws/awserr"
       <pre class="lines">
 
 
-137</pre>
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 137</span>
+      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 135</span>
 
 <div class="hljs">RequestID() <span class="hljs-constant">string</span></div></pre>
     </td>
@@ -279,10 +282,10 @@ import "../ibm-cos-sdk-go/aws/awserr"
       <pre class="lines">
 
 
-132</pre>
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 132</span>
+      <pre class="code"><span class="info file">// File 'aws/awserr/error.go', line 130</span>
 
 <div class="hljs">StatusCode() <span class="hljs-constant">int</span></div></pre>
     </td>
@@ -297,7 +300,7 @@ import "../ibm-cos-sdk-go/aws/awserr"
       </div>
 
       <div id="footer">
-  Generated on Wed Dec  6 15:48:13 2023 by
+  Generated on Fri Feb  2 07:05:51 2024 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.0).
 </div>

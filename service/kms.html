@@ -90,34 +90,34 @@ import "../ibm-cos-sdk-go/service/kms"
 
 <p>All KMS API calls must be signed and be transmitted using Transport Layer Security (TLS). KMS recommends you always use the latest supported TLS version. Clients must also support cipher suites with Perfect Forward Secrecy (PFS) such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems such as Java 7 and later support these modes.</p>
 
-<p>Signing Requests</p>
+<h1 id="label-Signing+Requests">Signing Requests</h1>
 
 <p>Requests must be signed using an access key ID and a secret access key. We strongly recommend that you do not use your Amazon Web Services account root access key ID and secret access key for everyday work. You can use the access key ID and secret access key for an IAM user or you can use the Security Token Service (STS) to generate temporary security credentials and use those to sign requests.</p>
 
 <p>All KMS requests must be signed with Signature Version 4 (<a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>).</p>
 
-<p>Logging API Requests</p>
+<h1 id="label-Logging+API+Requests">Logging API Requests</h1>
 
 <p>KMS supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to KMS, who made the request, when it was made, and so on. To learn more about CloudTrail, including how to turn it on and find your log files, see the CloudTrail User Guide (<a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide">docs.aws.amazon.com/awscloudtrail/latest/userguide</a>/).</p>
 
-<p>Additional Resources</p>
+<h1 id="label-Additional+Resources">Additional Resources</h1>
 
 <p>For more information about credentials and request signing, see the following:</p>
 <ul><li>
 <p>Amazon Web Services Security Credentials (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a>)</p>
 </li><li>
-<p>This topic provides general information about the types of credentials  used to access Amazon Web Services.</p>
+<p>This topic provides general information about the types of credentials used to access Amazon Web Services.</p>
 </li><li>
 <p>Temporary Security Credentials (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html</a>)</p>
 </li><li>
-<p>This section of the IAM User Guide describes how to create and use temporary  security credentials.</p>
+<p>This section of the IAM User Guide describes how to create and use temporary security credentials.</p>
 </li><li>
 <p>Signature Version 4 Signing Process (<a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>)</p>
 </li><li>
-<p>This set of topics walks you through the process of signing a request  using an access key ID and a secret access key.</p>
+<p>This set of topics walks you through the process of signing a request using an access key ID and a secret access key.</p>
 </li></ul>
 
-<p>Commonly Used API Operations</p>
+<h1 id="label-Commonly+Used+API+Operations">Commonly Used API Operations</h1>
 
 <p>Of the API operations discussed in this guide, the following will prove the most useful for most applications. You will likely perform operations other than these, such as creating keys and assigning policies, by using the console.</p>
 <ul><li>
@@ -134,7 +134,7 @@ import "../ibm-cos-sdk-go/service/kms"
 
 <p>See kms package documentation for more information. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/kms">docs.aws.amazon.com/sdk-for-go/api/service/kms</a>/</p>
 
-<p>Using the Client</p>
+<h1 id="label-Using+the+Client">Using the Client</h1>
 
 <p>To contact AWS Key Management Service with the SDK use the New function to create a new service client. With that client you can make API requests to the service. These clients are safe to use concurrently.</p>
 
@@ -5016,18 +5016,18 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
+17473
+17474
+17475
+17476
+17477
+17478
+17479
 17480
-17481
-17482
-17483
-17484
-17485
-17486
-17487
-17488</pre>
+17481</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17480</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17473</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> AlgorithmSpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5070,22 +5070,22 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
+17513
+17514
+17515
+17516
+17517
+17518
+17519
 17520
 17521
 17522
 17523
 17524
-17525
-17526
-17527
-17528
-17529
-17530
-17531
-17532</pre>
+17525</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17520</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17513</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ConnectionErrorCodeType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5132,18 +5132,18 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
+17545
+17546
+17547
+17548
+17549
+17550
+17551
 17552
-17553
-17554
-17555
-17556
-17557
-17558
-17559
-17560</pre>
+17553</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17552</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17545</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ConnectionStateType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5186,6 +5186,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
+17597
+17598
+17599
+17600
+17601
+17602
+17603
 17604
 17605
 17606
@@ -5195,17 +5202,10 @@ import "../ibm-cos-sdk-go/service/kms"
 17610
 17611
 17612
-17613
-17614
-17615
-17616
-17617
-17618
-17619
-17620</pre>
+17613</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17604</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17597</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> CustomerMasterKeySpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5256,21 +5256,21 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
+17642
+17643
+17644
+17645
+17646
+17647
+17648
 17649
 17650
 17651
 17652
-17653
-17654
-17655
-17656
-17657
-17658
-17659
-17660</pre>
+17653</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17649</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17642</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> DataKeyPairSpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5316,15 +5316,15 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17671
-17672
-17673
-17674
-17675
-17676</pre>
+17664
+17665
+17666
+17667
+17668
+17669</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17671</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17664</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> DataKeySpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5364,17 +5364,17 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17693
-17694
-17695
-17696
-17697
-17698
-17699
-17700</pre>
+17686
+17687
+17688
+17689
+17690
+17691
+17692
+17693</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17693</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17686</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> EncryptionAlgorithmSpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5416,15 +5416,15 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17711
-17712
-17713
-17714
-17715
-17716</pre>
+17704
+17705
+17706
+17707
+17708
+17709</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17711</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17704</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ExpirationModelType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5464,6 +5464,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
+17756
+17757
+17758
+17759
+17760
+17761
+17762
 17763
 17764
 17765
@@ -5474,17 +5481,10 @@ import "../ibm-cos-sdk-go/service/kms"
 17770
 17771
 17772
-17773
-17774
-17775
-17776
-17777
-17778
-17779
-17780</pre>
+17773</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17763</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17756</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> GrantOperation_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5536,15 +5536,15 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17791
-17792
-17793
-17794
-17795
-17796</pre>
+17784
+17785
+17786
+17787
+17788
+17789</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17791</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17784</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> KeyManagerType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5584,6 +5584,13 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
+17833
+17834
+17835
+17836
+17837
+17838
+17839
 17840
 17841
 17842
@@ -5593,17 +5600,10 @@ import "../ibm-cos-sdk-go/service/kms"
 17846
 17847
 17848
-17849
-17850
-17851
-17852
-17853
-17854
-17855
-17856</pre>
+17849</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17840</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17833</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> KeySpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5654,21 +5654,21 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
+17878
+17879
+17880
+17881
+17882
+17883
+17884
 17885
 17886
 17887
 17888
-17889
-17890
-17891
-17892
-17893
-17894
-17895
-17896</pre>
+17889</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17885</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17878</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> KeyState_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5714,15 +5714,15 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17907
-17908
-17909
-17910
-17911
-17912</pre>
+17900
+17901
+17902
+17903
+17904
+17905</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17907</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17900</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> KeyUsageType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5762,15 +5762,15 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17923
-17924
-17925
-17926
-17927
-17928</pre>
+17916
+17917
+17918
+17919
+17920
+17921</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17923</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17916</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> MessageType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5810,17 +5810,17 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-17945
-17946
-17947
-17948
-17949
-17950
-17951
-17952</pre>
+17938
+17939
+17940
+17941
+17942
+17943
+17944
+17945</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17945</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17938</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> OriginType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5862,23 +5862,23 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
+17980
+17981
+17982
+17983
+17984
+17985
+17986
 17987
 17988
 17989
 17990
 17991
 17992
-17993
-17994
-17995
-17996
-17997
-17998
-17999
-18000</pre>
+17993</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17987</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 17980</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> SigningAlgorithmSpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5926,16 +5926,16 @@ import "../ibm-cos-sdk-go/service/kms"
       <pre class="lines">
 
 
-18014
-18015
-18016
-18017
-18018
-18019
-18020</pre>
+18007
+18008
+18009
+18010
+18011
+18012
+18013</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18014</span>
+      <pre class="code"><span class="info file">// File 'service/kms/api.go', line 18007</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> WrappingKeySpec_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5956,7 +5956,7 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Wed Dec  6 15:47:03 2023 by
+  Generated on Fri Feb  2 07:04:36 2024 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.0).
 </div>
