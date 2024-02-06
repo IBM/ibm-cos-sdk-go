@@ -23,8 +23,9 @@ type mockProv struct {
 
 // Mock Sign Request Handler Retrieve()
 // Returns:
-//		credentials.Value: Credentials object
-//		error: Error object
+//
+//	credentials.Value: Credentials object
+//	error: Error object
 func (m *mockProv) Retrieve() (credentials.Value, error) {
 	if "" == m.ServiceInstanceID && m.ServiceInstanceID == m.AccessToken && m.AccessToken == m.TokenType {
 		return credentials.Value{}, awserr.New("Mock Creds", `Bad Credentials /|\`, nil)
@@ -34,18 +35,22 @@ func (m *mockProv) Retrieve() (credentials.Value, error) {
 
 // Mock IsExpired
 // Returns:
-//		boolean value: false
+//
+//	boolean value: false
 func (m *mockProv) IsExpired() bool {
 	return false
 }
 
 // Mock buildCredentials
 // Parameters:
-//		Service Instance ID
-//		Access Token
-//		Token Type
+//
+//	Service Instance ID
+//	Access Token
+//	Token Type
+//
 // Returns:
-//		Credentials based on the provider
+//
+//	Credentials based on the provider
 func buildCredentials(sii, at, tt string) *credentials.Credentials {
 	prov := &mockProv{Value: credentials.Value{
 		ServiceInstanceID: sii,

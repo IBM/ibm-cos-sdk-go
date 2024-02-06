@@ -94,6 +94,7 @@ func (iter *SyncFolderIterator) UploadObject() s3manager.BatchUploadObject {
 //
 // Usage:
 // sync <params>
+//
 //	-region <region> // required
 //	-bucket <bucket> // required
 //	-path  <path> // required

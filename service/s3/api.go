@@ -31,14 +31,13 @@ const opAbortMultipartUpload = "AbortMultipartUpload"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the AbortMultipartUploadRequest method.
+//	req, resp := client.AbortMultipartUploadRequest(params)
 //
-//    // Example sending a request using the AbortMultipartUploadRequest method.
-//    req, resp := client.AbortMultipartUploadRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AbortMultipartUpload
 func (c *S3) AbortMultipartUploadRequest(input *AbortMultipartUploadInput) (req *request.Request, output *AbortMultipartUploadOutput) {
@@ -75,15 +74,15 @@ func (c *S3) AbortMultipartUploadRequest(input *AbortMultipartUploadInput) (req 
 //
 // The following operations are related to AbortMultipartUpload:
 //
-//    * CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
+//   - CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 //
-//    * UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
+//   - UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 //
-//    * CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
+//   - CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 //
-//    * ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
+//   - ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 //
-//    * ListMultipartUploads (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
+//   - ListMultipartUploads (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -93,8 +92,8 @@ func (c *S3) AbortMultipartUploadRequest(input *AbortMultipartUploadInput) (req 
 // API operation AbortMultipartUpload for usage and error information.
 //
 // Returned Error Codes:
-//   * ErrCodeNoSuchUpload "NoSuchUpload"
-//   The specified multipart upload does not exist.
+//   - ErrCodeNoSuchUpload "NoSuchUpload"
+//     The specified multipart upload does not exist.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AbortMultipartUpload
 func (c *S3) AbortMultipartUpload(input *AbortMultipartUploadInput) (*AbortMultipartUploadOutput, error) {
@@ -134,14 +133,13 @@ const opAddLegalHold = "AddLegalHold"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the AddLegalHoldRequest method.
+//	req, resp := client.AddLegalHoldRequest(params)
 //
-//    // Example sending a request using the AddLegalHoldRequest method.
-//    req, resp := client.AddLegalHoldRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AddLegalHold
 func (c *S3) AddLegalHoldRequest(input *AddLegalHoldInput) (req *request.Request, output *AddLegalHoldOutput) {
@@ -214,14 +212,13 @@ const opCompleteMultipartUpload = "CompleteMultipartUpload"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CompleteMultipartUploadRequest method.
+//	req, resp := client.CompleteMultipartUploadRequest(params)
 //
-//    // Example sending a request using the CompleteMultipartUploadRequest method.
-//    req, resp := client.CompleteMultipartUploadRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CompleteMultipartUpload
 func (c *S3) CompleteMultipartUploadRequest(input *CompleteMultipartUploadInput) (req *request.Request, output *CompleteMultipartUploadOutput) {
@@ -289,33 +286,33 @@ func (c *S3) CompleteMultipartUploadRequest(input *CompleteMultipartUploadInput)
 //
 // CompleteMultipartUpload has the following special errors:
 //
-//    * Error code: EntityTooSmall Description: Your proposed upload is smaller
-//    than the minimum allowed object size. Each part must be at least 5 MB
-//    in size, except the last part. 400 Bad Request
+//   - Error code: EntityTooSmall Description: Your proposed upload is smaller
+//     than the minimum allowed object size. Each part must be at least 5 MB
+//     in size, except the last part. 400 Bad Request
 //
-//    * Error code: InvalidPart Description: One or more of the specified parts
-//    could not be found. The part might not have been uploaded, or the specified
-//    entity tag might not have matched the part's entity tag. 400 Bad Request
+//   - Error code: InvalidPart Description: One or more of the specified parts
+//     could not be found. The part might not have been uploaded, or the specified
+//     entity tag might not have matched the part's entity tag. 400 Bad Request
 //
-//    * Error code: InvalidPartOrder Description: The list of parts was not
-//    in ascending order. The parts list must be specified in order by part
-//    number. 400 Bad Request
+//   - Error code: InvalidPartOrder Description: The list of parts was not
+//     in ascending order. The parts list must be specified in order by part
+//     number. 400 Bad Request
 //
-//    * Error code: NoSuchUpload Description: The specified multipart upload
-//    does not exist. The upload ID might be invalid, or the multipart upload
-//    might have been aborted or completed. 404 Not Found
+//   - Error code: NoSuchUpload Description: The specified multipart upload
+//     does not exist. The upload ID might be invalid, or the multipart upload
+//     might have been aborted or completed. 404 Not Found
 //
 // The following operations are related to CompleteMultipartUpload:
 //
-//    * CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
+//   - CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 //
-//    * UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
+//   - UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 //
-//    * AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
+//   - AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 //
-//    * ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
+//   - ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 //
-//    * ListMultipartUploads (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
+//   - ListMultipartUploads (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -361,14 +358,13 @@ const opCopyObject = "CopyObject"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CopyObjectRequest method.
+//	req, resp := client.CopyObjectRequest(params)
 //
-//    // Example sending a request using the CopyObjectRequest method.
-//    req, resp := client.CopyObjectRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject
 func (c *S3) CopyObjectRequest(input *CopyObjectInput) (req *request.Request, output *CopyObjectOutput) {
@@ -433,7 +429,7 @@ func (c *S3) CopyObjectRequest(input *CopyObjectInput) (req *request.Request, ou
 // get a 400 Bad Request error. For more information, see Transfer Acceleration
 // (https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html).
 //
-// Metadata
+// # Metadata
 //
 // When copying an object, you can preserve all metadata (the default) or specify
 // new metadata. However, the access control list (ACL) is not preserved and
@@ -459,34 +455,34 @@ func (c *S3) CopyObjectRequest(input *CopyObjectInput) (req *request.Request, ou
 // matches or whether the object was modified before or after a specified date,
 // use the following request parameters:
 //
-//    * x-amz-copy-source-if-match
+//   - x-amz-copy-source-if-match
 //
-//    * x-amz-copy-source-if-none-match
+//   - x-amz-copy-source-if-none-match
 //
-//    * x-amz-copy-source-if-unmodified-since
+//   - x-amz-copy-source-if-unmodified-since
 //
-//    * x-amz-copy-source-if-modified-since
+//   - x-amz-copy-source-if-modified-since
 //
 // If both the x-amz-copy-source-if-match and x-amz-copy-source-if-unmodified-since
 // headers are present in the request and evaluate as follows, Amazon S3 returns
 // 200 OK and copies the data:
 //
-//    * x-amz-copy-source-if-match condition evaluates to true
+//   - x-amz-copy-source-if-match condition evaluates to true
 //
-//    * x-amz-copy-source-if-unmodified-since condition evaluates to false
+//   - x-amz-copy-source-if-unmodified-since condition evaluates to false
 //
 // If both the x-amz-copy-source-if-none-match and x-amz-copy-source-if-modified-since
 // headers are present in the request and evaluate as follows, Amazon S3 returns
 // the 412 Precondition Failed response code:
 //
-//    * x-amz-copy-source-if-none-match condition evaluates to false
+//   - x-amz-copy-source-if-none-match condition evaluates to false
 //
-//    * x-amz-copy-source-if-modified-since condition evaluates to true
+//   - x-amz-copy-source-if-modified-since condition evaluates to true
 //
 // All headers with the x-amz- prefix, including x-amz-copy-source, must be
 // signed.
 //
-// Server-side encryption
+// # Server-side encryption
 //
 // Amazon S3 automatically encrypts all new objects that are copied to an S3
 // bucket. When copying an object, if you don't specify encryption information
@@ -517,7 +513,7 @@ func (c *S3) CopyObjectRequest(input *CopyObjectInput) (req *request.Request, ou
 // object. For more information, see Amazon S3 Bucket Keys (https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html)
 // in the Amazon S3 User Guide.
 //
-// Access Control List (ACL)-Specific Request Headers
+// # Access Control List (ACL)-Specific Request Headers
 //
 // When copying an object, you can optionally use headers to grant ACL-based
 // permissions. By default, all objects are private. Only the owner has full
@@ -542,14 +538,14 @@ func (c *S3) CopyObjectRequest(input *CopyObjectInput) (req *request.Request, ou
 // all objects written to the bucket by any account will be owned by the bucket
 // owner.
 //
-// Checksums
+// # Checksums
 //
 // When copying an object, if it has a checksum, that checksum will be copied
 // to the new object by default. When you copy the object over, you can optionally
 // specify a different checksum algorithm to use with the x-amz-checksum-algorithm
 // header.
 //
-// Storage Class Options
+// # Storage Class Options
 //
 // You can use the CopyObject action to change the storage class of an object
 // that is already stored in Amazon S3 by using the StorageClass parameter.
@@ -564,7 +560,7 @@ func (c *S3) CopyObjectRequest(input *CopyObjectInput) (req *request.Request, ou
 // more information, see RestoreObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html).
 // For more information, see Copying Objects (https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html).
 //
-// Versioning
+// # Versioning
 //
 // By default, x-amz-copy-source header identifies the current version of an
 // object to copy. If the current version is a delete marker, Amazon S3 behaves
@@ -581,9 +577,9 @@ func (c *S3) CopyObjectRequest(input *CopyObjectInput) (req *request.Request, ou
 //
 // The following operations are related to CopyObject:
 //
-//    * PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+//   - PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 //
-//    * GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+//   - GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -593,9 +589,9 @@ func (c *S3) CopyObjectRequest(input *CopyObjectInput) (req *request.Request, ou
 // API operation CopyObject for usage and error information.
 //
 // Returned Error Codes:
-//   * ErrCodeObjectNotInActiveTierError "ObjectNotInActiveTierError"
-//   The source object of the COPY action is not in the active tier and is only
-//   stored in Amazon S3 Glacier.
+//   - ErrCodeObjectNotInActiveTierError "ObjectNotInActiveTierError"
+//     The source object of the COPY action is not in the active tier and is only
+//     stored in Amazon S3 Glacier.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject
 func (c *S3) CopyObject(input *CopyObjectInput) (*CopyObjectOutput, error) {
@@ -635,14 +631,13 @@ const opCreateBucket = "CreateBucket"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateBucketRequest method.
+//	req, resp := client.CreateBucketRequest(params)
 //
-//    // Example sending a request using the CreateBucketRequest method.
-//    req, resp := client.CreateBucketRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateBucket
 func (c *S3) CreateBucketRequest(input *CreateBucketInput) (req *request.Request, output *CreateBucketOutput) {
@@ -690,44 +685,44 @@ func (c *S3) CreateBucketRequest(input *CreateBucketInput) (req *request.Request
 // your application must be able to handle 307 redirect. For more information,
 // see Virtual hosting of buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
 //
-// Permissions
+// # Permissions
 //
 // In addition to s3:CreateBucket, the following permissions are required when
 // your CreateBucket request includes specific headers:
 //
-//    * Access control lists (ACLs) - If your CreateBucket request specifies
-//    access control list (ACL) permissions and the ACL is public-read, public-read-write,
-//    authenticated-read, or if you specify access permissions explicitly through
-//    any other ACL, both s3:CreateBucket and s3:PutBucketAcl permissions are
-//    needed. If the ACL for the CreateBucket request is private or if the request
-//    doesn't specify any ACLs, only s3:CreateBucket permission is needed.
+//   - Access control lists (ACLs) - If your CreateBucket request specifies
+//     access control list (ACL) permissions and the ACL is public-read, public-read-write,
+//     authenticated-read, or if you specify access permissions explicitly through
+//     any other ACL, both s3:CreateBucket and s3:PutBucketAcl permissions are
+//     needed. If the ACL for the CreateBucket request is private or if the request
+//     doesn't specify any ACLs, only s3:CreateBucket permission is needed.
 //
-//    * Object Lock - If ObjectLockEnabledForBucket is set to true in your CreateBucket
-//    request, s3:PutBucketObjectLockConfiguration and s3:PutBucketVersioning
-//    permissions are required.
+//   - Object Lock - If ObjectLockEnabledForBucket is set to true in your CreateBucket
+//     request, s3:PutBucketObjectLockConfiguration and s3:PutBucketVersioning
+//     permissions are required.
 //
-//    * S3 Object Ownership - If your CreateBucket request includes the x-amz-object-ownership
-//    header, then the s3:PutBucketOwnershipControls permission is required.
-//    By default, ObjectOwnership is set to BucketOWnerEnforced and ACLs are
-//    disabled. We recommend keeping ACLs disabled, except in uncommon use cases
-//    where you must control access for each object individually. If you want
-//    to change the ObjectOwnership setting, you can use the x-amz-object-ownership
-//    header in your CreateBucket request to set the ObjectOwnership setting
-//    of your choice. For more information about S3 Object Ownership, see Controlling
-//    object ownership (https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html)
-//    in the Amazon S3 User Guide.
+//   - S3 Object Ownership - If your CreateBucket request includes the x-amz-object-ownership
+//     header, then the s3:PutBucketOwnershipControls permission is required.
+//     By default, ObjectOwnership is set to BucketOWnerEnforced and ACLs are
+//     disabled. We recommend keeping ACLs disabled, except in uncommon use cases
+//     where you must control access for each object individually. If you want
+//     to change the ObjectOwnership setting, you can use the x-amz-object-ownership
+//     header in your CreateBucket request to set the ObjectOwnership setting
+//     of your choice. For more information about S3 Object Ownership, see Controlling
+//     object ownership (https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html)
+//     in the Amazon S3 User Guide.
 //
-//    * S3 Block Public Access - If your specific use case requires granting
-//    public access to your S3 resources, you can disable Block Public Access.
-//    You can create a new bucket with Block Public Access enabled, then separately
-//    call the DeletePublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
-//    API. To use this operation, you must have the s3:PutBucketPublicAccessBlock
-//    permission. By default, all Block Public Access settings are enabled for
-//    new buckets. To avoid inadvertent exposure of your resources, we recommend
-//    keeping the S3 Block Public Access settings enabled. For more information
-//    about S3 Block Public Access, see Blocking public access to your Amazon
-//    S3 storage (https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html)
-//    in the Amazon S3 User Guide.
+//   - S3 Block Public Access - If your specific use case requires granting
+//     public access to your S3 resources, you can disable Block Public Access.
+//     You can create a new bucket with Block Public Access enabled, then separately
+//     call the DeletePublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
+//     API. To use this operation, you must have the s3:PutBucketPublicAccessBlock
+//     permission. By default, all Block Public Access settings are enabled for
+//     new buckets. To avoid inadvertent exposure of your resources, we recommend
+//     keeping the S3 Block Public Access settings enabled. For more information
+//     about S3 Block Public Access, see Blocking public access to your Amazon
+//     S3 storage (https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html)
+//     in the Amazon S3 User Guide.
 //
 // If your CreateBucket request sets BucketOwnerEnforced for Amazon S3 Object
 // Ownership and specifies a bucket ACL that provides access to an external
@@ -738,9 +733,9 @@ func (c *S3) CreateBucketRequest(input *CreateBucketInput) (req *request.Request
 //
 // The following operations are related to CreateBucket:
 //
-//    * PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+//   - PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 //
-//    * DeleteBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
+//   - DeleteBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -750,16 +745,17 @@ func (c *S3) CreateBucketRequest(input *CreateBucketInput) (req *request.Request
 // API operation CreateBucket for usage and error information.
 //
 // Returned Error Codes:
-//   * ErrCodeBucketAlreadyExists "BucketAlreadyExists"
-//   The requested bucket name is not available. The bucket namespace is shared
-//   by all users of the system. Select a different name and try again.
 //
-//   * ErrCodeBucketAlreadyOwnedByYou "BucketAlreadyOwnedByYou"
-//   The bucket you tried to create already exists, and you own it. Amazon S3
-//   returns this error in all AWS Regions except in the North Virginia Region.
-//   For legacy compatibility, if you re-create an existing bucket that you already
-//   own in the North Virginia Region, Amazon S3 returns 200 OK and resets the
-//   bucket access control lists (ACLs).
+//   - ErrCodeBucketAlreadyExists "BucketAlreadyExists"
+//     The requested bucket name is not available. The bucket namespace is shared
+//     by all users of the system. Select a different name and try again.
+//
+//   - ErrCodeBucketAlreadyOwnedByYou "BucketAlreadyOwnedByYou"
+//     The bucket you tried to create already exists, and you own it. Amazon S3
+//     returns this error in all AWS Regions except in the North Virginia Region.
+//     For legacy compatibility, if you re-create an existing bucket that you already
+//     own in the North Virginia Region, Amazon S3 returns 200 OK and resets the
+//     bucket access control lists (ACLs).
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateBucket
 func (c *S3) CreateBucket(input *CreateBucketInput) (*CreateBucketOutput, error) {
@@ -799,14 +795,13 @@ const opCreateMultipartUpload = "CreateMultipartUpload"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateMultipartUploadRequest method.
+//	req, resp := client.CreateMultipartUploadRequest(params)
 //
-//    // Example sending a request using the CreateMultipartUploadRequest method.
-//    req, resp := client.CreateMultipartUploadRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateMultipartUpload
 func (c *S3) CreateMultipartUploadRequest(input *CreateMultipartUploadInput) (req *request.Request, output *CreateMultipartUploadOutput) {
@@ -904,24 +899,24 @@ func (c *S3) CreateMultipartUploadRequest(input *CreateMultipartUploadInput) (re
 //
 // For more information, see Protecting Data Using Server-Side Encryption (https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html).
 //
-// Access Permissions
+// # Access Permissions
 //
 // When copying an object, you can optionally specify the accounts or groups
 // that should be granted specific permissions on the new object. There are
 // two ways to grant the permissions using the request headers:
 //
-//    * Specify a canned ACL with the x-amz-acl request header. For more information,
-//    see Canned ACL (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL).
+//   - Specify a canned ACL with the x-amz-acl request header. For more information,
+//     see Canned ACL (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL).
 //
-//    * Specify access permissions explicitly with the x-amz-grant-read, x-amz-grant-read-acp,
-//    x-amz-grant-write-acp, and x-amz-grant-full-control headers. These parameters
-//    map to the set of permissions that Amazon S3 supports in an ACL. For more
-//    information, see Access Control List (ACL) Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html).
+//   - Specify access permissions explicitly with the x-amz-grant-read, x-amz-grant-read-acp,
+//     x-amz-grant-write-acp, and x-amz-grant-full-control headers. These parameters
+//     map to the set of permissions that Amazon S3 supports in an ACL. For more
+//     information, see Access Control List (ACL) Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html).
 //
 // You can use either a canned ACL or specify access permissions explicitly.
 // You cannot do both.
 //
-// Server-Side- Encryption-Specific Request Headers
+// # Server-Side- Encryption-Specific Request Headers
 //
 // Amazon S3 encrypts data by using server-side encryption with an Amazon S3
 // managed key (SSE-S3) by default. Server-side encryption is for data encryption
@@ -931,29 +926,29 @@ func (c *S3) CreateMultipartUploadRequest(input *CreateMultipartUploadInput) (re
 // The option you use depends on whether you want to use KMS keys (SSE-KMS)
 // or provide your own encryption keys (SSE-C).
 //
-//    * Use KMS keys (SSE-KMS) that include the Amazon Web Services managed
-//    key (aws/s3) and KMS customer managed keys stored in Key Management Service
-//    (KMS) – If you want Amazon Web Services to manage the keys used to encrypt
-//    data, specify the following headers in the request. x-amz-server-side-encryption
-//    x-amz-server-side-encryption-aws-kms-key-id x-amz-server-side-encryption-context
-//    If you specify x-amz-server-side-encryption:aws:kms, but don't provide
-//    x-amz-server-side-encryption-aws-kms-key-id, Amazon S3 uses the Amazon
-//    Web Services managed key (aws/s3 key) in KMS to protect the data. All
-//    GET and PUT requests for an object protected by KMS fail if you don't
-//    make them by using Secure Sockets Layer (SSL), Transport Layer Security
-//    (TLS), or Signature Version 4. For more information about server-side
-//    encryption with KMS keys (SSE-KMS), see Protecting Data Using Server-Side
-//    Encryption with KMS keys (https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html).
+//   - Use KMS keys (SSE-KMS) that include the Amazon Web Services managed
+//     key (aws/s3) and KMS customer managed keys stored in Key Management Service
+//     (KMS) – If you want Amazon Web Services to manage the keys used to encrypt
+//     data, specify the following headers in the request. x-amz-server-side-encryption
+//     x-amz-server-side-encryption-aws-kms-key-id x-amz-server-side-encryption-context
+//     If you specify x-amz-server-side-encryption:aws:kms, but don't provide
+//     x-amz-server-side-encryption-aws-kms-key-id, Amazon S3 uses the Amazon
+//     Web Services managed key (aws/s3 key) in KMS to protect the data. All
+//     GET and PUT requests for an object protected by KMS fail if you don't
+//     make them by using Secure Sockets Layer (SSL), Transport Layer Security
+//     (TLS), or Signature Version 4. For more information about server-side
+//     encryption with KMS keys (SSE-KMS), see Protecting Data Using Server-Side
+//     Encryption with KMS keys (https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html).
 //
-//    * Use customer-provided encryption keys (SSE-C) – If you want to manage
-//    your own encryption keys, provide all the following headers in the request.
-//    x-amz-server-side-encryption-customer-algorithm x-amz-server-side-encryption-customer-key
-//    x-amz-server-side-encryption-customer-key-MD5 For more information about
-//    server-side encryption with customer-provided encryption keys (SSE-C),
-//    see Protecting data using server-side encryption with customer-provided
-//    encryption keys (SSE-C) (https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
+//   - Use customer-provided encryption keys (SSE-C) – If you want to manage
+//     your own encryption keys, provide all the following headers in the request.
+//     x-amz-server-side-encryption-customer-algorithm x-amz-server-side-encryption-customer-key
+//     x-amz-server-side-encryption-customer-key-MD5 For more information about
+//     server-side encryption with customer-provided encryption keys (SSE-C),
+//     see Protecting data using server-side encryption with customer-provided
+//     encryption keys (SSE-C) (https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
 //
-// Access-Control-List (ACL)-Specific Request Headers
+// # Access-Control-List (ACL)-Specific Request Headers
 //
 // You also can use the following access control–related headers with this
 // operation. By default, all objects are private. Only the owner has full access
@@ -964,44 +959,44 @@ func (c *S3) CreateMultipartUploadRequest(input *CreateMultipartUploadInput) (re
 // With this operation, you can grant access permissions using one of the following
 // two methods:
 //
-//    * Specify a canned ACL (x-amz-acl) — Amazon S3 supports a set of predefined
-//    ACLs, known as canned ACLs. Each canned ACL has a predefined set of grantees
-//    and permissions. For more information, see Canned ACL (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL).
+//   - Specify a canned ACL (x-amz-acl) — Amazon S3 supports a set of predefined
+//     ACLs, known as canned ACLs. Each canned ACL has a predefined set of grantees
+//     and permissions. For more information, see Canned ACL (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL).
 //
-//    * Specify access permissions explicitly — To explicitly grant access
-//    permissions to specific Amazon Web Services accounts or groups, use the
-//    following headers. Each header maps to specific permissions that Amazon
-//    S3 supports in an ACL. For more information, see Access Control List (ACL)
-//    Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html).
-//    In the header, you specify a list of grantees who get the specific permission.
-//    To grant permissions explicitly, use: x-amz-grant-read x-amz-grant-write
-//    x-amz-grant-read-acp x-amz-grant-write-acp x-amz-grant-full-control You
-//    specify each grantee as a type=value pair, where the type is one of the
-//    following: id – if the value specified is the canonical user ID of an
-//    Amazon Web Services account uri – if you are granting permissions to
-//    a predefined group emailAddress – if the value specified is the email
-//    address of an Amazon Web Services account Using email addresses to specify
-//    a grantee is only supported in the following Amazon Web Services Regions:
-//    US East (N. Virginia) US West (N. California) US West (Oregon) Asia Pacific
-//    (Singapore) Asia Pacific (Sydney) Asia Pacific (Tokyo) Europe (Ireland)
-//    South America (São Paulo) For a list of all the Amazon S3 supported Regions
-//    and endpoints, see Regions and Endpoints (https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
-//    in the Amazon Web Services General Reference. For example, the following
-//    x-amz-grant-read header grants the Amazon Web Services accounts identified
-//    by account IDs permissions to read object data and its metadata: x-amz-grant-read:
-//    id="11112222333", id="444455556666"
+//   - Specify access permissions explicitly — To explicitly grant access
+//     permissions to specific Amazon Web Services accounts or groups, use the
+//     following headers. Each header maps to specific permissions that Amazon
+//     S3 supports in an ACL. For more information, see Access Control List (ACL)
+//     Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html).
+//     In the header, you specify a list of grantees who get the specific permission.
+//     To grant permissions explicitly, use: x-amz-grant-read x-amz-grant-write
+//     x-amz-grant-read-acp x-amz-grant-write-acp x-amz-grant-full-control You
+//     specify each grantee as a type=value pair, where the type is one of the
+//     following: id – if the value specified is the canonical user ID of an
+//     Amazon Web Services account uri – if you are granting permissions to
+//     a predefined group emailAddress – if the value specified is the email
+//     address of an Amazon Web Services account Using email addresses to specify
+//     a grantee is only supported in the following Amazon Web Services Regions:
+//     US East (N. Virginia) US West (N. California) US West (Oregon) Asia Pacific
+//     (Singapore) Asia Pacific (Sydney) Asia Pacific (Tokyo) Europe (Ireland)
+//     South America (São Paulo) For a list of all the Amazon S3 supported Regions
+//     and endpoints, see Regions and Endpoints (https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
+//     in the Amazon Web Services General Reference. For example, the following
+//     x-amz-grant-read header grants the Amazon Web Services accounts identified
+//     by account IDs permissions to read object data and its metadata: x-amz-grant-read:
+//     id="11112222333", id="444455556666"
 //
 // The following operations are related to CreateMultipartUpload:
 //
-//    * UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
+//   - UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 //
-//    * CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
+//   - CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 //
-//    * AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
+//   - AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 //
-//    * ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
+//   - ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 //
-//    * ListMultipartUploads (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
+//   - ListMultipartUploads (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1047,14 +1042,13 @@ const opDeleteBucket = "DeleteBucket"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteBucketRequest method.
+//	req, resp := client.DeleteBucketRequest(params)
 //
-//    // Example sending a request using the DeleteBucketRequest method.
-//    req, resp := client.DeleteBucketRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucket
 func (c *S3) DeleteBucketRequest(input *DeleteBucketInput) (req *request.Request, output *DeleteBucketOutput) {
@@ -1081,9 +1075,9 @@ func (c *S3) DeleteBucketRequest(input *DeleteBucketInput) (req *request.Request
 //
 // The following operations are related to DeleteBucket:
 //
-//    * CreateBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
+//   - CreateBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 //
-//    * DeleteObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
+//   - DeleteObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1129,14 +1123,13 @@ const opDeleteBucketCors = "DeleteBucketCors"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteBucketCorsRequest method.
+//	req, resp := client.DeleteBucketCorsRequest(params)
 //
-//    // Example sending a request using the DeleteBucketCorsRequest method.
-//    req, resp := client.DeleteBucketCorsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketCors
 func (c *S3) DeleteBucketCorsRequest(input *DeleteBucketCorsInput) (req *request.Request, output *DeleteBucketCorsOutput) {
@@ -1169,9 +1162,9 @@ func (c *S3) DeleteBucketCorsRequest(input *DeleteBucketCorsInput) (req *request
 //
 // Related Resources
 //
-//    * PutBucketCors (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html)
+//   - PutBucketCors (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html)
 //
-//    * RESTOPTIONSobject (https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
+//   - RESTOPTIONSobject (https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1217,14 +1210,13 @@ const opDeleteBucketLifecycle = "DeleteBucketLifecycle"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteBucketLifecycleRequest method.
+//	req, resp := client.DeleteBucketLifecycleRequest(params)
 //
-//    // Example sending a request using the DeleteBucketLifecycleRequest method.
-//    req, resp := client.DeleteBucketLifecycleRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle
 func (c *S3) DeleteBucketLifecycleRequest(input *DeleteBucketLifecycleInput) (req *request.Request, output *DeleteBucketLifecycleOutput) {
@@ -1264,9 +1256,9 @@ func (c *S3) DeleteBucketLifecycleRequest(input *DeleteBucketLifecycleInput) (re
 //
 // Related actions include:
 //
-//    * PutBucketLifecycleConfiguration (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html)
+//   - PutBucketLifecycleConfiguration (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html)
 //
-//    * GetBucketLifecycleConfiguration (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
+//   - GetBucketLifecycleConfiguration (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1312,14 +1304,13 @@ const opDeleteBucketReplication = "DeleteBucketReplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteBucketReplicationRequest method.
+//	req, resp := client.DeleteBucketReplicationRequest(params)
 //
-//    // Example sending a request using the DeleteBucketReplicationRequest method.
-//    req, resp := client.DeleteBucketReplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketReplication
 func (c *S3) DeleteBucketReplicationRequest(input *DeleteBucketReplicationInput) (req *request.Request, output *DeleteBucketReplicationOutput) {
@@ -1385,14 +1376,13 @@ const opDeleteBucketWebsite = "DeleteBucketWebsite"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteBucketWebsiteRequest method.
+//	req, resp := client.DeleteBucketWebsiteRequest(params)
 //
-//    // Example sending a request using the DeleteBucketWebsiteRequest method.
-//    req, resp := client.DeleteBucketWebsiteRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketWebsite
 func (c *S3) DeleteBucketWebsiteRequest(input *DeleteBucketWebsiteInput) (req *request.Request, output *DeleteBucketWebsiteOutput) {
@@ -1431,9 +1421,9 @@ func (c *S3) DeleteBucketWebsiteRequest(input *DeleteBucketWebsiteInput) (req *r
 //
 // The following operations are related to DeleteBucketWebsite:
 //
-//    * GetBucketWebsite (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketWebsite.html)
+//   - GetBucketWebsite (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketWebsite.html)
 //
-//    * PutBucketWebsite (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
+//   - PutBucketWebsite (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1479,14 +1469,13 @@ const opDeleteLegalHold = "DeleteLegalHold"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteLegalHoldRequest method.
+//	req, resp := client.DeleteLegalHoldRequest(params)
 //
-//    // Example sending a request using the DeleteLegalHoldRequest method.
-//    req, resp := client.DeleteLegalHoldRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteLegalHold
 func (c *S3) DeleteLegalHoldRequest(input *DeleteLegalHoldInput) (req *request.Request, output *DeleteLegalHoldOutput) {
@@ -1557,14 +1546,13 @@ const opDeleteObject = "DeleteObject"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteObjectRequest method.
+//	req, resp := client.DeleteObjectRequest(params)
 //
-//    // Example sending a request using the DeleteObjectRequest method.
-//    req, resp := client.DeleteObjectRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject
 func (c *S3) DeleteObjectRequest(input *DeleteObjectInput) (req *request.Request, output *DeleteObjectOutput) {
@@ -1612,7 +1600,7 @@ func (c *S3) DeleteObjectRequest(input *DeleteObjectInput) (req *request.Request
 //
 // The following action is related to DeleteObject:
 //
-//    * PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+//   - PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1658,14 +1646,13 @@ const opDeleteObjectTagging = "DeleteObjectTagging"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteObjectTaggingRequest method.
+//	req, resp := client.DeleteObjectTaggingRequest(params)
 //
-//    // Example sending a request using the DeleteObjectTaggingRequest method.
-//    req, resp := client.DeleteObjectTaggingRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjectTagging
 func (c *S3) DeleteObjectTaggingRequest(input *DeleteObjectTaggingInput) (req *request.Request, output *DeleteObjectTaggingOutput) {
@@ -1698,9 +1685,9 @@ func (c *S3) DeleteObjectTaggingRequest(input *DeleteObjectTaggingInput) (req *r
 //
 // The following operations are related to DeleteObjectTagging:
 //
-//    * PutObjectTagging (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)
+//   - PutObjectTagging (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)
 //
-//    * GetObjectTagging (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
+//   - GetObjectTagging (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1746,14 +1733,13 @@ const opDeleteObjects = "DeleteObjects"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteObjectsRequest method.
+//	req, resp := client.DeleteObjectsRequest(params)
 //
-//    // Example sending a request using the DeleteObjectsRequest method.
-//    req, resp := client.DeleteObjectsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjects
 func (c *S3) DeleteObjectsRequest(input *DeleteObjectsInput) (req *request.Request, output *DeleteObjectsOutput) {
@@ -1811,15 +1797,15 @@ func (c *S3) DeleteObjectsRequest(input *DeleteObjectsInput) (req *request.Reque
 //
 // The following operations are related to DeleteObjects:
 //
-//    * CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
+//   - CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 //
-//    * UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
+//   - UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 //
-//    * CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
+//   - CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 //
-//    * ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
+//   - ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 //
-//    * AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
+//   - AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1865,14 +1851,13 @@ const opDeletePublicAccessBlock = "DeletePublicAccessBlock"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeletePublicAccessBlockRequest method.
+//	req, resp := client.DeletePublicAccessBlockRequest(params)
 //
-//    // Example sending a request using the DeletePublicAccessBlockRequest method.
-//    req, resp := client.DeletePublicAccessBlockRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeletePublicAccessBlock
 func (c *S3) DeletePublicAccessBlockRequest(input *DeletePublicAccessBlockInput) (req *request.Request, output *DeletePublicAccessBlockOutput) {
@@ -1902,13 +1887,13 @@ func (c *S3) DeletePublicAccessBlockRequest(input *DeletePublicAccessBlockInput)
 //
 // The following operations are related to DeletePublicAccessBlock:
 //
-//    * Using Amazon S3 Block Public Access (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
+//   - Using Amazon S3 Block Public Access (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
 //
-//    * GetPublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetPublicAccessBlock.html)
+//   - GetPublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetPublicAccessBlock.html)
 //
-//    * PutPublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutPublicAccessBlock.html)
+//   - PutPublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutPublicAccessBlock.html)
 //
-//    * GetBucketPolicyStatus (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicyStatus.html)
+//   - GetBucketPolicyStatus (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicyStatus.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1954,14 +1939,13 @@ const opExtendObjectRetention = "ExtendObjectRetention"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ExtendObjectRetentionRequest method.
+//	req, resp := client.ExtendObjectRetentionRequest(params)
 //
-//    // Example sending a request using the ExtendObjectRetentionRequest method.
-//    req, resp := client.ExtendObjectRetentionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ExtendObjectRetention
 func (c *S3) ExtendObjectRetentionRequest(input *ExtendObjectRetentionInput) (req *request.Request, output *ExtendObjectRetentionOutput) {
@@ -2027,14 +2011,13 @@ const opGetBucketAcl = "GetBucketAcl"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetBucketAclRequest method.
+//	req, resp := client.GetBucketAclRequest(params)
 //
-//    // Example sending a request using the GetBucketAclRequest method.
-//    req, resp := client.GetBucketAclRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAcl
 func (c *S3) GetBucketAclRequest(input *GetBucketAclInput) (req *request.Request, output *GetBucketAclOutput) {
@@ -2063,7 +2046,7 @@ func (c *S3) GetBucketAclRequest(input *GetBucketAclInput) (req *request.Request
 //
 // Related Resources
 //
-//    * ListObjects (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html)
+//   - ListObjects (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2109,14 +2092,13 @@ const opGetBucketCors = "GetBucketCors"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetBucketCorsRequest method.
+//	req, resp := client.GetBucketCorsRequest(params)
 //
-//    // Example sending a request using the GetBucketCorsRequest method.
-//    req, resp := client.GetBucketCorsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketCors
 func (c *S3) GetBucketCorsRequest(input *GetBucketCorsInput) (req *request.Request, output *GetBucketCorsOutput) {
@@ -2148,9 +2130,9 @@ func (c *S3) GetBucketCorsRequest(input *GetBucketCorsInput) (req *request.Reque
 //
 // The following operations are related to GetBucketCors:
 //
-//    * PutBucketCors (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html)
+//   - PutBucketCors (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html)
 //
-//    * DeleteBucketCors (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html)
+//   - DeleteBucketCors (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2196,14 +2178,13 @@ const opGetBucketLifecycleConfiguration = "GetBucketLifecycleConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetBucketLifecycleConfigurationRequest method.
+//	req, resp := client.GetBucketLifecycleConfigurationRequest(params)
 //
-//    // Example sending a request using the GetBucketLifecycleConfigurationRequest method.
-//    req, resp := client.GetBucketLifecycleConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLifecycleConfiguration
 func (c *S3) GetBucketLifecycleConfigurationRequest(input *GetBucketLifecycleConfigurationInput) (req *request.Request, output *GetBucketLifecycleConfigurationOutput) {
@@ -2224,7 +2205,6 @@ func (c *S3) GetBucketLifecycleConfigurationRequest(input *GetBucketLifecycleCon
 
 // GetBucketLifecycleConfiguration API operation for Amazon Simple Storage Service.
 //
-//
 // Bucket lifecycle configuration now supports specifying a lifecycle rule using
 // an object key name prefix, one or more object tags, or a combination of both.
 // Accordingly, this section describes the latest API. The response describes
@@ -2244,17 +2224,17 @@ func (c *S3) GetBucketLifecycleConfigurationRequest(input *GetBucketLifecycleCon
 //
 // GetBucketLifecycleConfiguration has the following special error:
 //
-//    * Error code: NoSuchLifecycleConfiguration Description: The lifecycle
-//    configuration does not exist. HTTP Status Code: 404 Not Found SOAP Fault
-//    Code Prefix: Client
+//   - Error code: NoSuchLifecycleConfiguration Description: The lifecycle
+//     configuration does not exist. HTTP Status Code: 404 Not Found SOAP Fault
+//     Code Prefix: Client
 //
 // The following operations are related to GetBucketLifecycleConfiguration:
 //
-//    * GetBucketLifecycle (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html)
+//   - GetBucketLifecycle (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html)
 //
-//    * PutBucketLifecycle (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html)
+//   - PutBucketLifecycle (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html)
 //
-//    * DeleteBucketLifecycle (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
+//   - DeleteBucketLifecycle (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2300,14 +2280,13 @@ const opGetBucketLocation = "GetBucketLocation"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetBucketLocationRequest method.
+//	req, resp := client.GetBucketLocationRequest(params)
 //
-//    // Example sending a request using the GetBucketLocationRequest method.
-//    req, resp := client.GetBucketLocationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLocation
 func (c *S3) GetBucketLocationRequest(input *GetBucketLocationInput) (req *request.Request, output *GetBucketLocationOutput) {
@@ -2336,9 +2315,9 @@ func (c *S3) GetBucketLocationRequest(input *GetBucketLocationInput) (req *reque
 //
 // The following operations are related to GetBucketLocation:
 //
-//    * GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+//   - GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 //
-//    * CreateBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
+//   - CreateBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2384,14 +2363,13 @@ const opGetBucketLogging = "GetBucketLogging"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetBucketLoggingRequest method.
+//	req, resp := client.GetBucketLoggingRequest(params)
 //
-//    // Example sending a request using the GetBucketLoggingRequest method.
-//    req, resp := client.GetBucketLoggingRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLogging
 func (c *S3) GetBucketLoggingRequest(input *GetBucketLoggingInput) (req *request.Request, output *GetBucketLoggingOutput) {
@@ -2456,14 +2434,13 @@ const opGetBucketProtectionConfiguration = "GetBucketProtectionConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetBucketProtectionConfigurationRequest method.
+//	req, resp := client.GetBucketProtectionConfigurationRequest(params)
 //
-//    // Example sending a request using the GetBucketProtectionConfigurationRequest method.
-//    req, resp := client.GetBucketProtectionConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketProtectionConfiguration
 func (c *S3) GetBucketProtectionConfigurationRequest(input *GetBucketProtectionConfigurationInput) (req *request.Request, output *GetBucketProtectionConfigurationOutput) {
@@ -2531,14 +2508,13 @@ const opGetBucketReplication = "GetBucketReplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetBucketReplicationRequest method.
+//	req, resp := client.GetBucketReplicationRequest(params)
 //
-//    // Example sending a request using the GetBucketReplicationRequest method.
-//    req, resp := client.GetBucketReplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketReplication
 func (c *S3) GetBucketReplicationRequest(input *GetBucketReplicationInput) (req *request.Request, output *GetBucketReplicationOutput) {
@@ -2603,14 +2579,13 @@ const opGetBucketVersioning = "GetBucketVersioning"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetBucketVersioningRequest method.
+//	req, resp := client.GetBucketVersioningRequest(params)
 //
-//    // Example sending a request using the GetBucketVersioningRequest method.
-//    req, resp := client.GetBucketVersioningRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketVersioning
 func (c *S3) GetBucketVersioningRequest(input *GetBucketVersioningInput) (req *request.Request, output *GetBucketVersioningOutput) {
@@ -2675,14 +2650,13 @@ const opGetBucketWebsite = "GetBucketWebsite"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetBucketWebsiteRequest method.
+//	req, resp := client.GetBucketWebsiteRequest(params)
 //
-//    // Example sending a request using the GetBucketWebsiteRequest method.
-//    req, resp := client.GetBucketWebsiteRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketWebsite
 func (c *S3) GetBucketWebsiteRequest(input *GetBucketWebsiteInput) (req *request.Request, output *GetBucketWebsiteOutput) {
@@ -2715,9 +2689,9 @@ func (c *S3) GetBucketWebsiteRequest(input *GetBucketWebsiteInput) (req *request
 //
 // The following operations are related to DeleteBucketWebsite:
 //
-//    * DeleteBucketWebsite (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketWebsite.html)
+//   - DeleteBucketWebsite (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketWebsite.html)
 //
-//    * PutBucketWebsite (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
+//   - PutBucketWebsite (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2763,14 +2737,13 @@ const opGetObject = "GetObject"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetObjectRequest method.
+//	req, resp := client.GetObjectRequest(params)
 //
-//    // Example sending a request using the GetObjectRequest method.
-//    req, resp := client.GetObjectRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject
 func (c *S3) GetObjectRequest(input *GetObjectInput) (req *request.Request, output *GetObjectOutput) {
@@ -2831,11 +2804,11 @@ func (c *S3) GetObjectRequest(input *GetObjectInput) (req *request.Request, outp
 // encryption keys (SSE-C) when you store the object in Amazon S3, then when
 // you GET the object, you must use the following headers:
 //
-//    * x-amz-server-side-encryption-customer-algorithm
+//   - x-amz-server-side-encryption-customer-algorithm
 //
-//    * x-amz-server-side-encryption-customer-key
+//   - x-amz-server-side-encryption-customer-key
 //
-//    * x-amz-server-side-encryption-customer-key-MD5
+//   - x-amz-server-side-encryption-customer-key-MD5
 //
 // For more information about SSE-C, see Server-Side Encryption (Using Customer-Provided
 // Encryption Keys) (https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html).
@@ -2846,20 +2819,20 @@ func (c *S3) GetObjectRequest(input *GetObjectInput) (req *request.Request, outp
 // (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
 // to retrieve the tag set associated with an object.
 //
-// Permissions
+// # Permissions
 //
 // You need the s3:GetObject permission for this operation. For more information,
 // see Specifying Permissions in a Policy (https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 // If the object you request does not exist, the error Amazon S3 returns depends
 // on whether you also have the s3:ListBucket permission.
 //
-//    * If you have the s3:ListBucket permission on the bucket, Amazon S3 will
-//    return an HTTP status code 404 ("no such key") error.
+//   - If you have the s3:ListBucket permission on the bucket, Amazon S3 will
+//     return an HTTP status code 404 ("no such key") error.
 //
-//    * If you don’t have the s3:ListBucket permission, Amazon S3 will return
-//    an HTTP status code 403 ("access denied") error.
+//   - If you don’t have the s3:ListBucket permission, Amazon S3 will return
+//     an HTTP status code 403 ("access denied") error.
 //
-// Versioning
+// # Versioning
 //
 // By default, the GET action returns the current version of an object. To return
 // a different version, use the versionId subresource.
@@ -2870,7 +2843,7 @@ func (c *S3) GetObjectRequest(input *GetObjectInput) (req *request.Request, outp
 //
 // For more information about versioning, see PutBucketVersioning (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html).
 //
-// Overriding Response Header Values
+// # Overriding Response Header Values
 //
 // There are times when you want to override certain response header values
 // in a GET response. For example, you might override the Content-Disposition
@@ -2889,19 +2862,19 @@ func (c *S3) GetObjectRequest(input *GetObjectInput) (req *request.Request, outp
 // URL, when using these parameters. They cannot be used with an unsigned (anonymous)
 // request.
 //
-//    * response-content-type
+//   - response-content-type
 //
-//    * response-content-language
+//   - response-content-language
 //
-//    * response-expires
+//   - response-expires
 //
-//    * response-cache-control
+//   - response-cache-control
 //
-//    * response-content-disposition
+//   - response-content-disposition
 //
-//    * response-content-encoding
+//   - response-content-encoding
 //
-// Additional Considerations about Request Headers
+// # Additional Considerations about Request Headers
 //
 // If both of the If-Match and If-Unmodified-Since headers are present in the
 // request as follows: If-Match condition evaluates to true, and; If-Unmodified-Since
@@ -2915,9 +2888,9 @@ func (c *S3) GetObjectRequest(input *GetObjectInput) (req *request.Request, outp
 //
 // The following operations are related to GetObject:
 //
-//    * ListBuckets (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html)
+//   - ListBuckets (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html)
 //
-//    * GetObjectAcl (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
+//   - GetObjectAcl (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2927,11 +2900,12 @@ func (c *S3) GetObjectRequest(input *GetObjectInput) (req *request.Request, outp
 // API operation GetObject for usage and error information.
 //
 // Returned Error Codes:
-//   * ErrCodeNoSuchKey "NoSuchKey"
-//   The specified key does not exist.
 //
-//   * ErrCodeInvalidObjectState "InvalidObjectState"
-//   Object is archived and inaccessible until restored.
+//   - ErrCodeNoSuchKey "NoSuchKey"
+//     The specified key does not exist.
+//
+//   - ErrCodeInvalidObjectState "InvalidObjectState"
+//     Object is archived and inaccessible until restored.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject
 func (c *S3) GetObject(input *GetObjectInput) (*GetObjectOutput, error) {
@@ -2971,14 +2945,13 @@ const opGetObjectAcl = "GetObjectAcl"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetObjectAclRequest method.
+//	req, resp := client.GetObjectAclRequest(params)
 //
-//    // Example sending a request using the GetObjectAclRequest method.
-//    req, resp := client.GetObjectAclRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectAcl
 func (c *S3) GetObjectAclRequest(input *GetObjectAclInput) (req *request.Request, output *GetObjectAclOutput) {
@@ -3004,18 +2977,18 @@ func (c *S3) GetObjectAclRequest(input *GetObjectAclInput) (req *request.Request
 //
 // This action is not supported by Amazon S3 on Outposts.
 //
-// Versioning
+// # Versioning
 //
 // By default, GET returns ACL information about the current version of an object.
 // To return ACL information about a different version, use the versionId subresource.
 //
 // The following operations are related to GetObjectAcl:
 //
-//    * GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+//   - GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 //
-//    * DeleteObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
+//   - DeleteObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
 //
-//    * PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+//   - PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3025,8 +2998,8 @@ func (c *S3) GetObjectAclRequest(input *GetObjectAclInput) (req *request.Request
 // API operation GetObjectAcl for usage and error information.
 //
 // Returned Error Codes:
-//   * ErrCodeNoSuchKey "NoSuchKey"
-//   The specified key does not exist.
+//   - ErrCodeNoSuchKey "NoSuchKey"
+//     The specified key does not exist.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectAcl
 func (c *S3) GetObjectAcl(input *GetObjectAclInput) (*GetObjectAclOutput, error) {
@@ -3066,14 +3039,13 @@ const opGetObjectLegalHold = "GetObjectLegalHold"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetObjectLegalHoldRequest method.
+//	req, resp := client.GetObjectLegalHoldRequest(params)
 //
-//    // Example sending a request using the GetObjectLegalHoldRequest method.
-//    req, resp := client.GetObjectLegalHoldRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectLegalHold
 func (c *S3) GetObjectLegalHoldRequest(input *GetObjectLegalHoldInput) (req *request.Request, output *GetObjectLegalHoldOutput) {
@@ -3101,7 +3073,7 @@ func (c *S3) GetObjectLegalHoldRequest(input *GetObjectLegalHoldInput) (req *req
 //
 // The following action is related to GetObjectLegalHold:
 //
-//    * GetObjectAttributes (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
+//   - GetObjectAttributes (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3147,14 +3119,13 @@ const opGetObjectLockConfiguration = "GetObjectLockConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetObjectLockConfigurationRequest method.
+//	req, resp := client.GetObjectLockConfigurationRequest(params)
 //
-//    // Example sending a request using the GetObjectLockConfigurationRequest method.
-//    req, resp := client.GetObjectLockConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectLockConfiguration
 func (c *S3) GetObjectLockConfigurationRequest(input *GetObjectLockConfigurationInput) (req *request.Request, output *GetObjectLockConfigurationOutput) {
@@ -3182,7 +3153,7 @@ func (c *S3) GetObjectLockConfigurationRequest(input *GetObjectLockConfiguration
 //
 // The following action is related to GetObjectLockConfiguration:
 //
-//    * GetObjectAttributes (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
+//   - GetObjectAttributes (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3228,14 +3199,13 @@ const opGetObjectRetention = "GetObjectRetention"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetObjectRetentionRequest method.
+//	req, resp := client.GetObjectRetentionRequest(params)
 //
-//    // Example sending a request using the GetObjectRetentionRequest method.
-//    req, resp := client.GetObjectRetentionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectRetention
 func (c *S3) GetObjectRetentionRequest(input *GetObjectRetentionInput) (req *request.Request, output *GetObjectRetentionOutput) {
@@ -3263,7 +3233,7 @@ func (c *S3) GetObjectRetentionRequest(input *GetObjectRetentionInput) (req *req
 //
 // The following action is related to GetObjectRetention:
 //
-//    * GetObjectAttributes (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
+//   - GetObjectAttributes (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3309,14 +3279,13 @@ const opGetObjectTagging = "GetObjectTagging"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetObjectTaggingRequest method.
+//	req, resp := client.GetObjectTaggingRequest(params)
 //
-//    // Example sending a request using the GetObjectTaggingRequest method.
-//    req, resp := client.GetObjectTaggingRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTagging
 func (c *S3) GetObjectTaggingRequest(input *GetObjectTaggingInput) (req *request.Request, output *GetObjectTaggingOutput) {
@@ -3355,9 +3324,9 @@ func (c *S3) GetObjectTaggingRequest(input *GetObjectTaggingInput) (req *request
 //
 // The following action is related to GetObjectTagging:
 //
-//    * PutObjectTagging (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)
+//   - PutObjectTagging (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)
 //
-//    * DeleteObjectTagging (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html)
+//   - DeleteObjectTagging (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3403,14 +3372,13 @@ const opGetPublicAccessBlock = "GetPublicAccessBlock"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetPublicAccessBlockRequest method.
+//	req, resp := client.GetPublicAccessBlockRequest(params)
 //
-//    // Example sending a request using the GetPublicAccessBlockRequest method.
-//    req, resp := client.GetPublicAccessBlockRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetPublicAccessBlock
 func (c *S3) GetPublicAccessBlockRequest(input *GetPublicAccessBlockInput) (req *request.Request, output *GetPublicAccessBlockOutput) {
@@ -3448,13 +3416,13 @@ func (c *S3) GetPublicAccessBlockRequest(input *GetPublicAccessBlockInput) (req 
 //
 // The following operations are related to GetPublicAccessBlock:
 //
-//    * Using Amazon S3 Block Public Access (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
+//   - Using Amazon S3 Block Public Access (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
 //
-//    * PutPublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutPublicAccessBlock.html)
+//   - PutPublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutPublicAccessBlock.html)
 //
-//    * GetPublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetPublicAccessBlock.html)
+//   - GetPublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetPublicAccessBlock.html)
 //
-//    * DeletePublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
+//   - DeletePublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3500,14 +3468,13 @@ const opHeadBucket = "HeadBucket"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the HeadBucketRequest method.
+//	req, resp := client.HeadBucketRequest(params)
 //
-//    // Example sending a request using the HeadBucketRequest method.
-//    req, resp := client.HeadBucketRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket
 func (c *S3) HeadBucketRequest(input *HeadBucketInput) (req *request.Request, output *HeadBucketOutput) {
@@ -3564,8 +3531,8 @@ func (c *S3) HeadBucketRequest(input *HeadBucketInput) (req *request.Request, ou
 // API operation HeadBucket for usage and error information.
 //
 // Returned Error Codes:
-//   * ErrCodeNoSuchBucket "NoSuchBucket"
-//   The specified bucket does not exist.
+//   - ErrCodeNoSuchBucket "NoSuchBucket"
+//     The specified bucket does not exist.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket
 func (c *S3) HeadBucket(input *HeadBucketInput) (*HeadBucketOutput, error) {
@@ -3605,14 +3572,13 @@ const opHeadObject = "HeadObject"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the HeadObjectRequest method.
+//	req, resp := client.HeadObjectRequest(params)
 //
-//    // Example sending a request using the HeadObjectRequest method.
-//    req, resp := client.HeadObjectRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject
 func (c *S3) HeadObjectRequest(input *HeadObjectInput) (req *request.Request, output *HeadObjectOutput) {
@@ -3647,43 +3613,43 @@ func (c *S3) HeadObjectRequest(input *HeadObjectInput) (req *request.Request, ou
 // encryption keys (SSE-C) when you store the object in Amazon S3, then when
 // you retrieve the metadata from the object, you must use the following headers:
 //
-//    * x-amz-server-side-encryption-customer-algorithm
+//   - x-amz-server-side-encryption-customer-algorithm
 //
-//    * x-amz-server-side-encryption-customer-key
+//   - x-amz-server-side-encryption-customer-key
 //
-//    * x-amz-server-side-encryption-customer-key-MD5
+//   - x-amz-server-side-encryption-customer-key-MD5
 //
 // For more information about SSE-C, see Server-Side Encryption (Using Customer-Provided
 // Encryption Keys) (https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html).
 //
-//    * Encryption request headers, like x-amz-server-side-encryption, should
-//    not be sent for GET requests if your object uses server-side encryption
-//    with Key Management Service (KMS) keys (SSE-KMS), dual-layer server-side
-//    encryption with Amazon Web Services KMS keys (DSSE-KMS), or server-side
-//    encryption with Amazon S3 managed encryption keys (SSE-S3). If your object
-//    does use these types of keys, you’ll get an HTTP 400 Bad Request error.
+//   - Encryption request headers, like x-amz-server-side-encryption, should
+//     not be sent for GET requests if your object uses server-side encryption
+//     with Key Management Service (KMS) keys (SSE-KMS), dual-layer server-side
+//     encryption with Amazon Web Services KMS keys (DSSE-KMS), or server-side
+//     encryption with Amazon S3 managed encryption keys (SSE-S3). If your object
+//     does use these types of keys, you’ll get an HTTP 400 Bad Request error.
 //
-//    * The last modified property in this case is the creation date of the
-//    object.
+//   - The last modified property in this case is the creation date of the
+//     object.
 //
 // Request headers are limited to 8 KB in size. For more information, see Common
 // Request Headers (https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html).
 //
 // Consider the following when using request headers:
 //
-//    * Consideration 1 – If both of the If-Match and If-Unmodified-Since
-//    headers are present in the request as follows: If-Match condition evaluates
-//    to true, and; If-Unmodified-Since condition evaluates to false; Then Amazon
-//    S3 returns 200 OK and the data requested.
+//   - Consideration 1 – If both of the If-Match and If-Unmodified-Since
+//     headers are present in the request as follows: If-Match condition evaluates
+//     to true, and; If-Unmodified-Since condition evaluates to false; Then Amazon
+//     S3 returns 200 OK and the data requested.
 //
-//    * Consideration 2 – If both of the If-None-Match and If-Modified-Since
-//    headers are present in the request as follows: If-None-Match condition
-//    evaluates to false, and; If-Modified-Since condition evaluates to true;
-//    Then Amazon S3 returns the 304 Not Modified response code.
+//   - Consideration 2 – If both of the If-None-Match and If-Modified-Since
+//     headers are present in the request as follows: If-None-Match condition
+//     evaluates to false, and; If-Modified-Since condition evaluates to true;
+//     Then Amazon S3 returns the 304 Not Modified response code.
 //
 // For more information about conditional requests, see RFC 7232 (https://tools.ietf.org/html/rfc7232).
 //
-// Permissions
+// # Permissions
 //
 // You need the relevant read object (or version) permission for this operation.
 // For more information, see Actions, resources, and condition keys for Amazon
@@ -3691,17 +3657,17 @@ func (c *S3) HeadObjectRequest(input *HeadObjectInput) (req *request.Request, ou
 // If the object you request doesn't exist, the error that Amazon S3 returns
 // depends on whether you also have the s3:ListBucket permission.
 //
-//    * If you have the s3:ListBucket permission on the bucket, Amazon S3 returns
-//    an HTTP status code 404 error.
+//   - If you have the s3:ListBucket permission on the bucket, Amazon S3 returns
+//     an HTTP status code 404 error.
 //
-//    * If you don’t have the s3:ListBucket permission, Amazon S3 returns
-//    an HTTP status code 403 error.
+//   - If you don’t have the s3:ListBucket permission, Amazon S3 returns
+//     an HTTP status code 403 error.
 //
 // The following actions are related to HeadObject:
 //
-//    * GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+//   - GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 //
-//    * GetObjectAttributes (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
+//   - GetObjectAttributes (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
 //
 // See http://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses
 // for more information on returned errors.
@@ -3750,14 +3716,13 @@ const opListBuckets = "ListBuckets"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListBucketsRequest method.
+//	req, resp := client.ListBucketsRequest(params)
 //
-//    // Example sending a request using the ListBucketsRequest method.
-//    req, resp := client.ListBucketsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets
 func (c *S3) ListBucketsRequest(input *ListBucketsInput) (req *request.Request, output *ListBucketsOutput) {
@@ -3828,14 +3793,13 @@ const opListBucketsExtended = "ListBucketsExtended"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListBucketsExtendedRequest method.
+//	req, resp := client.ListBucketsExtendedRequest(params)
 //
-//    // Example sending a request using the ListBucketsExtendedRequest method.
-//    req, resp := client.ListBucketsExtendedRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketsExtended
 func (c *S3) ListBucketsExtendedRequest(input *ListBucketsExtendedInput) (req *request.Request, output *ListBucketsExtendedOutput) {
@@ -3898,15 +3862,14 @@ func (c *S3) ListBucketsExtendedWithContext(ctx aws.Context, input *ListBucketsE
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListBucketsExtended operation.
-//    pageNum := 0
-//    err := client.ListBucketsExtendedPages(params,
-//        func(page *s3.ListBucketsExtendedOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListBucketsExtended operation.
+//	pageNum := 0
+//	err := client.ListBucketsExtendedPages(params,
+//	    func(page *s3.ListBucketsExtendedOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *S3) ListBucketsExtendedPages(input *ListBucketsExtendedInput, fn func(*ListBucketsExtendedOutput, bool) bool) error {
 	return c.ListBucketsExtendedPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -3958,14 +3921,13 @@ const opListLegalHolds = "ListLegalHolds"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListLegalHoldsRequest method.
+//	req, resp := client.ListLegalHoldsRequest(params)
 //
-//    // Example sending a request using the ListLegalHoldsRequest method.
-//    req, resp := client.ListLegalHoldsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListLegalHolds
 func (c *S3) ListLegalHoldsRequest(input *ListLegalHoldsInput) (req *request.Request, output *ListLegalHoldsOutput) {
@@ -4032,14 +3994,13 @@ const opListMultipartUploads = "ListMultipartUploads"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListMultipartUploadsRequest method.
+//	req, resp := client.ListMultipartUploadsRequest(params)
 //
-//    // Example sending a request using the ListMultipartUploadsRequest method.
-//    req, resp := client.ListMultipartUploadsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads
 func (c *S3) ListMultipartUploadsRequest(input *ListMultipartUploadsInput) (req *request.Request, output *ListMultipartUploadsOutput) {
@@ -4091,15 +4052,15 @@ func (c *S3) ListMultipartUploadsRequest(input *ListMultipartUploadsInput) (req 
 //
 // The following operations are related to ListMultipartUploads:
 //
-//    * CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
+//   - CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 //
-//    * UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
+//   - UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 //
-//    * CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
+//   - CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 //
-//    * ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
+//   - ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 //
-//    * AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
+//   - AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -4137,15 +4098,14 @@ func (c *S3) ListMultipartUploadsWithContext(ctx aws.Context, input *ListMultipa
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListMultipartUploads operation.
-//    pageNum := 0
-//    err := client.ListMultipartUploadsPages(params,
-//        func(page *s3.ListMultipartUploadsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListMultipartUploads operation.
+//	pageNum := 0
+//	err := client.ListMultipartUploadsPages(params,
+//	    func(page *s3.ListMultipartUploadsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *S3) ListMultipartUploadsPages(input *ListMultipartUploadsInput, fn func(*ListMultipartUploadsOutput, bool) bool) error {
 	return c.ListMultipartUploadsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -4197,14 +4157,13 @@ const opListObjectVersions = "ListObjectVersions"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListObjectVersionsRequest method.
+//	req, resp := client.ListObjectVersionsRequest(params)
 //
-//    // Example sending a request using the ListObjectVersionsRequest method.
-//    req, resp := client.ListObjectVersionsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions
 func (c *S3) ListObjectVersionsRequest(input *ListObjectVersionsInput) (req *request.Request, output *ListObjectVersionsOutput) {
@@ -4247,13 +4206,13 @@ func (c *S3) ListObjectVersionsRequest(input *ListObjectVersionsInput) (req *req
 //
 // The following operations are related to ListObjectVersions:
 //
-//    * ListObjectsV2 (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html)
+//   - ListObjectsV2 (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html)
 //
-//    * GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+//   - GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 //
-//    * PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+//   - PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 //
-//    * DeleteObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
+//   - DeleteObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -4291,15 +4250,14 @@ func (c *S3) ListObjectVersionsWithContext(ctx aws.Context, input *ListObjectVer
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListObjectVersions operation.
-//    pageNum := 0
-//    err := client.ListObjectVersionsPages(params,
-//        func(page *s3.ListObjectVersionsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListObjectVersions operation.
+//	pageNum := 0
+//	err := client.ListObjectVersionsPages(params,
+//	    func(page *s3.ListObjectVersionsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *S3) ListObjectVersionsPages(input *ListObjectVersionsInput, fn func(*ListObjectVersionsOutput, bool) bool) error {
 	return c.ListObjectVersionsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -4351,14 +4309,13 @@ const opListObjects = "ListObjects"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListObjectsRequest method.
+//	req, resp := client.ListObjectsRequest(params)
 //
-//    // Example sending a request using the ListObjectsRequest method.
-//    req, resp := client.ListObjectsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects
 func (c *S3) ListObjectsRequest(input *ListObjectsInput) (req *request.Request, output *ListObjectsOutput) {
@@ -4398,15 +4355,15 @@ func (c *S3) ListObjectsRequest(input *ListObjectsInput) (req *request.Request, 
 //
 // The following operations are related to ListObjects:
 //
-//    * ListObjectsV2 (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html)
+//   - ListObjectsV2 (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html)
 //
-//    * GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+//   - GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 //
-//    * PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+//   - PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 //
-//    * CreateBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
+//   - CreateBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 //
-//    * ListBuckets (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html)
+//   - ListBuckets (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -4416,8 +4373,8 @@ func (c *S3) ListObjectsRequest(input *ListObjectsInput) (req *request.Request, 
 // API operation ListObjects for usage and error information.
 //
 // Returned Error Codes:
-//   * ErrCodeNoSuchBucket "NoSuchBucket"
-//   The specified bucket does not exist.
+//   - ErrCodeNoSuchBucket "NoSuchBucket"
+//     The specified bucket does not exist.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects
 func (c *S3) ListObjects(input *ListObjectsInput) (*ListObjectsOutput, error) {
@@ -4449,15 +4406,14 @@ func (c *S3) ListObjectsWithContext(ctx aws.Context, input *ListObjectsInput, op
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListObjects operation.
-//    pageNum := 0
-//    err := client.ListObjectsPages(params,
-//        func(page *s3.ListObjectsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListObjects operation.
+//	pageNum := 0
+//	err := client.ListObjectsPages(params,
+//	    func(page *s3.ListObjectsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *S3) ListObjectsPages(input *ListObjectsInput, fn func(*ListObjectsOutput, bool) bool) error {
 	return c.ListObjectsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -4509,14 +4465,13 @@ const opListObjectsV2 = "ListObjectsV2"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListObjectsV2Request method.
+//	req, resp := client.ListObjectsV2Request(params)
 //
-//    // Example sending a request using the ListObjectsV2Request method.
-//    req, resp := client.ListObjectsV2Request(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectsV2
 func (c *S3) ListObjectsV2Request(input *ListObjectsV2Input) (req *request.Request, output *ListObjectsV2Output) {
@@ -4571,11 +4526,11 @@ func (c *S3) ListObjectsV2Request(input *ListObjectsV2Input) (req *request.Reque
 //
 // The following operations are related to ListObjectsV2:
 //
-//    * GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+//   - GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 //
-//    * PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+//   - PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 //
-//    * CreateBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
+//   - CreateBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -4585,8 +4540,8 @@ func (c *S3) ListObjectsV2Request(input *ListObjectsV2Input) (req *request.Reque
 // API operation ListObjectsV2 for usage and error information.
 //
 // Returned Error Codes:
-//   * ErrCodeNoSuchBucket "NoSuchBucket"
-//   The specified bucket does not exist.
+//   - ErrCodeNoSuchBucket "NoSuchBucket"
+//     The specified bucket does not exist.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectsV2
 func (c *S3) ListObjectsV2(input *ListObjectsV2Input) (*ListObjectsV2Output, error) {
@@ -4618,15 +4573,14 @@ func (c *S3) ListObjectsV2WithContext(ctx aws.Context, input *ListObjectsV2Input
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListObjectsV2 operation.
-//    pageNum := 0
-//    err := client.ListObjectsV2Pages(params,
-//        func(page *s3.ListObjectsV2Output, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListObjectsV2 operation.
+//	pageNum := 0
+//	err := client.ListObjectsV2Pages(params,
+//	    func(page *s3.ListObjectsV2Output, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *S3) ListObjectsV2Pages(input *ListObjectsV2Input, fn func(*ListObjectsV2Output, bool) bool) error {
 	return c.ListObjectsV2PagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -4678,14 +4632,13 @@ const opListParts = "ListParts"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListPartsRequest method.
+//	req, resp := client.ListPartsRequest(params)
 //
-//    // Example sending a request using the ListPartsRequest method.
-//    req, resp := client.ListPartsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts
 func (c *S3) ListPartsRequest(input *ListPartsInput) (req *request.Request, output *ListPartsOutput) {
@@ -4734,17 +4687,17 @@ func (c *S3) ListPartsRequest(input *ListPartsInput) (req *request.Request, outp
 //
 // The following operations are related to ListParts:
 //
-//    * CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
+//   - CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 //
-//    * UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
+//   - UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 //
-//    * CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
+//   - CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 //
-//    * AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
+//   - AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 //
-//    * GetObjectAttributes (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
+//   - GetObjectAttributes (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
 //
-//    * ListMultipartUploads (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
+//   - ListMultipartUploads (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -4782,15 +4735,14 @@ func (c *S3) ListPartsWithContext(ctx aws.Context, input *ListPartsInput, opts .
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListParts operation.
-//    pageNum := 0
-//    err := client.ListPartsPages(params,
-//        func(page *s3.ListPartsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListParts operation.
+//	pageNum := 0
+//	err := client.ListPartsPages(params,
+//	    func(page *s3.ListPartsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *S3) ListPartsPages(input *ListPartsInput, fn func(*ListPartsOutput, bool) bool) error {
 	return c.ListPartsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -4842,14 +4794,13 @@ const opPutBucketAcl = "PutBucketAcl"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutBucketAclRequest method.
+//	req, resp := client.PutBucketAclRequest(params)
 //
-//    // Example sending a request using the PutBucketAclRequest method.
-//    req, resp := client.PutBucketAclRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAcl
 func (c *S3) PutBucketAclRequest(input *PutBucketAclInput) (req *request.Request, output *PutBucketAclOutput) {
@@ -4881,9 +4832,9 @@ func (c *S3) PutBucketAclRequest(input *PutBucketAclInput) (req *request.Request
 //
 // You can use one of the following two ways to set a bucket's permissions:
 //
-//    * Specify the ACL in the request body
+//   - Specify the ACL in the request body
 //
-//    * Specify permissions using request headers
+//   - Specify permissions using request headers
 //
 // You cannot specify access permission using both the body and the request
 // headers.
@@ -4901,75 +4852,75 @@ func (c *S3) PutBucketAclRequest(input *PutBucketAclInput) (req *request.Request
 // object ownership (https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html)
 // in the Amazon S3 User Guide.
 //
-// Permissions
+// # Permissions
 //
 // You can set access permissions by using one of the following methods:
 //
-//    * Specify a canned ACL with the x-amz-acl request header. Amazon S3 supports
-//    a set of predefined ACLs, known as canned ACLs. Each canned ACL has a
-//    predefined set of grantees and permissions. Specify the canned ACL name
-//    as the value of x-amz-acl. If you use this header, you cannot use other
-//    access control-specific headers in your request. For more information,
-//    see Canned ACL (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL).
+//   - Specify a canned ACL with the x-amz-acl request header. Amazon S3 supports
+//     a set of predefined ACLs, known as canned ACLs. Each canned ACL has a
+//     predefined set of grantees and permissions. Specify the canned ACL name
+//     as the value of x-amz-acl. If you use this header, you cannot use other
+//     access control-specific headers in your request. For more information,
+//     see Canned ACL (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL).
 //
-//    * Specify access permissions explicitly with the x-amz-grant-read, x-amz-grant-read-acp,
-//    x-amz-grant-write-acp, and x-amz-grant-full-control headers. When using
-//    these headers, you specify explicit access permissions and grantees (Amazon
-//    Web Services accounts or Amazon S3 groups) who will receive the permission.
-//    If you use these ACL-specific headers, you cannot use the x-amz-acl header
-//    to set a canned ACL. These parameters map to the set of permissions that
-//    Amazon S3 supports in an ACL. For more information, see Access Control
-//    List (ACL) Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html).
-//    You specify each grantee as a type=value pair, where the type is one of
-//    the following: id – if the value specified is the canonical user ID
-//    of an Amazon Web Services account uri – if you are granting permissions
-//    to a predefined group emailAddress – if the value specified is the email
-//    address of an Amazon Web Services account Using email addresses to specify
-//    a grantee is only supported in the following Amazon Web Services Regions:
-//    US East (N. Virginia) US West (N. California) US West (Oregon) Asia Pacific
-//    (Singapore) Asia Pacific (Sydney) Asia Pacific (Tokyo) Europe (Ireland)
-//    South America (São Paulo) For a list of all the Amazon S3 supported Regions
-//    and endpoints, see Regions and Endpoints (https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
-//    in the Amazon Web Services General Reference. For example, the following
-//    x-amz-grant-write header grants create, overwrite, and delete objects
-//    permission to LogDelivery group predefined by Amazon S3 and two Amazon
-//    Web Services accounts identified by their email addresses. x-amz-grant-write:
-//    uri="http://acs.amazonaws.com/groups/s3/LogDelivery", id="111122223333",
-//    id="555566667777"
+//   - Specify access permissions explicitly with the x-amz-grant-read, x-amz-grant-read-acp,
+//     x-amz-grant-write-acp, and x-amz-grant-full-control headers. When using
+//     these headers, you specify explicit access permissions and grantees (Amazon
+//     Web Services accounts or Amazon S3 groups) who will receive the permission.
+//     If you use these ACL-specific headers, you cannot use the x-amz-acl header
+//     to set a canned ACL. These parameters map to the set of permissions that
+//     Amazon S3 supports in an ACL. For more information, see Access Control
+//     List (ACL) Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html).
+//     You specify each grantee as a type=value pair, where the type is one of
+//     the following: id – if the value specified is the canonical user ID
+//     of an Amazon Web Services account uri – if you are granting permissions
+//     to a predefined group emailAddress – if the value specified is the email
+//     address of an Amazon Web Services account Using email addresses to specify
+//     a grantee is only supported in the following Amazon Web Services Regions:
+//     US East (N. Virginia) US West (N. California) US West (Oregon) Asia Pacific
+//     (Singapore) Asia Pacific (Sydney) Asia Pacific (Tokyo) Europe (Ireland)
+//     South America (São Paulo) For a list of all the Amazon S3 supported Regions
+//     and endpoints, see Regions and Endpoints (https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
+//     in the Amazon Web Services General Reference. For example, the following
+//     x-amz-grant-write header grants create, overwrite, and delete objects
+//     permission to LogDelivery group predefined by Amazon S3 and two Amazon
+//     Web Services accounts identified by their email addresses. x-amz-grant-write:
+//     uri="http://acs.amazonaws.com/groups/s3/LogDelivery", id="111122223333",
+//     id="555566667777"
 //
 // You can use either a canned ACL or specify access permissions explicitly.
 // You cannot do both.
 //
-// Grantee Values
+// # Grantee Values
 //
 // You can specify the person (grantee) to whom you're assigning access rights
 // (using request elements) in the following ways:
 //
-//    * By the person's ID: <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-//    xsi:type="CanonicalUser"><ID><>ID<></ID><DisplayName><>GranteesEmail<></DisplayName>
-//    </Grantee> DisplayName is optional and ignored in the request
+//   - By the person's ID: <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+//     xsi:type="CanonicalUser"><ID><>ID<></ID><DisplayName><>GranteesEmail<></DisplayName>
+//     </Grantee> DisplayName is optional and ignored in the request
 //
-//    * By URI: <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-//    xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee>
+//   - By URI: <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+//     xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee>
 //
-//    * By Email address: <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-//    xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>&</Grantee>
-//    The grantee is resolved to the CanonicalUser and, in a response to a GET
-//    Object acl request, appears as the CanonicalUser. Using email addresses
-//    to specify a grantee is only supported in the following Amazon Web Services
-//    Regions: US East (N. Virginia) US West (N. California) US West (Oregon)
-//    Asia Pacific (Singapore) Asia Pacific (Sydney) Asia Pacific (Tokyo) Europe
-//    (Ireland) South America (São Paulo) For a list of all the Amazon S3 supported
-//    Regions and endpoints, see Regions and Endpoints (https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
-//    in the Amazon Web Services General Reference.
+//   - By Email address: <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+//     xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>&</Grantee>
+//     The grantee is resolved to the CanonicalUser and, in a response to a GET
+//     Object acl request, appears as the CanonicalUser. Using email addresses
+//     to specify a grantee is only supported in the following Amazon Web Services
+//     Regions: US East (N. Virginia) US West (N. California) US West (Oregon)
+//     Asia Pacific (Singapore) Asia Pacific (Sydney) Asia Pacific (Tokyo) Europe
+//     (Ireland) South America (São Paulo) For a list of all the Amazon S3 supported
+//     Regions and endpoints, see Regions and Endpoints (https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
+//     in the Amazon Web Services General Reference.
 //
 // The following operations are related to PutBucketAcl:
 //
-//    * CreateBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
+//   - CreateBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 //
-//    * DeleteBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
+//   - DeleteBucket (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
 //
-//    * GetObjectAcl (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
+//   - GetObjectAcl (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -5015,14 +4966,13 @@ const opPutBucketCors = "PutBucketCors"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutBucketCorsRequest method.
+//	req, resp := client.PutBucketCorsRequest(params)
 //
-//    // Example sending a request using the PutBucketCorsRequest method.
-//    req, resp := client.PutBucketCorsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketCors
 func (c *S3) PutBucketCorsRequest(input *PutBucketCorsInput) (req *request.Request, output *PutBucketCorsOutput) {
@@ -5071,14 +5021,14 @@ func (c *S3) PutBucketCorsRequest(input *PutBucketCorsInput) (req *request.Reque
 // a cross-origin request. For a rule to match, the following conditions must
 // be met:
 //
-//    * The request's Origin header must match AllowedOrigin elements.
+//   - The request's Origin header must match AllowedOrigin elements.
 //
-//    * The request method (for example, GET, PUT, HEAD, and so on) or the Access-Control-Request-Method
-//    header in case of a pre-flight OPTIONS request must be one of the AllowedMethod
-//    elements.
+//   - The request method (for example, GET, PUT, HEAD, and so on) or the Access-Control-Request-Method
+//     header in case of a pre-flight OPTIONS request must be one of the AllowedMethod
+//     elements.
 //
-//    * Every header specified in the Access-Control-Request-Headers request
-//    header of a pre-flight request must match an AllowedHeader element.
+//   - Every header specified in the Access-Control-Request-Headers request
+//     header of a pre-flight request must match an AllowedHeader element.
 //
 // For more information about CORS, go to Enabling Cross-Origin Resource Sharing
 // (https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the Amazon
@@ -5086,11 +5036,11 @@ func (c *S3) PutBucketCorsRequest(input *PutBucketCorsInput) (req *request.Reque
 //
 // The following operations are related to PutBucketCors:
 //
-//    * GetBucketCors (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketCors.html)
+//   - GetBucketCors (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketCors.html)
 //
-//    * DeleteBucketCors (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html)
+//   - DeleteBucketCors (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html)
 //
-//    * RESTOPTIONSobject (https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
+//   - RESTOPTIONSobject (https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -5136,14 +5086,13 @@ const opPutBucketLifecycleConfiguration = "PutBucketLifecycleConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutBucketLifecycleConfigurationRequest method.
+//	req, resp := client.PutBucketLifecycleConfigurationRequest(params)
 //
-//    // Example sending a request using the PutBucketLifecycleConfigurationRequest method.
-//    req, resp := client.PutBucketLifecycleConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycleConfiguration
 func (c *S3) PutBucketLifecycleConfigurationRequest(input *PutBucketLifecycleConfigurationInput) (req *request.Request, output *PutBucketLifecycleConfigurationOutput) {
@@ -5182,30 +5131,30 @@ func (c *S3) PutBucketLifecycleConfigurationRequest(input *PutBucketLifecycleCon
 // is supported for backward compatibility. For the related API description,
 // see PutBucketLifecycle (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html).
 //
-// Rules
+// # Rules
 //
 // You specify the lifecycle configuration in your request body. The lifecycle
 // configuration is specified as XML consisting of one or more rules. An Amazon
 // S3 Lifecycle configuration can have up to 1,000 rules. This limit is not
 // adjustable. Each rule consists of the following:
 //
-//    * A filter identifying a subset of objects to which the rule applies.
-//    The filter can be based on a key name prefix, object tags, or a combination
-//    of both.
+//   - A filter identifying a subset of objects to which the rule applies.
+//     The filter can be based on a key name prefix, object tags, or a combination
+//     of both.
 //
-//    * A status indicating whether the rule is in effect.
+//   - A status indicating whether the rule is in effect.
 //
-//    * One or more lifecycle transition and expiration actions that you want
-//    Amazon S3 to perform on the objects identified by the filter. If the state
-//    of your bucket is versioning-enabled or versioning-suspended, you can
-//    have many versions of the same object (one current version and zero or
-//    more noncurrent versions). Amazon S3 provides predefined actions that
-//    you can specify for current and noncurrent object versions.
+//   - One or more lifecycle transition and expiration actions that you want
+//     Amazon S3 to perform on the objects identified by the filter. If the state
+//     of your bucket is versioning-enabled or versioning-suspended, you can
+//     have many versions of the same object (one current version and zero or
+//     more noncurrent versions). Amazon S3 provides predefined actions that
+//     you can specify for current and noncurrent object versions.
 //
 // For more information, see Object Lifecycle Management (https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
 // and Lifecycle Configuration Elements (https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html).
 //
-// Permissions
+// # Permissions
 //
 // By default, all Amazon S3 resources are private, including buckets, objects,
 // and related subresources (for example, lifecycle configuration and website
@@ -5219,22 +5168,22 @@ func (c *S3) PutBucketLifecycleConfigurationRequest(input *PutBucketLifecycleCon
 // or deleting objects from your bucket, you must deny them permissions for
 // the following actions:
 //
-//    * s3:DeleteObject
+//   - s3:DeleteObject
 //
-//    * s3:DeleteObjectVersion
+//   - s3:DeleteObjectVersion
 //
-//    * s3:PutLifecycleConfiguration
+//   - s3:PutLifecycleConfiguration
 //
 // For more information about permissions, see Managing Access Permissions to
 // Your Amazon S3 Resources (https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 //
 // The following operations are related to PutBucketLifecycleConfiguration:
 //
-//    * Examples of Lifecycle Configuration (https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-configuration-examples.html)
+//   - Examples of Lifecycle Configuration (https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-configuration-examples.html)
 //
-//    * GetBucketLifecycleConfiguration (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
+//   - GetBucketLifecycleConfiguration (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
 //
-//    * DeleteBucketLifecycle (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
+//   - DeleteBucketLifecycle (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -5280,14 +5229,13 @@ const opPutBucketLogging = "PutBucketLogging"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutBucketLoggingRequest method.
+//	req, resp := client.PutBucketLoggingRequest(params)
 //
-//    // Example sending a request using the PutBucketLoggingRequest method.
-//    req, resp := client.PutBucketLoggingRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLogging
 func (c *S3) PutBucketLoggingRequest(input *PutBucketLoggingInput) (req *request.Request, output *PutBucketLoggingOutput) {
@@ -5357,14 +5305,13 @@ const opPutBucketProtectionConfiguration = "PutBucketProtectionConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutBucketProtectionConfigurationRequest method.
+//	req, resp := client.PutBucketProtectionConfigurationRequest(params)
 //
-//    // Example sending a request using the PutBucketProtectionConfigurationRequest method.
-//    req, resp := client.PutBucketProtectionConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketProtectionConfiguration
 func (c *S3) PutBucketProtectionConfigurationRequest(input *PutBucketProtectionConfigurationInput) (req *request.Request, output *PutBucketProtectionConfigurationOutput) {
@@ -5439,14 +5386,13 @@ const opPutBucketReplication = "PutBucketReplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutBucketReplicationRequest method.
+//	req, resp := client.PutBucketReplicationRequest(params)
 //
-//    // Example sending a request using the PutBucketReplicationRequest method.
-//    req, resp := client.PutBucketReplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketReplication
 func (c *S3) PutBucketReplicationRequest(input *PutBucketReplicationInput) (req *request.Request, output *PutBucketReplicationOutput) {
@@ -5516,14 +5462,13 @@ const opPutBucketVersioning = "PutBucketVersioning"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutBucketVersioningRequest method.
+//	req, resp := client.PutBucketVersioningRequest(params)
 //
-//    // Example sending a request using the PutBucketVersioningRequest method.
-//    req, resp := client.PutBucketVersioningRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning
 func (c *S3) PutBucketVersioningRequest(input *PutBucketVersioningInput) (req *request.Request, output *PutBucketVersioningOutput) {
@@ -5593,14 +5538,13 @@ const opPutBucketWebsite = "PutBucketWebsite"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutBucketWebsiteRequest method.
+//	req, resp := client.PutBucketWebsiteRequest(params)
 //
-//    // Example sending a request using the PutBucketWebsiteRequest method.
-//    req, resp := client.PutBucketWebsiteRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite
 func (c *S3) PutBucketWebsiteRequest(input *PutBucketWebsiteInput) (req *request.Request, output *PutBucketWebsiteOutput) {
@@ -5642,13 +5586,13 @@ func (c *S3) PutBucketWebsiteRequest(input *PutBucketWebsiteInput) (req *request
 // are sent to another website, you don't need to provide index document name
 // for the bucket.
 //
-//    * WebsiteConfiguration
+//   - WebsiteConfiguration
 //
-//    * RedirectAllRequestsTo
+//   - RedirectAllRequestsTo
 //
-//    * HostName
+//   - HostName
 //
-//    * Protocol
+//   - Protocol
 //
 // If you want granular control over redirects, you can use the following elements
 // to add routing rules that describe conditions for redirecting requests and
@@ -5656,37 +5600,37 @@ func (c *S3) PutBucketWebsiteRequest(input *PutBucketWebsiteInput) (req *request
 // must provide an index document for the bucket, because some requests might
 // not be redirected.
 //
-//    * WebsiteConfiguration
+//   - WebsiteConfiguration
 //
-//    * IndexDocument
+//   - IndexDocument
 //
-//    * Suffix
+//   - Suffix
 //
-//    * ErrorDocument
+//   - ErrorDocument
 //
-//    * Key
+//   - Key
 //
-//    * RoutingRules
+//   - RoutingRules
 //
-//    * RoutingRule
+//   - RoutingRule
 //
-//    * Condition
+//   - Condition
 //
-//    * HttpErrorCodeReturnedEquals
+//   - HttpErrorCodeReturnedEquals
 //
-//    * KeyPrefixEquals
+//   - KeyPrefixEquals
 //
-//    * Redirect
+//   - Redirect
 //
-//    * Protocol
+//   - Protocol
 //
-//    * HostName
+//   - HostName
 //
-//    * ReplaceKeyPrefixWith
+//   - ReplaceKeyPrefixWith
 //
-//    * ReplaceKeyWith
+//   - ReplaceKeyWith
 //
-//    * HttpRedirectCode
+//   - HttpRedirectCode
 //
 // Amazon S3 has a limitation of 50 routing rules per website configuration.
 // If you require more than 50 routing rules, you can use object redirect. For
@@ -5737,14 +5681,13 @@ const opPutObject = "PutObject"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutObjectRequest method.
+//	req, resp := client.PutObjectRequest(params)
 //
-//    // Example sending a request using the PutObjectRequest method.
-//    req, resp := client.PutObjectRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject
 func (c *S3) PutObjectRequest(input *PutObjectInput) (req *request.Request, output *PutObjectOutput) {
@@ -5784,20 +5727,20 @@ func (c *S3) PutObjectRequest(input *PutObjectInput) (req *request.Request, outp
 // you can calculate the MD5 while putting an object to Amazon S3 and compare
 // the returned ETag to the calculated MD5 value.
 //
-//    * To successfully complete the PutObject request, you must have the s3:PutObject
-//    in your IAM permissions.
+//   - To successfully complete the PutObject request, you must have the s3:PutObject
+//     in your IAM permissions.
 //
-//    * To successfully change the objects acl of your PutObject request, you
-//    must have the s3:PutObjectAcl in your IAM permissions.
+//   - To successfully change the objects acl of your PutObject request, you
+//     must have the s3:PutObjectAcl in your IAM permissions.
 //
-//    * To successfully set the tag-set with your PutObject request, you must
-//    have the s3:PutObjectTagging in your IAM permissions.
+//   - To successfully set the tag-set with your PutObject request, you must
+//     have the s3:PutObjectTagging in your IAM permissions.
 //
-//    * The Content-MD5 header is required for any request to upload an object
-//    with a retention period configured using Amazon S3 Object Lock. For more
-//    information about Amazon S3 Object Lock, see Amazon S3 Object Lock Overview
-//    (https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)
-//    in the Amazon S3 User Guide.
+//   - The Content-MD5 header is required for any request to upload an object
+//     with a retention period configured using Amazon S3 Object Lock. For more
+//     information about Amazon S3 Object Lock, see Amazon S3 Object Lock Overview
+//     (https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)
+//     in the Amazon S3 User Guide.
 //
 // You have four mutually exclusive options to protect data using server-side
 // encryption in Amazon S3, depending on how you choose to manage the encryption
@@ -5849,9 +5792,9 @@ func (c *S3) PutObjectRequest(input *PutObjectInput) (req *request.Request, outp
 //
 // For more information about related Amazon S3 APIs, see the following:
 //
-//    * CopyObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html)
+//   - CopyObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html)
 //
-//    * DeleteObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
+//   - DeleteObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -5897,14 +5840,13 @@ const opPutObjectAcl = "PutObjectAcl"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutObjectAclRequest method.
+//	req, resp := client.PutObjectAclRequest(params)
 //
-//    // Example sending a request using the PutObjectAclRequest method.
-//    req, resp := client.PutObjectAclRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectAcl
 func (c *S3) PutObjectAclRequest(input *PutObjectAclInput) (req *request.Request, output *PutObjectAclOutput) {
@@ -5952,67 +5894,67 @@ func (c *S3) PutObjectAclRequest(input *PutObjectAclInput) (req *request.Request
 // object ownership (https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html)
 // in the Amazon S3 User Guide.
 //
-// Permissions
+// # Permissions
 //
 // You can set access permissions using one of the following methods:
 //
-//    * Specify a canned ACL with the x-amz-acl request header. Amazon S3 supports
-//    a set of predefined ACLs, known as canned ACLs. Each canned ACL has a
-//    predefined set of grantees and permissions. Specify the canned ACL name
-//    as the value of x-amz-acl. If you use this header, you cannot use other
-//    access control-specific headers in your request. For more information,
-//    see Canned ACL (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL).
+//   - Specify a canned ACL with the x-amz-acl request header. Amazon S3 supports
+//     a set of predefined ACLs, known as canned ACLs. Each canned ACL has a
+//     predefined set of grantees and permissions. Specify the canned ACL name
+//     as the value of x-amz-acl. If you use this header, you cannot use other
+//     access control-specific headers in your request. For more information,
+//     see Canned ACL (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL).
 //
-//    * Specify access permissions explicitly with the x-amz-grant-read, x-amz-grant-read-acp,
-//    x-amz-grant-write-acp, and x-amz-grant-full-control headers. When using
-//    these headers, you specify explicit access permissions and grantees (Amazon
-//    Web Services accounts or Amazon S3 groups) who will receive the permission.
-//    If you use these ACL-specific headers, you cannot use x-amz-acl header
-//    to set a canned ACL. These parameters map to the set of permissions that
-//    Amazon S3 supports in an ACL. For more information, see Access Control
-//    List (ACL) Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html).
-//    You specify each grantee as a type=value pair, where the type is one of
-//    the following: id – if the value specified is the canonical user ID
-//    of an Amazon Web Services account uri – if you are granting permissions
-//    to a predefined group emailAddress – if the value specified is the email
-//    address of an Amazon Web Services account Using email addresses to specify
-//    a grantee is only supported in the following Amazon Web Services Regions:
-//    US East (N. Virginia) US West (N. California) US West (Oregon) Asia Pacific
-//    (Singapore) Asia Pacific (Sydney) Asia Pacific (Tokyo) Europe (Ireland)
-//    South America (São Paulo) For a list of all the Amazon S3 supported Regions
-//    and endpoints, see Regions and Endpoints (https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
-//    in the Amazon Web Services General Reference. For example, the following
-//    x-amz-grant-read header grants list objects permission to the two Amazon
-//    Web Services accounts identified by their email addresses. x-amz-grant-read:
-//    emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
+//   - Specify access permissions explicitly with the x-amz-grant-read, x-amz-grant-read-acp,
+//     x-amz-grant-write-acp, and x-amz-grant-full-control headers. When using
+//     these headers, you specify explicit access permissions and grantees (Amazon
+//     Web Services accounts or Amazon S3 groups) who will receive the permission.
+//     If you use these ACL-specific headers, you cannot use x-amz-acl header
+//     to set a canned ACL. These parameters map to the set of permissions that
+//     Amazon S3 supports in an ACL. For more information, see Access Control
+//     List (ACL) Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html).
+//     You specify each grantee as a type=value pair, where the type is one of
+//     the following: id – if the value specified is the canonical user ID
+//     of an Amazon Web Services account uri – if you are granting permissions
+//     to a predefined group emailAddress – if the value specified is the email
+//     address of an Amazon Web Services account Using email addresses to specify
+//     a grantee is only supported in the following Amazon Web Services Regions:
+//     US East (N. Virginia) US West (N. California) US West (Oregon) Asia Pacific
+//     (Singapore) Asia Pacific (Sydney) Asia Pacific (Tokyo) Europe (Ireland)
+//     South America (São Paulo) For a list of all the Amazon S3 supported Regions
+//     and endpoints, see Regions and Endpoints (https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
+//     in the Amazon Web Services General Reference. For example, the following
+//     x-amz-grant-read header grants list objects permission to the two Amazon
+//     Web Services accounts identified by their email addresses. x-amz-grant-read:
+//     emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
 //
 // You can use either a canned ACL or specify access permissions explicitly.
 // You cannot do both.
 //
-// Grantee Values
+// # Grantee Values
 //
 // You can specify the person (grantee) to whom you're assigning access rights
 // (using request elements) in the following ways:
 //
-//    * By the person's ID: <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-//    xsi:type="CanonicalUser"><ID><>ID<></ID><DisplayName><>GranteesEmail<></DisplayName>
-//    </Grantee> DisplayName is optional and ignored in the request.
+//   - By the person's ID: <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+//     xsi:type="CanonicalUser"><ID><>ID<></ID><DisplayName><>GranteesEmail<></DisplayName>
+//     </Grantee> DisplayName is optional and ignored in the request.
 //
-//    * By URI: <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-//    xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee>
+//   - By URI: <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+//     xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee>
 //
-//    * By Email address: <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-//    xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>lt;/Grantee>
-//    The grantee is resolved to the CanonicalUser and, in a response to a GET
-//    Object acl request, appears as the CanonicalUser. Using email addresses
-//    to specify a grantee is only supported in the following Amazon Web Services
-//    Regions: US East (N. Virginia) US West (N. California) US West (Oregon)
-//    Asia Pacific (Singapore) Asia Pacific (Sydney) Asia Pacific (Tokyo) Europe
-//    (Ireland) South America (São Paulo) For a list of all the Amazon S3 supported
-//    Regions and endpoints, see Regions and Endpoints (https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
-//    in the Amazon Web Services General Reference.
+//   - By Email address: <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+//     xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>lt;/Grantee>
+//     The grantee is resolved to the CanonicalUser and, in a response to a GET
+//     Object acl request, appears as the CanonicalUser. Using email addresses
+//     to specify a grantee is only supported in the following Amazon Web Services
+//     Regions: US East (N. Virginia) US West (N. California) US West (Oregon)
+//     Asia Pacific (Singapore) Asia Pacific (Sydney) Asia Pacific (Tokyo) Europe
+//     (Ireland) South America (São Paulo) For a list of all the Amazon S3 supported
+//     Regions and endpoints, see Regions and Endpoints (https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
+//     in the Amazon Web Services General Reference.
 //
-// Versioning
+// # Versioning
 //
 // The ACL of an object is set at the object version level. By default, PUT
 // sets the ACL of the current version of an object. To set the ACL of a different
@@ -6020,9 +5962,9 @@ func (c *S3) PutObjectAclRequest(input *PutObjectAclInput) (req *request.Request
 //
 // The following operations are related to PutObjectAcl:
 //
-//    * CopyObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html)
+//   - CopyObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html)
 //
-//    * GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+//   - GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -6032,8 +5974,8 @@ func (c *S3) PutObjectAclRequest(input *PutObjectAclInput) (req *request.Request
 // API operation PutObjectAcl for usage and error information.
 //
 // Returned Error Codes:
-//   * ErrCodeNoSuchKey "NoSuchKey"
-//   The specified key does not exist.
+//   - ErrCodeNoSuchKey "NoSuchKey"
+//     The specified key does not exist.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectAcl
 func (c *S3) PutObjectAcl(input *PutObjectAclInput) (*PutObjectAclOutput, error) {
@@ -6073,14 +6015,13 @@ const opPutObjectLegalHold = "PutObjectLegalHold"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutObjectLegalHoldRequest method.
+//	req, resp := client.PutObjectLegalHoldRequest(params)
 //
-//    // Example sending a request using the PutObjectLegalHoldRequest method.
-//    req, resp := client.PutObjectLegalHoldRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectLegalHold
 func (c *S3) PutObjectLegalHoldRequest(input *PutObjectLegalHoldInput) (req *request.Request, output *PutObjectLegalHoldOutput) {
@@ -6154,14 +6095,13 @@ const opPutObjectLockConfiguration = "PutObjectLockConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutObjectLockConfigurationRequest method.
+//	req, resp := client.PutObjectLockConfigurationRequest(params)
 //
-//    // Example sending a request using the PutObjectLockConfigurationRequest method.
-//    req, resp := client.PutObjectLockConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectLockConfiguration
 func (c *S3) PutObjectLockConfigurationRequest(input *PutObjectLockConfigurationInput) (req *request.Request, output *PutObjectLockConfigurationOutput) {
@@ -6191,13 +6131,13 @@ func (c *S3) PutObjectLockConfigurationRequest(input *PutObjectLockConfiguration
 // object placed in the specified bucket. For more information, see Locking
 // Objects (https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
 //
-//    * The DefaultRetention settings require both a mode and a period.
+//   - The DefaultRetention settings require both a mode and a period.
 //
-//    * The DefaultRetention period can be either Days or Years but you must
-//    select one. You cannot specify Days and Years at the same time.
+//   - The DefaultRetention period can be either Days or Years but you must
+//     select one. You cannot specify Days and Years at the same time.
 //
-//    * You can only enable Object Lock for new buckets. If you want to turn
-//    on Object Lock for an existing bucket, contact Amazon Web Services Support.
+//   - You can only enable Object Lock for new buckets. If you want to turn
+//     on Object Lock for an existing bucket, contact Amazon Web Services Support.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -6243,14 +6183,13 @@ const opPutObjectRetention = "PutObjectRetention"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutObjectRetentionRequest method.
+//	req, resp := client.PutObjectRetentionRequest(params)
 //
-//    // Example sending a request using the PutObjectRetentionRequest method.
-//    req, resp := client.PutObjectRetentionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectRetention
 func (c *S3) PutObjectRetentionRequest(input *PutObjectRetentionInput) (req *request.Request, output *PutObjectRetentionOutput) {
@@ -6327,14 +6266,13 @@ const opPutObjectTagging = "PutObjectTagging"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutObjectTaggingRequest method.
+//	req, resp := client.PutObjectTaggingRequest(params)
 //
-//    // Example sending a request using the PutObjectTaggingRequest method.
-//    req, resp := client.PutObjectTaggingRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectTagging
 func (c *S3) PutObjectTaggingRequest(input *PutObjectTaggingInput) (req *request.Request, output *PutObjectTaggingOutput) {
@@ -6381,23 +6319,23 @@ func (c *S3) PutObjectTaggingRequest(input *PutObjectTaggingInput) (req *request
 // PutObjectTagging has the following special errors. For more Amazon S3 errors
 // see, Error Responses (https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).
 //
-//    * InvalidTag - The tag provided was not a valid tag. This error can occur
-//    if the tag did not pass input validation. For more information, see Object
-//    Tagging (https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+//   - InvalidTag - The tag provided was not a valid tag. This error can occur
+//     if the tag did not pass input validation. For more information, see Object
+//     Tagging (https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
 //
-//    * MalformedXML - The XML provided does not match the schema.
+//   - MalformedXML - The XML provided does not match the schema.
 //
-//    * OperationAborted - A conflicting conditional action is currently in
-//    progress against this resource. Please try again.
+//   - OperationAborted - A conflicting conditional action is currently in
+//     progress against this resource. Please try again.
 //
-//    * InternalError - The service was unable to apply the provided tag to
-//    the object.
+//   - InternalError - The service was unable to apply the provided tag to
+//     the object.
 //
 // The following operations are related to PutObjectTagging:
 //
-//    * GetObjectTagging (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
+//   - GetObjectTagging (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
 //
-//    * DeleteObjectTagging (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html)
+//   - DeleteObjectTagging (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -6443,14 +6381,13 @@ const opPutPublicAccessBlock = "PutPublicAccessBlock"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutPublicAccessBlockRequest method.
+//	req, resp := client.PutPublicAccessBlockRequest(params)
 //
-//    // Example sending a request using the PutPublicAccessBlockRequest method.
-//    req, resp := client.PutPublicAccessBlockRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutPublicAccessBlock
 func (c *S3) PutPublicAccessBlockRequest(input *PutPublicAccessBlockInput) (req *request.Request, output *PutPublicAccessBlockOutput) {
@@ -6493,13 +6430,13 @@ func (c *S3) PutPublicAccessBlockRequest(input *PutPublicAccessBlockInput) (req 
 //
 // The following operations are related to PutPublicAccessBlock:
 //
-//    * GetPublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetPublicAccessBlock.html)
+//   - GetPublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetPublicAccessBlock.html)
 //
-//    * DeletePublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
+//   - DeletePublicAccessBlock (https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
 //
-//    * GetBucketPolicyStatus (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicyStatus.html)
+//   - GetBucketPolicyStatus (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicyStatus.html)
 //
-//    * Using Amazon S3 Block Public Access (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
+//   - Using Amazon S3 Block Public Access (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -6545,14 +6482,13 @@ const opRestoreObject = "RestoreObject"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the RestoreObjectRequest method.
+//	req, resp := client.RestoreObjectRequest(params)
 //
-//    // Example sending a request using the RestoreObjectRequest method.
-//    req, resp := client.RestoreObjectRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject
 func (c *S3) RestoreObjectRequest(input *RestoreObjectInput) (req *request.Request, output *RestoreObjectOutput) {
@@ -6574,66 +6510,66 @@ func (c *S3) RestoreObjectRequest(input *RestoreObjectInput) (req *request.Reque
 
 // RestoreObject API operation for Amazon Simple Storage Service.
 //
-// Restores an archived copy of an object back into Amazon S3
+// # Restores an archived copy of an object back into Amazon S3
 //
 // This action is not supported by Amazon S3 on Outposts.
 //
 // This action performs the following types of requests:
 //
-//    * select - Perform a select query on an archived object
+//   - select - Perform a select query on an archived object
 //
-//    * restore an archive - Restore an archived object
+//   - restore an archive - Restore an archived object
 //
 // For more information about the S3 structure in the request body, see the
 // following:
 //
-//    * PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+//   - PutObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 //
-//    * Managing Access with ACLs (https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html)
-//    in the Amazon S3 User Guide
+//   - Managing Access with ACLs (https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html)
+//     in the Amazon S3 User Guide
 //
-//    * Protecting Data Using Server-Side Encryption (https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html)
-//    in the Amazon S3 User Guide
+//   - Protecting Data Using Server-Side Encryption (https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html)
+//     in the Amazon S3 User Guide
 //
 // Define the SQL expression for the SELECT type of restoration for your query
 // in the request body's SelectParameters structure. You can use expressions
 // like the following examples.
 //
-//    * The following expression returns all records from the specified object.
-//    SELECT * FROM Object
+//   - The following expression returns all records from the specified object.
+//     SELECT * FROM Object
 //
-//    * Assuming that you are not using any headers for data stored in the object,
-//    you can specify columns with positional headers. SELECT s._1, s._2 FROM
-//    Object s WHERE s._3 > 100
+//   - Assuming that you are not using any headers for data stored in the object,
+//     you can specify columns with positional headers. SELECT s._1, s._2 FROM
+//     Object s WHERE s._3 > 100
 //
-//    * If you have headers and you set the fileHeaderInfo in the CSV structure
-//    in the request body to USE, you can specify headers in the query. (If
-//    you set the fileHeaderInfo field to IGNORE, the first row is skipped for
-//    the query.) You cannot mix ordinal positions with header column names.
-//    SELECT s.Id, s.FirstName, s.SSN FROM S3Object s
+//   - If you have headers and you set the fileHeaderInfo in the CSV structure
+//     in the request body to USE, you can specify headers in the query. (If
+//     you set the fileHeaderInfo field to IGNORE, the first row is skipped for
+//     the query.) You cannot mix ordinal positions with header column names.
+//     SELECT s.Id, s.FirstName, s.SSN FROM S3Object s
 //
 // When making a select request, you can also do the following:
 //
-//    * To expedite your queries, specify the Expedited tier. For more information
-//    about tiers, see "Restoring Archives," later in this topic.
+//   - To expedite your queries, specify the Expedited tier. For more information
+//     about tiers, see "Restoring Archives," later in this topic.
 //
-//    * Specify details about the data serialization format of both the input
-//    object that is being queried and the serialization of the CSV-encoded
-//    query results.
+//   - Specify details about the data serialization format of both the input
+//     object that is being queried and the serialization of the CSV-encoded
+//     query results.
 //
 // The following are additional important facts about the select feature:
 //
-//    * The output results are new Amazon S3 objects. Unlike archive retrievals,
-//    they are stored until explicitly deleted-manually or through a lifecycle
-//    configuration.
+//   - The output results are new Amazon S3 objects. Unlike archive retrievals,
+//     they are stored until explicitly deleted-manually or through a lifecycle
+//     configuration.
 //
-//    * You can issue more than one select request on the same Amazon S3 object.
-//    Amazon S3 doesn't duplicate requests, so avoid issuing duplicate requests.
+//   - You can issue more than one select request on the same Amazon S3 object.
+//     Amazon S3 doesn't duplicate requests, so avoid issuing duplicate requests.
 //
-//    * Amazon S3 accepts a select request even if the object has already been
-//    restored. A select request doesn’t return error response 409.
+//   - Amazon S3 accepts a select request even if the object has already been
+//     restored. A select request doesn’t return error response 409.
 //
-// Permissions
+// # Permissions
 //
 // To use this operation, you must have permissions to perform the s3:RestoreObject
 // action. The bucket owner has this permission by default and can grant this
@@ -6642,7 +6578,7 @@ func (c *S3) RestoreObjectRequest(input *RestoreObjectInput) (req *request.Reque
 // and Managing Access Permissions to Your Amazon S3 Resources (https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html)
 // in the Amazon S3 User Guide.
 //
-// Restoring objects
+// # Restoring objects
 //
 // Objects that you archive to the S3 Glacier Flexible Retrieval Flexible Retrieval
 // or S3 Glacier Deep Archive storage class, and S3 Intelligent-Tiering Archive
@@ -6663,36 +6599,36 @@ func (c *S3) RestoreObjectRequest(input *RestoreObjectInput) (req *request.Reque
 // When restoring an archived object, you can specify one of the following data
 // access tier options in the Tier element of the request body:
 //
-//    * Expedited - Expedited retrievals allow you to quickly access your data
-//    stored in the S3 Glacier Flexible Retrieval Flexible Retrieval storage
-//    class or S3 Intelligent-Tiering Archive tier when occasional urgent requests
-//    for restoring archives are required. For all but the largest archived
-//    objects (250 MB+), data accessed using Expedited retrievals is typically
-//    made available within 1–5 minutes. Provisioned capacity ensures that
-//    retrieval capacity for Expedited retrievals is available when you need
-//    it. Expedited retrievals and provisioned capacity are not available for
-//    objects stored in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
-//    Deep Archive tier.
+//   - Expedited - Expedited retrievals allow you to quickly access your data
+//     stored in the S3 Glacier Flexible Retrieval Flexible Retrieval storage
+//     class or S3 Intelligent-Tiering Archive tier when occasional urgent requests
+//     for restoring archives are required. For all but the largest archived
+//     objects (250 MB+), data accessed using Expedited retrievals is typically
+//     made available within 1–5 minutes. Provisioned capacity ensures that
+//     retrieval capacity for Expedited retrievals is available when you need
+//     it. Expedited retrievals and provisioned capacity are not available for
+//     objects stored in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
+//     Deep Archive tier.
 //
-//    * Standard - Standard retrievals allow you to access any of your archived
-//    objects within several hours. This is the default option for retrieval
-//    requests that do not specify the retrieval option. Standard retrievals
-//    typically finish within 3–5 hours for objects stored in the S3 Glacier
-//    Flexible Retrieval Flexible Retrieval storage class or S3 Intelligent-Tiering
-//    Archive tier. They typically finish within 12 hours for objects stored
-//    in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
-//    Deep Archive tier. Standard retrievals are free for objects stored in
-//    S3 Intelligent-Tiering.
+//   - Standard - Standard retrievals allow you to access any of your archived
+//     objects within several hours. This is the default option for retrieval
+//     requests that do not specify the retrieval option. Standard retrievals
+//     typically finish within 3–5 hours for objects stored in the S3 Glacier
+//     Flexible Retrieval Flexible Retrieval storage class or S3 Intelligent-Tiering
+//     Archive tier. They typically finish within 12 hours for objects stored
+//     in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
+//     Deep Archive tier. Standard retrievals are free for objects stored in
+//     S3 Intelligent-Tiering.
 //
-//    * Bulk - Bulk retrievals free for objects stored in the S3 Glacier Flexible
-//    Retrieval and S3 Intelligent-Tiering storage classes, enabling you to
-//    retrieve large amounts, even petabytes, of data at no cost. Bulk retrievals
-//    typically finish within 5–12 hours for objects stored in the S3 Glacier
-//    Flexible Retrieval Flexible Retrieval storage class or S3 Intelligent-Tiering
-//    Archive tier. Bulk retrievals are also the lowest-cost retrieval option
-//    when restoring objects from S3 Glacier Deep Archive. They typically finish
-//    within 48 hours for objects stored in the S3 Glacier Deep Archive storage
-//    class or S3 Intelligent-Tiering Deep Archive tier.
+//   - Bulk - Bulk retrievals free for objects stored in the S3 Glacier Flexible
+//     Retrieval and S3 Intelligent-Tiering storage classes, enabling you to
+//     retrieve large amounts, even petabytes, of data at no cost. Bulk retrievals
+//     typically finish within 5–12 hours for objects stored in the S3 Glacier
+//     Flexible Retrieval Flexible Retrieval storage class or S3 Intelligent-Tiering
+//     Archive tier. Bulk retrievals are also the lowest-cost retrieval option
+//     when restoring objects from S3 Glacier Deep Archive. They typically finish
+//     within 48 hours for objects stored in the S3 Glacier Deep Archive storage
+//     class or S3 Intelligent-Tiering Deep Archive tier.
 //
 // For more information about archive retrieval options and provisioned capacity
 // for Expedited data access, see Restoring Archived Objects (https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html)
@@ -6725,31 +6661,31 @@ func (c *S3) RestoreObjectRequest(input *RestoreObjectInput) (req *request.Reque
 // and Object Lifecycle Management (https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
 // in Amazon S3 User Guide.
 //
-// Responses
+// # Responses
 //
 // A successful action returns either the 200 OK or 202 Accepted status code.
 //
-//    * If the object is not previously restored, then Amazon S3 returns 202
-//    Accepted in the response.
+//   - If the object is not previously restored, then Amazon S3 returns 202
+//     Accepted in the response.
 //
-//    * If the object is previously restored, Amazon S3 returns 200 OK in the
-//    response.
+//   - If the object is previously restored, Amazon S3 returns 200 OK in the
+//     response.
 //
-//    * Special errors: Code: RestoreAlreadyInProgress Cause: Object restore
-//    is already in progress. (This error does not apply to SELECT type requests.)
-//    HTTP Status Code: 409 Conflict SOAP Fault Code Prefix: Client
+//   - Special errors: Code: RestoreAlreadyInProgress Cause: Object restore
+//     is already in progress. (This error does not apply to SELECT type requests.)
+//     HTTP Status Code: 409 Conflict SOAP Fault Code Prefix: Client
 //
-//    * Code: GlacierExpeditedRetrievalNotAvailable Cause: expedited retrievals
-//    are currently not available. Try again later. (Returned if there is insufficient
-//    capacity to process the Expedited request. This error applies only to
-//    Expedited retrievals and not to S3 Standard or Bulk retrievals.) HTTP
-//    Status Code: 503 SOAP Fault Code Prefix: N/A
+//   - Code: GlacierExpeditedRetrievalNotAvailable Cause: expedited retrievals
+//     are currently not available. Try again later. (Returned if there is insufficient
+//     capacity to process the Expedited request. This error applies only to
+//     Expedited retrievals and not to S3 Standard or Bulk retrievals.) HTTP
+//     Status Code: 503 SOAP Fault Code Prefix: N/A
 //
 // The following operations are related to RestoreObject:
 //
-//    * PutBucketLifecycleConfiguration (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html)
+//   - PutBucketLifecycleConfiguration (https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html)
 //
-//    * GetBucketNotificationConfiguration (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html)
+//   - GetBucketNotificationConfiguration (https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -6759,8 +6695,8 @@ func (c *S3) RestoreObjectRequest(input *RestoreObjectInput) (req *request.Reque
 // API operation RestoreObject for usage and error information.
 //
 // Returned Error Codes:
-//   * ErrCodeObjectAlreadyInActiveTierError "ObjectAlreadyInActiveTierError"
-//   This action is not allowed against this storage tier.
+//   - ErrCodeObjectAlreadyInActiveTierError "ObjectAlreadyInActiveTierError"
+//     This action is not allowed against this storage tier.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject
 func (c *S3) RestoreObject(input *RestoreObjectInput) (*RestoreObjectOutput, error) {
@@ -6800,14 +6736,13 @@ const opUploadPart = "UploadPart"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UploadPartRequest method.
+//	req, resp := client.UploadPartRequest(params)
 //
-//    // Example sending a request using the UploadPartRequest method.
-//    req, resp := client.UploadPartRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPart
 func (c *S3) UploadPartRequest(input *UploadPartInput) (req *request.Request, output *UploadPartOutput) {
@@ -6902,30 +6837,30 @@ func (c *S3) UploadPartRequest(input *UploadPartInput) (req *request.Request, ou
 // key (SSE-C) in your initiate multipart upload request, you must provide identical
 // encryption information in each part upload using the following headers.
 //
-//    * x-amz-server-side-encryption-customer-algorithm
+//   - x-amz-server-side-encryption-customer-algorithm
 //
-//    * x-amz-server-side-encryption-customer-key
+//   - x-amz-server-side-encryption-customer-key
 //
-//    * x-amz-server-side-encryption-customer-key-MD5
+//   - x-amz-server-side-encryption-customer-key-MD5
 //
 // UploadPart has the following special errors:
 //
-//    * Code: NoSuchUpload Cause: The specified multipart upload does not exist.
-//    The upload ID might be invalid, or the multipart upload might have been
-//    aborted or completed. HTTP Status Code: 404 Not Found SOAP Fault Code
-//    Prefix: Client
+//   - Code: NoSuchUpload Cause: The specified multipart upload does not exist.
+//     The upload ID might be invalid, or the multipart upload might have been
+//     aborted or completed. HTTP Status Code: 404 Not Found SOAP Fault Code
+//     Prefix: Client
 //
 // The following operations are related to UploadPart:
 //
-//    * CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
+//   - CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 //
-//    * CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
+//   - CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 //
-//    * AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
+//   - AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 //
-//    * ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
+//   - ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 //
-//    * ListMultipartUploads (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
+//   - ListMultipartUploads (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -6971,14 +6906,13 @@ const opUploadPartCopy = "UploadPartCopy"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UploadPartCopyRequest method.
+//	req, resp := client.UploadPartCopyRequest(params)
 //
-//    // Example sending a request using the UploadPartCopyRequest method.
-//    req, resp := client.UploadPartCopyRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPartCopy
 func (c *S3) UploadPartCopyRequest(input *UploadPartCopyInput) (req *request.Request, output *UploadPartCopyOutput) {
@@ -7018,39 +6952,39 @@ func (c *S3) UploadPartCopyRequest(input *UploadPartCopyInput) (req *request.Req
 //
 // For more information about using the UploadPartCopy operation, see the following:
 //
-//    * For conceptual information about multipart uploads, see Uploading Objects
-//    Using Multipart Upload (https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html)
-//    in the Amazon S3 User Guide.
+//   - For conceptual information about multipart uploads, see Uploading Objects
+//     Using Multipart Upload (https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html)
+//     in the Amazon S3 User Guide.
 //
-//    * For information about permissions required to use the multipart upload
-//    API, see Multipart Upload and Permissions (https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
-//    in the Amazon S3 User Guide.
+//   - For information about permissions required to use the multipart upload
+//     API, see Multipart Upload and Permissions (https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
+//     in the Amazon S3 User Guide.
 //
-//    * For information about copying objects using a single atomic action vs.
-//    a multipart upload, see Operations on Objects (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html)
-//    in the Amazon S3 User Guide.
+//   - For information about copying objects using a single atomic action vs.
+//     a multipart upload, see Operations on Objects (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html)
+//     in the Amazon S3 User Guide.
 //
-//    * For information about using server-side encryption with customer-provided
-//    encryption keys with the UploadPartCopy operation, see CopyObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html)
-//    and UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html).
+//   - For information about using server-side encryption with customer-provided
+//     encryption keys with the UploadPartCopy operation, see CopyObject (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html)
+//     and UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html).
 //
 // Note the following additional considerations about the request headers x-amz-copy-source-if-match,
 // x-amz-copy-source-if-none-match, x-amz-copy-source-if-unmodified-since, and
 // x-amz-copy-source-if-modified-since:
 //
-//    * Consideration 1 - If both of the x-amz-copy-source-if-match and x-amz-copy-source-if-unmodified-since
-//    headers are present in the request as follows: x-amz-copy-source-if-match
-//    condition evaluates to true, and; x-amz-copy-source-if-unmodified-since
-//    condition evaluates to false; Amazon S3 returns 200 OK and copies the
-//    data.
+//   - Consideration 1 - If both of the x-amz-copy-source-if-match and x-amz-copy-source-if-unmodified-since
+//     headers are present in the request as follows: x-amz-copy-source-if-match
+//     condition evaluates to true, and; x-amz-copy-source-if-unmodified-since
+//     condition evaluates to false; Amazon S3 returns 200 OK and copies the
+//     data.
 //
-//    * Consideration 2 - If both of the x-amz-copy-source-if-none-match and
-//    x-amz-copy-source-if-modified-since headers are present in the request
-//    as follows: x-amz-copy-source-if-none-match condition evaluates to false,
-//    and; x-amz-copy-source-if-modified-since condition evaluates to true;
-//    Amazon S3 returns 412 Precondition Failed response code.
+//   - Consideration 2 - If both of the x-amz-copy-source-if-none-match and
+//     x-amz-copy-source-if-modified-since headers are present in the request
+//     as follows: x-amz-copy-source-if-none-match condition evaluates to false,
+//     and; x-amz-copy-source-if-modified-since condition evaluates to true;
+//     Amazon S3 returns 412 Precondition Failed response code.
 //
-// Versioning
+// # Versioning
 //
 // If your bucket has versioning enabled, you could have multiple versions of
 // the same object. By default, x-amz-copy-source identifies the current version
@@ -7068,26 +7002,26 @@ func (c *S3) UploadPartCopyRequest(input *UploadPartCopyInput) (req *request.Req
 //
 // Special errors
 //
-//    * Code: NoSuchUpload Cause: The specified multipart upload does not exist.
-//    The upload ID might be invalid, or the multipart upload might have been
-//    aborted or completed. HTTP Status Code: 404 Not Found
+//   - Code: NoSuchUpload Cause: The specified multipart upload does not exist.
+//     The upload ID might be invalid, or the multipart upload might have been
+//     aborted or completed. HTTP Status Code: 404 Not Found
 //
-//    * Code: InvalidRequest Cause: The specified copy source is not supported
-//    as a byte-range copy source. HTTP Status Code: 400 Bad Request
+//   - Code: InvalidRequest Cause: The specified copy source is not supported
+//     as a byte-range copy source. HTTP Status Code: 400 Bad Request
 //
 // The following operations are related to UploadPartCopy:
 //
-//    * CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
+//   - CreateMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 //
-//    * UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
+//   - UploadPart (https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 //
-//    * CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
+//   - CompleteMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 //
-//    * AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
+//   - AbortMultipartUpload (https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 //
-//    * ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
+//   - ListParts (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 //
-//    * ListMultipartUploads (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
+//   - ListMultipartUploads (https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -9873,10 +9807,10 @@ func (s *CreateMultipartUploadOutput) SetUploadId(v string) *CreateMultipartUplo
 // The container element for specifying the default Object Lock retention settings
 // for new objects placed in the specified bucket.
 //
-//    * The DefaultRetention settings require both a mode and a period.
+//   - The DefaultRetention settings require both a mode and a period.
 //
-//    * The DefaultRetention period can be either Days or Years but you must
-//    select one. You cannot specify Days and Years at the same time.
+//   - The DefaultRetention period can be either Days or Years but you must
+//     select one. You cannot specify Days and Years at the same time.
 type DefaultRetention struct {
 	_ struct{} `type:"structure"`
 
@@ -12573,6 +12507,8 @@ func (s *GetBucketProtectionConfigurationInput) getBucket() (v string) {
 type GetBucketProtectionConfigurationOutput struct {
 	_ struct{} `type:"structure" payload:"ProtectionConfiguration"`
 
+	IbmProtectionManagementState *string `location:"header" locationName:"x-ibm-protection-management-state" type:"string" enum:"IbmProtectionManagementState"`
+
 	// Bucket protection configuration
 	ProtectionConfiguration *ProtectionConfiguration `type:"structure"`
 }
@@ -12593,6 +12529,12 @@ func (s GetBucketProtectionConfigurationOutput) String() string {
 // value will be replaced with "sensitive".
 func (s GetBucketProtectionConfigurationOutput) GoString() string {
 	return s.String()
+}
+
+// SetIbmProtectionManagementState sets the IbmProtectionManagementState field's value.
+func (s *GetBucketProtectionConfigurationOutput) SetIbmProtectionManagementState(v string) *GetBucketProtectionConfigurationOutput {
+	s.IbmProtectionManagementState = &v
+	return s
 }
 
 // SetProtectionConfiguration sets the ProtectionConfiguration field's value.
@@ -13592,6 +13534,8 @@ func (s *GetObjectLockConfigurationInput) SetExpectedBucketOwner(v string) *GetO
 type GetObjectLockConfigurationOutput struct {
 	_ struct{} `type:"structure" payload:"ObjectLockConfiguration"`
 
+	IbmProtectionManagementState *string `location:"header" locationName:"x-ibm-protection-management-state" type:"string" enum:"IbmProtectionManagementState"`
+
 	// The specified bucket's Object Lock configuration.
 	ObjectLockConfiguration *ObjectLockConfiguration `type:"structure"`
 }
@@ -13612,6 +13556,12 @@ func (s GetObjectLockConfigurationOutput) String() string {
 // value will be replaced with "sensitive".
 func (s GetObjectLockConfigurationOutput) GoString() string {
 	return s.String()
+}
+
+// SetIbmProtectionManagementState sets the IbmProtectionManagementState field's value.
+func (s *GetObjectLockConfigurationOutput) SetIbmProtectionManagementState(v string) *GetObjectLockConfigurationOutput {
+	s.IbmProtectionManagementState = &v
+	return s
 }
 
 // SetObjectLockConfiguration sets the ObjectLockConfiguration field's value.
@@ -21417,11 +21367,11 @@ func (s *ReplicationRule) SetStatus(v string) *ReplicationRule {
 //
 // For example:
 //
-//    * If you specify both a Prefix and a Tag filter, wrap these filters in
-//    an And tag.
+//   - If you specify both a Prefix and a Tag filter, wrap these filters in
+//     an And tag.
 //
-//    * If you specify a filter based on multiple tags, wrap the Tag elements
-//    in an And tag.
+//   - If you specify a filter based on multiple tags, wrap the Tag elements
+//     in an And tag.
 type ReplicationRuleAndOperator struct {
 	_ struct{} `type:"structure"`
 
@@ -23189,6 +23139,18 @@ func ExpirationStatus_Values() []string {
 	return []string{
 		ExpirationStatusEnabled,
 		ExpirationStatusDisabled,
+	}
+}
+
+const (
+	// IbmProtectionManagementStateActive is a IbmProtectionManagementState enum value
+	IbmProtectionManagementStateActive = "active"
+)
+
+// IbmProtectionManagementState_Values returns all elements of the IbmProtectionManagementState enum
+func IbmProtectionManagementState_Values() []string {
+	return []string{
+		IbmProtectionManagementStateActive,
 	}
 }
 

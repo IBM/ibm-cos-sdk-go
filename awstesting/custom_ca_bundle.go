@@ -97,14 +97,17 @@ func createTmpFile(b []byte) (string, error) {
 	return bundleFile.Name(), nil
 }
 
-/* Cert generation steps
+/*
+	Cert generation steps
+
 # Create the CA key
 openssl genrsa -des3 -out ca.key 1024
 
 # Create the CA Cert
-openssl req -new -sha256 -x509 -days 3650 \
-    -subj "/C=GO/ST=Gopher/O=Testing ROOT CA" \
-    -key ca.key -out ca.crt
+
+	openssl req -new -sha256 -x509 -days 3650 \
+	    -subj "/C=GO/ST=Gopher/O=Testing ROOT CA" \
+	    -key ca.key -out ca.crt
 
 # Create config
 cat > csr_details.txt <<-EOF
@@ -127,16 +130,18 @@ subjectAltName = IP:127.0.0.1
 EOF
 
 # Create certificate signing request
-openssl req -new -sha256 -nodes -newkey rsa:1024 \
-    -config <( cat csr_details.txt ) \
-    -keyout ia.key -out ia.csr
+
+	openssl req -new -sha256 -nodes -newkey rsa:1024 \
+	    -config <( cat csr_details.txt ) \
+	    -keyout ia.key -out ia.csr
 
 # Create a signed certificate
-openssl x509 -req -days 3650 \
-    -CAcreateserial \
-    -extfile <( cat csr_details.txt ) \
-    -extensions SAN \
-    -CA ca.crt -CAkey ca.key -in ia.csr -out ia.crt
+
+	openssl x509 -req -days 3650 \
+	    -CAcreateserial \
+	    -extfile <( cat csr_details.txt ) \
+	    -extensions SAN \
+	    -CA ca.crt -CAkey ca.key -in ia.csr -out ia.crt
 
 # Verify
 openssl req -noout -text -in ia.csr

@@ -81,8 +81,9 @@ func TestWhenCreateBucketNotSetHeader_NotPresent(t *testing.T) {
 
 // A helper function to create a server
 // Returns:
-// 		A new S3 session with Service Instance ID header with
-//		SSL disabled and zero retries
+//
+//	A new S3 session with Service Instance ID header with
+//	SSL disabled and zero retries
 func newHeaderGrabberSvc() (*s3.S3, *string) {
 	ibmServiceInstanceIdHeader := defaultValueWhenUnreach
 
@@ -99,7 +100,8 @@ func newHeaderGrabberSvc() (*s3.S3, *string) {
 
 // Create a random 16-character ID
 // Returns:
-//		An encoded 16-character ID
+//
+//	An encoded 16-character ID
 func genRandomID() string {
 	u := make([]byte, 16)
 	_, err := rand.Read(u)

@@ -13,7 +13,8 @@ import (
 // "PLUGIN_CREDS_FILE" environment variable points to
 //
 // Build with:
-//   go build -tags example -o plugin.so -buildmode=plugin plugin.go
+//
+//	go build -tags example -o plugin.so -buildmode=plugin plugin.go
 func main() {}
 
 var myCredProvider provider

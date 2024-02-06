@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.10.2
+
+### Content
+
+#### Defect Fixes
+
+* Internal fixes and improvements
+* Support for Golang 1.19, 1.20 and 1.21.0
+
 ## 1.10.1
 
 ### Content

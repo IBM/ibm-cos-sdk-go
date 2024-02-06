@@ -23,39 +23,41 @@ import (
 // can be stubbed out for unit testing your code with the SDK without needing
 // to inject custom request handlers into the SDK's request pipeline.
 //
-//    // myFunc uses an SDK service client to make a request to
-//    // REST JSON Service.
-//    func myFunc(svc restjsonserviceiface.RESTJSONServiceAPI) bool {
-//        // Make svc.EmptyStream request
-//    }
+//	// myFunc uses an SDK service client to make a request to
+//	// REST JSON Service.
+//	func myFunc(svc restjsonserviceiface.RESTJSONServiceAPI) bool {
+//	    // Make svc.EmptyStream request
+//	}
 //
 // IBM COS SDK Code -- START
-//    func main() {
-//        sess := session.Must(session.NewSession())
-//        svc := restjsonservice.New(sess)
 //
-//        myFunc(svc)
-//    }
-// IBM COS SDK Code -- END
+//	func main() {
+//	    sess := session.Must(session.NewSession())
+//	    svc := restjsonservice.New(sess)
+//
+//	    myFunc(svc)
+//	}
+//
+// # IBM COS SDK Code -- END
 //
 // In your _test.go file:
 //
-//    // Define a mock struct to be used in your unit tests of myFunc.
-//    type mockRESTJSONServiceClient struct {
-//        restjsonserviceiface.RESTJSONServiceAPI
-//    }
-//    func (m *mockRESTJSONServiceClient) EmptyStream(input *restjsonservice.EmptyStreamInput) (*restjsonservice.EmptyStreamOutput, error) {
-//        // mock response/functionality
-//    }
+//	// Define a mock struct to be used in your unit tests of myFunc.
+//	type mockRESTJSONServiceClient struct {
+//	    restjsonserviceiface.RESTJSONServiceAPI
+//	}
+//	func (m *mockRESTJSONServiceClient) EmptyStream(input *restjsonservice.EmptyStreamInput) (*restjsonservice.EmptyStreamOutput, error) {
+//	    // mock response/functionality
+//	}
 //
-//    func TestMyFunc(t *testing.T) {
-//        // Setup Test
-//        mockSvc := &mockRESTJSONServiceClient{}
+//	func TestMyFunc(t *testing.T) {
+//	    // Setup Test
+//	    mockSvc := &mockRESTJSONServiceClient{}
 //
-//        myfunc(mockSvc)
+//	    myfunc(mockSvc)
 //
-//        // Verify myFunc's functionality
-//    }
+//	    // Verify myFunc's functionality
+//	}
 //
 // It is important to note that this interface will have breaking changes
 // when the service model is updated and adds new API operations, paginators,

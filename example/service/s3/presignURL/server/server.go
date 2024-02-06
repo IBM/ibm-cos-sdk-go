@@ -28,16 +28,17 @@ import (
 //
 // Example GetObject request to the service for the object with the key "MyObjectKey":
 //
-//   curl -v "http://127.0.0.1:8080/presign/my-object/key?method=GET"
+//	curl -v "http://127.0.0.1:8080/presign/my-object/key?method=GET"
 //
 // Example PutObject request to the service for the object with the key "MyObjectKey":
 //
-//   curl -v "http://127.0.0.1:8080/presign/my-object/key?method=PUT&contentLength=1024"
+//	curl -v "http://127.0.0.1:8080/presign/my-object/key?method=PUT&contentLength=1024"
 //
 // Use "--help" command line argument flag to see all options and defaults.
 //
 // Usage:
-//   go run -tags example service.go -b myBucket
+//
+//	go run -tags example service.go -b myBucket
 func main() {
 	addr, bucket, region := loadConfig()
 

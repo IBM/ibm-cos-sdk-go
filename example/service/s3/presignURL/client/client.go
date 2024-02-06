@@ -26,7 +26,8 @@ import (
 // write to stdout for downloads.
 //
 // Usage:
-//    go run -tags example client.go -get myObjectKey -f filename
+//
+//	go run -tags example client.go -get myObjectKey -f filename
 func main() {
 	method, filename, key, serverURL := loadConfig()
 

@@ -27,10 +27,13 @@ type ibmclientMock struct {
 
 // Mock IBM HTTP Client Request Do Func
 // Parameter:
-//		HTTP Client Request object
+//
+//	HTTP Client Request object
+//
 // Returns:
-//		HTTP Client Request object
-//		Error
+//
+//	HTTP Client Request object
+//	Error
 func (icm *ibmclientMock) Do(req *http.Request) (*http.Response, error) {
 	icm.requestLogs = append(icm.requestLogs, req)
 	return icm.handler(req)

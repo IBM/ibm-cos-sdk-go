@@ -2432,7 +2432,12 @@
     "GetBucketProtectionConfigurationOutput":{
       "type":"structure",
       "members":{
-        "ProtectionConfiguration":{"shape":"ProtectionConfiguration"}
+        "ProtectionConfiguration":{"shape":"ProtectionConfiguration"},
+        "IbmProtectionManagementState":{
+          "shape":"IbmProtectionManagementState",
+          "location":"header",
+          "locationName":"x-ibm-protection-management-state"
+        }
       },
       "payload":"ProtectionConfiguration"
     },
@@ -2617,7 +2622,12 @@
     "GetObjectLockConfigurationOutput":{
       "type":"structure",
       "members":{
-        "ObjectLockConfiguration":{"shape":"ObjectLockConfiguration"}
+        "ObjectLockConfiguration":{"shape":"ObjectLockConfiguration"},
+        "IbmProtectionManagementState":{
+          "shape":"IbmProtectionManagementState",
+          "location":"header",
+          "locationName":"x-ibm-protection-management-state"
+        }
       },
       "payload":"ObjectLockConfiguration"
     },
@@ -4381,6 +4391,10 @@
         "ObjectLockEnabled":{"shape":"ObjectLockEnabled"},
         "Rule":{"shape":"ObjectLockRule"}
       }
+    },
+    "IbmProtectionManagementState":{
+      "type":"string",
+      "enum":["active"]
     },
     "ObjectLockEnabled":{
       "type":"string",

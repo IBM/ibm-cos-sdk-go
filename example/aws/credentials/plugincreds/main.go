@@ -25,10 +25,12 @@ import (
 // environment variable is not defined.
 //
 // Build:
-//   go build -tags example -o myApp main.go
+//
+//	go build -tags example -o myApp main.go
 //
 // Usage:
-//   ./myApp <compiled plugin> <bucket> <object key>
+//
+//	./myApp <compiled plugin> <bucket> <object key>
 func main() {
 	if len(os.Args) < 4 {
 		exitErrorf("Usage: myApp <compiled plugin>, <bucket> <object key>")

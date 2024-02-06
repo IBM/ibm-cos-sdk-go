@@ -16,10 +16,12 @@ import (
 )
 
 // Usage:
-//   go run -tags example  <bucket> <key> <file to upload>
+//
+//	go run -tags example  <bucket> <key> <file to upload>
 //
 // Example:
-//   AWS_REGION=us-west-2 AWS_PROFILE=default go run . "mybucket" "10MB.file" ./10MB.file
+//
+//	AWS_REGION=us-west-2 AWS_PROFILE=default go run . "mybucket" "10MB.file" ./10MB.file
 func main() {
 	sess, err := session.NewSession()
 	if err != nil {

@@ -26,7 +26,6 @@ func parseTime(layout, value string) *time.Time {
 }
 
 // To cancel deletion of a customer master key (CMK)
-//
 // The following example cancels deletion of the specified KMS key.
 func ExampleKMS_CancelKeyDeletion_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -63,7 +62,6 @@ func ExampleKMS_CancelKeyDeletion_shared00() {
 }
 
 // To create an alias
-//
 // The following example creates an alias for the specified KMS key.
 func ExampleKMS_CreateAlias_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -105,7 +103,6 @@ func ExampleKMS_CreateAlias_shared00() {
 }
 
 // To create a grant
-//
 // The following example creates a grant that allows the specified IAM role to encrypt
 // data with the specified customer master key (CMK).
 func ExampleKMS_CreateGrant_shared00() {
@@ -154,7 +151,6 @@ func ExampleKMS_CreateGrant_shared00() {
 }
 
 // To create a customer master key (CMK)
-//
 // The following example creates a CMK.
 func ExampleKMS_CreateKey_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -206,7 +202,6 @@ func ExampleKMS_CreateKey_shared00() {
 }
 
 // To decrypt data
-//
 // The following example decrypts data that was encrypted with a customer master key
 // (CMK) in AWS KMS.
 func ExampleKMS_Decrypt_shared00() {
@@ -255,7 +250,6 @@ func ExampleKMS_Decrypt_shared00() {
 }
 
 // To delete an alias
-//
 // The following example deletes the specified alias.
 func ExampleKMS_DeleteAlias_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -290,7 +284,6 @@ func ExampleKMS_DeleteAlias_shared00() {
 }
 
 // To delete imported key material
-//
 // The following example deletes the imported key material from the specified KMS key.
 func ExampleKMS_DeleteImportedKeyMaterial_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -329,7 +322,6 @@ func ExampleKMS_DeleteImportedKeyMaterial_shared00() {
 }
 
 // To obtain information about a customer master key (CMK)
-//
 // The following example returns information (metadata) about the specified CMK.
 func ExampleKMS_DescribeKey_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -364,7 +356,6 @@ func ExampleKMS_DescribeKey_shared00() {
 }
 
 // To disable a customer master key (CMK)
-//
 // The following example disables the specified CMK.
 func ExampleKMS_DisableKey_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -401,7 +392,6 @@ func ExampleKMS_DisableKey_shared00() {
 }
 
 // To disable automatic rotation of key material
-//
 // The following example disables automatic annual rotation of the key material for
 // the specified CMK.
 func ExampleKMS_DisableKeyRotation_shared00() {
@@ -443,7 +433,6 @@ func ExampleKMS_DisableKeyRotation_shared00() {
 }
 
 // To enable a customer master key (CMK)
-//
 // The following example enables the specified CMK.
 func ExampleKMS_EnableKey_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -482,7 +471,6 @@ func ExampleKMS_EnableKey_shared00() {
 }
 
 // To enable automatic rotation of key material
-//
 // The following example enables automatic annual rotation of the key material for the
 // specified CMK.
 func ExampleKMS_EnableKeyRotation_shared00() {
@@ -524,7 +512,6 @@ func ExampleKMS_EnableKeyRotation_shared00() {
 }
 
 // To encrypt data
-//
 // The following example encrypts data with the specified customer master key (CMK).
 func ExampleKMS_Encrypt_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -568,7 +555,6 @@ func ExampleKMS_Encrypt_shared00() {
 }
 
 // To generate a data key
-//
 // The following example generates a 256-bit symmetric data encryption key (data key)
 // in two formats. One is the unencrypted (plainext) data key, and the other is the
 // data key encrypted with the specified KMS key.
@@ -614,7 +600,6 @@ func ExampleKMS_GenerateDataKey_shared00() {
 }
 
 // To generate an encrypted data key
-//
 // The following example generates an encrypted copy of a 256-bit symmetric data encryption
 // key (data key). The data key is encrypted with the specified customer master key
 // (CMK).
@@ -660,7 +645,6 @@ func ExampleKMS_GenerateDataKeyWithoutPlaintext_shared00() {
 }
 
 // To generate random data
-//
 // The following example uses AWS KMS to generate 32 bytes of random data.
 func ExampleKMS_GenerateRandom_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -697,7 +681,6 @@ func ExampleKMS_GenerateRandom_shared00() {
 }
 
 // To retrieve a key policy
-//
 // The following example retrieves the key policy for the specified customer master
 // key (CMK).
 func ExampleKMS_GetKeyPolicy_shared00() {
@@ -736,7 +719,6 @@ func ExampleKMS_GetKeyPolicy_shared00() {
 }
 
 // To retrieve the rotation status for a customer master key (CMK)
-//
 // The following example retrieves the status of automatic annual rotation of the key
 // material for the specified CMK.
 func ExampleKMS_GetKeyRotationStatus_shared00() {
@@ -776,7 +758,6 @@ func ExampleKMS_GetKeyRotationStatus_shared00() {
 }
 
 // To retrieve the public key and import token for a customer master key (CMK)
-//
 // The following example retrieves the public key and import token for the specified
 // CMK.
 func ExampleKMS_GetParametersForImport_shared00() {
@@ -818,7 +799,6 @@ func ExampleKMS_GetParametersForImport_shared00() {
 }
 
 // To import key material into a customer master key (CMK)
-//
 // The following example imports key material into the specified CMK.
 func ExampleKMS_ImportKeyMaterial_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -868,7 +848,6 @@ func ExampleKMS_ImportKeyMaterial_shared00() {
 }
 
 // To list aliases
-//
 // The following example lists aliases.
 func ExampleKMS_ListAliases_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -903,7 +882,6 @@ func ExampleKMS_ListAliases_shared00() {
 }
 
 // To list grants for a customer master key (CMK)
-//
 // The following example lists grants for the specified CMK.
 func ExampleKMS_ListGrants_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -944,7 +922,6 @@ func ExampleKMS_ListGrants_shared00() {
 }
 
 // To list key policies for a customer master key (CMK)
-//
 // The following example lists key policies for the specified CMK.
 func ExampleKMS_ListKeyPolicies_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -981,7 +958,6 @@ func ExampleKMS_ListKeyPolicies_shared00() {
 }
 
 // To list customer master keys (CMKs)
-//
 // The following example lists CMKs.
 func ExampleKMS_ListKeys_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -1012,7 +988,6 @@ func ExampleKMS_ListKeys_shared00() {
 }
 
 // To list tags for a customer master key (CMK)
-//
 // The following example lists tags for a CMK.
 func ExampleKMS_ListResourceTags_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -1047,7 +1022,6 @@ func ExampleKMS_ListResourceTags_shared00() {
 }
 
 // To list grants that the specified principal can retire
-//
 // The following example lists the grants that the specified principal (identity) can
 // retire.
 func ExampleKMS_ListRetirableGrants_shared00() {
@@ -1085,7 +1059,6 @@ func ExampleKMS_ListRetirableGrants_shared00() {
 }
 
 // To attach a key policy to a customer master key (CMK)
-//
 // The following example attaches a key policy to the specified CMK.
 func ExampleKMS_PutKeyPolicy_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -1130,7 +1103,6 @@ func ExampleKMS_PutKeyPolicy_shared00() {
 }
 
 // To reencrypt data
-//
 // The following example reencrypts data with the specified KMS key.
 func ExampleKMS_ReEncrypt_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -1178,7 +1150,6 @@ func ExampleKMS_ReEncrypt_shared00() {
 }
 
 // To retire a grant
-//
 // The following example retires a grant.
 func ExampleKMS_RetireGrant_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -1220,7 +1191,6 @@ func ExampleKMS_RetireGrant_shared00() {
 }
 
 // To revoke a grant
-//
 // The following example revokes a grant.
 func ExampleKMS_RevokeGrant_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -1260,7 +1230,6 @@ func ExampleKMS_RevokeGrant_shared00() {
 }
 
 // To schedule a customer master key (CMK) for deletion
-//
 // The following example schedules the specified KMS key for deletion.
 func ExampleKMS_ScheduleKeyDeletion_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -1298,7 +1267,6 @@ func ExampleKMS_ScheduleKeyDeletion_shared00() {
 }
 
 // To tag a customer master key (CMK)
-//
 // The following example tags a CMK.
 func ExampleKMS_TagResource_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -1343,7 +1311,6 @@ func ExampleKMS_TagResource_shared00() {
 }
 
 // To remove tags from a customer master key (CMK)
-//
 // The following example removes tags from a CMK.
 func ExampleKMS_UntagResource_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -1384,7 +1351,6 @@ func ExampleKMS_UntagResource_shared00() {
 }
 
 // To update an alias
-//
 // The following example updates the specified alias to refer to the specified KMS key.
 func ExampleKMS_UpdateAlias_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))
@@ -1422,7 +1388,6 @@ func ExampleKMS_UpdateAlias_shared00() {
 }
 
 // To update the description of a KMS key
-//
 // The following example updates the description of the specified KMS key.
 func ExampleKMS_UpdateKeyDescription_shared00() {
 	svc := kms.New(session.Must(session.NewSession()))

@@ -22,9 +22,10 @@ import (
 // as the writeAt method is called, the byte size is added to the written total,
 // and then a log is printed of the written percentage from the total size
 // it looks like this on the command line:
-//  2019/02/22 12:59:15 File size:35943530 downloaded:16360 percentage:0%
-//  2019/02/22 12:59:15 File size:35943530 downloaded:16988 percentage:0%
-//  2019/02/22 12:59:15 File size:35943530 downloaded:33348 percentage:0%
+//
+//	2019/02/22 12:59:15 File size:35943530 downloaded:16360 percentage:0%
+//	2019/02/22 12:59:15 File size:35943530 downloaded:16988 percentage:0%
+//	2019/02/22 12:59:15 File size:35943530 downloaded:33348 percentage:0%
 type progressWriter struct {
 	written int64
 	writer  io.WriterAt

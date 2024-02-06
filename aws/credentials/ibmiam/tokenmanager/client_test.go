@@ -16,11 +16,14 @@ import (
 
 // Helper function to build a config for multiple tests
 // Parameters:
-//		Max Retries = Number of retries to run client app
-// 		Log Level = type of log level to track
-//		Logger = Logger application to use for tests
+//
+//	Max Retries = Number of retries to run client app
+//	Log Level = type of log level to track
+//	Logger = Logger application to use for tests
+//
 // Returns:
-//		AWS Config with the client, retries and logger and its log level
+//
+//	AWS Config with the client, retries and logger and its log level
 func buildConfig(maxRetries int, logLevel aws.LogLevelType, logger aws.Logger) *aws.Config {
 	httpClient := http.DefaultClient
 	return &aws.Config{
@@ -33,9 +36,12 @@ func buildConfig(maxRetries int, logLevel aws.LogLevelType, logger aws.Logger) *
 
 // Helper function to build a request for multiple tests
 // Parameter:
-//		URL string to pass into a request
+//
+//	URL string to pass into a request
+//
 // Returns:
-//		A built Request object
+//
+//	A built Request object
 func buildTestRequest(t *testing.T, URL string) *http.Request {
 	req, err := http.NewRequest(http.MethodPost, URL, strings.NewReader("hello"))
 	require.Nil(t, err, errorBuildingRequest)
