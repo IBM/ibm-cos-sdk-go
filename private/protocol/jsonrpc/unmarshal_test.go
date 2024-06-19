@@ -18,6 +18,7 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/aws/client"
 	"github.com/IBM/ibm-cos-sdk-go/aws/client/metadata"
+	"github.com/IBM/ibm-cos-sdk-go/aws/credentials/ibmiam"
 	"github.com/IBM/ibm-cos-sdk-go/aws/request"
 	"github.com/IBM/ibm-cos-sdk-go/aws/signer"
 	"github.com/IBM/ibm-cos-sdk-go/awstesting"
@@ -70,6 +71,25 @@ type OutputService1ProtocolTest struct {
 //	// Create a OutputService1ProtocolTest client with additional configuration
 //	svc := outputservice1protocoltest.New(mySession, aws.NewConfig().WithRegion("us-west-2"))
 func NewOutputService1ProtocolTest(p client.ConfigProvider, cfgs ...*aws.Config) *OutputService1ProtocolTest {
+
+	//IBM Specific code START
+	// CheckForConflictingIamCredentials checks if both ApiKey and TrustedProfileID are set
+	// in environment variables. If both are set, it returns an error indicating the conflict.
+	// only one of them should be set.
+	userCfg := false
+	for _, cfg := range cfgs {
+		if cfg.Credentials != nil {
+			userCfg = true
+			break
+		}
+	}
+	if !userCfg {
+		if err := ibmiam.CheckForConflictingIamCredentials(); err != nil {
+			panic(err)
+		}
+	}
+	//IBM Specific code END
+
 	c := p.ClientConfig("outputservice1protocoltest", cfgs...)
 	if c.SigningNameDerived || len(c.SigningName) == 0 {
 	}
@@ -276,6 +296,25 @@ type OutputService2ProtocolTest struct {
 //	// Create a OutputService2ProtocolTest client with additional configuration
 //	svc := outputservice2protocoltest.New(mySession, aws.NewConfig().WithRegion("us-west-2"))
 func NewOutputService2ProtocolTest(p client.ConfigProvider, cfgs ...*aws.Config) *OutputService2ProtocolTest {
+
+	//IBM Specific code START
+	// CheckForConflictingIamCredentials checks if both ApiKey and TrustedProfileID are set
+	// in environment variables. If both are set, it returns an error indicating the conflict.
+	// only one of them should be set.
+	userCfg := false
+	for _, cfg := range cfgs {
+		if cfg.Credentials != nil {
+			userCfg = true
+			break
+		}
+	}
+	if !userCfg {
+		if err := ibmiam.CheckForConflictingIamCredentials(); err != nil {
+			panic(err)
+		}
+	}
+	//IBM Specific code END
+
 	c := p.ClientConfig("outputservice2protocoltest", cfgs...)
 	if c.SigningNameDerived || len(c.SigningName) == 0 {
 	}
@@ -448,6 +487,25 @@ type OutputService3ProtocolTest struct {
 //	// Create a OutputService3ProtocolTest client with additional configuration
 //	svc := outputservice3protocoltest.New(mySession, aws.NewConfig().WithRegion("us-west-2"))
 func NewOutputService3ProtocolTest(p client.ConfigProvider, cfgs ...*aws.Config) *OutputService3ProtocolTest {
+
+	//IBM Specific code START
+	// CheckForConflictingIamCredentials checks if both ApiKey and TrustedProfileID are set
+	// in environment variables. If both are set, it returns an error indicating the conflict.
+	// only one of them should be set.
+	userCfg := false
+	for _, cfg := range cfgs {
+		if cfg.Credentials != nil {
+			userCfg = true
+			break
+		}
+	}
+	if !userCfg {
+		if err := ibmiam.CheckForConflictingIamCredentials(); err != nil {
+			panic(err)
+		}
+	}
+	//IBM Specific code END
+
 	c := p.ClientConfig("outputservice3protocoltest", cfgs...)
 	if c.SigningNameDerived || len(c.SigningName) == 0 {
 	}
@@ -642,6 +700,25 @@ type OutputService4ProtocolTest struct {
 //	// Create a OutputService4ProtocolTest client with additional configuration
 //	svc := outputservice4protocoltest.New(mySession, aws.NewConfig().WithRegion("us-west-2"))
 func NewOutputService4ProtocolTest(p client.ConfigProvider, cfgs ...*aws.Config) *OutputService4ProtocolTest {
+
+	//IBM Specific code START
+	// CheckForConflictingIamCredentials checks if both ApiKey and TrustedProfileID are set
+	// in environment variables. If both are set, it returns an error indicating the conflict.
+	// only one of them should be set.
+	userCfg := false
+	for _, cfg := range cfgs {
+		if cfg.Credentials != nil {
+			userCfg = true
+			break
+		}
+	}
+	if !userCfg {
+		if err := ibmiam.CheckForConflictingIamCredentials(); err != nil {
+			panic(err)
+		}
+	}
+	//IBM Specific code END
+
 	c := p.ClientConfig("outputservice4protocoltest", cfgs...)
 	if c.SigningNameDerived || len(c.SigningName) == 0 {
 	}
@@ -911,6 +988,25 @@ type OutputService5ProtocolTest struct {
 //	// Create a OutputService5ProtocolTest client with additional configuration
 //	svc := outputservice5protocoltest.New(mySession, aws.NewConfig().WithRegion("us-west-2"))
 func NewOutputService5ProtocolTest(p client.ConfigProvider, cfgs ...*aws.Config) *OutputService5ProtocolTest {
+
+	//IBM Specific code START
+	// CheckForConflictingIamCredentials checks if both ApiKey and TrustedProfileID are set
+	// in environment variables. If both are set, it returns an error indicating the conflict.
+	// only one of them should be set.
+	userCfg := false
+	for _, cfg := range cfgs {
+		if cfg.Credentials != nil {
+			userCfg = true
+			break
+		}
+	}
+	if !userCfg {
+		if err := ibmiam.CheckForConflictingIamCredentials(); err != nil {
+			panic(err)
+		}
+	}
+	//IBM Specific code END
+
 	c := p.ClientConfig("outputservice5protocoltest", cfgs...)
 	if c.SigningNameDerived || len(c.SigningName) == 0 {
 	}
@@ -1061,6 +1157,25 @@ type OutputService6ProtocolTest struct {
 //	// Create a OutputService6ProtocolTest client with additional configuration
 //	svc := outputservice6protocoltest.New(mySession, aws.NewConfig().WithRegion("us-west-2"))
 func NewOutputService6ProtocolTest(p client.ConfigProvider, cfgs ...*aws.Config) *OutputService6ProtocolTest {
+
+	//IBM Specific code START
+	// CheckForConflictingIamCredentials checks if both ApiKey and TrustedProfileID are set
+	// in environment variables. If both are set, it returns an error indicating the conflict.
+	// only one of them should be set.
+	userCfg := false
+	for _, cfg := range cfgs {
+		if cfg.Credentials != nil {
+			userCfg = true
+			break
+		}
+	}
+	if !userCfg {
+		if err := ibmiam.CheckForConflictingIamCredentials(); err != nil {
+			panic(err)
+		}
+	}
+	//IBM Specific code END
+
 	c := p.ClientConfig("outputservice6protocoltest", cfgs...)
 	if c.SigningNameDerived || len(c.SigningName) == 0 {
 	}
@@ -1211,6 +1326,25 @@ type OutputService7ProtocolTest struct {
 //	// Create a OutputService7ProtocolTest client with additional configuration
 //	svc := outputservice7protocoltest.New(mySession, aws.NewConfig().WithRegion("us-west-2"))
 func NewOutputService7ProtocolTest(p client.ConfigProvider, cfgs ...*aws.Config) *OutputService7ProtocolTest {
+
+	//IBM Specific code START
+	// CheckForConflictingIamCredentials checks if both ApiKey and TrustedProfileID are set
+	// in environment variables. If both are set, it returns an error indicating the conflict.
+	// only one of them should be set.
+	userCfg := false
+	for _, cfg := range cfgs {
+		if cfg.Credentials != nil {
+			userCfg = true
+			break
+		}
+	}
+	if !userCfg {
+		if err := ibmiam.CheckForConflictingIamCredentials(); err != nil {
+			panic(err)
+		}
+	}
+	//IBM Specific code END
+
 	c := p.ClientConfig("outputservice7protocoltest", cfgs...)
 	if c.SigningNameDerived || len(c.SigningName) == 0 {
 	}
@@ -1385,6 +1519,25 @@ type OutputService8ProtocolTest struct {
 //	// Create a OutputService8ProtocolTest client with additional configuration
 //	svc := outputservice8protocoltest.New(mySession, aws.NewConfig().WithRegion("us-west-2"))
 func NewOutputService8ProtocolTest(p client.ConfigProvider, cfgs ...*aws.Config) *OutputService8ProtocolTest {
+
+	//IBM Specific code START
+	// CheckForConflictingIamCredentials checks if both ApiKey and TrustedProfileID are set
+	// in environment variables. If both are set, it returns an error indicating the conflict.
+	// only one of them should be set.
+	userCfg := false
+	for _, cfg := range cfgs {
+		if cfg.Credentials != nil {
+			userCfg = true
+			break
+		}
+	}
+	if !userCfg {
+		if err := ibmiam.CheckForConflictingIamCredentials(); err != nil {
+			panic(err)
+		}
+	}
+	//IBM Specific code END
+
 	c := p.ClientConfig("outputservice8protocoltest", cfgs...)
 	if c.SigningNameDerived || len(c.SigningName) == 0 {
 	}

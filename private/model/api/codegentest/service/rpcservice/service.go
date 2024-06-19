@@ -6,6 +6,7 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/aws/client"
 	"github.com/IBM/ibm-cos-sdk-go/aws/client/metadata"
+	"github.com/IBM/ibm-cos-sdk-go/aws/credentials/ibmiam"
 	"github.com/IBM/ibm-cos-sdk-go/aws/request"
 	"github.com/IBM/ibm-cos-sdk-go/aws/signer"
 	"github.com/IBM/ibm-cos-sdk-go/private/protocol"
@@ -49,6 +50,25 @@ const (
 //	// Create a RPCService client with additional configuration
 //	svc := rpcservice.New(mySession, aws.NewConfig().WithRegion("us-west-2"))
 func New(p client.ConfigProvider, cfgs ...*aws.Config) *RPCService {
+
+	//IBM Specific code START
+	// CheckForConflictingIamCredentials checks if both ApiKey and TrustedProfileID are set
+	// in environment variables. If both are set, it returns an error indicating the conflict.
+	// only one of them should be set.
+	userCfg := false
+	for _, cfg := range cfgs {
+		if cfg.Credentials != nil {
+			userCfg = true
+			break
+		}
+	}
+	if !userCfg {
+		if err := ibmiam.CheckForConflictingIamCredentials(); err != nil {
+			panic(err)
+		}
+	}
+	//IBM Specific code END
+
 	c := p.ClientConfig(EndpointsID, cfgs...)
 	if c.SigningNameDerived || len(c.SigningName) == 0 {
 		c.SigningName = EndpointsID

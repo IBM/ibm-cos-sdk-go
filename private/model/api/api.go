@@ -558,6 +558,25 @@ const (
 //     // Create a {{ .StructName }} client with additional configuration
 //     svc := {{ .PackageName }}.New(mySession, aws.NewConfig().WithRegion("us-west-2"))
 func New(p client.ConfigProvider, cfgs ...*aws.Config) *{{ .StructName }} {
+
+	//IBM Specific code START
+	// CheckForConflictingIamCredentials checks if both ApiKey and TrustedProfileID are set
+	// in environment variables. If both are set, it returns an error indicating the conflict.
+	// only one of them should be set.
+	userCfg := false
+	for _, cfg := range cfgs {
+		if cfg.Credentials!=nil {
+			userCfg = true
+			break
+		}
+	}
+	if(!userCfg){
+		if err := ibmiam.CheckForConflictingIamCredentials(); err != nil {
+			panic(err)
+		}
+	}
+	//IBM Specific code END
+
 	{{ if .Metadata.NoResolveEndpoint -}}
 		var c client.Config
 		if v, ok := p.(client.ConfigNoResolveEndpointProvider); ok {
@@ -699,6 +718,7 @@ func (a *API) ServiceGoCode() string {
 	a.AddSDKImport("aws/client")
 	a.AddSDKImport("aws/client/metadata")
 	a.AddSDKImport("aws/request")
+	a.AddSDKImport("aws/credentials/ibmiam")
 	if a.Metadata.SignatureVersion == "v2" {
 		a.AddSDKImport("private/signer/v2")
 		a.AddSDKImport("aws/corehandlers")

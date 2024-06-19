@@ -10,14 +10,15 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/IBM/ibm-cos-sdk-go/private/model/api"
-	"github.com/IBM/ibm-cos-sdk-go/private/util"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"runtime/debug"
 	"strings"
 	"sync"
+
+	"github.com/IBM/ibm-cos-sdk-go/private/model/api"
+	"github.com/IBM/ibm-cos-sdk-go/private/util"
 )
 
 func usage() {

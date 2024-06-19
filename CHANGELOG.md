@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 1.11.0
+
+### Content
+
+#### Features
+
+* Trusted Profile Authentication Support for Compute Resources.
+
+#### Defect Fixes
+
+* Update dependencies
+* Support for Golang 1.22.0
+
 ## 1.10.3
 
 ### Content
