@@ -9,7 +9,7 @@ IBM has added a [Language Support Policy](#language-support-policy). Language ve
 
 ## Documentation
 
-* [Core documentation for IBM COS](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started)
+* [Core documentation for IBM COS](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage)
 * [Go API reference documentation](https://ibm.github.io/ibm-cos-sdk-go)
 * [REST API reference documentation](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api)
 
@@ -35,11 +35,11 @@ These values can be found in the IBM Cloud Console by [generating a 'service cre
 
 You can automatically archive objects after a specified length of time or after a specified date. Once archived, a temporary copy of an object can be restored for access as needed. Restore time may take up to 15 hours.
 
-An archive policy is set at the bucket level by calling the ``PutBucketLifecycleConfiguration`` method on a client instance. A newly added or modified archive policy applies to new objects uploaded and does not affect existing objects. For more detail, see the [documentation](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go).
+An archive policy is set at the bucket level by calling the ``PutBucketLifecycleConfiguration`` method on a client instance. A newly added or modified archive policy applies to new objects uploaded and does not affect existing objects. For more detail, see the [documentation](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-using-go).
 
 ## Immutable Object Storage
 
-Users can configure buckets with an Immutable Object Storage policy to prevent objects from being modified or deleted for a defined period of time. The retention period can be specified on a per-object basis, or objects can inherit a default retention period set on the bucket. It is also possible to set open-ended and permanent retention periods. Immutable Object Storage meets the rules set forth by the SEC governing record retention, and IBM Cloud administrators are unable to bypass these restrictions. For more detail, see the [IBM Cloud documentation](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go).
+Users can configure buckets with an Immutable Object Storage policy to prevent objects from being modified or deleted for a defined period of time. The retention period can be specified on a per-object basis, or objects can inherit a default retention period set on the bucket. It is also possible to set open-ended and permanent retention periods. Immutable Object Storage meets the rules set forth by the SEC governing record retention, and IBM Cloud administrators are unable to bypass these restrictions. For more detail, see the [IBM Cloud documentation](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-using-go).
 
 Note: Immutable Object Storage does not support Aspera transfers via the SDK to upload objects or directories at this stage.
 
@@ -116,7 +116,7 @@ From the command line, run `go run main.go`.  You should see a list of your buck
 
 Feel free to use GitHub issues for tracking bugs and feature requests, but for help please use one of the following resources:
 
-* Read a quick start guide in [IBM Cloud Docs](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-go).
+* Read a quick start guide in [IBM Cloud Docs](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-using-go).
 * Ask a question on [Stack Overflow](https://stackoverflow.com/questions/tagged/object-storage+ibm) and tag it with `ibm` and `object-storage`.
 * Open a support ticket with [IBM Cloud Support](https://cloud.ibm.com/unifiedsupport/supportcenter/)
 * If it turns out that you may have found a bug, please [open an issue](https://github.com/ibm/ibm-cos-sdk-go/issues/new).
