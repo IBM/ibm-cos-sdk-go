@@ -3609,18 +3609,56 @@ svc := s3.New(mySession, aws.NewConfig().WithRegion(<span class="hljs-string">"u
       <pre class="lines">
 
 
-50
 51
 52
 53
 54
 55
-56</pre>
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/service.go', line 50</span>
+      <pre class="code"><span class="info file">// File 'service/s3/service.go', line 51</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> New(p client.ConfigProvider, cfgs ...*aws.Config) *S3 {
+
+	<span class="hljs-comment">//IBM Specific code START</span>
+	<span class="hljs-comment">// CheckForConflictingIamCredentials checks if both ApiKey and TrustedProfileID are set</span>
+	<span class="hljs-comment">// in environment variables. If both are set, it returns an error indicating the conflict.</span>
+	<span class="hljs-comment">// only one of them should be set.</span>
+	userCfg := <span class="hljs-constant">false</span>
+	<span class="hljs-keyword">for</span> _, cfg := <span class="hljs-keyword">range</span> cfgs {
+		<span class="hljs-keyword">if</span> cfg.Credentials != <span class="hljs-constant">nil</span> {
+			userCfg = <span class="hljs-constant">true</span>
+			<span class="hljs-keyword">break</span>
+		}
+	}
+	<span class="hljs-keyword">if</span> !userCfg {
+		<span class="hljs-keyword">if</span> err := ibmiam.CheckForConflictingIamCredentials(); err != <span class="hljs-constant">nil</span> {
+			panic(err)
+		}
+	}
+	<span class="hljs-comment">//IBM Specific code END</span>
+
 	c := p.ClientConfig(EndpointsID, cfgs...)
 	<span class="hljs-keyword">if</span> c.SigningNameDerived || len(c.SigningName) == 0 {
 		c.SigningName = <span class="hljs-string">"s3"</span>
@@ -18493,7 +18531,7 @@ err := req.Send()
       </div>
 
       <div id="footer">
-  Generated on Wed May  1 16:13:41 2024 by
+  Generated on Tue Jun 18 12:20:43 2024 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-2.7.0).
 </div>
