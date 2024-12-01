@@ -3635,18 +3635,23 @@
     },
     "LifecycleRule":{
       "type":"structure",
-      "required":[
-        "Status",
-        "Filter"
-      ],
+      "required":["Status","Filter"],
       "members":{
         "Expiration":{"shape":"LifecycleExpiration"},
         "ID":{"shape":"ID"},
+        "Prefix":{
+          "shape":"Prefix",
+          "deprecated":true
+        },
         "Filter":{"shape":"LifecycleRuleFilter"},
         "Status":{"shape":"ExpirationStatus"},
         "Transitions":{
           "shape":"TransitionList",
           "locationName":"Transition"
+        },
+        "NoncurrentVersionTransitions":{
+          "shape":"NoncurrentVersionTransitionList",
+          "locationName":"NoncurrentVersionTransition"
         },
         "NoncurrentVersionExpiration":{"shape":"NoncurrentVersionExpiration"},
         "AbortIncompleteMultipartUpload":{"shape":"AbortIncompleteMultipartUpload"}
@@ -3660,13 +3665,19 @@
           "shape":"TagSet",
           "flattened":true,
           "locationName":"Tag"
-        }
+        },
+        "ObjectSizeGreaterThan":{"shape":"ObjectSizeGreaterThanBytes"},
+        "ObjectSizeLessThan":{"shape":"ObjectSizeLessThanBytes"}
       }
     },
     "LifecycleRuleFilter":{
       "type":"structure",
       "members":{
-        "Prefix":{"shape":"Prefix"}
+        "Prefix":{"shape":"Prefix"},
+        "Tag":{"shape":"Tag"},
+        "ObjectSizeGreaterThan":{"shape":"ObjectSizeGreaterThanBytes"},
+        "ObjectSizeLessThan":{"shape":"ObjectSizeLessThanBytes"},
+        "And":{"shape":"LifecycleRuleAndOperator"}
       }
     },
     "LifecycleRules":{
@@ -4284,14 +4295,16 @@
     "NoncurrentVersionExpiration":{
       "type":"structure",
       "members":{
-        "NoncurrentDays":{"shape":"Days"}
+        "NoncurrentDays":{"shape":"Days"},
+        "NewerNoncurrentVersions":{"shape":"VersionCount"}
       }
     },
     "NoncurrentVersionTransition":{
       "type":"structure",
       "members":{
         "NoncurrentDays":{"shape":"Days"},
-        "StorageClass":{"shape":"TransitionStorageClass"}
+        "StorageClass":{"shape":"TransitionStorageClass"},
+        "NewerNoncurrentVersions":{"shape":"VersionCount"}
       }
     },
     "NoncurrentVersionTransitionList":{
@@ -4451,6 +4464,14 @@
       "members":{
       },
       "exception":true
+    },
+    "ObjectSizeGreaterThanBytes":{
+      "type":"long",
+      "box":true
+    },
+    "ObjectSizeLessThanBytes":{
+      "type":"long",
+      "box":true
     },
     "ObjectStorageClass":{
       "type":"string",
@@ -6326,6 +6347,10 @@
       }
     },
     "Value":{"type":"string"},
+    "VersionCount":{
+      "type":"integer",
+      "box":true
+    },
     "VersionIdMarker":{"type":"string"},
     "VersioningConfiguration":{
       "type":"structure",

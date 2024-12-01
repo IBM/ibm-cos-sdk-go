@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 1.12.0
+
+### Content
+
+#### Features
+
+* Tag Based Filtering for Object Expiration
+
+#### Defect Fixes
+
+* Support for Golang 1.23.0
+* COSSDK-94928: <https://github.com/IBM/ibm-cos-sdk-go/issues/15>
+
 ## 1.11.1
 
 ### Content
