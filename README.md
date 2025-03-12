@@ -49,7 +49,7 @@ Users can set an archive rule that would allow data restore from an archive in 2
 
 ## Getting the SDK
 
-Use go build to add the SDK to your project's Go module dependencies.  The SDK requires a minimum version of Go 1.12.
+Use go build to add the SDK to your project's Go module dependencies.  The SDK requires a minimum version of Go 1.23 or newer.
 
 ```sh
 go build ./...
