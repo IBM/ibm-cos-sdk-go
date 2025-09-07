@@ -1,4 +1,4 @@
-module github.com/IBM/ibm-cos-sdk-go
+module github.com/guruprasad0110/ibm-cos-sdk-go
 
 require (
 	github.com/IBM/go-sdk-core/v5 v5.21.0
