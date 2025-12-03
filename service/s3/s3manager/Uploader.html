@@ -76,7 +76,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>The Uploader structure that calls Upload(). It is safe to call Upload() on this structure for multiple objects and across concurrent goroutines. Mutating the Uploader&#39;s properties is not safe to be done concurrently.</p>
+<p>The Uploader structure that calls Upload(). It is safe to call Upload() on this structure for multiple objects and across concurrent goroutines. Mutating the Uploader’s properties is not safe to be done concurrently.</p>
 
 <p>The ContentMD5 member for pre-computed MD5 checksums will be ignored for multipart uploads. Objects that will be uploaded in a single part, the ContentMD5 will be used.</p>
 
@@ -454,9 +454,9 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
     
 <p>MaxUploadParts is the max number of parts which will be uploaded to S3. Will be used to calculate the partsize of the object to be uploaded. E.g: 5GB file, with MaxUploadParts set to 100, will upload the file as 100, 50MB parts. With a limited of s3.MaxUploadParts (10,000 parts).</p>
 
-<p>MaxUploadParts must not be used to limit the total number of bytes uploaded. Use a type like to io.LimitReader (<a href="https://golang.org/pkg/io/#LimitedReader">golang.org/pkg/io/#LimitedReader</a>) instead. An io.LimitReader is helpful when uploading an unbounded reader to S3, and you know its maximum size. Otherwise the reader&#39;s io.EOF returned error must be used to signal end of stream.</p>
+<p>MaxUploadParts must not be used to limit the total number of bytes uploaded. Use a type like to io.LimitReader (<a href="https://golang.org/pkg/io/#LimitedReader">golang.org/pkg/io/#LimitedReader</a>) instead. An io.LimitReader is helpful when uploading an unbounded reader to S3, and you know its maximum size. Otherwise the reader’s io.EOF returned error must be used to signal end of stream.</p>
 
-<p>Defaults to package const&#39;s MaxUploadParts value.</p>
+<p>Defaults to package const’s MaxUploadParts value.</p>
 
 
   </div>
@@ -543,7 +543,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Upload uploads an object to S3, intelligently buffering large files into smaller chunks and sending them in parallel across multiple goroutines. You can configure the buffer size and concurrency through the Uploader&#39;s parameters.</p>
+<p>Upload uploads an object to S3, intelligently buffering large files into smaller chunks and sending them in parallel across multiple goroutines. You can configure the buffer size and concurrency through the Uploader’s parameters.</p>
 
 <p>Additional functional options can be provided to configure the individual upload. These options are copies of the Uploader instance Upload is called from. Modifying the options will not impact the original Uploader instance.</p>
 
@@ -610,7 +610,7 @@ result, err := uploader.Upload(upParams, <span class="hljs-keyword">func</span>(
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>UploadWithContext uploads an object to S3, intelligently buffering large files into smaller chunks and sending them in parallel across multiple goroutines. You can configure the buffer size and concurrency through the Uploader&#39;s parameters.</p>
+<p>UploadWithContext uploads an object to S3, intelligently buffering large files into smaller chunks and sending them in parallel across multiple goroutines. You can configure the buffer size and concurrency through the Uploader’s parameters.</p>
 
 <p>UploadWithContext is the same as Upload with the additional support for Context input parameters. The Context must not be nil. A nil Context will cause a panic. Use the context to add deadlining, timeouts, etc. The UploadWithContext may create sub-contexts for individual underlying requests.</p>
 
@@ -793,9 +793,9 @@ iter := &s3manager.UploadObjectsIterator{Objects: objects}
       </div>
 
       <div id="footer">
-  Generated on Tue Aug 26 09:39:49 2025 by
+  Generated on Wed Dec  3 08:09:53 2025 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.0).
+  0.9.37 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

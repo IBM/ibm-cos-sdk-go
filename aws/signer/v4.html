@@ -94,15 +94,15 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 
 <p>The leading “//” and hostname are required or the URL.Opaque escaping will not work correctly.</p>
 
-<p>If URL.Opaque is not set the signer will fallback to the URL.EscapedPath() method and using the returned value. If you&#39;re using Go v1.4 you must set URL.Opaque if the URI path needs escaping. If URL.Opaque is not set with Go v1.5 the signer will fallback to URL.Path.</p>
+<p>If URL.Opaque is not set the signer will fallback to the URL.EscapedPath() method and using the returned value. If you’re using Go v1.4 you must set URL.Opaque if the URI path needs escaping. If URL.Opaque is not set with Go v1.5 the signer will fallback to URL.Path.</p>
 
-<p>AWS v4 signature validation requires that the canonical string&#39;s URI path element must be the URI escaped form of the HTTP request&#39;s path. <a href="http://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html">docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html</a></p>
+<p>AWS v4 signature validation requires that the canonical string’s URI path element must be the URI escaped form of the HTTP request’s path. <a href="http://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html">docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html</a></p>
 
 <p>The Go HTTP client will perform escaping automatically on the request. Some of these escaping may cause signature validation errors because the HTTP request differs from the URI path or query that the signature was generated. <a href="https://golang.org/pkg/net/url/#URL.EscapedPath">golang.org/pkg/net/url/#URL.EscapedPath</a></p>
 
 <p>Because of this, it is recommended that when using the signer outside of the SDK that explicitly escaping the request prior to being signed is preferable, and will help prevent signature validation errors. This can be done by setting the URL.Opaque or URL.RawPath. The SDK will use URL.Opaque first and then call URL.EscapedPath() if Opaque is not set.</p>
 
-<p>If signing a request intended for HTTP2 server, and you&#39;re using Go 1.6.2 through 1.7.4 you should use the URL.RawPath as the pre-escaped form of the request URL. <a href="https://github.com/golang/go/issues/16847">github.com/golang/go/issues/16847</a> points to a bug in Go pre 1.8 that fails to make HTTP2 requests using absolute URL in the HTTP message. URL.Opaque generally will force Go to make requests with absolute URL. URL.RawPath does not do this, but RawPath must be a valid escaping of Path or url.EscapedPath will ignore the RawPath escaping.</p>
+<p>If signing a request intended for HTTP2 server, and you’re using Go 1.6.2 through 1.7.4 you should use the URL.RawPath as the pre-escaped form of the request URL. <a href="https://github.com/golang/go/issues/16847">github.com/golang/go/issues/16847</a> points to a bug in Go pre 1.8 that fails to make HTTP2 requests using absolute URL in the HTTP message. URL.Opaque generally will force Go to make requests with absolute URL. URL.RawPath does not do this, but RawPath must be a valid escaping of Path or url.EscapedPath will ignore the RawPath escaping.</p>
 
 <p>Test <code>TestStandaloneSign</code> provides a complete example of using the signer outside of the SDK and pre-escaping the URI path.</p>
 
@@ -341,7 +341,7 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>SignSDKRequestWithCurrentTime will sign the SDK&#39;s request using the time function passed in.</p>
+<p>SignSDKRequestWithCurrentTime will sign the SDK’s request using the time function passed in.</p>
 </div></span>
   
 </li>
@@ -584,11 +584,11 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SignSDKRequest signs an AWS request with the V4 signature. This request handler should only be used with the SDK&#39;s built in service client&#39;s API operation requests.</p>
+<p>SignSDKRequest signs an AWS request with the V4 signature. This request handler should only be used with the SDK’s built in service client’s API operation requests.</p>
 
-<p>This function should not be used on its own, but in conjunction with an AWS service client&#39;s API operation call. To sign a standalone request not created by a service client&#39;s API operation method use the “Sign” or “Presign” functions of the “Signer” type.</p>
+<p>This function should not be used on its own, but in conjunction with an AWS service client’s API operation call. To sign a standalone request not created by a service client’s API operation method use the “Sign” or “Presign” functions of the “Signer” type.</p>
 
-<p>If the credentials of the request&#39;s config are set to credentials.AnonymousCredentials the request will not be signed.</p>
+<p>If the credentials of the request’s config are set to credentials.AnonymousCredentials the request will not be signed.</p>
 
 
   </div>
@@ -630,7 +630,7 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>SignSDKRequestWithCurrentTime will sign the SDK&#39;s request using the time function passed in. Behaves the same as SignSDKRequest with the exception the request is signed with the value returned by the current time function.</p>
+<p>SignSDKRequestWithCurrentTime will sign the SDK’s request using the time function passed in. Behaves the same as SignSDKRequest with the exception the request is signed with the value returned by the current time function.</p>
 
 
   </div>
@@ -800,9 +800,9 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
       </div>
 
       <div id="footer">
-  Generated on Tue Aug 26 09:39:07 2025 by
+  Generated on Wed Dec  3 08:09:14 2025 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.0).
+  0.9.37 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

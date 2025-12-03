@@ -175,7 +175,7 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Disables the Signer&#39;s moving HTTP header key/value pairs from the HTTP request header to the request&#39;s query string.</p>
+<p>Disables the Signer’s moving HTTP header key/value pairs from the HTTP request header to the request’s query string.</p>
 </div></span>
   
 </li>
@@ -200,7 +200,7 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Disables the automatical setting of the HTTP request&#39;s Body field with the io.ReadSeeker passed in to the signer.</p>
+<p>Disables the automatical setting of the HTTP request’s Body field with the io.ReadSeeker passed in to the signer.</p>
 </div></span>
   
 </li>
@@ -225,7 +225,7 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Disables the automatic escaping of the URI path of the request for the siganture&#39;s canonical string&#39;s path.</p>
+<p>Disables the automatic escaping of the URI path of the request for the siganture’s canonical string’s path.</p>
 </div></span>
   
 </li>
@@ -402,7 +402,7 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 <div class="docstring">
   <div class="discussion">
     
-<p>Disables the Signer&#39;s moving HTTP header key/value pairs from the HTTP request header to the request&#39;s query string. This is most commonly used with pre-signed requests preventing headers from being added to the request&#39;s query string.</p>
+<p>Disables the Signer’s moving HTTP header key/value pairs from the HTTP request header to the request’s query string. This is most commonly used with pre-signed requests preventing headers from being added to the request’s query string.</p>
 
 
   </div>
@@ -421,7 +421,7 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 <div class="docstring">
   <div class="discussion">
     
-<p>Disables the automatical setting of the HTTP request&#39;s Body field with the io.ReadSeeker passed in to the signer. This is useful if you&#39;re using a custom wrapper around the body for the io.ReadSeeker and want to preserve the Body value on the Request.Body.</p>
+<p>Disables the automatical setting of the HTTP request’s Body field with the io.ReadSeeker passed in to the signer. This is useful if you’re using a custom wrapper around the body for the io.ReadSeeker and want to preserve the Body value on the Request.Body.</p>
 
 <p>This does run the risk of signing a request with a body that will not be sent in the request. Need to ensure that the underlying data of the Body values are the same.</p>
 
@@ -442,7 +442,7 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 <div class="docstring">
   <div class="discussion">
     
-<p>Disables the automatic escaping of the URI path of the request for the siganture&#39;s canonical string&#39;s path. For services that do not need additional escaping then use this to disable the signer escaping the path.</p>
+<p>Disables the automatic escaping of the URI path of the request for the siganture’s canonical string’s path. For services that do not need additional escaping then use this to disable the signer escaping the path.</p>
 
 <p>S3 is an example of a service that does not need additional escaping.</p>
 
@@ -518,13 +518,13 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 
 <p>Returns a list of HTTP headers that were included in the signature or an error if signing the request failed. For presigned requests these headers and their values must be included on the HTTP request when it is made. This is helpful to know what header values need to be shared with the party the presigned request will be distributed to.</p>
 
-<p>Presign differs from Sign in that it will sign the request using query string instead of header values. This allows you to share the Presigned Request&#39;s URL with third parties, or distribute it throughout your system with minimal dependencies.</p>
+<p>Presign differs from Sign in that it will sign the request using query string instead of header values. This allows you to share the Presigned Request’s URL with third parties, or distribute it throughout your system with minimal dependencies.</p>
 
 <p>Presign also takes an exp value which is the duration the signed request will be valid after the signing time. This is allows you to set when the request will expire.</p>
 
 <p>The requests body is an io.ReadSeeker so the SHA256 of the body can be generated. To bypass the signer computing the hash you can set the “X-Amz-Content-Sha256” header with a precomputed value. The signer will only compute the hash if the request header value is empty.</p>
 
-<p>Presigning a S3 request will not compute the body&#39;s SHA256 hash by default. This is done due to the general use case for S3 presigned URLs is to share PUT/GET capabilities. If you would like to include the body&#39;s SHA256 in the presigned request&#39;s signature you can set the “X-Amz-Content-Sha256” HTTP header and that will be included in the request&#39;s signature.</p>
+<p>Presigning a S3 request will not compute the body’s SHA256 hash by default. This is done due to the general use case for S3 presigned URLs is to share PUT/GET capabilities. If you would like to include the body’s SHA256 in the presigned request’s signature you can set the “X-Amz-Content-Sha256” HTTP header and that will be included in the request’s signature.</p>
 
 
   </div>
@@ -570,7 +570,7 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
 
 <p>Returns a list of HTTP headers that were included in the signature or an error if signing the request failed. Generally for signed requests this value is not needed as the full request context will be captured by the http.Request value. It is included for reference though.</p>
 
-<p>Sign will set the request&#39;s Body to be the <code>body</code> parameter passed in. If the body is not already an io.ReadCloser, it will be wrapped within one. If a <code>nil</code> body parameter passed to Sign, the request&#39;s Body field will be also set to nil. Its important to note that this functionality will not change the request&#39;s ContentLength of the request.</p>
+<p>Sign will set the request’s Body to be the <code>body</code> parameter passed in. If the body is not already an io.ReadCloser, it will be wrapped within one. If a <code>nil</code> body parameter passed to Sign, the request’s Body field will be also set to nil. Its important to note that this functionality will not change the request’s ContentLength of the request.</p>
 
 <p>Sign differs from Presign in that it will sign the request using HTTP header values. This type of signing is intended for http.Request values that will not be shared, or are shared in a way the header values on the request will not be lost.</p>
 
@@ -610,9 +610,9 @@ import "../ibm-cos-sdk-go/aws/signer/v4"
       </div>
 
       <div id="footer">
-  Generated on Tue Aug 26 09:39:11 2025 by
+  Generated on Wed Dec  3 08:09:18 2025 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.0).
+  0.9.37 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

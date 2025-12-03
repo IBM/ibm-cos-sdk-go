@@ -78,11 +78,11 @@ import "../ibm-cos-sdk-go/aws/endpoints"
     
 <p>Package endpoints provides the types and functionality for defining regions and endpoints, as well as querying those definitions.</p>
 
-<p>The SDK&#39;s Regions and Endpoints metadata is code generated into the endpoints package, and is accessible via the DefaultResolver function. This function returns a endpoint Resolver will search the metadata and build an associated endpoint if one is found. The default resolver will search all partitions known by the SDK. e.g AWS Standard (aws), AWS China (aws-cn), and AWS GovCloud (US) (aws-us-gov). .</p>
+<p>The SDK’s Regions and Endpoints metadata is code generated into the endpoints package, and is accessible via the DefaultResolver function. This function returns a endpoint Resolver will search the metadata and build an associated endpoint if one is found. The default resolver will search all partitions known by the SDK. e.g AWS Standard (aws), AWS China (aws-cn), and AWS GovCloud (US) (aws-us-gov). .</p>
 
 <h1 id="label-Enumerating+Regions+and+Endpoint+Metadata">Enumerating Regions and Endpoint Metadata</h1>
 
-<p>Casting the Resolver returned by DefaultResolver to a EnumPartitions interface will allow you to get access to the list of underlying Partitions with the Partitions method. This is helpful if you want to limit the SDK&#39;s endpoint resolving to a single partition, or enumerate regions, services, and endpoints in the partition.</p>
+<p>Casting the Resolver returned by DefaultResolver to a EnumPartitions interface will allow you to get access to the list of underlying Partitions with the Partitions method. This is helpful if you want to limit the SDK’s endpoint resolving to a single partition, or enumerate regions, services, and endpoints in the partition.</p>
 
 <pre class="code go"><code class="go"><div class="hljs">resolver := endpoints.DefaultResolver()
 partitions := resolver.(endpoints.EnumPartitions).Partitions()
@@ -104,7 +104,7 @@ partitions := resolver.(endpoints.EnumPartitions).Partitions()
 
 <p>The endpoints package also gives you the ability to use your own logic how endpoints are resolved. This is a great way to define a custom endpoint for select services, without passing that logic down through your code.</p>
 
-<p>If a type implements the Resolver interface it can be used to resolve endpoints. To use this with the SDK&#39;s Session and Config set the value of the type to the EndpointsResolver field of aws.Config when initializing the session, or service client.</p>
+<p>If a type implements the Resolver interface it can be used to resolve endpoints. To use this with the SDK’s Session and Config set the value of the type to the EndpointsResolver field of aws.Config when initializing the session, or service client.</p>
 
 <p>In addition the ResolverFunc is a wrapper for a func matching the signature of Resolver.EndpointFor, converting it to a type that satisfies the Resolver interface.</p>
 
@@ -2325,7 +2325,7 @@ sess := session.Must(session.NewSession(&aws.Config{
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A Partition provides the ability to enumerate the partition&#39;s regions and services.</p>
+<p>A Partition provides the ability to enumerate the partition’s regions and services.</p>
 </div></span>
   
 </li>
@@ -2533,7 +2533,7 @@ sess := session.Must(session.NewSession(&aws.Config{
 
   
     <span class="summary_desc"><div class='inline'>
-<p>EnumPartitions a provides a way to retrieve the underlying partitions that make up the SDK&#39;s default Resolver, or any resolver decoded from a model file.</p>
+<p>EnumPartitions a provides a way to retrieve the underlying partitions that make up the SDK’s default Resolver, or any resolver decoded from a model file.</p>
 </div></span>
   
 </li>
@@ -3315,7 +3315,7 @@ sess := session.Must(session.NewSession(&aws.Config{
     
 <p>AddScheme adds the HTTP or HTTPS schemes to a endpoint URL if there is no scheme. If disableSSL is true HTTP will set HTTP instead of the default HTTPS.</p>
 
-<p>If disableSSL is set, it will only set the URL&#39;s scheme if the URL does not contain a scheme.</p>
+<p>If disableSSL is set, it will only set the URL’s scheme if the URL does not contain a scheme.</p>
 
 
   </div>
@@ -3769,7 +3769,11 @@ partitions := resolver.(endpoints.EnumPartitions).Partitions()
     
 <p>DefaultPartitions returns a list of the partitions the SDK is bundled with. The available partitions are: AWS Standard, AWS China, AWS GovCloud (US), AWS ISO (US), and AWS ISOB (US).</p>
 
-<p>partitions := endpoints.DefaultPartitions  for _, p := range partitions {  // … inspect partitions  }</p>
+<pre class="code go"><code class="go"><div class="hljs">partitions := endpoints.DefaultPartitions
+<span class="hljs-keyword">for</span> _, p := <span class="hljs-keyword">range</span> partitions {
+    <span class="hljs-comment">// ... inspect partitions</span>
+}
+</div></code></pre>
 
 
   </div>
@@ -4331,7 +4335,7 @@ partitions := resolver.(endpoints.EnumPartitions).Partitions()
     
 <p>UseDualStackOption sets the UseDualStack option. Can be used as a functional option when resolving endpoints.</p>
 
-<p>Deprecated: UseDualStackEndpointOption should be used to enable usage of a service&#39;s dual-stack endpoint. When DualStackEndpointState is set to a non-zero value it takes higher precedence then this option.</p>
+<p>Deprecated: UseDualStackEndpointOption should be used to enable usage of a service’s dual-stack endpoint. When DualStackEndpointState is set to a non-zero value it takes higher precedence then this option.</p>
 
 
   </div>
@@ -4367,9 +4371,9 @@ partitions := resolver.(endpoints.EnumPartitions).Partitions()
       </div>
 
       <div id="footer">
-  Generated on Tue Aug 26 09:39:07 2025 by
+  Generated on Wed Dec  3 08:09:14 2025 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.0).
+  0.9.37 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

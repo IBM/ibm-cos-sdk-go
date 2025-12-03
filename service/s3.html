@@ -78,7 +78,7 @@ import "../ibm-cos-sdk-go/service/s3"
     
 <p>Upload Managers</p>
 
-<p>The s3manager package&#39;s Uploader provides concurrent upload of content to S3 by taking advantage of S3&#39;s Multipart APIs. The Uploader also supports both io.Reader for streaming uploads, and will also take advantage of io.ReadSeeker for optimizations if the Body satisfies that type. Once the Uploader instance is created you can call Upload concurrently from multiple goroutines safely.</p>
+<p>The s3manager package’s Uploader provides concurrent upload of content to S3 by taking advantage of S3’s Multipart APIs. The Uploader also supports both io.Reader for streaming uploads, and will also take advantage of io.ReadSeeker for optimizations if the Body satisfies that type. Once the Uploader instance is created you can call Upload concurrently from multiple goroutines safely.</p>
 
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// The session the S3 Uploader will use</span>
 sess := session.Must(session.NewSession())
@@ -103,11 +103,11 @@ result, err := uploader.Upload(&s3manager.UploadInput{
 fmt.Printf(<span class="hljs-string">"file uploaded to, %s\n"</span>, aws.StringValue(result.Location))
 </div></code></pre>
 
-<p>See the s3manager package&#39;s Uploader type documentation for more information. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader</a></p>
+<p>See the s3manager package’s Uploader type documentation for more information. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader</a></p>
 
 <h1 id="label-Download+Manager">Download Manager</h1>
 
-<p>The s3manager package&#39;s Downloader provides concurrently downloading of Objects from S3. The Downloader will write S3 Object content with an io.WriterAt. Once the Downloader instance is created you can call Download concurrently from multiple goroutines safely.</p>
+<p>The s3manager package’s Downloader provides concurrently downloading of Objects from S3. The Downloader will write S3 Object content with an io.WriterAt. Once the Downloader instance is created you can call Download concurrently from multiple goroutines safely.</p>
 
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// The session the S3 Downloader will use</span>
 sess := session.Must(session.NewSession())
@@ -132,7 +132,7 @@ n, err := downloader.Download(f, &s3.GetObjectInput{
 fmt.Printf(<span class="hljs-string">"file downloaded, %d bytes\n"</span>, n)
 </div></code></pre>
 
-<p>See the s3manager package&#39;s Downloader type documentation for more information. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader</a></p>
+<p>See the s3manager package’s Downloader type documentation for more information. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader</a></p>
 
 <h1 id="label-Automatic+URI+cleaning">Automatic URI cleaning</h1>
 
@@ -164,7 +164,7 @@ region, err := s3manager.GetBucketRegion(ctx, sess, bucket, <span class="hljs-st
 fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucket, region)
 </div></code></pre>
 
-<p>See the s3manager package&#39;s GetBucketRegion function documentation for more information <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion</a></p>
+<p>See the s3manager package’s GetBucketRegion function documentation for more information <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion</a></p>
 
 <h1 id="label-S3+Crypto+Client">S3 Crypto Client</h1>
 
@@ -3043,7 +3043,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
             <div class="docstring">
   <div class="discussion">
     
-<p>NormalizeBucketLocationHandler is a request handler which will update the GetBucketLocation&#39;s result LocationConstraint value to always be a region ID.</p>
+<p>NormalizeBucketLocationHandler is a request handler which will update the GetBucketLocation’s result LocationConstraint value to always be a region ID.</p>
 
 <p>Replaces empty string with “us-east-1”, and “EU” with “eu-west-1”.</p>
 
@@ -3422,6 +3422,29 @@ err := req.Send()
       
 <li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="#type-PutBucketReplicationOutput" title="s3 (package)"><strong>PutBucketReplicationOutput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-PutBucketReplicationReattemptOutput" title="s3 (package)"><strong>PutBucketReplicationReattemptOutput</strong></a></span></span>
   
   
   <span class="note title readonly">struct</span>
@@ -4423,7 +4446,7 @@ err := req.Send()
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithNormalizeBucketLocation is a request option which will update the GetBucketLocation&#39;s result LocationConstraint value to always be a region ID.</p>
+<p>WithNormalizeBucketLocation is a request option which will update the GetBucketLocation’s result LocationConstraint value to always be a region ID.</p>
 </div></span>
   
 </li>
@@ -4876,6 +4899,35 @@ err := req.Send()
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="type-PutBucketReplicationReattemptOutput">
+  
+    <strong>PutBucketReplicationReattemptOutput</strong> struct
+  
+
+  
+</h3>
+<div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>_</strong> struct{} 
+    
+    
+  </code></dt>
+  <dd>
+    
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="type-PutBucketVersioningOutput">
   
     <strong>PutBucketVersioningOutput</strong> struct
@@ -5024,17 +5076,17 @@ err := req.Send()
       <pre class="lines">
 
 
-23166
-23167
-23168
-23169
-23170
-23171
-23172
-23173</pre>
+23694
+23695
+23696
+23697
+23698
+23699
+23700
+23701</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23166</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23694</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> BucketCannedACL_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5076,38 +5128,38 @@ err := req.Send()
       <pre class="lines">
 
 
-23253
-23254
-23255
-23256
-23257
-23258
-23259
-23260
-23261
-23262
-23263
-23264
-23265
-23266
-23267
-23268
-23269
-23270
-23271
-23272
-23273
-23274
-23275
-23276
-23277
-23278
-23279
-23280
-23281</pre>
+23781
+23782
+23783
+23784
+23785
+23786
+23787
+23788
+23789
+23790
+23791
+23792
+23793
+23794
+23795
+23796
+23797
+23798
+23799
+23800
+23801
+23802
+23803
+23804
+23805
+23806
+23807
+23808
+23809</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23253</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23781</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> BucketLocationConstraint_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5170,16 +5222,16 @@ err := req.Send()
       <pre class="lines">
 
 
-23295
-23296
-23297
-23298
-23299
-23300
-23301</pre>
+23823
+23824
+23825
+23826
+23827
+23828
+23829</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23295</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23823</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> BucketLogsPermission_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5220,14 +5272,14 @@ err := req.Send()
       <pre class="lines">
 
 
-23309
-23310
-23311
-23312
-23313</pre>
+23837
+23838
+23839
+23840
+23841</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23309</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23837</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> BucketProtectionStatus_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5266,15 +5318,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23324
-23325
-23326
-23327
-23328
-23329</pre>
+23852
+23853
+23854
+23855
+23856
+23857</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23324</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23852</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> BucketVersioningStatus_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5314,15 +5366,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23340
-23341
-23342
-23343
-23344
-23345</pre>
+23868
+23869
+23870
+23871
+23872
+23873</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23340</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23868</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> DeleteMarkerReplicationStatus_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5362,14 +5414,14 @@ err := req.Send()
       <pre class="lines">
 
 
-23359
-23360
-23361
-23362
-23363</pre>
+23887
+23888
+23889
+23890
+23891</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23359</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23887</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> EncodingType_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5408,15 +5460,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23374
-23375
-23376
-23377
-23378
-23379</pre>
+23902
+23903
+23904
+23905
+23906
+23907</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23374</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23902</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ExpirationStatus_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5456,14 +5508,14 @@ err := req.Send()
       <pre class="lines">
 
 
-23387
-23388
-23389
-23390
-23391</pre>
+23915
+23916
+23917
+23918
+23919</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23387</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23915</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> IbmProtectionManagementState_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5502,15 +5554,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23434
-23435
-23436
-23437
-23438
-23439</pre>
+23962
+23963
+23964
+23965
+23966
+23967</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23434</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23962</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> MetadataDirective_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5550,15 +5602,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23402
-23403
-23404
-23405
-23406
-23407</pre>
+23930
+23931
+23932
+23933
+23934
+23935</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23402</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23930</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> MFADelete_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5598,15 +5650,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23418
-23419
-23420
-23421
-23422
-23423</pre>
+23946
+23947
+23948
+23949
+23950
+23951</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23418</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23946</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> MFADeleteStatus_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5706,20 +5758,20 @@ err := req.Send()
       <pre class="lines">
 
 
-23465
-23466
-23467
-23468
-23469
-23470
-23471
-23472
-23473
-23474
-23475</pre>
+23993
+23994
+23995
+23996
+23997
+23998
+23999
+24000
+24001
+24002
+24003</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23465</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23993</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ObjectCannedACL_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5764,14 +5816,14 @@ err := req.Send()
       <pre class="lines">
 
 
-23483
-23484
-23485
-23486
-23487</pre>
+24011
+24012
+24013
+24014
+24015</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23483</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24011</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ObjectLockEnabled_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5810,15 +5862,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23498
-23499
-23500
-23501
-23502
-23503</pre>
+24026
+24027
+24028
+24029
+24030
+24031</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23498</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24026</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ObjectLockLegalHoldStatus_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5858,15 +5910,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23514
-23515
-23516
-23517
-23518
-23519</pre>
+24042
+24043
+24044
+24045
+24046
+24047</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23514</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24042</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ObjectLockMode_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5906,15 +5958,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23530
-23531
-23532
-23533
-23534
-23535</pre>
+24058
+24059
+24060
+24061
+24062
+24063</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23530</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24058</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ObjectLockRetentionMode_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -5954,21 +6006,21 @@ err := req.Send()
       <pre class="lines">
 
 
-23564
-23565
-23566
-23567
-23568
-23569
-23570
-23571
-23572
-23573
-23574
-23575</pre>
+24092
+24093
+24094
+24095
+24096
+24097
+24098
+24099
+24100
+24101
+24102
+24103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23564</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24092</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ObjectStorageClass_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6014,14 +6066,14 @@ err := req.Send()
       <pre class="lines">
 
 
-23583
-23584
-23585
-23586
-23587</pre>
+24111
+24112
+24113
+24114
+24115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23583</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24111</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ObjectVersionStorageClass_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6060,18 +6112,18 @@ err := req.Send()
       <pre class="lines">
 
 
-23607
-23608
-23609
-23610
-23611
-23612
-23613
-23614
-23615</pre>
+24135
+24136
+24137
+24138
+24139
+24140
+24141
+24142
+24143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23607</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24135</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> Permission_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6114,15 +6166,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23626
-23627
-23628
-23629
-23630
-23631</pre>
+24154
+24155
+24156
+24157
+24158
+24159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23626</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24154</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> Protocol_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6162,15 +6214,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23642
-23643
-23644
-23645
-23646
-23647</pre>
+24170
+24171
+24172
+24173
+24174
+24175</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23642</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24170</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ReplicationRuleStatus_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6210,17 +6262,17 @@ err := req.Send()
       <pre class="lines">
 
 
-23664
-23665
-23666
-23667
-23668
-23669
-23670
-23671</pre>
+24192
+24193
+24194
+24195
+24196
+24197
+24198
+24199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23664</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24192</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ReplicationStatus_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6262,14 +6314,14 @@ err := req.Send()
       <pre class="lines">
 
 
-23681
-23682
-23683
-23684
-23685</pre>
+24209
+24210
+24211
+24212
+24213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23681</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24209</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RequestCharged_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6308,14 +6360,14 @@ err := req.Send()
       <pre class="lines">
 
 
-23700
-23701
-23702
-23703
-23704</pre>
+24228
+24229
+24230
+24231
+24232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23700</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24228</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RequestPayer_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6354,15 +6406,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23715
-23716
-23717
-23718
-23719
-23720</pre>
+24243
+24244
+24245
+24246
+24247
+24248</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23715</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24243</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> RetentionDirective_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6402,15 +6454,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23731
-23732
-23733
-23734
-23735
-23736</pre>
+24259
+24260
+24261
+24262
+24263
+24264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23731</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24259</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> ServerSideEncryption_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6450,21 +6502,21 @@ err := req.Send()
       <pre class="lines">
 
 
-23765
-23766
-23767
-23768
-23769
-23770
-23771
-23772
-23773
-23774
-23775
-23776</pre>
+24293
+24294
+24295
+24296
+24297
+24298
+24299
+24300
+24301
+24302
+24303
+24304</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23765</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24293</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> StorageClass_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6510,15 +6562,15 @@ err := req.Send()
       <pre class="lines">
 
 
-23787
-23788
-23789
-23790
-23791
-23792</pre>
+24315
+24316
+24317
+24318
+24319
+24320</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23787</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24315</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> TaggingDirective_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6558,17 +6610,17 @@ err := req.Send()
       <pre class="lines">
 
 
-23809
-23810
-23811
-23812
-23813
-23814
-23815
-23816</pre>
+24337
+24338
+24339
+24340
+24341
+24342
+24343
+24344</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23809</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24337</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> Tier_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6610,19 +6662,19 @@ err := req.Send()
       <pre class="lines">
 
 
-23839
-23840
-23841
-23842
-23843
-23844
-23845
-23846
-23847
-23848</pre>
+24367
+24368
+24369
+24370
+24371
+24372
+24373
+24374
+24375
+24376</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23839</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24367</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> TransitionStorageClass_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6666,16 +6718,16 @@ err := req.Send()
       <pre class="lines">
 
 
-23862
-23863
-23864
-23865
-23866
-23867
-23868</pre>
+24390
+24391
+24392
+24393
+24394
+24395
+24396</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 23862</span>
+      <pre class="code"><span class="info file">// File 'service/s3/api.go', line 24390</span>
 
 <div class="hljs"><span class="hljs-keyword">func</span> Type_Values() []<span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> []<span class="hljs-constant">string</span>{
@@ -6702,7 +6754,7 @@ err := req.Send()
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithNormalizeBucketLocation is a request option which will update the GetBucketLocation&#39;s result LocationConstraint value to always be a region ID.</p>
+<p>WithNormalizeBucketLocation is a request option which will update the GetBucketLocation’s result LocationConstraint value to always be a region ID.</p>
 
 <p>Replaces empty string with “us-east-1”, and “EU” with “eu-west-1”.</p>
 
@@ -6750,9 +6802,9 @@ err := req.Send()
       </div>
 
       <div id="footer">
-  Generated on Tue Aug 26 09:39:09 2025 by
+  Generated on Wed Dec  3 08:09:16 2025 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.0).
+  0.9.37 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

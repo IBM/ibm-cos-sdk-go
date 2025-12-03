@@ -315,7 +315,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>BatchDelete will use the s3 package&#39;s service client to perform a batch delete.</p>
+<p>BatchDelete will use the s3 package’s service client to perform a batch delete.</p>
 </div></span>
   
 </li>
@@ -1259,7 +1259,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithDownloaderRequestOptions appends to the Downloader&#39;s API request options.</p>
+<p>WithDownloaderRequestOptions appends to the Downloader’s API request options.</p>
 </div></span>
   
 </li>
@@ -1284,7 +1284,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 
   
     <span class="summary_desc"><div class='inline'>
-<p>WithUploaderRequestOptions appends to the Uploader&#39;s API request options.</p>
+<p>WithUploaderRequestOptions appends to the Uploader’s API request options.</p>
 </div></span>
   
 </li>
@@ -1442,7 +1442,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 <div class="docstring">
   <div class="discussion">
     
-<p>UploadInput provides the input parameters for uploading a stream or buffer to an object in an Amazon S3 bucket. This type is similar to the s3 package&#39;s PutObjectInput with the exception that the Body member is an io.Reader instead of an io.ReadSeeker.</p>
+<p>UploadInput provides the input parameters for uploading a stream or buffer to an object in an Amazon S3 bucket. This type is similar to the s3 package’s PutObjectInput with the exception that the Body member is an io.Reader instead of an io.ReadSeeker.</p>
 
 <p>The ContentMD5 member for pre-computed MD5 checksums will be ignored for multipart uploads. Objects that will be uploaded in a single part, the ContentMD5 will be used.</p>
 
@@ -1735,7 +1735,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
   </code></dt>
   <dd>
     
-<p>The date and time when you want this object&#39;s Object Lock to expire.</p>
+<p>The date and time when you want this object’s Object Lock to expire.</p>
 
     
   </dd>
@@ -1767,7 +1767,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
   </code></dt>
   <dd>
     
-<p>Date on which it will be legal to delete or modify the object. This field can only be specified if Retention-Directive is REPLACE. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket&#39;s DefaultRetention period will be used.</p>
+<p>Date on which it will be legal to delete or modify the object. This field can only be specified if Retention-Directive is REPLACE. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket’s DefaultRetention period will be used.</p>
 
     
   </dd>
@@ -1791,7 +1791,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
   </code></dt>
   <dd>
     
-<p>Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket&#39;s DefaultRetention period will be used. 0 is a legal value assuming the bucket&#39;s minimum retention period is also 0.</p>
+<p>Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket’s DefaultRetention period will be used. 0 is a legal value assuming the bucket’s minimum retention period is also 0.</p>
 
     
   </dd>
@@ -1839,7 +1839,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
   </code></dt>
   <dd>
     
-<p>If x-amz-server-side-encryption has a valid value of aws:kms or aws:kms:dsse, this header specifies the ID (Key ID, Key ARN, or Key Alias) of the Key Management Service (KMS) symmetric encryption customer managed key that was used for the object. If you specify x-amz-server-side-encryption:aws:kms or x-amz-server-side-encryption:aws:kms:dsse, but do not providex-amz-server-side-encryption-aws-kms-key-id, Amazon S3 uses the Amazon Web Services managed key (aws/s3) to protect the data. If the KMS key does not exist in the same account that&#39;s issuing the command, you must use the full ARN and not just the ID.</p>
+<p>If x-amz-server-side-encryption has a valid value of aws:kms or aws:kms:dsse, this header specifies the ID (Key ID, Key ARN, or Key Alias) of the Key Management Service (KMS) symmetric encryption customer managed key that was used for the object. If you specify x-amz-server-side-encryption:aws:kms or x-amz-server-side-encryption:aws:kms:dsse, but do not providex-amz-server-side-encryption-aws-kms-key-id, Amazon S3 uses the Amazon Web Services managed key (aws/s3) to protect the data. If the KMS key does not exist in the same account that’s issuing the command, you must use the full ARN and not just the ID.</p>
 
     
   </dd>
@@ -2026,7 +2026,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 
 <p>The request will not be signed, and will not use your AWS credentials.</p>
 
-<p>A “NotFound” error code will be returned if the bucket does not exist in the AWS partition the regionHint belongs to. If the regionHint parameter is an empty string GetBucketRegion will fallback to the ConfigProvider&#39;s region config. If the regionHint is empty, and the ConfigProvider does not have a region value, an error will be returned..</p>
+<p>A “NotFound” error code will be returned if the bucket does not exist in the AWS partition the regionHint belongs to. If the regionHint parameter is an empty string GetBucketRegion will fallback to the ConfigProvider’s region config. If the regionHint is empty, and the ConfigProvider does not have a region value, an error will be returned..</p>
 
 <p>For example to get the region of a bucket which exists in “eu-central-1” you could provide a region hint of “us-west-2”.</p>
 
@@ -2048,7 +2048,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
 <pre class="code go"><code class="go"><div class="hljs">s3.us-west-2.amazonaws.com/bucketname
 </div></code></pre>
 
-<p>This is not compatible with Amazon S3&#39;s FIPS endpoints. To override this behavior to use Virtual Host style addressing, provide a functional option that will set the Request&#39;s Config.S3ForcePathStyle to aws.Bool(false).</p>
+<p>This is not compatible with Amazon S3’s FIPS endpoints. To override this behavior to use Virtual Host style addressing, provide a functional option that will set the Request’s Config.S3ForcePathStyle to aws.Bool(false).</p>
 
 <pre class="code go"><code class="go"><div class="hljs">region, err := s3manager.GetBucketRegion(ctx, sess, <span class="hljs-string">"bucketname"</span>, <span class="hljs-string">"us-west-2"</span>, <span class="hljs-keyword">func</span>(r *request.Request) {
     r.S3ForcePathStyle = aws.Bool(<span class="hljs-constant">false</span>)
@@ -2121,7 +2121,7 @@ region, err := s3manager.GetBucketRegion(context.Background(), sess, <span class
 <pre class="code go"><code class="go"><div class="hljs">s3.us-west-2.amazonaws.com/bucketname
 </div></code></pre>
 
-<p>This is not compatible with Amazon S3&#39;s FIPS endpoints. To override this behavior to use Virtual Host style addressing, provide a functional option that will set the Request&#39;s Config.S3ForcePathStyle to aws.Bool(false).</p>
+<p>This is not compatible with Amazon S3’s FIPS endpoints. To override this behavior to use Virtual Host style addressing, provide a functional option that will set the Request’s Config.S3ForcePathStyle to aws.Bool(false).</p>
 
 <pre class="code go"><code class="go"><div class="hljs">region, err := s3manager.GetBucketRegionWithClient(ctx, client, <span class="hljs-string">"bucketname"</span>, <span class="hljs-keyword">func</span>(r *request.Request) {
     r.S3ForcePathStyle = aws.Bool(<span class="hljs-constant">false</span>)
@@ -2652,7 +2652,7 @@ downloader := s3manager.NewDownloaderWithClient(s3Svc, <span class="hljs-keyword
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>NewUploader creates a new Uploader instance to upload objects to S3. Pass In additional functional options to customize the uploader&#39;s behavior. Requires a client.ConfigProvider in order to create a S3 service client. The session.Session satisfies the client.ConfigProvider interface.</p>
+<p>NewUploader creates a new Uploader instance to upload objects to S3. Pass In additional functional options to customize the uploader’s behavior. Requires a client.ConfigProvider in order to create a S3 service client. The session.Session satisfies the client.ConfigProvider interface.</p>
 
 <p>Example:</p>
 
@@ -2708,7 +2708,7 @@ uploader := s3manager.NewUploader(session, <span class="hljs-keyword">func</span
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>NewUploaderWithClient creates a new Uploader instance to upload objects to S3. Pass in additional functional options to customize the uploader&#39;s behavior. Requires a S3 service client to make S3 API calls.</p>
+<p>NewUploaderWithClient creates a new Uploader instance to upload objects to S3. Pass in additional functional options to customize the uploader’s behavior. Requires a S3 service client to make S3 API calls.</p>
 
 <p>Example:</p>
 
@@ -2767,7 +2767,7 @@ uploader := s3manager.NewUploaderWithClient(s3Svc, <span class="hljs-keyword">fu
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithDownloaderRequestOptions appends to the Downloader&#39;s API request options.</p>
+<p>WithDownloaderRequestOptions appends to the Downloader’s API request options.</p>
 
 
   </div>
@@ -2813,7 +2813,7 @@ uploader := s3manager.NewUploaderWithClient(s3Svc, <span class="hljs-keyword">fu
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>WithUploaderRequestOptions appends to the Uploader&#39;s API request options.</p>
+<p>WithUploaderRequestOptions appends to the Uploader’s API request options.</p>
 
 
   </div>
@@ -2853,9 +2853,9 @@ uploader := s3manager.NewUploaderWithClient(s3Svc, <span class="hljs-keyword">fu
       </div>
 
       <div id="footer">
-  Generated on Tue Aug 26 09:39:10 2025 by
+  Generated on Wed Dec  3 08:09:17 2025 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-2.7.0).
+  0.9.37 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->
