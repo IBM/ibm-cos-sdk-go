@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 1.14.0
+
+### Content
+
+#### Features
+
+* Trusted Profile Authentication Support for Service ID
+
+#### Defect Fixes
+
+* Update dependencies
+
 ## 1.13.0
 
 ### Content
