@@ -10,11 +10,11 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../../../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css">
 
-  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "service/kms/kmsiface.KMSAPI";
@@ -75,20 +75,20 @@ import "../ibm-cos-sdk-go/service/kms/kmsiface"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>KMSAPI provides an interface to enable mocking the kms.KMS service client’s API operation, paginators, and waiters. This make unit testing your code that calls out to the SDK’s service client’s calls easier.</p>
-
-<p>The best way to use this interface is so the SDK’s service client’s calls can be stubbed out for unit testing your code with the SDK without needing to inject custom request handlers into the SDK’s request pipeline.</p>
-
+    <p>KMSAPI provides an interface to enable mocking the
+kms.KMS service client's API operation,
+paginators, and waiters. This make unit testing your code that calls out
+to the SDK's service client's calls easier.</p>
+<p>The best way to use this interface is so the SDK's service client's calls
+can be stubbed out for unit testing your code with the SDK without needing
+to inject custom request handlers into the SDK's request pipeline.</p>
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// myFunc uses an SDK service client to make a request to</span>
 <span class="hljs-comment">// AWS Key Management Service.</span>
 <span class="hljs-keyword">func</span> myFunc(svc kmsiface.KMSAPI) <span class="hljs-constant">bool</span> {
     <span class="hljs-comment">// Make svc.CancelKeyDeletion request</span>
 }
 </div></code></pre>
-
-<p>IBM COS SDK Code – START</p>
-
+<p>IBM COS SDK Code -- START</p>
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-keyword">func</span> main() {
     sess := session.Must(session.NewSession())
     svc := kms.New(sess)
@@ -96,11 +96,8 @@ import "../ibm-cos-sdk-go/service/kms/kmsiface"
     myFunc(svc)
 }
 </div></code></pre>
-
-<h1 id="label-IBM+COS+SDK+Code+--+END">IBM COS SDK Code – END</h1>
-
+<h1 id="IBM_COS_SDK_Code____END">IBM COS SDK Code -- END</h1>
 <p>In your _test.go file:</p>
-
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// Define a mock struct to be used in your unit tests of myFunc.</span>
 <span class="hljs-keyword">type</span> mockKMSClient <span class="hljs-keyword">struct</span> {
     kmsiface.KMSAPI
@@ -118,9 +115,10 @@ import "../ibm-cos-sdk-go/service/kms/kmsiface"
     <span class="hljs-comment">// Verify myFunc's functionality</span>
 }
 </div></code></pre>
-
-<p>It is important to note that this interface will have breaking changes when the service model is updated and adds new API operations, paginators, and waiters. Its suggested to use the pattern above for testing, or using tooling to generate mocks to satisfy the interfaces.</p>
-
+<p>It is important to note that this interface will have breaking changes
+when the service model is updated and adds new API operations, paginators,
+and waiters. Its suggested to use the pattern above for testing, or using
+tooling to generate mocks to satisfy the interfaces.</p>
 
   </div>
 </div>
@@ -3648,6 +3646,7 @@ import "../ibm-cos-sdk-go/service/kms/kmsiface"
 
       
     </ul>
+    
   
 
 
@@ -9743,9 +9742,9 @@ import "../ibm-cos-sdk-go/service/kms/kmsiface"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar  5 10:36:27 2026 by
+  Generated on Tue Jun  9 18:45:29 2026 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.1.2).
+  0.9.44 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

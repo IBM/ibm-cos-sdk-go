@@ -10,11 +10,11 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css">
 
-  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "service/s3.PublicAccessBlockConfiguration";
@@ -75,9 +75,11 @@ import "../ibm-cos-sdk-go/service/s3"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see The Meaning of “Public” (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status</a>) in the Amazon S3 User Guide.</p>
-
+    <p>The PublicAccessBlock configuration that you want to apply to this Amazon
+S3 bucket. You can enable the configuration options in any combination. For
+more information about when Amazon S3 considers a bucket or object public,
+see The Meaning of &quot;Public&quot; (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status</a>)
+in the Amazon S3 User Guide.</p>
 
   </div>
 </div>
@@ -124,9 +126,7 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket.</p></div></span>
   
 </li>
 
@@ -149,9 +149,7 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket.</p></div></span>
   
 </li>
 
@@ -209,9 +207,7 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>GoString returns the string representation.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>GoString returns the string representation.</p></div></span>
   
 </li>
 
@@ -234,9 +230,7 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>SetBlockPublicAcls sets the BlockPublicAcls field’s value.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>SetBlockPublicAcls sets the BlockPublicAcls field's value.</p></div></span>
   
 </li>
 
@@ -259,9 +253,7 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>SetIgnorePublicAcls sets the IgnorePublicAcls field’s value.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>SetIgnorePublicAcls sets the IgnorePublicAcls field's value.</p></div></span>
   
 </li>
 
@@ -284,15 +276,14 @@ import "../ibm-cos-sdk-go/service/s3"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>String returns the string representation.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>String returns the string representation.</p></div></span>
   
 </li>
 
 
       
     </ul>
+    
   
 
 
@@ -309,18 +300,17 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3>
 <div class="docstring">
   <div class="discussion">
-    
-<p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to TRUE causes the following behavior:</p>
-<ul><li>
-<p>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is  public.</p>
-</li><li>
-<p>PUT Object calls fail if the request includes a public ACL.</p>
-</li><li>
-<p>PUT Bucket calls fail if the request includes a public ACL.</p>
-</li></ul>
+    <p>Specifies whether Amazon S3 should block public access control lists (ACLs)
+for this bucket and objects in this bucket. Setting this element to TRUE
+causes the following behavior:</p>
+<pre class="code go"><code class="go"><div class="hljs">* PUT Bucket acl and PUT Object acl calls fail <span class="hljs-keyword">if</span> the specified ACL is
+public.
 
-<p>Enabling this setting doesn’t affect existing policies or ACLs.</p>
+* PUT Object calls fail <span class="hljs-keyword">if</span> the request includes a public ACL.
 
+* PUT Bucket calls fail <span class="hljs-keyword">if</span> the request includes a public ACL.
+</div></code></pre>
+<p>Enabling this setting doesn't affect existing policies or ACLs.</p>
 
   </div>
 </div>
@@ -337,11 +327,11 @@ import "../ibm-cos-sdk-go/service/s3"
 </h3>
 <div class="docstring">
   <div class="discussion">
-    
-<p>Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.</p>
-
-<p>Enabling this setting doesn’t affect the persistence of any existing ACLs and doesn’t prevent new public ACLs from being set.</p>
-
+    <p>Specifies whether Amazon S3 should ignore public ACLs for this bucket and
+objects in this bucket. Setting this element to TRUE causes Amazon S3 to
+ignore all public ACLs on this bucket and objects in this bucket.</p>
+<p>Enabling this setting doesn't affect the persistence of any existing ACLs
+and doesn't prevent new public ACLs from being set.</p>
 
   </div>
 </div>
@@ -369,7 +359,7 @@ import "../ibm-cos-sdk-go/service/s3"
       <div class="method_details first">
   <h3 class="signature first" id="GoString-instance_method">
   
-    func (s <span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span>) <strong><span class='object_link'><a href="#GoString-instance_method" title="s3.PublicAccessBlockConfiguration.GoString() (method)">GoString</a></span></strong>() string 
+    func (s PublicAccessBlockConfiguration) <strong><span class='object_link'><a href="#GoString-instance_method" title="s3.PublicAccessBlockConfiguration.GoString() (method)">GoString</a></span></strong>() string 
   
 
   
@@ -377,11 +367,10 @@ import "../ibm-cos-sdk-go/service/s3"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>GoString returns the string representation.</p>
-
-<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
-
+    <p>GoString returns the string representation.</p>
+<p>API parameter values that are decorated as &quot;sensitive&quot; in the API will not
+be included in the string output. The member name will be present, but the
+value will be replaced with &quot;sensitive&quot;.</p>
 
   </div>
 </div>
@@ -401,7 +390,7 @@ import "../ibm-cos-sdk-go/service/s3"
     <td>
       <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19250</span>
 
-<div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="s3.PublicAccessBlockConfiguration.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
+<div class="hljs"><span class="hljs-keyword">func</span> (s PublicAccessBlockConfiguration) <span class='object_link'><a href="#GoString-instance_method" title="s3.PublicAccessBlockConfiguration.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
 }</div></pre>
     </td>
@@ -413,7 +402,7 @@ import "../ibm-cos-sdk-go/service/s3"
       <div class="method_details ">
   <h3 class="signature " id="SetBlockPublicAcls-instance_method">
   
-    func (s *<span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span>) <strong><span class='object_link'><a href="#SetBlockPublicAcls-instance_method" title="s3.PublicAccessBlockConfiguration.SetBlockPublicAcls() (method)">SetBlockPublicAcls</a></span></strong>(v bool) *<span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span> 
+    func (s *PublicAccessBlockConfiguration) <strong><span class='object_link'><a href="#SetBlockPublicAcls-instance_method" title="s3.PublicAccessBlockConfiguration.SetBlockPublicAcls() (method)">SetBlockPublicAcls</a></span></strong>(v bool) *PublicAccessBlockConfiguration 
   
 
   
@@ -421,9 +410,7 @@ import "../ibm-cos-sdk-go/service/s3"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>SetBlockPublicAcls sets the BlockPublicAcls field’s value.</p>
-
+    <p>SetBlockPublicAcls sets the BlockPublicAcls field's value.</p>
 
   </div>
 </div>
@@ -444,7 +431,7 @@ import "../ibm-cos-sdk-go/service/s3"
     <td>
       <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19255</span>
 
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span>) <span class='object_link'><a href="#SetBlockPublicAcls-instance_method" title="s3.PublicAccessBlockConfiguration.SetBlockPublicAcls() (method)">SetBlockPublicAcls</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span> {
+<div class="hljs"><span class="hljs-keyword">func</span> (s *PublicAccessBlockConfiguration) <span class='object_link'><a href="#SetBlockPublicAcls-instance_method" title="s3.PublicAccessBlockConfiguration.SetBlockPublicAcls() (method)">SetBlockPublicAcls</a></span>(v <span class="hljs-constant">bool</span>) *PublicAccessBlockConfiguration {
 	s.BlockPublicAcls = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
@@ -457,7 +444,7 @@ import "../ibm-cos-sdk-go/service/s3"
       <div class="method_details ">
   <h3 class="signature " id="SetIgnorePublicAcls-instance_method">
   
-    func (s *<span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span>) <strong><span class='object_link'><a href="#SetIgnorePublicAcls-instance_method" title="s3.PublicAccessBlockConfiguration.SetIgnorePublicAcls() (method)">SetIgnorePublicAcls</a></span></strong>(v bool) *<span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span> 
+    func (s *PublicAccessBlockConfiguration) <strong><span class='object_link'><a href="#SetIgnorePublicAcls-instance_method" title="s3.PublicAccessBlockConfiguration.SetIgnorePublicAcls() (method)">SetIgnorePublicAcls</a></span></strong>(v bool) *PublicAccessBlockConfiguration 
   
 
   
@@ -465,9 +452,7 @@ import "../ibm-cos-sdk-go/service/s3"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>SetIgnorePublicAcls sets the IgnorePublicAcls field’s value.</p>
-
+    <p>SetIgnorePublicAcls sets the IgnorePublicAcls field's value.</p>
 
   </div>
 </div>
@@ -488,7 +473,7 @@ import "../ibm-cos-sdk-go/service/s3"
     <td>
       <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19261</span>
 
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span>) <span class='object_link'><a href="#SetIgnorePublicAcls-instance_method" title="s3.PublicAccessBlockConfiguration.SetIgnorePublicAcls() (method)">SetIgnorePublicAcls</a></span>(v <span class="hljs-constant">bool</span>) *<span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span> {
+<div class="hljs"><span class="hljs-keyword">func</span> (s *PublicAccessBlockConfiguration) <span class='object_link'><a href="#SetIgnorePublicAcls-instance_method" title="s3.PublicAccessBlockConfiguration.SetIgnorePublicAcls() (method)">SetIgnorePublicAcls</a></span>(v <span class="hljs-constant">bool</span>) *PublicAccessBlockConfiguration {
 	s.IgnorePublicAcls = &v
 	<span class="hljs-keyword">return</span> s
 }</div></pre>
@@ -501,7 +486,7 @@ import "../ibm-cos-sdk-go/service/s3"
       <div class="method_details ">
   <h3 class="signature " id="String-instance_method">
   
-    func (s <span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span>) <strong><span class='object_link'><a href="#String-instance_method" title="s3.PublicAccessBlockConfiguration.String() (method)">String</a></span></strong>() string 
+    func (s PublicAccessBlockConfiguration) <strong><span class='object_link'><a href="#String-instance_method" title="s3.PublicAccessBlockConfiguration.String() (method)">String</a></span></strong>() string 
   
 
   
@@ -509,11 +494,10 @@ import "../ibm-cos-sdk-go/service/s3"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>String returns the string representation.</p>
-
-<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
-
+    <p>String returns the string representation.</p>
+<p>API parameter values that are decorated as &quot;sensitive&quot; in the API will not
+be included in the string output. The member name will be present, but the
+value will be replaced with &quot;sensitive&quot;.</p>
 
   </div>
 </div>
@@ -533,7 +517,7 @@ import "../ibm-cos-sdk-go/service/s3"
     <td>
       <pre class="code"><span class="info file">// File 'service/s3/api.go', line 19241</span>
 
-<div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="s3.PublicAccessBlockConfiguration (struct)">PublicAccessBlockConfiguration</a></span>) <span class='object_link'><a href="#String-instance_method" title="s3.PublicAccessBlockConfiguration.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
+<div class="hljs"><span class="hljs-keyword">func</span> (s PublicAccessBlockConfiguration) <span class='object_link'><a href="#String-instance_method" title="s3.PublicAccessBlockConfiguration.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
 }</div></pre>
     </td>
@@ -548,9 +532,9 @@ import "../ibm-cos-sdk-go/service/s3"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar  5 10:36:08 2026 by
+  Generated on Tue Jun  9 18:45:21 2026 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.1.2).
+  0.9.44 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

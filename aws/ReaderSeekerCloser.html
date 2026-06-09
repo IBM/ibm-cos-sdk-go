@@ -10,11 +10,11 @@
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "aws.ReaderSeekerCloser";
@@ -75,9 +75,8 @@ import "../ibm-cos-sdk-go/aws"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>ReaderSeekerCloser represents a reader that can also delegate io.Seeker and io.Closer interfaces to the underlying object if they are available.</p>
-
+    <p>ReaderSeekerCloser represents a reader that can also delegate io.Seeker and
+io.Closer interfaces to the underlying object if they are available.</p>
 
   </div>
 </div>
@@ -127,9 +126,7 @@ import "../ibm-cos-sdk-go/aws"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Close closes the ReaderSeekerCloser.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Close closes the ReaderSeekerCloser.</p></div></span>
   
 </li>
 
@@ -152,9 +149,7 @@ import "../ibm-cos-sdk-go/aws"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>GetLen returns the length of the bytes remaining in the underlying reader.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>GetLen returns the length of the bytes remaining in the underlying reader.</p></div></span>
   
 </li>
 
@@ -177,9 +172,7 @@ import "../ibm-cos-sdk-go/aws"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>HasLen returns the length of the underlying reader if the value implements the Len() int method.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>HasLen returns the length of the underlying reader if the value implements the Len() int method.</p></div></span>
   
 </li>
 
@@ -202,9 +195,7 @@ import "../ibm-cos-sdk-go/aws"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>IsSeeker returns if the underlying reader is also a seeker.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>IsSeeker returns if the underlying reader is also a seeker.</p></div></span>
   
 </li>
 
@@ -227,9 +218,7 @@ import "../ibm-cos-sdk-go/aws"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Read reads from the reader up to size of p.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Read reads from the reader up to size of p.</p></div></span>
   
 </li>
 
@@ -252,15 +241,14 @@ import "../ibm-cos-sdk-go/aws"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Seek sets the offset for the next Read to offset, interpreted according to whence: 0 means relative to the origin of the file, 1 means relative to the current offset, and 2 means relative to the end.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Seek sets the offset for the next Read to offset, interpreted according to whence: 0 means relative to the origin of the file, 1 means relative to the current offset, and 2 means relative to the end.</p></div></span>
   
 </li>
 
 
       
     </ul>
+    
   
 
 
@@ -274,7 +262,7 @@ import "../ibm-cos-sdk-go/aws"
       <div class="method_details first">
   <h3 class="signature first" id="Close-instance_method">
   
-    func (r <span class='object_link'><a href="" title="aws.ReaderSeekerCloser (struct)">ReaderSeekerCloser</a></span>) <strong><span class='object_link'><a href="#Close-instance_method" title="aws.ReaderSeekerCloser.Close() (method)">Close</a></span></strong>() error 
+    func (r ReaderSeekerCloser) <strong><span class='object_link'><a href="#Close-instance_method" title="aws.ReaderSeekerCloser.Close() (method)">Close</a></span></strong>() error 
   
 
   
@@ -282,11 +270,8 @@ import "../ibm-cos-sdk-go/aws"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Close closes the ReaderSeekerCloser.</p>
-
+    <p>Close closes the ReaderSeekerCloser.</p>
 <p>If the ReaderSeekerCloser is not an io.Closer nothing will be done.</p>
-
 
   </div>
 </div>
@@ -326,7 +311,7 @@ import "../ibm-cos-sdk-go/aws"
       <div class="method_details ">
   <h3 class="signature " id="GetLen-instance_method">
   
-    func (r <span class='object_link'><a href="" title="aws.ReaderSeekerCloser (struct)">ReaderSeekerCloser</a></span>) <strong><span class='object_link'><a href="#GetLen-instance_method" title="aws.ReaderSeekerCloser.GetLen() (method)">GetLen</a></span></strong>() (int64, error) 
+    func (r ReaderSeekerCloser) <strong><span class='object_link'><a href="#GetLen-instance_method" title="aws.ReaderSeekerCloser.GetLen() (method)">GetLen</a></span></strong>() (int64, error) 
   
 
   
@@ -334,11 +319,10 @@ import "../ibm-cos-sdk-go/aws"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>GetLen returns the length of the bytes remaining in the underlying reader. Checks first for Len(), then io.Seeker to determine the size of the underlying reader.</p>
-
+    <p>GetLen returns the length of the bytes remaining in the underlying reader.
+Checks first for Len(), then io.Seeker to determine the size of the
+underlying reader.</p>
 <p>Will return -1 if the length cannot be determined.</p>
-
 
   </div>
 </div>
@@ -386,7 +370,7 @@ import "../ibm-cos-sdk-go/aws"
       <div class="method_details ">
   <h3 class="signature " id="HasLen-instance_method">
   
-    func (r <span class='object_link'><a href="" title="aws.ReaderSeekerCloser (struct)">ReaderSeekerCloser</a></span>) <strong><span class='object_link'><a href="#HasLen-instance_method" title="aws.ReaderSeekerCloser.HasLen() (method)">HasLen</a></span></strong>() (int, bool) 
+    func (r ReaderSeekerCloser) <strong><span class='object_link'><a href="#HasLen-instance_method" title="aws.ReaderSeekerCloser.HasLen() (method)">HasLen</a></span></strong>() (int, bool) 
   
 
   
@@ -394,9 +378,8 @@ import "../ibm-cos-sdk-go/aws"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>HasLen returns the length of the underlying reader if the value implements the Len() int method.</p>
-
+    <p>HasLen returns the length of the underlying reader if the value implements
+the Len() int method.</p>
 
   </div>
 </div>
@@ -444,7 +427,7 @@ import "../ibm-cos-sdk-go/aws"
       <div class="method_details ">
   <h3 class="signature " id="IsSeeker-instance_method">
   
-    func (r <span class='object_link'><a href="" title="aws.ReaderSeekerCloser (struct)">ReaderSeekerCloser</a></span>) <strong><span class='object_link'><a href="#IsSeeker-instance_method" title="aws.ReaderSeekerCloser.IsSeeker() (method)">IsSeeker</a></span></strong>() bool 
+    func (r ReaderSeekerCloser) <strong><span class='object_link'><a href="#IsSeeker-instance_method" title="aws.ReaderSeekerCloser.IsSeeker() (method)">IsSeeker</a></span></strong>() bool 
   
 
   
@@ -452,9 +435,7 @@ import "../ibm-cos-sdk-go/aws"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>IsSeeker returns if the underlying reader is also a seeker.</p>
-
+    <p>IsSeeker returns if the underlying reader is also a seeker.</p>
 
   </div>
 </div>
@@ -488,7 +469,7 @@ import "../ibm-cos-sdk-go/aws"
       <div class="method_details ">
   <h3 class="signature " id="Read-instance_method">
   
-    func (r <span class='object_link'><a href="" title="aws.ReaderSeekerCloser (struct)">ReaderSeekerCloser</a></span>) <strong><span class='object_link'><a href="#Read-instance_method" title="aws.ReaderSeekerCloser.Read() (method)">Read</a></span></strong>(p []byte) (int, error) 
+    func (r ReaderSeekerCloser) <strong><span class='object_link'><a href="#Read-instance_method" title="aws.ReaderSeekerCloser.Read() (method)">Read</a></span></strong>(p []byte) (int, error) 
   
 
   
@@ -496,13 +477,11 @@ import "../ibm-cos-sdk-go/aws"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Read reads from the reader up to size of p. The number of bytes read, and error if it occurred will be returned.</p>
-
-<p>If the reader is not an io.Reader zero bytes read, and nil error will be returned.</p>
-
+    <p>Read reads from the reader up to size of p. The number of bytes read, and
+error if it occurred will be returned.</p>
+<p>If the reader is not an io.Reader zero bytes read, and nil error will be
+returned.</p>
 <p>Performs the same functionality as io.Reader Read</p>
-
 
   </div>
 </div>
@@ -542,7 +521,7 @@ import "../ibm-cos-sdk-go/aws"
       <div class="method_details ">
   <h3 class="signature " id="Seek-instance_method">
   
-    func (r <span class='object_link'><a href="" title="aws.ReaderSeekerCloser (struct)">ReaderSeekerCloser</a></span>) <strong><span class='object_link'><a href="#Seek-instance_method" title="aws.ReaderSeekerCloser.Seek() (method)">Seek</a></span></strong>(offset int64, whence int) (int64, error) 
+    func (r ReaderSeekerCloser) <strong><span class='object_link'><a href="#Seek-instance_method" title="aws.ReaderSeekerCloser.Seek() (method)">Seek</a></span></strong>(offset int64, whence int) (int64, error) 
   
 
   
@@ -550,11 +529,11 @@ import "../ibm-cos-sdk-go/aws"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Seek sets the offset for the next Read to offset, interpreted according to whence: 0 means relative to the origin of the file, 1 means relative to the current offset, and 2 means relative to the end. Seek returns the new offset and an error, if any.</p>
-
+    <p>Seek sets the offset for the next Read to offset, interpreted according to
+whence: 0 means relative to the origin of the file, 1 means relative to the
+current offset, and 2 means relative to the end. Seek returns the new offset
+and an error, if any.</p>
 <p>If the ReaderSeekerCloser is not an io.Seeker nothing will be done.</p>
-
 
   </div>
 </div>
@@ -597,9 +576,9 @@ import "../ibm-cos-sdk-go/aws"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar  5 10:35:50 2026 by
+  Generated on Tue Jun  9 18:45:14 2026 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.1.2).
+  0.9.44 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

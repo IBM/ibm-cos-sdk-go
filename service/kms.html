@@ -10,11 +10,11 @@
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "service/kms";
@@ -75,75 +75,94 @@ import "../ibm-cos-sdk-go/service/kms"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Package kms provides the client and types for making API requests to AWS Key Management Service.</p>
-
-<p>Key Management Service (KMS) is an encryption and key management web service. This guide describes the KMS operations that you can call programmatically. For general information about KMS, see the Key Management Service Developer Guide (<a href="https://docs.aws.amazon.com/kms/latest/developerguide">docs.aws.amazon.com/kms/latest/developerguide</a>/).</p>
-
-<p>KMS has replaced the term customer master key (CMK) with KMS key and KMS key. The concept has not changed. To prevent breaking changes, KMS is keeping some variations of this term.</p>
-
-<p>Amazon Web Services provides SDKs that consist of libraries and sample code for various programming languages and platforms (Java, Ruby, .Net, macOS, Android, etc.). The SDKs provide a convenient way to create programmatic access to KMS and other Amazon Web Services services. For example, the SDKs take care of tasks such as signing requests (see below), managing errors, and retrying requests automatically. For more information about the Amazon Web Services SDKs, including how to download and install them, see Tools for Amazon Web Services (<a href="http://aws.amazon.com/tools">aws.amazon.com/tools</a>/).</p>
-
-<p>We recommend that you use the Amazon Web Services SDKs to make programmatic API calls to KMS.</p>
-
-<p>If you need to use FIPS 140-2 validated cryptographic modules when communicating with Amazon Web Services, use the FIPS endpoint in your preferred Amazon Web Services Region. For more information about the available FIPS endpoints, see Service endpoints (<a href="https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region">docs.aws.amazon.com/general/latest/gr/kms.html#kms_region</a>) in the Key Management Service topic of the Amazon Web Services General Reference.</p>
-
-<p>All KMS API calls must be signed and be transmitted using Transport Layer Security (TLS). KMS recommends you always use the latest supported TLS version. Clients must also support cipher suites with Perfect Forward Secrecy (PFS) such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems such as Java 7 and later support these modes.</p>
-
-<h1 id="label-Signing+Requests">Signing Requests</h1>
-
-<p>Requests must be signed using an access key ID and a secret access key. We strongly recommend that you do not use your Amazon Web Services account root access key ID and secret access key for everyday work. You can use the access key ID and secret access key for an IAM user or you can use the Security Token Service (STS) to generate temporary security credentials and use those to sign requests.</p>
-
-<p>All KMS requests must be signed with Signature Version 4 (<a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>).</p>
-
-<h1 id="label-Logging+API+Requests">Logging API Requests</h1>
-
-<p>KMS supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to KMS, who made the request, when it was made, and so on. To learn more about CloudTrail, including how to turn it on and find your log files, see the CloudTrail User Guide (<a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide">docs.aws.amazon.com/awscloudtrail/latest/userguide</a>/).</p>
-
-<h1 id="label-Additional+Resources">Additional Resources</h1>
-
+    <p>Package kms provides the client and types for making API
+requests to AWS Key Management Service.</p>
+<p>Key Management Service (KMS) is an encryption and key management web service.
+This guide describes the KMS operations that you can call programmatically.
+For general information about KMS, see the Key Management Service Developer
+Guide (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/">https://docs.aws.amazon.com/kms/latest/developerguide/</a>).</p>
+<p>KMS has replaced the term customer master key (CMK) with KMS key and KMS
+key. The concept has not changed. To prevent breaking changes, KMS is keeping
+some variations of this term.</p>
+<p>Amazon Web Services provides SDKs that consist of libraries and sample code
+for various programming languages and platforms (Java, Ruby, .Net, macOS,
+Android, etc.). The SDKs provide a convenient way to create programmatic
+access to KMS and other Amazon Web Services services. For example, the SDKs
+take care of tasks such as signing requests (see below), managing errors,
+and retrying requests automatically. For more information about the Amazon
+Web Services SDKs, including how to download and install them, see Tools
+for Amazon Web Services (<a href="http://aws.amazon.com/tools/">http://aws.amazon.com/tools/</a>).</p>
+<p>We recommend that you use the Amazon Web Services SDKs to make programmatic
+API calls to KMS.</p>
+<p>If you need to use FIPS 140-2 validated cryptographic modules when communicating
+with Amazon Web Services, use the FIPS endpoint in your preferred Amazon
+Web Services Region. For more information about the available FIPS endpoints,
+see Service endpoints (<a href="https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region">https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region</a>)
+in the Key Management Service topic of the Amazon Web Services General Reference.</p>
+<p>All KMS API calls must be signed and be transmitted using Transport Layer
+Security (TLS). KMS recommends you always use the latest supported TLS version.
+Clients must also support cipher suites with Perfect Forward Secrecy (PFS)
+such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman
+(ECDHE). Most modern systems such as Java 7 and later support these modes.</p>
+<h1 id="Signing_Requests">Signing Requests</h1>
+<p>Requests must be signed using an access key ID and a secret access key. We
+strongly recommend that you do not use your Amazon Web Services account root
+access key ID and secret access key for everyday work. You can use the access
+key ID and secret access key for an IAM user or you can use the Security
+Token Service (STS) to generate temporary security credentials and use those
+to sign requests.</p>
+<p>All KMS requests must be signed with Signature Version 4 (<a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>).</p>
+<h1 id="Logging_API_Requests">Logging API Requests</h1>
+<p>KMS supports CloudTrail, a service that logs Amazon Web Services API calls
+and related events for your Amazon Web Services account and delivers them
+to an Amazon S3 bucket that you specify. By using the information collected
+by CloudTrail, you can determine what requests were made to KMS, who made
+the request, when it was made, and so on. To learn more about CloudTrail,
+including how to turn it on and find your log files, see the CloudTrail User
+Guide (<a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/">https://docs.aws.amazon.com/awscloudtrail/latest/userguide/</a>).</p>
+<h1 id="Additional_Resources">Additional Resources</h1>
 <p>For more information about credentials and request signing, see the following:</p>
-<ul><li>
-<p>Amazon Web Services Security Credentials (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html</a>)</p>
-</li><li>
-<p>This topic provides general information about the types of credentials used to access Amazon Web Services.</p>
-</li><li>
-<p>Temporary Security Credentials (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html</a>)</p>
-</li><li>
-<p>This section of the IAM User Guide describes how to create and use temporary security credentials.</p>
-</li><li>
-<p>Signature Version 4 Signing Process (<a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a>)</p>
-</li><li>
-<p>This set of topics walks you through the process of signing a request using an access key ID and a secret access key.</p>
-</li></ul>
+<pre class="code go"><code class="go"><div class="hljs">- Amazon Web Services Security Credentials (https:<span class="hljs-comment">//docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)</span>
 
-<h1 id="label-Commonly+Used+API+Operations">Commonly Used API Operations</h1>
+- This topic provides general information about the types of credentials
+used to access Amazon Web Services.
 
-<p>Of the API operations discussed in this guide, the following will prove the most useful for most applications. You will likely perform operations other than these, such as creating keys and assigning policies, by using the console.</p>
-<ul><li>
-<p>Encrypt</p>
-</li><li>
-<p>Decrypt</p>
-</li><li>
-<p>GenerateDataKey</p>
-</li><li>
-<p>GenerateDataKeyWithoutPlaintext</p>
-</li></ul>
+- Temporary Security Credentials (https:<span class="hljs-comment">//docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)</span>
 
-<p>See <a href="https://docs.aws.amazon.com/goto/WebAPI/kms-2014-11-01">docs.aws.amazon.com/goto/WebAPI/kms-2014-11-01</a> for more information on this service.</p>
+- This section of the IAM User Guide describes how to create and use temporary
+security credentials.
 
-<p>See kms package documentation for more information. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/kms">docs.aws.amazon.com/sdk-for-go/api/service/kms</a>/</p>
+- Signature Version 4 Signing Process (https:<span class="hljs-comment">//docs.aws.amazon.com/general/latest/gr/signature-version-4.html)</span>
 
-<h1 id="label-Using+the+Client">Using the Client</h1>
+- This set of topics walks you through the process of signing a request
+using an access key ID and a secret access key.
+</div></code></pre>
+<h1 id="Commonly_Used_API_Operations">Commonly Used API Operations</h1>
+<p>Of the API operations discussed in this guide, the following will prove the
+most useful for most applications. You will likely perform operations other
+than these, such as creating keys and assigning policies, by using the console.</p>
+<pre class="code go"><code class="go"><div class="hljs">- Encrypt
 
-<p>To contact AWS Key Management Service with the SDK use the New function to create a new service client. With that client you can make API requests to the service. These clients are safe to use concurrently.</p>
+- Decrypt
 
-<p>See the SDK’s documentation for more information on how to use the SDK. <a href="https://docs.aws.amazon.com/sdk-for-go/api">docs.aws.amazon.com/sdk-for-go/api</a>/</p>
+- GenerateDataKey
 
-<p>See aws.Config documentation for more information on configuring SDK clients. <a href="https://docs.aws.amazon.com/sdk-for-go/api/aws/#Config">docs.aws.amazon.com/sdk-for-go/api/aws/#Config</a></p>
-
-<p>See the AWS Key Management Service client KMS for more information on creating client for this service. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/kms/#New">docs.aws.amazon.com/sdk-for-go/api/service/kms/#New</a></p>
-
+- GenerateDataKeyWithoutPlaintext
+</div></code></pre>
+<p>See <a href="https://docs.aws.amazon.com/goto/WebAPI/kms-2014-11-01">https://docs.aws.amazon.com/goto/WebAPI/kms-2014-11-01</a> for more information on this service.</p>
+<p>See kms package documentation for more information.
+<a href="https://docs.aws.amazon.com/sdk-for-go/api/service/kms/">https://docs.aws.amazon.com/sdk-for-go/api/service/kms/</a></p>
+<h1 id="Using_the_Client">Using the Client</h1>
+<p>To contact AWS Key Management Service with the SDK use the New function to create
+a new service client. With that client you can make API requests to the service.
+These clients are safe to use concurrently.</p>
+<p>See the SDK's documentation for more information on how to use the SDK.
+<a href="https://docs.aws.amazon.com/sdk-for-go/api/">https://docs.aws.amazon.com/sdk-for-go/api/</a></p>
+<p>See aws.Config documentation for more information on configuring SDK clients.
+<a href="https://docs.aws.amazon.com/sdk-for-go/api/aws/#Config">https://docs.aws.amazon.com/sdk-for-go/api/aws/#Config</a></p>
+<p>See the AWS Key Management Service client KMS for more
+information on creating client for this service.
+<a href="https://docs.aws.amazon.com/sdk-for-go/api/service/kms/#New">https://docs.aws.amazon.com/sdk-for-go/api/service/kms/#New</a></p>
 
   </div>
 </div>
@@ -173,9 +192,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>KMS provides the API operation methods for making requests to AWS Key Management Service.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>KMS provides the API operation methods for making requests to AWS Key Management Service.</p></div></span>
   
 </li>
 
@@ -194,9 +211,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>AlgorithmSpecRsaesPkcs1V15 is a AlgorithmSpec enum value</p>
-
+    <p>AlgorithmSpecRsaesPkcs1V15 is a AlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -217,9 +232,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>AlgorithmSpecRsaesOaepSha1 is a AlgorithmSpec enum value</p>
-
+    <p>AlgorithmSpecRsaesOaepSha1 is a AlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -240,9 +253,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>AlgorithmSpecRsaesOaepSha256 is a AlgorithmSpec enum value</p>
-
+    <p>AlgorithmSpecRsaesOaepSha256 is a AlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -263,9 +274,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>AlgorithmSpecRsaAesKeyWrapSha1 is a AlgorithmSpec enum value</p>
-
+    <p>AlgorithmSpecRsaAesKeyWrapSha1 is a AlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -286,9 +295,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>AlgorithmSpecRsaAesKeyWrapSha256 is a AlgorithmSpec enum value</p>
-
+    <p>AlgorithmSpecRsaAesKeyWrapSha256 is a AlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -309,9 +316,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionErrorCodeTypeInvalidCredentials is a ConnectionErrorCodeType enum value</p>
-
+    <p>ConnectionErrorCodeTypeInvalidCredentials is a ConnectionErrorCodeType enum value</p>
 
   </div>
 </div>
@@ -332,9 +337,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionErrorCodeTypeClusterNotFound is a ConnectionErrorCodeType enum value</p>
-
+    <p>ConnectionErrorCodeTypeClusterNotFound is a ConnectionErrorCodeType enum value</p>
 
   </div>
 </div>
@@ -355,9 +358,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionErrorCodeTypeNetworkErrors is a ConnectionErrorCodeType enum value</p>
-
+    <p>ConnectionErrorCodeTypeNetworkErrors is a ConnectionErrorCodeType enum value</p>
 
   </div>
 </div>
@@ -378,9 +379,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionErrorCodeTypeInternalError is a ConnectionErrorCodeType enum value</p>
-
+    <p>ConnectionErrorCodeTypeInternalError is a ConnectionErrorCodeType enum value</p>
 
   </div>
 </div>
@@ -401,9 +400,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionErrorCodeTypeInsufficientCloudhsmHsms is a ConnectionErrorCodeType enum value</p>
-
+    <p>ConnectionErrorCodeTypeInsufficientCloudhsmHsms is a ConnectionErrorCodeType enum value</p>
 
   </div>
 </div>
@@ -424,9 +421,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionErrorCodeTypeUserLockedOut is a ConnectionErrorCodeType enum value</p>
-
+    <p>ConnectionErrorCodeTypeUserLockedOut is a ConnectionErrorCodeType enum value</p>
 
   </div>
 </div>
@@ -447,9 +442,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionErrorCodeTypeUserNotFound is a ConnectionErrorCodeType enum value</p>
-
+    <p>ConnectionErrorCodeTypeUserNotFound is a ConnectionErrorCodeType enum value</p>
 
   </div>
 </div>
@@ -470,9 +463,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionErrorCodeTypeUserLoggedIn is a ConnectionErrorCodeType enum value</p>
-
+    <p>ConnectionErrorCodeTypeUserLoggedIn is a ConnectionErrorCodeType enum value</p>
 
   </div>
 </div>
@@ -493,9 +484,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionErrorCodeTypeSubnetNotFound is a ConnectionErrorCodeType enum value</p>
-
+    <p>ConnectionErrorCodeTypeSubnetNotFound is a ConnectionErrorCodeType enum value</p>
 
   </div>
 </div>
@@ -516,9 +505,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionStateTypeConnected is a ConnectionStateType enum value</p>
-
+    <p>ConnectionStateTypeConnected is a ConnectionStateType enum value</p>
 
   </div>
 </div>
@@ -539,9 +526,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionStateTypeConnecting is a ConnectionStateType enum value</p>
-
+    <p>ConnectionStateTypeConnecting is a ConnectionStateType enum value</p>
 
   </div>
 </div>
@@ -562,9 +547,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionStateTypeFailed is a ConnectionStateType enum value</p>
-
+    <p>ConnectionStateTypeFailed is a ConnectionStateType enum value</p>
 
   </div>
 </div>
@@ -585,9 +568,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionStateTypeDisconnected is a ConnectionStateType enum value</p>
-
+    <p>ConnectionStateTypeDisconnected is a ConnectionStateType enum value</p>
 
   </div>
 </div>
@@ -608,9 +589,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionStateTypeDisconnecting is a ConnectionStateType enum value</p>
-
+    <p>ConnectionStateTypeDisconnecting is a ConnectionStateType enum value</p>
 
   </div>
 </div>
@@ -631,9 +610,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpecRsa2048 is a CustomerMasterKeySpec enum value</p>
-
+    <p>CustomerMasterKeySpecRsa2048 is a CustomerMasterKeySpec enum value</p>
 
   </div>
 </div>
@@ -654,9 +631,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpecRsa3072 is a CustomerMasterKeySpec enum value</p>
-
+    <p>CustomerMasterKeySpecRsa3072 is a CustomerMasterKeySpec enum value</p>
 
   </div>
 </div>
@@ -677,9 +652,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpecRsa4096 is a CustomerMasterKeySpec enum value</p>
-
+    <p>CustomerMasterKeySpecRsa4096 is a CustomerMasterKeySpec enum value</p>
 
   </div>
 </div>
@@ -700,9 +673,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpecEccNistP256 is a CustomerMasterKeySpec enum value</p>
-
+    <p>CustomerMasterKeySpecEccNistP256 is a CustomerMasterKeySpec enum value</p>
 
   </div>
 </div>
@@ -723,9 +694,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpecEccNistP384 is a CustomerMasterKeySpec enum value</p>
-
+    <p>CustomerMasterKeySpecEccNistP384 is a CustomerMasterKeySpec enum value</p>
 
   </div>
 </div>
@@ -746,9 +715,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpecEccNistP521 is a CustomerMasterKeySpec enum value</p>
-
+    <p>CustomerMasterKeySpecEccNistP521 is a CustomerMasterKeySpec enum value</p>
 
   </div>
 </div>
@@ -769,9 +736,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpecEccSecgP256k1 is a CustomerMasterKeySpec enum value</p>
-
+    <p>CustomerMasterKeySpecEccSecgP256k1 is a CustomerMasterKeySpec enum value</p>
 
   </div>
 </div>
@@ -792,9 +757,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpecSymmetricDefault is a CustomerMasterKeySpec enum value</p>
-
+    <p>CustomerMasterKeySpecSymmetricDefault is a CustomerMasterKeySpec enum value</p>
 
   </div>
 </div>
@@ -815,9 +778,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpecHmac224 is a CustomerMasterKeySpec enum value</p>
-
+    <p>CustomerMasterKeySpecHmac224 is a CustomerMasterKeySpec enum value</p>
 
   </div>
 </div>
@@ -838,9 +799,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpecHmac256 is a CustomerMasterKeySpec enum value</p>
-
+    <p>CustomerMasterKeySpecHmac256 is a CustomerMasterKeySpec enum value</p>
 
   </div>
 </div>
@@ -861,9 +820,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpecHmac384 is a CustomerMasterKeySpec enum value</p>
-
+    <p>CustomerMasterKeySpecHmac384 is a CustomerMasterKeySpec enum value</p>
 
   </div>
 </div>
@@ -884,9 +841,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpecHmac512 is a CustomerMasterKeySpec enum value</p>
-
+    <p>CustomerMasterKeySpecHmac512 is a CustomerMasterKeySpec enum value</p>
 
   </div>
 </div>
@@ -907,9 +862,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpecSm2 is a CustomerMasterKeySpec enum value</p>
-
+    <p>CustomerMasterKeySpecSm2 is a CustomerMasterKeySpec enum value</p>
 
   </div>
 </div>
@@ -930,9 +883,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>DataKeyPairSpecRsa2048 is a DataKeyPairSpec enum value</p>
-
+    <p>DataKeyPairSpecRsa2048 is a DataKeyPairSpec enum value</p>
 
   </div>
 </div>
@@ -953,9 +904,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>DataKeyPairSpecRsa3072 is a DataKeyPairSpec enum value</p>
-
+    <p>DataKeyPairSpecRsa3072 is a DataKeyPairSpec enum value</p>
 
   </div>
 </div>
@@ -976,9 +925,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>DataKeyPairSpecRsa4096 is a DataKeyPairSpec enum value</p>
-
+    <p>DataKeyPairSpecRsa4096 is a DataKeyPairSpec enum value</p>
 
   </div>
 </div>
@@ -999,9 +946,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>DataKeyPairSpecEccNistP256 is a DataKeyPairSpec enum value</p>
-
+    <p>DataKeyPairSpecEccNistP256 is a DataKeyPairSpec enum value</p>
 
   </div>
 </div>
@@ -1022,9 +967,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>DataKeyPairSpecEccNistP384 is a DataKeyPairSpec enum value</p>
-
+    <p>DataKeyPairSpecEccNistP384 is a DataKeyPairSpec enum value</p>
 
   </div>
 </div>
@@ -1045,9 +988,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>DataKeyPairSpecEccNistP521 is a DataKeyPairSpec enum value</p>
-
+    <p>DataKeyPairSpecEccNistP521 is a DataKeyPairSpec enum value</p>
 
   </div>
 </div>
@@ -1068,9 +1009,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>DataKeyPairSpecEccSecgP256k1 is a DataKeyPairSpec enum value</p>
-
+    <p>DataKeyPairSpecEccSecgP256k1 is a DataKeyPairSpec enum value</p>
 
   </div>
 </div>
@@ -1091,9 +1030,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>DataKeyPairSpecSm2 is a DataKeyPairSpec enum value</p>
-
+    <p>DataKeyPairSpecSm2 is a DataKeyPairSpec enum value</p>
 
   </div>
 </div>
@@ -1114,9 +1051,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>DataKeySpecAes256 is a DataKeySpec enum value</p>
-
+    <p>DataKeySpecAes256 is a DataKeySpec enum value</p>
 
   </div>
 </div>
@@ -1137,9 +1072,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>DataKeySpecAes128 is a DataKeySpec enum value</p>
-
+    <p>DataKeySpecAes128 is a DataKeySpec enum value</p>
 
   </div>
 </div>
@@ -1160,9 +1093,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>EncryptionAlgorithmSpecSymmetricDefault is a EncryptionAlgorithmSpec enum value</p>
-
+    <p>EncryptionAlgorithmSpecSymmetricDefault is a EncryptionAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -1183,9 +1114,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>EncryptionAlgorithmSpecRsaesOaepSha1 is a EncryptionAlgorithmSpec enum value</p>
-
+    <p>EncryptionAlgorithmSpecRsaesOaepSha1 is a EncryptionAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -1206,9 +1135,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>EncryptionAlgorithmSpecRsaesOaepSha256 is a EncryptionAlgorithmSpec enum value</p>
-
+    <p>EncryptionAlgorithmSpecRsaesOaepSha256 is a EncryptionAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -1229,9 +1156,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>EncryptionAlgorithmSpecSm2pke is a EncryptionAlgorithmSpec enum value</p>
-
+    <p>EncryptionAlgorithmSpecSm2pke is a EncryptionAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -1252,9 +1177,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ExpirationModelTypeKeyMaterialExpires is a ExpirationModelType enum value</p>
-
+    <p>ExpirationModelTypeKeyMaterialExpires is a ExpirationModelType enum value</p>
 
   </div>
 </div>
@@ -1275,9 +1198,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ExpirationModelTypeKeyMaterialDoesNotExpire is a ExpirationModelType enum value</p>
-
+    <p>ExpirationModelTypeKeyMaterialDoesNotExpire is a ExpirationModelType enum value</p>
 
   </div>
 </div>
@@ -1298,9 +1219,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationDecrypt is a GrantOperation enum value</p>
-
+    <p>GrantOperationDecrypt is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1321,9 +1240,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationEncrypt is a GrantOperation enum value</p>
-
+    <p>GrantOperationEncrypt is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1344,9 +1261,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationGenerateDataKey is a GrantOperation enum value</p>
-
+    <p>GrantOperationGenerateDataKey is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1367,9 +1282,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationGenerateDataKeyWithoutPlaintext is a GrantOperation enum value</p>
-
+    <p>GrantOperationGenerateDataKeyWithoutPlaintext is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1390,9 +1303,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationReEncryptFrom is a GrantOperation enum value</p>
-
+    <p>GrantOperationReEncryptFrom is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1413,9 +1324,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationReEncryptTo is a GrantOperation enum value</p>
-
+    <p>GrantOperationReEncryptTo is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1436,9 +1345,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationSign is a GrantOperation enum value</p>
-
+    <p>GrantOperationSign is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1459,9 +1366,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationVerify is a GrantOperation enum value</p>
-
+    <p>GrantOperationVerify is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1482,9 +1387,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationGetPublicKey is a GrantOperation enum value</p>
-
+    <p>GrantOperationGetPublicKey is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1505,9 +1408,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationCreateGrant is a GrantOperation enum value</p>
-
+    <p>GrantOperationCreateGrant is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1528,9 +1429,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationRetireGrant is a GrantOperation enum value</p>
-
+    <p>GrantOperationRetireGrant is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1551,9 +1450,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationDescribeKey is a GrantOperation enum value</p>
-
+    <p>GrantOperationDescribeKey is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1574,9 +1471,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationGenerateDataKeyPair is a GrantOperation enum value</p>
-
+    <p>GrantOperationGenerateDataKeyPair is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1597,9 +1492,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperationGenerateDataKeyPairWithoutPlaintext is a GrantOperation enum value</p>
-
+    <p>GrantOperationGenerateDataKeyPairWithoutPlaintext is a GrantOperation enum value</p>
 
   </div>
 </div>
@@ -1620,9 +1513,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeyManagerTypeAws is a KeyManagerType enum value</p>
-
+    <p>KeyManagerTypeAws is a KeyManagerType enum value</p>
 
   </div>
 </div>
@@ -1643,9 +1534,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeyManagerTypeCustomer is a KeyManagerType enum value</p>
-
+    <p>KeyManagerTypeCustomer is a KeyManagerType enum value</p>
 
   </div>
 </div>
@@ -1666,9 +1555,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeySpecRsa2048 is a KeySpec enum value</p>
-
+    <p>KeySpecRsa2048 is a KeySpec enum value</p>
 
   </div>
 </div>
@@ -1689,9 +1576,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeySpecRsa3072 is a KeySpec enum value</p>
-
+    <p>KeySpecRsa3072 is a KeySpec enum value</p>
 
   </div>
 </div>
@@ -1712,9 +1597,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeySpecRsa4096 is a KeySpec enum value</p>
-
+    <p>KeySpecRsa4096 is a KeySpec enum value</p>
 
   </div>
 </div>
@@ -1735,9 +1618,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeySpecEccNistP256 is a KeySpec enum value</p>
-
+    <p>KeySpecEccNistP256 is a KeySpec enum value</p>
 
   </div>
 </div>
@@ -1758,9 +1639,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeySpecEccNistP384 is a KeySpec enum value</p>
-
+    <p>KeySpecEccNistP384 is a KeySpec enum value</p>
 
   </div>
 </div>
@@ -1781,9 +1660,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeySpecEccNistP521 is a KeySpec enum value</p>
-
+    <p>KeySpecEccNistP521 is a KeySpec enum value</p>
 
   </div>
 </div>
@@ -1804,9 +1681,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeySpecEccSecgP256k1 is a KeySpec enum value</p>
-
+    <p>KeySpecEccSecgP256k1 is a KeySpec enum value</p>
 
   </div>
 </div>
@@ -1827,9 +1702,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeySpecSymmetricDefault is a KeySpec enum value</p>
-
+    <p>KeySpecSymmetricDefault is a KeySpec enum value</p>
 
   </div>
 </div>
@@ -1850,9 +1723,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeySpecHmac224 is a KeySpec enum value</p>
-
+    <p>KeySpecHmac224 is a KeySpec enum value</p>
 
   </div>
 </div>
@@ -1873,9 +1744,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeySpecHmac256 is a KeySpec enum value</p>
-
+    <p>KeySpecHmac256 is a KeySpec enum value</p>
 
   </div>
 </div>
@@ -1896,9 +1765,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeySpecHmac384 is a KeySpec enum value</p>
-
+    <p>KeySpecHmac384 is a KeySpec enum value</p>
 
   </div>
 </div>
@@ -1919,9 +1786,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeySpecHmac512 is a KeySpec enum value</p>
-
+    <p>KeySpecHmac512 is a KeySpec enum value</p>
 
   </div>
 </div>
@@ -1942,9 +1807,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeySpecSm2 is a KeySpec enum value</p>
-
+    <p>KeySpecSm2 is a KeySpec enum value</p>
 
   </div>
 </div>
@@ -1965,9 +1828,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeyStateCreating is a KeyState enum value</p>
-
+    <p>KeyStateCreating is a KeyState enum value</p>
 
   </div>
 </div>
@@ -1988,9 +1849,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeyStateEnabled is a KeyState enum value</p>
-
+    <p>KeyStateEnabled is a KeyState enum value</p>
 
   </div>
 </div>
@@ -2011,9 +1870,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeyStateDisabled is a KeyState enum value</p>
-
+    <p>KeyStateDisabled is a KeyState enum value</p>
 
   </div>
 </div>
@@ -2034,9 +1891,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeyStatePendingDeletion is a KeyState enum value</p>
-
+    <p>KeyStatePendingDeletion is a KeyState enum value</p>
 
   </div>
 </div>
@@ -2057,9 +1912,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeyStatePendingImport is a KeyState enum value</p>
-
+    <p>KeyStatePendingImport is a KeyState enum value</p>
 
   </div>
 </div>
@@ -2080,9 +1933,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeyStatePendingReplicaDeletion is a KeyState enum value</p>
-
+    <p>KeyStatePendingReplicaDeletion is a KeyState enum value</p>
 
   </div>
 </div>
@@ -2103,9 +1954,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeyStateUnavailable is a KeyState enum value</p>
-
+    <p>KeyStateUnavailable is a KeyState enum value</p>
 
   </div>
 </div>
@@ -2126,9 +1975,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeyStateUpdating is a KeyState enum value</p>
-
+    <p>KeyStateUpdating is a KeyState enum value</p>
 
   </div>
 </div>
@@ -2149,9 +1996,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeyUsageTypeSignVerify is a KeyUsageType enum value</p>
-
+    <p>KeyUsageTypeSignVerify is a KeyUsageType enum value</p>
 
   </div>
 </div>
@@ -2172,9 +2017,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>KeyUsageTypeEncryptDecrypt is a KeyUsageType enum value</p>
-
+    <p>KeyUsageTypeEncryptDecrypt is a KeyUsageType enum value</p>
 
   </div>
 </div>
@@ -2195,9 +2038,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>MessageTypeRaw is a MessageType enum value</p>
-
+    <p>MessageTypeRaw is a MessageType enum value</p>
 
   </div>
 </div>
@@ -2218,9 +2059,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>MessageTypeDigest is a MessageType enum value</p>
-
+    <p>MessageTypeDigest is a MessageType enum value</p>
 
   </div>
 </div>
@@ -2241,9 +2080,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>OriginTypeAwsKms is a OriginType enum value</p>
-
+    <p>OriginTypeAwsKms is a OriginType enum value</p>
 
   </div>
 </div>
@@ -2264,9 +2101,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>OriginTypeExternal is a OriginType enum value</p>
-
+    <p>OriginTypeExternal is a OriginType enum value</p>
 
   </div>
 </div>
@@ -2287,9 +2122,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>OriginTypeAwsCloudhsm is a OriginType enum value</p>
-
+    <p>OriginTypeAwsCloudhsm is a OriginType enum value</p>
 
   </div>
 </div>
@@ -2310,9 +2143,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>OriginTypeExternalKeyStore is a OriginType enum value</p>
-
+    <p>OriginTypeExternalKeyStore is a OriginType enum value</p>
 
   </div>
 </div>
@@ -2333,9 +2164,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>SigningAlgorithmSpecRsassaPssSha256 is a SigningAlgorithmSpec enum value</p>
-
+    <p>SigningAlgorithmSpecRsassaPssSha256 is a SigningAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -2356,9 +2185,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>SigningAlgorithmSpecRsassaPssSha384 is a SigningAlgorithmSpec enum value</p>
-
+    <p>SigningAlgorithmSpecRsassaPssSha384 is a SigningAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -2379,9 +2206,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>SigningAlgorithmSpecRsassaPssSha512 is a SigningAlgorithmSpec enum value</p>
-
+    <p>SigningAlgorithmSpecRsassaPssSha512 is a SigningAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -2402,9 +2227,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>SigningAlgorithmSpecRsassaPkcs1V15Sha256 is a SigningAlgorithmSpec enum value</p>
-
+    <p>SigningAlgorithmSpecRsassaPkcs1V15Sha256 is a SigningAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -2425,9 +2248,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>SigningAlgorithmSpecRsassaPkcs1V15Sha384 is a SigningAlgorithmSpec enum value</p>
-
+    <p>SigningAlgorithmSpecRsassaPkcs1V15Sha384 is a SigningAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -2448,9 +2269,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>SigningAlgorithmSpecRsassaPkcs1V15Sha512 is a SigningAlgorithmSpec enum value</p>
-
+    <p>SigningAlgorithmSpecRsassaPkcs1V15Sha512 is a SigningAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -2471,9 +2290,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>SigningAlgorithmSpecEcdsaSha256 is a SigningAlgorithmSpec enum value</p>
-
+    <p>SigningAlgorithmSpecEcdsaSha256 is a SigningAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -2494,9 +2311,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>SigningAlgorithmSpecEcdsaSha384 is a SigningAlgorithmSpec enum value</p>
-
+    <p>SigningAlgorithmSpecEcdsaSha384 is a SigningAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -2517,9 +2332,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>SigningAlgorithmSpecEcdsaSha512 is a SigningAlgorithmSpec enum value</p>
-
+    <p>SigningAlgorithmSpecEcdsaSha512 is a SigningAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -2540,9 +2353,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>SigningAlgorithmSpecSm2dsa is a SigningAlgorithmSpec enum value</p>
-
+    <p>SigningAlgorithmSpecSm2dsa is a SigningAlgorithmSpec enum value</p>
 
   </div>
 </div>
@@ -2563,9 +2374,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>WrappingKeySpecRsa2048 is a WrappingKeySpec enum value</p>
-
+    <p>WrappingKeySpecRsa2048 is a WrappingKeySpec enum value</p>
 
   </div>
 </div>
@@ -2586,9 +2395,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>WrappingKeySpecRsa3072 is a WrappingKeySpec enum value</p>
-
+    <p>WrappingKeySpecRsa3072 is a WrappingKeySpec enum value</p>
 
   </div>
 </div>
@@ -2609,9 +2416,7 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>WrappingKeySpecRsa4096 is a WrappingKeySpec enum value</p>
-
+    <p>WrappingKeySpecRsa4096 is a WrappingKeySpec enum value</p>
 
   </div>
 </div>
@@ -2632,11 +2437,10 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeAlreadyExistsException for service response error code “AlreadyExistsException”.</p>
-
-<p>The request was rejected because it attempted to create a resource that already exists.</p>
-
+    <p>ErrCodeAlreadyExistsException for service response error code
+&quot;AlreadyExistsException&quot;.</p>
+<p>The request was rejected because it attempted to create a resource that already
+exists.</p>
 
   </div>
 </div>
@@ -2657,13 +2461,16 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeCloudHsmClusterInUseException for service response error code “CloudHsmClusterInUseException”.</p>
-
-<p>The request was rejected because the specified CloudHSM cluster is already associated with an CloudHSM key store in the account, or it shares a backup history with an CloudHSM key store in the account. Each CloudHSM key store in the account must be associated with a different CloudHSM cluster.</p>
-
-<p>CloudHSM clusters that share a backup history have the same cluster certificate. To view the cluster certificate of an CloudHSM cluster, use the DescribeClusters (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>) operation.</p>
-
+    <p>ErrCodeCloudHsmClusterInUseException for service response error code
+&quot;CloudHsmClusterInUseException&quot;.</p>
+<p>The request was rejected because the specified CloudHSM cluster is already
+associated with an CloudHSM key store in the account, or it shares a backup
+history with an CloudHSM key store in the account. Each CloudHSM key store
+in the account must be associated with a different CloudHSM cluster.</p>
+<p>CloudHSM clusters that share a backup history have the same cluster certificate.
+To view the cluster certificate of an CloudHSM cluster, use the DescribeClusters
+(<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>)
+operation.</p>
 
   </div>
 </div>
@@ -2684,20 +2491,36 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeCloudHsmClusterInvalidConfigurationException for service response error code “CloudHsmClusterInvalidConfigurationException”.</p>
+    <p>ErrCodeCloudHsmClusterInvalidConfigurationException for service response error code
+&quot;CloudHsmClusterInvalidConfigurationException&quot;.</p>
+<p>The request was rejected because the associated CloudHSM cluster did not
+meet the configuration requirements for an CloudHSM key store.</p>
+<pre class="code go"><code class="go"><div class="hljs">* The CloudHSM cluster must be configured with private subnets in at least
+two different Availability Zones in the Region.
 
-<p>The request was rejected because the associated CloudHSM cluster did not meet the configuration requirements for an CloudHSM key store.</p>
-<ul><li>
-<p>The CloudHSM cluster must be configured with private subnets in at least  two different Availability Zones in the Region.</p>
-</li><li>
-<p>The security group for the cluster (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>)  (cloudhsm-cluster-&lt;cluster-id&gt;-sg) must include inbound rules and outbound  rules that allow TCP traffic on ports 2223-2225. The Source in the inbound  rules and the Destination in the outbound rules must match the security  group ID. These rules are set by default when you create the CloudHSM  cluster. Do not delete or change them. To get information about a particular  security group, use the DescribeSecurityGroups (<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html">docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html</a>)  operation.</p>
-</li><li>
-<p>The CloudHSM cluster must contain at least as many HSMs as the operation  requires. To add HSMs, use the CloudHSM CreateHsm (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html</a>)  operation. For the CreateCustomKeyStore, UpdateCustomKeyStore, and CreateKey  operations, the CloudHSM cluster must have at least two active HSMs, each  in a different Availability Zone. For the ConnectCustomKeyStore operation,  the CloudHSM must contain at least one active HSM.</p>
-</li></ul>
+* The security group <span class="hljs-keyword">for</span> the cluster (https:<span class="hljs-comment">//docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html)</span>
+(cloudhsm-cluster-<cluster-id>-sg) must include inbound rules and outbound
+rules that allow TCP traffic on ports 2223-2225. The Source in the inbound
+rules and the Destination in the outbound rules must match the security
+group ID. These rules are set by <span class="hljs-keyword">default</span> when you create the CloudHSM
+cluster. Do not delete or change them. To get information about a particular
+security group, use the DescribeSecurityGroups (https:<span class="hljs-comment">//docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html)</span>
+operation.
 
-<p>For information about the requirements for an CloudHSM cluster that is associated with an CloudHSM key store, see Assemble the Prerequisites (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore</a>) in the Key Management Service Developer Guide. For information about creating a private subnet for an CloudHSM cluster, see Create a Private Subnet (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html</a>) in the CloudHSM User Guide. For information about cluster security groups, see Configure a Default Security Group (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>) in the CloudHSM User Guide .</p>
-
+* The CloudHSM cluster must contain at least as many HSMs as the operation
+requires. To add HSMs, use the CloudHSM CreateHsm (https:<span class="hljs-comment">//docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html)</span>
+operation. For the CreateCustomKeyStore, UpdateCustomKeyStore, and CreateKey
+operations, the CloudHSM cluster must have at least two active HSMs, each
+in a different Availability Zone. For the ConnectCustomKeyStore operation,
+the CloudHSM must contain at least one active HSM.
+</div></code></pre>
+<p>For information about the requirements for an CloudHSM cluster that is associated
+with an CloudHSM key store, see Assemble the Prerequisites (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore</a>)
+in the Key Management Service Developer Guide. For information about creating
+a private subnet for an CloudHSM cluster, see Create a Private Subnet (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html</a>)
+in the CloudHSM User Guide. For information about cluster security groups,
+see Configure a Default Security Group (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>)
+in the CloudHSM User Guide .</p>
 
   </div>
 </div>
@@ -2718,11 +2541,12 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeCloudHsmClusterNotActiveException for service response error code “CloudHsmClusterNotActiveException”.</p>
-
-<p>The request was rejected because the CloudHSM cluster associated with the CloudHSM key store is not active. Initialize and activate the cluster and try the command again. For detailed instructions, see Getting Started (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html</a>) in the CloudHSM User Guide.</p>
-
+    <p>ErrCodeCloudHsmClusterNotActiveException for service response error code
+&quot;CloudHsmClusterNotActiveException&quot;.</p>
+<p>The request was rejected because the CloudHSM cluster associated with the
+CloudHSM key store is not active. Initialize and activate the cluster and
+try the command again. For detailed instructions, see Getting Started (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html</a>)
+in the CloudHSM User Guide.</p>
 
   </div>
 </div>
@@ -2743,11 +2567,10 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeCloudHsmClusterNotFoundException for service response error code “CloudHsmClusterNotFoundException”.</p>
-
-<p>The request was rejected because KMS cannot find the CloudHSM cluster with the specified cluster ID. Retry the request with a different cluster ID.</p>
-
+    <p>ErrCodeCloudHsmClusterNotFoundException for service response error code
+&quot;CloudHsmClusterNotFoundException&quot;.</p>
+<p>The request was rejected because KMS cannot find the CloudHSM cluster with
+the specified cluster ID. Retry the request with a different cluster ID.</p>
 
   </div>
 </div>
@@ -2768,15 +2591,19 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeCloudHsmClusterNotRelatedException for service response error code “CloudHsmClusterNotRelatedException”.</p>
-
-<p>The request was rejected because the specified CloudHSM cluster has a different cluster certificate than the original cluster. You cannot use the operation to specify an unrelated cluster for an CloudHSM key store.</p>
-
-<p>Specify an CloudHSM cluster that shares a backup history with the original cluster. This includes clusters that were created from a backup of the current cluster, and clusters that were created from the same backup that produced the current cluster.</p>
-
-<p>CloudHSM clusters that share a backup history have the same cluster certificate. To view the cluster certificate of an CloudHSM cluster, use the DescribeClusters (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>) operation.</p>
-
+    <p>ErrCodeCloudHsmClusterNotRelatedException for service response error code
+&quot;CloudHsmClusterNotRelatedException&quot;.</p>
+<p>The request was rejected because the specified CloudHSM cluster has a different
+cluster certificate than the original cluster. You cannot use the operation
+to specify an unrelated cluster for an CloudHSM key store.</p>
+<p>Specify an CloudHSM cluster that shares a backup history with the original
+cluster. This includes clusters that were created from a backup of the current
+cluster, and clusters that were created from the same backup that produced
+the current cluster.</p>
+<p>CloudHSM clusters that share a backup history have the same cluster certificate.
+To view the cluster certificate of an CloudHSM cluster, use the DescribeClusters
+(<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html</a>)
+operation.</p>
 
   </div>
 </div>
@@ -2797,11 +2624,12 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeCustomKeyStoreHasCMKsException for service response error code “CustomKeyStoreHasCMKsException”.</p>
-
-<p>The request was rejected because the custom key store contains AWS KMS customer master keys (CMKs). After verifying that you do not need to use the CMKs, use the ScheduleKeyDeletion operation to delete the CMKs. After they are deleted, you can delete the custom key store.</p>
-
+    <p>ErrCodeCustomKeyStoreHasCMKsException for service response error code
+&quot;CustomKeyStoreHasCMKsException&quot;.</p>
+<p>The request was rejected because the custom key store contains AWS KMS customer
+master keys (CMKs). After verifying that you do not need to use the CMKs,
+use the ScheduleKeyDeletion operation to delete the CMKs. After they are
+deleted, you can delete the custom key store.</p>
 
   </div>
 </div>
@@ -2822,24 +2650,33 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeCustomKeyStoreInvalidStateException for service response error code “CustomKeyStoreInvalidStateException”.</p>
-
-<p>The request was rejected because of the ConnectionState of the custom key store. To get the ConnectionState of a custom key store, use the DescribeCustomKeyStores operation.</p>
-
+    <p>ErrCodeCustomKeyStoreInvalidStateException for service response error code
+&quot;CustomKeyStoreInvalidStateException&quot;.</p>
+<p>The request was rejected because of the ConnectionState of the custom key
+store. To get the ConnectionState of a custom key store, use the DescribeCustomKeyStores
+operation.</p>
 <p>This exception is thrown under the following conditions:</p>
-<ul><li>
-<p>You requested the ConnectCustomKeyStore operation on a custom key store  with a ConnectionState of DISCONNECTING or FAILED. This operation is valid  for all other ConnectionState values. To reconnect a custom key store  in a FAILED state, disconnect it (DisconnectCustomKeyStore), then connect  it (ConnectCustomKeyStore).</p>
-</li><li>
-<p>You requested the CreateKey operation in a custom key store that is  not connected. This operations is valid only when the custom key store  ConnectionState is CONNECTED.</p>
-</li><li>
-<p>You requested the DisconnectCustomKeyStore operation on a custom key  store with a ConnectionState of DISCONNECTING or DISCONNECTED. This operation  is valid for all other ConnectionState values.</p>
-</li><li>
-<p>You requested the UpdateCustomKeyStore or DeleteCustomKeyStore operation  on a custom key store that is not disconnected. This operation is valid  only when the custom key store ConnectionState is DISCONNECTED.</p>
-</li><li>
-<p>You requested the GenerateRandom operation in an CloudHSM key store  that is not connected. This operation is valid only when the CloudHSM  key store ConnectionState is CONNECTED.</p>
-</li></ul>
+<pre class="code go"><code class="go"><div class="hljs">* You requested the ConnectCustomKeyStore operation on a custom key store
+with a ConnectionState of DISCONNECTING or FAILED. This operation is valid
+<span class="hljs-keyword">for</span> all other ConnectionState values. To reconnect a custom key store
+in a FAILED state, disconnect it (DisconnectCustomKeyStore), then connect
+it (ConnectCustomKeyStore).
 
+* You requested the CreateKey operation in a custom key store that is
+not connected. This operations is valid only when the custom key store
+ConnectionState is CONNECTED.
+
+* You requested the DisconnectCustomKeyStore operation on a custom key
+store with a ConnectionState of DISCONNECTING or DISCONNECTED. This operation
+is valid <span class="hljs-keyword">for</span> all other ConnectionState values.
+
+* You requested the UpdateCustomKeyStore or DeleteCustomKeyStore operation
+on a custom key store that is not disconnected. This operation is valid
+only when the custom key store ConnectionState is DISCONNECTED.
+
+* You requested the GenerateRandom operation in an CloudHSM key store
+that is not connected. This operation is valid only when the CloudHSM
+key store ConnectionState is CONNECTED.</div></code></pre>
 
   </div>
 </div>
@@ -2860,11 +2697,11 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeCustomKeyStoreNameInUseException for service response error code “CustomKeyStoreNameInUseException”.</p>
-
-<p>The request was rejected because the specified custom key store name is already assigned to another custom key store in the account. Try again with a custom key store name that is unique in the account.</p>
-
+    <p>ErrCodeCustomKeyStoreNameInUseException for service response error code
+&quot;CustomKeyStoreNameInUseException&quot;.</p>
+<p>The request was rejected because the specified custom key store name is already
+assigned to another custom key store in the account. Try again with a custom
+key store name that is unique in the account.</p>
 
   </div>
 </div>
@@ -2885,11 +2722,10 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeCustomKeyStoreNotFoundException for service response error code “CustomKeyStoreNotFoundException”.</p>
-
-<p>The request was rejected because KMS cannot find a custom key store with the specified key store name or ID.</p>
-
+    <p>ErrCodeCustomKeyStoreNotFoundException for service response error code
+&quot;CustomKeyStoreNotFoundException&quot;.</p>
+<p>The request was rejected because KMS cannot find a custom key store with
+the specified key store name or ID.</p>
 
   </div>
 </div>
@@ -2910,11 +2746,10 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeDependencyTimeoutException for service response error code “DependencyTimeoutException”.</p>
-
-<p>The system timed out while trying to fulfill the request. You can retry the request.</p>
-
+    <p>ErrCodeDependencyTimeoutException for service response error code
+&quot;DependencyTimeoutException&quot;.</p>
+<p>The system timed out while trying to fulfill the request. You can retry the
+request.</p>
 
   </div>
 </div>
@@ -2935,11 +2770,9 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeDisabledException for service response error code “DisabledException”.</p>
-
+    <p>ErrCodeDisabledException for service response error code
+&quot;DisabledException&quot;.</p>
 <p>The request was rejected because the specified CMK is not enabled.</p>
-
 
   </div>
 </div>
@@ -2960,11 +2793,11 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeExpiredImportTokenException for service response error code “ExpiredImportTokenException”.</p>
-
-<p>The request was rejected because the specified import token is expired. Use GetParametersForImport to get a new import token and public key, use the new public key to encrypt the key material, and then try the request again.</p>
-
+    <p>ErrCodeExpiredImportTokenException for service response error code
+&quot;ExpiredImportTokenException&quot;.</p>
+<p>The request was rejected because the specified import token is expired. Use
+GetParametersForImport to get a new import token and public key, use the
+new public key to encrypt the key material, and then try the request again.</p>
 
   </div>
 </div>
@@ -2985,11 +2818,11 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeIncorrectKeyException for service response error code “IncorrectKeyException”.</p>
-
-<p>The request was rejected because the specified KMS key cannot decrypt the data. The KeyId in a Decrypt request and the SourceKeyId in a ReEncrypt request must identify the same KMS key that was used to encrypt the ciphertext.</p>
-
+    <p>ErrCodeIncorrectKeyException for service response error code
+&quot;IncorrectKeyException&quot;.</p>
+<p>The request was rejected because the specified KMS key cannot decrypt the
+data. The KeyId in a Decrypt request and the SourceKeyId in a ReEncrypt request
+must identify the same KMS key that was used to encrypt the ciphertext.</p>
 
   </div>
 </div>
@@ -3010,11 +2843,11 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeIncorrectKeyMaterialException for service response error code “IncorrectKeyMaterialException”.</p>
-
-<p>The request was rejected because the key material in the request is, expired, invalid, or is not the same key material that was previously imported into this KMS key.</p>
-
+    <p>ErrCodeIncorrectKeyMaterialException for service response error code
+&quot;IncorrectKeyMaterialException&quot;.</p>
+<p>The request was rejected because the key material in the request is, expired,
+invalid, or is not the same key material that was previously imported into
+this KMS key.</p>
 
   </div>
 </div>
@@ -3035,13 +2868,14 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeIncorrectTrustAnchorException for service response error code “IncorrectTrustAnchorException”.</p>
-
-<p>The request was rejected because the trust anchor certificate in the request to create an CloudHSM key store is not the trust anchor certificate for the specified CloudHSM cluster.</p>
-
-<p>When you initialize the CloudHSM cluster (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr</a>), you create the trust anchor certificate and save it in the customerCA.crt file.</p>
-
+    <p>ErrCodeIncorrectTrustAnchorException for service response error code
+&quot;IncorrectTrustAnchorException&quot;.</p>
+<p>The request was rejected because the trust anchor certificate in the request
+to create an CloudHSM key store is not the trust anchor certificate for the
+specified CloudHSM cluster.</p>
+<p>When you initialize the CloudHSM cluster (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr</a>),
+you create the trust anchor certificate and save it in the customerCA.crt
+file.</p>
 
   </div>
 </div>
@@ -3062,11 +2896,10 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeInternalException for service response error code “KMSInternalException”.</p>
-
-<p>The request was rejected because an internal exception occurred. The request can be retried.</p>
-
+    <p>ErrCodeInternalException for service response error code
+&quot;KMSInternalException&quot;.</p>
+<p>The request was rejected because an internal exception occurred. The request
+can be retried.</p>
 
   </div>
 </div>
@@ -3087,11 +2920,9 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeInvalidAliasNameException for service response error code “InvalidAliasNameException”.</p>
-
+    <p>ErrCodeInvalidAliasNameException for service response error code
+&quot;InvalidAliasNameException&quot;.</p>
 <p>The request was rejected because the specified alias name is not valid.</p>
-
 
   </div>
 </div>
@@ -3112,11 +2943,10 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeInvalidArnException for service response error code “InvalidArnException”.</p>
-
-<p>The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.</p>
-
+    <p>ErrCodeInvalidArnException for service response error code
+&quot;InvalidArnException&quot;.</p>
+<p>The request was rejected because a specified ARN, or an ARN in a key policy,
+is not valid.</p>
 
   </div>
 </div>
@@ -3137,13 +2967,14 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeInvalidCiphertextException for service response error code “InvalidCiphertextException”.</p>
-
-<p>From the Decrypt or ReEncrypt operation, the request was rejected because the specified ciphertext, or additional authenticated data incorporated into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise invalid.</p>
-
-<p>From the ImportKeyMaterial operation, the request was rejected because AWS KMS could not decrypt the encrypted (wrapped) key material.</p>
-
+    <p>ErrCodeInvalidCiphertextException for service response error code
+&quot;InvalidCiphertextException&quot;.</p>
+<p>From the Decrypt or ReEncrypt operation, the request was rejected because
+the specified ciphertext, or additional authenticated data incorporated into
+the ciphertext, such as the encryption context, is corrupted, missing, or
+otherwise invalid.</p>
+<p>From the ImportKeyMaterial operation, the request was rejected because AWS
+KMS could not decrypt the encrypted (wrapped) key material.</p>
 
   </div>
 </div>
@@ -3164,11 +2995,9 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeInvalidGrantIdException for service response error code “InvalidGrantIdException”.</p>
-
+    <p>ErrCodeInvalidGrantIdException for service response error code
+&quot;InvalidGrantIdException&quot;.</p>
 <p>The request was rejected because the specified GrantId is not valid.</p>
-
 
   </div>
 </div>
@@ -3189,11 +3018,9 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeInvalidGrantTokenException for service response error code “InvalidGrantTokenException”.</p>
-
+    <p>ErrCodeInvalidGrantTokenException for service response error code
+&quot;InvalidGrantTokenException&quot;.</p>
 <p>The request was rejected because the specified grant token is not valid.</p>
-
 
   </div>
 </div>
@@ -3214,11 +3041,10 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeInvalidImportTokenException for service response error code “InvalidImportTokenException”.</p>
-
-<p>The request was rejected because the provided import token is invalid or is associated with a different customer master key (CMK).</p>
-
+    <p>ErrCodeInvalidImportTokenException for service response error code
+&quot;InvalidImportTokenException&quot;.</p>
+<p>The request was rejected because the provided import token is invalid or
+is associated with a different customer master key (CMK).</p>
 
   </div>
 </div>
@@ -3239,20 +3065,19 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeInvalidKeyUsageException for service response error code “InvalidKeyUsageException”.</p>
-
+    <p>ErrCodeInvalidKeyUsageException for service response error code
+&quot;InvalidKeyUsageException&quot;.</p>
 <p>The request was rejected for one of the following reasons:</p>
-<ul><li>
-<p>The KeyUsage value of the CMK is incompatible with the API operation.</p>
-</li><li>
-<p>The encryption algorithm or signing algorithm specified for the operation  is incompatible with the type of key material in the CMK (CustomerMasterKeySpec).</p>
-</li></ul>
+<pre class="code go"><code class="go"><div class="hljs">* The KeyUsage value of the CMK is incompatible with the API operation.
 
-<p>For encrypting, decrypting, re-encrypting, and generating data keys, the KeyUsage must be ENCRYPT_DECRYPT. For signing and verifying, the KeyUsage must be SIGN_VERIFY. To find the KeyUsage of a CMK, use the DescribeKey operation.</p>
-
-<p>To find the encryption or signing algorithms supported for a particular CMK, use the DescribeKey operation.</p>
-
+* The encryption algorithm or signing algorithm specified <span class="hljs-keyword">for</span> the operation
+is incompatible with the <span class="hljs-keyword">type</span> of key material in the CMK (CustomerMasterKeySpec).
+</div></code></pre>
+<p>For encrypting, decrypting, re-encrypting, and generating data keys, the
+KeyUsage must be ENCRYPT_DECRYPT. For signing and verifying, the KeyUsage
+must be SIGN_VERIFY. To find the KeyUsage of a CMK, use the DescribeKey operation.</p>
+<p>To find the encryption or signing algorithms supported for a particular CMK,
+use the DescribeKey operation.</p>
 
   </div>
 </div>
@@ -3273,11 +3098,10 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeInvalidMarkerException for service response error code “InvalidMarkerException”.</p>
-
-<p>The request was rejected because the marker that specifies where pagination should next begin is not valid.</p>
-
+    <p>ErrCodeInvalidMarkerException for service response error code
+&quot;InvalidMarkerException&quot;.</p>
+<p>The request was rejected because the marker that specifies where pagination
+should next begin is not valid.</p>
 
   </div>
 </div>
@@ -3298,13 +3122,13 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeInvalidStateException for service response error code “KMSInvalidStateException”.</p>
-
-<p>The request was rejected because the state of the specified resource is not valid for this request.</p>
-
-<p>For more information about how key state affects the use of a CMK, see How Key State Affects Use of a Customer Master Key (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>) in the AWS Key Management Service Developer Guide .</p>
-
+    <p>ErrCodeInvalidStateException for service response error code
+&quot;KMSInvalidStateException&quot;.</p>
+<p>The request was rejected because the state of the specified resource is not
+valid for this request.</p>
+<p>For more information about how key state affects the use of a CMK, see How
+Key State Affects Use of a Customer Master Key (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html</a>)
+in the AWS Key Management Service Developer Guide .</p>
 
   </div>
 </div>
@@ -3325,11 +3149,11 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeKMSInvalidSignatureException for service response error code “KMSInvalidSignatureException”.</p>
-
-<p>The request was rejected because the signature verification failed. Signature verification fails when it cannot confirm that signature was produced by signing the specified message with the specified CMK and signing algorithm.</p>
-
+    <p>ErrCodeKMSInvalidSignatureException for service response error code
+&quot;KMSInvalidSignatureException&quot;.</p>
+<p>The request was rejected because the signature verification failed. Signature
+verification fails when it cannot confirm that signature was produced by
+signing the specified message with the specified CMK and signing algorithm.</p>
 
   </div>
 </div>
@@ -3350,11 +3174,10 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeKeyUnavailableException for service response error code “KeyUnavailableException”.</p>
-
-<p>The request was rejected because the specified KMS key was not available. You can retry the request.</p>
-
+    <p>ErrCodeKeyUnavailableException for service response error code
+&quot;KeyUnavailableException&quot;.</p>
+<p>The request was rejected because the specified KMS key was not available.
+You can retry the request.</p>
 
   </div>
 </div>
@@ -3375,11 +3198,11 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeLimitExceededException for service response error code “LimitExceededException”.</p>
-
-<p>The request was rejected because a quota was exceeded. For more information, see Quotas (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">docs.aws.amazon.com/kms/latest/developerguide/limits.html</a>) in the Key Management Service Developer Guide.</p>
-
+    <p>ErrCodeLimitExceededException for service response error code
+&quot;LimitExceededException&quot;.</p>
+<p>The request was rejected because a quota was exceeded. For more information,
+see Quotas (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">https://docs.aws.amazon.com/kms/latest/developerguide/limits.html</a>)
+in the Key Management Service Developer Guide.</p>
 
   </div>
 </div>
@@ -3400,11 +3223,10 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeMalformedPolicyDocumentException for service response error code “MalformedPolicyDocumentException”.</p>
-
-<p>The request was rejected because the specified policy is not syntactically or semantically correct.</p>
-
+    <p>ErrCodeMalformedPolicyDocumentException for service response error code
+&quot;MalformedPolicyDocumentException&quot;.</p>
+<p>The request was rejected because the specified policy is not syntactically
+or semantically correct.</p>
 
   </div>
 </div>
@@ -3425,11 +3247,10 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeNotFoundException for service response error code “NotFoundException”.</p>
-
-<p>The request was rejected because the specified entity or resource could not be found.</p>
-
+    <p>ErrCodeNotFoundException for service response error code
+&quot;NotFoundException&quot;.</p>
+<p>The request was rejected because the specified entity or resource could not
+be found.</p>
 
   </div>
 </div>
@@ -3450,11 +3271,9 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeTagException for service response error code “TagException”.</p>
-
+    <p>ErrCodeTagException for service response error code
+&quot;TagException&quot;.</p>
 <p>The request was rejected because one or more tags are not valid.</p>
-
 
   </div>
 </div>
@@ -3475,11 +3294,10 @@ import "../ibm-cos-sdk-go/service/kms"
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeUnsupportedOperationException for service response error code “UnsupportedOperationException”.</p>
-
-<p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.</p>
-
+    <p>ErrCodeUnsupportedOperationException for service response error code
+&quot;UnsupportedOperationException&quot;.</p>
+<p>The request was rejected because a specified parameter is not supported or
+a specified resource is not valid for this operation.</p>
 
   </div>
 </div>
@@ -4014,9 +3832,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>AlgorithmSpec_Values returns all elements of the AlgorithmSpec enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>AlgorithmSpec_Values returns all elements of the AlgorithmSpec enum.</p></div></span>
   
 </li>
 
@@ -4039,9 +3855,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ConnectionErrorCodeType_Values returns all elements of the ConnectionErrorCodeType enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ConnectionErrorCodeType_Values returns all elements of the ConnectionErrorCodeType enum.</p></div></span>
   
 </li>
 
@@ -4064,9 +3878,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ConnectionStateType_Values returns all elements of the ConnectionStateType enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ConnectionStateType_Values returns all elements of the ConnectionStateType enum.</p></div></span>
   
 </li>
 
@@ -4089,9 +3901,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>CustomerMasterKeySpec_Values returns all elements of the CustomerMasterKeySpec enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>CustomerMasterKeySpec_Values returns all elements of the CustomerMasterKeySpec enum.</p></div></span>
   
 </li>
 
@@ -4114,9 +3924,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>DataKeyPairSpec_Values returns all elements of the DataKeyPairSpec enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>DataKeyPairSpec_Values returns all elements of the DataKeyPairSpec enum.</p></div></span>
   
 </li>
 
@@ -4139,9 +3947,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>DataKeySpec_Values returns all elements of the DataKeySpec enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>DataKeySpec_Values returns all elements of the DataKeySpec enum.</p></div></span>
   
 </li>
 
@@ -4164,9 +3970,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>EncryptionAlgorithmSpec_Values returns all elements of the EncryptionAlgorithmSpec enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>EncryptionAlgorithmSpec_Values returns all elements of the EncryptionAlgorithmSpec enum.</p></div></span>
   
 </li>
 
@@ -4189,9 +3993,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ExpirationModelType_Values returns all elements of the ExpirationModelType enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ExpirationModelType_Values returns all elements of the ExpirationModelType enum.</p></div></span>
   
 </li>
 
@@ -4214,9 +4016,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>GrantOperation_Values returns all elements of the GrantOperation enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>GrantOperation_Values returns all elements of the GrantOperation enum.</p></div></span>
   
 </li>
 
@@ -4239,9 +4039,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>KeyManagerType_Values returns all elements of the KeyManagerType enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>KeyManagerType_Values returns all elements of the KeyManagerType enum.</p></div></span>
   
 </li>
 
@@ -4264,9 +4062,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>KeySpec_Values returns all elements of the KeySpec enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>KeySpec_Values returns all elements of the KeySpec enum.</p></div></span>
   
 </li>
 
@@ -4289,9 +4085,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>KeyState_Values returns all elements of the KeyState enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>KeyState_Values returns all elements of the KeyState enum.</p></div></span>
   
 </li>
 
@@ -4314,9 +4108,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>KeyUsageType_Values returns all elements of the KeyUsageType enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>KeyUsageType_Values returns all elements of the KeyUsageType enum.</p></div></span>
   
 </li>
 
@@ -4339,9 +4131,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>MessageType_Values returns all elements of the MessageType enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>MessageType_Values returns all elements of the MessageType enum.</p></div></span>
   
 </li>
 
@@ -4364,9 +4154,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>OriginType_Values returns all elements of the OriginType enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>OriginType_Values returns all elements of the OriginType enum.</p></div></span>
   
 </li>
 
@@ -4389,9 +4177,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>SigningAlgorithmSpec_Values returns all elements of the SigningAlgorithmSpec enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>SigningAlgorithmSpec_Values returns all elements of the SigningAlgorithmSpec enum.</p></div></span>
   
 </li>
 
@@ -4414,15 +4200,14 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>WrappingKeySpec_Values returns all elements of the WrappingKeySpec enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>WrappingKeySpec_Values returns all elements of the WrappingKeySpec enum.</p></div></span>
   
 </li>
 
 
       
     </ul>
+    
   
 
 
@@ -5001,9 +4786,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>AlgorithmSpec_Values returns all elements of the AlgorithmSpec enum</p>
-
+    <p>AlgorithmSpec_Values returns all elements of the AlgorithmSpec enum</p>
 
   </div>
 </div>
@@ -5055,9 +4838,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionErrorCodeType_Values returns all elements of the ConnectionErrorCodeType enum</p>
-
+    <p>ConnectionErrorCodeType_Values returns all elements of the ConnectionErrorCodeType enum</p>
 
   </div>
 </div>
@@ -5117,9 +4898,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ConnectionStateType_Values returns all elements of the ConnectionStateType enum</p>
-
+    <p>ConnectionStateType_Values returns all elements of the ConnectionStateType enum</p>
 
   </div>
 </div>
@@ -5171,9 +4950,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>CustomerMasterKeySpec_Values returns all elements of the CustomerMasterKeySpec enum</p>
-
+    <p>CustomerMasterKeySpec_Values returns all elements of the CustomerMasterKeySpec enum</p>
 
   </div>
 </div>
@@ -5241,9 +5018,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>DataKeyPairSpec_Values returns all elements of the DataKeyPairSpec enum</p>
-
+    <p>DataKeyPairSpec_Values returns all elements of the DataKeyPairSpec enum</p>
 
   </div>
 </div>
@@ -5301,9 +5076,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>DataKeySpec_Values returns all elements of the DataKeySpec enum</p>
-
+    <p>DataKeySpec_Values returns all elements of the DataKeySpec enum</p>
 
   </div>
 </div>
@@ -5349,9 +5122,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>EncryptionAlgorithmSpec_Values returns all elements of the EncryptionAlgorithmSpec enum</p>
-
+    <p>EncryptionAlgorithmSpec_Values returns all elements of the EncryptionAlgorithmSpec enum</p>
 
   </div>
 </div>
@@ -5401,9 +5172,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ExpirationModelType_Values returns all elements of the ExpirationModelType enum</p>
-
+    <p>ExpirationModelType_Values returns all elements of the ExpirationModelType enum</p>
 
   </div>
 </div>
@@ -5449,9 +5218,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>GrantOperation_Values returns all elements of the GrantOperation enum</p>
-
+    <p>GrantOperation_Values returns all elements of the GrantOperation enum</p>
 
   </div>
 </div>
@@ -5521,9 +5288,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>KeyManagerType_Values returns all elements of the KeyManagerType enum</p>
-
+    <p>KeyManagerType_Values returns all elements of the KeyManagerType enum</p>
 
   </div>
 </div>
@@ -5569,9 +5334,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>KeySpec_Values returns all elements of the KeySpec enum</p>
-
+    <p>KeySpec_Values returns all elements of the KeySpec enum</p>
 
   </div>
 </div>
@@ -5639,9 +5402,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>KeyState_Values returns all elements of the KeyState enum</p>
-
+    <p>KeyState_Values returns all elements of the KeyState enum</p>
 
   </div>
 </div>
@@ -5699,9 +5460,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>KeyUsageType_Values returns all elements of the KeyUsageType enum</p>
-
+    <p>KeyUsageType_Values returns all elements of the KeyUsageType enum</p>
 
   </div>
 </div>
@@ -5747,9 +5506,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>MessageType_Values returns all elements of the MessageType enum</p>
-
+    <p>MessageType_Values returns all elements of the MessageType enum</p>
 
   </div>
 </div>
@@ -5795,9 +5552,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>OriginType_Values returns all elements of the OriginType enum</p>
-
+    <p>OriginType_Values returns all elements of the OriginType enum</p>
 
   </div>
 </div>
@@ -5847,9 +5602,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>SigningAlgorithmSpec_Values returns all elements of the SigningAlgorithmSpec enum</p>
-
+    <p>SigningAlgorithmSpec_Values returns all elements of the SigningAlgorithmSpec enum</p>
 
   </div>
 </div>
@@ -5911,9 +5664,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>WrappingKeySpec_Values returns all elements of the WrappingKeySpec enum</p>
-
+    <p>WrappingKeySpec_Values returns all elements of the WrappingKeySpec enum</p>
 
   </div>
 </div>
@@ -5956,9 +5707,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar  5 10:35:49 2026 by
+  Generated on Tue Jun  9 18:45:13 2026 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.1.2).
+  0.9.44 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

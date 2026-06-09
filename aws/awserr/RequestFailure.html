@@ -10,11 +10,11 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css">
 
-  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "aws/awserr.RequestFailure";
@@ -75,11 +75,11 @@ import "../ibm-cos-sdk-go/aws/awserr"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>A RequestFailure is an interface to extract request failure information from an Error such as the request ID of the failed request returned by a service. RequestFailures may not always have a requestID value if the request failed prior to reaching the service such as a connection error.</p>
-
+    <p>A RequestFailure is an interface to extract request failure information from
+an Error such as the request ID of the failed request returned by a service.
+RequestFailures may not always have a requestID value if the request failed
+prior to reaching the service such as a connection error.</p>
 <p>Example:</p>
-
 <pre class="code go"><code class="go"><div class="hljs">output, err := s3manage.Upload(svc, input, opts)
 <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
     <span class="hljs-keyword">if</span> reqerr, ok := err.(RequestFailure); ok {
@@ -89,9 +89,7 @@ import "../ibm-cos-sdk-go/aws/awserr"
     }
 }
 </div></code></pre>
-
 <p>Combined with awserr.Error:</p>
-
 <pre class="code go"><code class="go"><div class="hljs">output, err := s3manage.Upload(svc, input, opts)
 <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
     <span class="hljs-keyword">if</span> awsErr, ok := err.(awserr.Error); ok {
@@ -105,9 +103,7 @@ import "../ibm-cos-sdk-go/aws/awserr"
     } <span class="hljs-keyword">else</span> {
         fmt.Println(err.Error())
     }
-}
-</div></code></pre>
-
+}</div></code></pre>
 
   </div>
 </div>
@@ -155,9 +151,7 @@ import "../ibm-cos-sdk-go/aws/awserr"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The request ID returned by the service for a request failure.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>The request ID returned by the service for a request failure.</p></div></span>
   
 </li>
 
@@ -180,15 +174,14 @@ import "../ibm-cos-sdk-go/aws/awserr"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The status code of the HTTP response.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>The status code of the HTTP response.</p></div></span>
   
 </li>
 
 
       
     </ul>
+    
   
 
 
@@ -225,9 +218,9 @@ import "../ibm-cos-sdk-go/aws/awserr"
   <strong>This method is abstract.</strong>
   <div class='inline'></div>
 </div>
-
-<p>The request ID returned by the service for a request failure. This will be empty if no request ID is available such as the request failed due to a connection error.</p>
-
+<p>The request ID returned by the service for a request failure. This will
+be empty if no request ID is available such as the request failed due
+to a connection error.</p>
 
   </div>
 </div>
@@ -267,9 +260,7 @@ import "../ibm-cos-sdk-go/aws/awserr"
   <strong>This method is abstract.</strong>
   <div class='inline'></div>
 </div>
-
 <p>The status code of the HTTP response.</p>
-
 
   </div>
 </div>
@@ -300,9 +291,9 @@ import "../ibm-cos-sdk-go/aws/awserr"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar  5 10:36:25 2026 by
+  Generated on Tue Jun  9 18:45:28 2026 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.1.2).
+  0.9.44 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

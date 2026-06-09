@@ -10,11 +10,11 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css">
 
-  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "aws/request.Pagination";
@@ -75,11 +75,13 @@ import "../ibm-cos-sdk-go/aws/request"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>A Pagination provides paginating of SDK API operations which are paginatable. Generally you should not use this type directly, but use the “Pages” API operations method to automatically perform pagination for you. Such as, “S3.ListObjectsPages”, and “S3.ListObjectsPagesWithContext” methods.</p>
-
-<p>Pagination differs from a Paginator type in that pagination is the type that does the pagination between API operations, and Paginator defines the configuration that will be used per page request.</p>
-
+    <p>A Pagination provides paginating of SDK API operations which are paginatable.
+Generally you should not use this type directly, but use the &quot;Pages&quot; API
+operations method to automatically perform pagination for you. Such as,
+&quot;S3.ListObjectsPages&quot;, and &quot;S3.ListObjectsPagesWithContext&quot; methods.</p>
+<p>Pagination differs from a Paginator type in that pagination is the type that
+does the pagination between API operations, and Paginator defines the
+configuration that will be used per page request.</p>
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-keyword">for</span> p.Next() {
     data := p.Page().(*s3.ListObjectsOutput)
     <span class="hljs-comment">// process the page's data</span>
@@ -89,9 +91,8 @@ import "../ibm-cos-sdk-go/aws/request"
 
 <span class="hljs-keyword">return</span> p.Err()
 </div></code></pre>
-
-<p>See service client API operation Pages methods for examples how the SDK will use the Pagination type.</p>
-
+<p>See service client API operation Pages methods for examples how the SDK will
+use the Pagination type.</p>
 
   </div>
 </div>
@@ -138,9 +139,7 @@ import "../ibm-cos-sdk-go/aws/request"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>EndPageOnSameToken, when enabled, will allow the paginator to stop on token that are the same as its previous tokens.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>EndPageOnSameToken, when enabled, will allow the paginator to stop on token that are the same as its previous tokens.</p></div></span>
   
 </li>
 
@@ -175,9 +174,7 @@ import "../ibm-cos-sdk-go/aws/request"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Err returns the error Pagination encountered when retrieving the next page.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Err returns the error Pagination encountered when retrieving the next page.</p></div></span>
   
 </li>
 
@@ -200,9 +197,7 @@ import "../ibm-cos-sdk-go/aws/request"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>HasNextPage will return true if Pagination is able to determine that the API operation has additional pages.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>HasNextPage will return true if Pagination is able to determine that the API operation has additional pages.</p></div></span>
   
 </li>
 
@@ -225,9 +220,7 @@ import "../ibm-cos-sdk-go/aws/request"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Next will attempt to retrieve the next page for the API operation.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Next will attempt to retrieve the next page for the API operation.</p></div></span>
   
 </li>
 
@@ -250,15 +243,14 @@ import "../ibm-cos-sdk-go/aws/request"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Page returns the current page.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Page returns the current page.</p></div></span>
   
 </li>
 
 
       
     </ul>
+    
   
 
 
@@ -275,9 +267,8 @@ import "../ibm-cos-sdk-go/aws/request"
 </h3>
 <div class="docstring">
   <div class="discussion">
-    
-<p>EndPageOnSameToken, when enabled, will allow the paginator to stop on token that are the same as its previous tokens.</p>
-
+    <p>EndPageOnSameToken, when enabled, will allow the paginator to stop on
+token that are the same as its previous tokens.</p>
 
   </div>
 </div>
@@ -297,7 +288,7 @@ import "../ibm-cos-sdk-go/aws/request"
       <div class="method_details first">
   <h3 class="signature first" id="Err-instance_method">
   
-    func (p *<span class='object_link'><a href="" title="request.Pagination (struct)">Pagination</a></span>) <strong><span class='object_link'><a href="#Err-instance_method" title="request.Pagination.Err() (method)">Err</a></span></strong>() error 
+    func (p *Pagination) <strong><span class='object_link'><a href="#Err-instance_method" title="request.Pagination.Err() (method)">Err</a></span></strong>() error 
   
 
   
@@ -305,9 +296,7 @@ import "../ibm-cos-sdk-go/aws/request"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Err returns the error Pagination encountered when retrieving the next page.</p>
-
+    <p>Err returns the error Pagination encountered when retrieving the next page.</p>
 
   </div>
 </div>
@@ -339,7 +328,7 @@ import "../ibm-cos-sdk-go/aws/request"
       <div class="method_details ">
   <h3 class="signature " id="HasNextPage-instance_method">
   
-    func (p *<span class='object_link'><a href="" title="request.Pagination (struct)">Pagination</a></span>) <strong><span class='object_link'><a href="#HasNextPage-instance_method" title="request.Pagination.HasNextPage() (method)">HasNextPage</a></span></strong>() bool 
+    func (p *Pagination) <strong><span class='object_link'><a href="#HasNextPage-instance_method" title="request.Pagination.HasNextPage() (method)">HasNextPage</a></span></strong>() bool 
   
 
   
@@ -347,11 +336,10 @@ import "../ibm-cos-sdk-go/aws/request"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>HasNextPage will return true if Pagination is able to determine that the API operation has additional pages. False will be returned if there are no more pages remaining.</p>
-
+    <p>HasNextPage will return true if Pagination is able to determine that the API
+operation has additional pages. False will be returned if there are no more
+pages remaining.</p>
 <p>Will always return true if Next has not been called yet.</p>
-
 
   </div>
 </div>
@@ -399,7 +387,7 @@ import "../ibm-cos-sdk-go/aws/request"
       <div class="method_details ">
   <h3 class="signature " id="Next-instance_method">
   
-    func (p *<span class='object_link'><a href="" title="request.Pagination (struct)">Pagination</a></span>) <strong><span class='object_link'><a href="#Next-instance_method" title="request.Pagination.Next() (method)">Next</a></span></strong>() bool 
+    func (p *Pagination) <strong><span class='object_link'><a href="#Next-instance_method" title="request.Pagination.Next() (method)">Next</a></span></strong>() bool 
   
 
   
@@ -407,13 +395,12 @@ import "../ibm-cos-sdk-go/aws/request"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Next will attempt to retrieve the next page for the API operation. When a page is retrieved true will be returned. If the page cannot be retrieved, or there are no more pages false will be returned.</p>
-
-<p>Use the Page method to retrieve the current page data. The data will need to be cast to the API operation’s output type.</p>
-
+    <p>Next will attempt to retrieve the next page for the API operation. When a page
+is retrieved true will be returned. If the page cannot be retrieved, or there
+are no more pages false will be returned.</p>
+<p>Use the Page method to retrieve the current page data. The data will need
+to be cast to the API operation's output type.</p>
 <p>Use the Err method to determine if an error occurred if Page returns false.</p>
-
 
   </div>
 </div>
@@ -499,7 +486,7 @@ import "../ibm-cos-sdk-go/aws/request"
       <div class="method_details ">
   <h3 class="signature " id="Page-instance_method">
   
-    func (p *<span class='object_link'><a href="" title="request.Pagination (struct)">Pagination</a></span>) <strong><span class='object_link'><a href="#Page-instance_method" title="request.Pagination.Page() (method)">Page</a></span></strong>() interface{} 
+    func (p *Pagination) <strong><span class='object_link'><a href="#Page-instance_method" title="request.Pagination.Page() (method)">Page</a></span></strong>() interface{} 
   
 
   
@@ -507,9 +494,9 @@ import "../ibm-cos-sdk-go/aws/request"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Page returns the current page. Page should only be called after a successful call to Next. It is undefined what Page will return if Page is called after Next returns false.</p>
-
+    <p>Page returns the current page. Page should only be called after a successful
+call to Next. It is undefined what Page will return if Page is called after
+Next returns false.</p>
 
   </div>
 </div>
@@ -544,9 +531,9 @@ import "../ibm-cos-sdk-go/aws/request"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar  5 10:35:52 2026 by
+  Generated on Tue Jun  9 18:45:15 2026 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.1.2).
+  0.9.44 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

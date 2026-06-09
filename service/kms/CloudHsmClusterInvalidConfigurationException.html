@@ -10,11 +10,11 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css">
 
-  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.github.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "service/kms.CloudHsmClusterInvalidConfigurationException";
@@ -75,18 +75,34 @@ import "../ibm-cos-sdk-go/service/kms"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>The request was rejected because the associated CloudHSM cluster did not meet the configuration requirements for an CloudHSM key store.</p>
-<ul><li>
-<p>The CloudHSM cluster must be configured with private subnets in at least two different Availability Zones in the Region.</p>
-</li><li>
-<p>The security group for the cluster (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>) (cloudhsm-cluster-&lt;cluster-id&gt;-sg) must include inbound rules and outbound rules that allow TCP traffic on ports 2223-2225. The Source in the inbound rules and the Destination in the outbound rules must match the security group ID. These rules are set by default when you create the CloudHSM cluster. Do not delete or change them. To get information about a particular security group, use the DescribeSecurityGroups (<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html">docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html</a>) operation.</p>
-</li><li>
-<p>The CloudHSM cluster must contain at least as many HSMs as the operation requires. To add HSMs, use the CloudHSM CreateHsm (<a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html</a>) operation. For the CreateCustomKeyStore, UpdateCustomKeyStore, and CreateKey operations, the CloudHSM cluster must have at least two active HSMs, each in a different Availability Zone. For the ConnectCustomKeyStore operation, the CloudHSM must contain at least one active HSM.</p>
-</li></ul>
+    <p>The request was rejected because the associated CloudHSM cluster did not
+meet the configuration requirements for an CloudHSM key store.</p>
+<pre class="code go"><code class="go"><div class="hljs">- The CloudHSM cluster must be configured with private subnets in at least
+two different Availability Zones in the Region.
 
-<p>For information about the requirements for an CloudHSM cluster that is associated with an CloudHSM key store, see Assemble the Prerequisites (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore</a>) in the Key Management Service Developer Guide. For information about creating a private subnet for an CloudHSM cluster, see Create a Private Subnet (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html</a>) in the CloudHSM User Guide. For information about cluster security groups, see Configure a Default Security Group (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>) in the CloudHSM User Guide .</p>
+- The security group <span class="hljs-keyword">for</span> the cluster (https:<span class="hljs-comment">//docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html)</span>
+(cloudhsm-cluster-<cluster-id>-sg) must include inbound rules and outbound
+rules that allow TCP traffic on ports 2223-2225. The Source in the inbound
+rules and the Destination in the outbound rules must match the security
+group ID. These rules are set by <span class="hljs-keyword">default</span> when you create the CloudHSM
+cluster. Do not delete or change them. To get information about a particular
+security group, use the DescribeSecurityGroups (https:<span class="hljs-comment">//docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html)</span>
+operation.
 
+- The CloudHSM cluster must contain at least as many HSMs as the operation
+requires. To add HSMs, use the CloudHSM CreateHsm (https:<span class="hljs-comment">//docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html)</span>
+operation. For the CreateCustomKeyStore, UpdateCustomKeyStore, and CreateKey
+operations, the CloudHSM cluster must have at least two active HSMs, each
+in a different Availability Zone. For the ConnectCustomKeyStore operation,
+the CloudHSM must contain at least one active HSM.
+</div></code></pre>
+<p>For information about the requirements for an CloudHSM cluster that is associated
+with an CloudHSM key store, see Assemble the Prerequisites (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore</a>)
+in the Key Management Service Developer Guide. For information about creating
+a private subnet for an CloudHSM cluster, see Create a Private Subnet (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html</a>)
+in the CloudHSM User Guide. For information about cluster security groups,
+see Configure a Default Security Group (<a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html</a>)
+in the CloudHSM User Guide .</p>
 
   </div>
 </div>
@@ -214,9 +230,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Code returns the exception type name.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Code returns the exception type name.</p></div></span>
   
 </li>
 
@@ -262,9 +276,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>GoString returns the string representation.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>GoString returns the string representation.</p></div></span>
   
 </li>
 
@@ -287,9 +299,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Message returns the exception’s message.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Message returns the exception's message.</p></div></span>
   
 </li>
 
@@ -312,9 +322,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>OrigErr always returns nil, satisfies awserr.Error interface.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>OrigErr always returns nil, satisfies awserr.Error interface.</p></div></span>
   
 </li>
 
@@ -337,9 +345,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>RequestID returns the service’s response RequestID for request.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>RequestID returns the service's response RequestID for request.</p></div></span>
   
 </li>
 
@@ -362,9 +368,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Status code returns the HTTP status code for the request’s response error.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Status code returns the HTTP status code for the request's response error.</p></div></span>
   
 </li>
 
@@ -387,15 +391,14 @@ import "../ibm-cos-sdk-go/service/kms"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>String returns the string representation.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>String returns the string representation.</p></div></span>
   
 </li>
 
 
       
     </ul>
+    
   
 
 
@@ -439,7 +442,7 @@ import "../ibm-cos-sdk-go/service/kms"
       <div class="method_details first">
   <h3 class="signature first" id="Code-instance_method">
   
-    func (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <strong><span class='object_link'><a href="#Code-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.Code() (method)">Code</a></span></strong>() string 
+    func (s *CloudHsmClusterInvalidConfigurationException) <strong><span class='object_link'><a href="#Code-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.Code() (method)">Code</a></span></strong>() string 
   
 
   
@@ -447,9 +450,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Code returns the exception type name.</p>
-
+    <p>Code returns the exception type name.</p>
 
   </div>
 </div>
@@ -469,8 +470,8 @@ import "../ibm-cos-sdk-go/service/kms"
     <td>
       <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8265</span>
 
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <span class='object_link'><a href="#Code-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.Code() (method)">Code</a></span>() <span class="hljs-constant">string</span> {
-	<span class="hljs-keyword">return</span> <span class="hljs-string">"<span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>"</span>
+<div class="hljs"><span class="hljs-keyword">func</span> (s *CloudHsmClusterInvalidConfigurationException) <span class='object_link'><a href="#Code-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.Code() (method)">Code</a></span>() <span class="hljs-constant">string</span> {
+	<span class="hljs-keyword">return</span> <span class="hljs-string">"CloudHsmClusterInvalidConfigurationException"</span>
 }</div></pre>
     </td>
   </tr>
@@ -481,7 +482,7 @@ import "../ibm-cos-sdk-go/service/kms"
       <div class="method_details ">
   <h3 class="signature " id="Error-instance_method">
   
-    func (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <strong><span class='object_link'><a href="#Error-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.Error() (method)">Error</a></span></strong>() string 
+    func (s *CloudHsmClusterInvalidConfigurationException) <strong><span class='object_link'><a href="#Error-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.Error() (method)">Error</a></span></strong>() string 
   
 
   
@@ -500,7 +501,7 @@ import "../ibm-cos-sdk-go/service/kms"
     <td>
       <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8282</span>
 
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <span class='object_link'><a href="#Error-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.Error() (method)">Error</a></span>() <span class="hljs-constant">string</span> {
+<div class="hljs"><span class="hljs-keyword">func</span> (s *CloudHsmClusterInvalidConfigurationException) <span class='object_link'><a href="#Error-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.Error() (method)">Error</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> fmt.Sprintf(<span class="hljs-string">"%s: %s"</span>, s.Code(), s.Message())
 }</div></pre>
     </td>
@@ -512,7 +513,7 @@ import "../ibm-cos-sdk-go/service/kms"
       <div class="method_details ">
   <h3 class="signature " id="GoString-instance_method">
   
-    func (s <span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <strong><span class='object_link'><a href="#GoString-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.GoString() (method)">GoString</a></span></strong>() string 
+    func (s CloudHsmClusterInvalidConfigurationException) <strong><span class='object_link'><a href="#GoString-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.GoString() (method)">GoString</a></span></strong>() string 
   
 
   
@@ -520,11 +521,10 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>GoString returns the string representation.</p>
-
-<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
-
+    <p>GoString returns the string representation.</p>
+<p>API parameter values that are decorated as &quot;sensitive&quot; in the API will not
+be included in the string output. The member name will be present, but the
+value will be replaced with &quot;sensitive&quot;.</p>
 
   </div>
 </div>
@@ -544,7 +544,7 @@ import "../ibm-cos-sdk-go/service/kms"
     <td>
       <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8254</span>
 
-<div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <span class='object_link'><a href="#GoString-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
+<div class="hljs"><span class="hljs-keyword">func</span> (s CloudHsmClusterInvalidConfigurationException) <span class='object_link'><a href="#GoString-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.GoString() (method)">GoString</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.String()
 }</div></pre>
     </td>
@@ -556,7 +556,7 @@ import "../ibm-cos-sdk-go/service/kms"
       <div class="method_details ">
   <h3 class="signature " id="Message-instance_method">
   
-    func (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <strong><span class='object_link'><a href="#Message-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.Message() (method)">Message</a></span></strong>() string 
+    func (s *CloudHsmClusterInvalidConfigurationException) <strong><span class='object_link'><a href="#Message-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.Message() (method)">Message</a></span></strong>() string 
   
 
   
@@ -564,9 +564,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Message returns the exception’s message.</p>
-
+    <p>Message returns the exception's message.</p>
 
   </div>
 </div>
@@ -589,7 +587,7 @@ import "../ibm-cos-sdk-go/service/kms"
     <td>
       <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8270</span>
 
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <span class='object_link'><a href="#Message-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.Message() (method)">Message</a></span>() <span class="hljs-constant">string</span> {
+<div class="hljs"><span class="hljs-keyword">func</span> (s *CloudHsmClusterInvalidConfigurationException) <span class='object_link'><a href="#Message-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.Message() (method)">Message</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">if</span> s.Message_ != <span class="hljs-constant">nil</span> {
 		<span class="hljs-keyword">return</span> *s.Message_
 	}
@@ -604,7 +602,7 @@ import "../ibm-cos-sdk-go/service/kms"
       <div class="method_details ">
   <h3 class="signature " id="OrigErr-instance_method">
   
-    func (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <strong><span class='object_link'><a href="#OrigErr-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.OrigErr() (method)">OrigErr</a></span></strong>() error 
+    func (s *CloudHsmClusterInvalidConfigurationException) <strong><span class='object_link'><a href="#OrigErr-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.OrigErr() (method)">OrigErr</a></span></strong>() error 
   
 
   
@@ -612,9 +610,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>OrigErr always returns nil, satisfies awserr.Error interface.</p>
-
+    <p>OrigErr always returns nil, satisfies awserr.Error interface.</p>
 
   </div>
 </div>
@@ -634,7 +630,7 @@ import "../ibm-cos-sdk-go/service/kms"
     <td>
       <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8278</span>
 
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <span class='object_link'><a href="#OrigErr-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.OrigErr() (method)">OrigErr</a></span>() <span class="hljs-constant">error</span> {
+<div class="hljs"><span class="hljs-keyword">func</span> (s *CloudHsmClusterInvalidConfigurationException) <span class='object_link'><a href="#OrigErr-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.OrigErr() (method)">OrigErr</a></span>() <span class="hljs-constant">error</span> {
 	<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
 }</div></pre>
     </td>
@@ -646,7 +642,7 @@ import "../ibm-cos-sdk-go/service/kms"
       <div class="method_details ">
   <h3 class="signature " id="RequestID-instance_method">
   
-    func (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <strong><span class='object_link'><a href="#RequestID-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.RequestID() (method)">RequestID</a></span></strong>() string 
+    func (s *CloudHsmClusterInvalidConfigurationException) <strong><span class='object_link'><a href="#RequestID-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.RequestID() (method)">RequestID</a></span></strong>() string 
   
 
   
@@ -654,9 +650,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>RequestID returns the service’s response RequestID for request.</p>
-
+    <p>RequestID returns the service's response RequestID for request.</p>
 
   </div>
 </div>
@@ -676,7 +670,7 @@ import "../ibm-cos-sdk-go/service/kms"
     <td>
       <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8292</span>
 
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <span class='object_link'><a href="#RequestID-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.RequestID() (method)">RequestID</a></span>() <span class="hljs-constant">string</span> {
+<div class="hljs"><span class="hljs-keyword">func</span> (s *CloudHsmClusterInvalidConfigurationException) <span class='object_link'><a href="#RequestID-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.RequestID() (method)">RequestID</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> s.RespMetadata.<span class='object_link'><a href="#RequestID-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.RequestID() (method)">RequestID</a></span>
 }</div></pre>
     </td>
@@ -688,7 +682,7 @@ import "../ibm-cos-sdk-go/service/kms"
       <div class="method_details ">
   <h3 class="signature " id="StatusCode-instance_method">
   
-    func (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <strong><span class='object_link'><a href="#StatusCode-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.StatusCode() (method)">StatusCode</a></span></strong>() int 
+    func (s *CloudHsmClusterInvalidConfigurationException) <strong><span class='object_link'><a href="#StatusCode-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.StatusCode() (method)">StatusCode</a></span></strong>() int 
   
 
   
@@ -696,9 +690,7 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Status code returns the HTTP status code for the request’s response error.</p>
-
+    <p>Status code returns the HTTP status code for the request's response error.</p>
 
   </div>
 </div>
@@ -718,7 +710,7 @@ import "../ibm-cos-sdk-go/service/kms"
     <td>
       <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8287</span>
 
-<div class="hljs"><span class="hljs-keyword">func</span> (s *<span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <span class='object_link'><a href="#StatusCode-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.StatusCode() (method)">StatusCode</a></span>() <span class="hljs-constant">int</span> {
+<div class="hljs"><span class="hljs-keyword">func</span> (s *CloudHsmClusterInvalidConfigurationException) <span class='object_link'><a href="#StatusCode-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.StatusCode() (method)">StatusCode</a></span>() <span class="hljs-constant">int</span> {
 	<span class="hljs-keyword">return</span> s.RespMetadata.<span class='object_link'><a href="#StatusCode-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.StatusCode() (method)">StatusCode</a></span>
 }</div></pre>
     </td>
@@ -730,7 +722,7 @@ import "../ibm-cos-sdk-go/service/kms"
       <div class="method_details ">
   <h3 class="signature " id="String-instance_method">
   
-    func (s <span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <strong><span class='object_link'><a href="#String-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.String() (method)">String</a></span></strong>() string 
+    func (s CloudHsmClusterInvalidConfigurationException) <strong><span class='object_link'><a href="#String-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.String() (method)">String</a></span></strong>() string 
   
 
   
@@ -738,11 +730,10 @@ import "../ibm-cos-sdk-go/service/kms"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>String returns the string representation.</p>
-
-<p>API parameter values that are decorated as “sensitive” in the API will not be included in the string output. The member name will be present, but the value will be replaced with “sensitive”.</p>
-
+    <p>String returns the string representation.</p>
+<p>API parameter values that are decorated as &quot;sensitive&quot; in the API will not
+be included in the string output. The member name will be present, but the
+value will be replaced with &quot;sensitive&quot;.</p>
 
   </div>
 </div>
@@ -762,7 +753,7 @@ import "../ibm-cos-sdk-go/service/kms"
     <td>
       <pre class="code"><span class="info file">// File 'service/kms/api.go', line 8245</span>
 
-<div class="hljs"><span class="hljs-keyword">func</span> (s <span class='object_link'><a href="" title="kms.CloudHsmClusterInvalidConfigurationException (struct)">CloudHsmClusterInvalidConfigurationException</a></span>) <span class='object_link'><a href="#String-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
+<div class="hljs"><span class="hljs-keyword">func</span> (s CloudHsmClusterInvalidConfigurationException) <span class='object_link'><a href="#String-instance_method" title="kms.CloudHsmClusterInvalidConfigurationException.String() (method)">String</a></span>() <span class="hljs-constant">string</span> {
 	<span class="hljs-keyword">return</span> awsutil.Prettify(s)
 }</div></pre>
     </td>
@@ -777,9 +768,9 @@ import "../ibm-cos-sdk-go/service/kms"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar  5 10:36:17 2026 by
+  Generated on Tue Jun  9 18:45:24 2026 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.1.2).
+  0.9.44 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

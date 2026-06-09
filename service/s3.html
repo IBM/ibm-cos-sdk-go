@@ -10,11 +10,11 @@
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.github.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "service/s3";
@@ -75,11 +75,12 @@ import "../ibm-cos-sdk-go/service/s3"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Upload Managers</p>
-
-<p>The s3manager package’s Uploader provides concurrent upload of content to S3 by taking advantage of S3’s Multipart APIs. The Uploader also supports both io.Reader for streaming uploads, and will also take advantage of io.ReadSeeker for optimizations if the Body satisfies that type. Once the Uploader instance is created you can call Upload concurrently from multiple goroutines safely.</p>
-
+    <p>Upload Managers</p>
+<p>The s3manager package's Uploader provides concurrent upload of content to S3
+by taking advantage of S3's Multipart APIs. The Uploader also supports both
+io.Reader for streaming uploads, and will also take advantage of io.ReadSeeker
+for optimizations if the Body satisfies that type. Once the Uploader instance
+is created you can call Upload concurrently from multiple goroutines safely.</p>
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// The session the S3 Uploader will use</span>
 sess := session.Must(session.NewSession())
 
@@ -102,13 +103,13 @@ result, err := uploader.Upload(&s3manager.UploadInput{
 }
 fmt.Printf(<span class="hljs-string">"file uploaded to, %s\n"</span>, aws.StringValue(result.Location))
 </div></code></pre>
-
-<p>See the s3manager package’s Uploader type documentation for more information. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader</a></p>
-
-<h1 id="label-Download+Manager">Download Manager</h1>
-
-<p>The s3manager package’s Downloader provides concurrently downloading of Objects from S3. The Downloader will write S3 Object content with an io.WriterAt. Once the Downloader instance is created you can call Download concurrently from multiple goroutines safely.</p>
-
+<p>See the s3manager package's Uploader type documentation for more information.
+<a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader">https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Uploader</a></p>
+<h1 id="Download_Manager">Download Manager</h1>
+<p>The s3manager package's Downloader provides concurrently downloading of Objects
+from S3. The Downloader will write S3 Object content with an io.WriterAt.
+Once the Downloader instance is created you can call Download concurrently from
+multiple goroutines safely.</p>
 <pre class="code go"><code class="go"><div class="hljs"><span class="hljs-comment">// The session the S3 Downloader will use</span>
 sess := session.Must(session.NewSession())
 
@@ -131,13 +132,12 @@ n, err := downloader.Download(f, &s3.GetObjectInput{
 }
 fmt.Printf(<span class="hljs-string">"file downloaded, %d bytes\n"</span>, n)
 </div></code></pre>
-
-<p>See the s3manager package’s Downloader type documentation for more information. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader</a></p>
-
-<h1 id="label-Automatic+URI+cleaning">Automatic URI cleaning</h1>
-
-<p>Interacting with objects whose keys contain adjacent slashes (e.g. bucketname/foo//bar/objectname) requires setting DisableRestProtocolURICleaning to true in the aws.Config struct used by the service client.</p>
-
+<p>See the s3manager package's Downloader type documentation for more information.
+<a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader">https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#Downloader</a></p>
+<h1 id="Automatic_URI_cleaning">Automatic URI cleaning</h1>
+<p>Interacting with objects whose keys contain adjacent slashes (e.g. bucketname/foo//bar/objectname)
+requires setting DisableRestProtocolURICleaning to true in the aws.Config struct
+used by the service client.</p>
 <pre class="code go"><code class="go"><div class="hljs">svc := s3.New(sess, &aws.Config{
    	DisableRestProtocolURICleaning: aws.Bool(<span class="hljs-constant">true</span>),
 })
@@ -146,11 +146,10 @@ out, err := svc.GetObject(&s3.GetObjectInput {
     	Key: aws.String(<span class="hljs-string">"//foo//bar//moo"</span>),
 })
 </div></code></pre>
-
-<h1 id="label-Get+Bucket+Region">Get Bucket Region</h1>
-
-<p>GetBucketRegion will attempt to get the region for a bucket using a region hint to determine which AWS partition to perform the query on. Use this utility to determine the region a bucket is in.</p>
-
+<h1 id="Get_Bucket_Region">Get Bucket Region</h1>
+<p>GetBucketRegion will attempt to get the region for a bucket using a region
+hint to determine which AWS partition to perform the query on. Use this utility
+to determine the region a bucket is in.</p>
 <pre class="code go"><code class="go"><div class="hljs">sess := session.Must(session.NewSession())
 
 bucket := <span class="hljs-string">"my-bucket"</span>
@@ -163,15 +162,14 @@ region, err := s3manager.GetBucketRegion(ctx, sess, bucket, <span class="hljs-st
 }
 fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucket, region)
 </div></code></pre>
-
-<p>See the s3manager package’s GetBucketRegion function documentation for more information <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion</a></p>
-
-<h1 id="label-S3+Crypto+Client">S3 Crypto Client</h1>
-
-<p>The s3crypto package provides the tools to upload and download encrypted content from S3. The Encryption and Decryption clients can be used concurrently once the client is created.</p>
-
-<p>See the s3crypto package documentation for more information. <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto">docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto</a>/</p>
-
+<p>See the s3manager package's GetBucketRegion function documentation for more information
+<a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion">https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3manager/#GetBucketRegion</a></p>
+<h1 id="S3_Crypto_Client">S3 Crypto Client</h1>
+<p>The s3crypto package provides the tools to upload and download encrypted
+content from S3. The Encryption and Decryption clients can be used concurrently
+once the client is created.</p>
+<p>See the s3crypto package documentation for more information.
+<a href="https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto/">https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3crypto/</a></p>
 
   </div>
 </div>
@@ -201,9 +199,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>WaitUntilBucketExists uses the Amazon S3 API operation HeadBucket to wait for a condition to be met before returning.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>WaitUntilBucketExists uses the Amazon S3 API operation HeadBucket to wait for a condition to be met before returning.</p></div></span>
   
 </li>
 
@@ -222,9 +218,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketCannedACLPrivate is a BucketCannedACL enum value</p>
-
+    <p>BucketCannedACLPrivate is a BucketCannedACL enum value</p>
 
   </div>
 </div>
@@ -245,9 +239,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketCannedACLPublicRead is a BucketCannedACL enum value</p>
-
+    <p>BucketCannedACLPublicRead is a BucketCannedACL enum value</p>
 
   </div>
 </div>
@@ -268,9 +260,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketCannedACLPublicReadWrite is a BucketCannedACL enum value</p>
-
+    <p>BucketCannedACLPublicReadWrite is a BucketCannedACL enum value</p>
 
   </div>
 </div>
@@ -291,9 +281,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketCannedACLAuthenticatedRead is a BucketCannedACL enum value</p>
-
+    <p>BucketCannedACLAuthenticatedRead is a BucketCannedACL enum value</p>
 
   </div>
 </div>
@@ -314,9 +302,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintAuSydOnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintAuSydOnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -337,9 +323,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintCaTorOnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintCaTorOnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -360,9 +344,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintBrSaoOnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintBrSaoOnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -383,9 +365,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintJpOsaOnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintJpOsaOnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -406,9 +386,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintJpTokOnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintJpTokOnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -429,9 +407,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintEu is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintEu is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -452,9 +428,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintUsEastOnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintUsEastOnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -475,9 +449,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintUsSouthOnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintUsSouthOnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -498,9 +470,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintUsWest1 is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintUsWest1 is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -521,9 +491,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintUsWest2 is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintUsWest2 is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -544,9 +512,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintEuGbOnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintEuGbOnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -567,9 +533,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintEuDeOnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintEuDeOnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -590,9 +554,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintApSouth1 is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintApSouth1 is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -613,9 +575,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintApSoutheast1 is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintApSoutheast1 is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -636,9 +596,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintApSoutheast2 is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintApSoutheast2 is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -659,9 +617,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintApNortheast1 is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintApNortheast1 is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -682,9 +638,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintSaEast1 is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintSaEast1 is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -705,9 +659,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintCnNorth1 is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintCnNorth1 is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -728,9 +680,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintAms03OnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintAms03OnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -751,9 +701,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintChe01OnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintChe01OnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -774,9 +722,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintMil01OnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintMil01OnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -797,9 +743,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintMon01OnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintMon01OnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -820,9 +764,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintPar01OnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintPar01OnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -843,9 +785,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintSjc04OnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintSjc04OnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -866,9 +806,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraintSng01OnerateActive is a BucketLocationConstraint enum value</p>
-
+    <p>BucketLocationConstraintSng01OnerateActive is a BucketLocationConstraint enum value</p>
 
   </div>
 </div>
@@ -889,9 +827,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLogsPermissionFullControl is a BucketLogsPermission enum value</p>
-
+    <p>BucketLogsPermissionFullControl is a BucketLogsPermission enum value</p>
 
   </div>
 </div>
@@ -912,9 +848,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLogsPermissionRead is a BucketLogsPermission enum value</p>
-
+    <p>BucketLogsPermissionRead is a BucketLogsPermission enum value</p>
 
   </div>
 </div>
@@ -935,9 +869,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketLogsPermissionWrite is a BucketLogsPermission enum value</p>
-
+    <p>BucketLogsPermissionWrite is a BucketLogsPermission enum value</p>
 
   </div>
 </div>
@@ -958,9 +890,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketProtectionStatusRetention is a BucketProtectionStatus enum value</p>
-
+    <p>BucketProtectionStatusRetention is a BucketProtectionStatus enum value</p>
 
   </div>
 </div>
@@ -981,9 +911,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketVersioningStatusEnabled is a BucketVersioningStatus enum value</p>
-
+    <p>BucketVersioningStatusEnabled is a BucketVersioningStatus enum value</p>
 
   </div>
 </div>
@@ -1004,9 +932,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>BucketVersioningStatusSuspended is a BucketVersioningStatus enum value</p>
-
+    <p>BucketVersioningStatusSuspended is a BucketVersioningStatus enum value</p>
 
   </div>
 </div>
@@ -1027,9 +953,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>DeleteMarkerReplicationStatusEnabled is a DeleteMarkerReplicationStatus enum value</p>
-
+    <p>DeleteMarkerReplicationStatusEnabled is a DeleteMarkerReplicationStatus enum value</p>
 
   </div>
 </div>
@@ -1050,9 +974,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>DeleteMarkerReplicationStatusDisabled is a DeleteMarkerReplicationStatus enum value</p>
-
+    <p>DeleteMarkerReplicationStatusDisabled is a DeleteMarkerReplicationStatus enum value</p>
 
   </div>
 </div>
@@ -1073,9 +995,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>EncodingTypeUrl is a EncodingType enum value</p>
-
+    <p>EncodingTypeUrl is a EncodingType enum value</p>
 
   </div>
 </div>
@@ -1096,9 +1016,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ExpirationStatusEnabled is a ExpirationStatus enum value</p>
-
+    <p>ExpirationStatusEnabled is a ExpirationStatus enum value</p>
 
   </div>
 </div>
@@ -1119,9 +1037,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ExpirationStatusDisabled is a ExpirationStatus enum value</p>
-
+    <p>ExpirationStatusDisabled is a ExpirationStatus enum value</p>
 
   </div>
 </div>
@@ -1142,9 +1058,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>IbmProtectionManagementStateActive is a IbmProtectionManagementState enum value</p>
-
+    <p>IbmProtectionManagementStateActive is a IbmProtectionManagementState enum value</p>
 
   </div>
 </div>
@@ -1165,9 +1079,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>MFADeleteEnabled is a MFADelete enum value</p>
-
+    <p>MFADeleteEnabled is a MFADelete enum value</p>
 
   </div>
 </div>
@@ -1188,9 +1100,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>MFADeleteDisabled is a MFADelete enum value</p>
-
+    <p>MFADeleteDisabled is a MFADelete enum value</p>
 
   </div>
 </div>
@@ -1211,9 +1121,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>MFADeleteStatusEnabled is a MFADeleteStatus enum value</p>
-
+    <p>MFADeleteStatusEnabled is a MFADeleteStatus enum value</p>
 
   </div>
 </div>
@@ -1234,9 +1142,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>MFADeleteStatusDisabled is a MFADeleteStatus enum value</p>
-
+    <p>MFADeleteStatusDisabled is a MFADeleteStatus enum value</p>
 
   </div>
 </div>
@@ -1257,9 +1163,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>MetadataDirectiveCopy is a MetadataDirective enum value</p>
-
+    <p>MetadataDirectiveCopy is a MetadataDirective enum value</p>
 
   </div>
 </div>
@@ -1280,9 +1184,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>MetadataDirectiveReplace is a MetadataDirective enum value</p>
-
+    <p>MetadataDirectiveReplace is a MetadataDirective enum value</p>
 
   </div>
 </div>
@@ -1303,9 +1205,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectCannedACLPrivate is a ObjectCannedACL enum value</p>
-
+    <p>ObjectCannedACLPrivate is a ObjectCannedACL enum value</p>
 
   </div>
 </div>
@@ -1326,9 +1226,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectCannedACLPublicRead is a ObjectCannedACL enum value</p>
-
+    <p>ObjectCannedACLPublicRead is a ObjectCannedACL enum value</p>
 
   </div>
 </div>
@@ -1349,9 +1247,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectCannedACLPublicReadWrite is a ObjectCannedACL enum value</p>
-
+    <p>ObjectCannedACLPublicReadWrite is a ObjectCannedACL enum value</p>
 
   </div>
 </div>
@@ -1372,9 +1268,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectCannedACLAuthenticatedRead is a ObjectCannedACL enum value</p>
-
+    <p>ObjectCannedACLAuthenticatedRead is a ObjectCannedACL enum value</p>
 
   </div>
 </div>
@@ -1395,9 +1289,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectCannedACLAwsExecRead is a ObjectCannedACL enum value</p>
-
+    <p>ObjectCannedACLAwsExecRead is a ObjectCannedACL enum value</p>
 
   </div>
 </div>
@@ -1418,9 +1310,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectCannedACLBucketOwnerRead is a ObjectCannedACL enum value</p>
-
+    <p>ObjectCannedACLBucketOwnerRead is a ObjectCannedACL enum value</p>
 
   </div>
 </div>
@@ -1441,9 +1331,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectCannedACLBucketOwnerFullControl is a ObjectCannedACL enum value</p>
-
+    <p>ObjectCannedACLBucketOwnerFullControl is a ObjectCannedACL enum value</p>
 
   </div>
 </div>
@@ -1464,9 +1352,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectLockEnabledEnabled is a ObjectLockEnabled enum value</p>
-
+    <p>ObjectLockEnabledEnabled is a ObjectLockEnabled enum value</p>
 
   </div>
 </div>
@@ -1487,9 +1373,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectLockLegalHoldStatusOn is a ObjectLockLegalHoldStatus enum value</p>
-
+    <p>ObjectLockLegalHoldStatusOn is a ObjectLockLegalHoldStatus enum value</p>
 
   </div>
 </div>
@@ -1510,9 +1394,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectLockLegalHoldStatusOff is a ObjectLockLegalHoldStatus enum value</p>
-
+    <p>ObjectLockLegalHoldStatusOff is a ObjectLockLegalHoldStatus enum value</p>
 
   </div>
 </div>
@@ -1533,9 +1415,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectLockModeGovernance is a ObjectLockMode enum value</p>
-
+    <p>ObjectLockModeGovernance is a ObjectLockMode enum value</p>
 
   </div>
 </div>
@@ -1556,9 +1436,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectLockModeCompliance is a ObjectLockMode enum value</p>
-
+    <p>ObjectLockModeCompliance is a ObjectLockMode enum value</p>
 
   </div>
 </div>
@@ -1579,9 +1457,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectLockRetentionModeGovernance is a ObjectLockRetentionMode enum value</p>
-
+    <p>ObjectLockRetentionModeGovernance is a ObjectLockRetentionMode enum value</p>
 
   </div>
 </div>
@@ -1602,9 +1478,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectLockRetentionModeCompliance is a ObjectLockRetentionMode enum value</p>
-
+    <p>ObjectLockRetentionModeCompliance is a ObjectLockRetentionMode enum value</p>
 
   </div>
 </div>
@@ -1625,9 +1499,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectStorageClassStandard is a ObjectStorageClass enum value</p>
-
+    <p>ObjectStorageClassStandard is a ObjectStorageClass enum value</p>
 
   </div>
 </div>
@@ -1648,9 +1520,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectStorageClassReducedRedundancy is a ObjectStorageClass enum value</p>
-
+    <p>ObjectStorageClassReducedRedundancy is a ObjectStorageClass enum value</p>
 
   </div>
 </div>
@@ -1671,9 +1541,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectStorageClassGlacier is a ObjectStorageClass enum value</p>
-
+    <p>ObjectStorageClassGlacier is a ObjectStorageClass enum value</p>
 
   </div>
 </div>
@@ -1694,9 +1562,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectStorageClassAccelerated is a ObjectStorageClass enum value</p>
-
+    <p>ObjectStorageClassAccelerated is a ObjectStorageClass enum value</p>
 
   </div>
 </div>
@@ -1717,9 +1583,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectStorageClassStandardIa is a ObjectStorageClass enum value</p>
-
+    <p>ObjectStorageClassStandardIa is a ObjectStorageClass enum value</p>
 
   </div>
 </div>
@@ -1740,9 +1604,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectStorageClassOnezoneIa is a ObjectStorageClass enum value</p>
-
+    <p>ObjectStorageClassOnezoneIa is a ObjectStorageClass enum value</p>
 
   </div>
 </div>
@@ -1763,9 +1625,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectStorageClassIntelligentTiering is a ObjectStorageClass enum value</p>
-
+    <p>ObjectStorageClassIntelligentTiering is a ObjectStorageClass enum value</p>
 
   </div>
 </div>
@@ -1786,9 +1646,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectStorageClassDeepArchive is a ObjectStorageClass enum value</p>
-
+    <p>ObjectStorageClassDeepArchive is a ObjectStorageClass enum value</p>
 
   </div>
 </div>
@@ -1809,9 +1667,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ObjectVersionStorageClassStandard is a ObjectVersionStorageClass enum value</p>
-
+    <p>ObjectVersionStorageClassStandard is a ObjectVersionStorageClass enum value</p>
 
   </div>
 </div>
@@ -1832,9 +1688,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>PermissionFullControl is a Permission enum value</p>
-
+    <p>PermissionFullControl is a Permission enum value</p>
 
   </div>
 </div>
@@ -1855,9 +1709,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>PermissionWrite is a Permission enum value</p>
-
+    <p>PermissionWrite is a Permission enum value</p>
 
   </div>
 </div>
@@ -1878,9 +1730,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>PermissionWriteAcp is a Permission enum value</p>
-
+    <p>PermissionWriteAcp is a Permission enum value</p>
 
   </div>
 </div>
@@ -1901,9 +1751,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>PermissionRead is a Permission enum value</p>
-
+    <p>PermissionRead is a Permission enum value</p>
 
   </div>
 </div>
@@ -1924,9 +1772,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>PermissionReadAcp is a Permission enum value</p>
-
+    <p>PermissionReadAcp is a Permission enum value</p>
 
   </div>
 </div>
@@ -1947,9 +1793,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ProtocolHttp is a Protocol enum value</p>
-
+    <p>ProtocolHttp is a Protocol enum value</p>
 
   </div>
 </div>
@@ -1970,9 +1814,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ProtocolHttps is a Protocol enum value</p>
-
+    <p>ProtocolHttps is a Protocol enum value</p>
 
   </div>
 </div>
@@ -1993,9 +1835,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ReplicationRuleStatusEnabled is a ReplicationRuleStatus enum value</p>
-
+    <p>ReplicationRuleStatusEnabled is a ReplicationRuleStatus enum value</p>
 
   </div>
 </div>
@@ -2016,9 +1856,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ReplicationRuleStatusDisabled is a ReplicationRuleStatus enum value</p>
-
+    <p>ReplicationRuleStatusDisabled is a ReplicationRuleStatus enum value</p>
 
   </div>
 </div>
@@ -2039,9 +1877,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ReplicationStatusComplete is a ReplicationStatus enum value</p>
-
+    <p>ReplicationStatusComplete is a ReplicationStatus enum value</p>
 
   </div>
 </div>
@@ -2062,9 +1898,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ReplicationStatusPending is a ReplicationStatus enum value</p>
-
+    <p>ReplicationStatusPending is a ReplicationStatus enum value</p>
 
   </div>
 </div>
@@ -2085,9 +1919,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ReplicationStatusFailed is a ReplicationStatus enum value</p>
-
+    <p>ReplicationStatusFailed is a ReplicationStatus enum value</p>
 
   </div>
 </div>
@@ -2108,9 +1940,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ReplicationStatusReplica is a ReplicationStatus enum value</p>
-
+    <p>ReplicationStatusReplica is a ReplicationStatus enum value</p>
 
   </div>
 </div>
@@ -2131,9 +1961,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>RequestChargedRequester is a RequestCharged enum value</p>
-
+    <p>RequestChargedRequester is a RequestCharged enum value</p>
 
   </div>
 </div>
@@ -2154,9 +1982,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>RequestPayerRequester is a RequestPayer enum value</p>
-
+    <p>RequestPayerRequester is a RequestPayer enum value</p>
 
   </div>
 </div>
@@ -2177,9 +2003,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>RetentionDirectiveCopy is a RetentionDirective enum value</p>
-
+    <p>RetentionDirectiveCopy is a RetentionDirective enum value</p>
 
   </div>
 </div>
@@ -2200,9 +2024,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>RetentionDirectiveReplace is a RetentionDirective enum value</p>
-
+    <p>RetentionDirectiveReplace is a RetentionDirective enum value</p>
 
   </div>
 </div>
@@ -2223,9 +2045,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ServerSideEncryptionAes256 is a ServerSideEncryption enum value</p>
-
+    <p>ServerSideEncryptionAes256 is a ServerSideEncryption enum value</p>
 
   </div>
 </div>
@@ -2246,9 +2066,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ServerSideEncryptionAwsKms is a ServerSideEncryption enum value</p>
-
+    <p>ServerSideEncryptionAwsKms is a ServerSideEncryption enum value</p>
 
   </div>
 </div>
@@ -2269,9 +2087,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>StorageClassStandard is a StorageClass enum value</p>
-
+    <p>StorageClassStandard is a StorageClass enum value</p>
 
   </div>
 </div>
@@ -2292,9 +2108,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>StorageClassReducedRedundancy is a StorageClass enum value</p>
-
+    <p>StorageClassReducedRedundancy is a StorageClass enum value</p>
 
   </div>
 </div>
@@ -2315,9 +2129,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>StorageClassStandardIa is a StorageClass enum value</p>
-
+    <p>StorageClassStandardIa is a StorageClass enum value</p>
 
   </div>
 </div>
@@ -2338,9 +2150,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>StorageClassOnezoneIa is a StorageClass enum value</p>
-
+    <p>StorageClassOnezoneIa is a StorageClass enum value</p>
 
   </div>
 </div>
@@ -2361,9 +2171,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>StorageClassIntelligentTiering is a StorageClass enum value</p>
-
+    <p>StorageClassIntelligentTiering is a StorageClass enum value</p>
 
   </div>
 </div>
@@ -2384,9 +2192,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>StorageClassGlacier is a StorageClass enum value</p>
-
+    <p>StorageClassGlacier is a StorageClass enum value</p>
 
   </div>
 </div>
@@ -2407,9 +2213,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>StorageClassAccelerated is a StorageClass enum value</p>
-
+    <p>StorageClassAccelerated is a StorageClass enum value</p>
 
   </div>
 </div>
@@ -2430,9 +2234,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>StorageClassDeepArchive is a StorageClass enum value</p>
-
+    <p>StorageClassDeepArchive is a StorageClass enum value</p>
 
   </div>
 </div>
@@ -2453,9 +2255,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TaggingDirectiveCopy is a TaggingDirective enum value</p>
-
+    <p>TaggingDirectiveCopy is a TaggingDirective enum value</p>
 
   </div>
 </div>
@@ -2476,9 +2276,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TaggingDirectiveReplace is a TaggingDirective enum value</p>
-
+    <p>TaggingDirectiveReplace is a TaggingDirective enum value</p>
 
   </div>
 </div>
@@ -2499,9 +2297,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TierAccelerated is a Tier enum value</p>
-
+    <p>TierAccelerated is a Tier enum value</p>
 
   </div>
 </div>
@@ -2522,9 +2318,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TierStandard is a Tier enum value</p>
-
+    <p>TierStandard is a Tier enum value</p>
 
   </div>
 </div>
@@ -2545,9 +2339,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TierBulk is a Tier enum value</p>
-
+    <p>TierBulk is a Tier enum value</p>
 
   </div>
 </div>
@@ -2568,9 +2360,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TierExpedited is a Tier enum value</p>
-
+    <p>TierExpedited is a Tier enum value</p>
 
   </div>
 </div>
@@ -2591,9 +2381,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TransitionStorageClassGlacier is a TransitionStorageClass enum value</p>
-
+    <p>TransitionStorageClassGlacier is a TransitionStorageClass enum value</p>
 
   </div>
 </div>
@@ -2614,9 +2402,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TransitionStorageClassAccelerated is a TransitionStorageClass enum value</p>
-
+    <p>TransitionStorageClassAccelerated is a TransitionStorageClass enum value</p>
 
   </div>
 </div>
@@ -2637,9 +2423,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TransitionStorageClassStandardIa is a TransitionStorageClass enum value</p>
-
+    <p>TransitionStorageClassStandardIa is a TransitionStorageClass enum value</p>
 
   </div>
 </div>
@@ -2660,9 +2444,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TransitionStorageClassOnezoneIa is a TransitionStorageClass enum value</p>
-
+    <p>TransitionStorageClassOnezoneIa is a TransitionStorageClass enum value</p>
 
   </div>
 </div>
@@ -2683,9 +2465,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TransitionStorageClassIntelligentTiering is a TransitionStorageClass enum value</p>
-
+    <p>TransitionStorageClassIntelligentTiering is a TransitionStorageClass enum value</p>
 
   </div>
 </div>
@@ -2706,9 +2486,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TransitionStorageClassDeepArchive is a TransitionStorageClass enum value</p>
-
+    <p>TransitionStorageClassDeepArchive is a TransitionStorageClass enum value</p>
 
   </div>
 </div>
@@ -2729,9 +2507,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TypeCanonicalUser is a Type enum value</p>
-
+    <p>TypeCanonicalUser is a Type enum value</p>
 
   </div>
 </div>
@@ -2752,9 +2528,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TypeAmazonCustomerByEmail is a Type enum value</p>
-
+    <p>TypeAmazonCustomerByEmail is a Type enum value</p>
 
   </div>
 </div>
@@ -2775,9 +2549,7 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>TypeGroup is a Type enum value</p>
-
+    <p>TypeGroup is a Type enum value</p>
 
   </div>
 </div>
@@ -2798,11 +2570,10 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeBucketAlreadyExists for service response error code “BucketAlreadyExists”.</p>
-
-<p>The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.</p>
-
+    <p>ErrCodeBucketAlreadyExists for service response error code
+&quot;BucketAlreadyExists&quot;.</p>
+<p>The requested bucket name is not available. The bucket namespace is shared
+by all users of the system. Select a different name and try again.</p>
 
   </div>
 </div>
@@ -2823,11 +2594,13 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeBucketAlreadyOwnedByYou for service response error code “BucketAlreadyOwnedByYou”.</p>
-
-<p>The bucket you tried to create already exists, and you own it. Amazon S3 returns this error in all AWS Regions except in the North Virginia Region. For legacy compatibility, if you re-create an existing bucket that you already own in the North Virginia Region, Amazon S3 returns 200 OK and resets the bucket access control lists (ACLs).</p>
-
+    <p>ErrCodeBucketAlreadyOwnedByYou for service response error code
+&quot;BucketAlreadyOwnedByYou&quot;.</p>
+<p>The bucket you tried to create already exists, and you own it. Amazon S3
+returns this error in all AWS Regions except in the North Virginia Region.
+For legacy compatibility, if you re-create an existing bucket that you already
+own in the North Virginia Region, Amazon S3 returns 200 OK and resets the
+bucket access control lists (ACLs).</p>
 
   </div>
 </div>
@@ -2848,11 +2621,9 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeInvalidObjectState for service response error code “InvalidObjectState”.</p>
-
+    <p>ErrCodeInvalidObjectState for service response error code
+&quot;InvalidObjectState&quot;.</p>
 <p>Object is archived and inaccessible until restored.</p>
-
 
   </div>
 </div>
@@ -2873,11 +2644,9 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeNoSuchBucket for service response error code “NoSuchBucket”.</p>
-
+    <p>ErrCodeNoSuchBucket for service response error code
+&quot;NoSuchBucket&quot;.</p>
 <p>The specified bucket does not exist.</p>
-
 
   </div>
 </div>
@@ -2898,11 +2667,9 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeNoSuchKey for service response error code “NoSuchKey”.</p>
-
+    <p>ErrCodeNoSuchKey for service response error code
+&quot;NoSuchKey&quot;.</p>
 <p>The specified key does not exist.</p>
-
 
   </div>
 </div>
@@ -2923,11 +2690,9 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeNoSuchUpload for service response error code “NoSuchUpload”.</p>
-
+    <p>ErrCodeNoSuchUpload for service response error code
+&quot;NoSuchUpload&quot;.</p>
 <p>The specified multipart upload does not exist.</p>
-
 
   </div>
 </div>
@@ -2948,11 +2713,9 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeObjectAlreadyInActiveTierError for service response error code “ObjectAlreadyInActiveTierError”.</p>
-
+    <p>ErrCodeObjectAlreadyInActiveTierError for service response error code
+&quot;ObjectAlreadyInActiveTierError&quot;.</p>
 <p>This action is not allowed against this storage tier.</p>
-
 
   </div>
 </div>
@@ -2973,11 +2736,10 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>ErrCodeObjectNotInActiveTierError for service response error code “ObjectNotInActiveTierError”.</p>
-
-<p>The source object of the COPY action is not in the active tier and is only stored in Amazon S3 Glacier.</p>
-
+    <p>ErrCodeObjectNotInActiveTierError for service response error code
+&quot;ObjectNotInActiveTierError&quot;.</p>
+<p>The source object of the COPY action is not in the active tier and is only
+stored in Amazon S3 Glacier.</p>
 
   </div>
 </div>
@@ -3042,20 +2804,16 @@ fmt.Printf(<span class="hljs-string">"Bucket %s is in %s region\n"</span>, bucke
           </div>
             <div class="docstring">
   <div class="discussion">
-    
-<p>NormalizeBucketLocationHandler is a request handler which will update the GetBucketLocation’s result LocationConstraint value to always be a region ID.</p>
-
-<p>Replaces empty string with “us-east-1”, and “EU” with “eu-west-1”.</p>
-
-<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a> for more information on the values that can be returned.</p>
-
+    <p>NormalizeBucketLocationHandler is a request handler which will update the
+GetBucketLocation's result LocationConstraint value to always be a region ID.</p>
+<p>Replaces empty string with &quot;us-east-1&quot;, and &quot;EU&quot; with &quot;eu-west-1&quot;.</p>
+<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a>
+for more information on the values that can be returned.</p>
 <pre class="code go"><code class="go"><div class="hljs">req, result := svc.GetBucketLocationRequest(&s3.GetBucketLocationInput{
     Bucket: aws.String(bucket),
 })
 req.Handlers.Unmarshal.PushBackNamed(NormalizeBucketLocationHandler)
-err := req.Send()
-</div></code></pre>
-
+err := req.Send()</div></code></pre>
 
   </div>
 </div>
@@ -3584,9 +3342,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A RequestFailure provides access to the S3 Request ID and Host ID values returned from API operation errors.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>A RequestFailure provides access to the S3 Request ID and Host ID values returned from API operation errors.</p></div></span>
   
 </li>
 
@@ -3620,9 +3376,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>BucketCannedACL_Values returns all elements of the BucketCannedACL enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>BucketCannedACL_Values returns all elements of the BucketCannedACL enum.</p></div></span>
   
 </li>
 
@@ -3645,9 +3399,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>BucketLocationConstraint_Values returns all elements of the BucketLocationConstraint enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>BucketLocationConstraint_Values returns all elements of the BucketLocationConstraint enum.</p></div></span>
   
 </li>
 
@@ -3670,9 +3422,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>BucketLogsPermission_Values returns all elements of the BucketLogsPermission enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>BucketLogsPermission_Values returns all elements of the BucketLogsPermission enum.</p></div></span>
   
 </li>
 
@@ -3695,9 +3445,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>BucketProtectionStatus_Values returns all elements of the BucketProtectionStatus enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>BucketProtectionStatus_Values returns all elements of the BucketProtectionStatus enum.</p></div></span>
   
 </li>
 
@@ -3720,9 +3468,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>BucketVersioningStatus_Values returns all elements of the BucketVersioningStatus enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>BucketVersioningStatus_Values returns all elements of the BucketVersioningStatus enum.</p></div></span>
   
 </li>
 
@@ -3745,9 +3491,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>DeleteMarkerReplicationStatus_Values returns all elements of the DeleteMarkerReplicationStatus enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>DeleteMarkerReplicationStatus_Values returns all elements of the DeleteMarkerReplicationStatus enum.</p></div></span>
   
 </li>
 
@@ -3770,9 +3514,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>EncodingType_Values returns all elements of the EncodingType enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>EncodingType_Values returns all elements of the EncodingType enum.</p></div></span>
   
 </li>
 
@@ -3795,9 +3537,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ExpirationStatus_Values returns all elements of the ExpirationStatus enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ExpirationStatus_Values returns all elements of the ExpirationStatus enum.</p></div></span>
   
 </li>
 
@@ -3820,9 +3560,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>IbmProtectionManagementState_Values returns all elements of the IbmProtectionManagementState enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>IbmProtectionManagementState_Values returns all elements of the IbmProtectionManagementState enum.</p></div></span>
   
 </li>
 
@@ -3845,9 +3583,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>MetadataDirective_Values returns all elements of the MetadataDirective enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>MetadataDirective_Values returns all elements of the MetadataDirective enum.</p></div></span>
   
 </li>
 
@@ -3870,9 +3606,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>MFADelete_Values returns all elements of the MFADelete enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>MFADelete_Values returns all elements of the MFADelete enum.</p></div></span>
   
 </li>
 
@@ -3895,9 +3629,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>MFADeleteStatus_Values returns all elements of the MFADeleteStatus enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>MFADeleteStatus_Values returns all elements of the MFADeleteStatus enum.</p></div></span>
   
 </li>
 
@@ -3920,9 +3652,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>NormalizeBucketLocation is a utility function which will update the passed in value to always be a region ID.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>NormalizeBucketLocation is a utility function which will update the passed in value to always be a region ID.</p></div></span>
   
 </li>
 
@@ -3945,9 +3675,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ObjectCannedACL_Values returns all elements of the ObjectCannedACL enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ObjectCannedACL_Values returns all elements of the ObjectCannedACL enum.</p></div></span>
   
 </li>
 
@@ -3970,9 +3698,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ObjectLockEnabled_Values returns all elements of the ObjectLockEnabled enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ObjectLockEnabled_Values returns all elements of the ObjectLockEnabled enum.</p></div></span>
   
 </li>
 
@@ -3995,9 +3721,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ObjectLockLegalHoldStatus_Values returns all elements of the ObjectLockLegalHoldStatus enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ObjectLockLegalHoldStatus_Values returns all elements of the ObjectLockLegalHoldStatus enum.</p></div></span>
   
 </li>
 
@@ -4020,9 +3744,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ObjectLockMode_Values returns all elements of the ObjectLockMode enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ObjectLockMode_Values returns all elements of the ObjectLockMode enum.</p></div></span>
   
 </li>
 
@@ -4045,9 +3767,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ObjectLockRetentionMode_Values returns all elements of the ObjectLockRetentionMode enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ObjectLockRetentionMode_Values returns all elements of the ObjectLockRetentionMode enum.</p></div></span>
   
 </li>
 
@@ -4070,9 +3790,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ObjectStorageClass_Values returns all elements of the ObjectStorageClass enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ObjectStorageClass_Values returns all elements of the ObjectStorageClass enum.</p></div></span>
   
 </li>
 
@@ -4095,9 +3813,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ObjectVersionStorageClass_Values returns all elements of the ObjectVersionStorageClass enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ObjectVersionStorageClass_Values returns all elements of the ObjectVersionStorageClass enum.</p></div></span>
   
 </li>
 
@@ -4120,9 +3836,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Permission_Values returns all elements of the Permission enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Permission_Values returns all elements of the Permission enum.</p></div></span>
   
 </li>
 
@@ -4145,9 +3859,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Protocol_Values returns all elements of the Protocol enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Protocol_Values returns all elements of the Protocol enum.</p></div></span>
   
 </li>
 
@@ -4170,9 +3882,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ReplicationRuleStatus_Values returns all elements of the ReplicationRuleStatus enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ReplicationRuleStatus_Values returns all elements of the ReplicationRuleStatus enum.</p></div></span>
   
 </li>
 
@@ -4195,9 +3905,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ReplicationStatus_Values returns all elements of the ReplicationStatus enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ReplicationStatus_Values returns all elements of the ReplicationStatus enum.</p></div></span>
   
 </li>
 
@@ -4220,9 +3928,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>RequestCharged_Values returns all elements of the RequestCharged enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>RequestCharged_Values returns all elements of the RequestCharged enum.</p></div></span>
   
 </li>
 
@@ -4245,9 +3951,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>RequestPayer_Values returns all elements of the RequestPayer enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>RequestPayer_Values returns all elements of the RequestPayer enum.</p></div></span>
   
 </li>
 
@@ -4270,9 +3974,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>RetentionDirective_Values returns all elements of the RetentionDirective enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>RetentionDirective_Values returns all elements of the RetentionDirective enum.</p></div></span>
   
 </li>
 
@@ -4295,9 +3997,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>ServerSideEncryption_Values returns all elements of the ServerSideEncryption enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>ServerSideEncryption_Values returns all elements of the ServerSideEncryption enum.</p></div></span>
   
 </li>
 
@@ -4320,9 +4020,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>StorageClass_Values returns all elements of the StorageClass enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>StorageClass_Values returns all elements of the StorageClass enum.</p></div></span>
   
 </li>
 
@@ -4345,9 +4043,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>TaggingDirective_Values returns all elements of the TaggingDirective enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>TaggingDirective_Values returns all elements of the TaggingDirective enum.</p></div></span>
   
 </li>
 
@@ -4370,9 +4066,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Tier_Values returns all elements of the Tier enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Tier_Values returns all elements of the Tier enum.</p></div></span>
   
 </li>
 
@@ -4395,9 +4089,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>TransitionStorageClass_Values returns all elements of the TransitionStorageClass enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>TransitionStorageClass_Values returns all elements of the TransitionStorageClass enum.</p></div></span>
   
 </li>
 
@@ -4420,9 +4112,7 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Type_Values returns all elements of the Type enum.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Type_Values returns all elements of the Type enum.</p></div></span>
   
 </li>
 
@@ -4445,15 +4135,14 @@ err := req.Send()
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>WithNormalizeBucketLocation is a request option which will update the GetBucketLocation’s result LocationConstraint value to always be a region ID.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>WithNormalizeBucketLocation is a request option which will update the GetBucketLocation's result LocationConstraint value to always be a region ID.</p></div></span>
   
 </li>
 
 
       
     </ul>
+    
   
 
 
@@ -5061,9 +4750,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>BucketCannedACL_Values returns all elements of the BucketCannedACL enum</p>
-
+    <p>BucketCannedACL_Values returns all elements of the BucketCannedACL enum</p>
 
   </div>
 </div>
@@ -5113,9 +4800,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>BucketLocationConstraint_Values returns all elements of the BucketLocationConstraint enum</p>
-
+    <p>BucketLocationConstraint_Values returns all elements of the BucketLocationConstraint enum</p>
 
   </div>
 </div>
@@ -5207,9 +4892,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>BucketLogsPermission_Values returns all elements of the BucketLogsPermission enum</p>
-
+    <p>BucketLogsPermission_Values returns all elements of the BucketLogsPermission enum</p>
 
   </div>
 </div>
@@ -5257,9 +4940,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>BucketProtectionStatus_Values returns all elements of the BucketProtectionStatus enum</p>
-
+    <p>BucketProtectionStatus_Values returns all elements of the BucketProtectionStatus enum</p>
 
   </div>
 </div>
@@ -5303,9 +4984,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>BucketVersioningStatus_Values returns all elements of the BucketVersioningStatus enum</p>
-
+    <p>BucketVersioningStatus_Values returns all elements of the BucketVersioningStatus enum</p>
 
   </div>
 </div>
@@ -5351,9 +5030,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>DeleteMarkerReplicationStatus_Values returns all elements of the DeleteMarkerReplicationStatus enum</p>
-
+    <p>DeleteMarkerReplicationStatus_Values returns all elements of the DeleteMarkerReplicationStatus enum</p>
 
   </div>
 </div>
@@ -5399,9 +5076,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>EncodingType_Values returns all elements of the EncodingType enum</p>
-
+    <p>EncodingType_Values returns all elements of the EncodingType enum</p>
 
   </div>
 </div>
@@ -5445,9 +5120,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ExpirationStatus_Values returns all elements of the ExpirationStatus enum</p>
-
+    <p>ExpirationStatus_Values returns all elements of the ExpirationStatus enum</p>
 
   </div>
 </div>
@@ -5493,9 +5166,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>IbmProtectionManagementState_Values returns all elements of the IbmProtectionManagementState enum</p>
-
+    <p>IbmProtectionManagementState_Values returns all elements of the IbmProtectionManagementState enum</p>
 
   </div>
 </div>
@@ -5539,9 +5210,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>MetadataDirective_Values returns all elements of the MetadataDirective enum</p>
-
+    <p>MetadataDirective_Values returns all elements of the MetadataDirective enum</p>
 
   </div>
 </div>
@@ -5587,9 +5256,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>MFADelete_Values returns all elements of the MFADelete enum</p>
-
+    <p>MFADelete_Values returns all elements of the MFADelete enum</p>
 
   </div>
 </div>
@@ -5635,9 +5302,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>MFADeleteStatus_Values returns all elements of the MFADeleteStatus enum</p>
-
+    <p>MFADeleteStatus_Values returns all elements of the MFADeleteStatus enum</p>
 
   </div>
 </div>
@@ -5683,13 +5348,12 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>NormalizeBucketLocation is a utility function which will update the passed in value to always be a region ID. Generally this would be used with GetBucketLocation API operation.</p>
-
-<p>Replaces empty string with “us-east-1”, and “EU” with “eu-west-1”.</p>
-
-<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a> for more information on the values that can be returned.</p>
-
+    <p>NormalizeBucketLocation is a utility function which will update the
+passed in value to always be a region ID. Generally this would be used
+with GetBucketLocation API operation.</p>
+<p>Replaces empty string with &quot;us-east-1&quot;, and &quot;EU&quot; with &quot;eu-west-1&quot;.</p>
+<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a>
+for more information on the values that can be returned.</p>
 
   </div>
 </div>
@@ -5743,9 +5407,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ObjectCannedACL_Values returns all elements of the ObjectCannedACL enum</p>
-
+    <p>ObjectCannedACL_Values returns all elements of the ObjectCannedACL enum</p>
 
   </div>
 </div>
@@ -5801,9 +5463,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ObjectLockEnabled_Values returns all elements of the ObjectLockEnabled enum</p>
-
+    <p>ObjectLockEnabled_Values returns all elements of the ObjectLockEnabled enum</p>
 
   </div>
 </div>
@@ -5847,9 +5507,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ObjectLockLegalHoldStatus_Values returns all elements of the ObjectLockLegalHoldStatus enum</p>
-
+    <p>ObjectLockLegalHoldStatus_Values returns all elements of the ObjectLockLegalHoldStatus enum</p>
 
   </div>
 </div>
@@ -5895,9 +5553,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ObjectLockMode_Values returns all elements of the ObjectLockMode enum</p>
-
+    <p>ObjectLockMode_Values returns all elements of the ObjectLockMode enum</p>
 
   </div>
 </div>
@@ -5943,9 +5599,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ObjectLockRetentionMode_Values returns all elements of the ObjectLockRetentionMode enum</p>
-
+    <p>ObjectLockRetentionMode_Values returns all elements of the ObjectLockRetentionMode enum</p>
 
   </div>
 </div>
@@ -5991,9 +5645,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ObjectStorageClass_Values returns all elements of the ObjectStorageClass enum</p>
-
+    <p>ObjectStorageClass_Values returns all elements of the ObjectStorageClass enum</p>
 
   </div>
 </div>
@@ -6051,9 +5703,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ObjectVersionStorageClass_Values returns all elements of the ObjectVersionStorageClass enum</p>
-
+    <p>ObjectVersionStorageClass_Values returns all elements of the ObjectVersionStorageClass enum</p>
 
   </div>
 </div>
@@ -6097,9 +5747,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Permission_Values returns all elements of the Permission enum</p>
-
+    <p>Permission_Values returns all elements of the Permission enum</p>
 
   </div>
 </div>
@@ -6151,9 +5799,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Protocol_Values returns all elements of the Protocol enum</p>
-
+    <p>Protocol_Values returns all elements of the Protocol enum</p>
 
   </div>
 </div>
@@ -6199,9 +5845,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ReplicationRuleStatus_Values returns all elements of the ReplicationRuleStatus enum</p>
-
+    <p>ReplicationRuleStatus_Values returns all elements of the ReplicationRuleStatus enum</p>
 
   </div>
 </div>
@@ -6247,9 +5891,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ReplicationStatus_Values returns all elements of the ReplicationStatus enum</p>
-
+    <p>ReplicationStatus_Values returns all elements of the ReplicationStatus enum</p>
 
   </div>
 </div>
@@ -6299,9 +5941,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>RequestCharged_Values returns all elements of the RequestCharged enum</p>
-
+    <p>RequestCharged_Values returns all elements of the RequestCharged enum</p>
 
   </div>
 </div>
@@ -6345,9 +5985,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>RequestPayer_Values returns all elements of the RequestPayer enum</p>
-
+    <p>RequestPayer_Values returns all elements of the RequestPayer enum</p>
 
   </div>
 </div>
@@ -6391,9 +6029,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>RetentionDirective_Values returns all elements of the RetentionDirective enum</p>
-
+    <p>RetentionDirective_Values returns all elements of the RetentionDirective enum</p>
 
   </div>
 </div>
@@ -6439,9 +6075,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>ServerSideEncryption_Values returns all elements of the ServerSideEncryption enum</p>
-
+    <p>ServerSideEncryption_Values returns all elements of the ServerSideEncryption enum</p>
 
   </div>
 </div>
@@ -6487,9 +6121,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>StorageClass_Values returns all elements of the StorageClass enum</p>
-
+    <p>StorageClass_Values returns all elements of the StorageClass enum</p>
 
   </div>
 </div>
@@ -6547,9 +6179,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>TaggingDirective_Values returns all elements of the TaggingDirective enum</p>
-
+    <p>TaggingDirective_Values returns all elements of the TaggingDirective enum</p>
 
   </div>
 </div>
@@ -6595,9 +6225,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Tier_Values returns all elements of the Tier enum</p>
-
+    <p>Tier_Values returns all elements of the Tier enum</p>
 
   </div>
 </div>
@@ -6647,9 +6275,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>TransitionStorageClass_Values returns all elements of the TransitionStorageClass enum</p>
-
+    <p>TransitionStorageClass_Values returns all elements of the TransitionStorageClass enum</p>
 
   </div>
 </div>
@@ -6703,9 +6329,7 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Type_Values returns all elements of the Type enum</p>
-
+    <p>Type_Values returns all elements of the Type enum</p>
 
   </div>
 </div>
@@ -6753,21 +6377,17 @@ err := req.Send()
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>WithNormalizeBucketLocation is a request option which will update the GetBucketLocation’s result LocationConstraint value to always be a region ID.</p>
-
-<p>Replaces empty string with “us-east-1”, and “EU” with “eu-west-1”.</p>
-
-<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a> for more information on the values that can be returned.</p>
-
+    <p>WithNormalizeBucketLocation is a request option which will update the
+GetBucketLocation's result LocationConstraint value to always be a region ID.</p>
+<p>Replaces empty string with &quot;us-east-1&quot;, and &quot;EU&quot; with &quot;eu-west-1&quot;.</p>
+<p>See <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html">http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html</a>
+for more information on the values that can be returned.</p>
 <pre class="code go"><code class="go"><div class="hljs">result, err := svc.GetBucketLocationWithContext(ctx,
     &s3.GetBucketLocationInput{
         Bucket: aws.String(bucket),
     },
     s3.WithNormalizeBucketLocation,
-)
-</div></code></pre>
-
+)</div></code></pre>
 
   </div>
 </div>
@@ -6802,9 +6422,9 @@ err := req.Send()
       </div>
 
       <div id="footer">
-  Generated on Thu Mar  5 10:35:49 2026 by
+  Generated on Tue Jun  9 18:45:13 2026 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.1.2).
+  0.9.44 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

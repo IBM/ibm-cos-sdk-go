@@ -10,11 +10,11 @@
   
 </title>
 
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../../../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css">
 
-  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/highlight.github.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "service/s3/s3manager.BufferedReadSeekerWriteToPool";
@@ -75,9 +75,8 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>BufferedReadSeekerWriteToPool uses a sync.Pool to create and reuse []byte slices for buffering parts in memory</p>
-
+    <p>BufferedReadSeekerWriteToPool uses a sync.Pool to create and reuse
+[]byte slices for buffering parts in memory</p>
 
   </div>
 </div>
@@ -127,15 +126,14 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>NewBufferedReadSeekerWriteToPool will return a new BufferedReadSeekerWriteToPool that will create a pool of reusable buffers .</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>NewBufferedReadSeekerWriteToPool will return a new BufferedReadSeekerWriteToPool that will create a pool of reusable buffers .</p></div></span>
   
 </li>
 
 
       
     </ul>
+    
   
     <h2>
       Method  Summary
@@ -161,15 +159,14 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>GetWriteTo will wrap the provided io.ReadSeeker with a BufferedReadSeekerWriteTo.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>GetWriteTo will wrap the provided io.ReadSeeker with a BufferedReadSeekerWriteTo.</p></div></span>
   
 </li>
 
 
       
     </ul>
+    
   
 
 
@@ -183,7 +180,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
       <div class="method_details first">
   <h3 class="signature first" id="NewBufferedReadSeekerWriteToPool-class_method">
   
-    func <strong><span class='object_link'><a href="#NewBufferedReadSeekerWriteToPool-class_method" title="s3manager.BufferedReadSeekerWriteToPool.NewBufferedReadSeekerWriteToPool() (method)">NewBufferedReadSeekerWriteToPool</a></span></strong>(size int) *<span class='object_link'><a href="" title="s3manager.BufferedReadSeekerWriteToPool (struct)">BufferedReadSeekerWriteToPool</a></span> 
+    func <strong><span class='object_link'><a href="#NewBufferedReadSeekerWriteToPool-class_method" title="s3manager.BufferedReadSeekerWriteToPool.NewBufferedReadSeekerWriteToPool() (method)">NewBufferedReadSeekerWriteToPool</a></span></strong>(size int) *BufferedReadSeekerWriteToPool 
   
 
   
@@ -191,9 +188,10 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>NewBufferedReadSeekerWriteToPool will return a new BufferedReadSeekerWriteToPool that will create a pool of reusable buffers . If size is less then &lt; 64 KiB then the buffer will default to 64 KiB. Reason: io.Copy from writers or readers that don’t support io.WriteTo or io.ReadFrom respectively will default to copying 32 KiB.</p>
-
+    <p>NewBufferedReadSeekerWriteToPool will return a new BufferedReadSeekerWriteToPool that will create
+a pool of reusable buffers . If size is less then &lt; 64 KiB then the buffer
+will default to 64 KiB. Reason: io.Copy from writers or readers that don't support io.WriteTo or io.ReadFrom
+respectively will default to copying 32 KiB.</p>
 
   </div>
 </div>
@@ -247,7 +245,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
       <div class="method_details first">
   <h3 class="signature first" id="GetWriteTo-instance_method">
   
-    func (p *<span class='object_link'><a href="" title="s3manager.BufferedReadSeekerWriteToPool (struct)">BufferedReadSeekerWriteToPool</a></span>) <strong><span class='object_link'><a href="#GetWriteTo-instance_method" title="s3manager.BufferedReadSeekerWriteToPool.GetWriteTo() (method)">GetWriteTo</a></span></strong>(seeker io.ReadSeeker) (r <span class='object_link'><a href="ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">ReadSeekerWriteTo</a></span>, cleanup func()) 
+    func (p *BufferedReadSeekerWriteToPool) <strong><span class='object_link'><a href="#GetWriteTo-instance_method" title="s3manager.BufferedReadSeekerWriteToPool.GetWriteTo() (method)">GetWriteTo</a></span></strong>(seeker io.ReadSeeker) (r <span class='object_link'><a href="ReadSeekerWriteTo.html" title="s3manager.ReadSeekerWriteTo (interface)">ReadSeekerWriteTo</a></span>, cleanup func()) 
   
 
   
@@ -255,9 +253,9 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>GetWriteTo will wrap the provided io.ReadSeeker with a BufferedReadSeekerWriteTo. The provided cleanup must be called after operations have been completed on the returned io.ReadSeekerWriteTo in order to signal the return of resources to the pool.</p>
-
+    <p>GetWriteTo will wrap the provided io.ReadSeeker with a BufferedReadSeekerWriteTo.
+The provided cleanup must be called after operations have been completed on the
+returned io.ReadSeekerWriteTo in order to signal the return of resources to the pool.</p>
 
   </div>
 </div>
@@ -306,9 +304,9 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
       </div>
 
       <div id="footer">
-  Generated on Thu Mar  5 10:36:25 2026 by
+  Generated on Tue Jun  9 18:45:28 2026 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.1.2).
+  0.9.44 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->
