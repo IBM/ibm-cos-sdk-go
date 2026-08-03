@@ -15,6 +15,7 @@ var _ DownloaderAPI = (*s3manager.Downloader)(nil)
 type DownloaderAPI interface {
 	Download(io.WriterAt, *s3.GetObjectInput, ...func(*s3manager.Downloader)) (int64, error)
 	DownloadWithContext(aws.Context, io.WriterAt, *s3.GetObjectInput, ...func(*s3manager.Downloader)) (int64, error)
+	DownloadWithPipe(aws.Context, *s3manager.DownloadPipeInput, ...func(*s3manager.Downloader)) (int64, error)
 }
 
 // DownloadWithIterator is the interface type for the contained method of the same name.
@@ -29,6 +30,7 @@ var _ UploadWithIterator = (*s3manager.Uploader)(nil)
 type UploaderAPI interface {
 	Upload(*s3manager.UploadInput, ...func(*s3manager.Uploader)) (*s3manager.UploadOutput, error)
 	UploadWithContext(aws.Context, *s3manager.UploadInput, ...func(*s3manager.Uploader)) (*s3manager.UploadOutput, error)
+	UploadWithPipe(aws.Context, *s3manager.UploadPipeInput, ...func(*s3manager.Uploader)) (*s3manager.UploadOutput, error)
 }
 
 // UploadWithIterator is the interface for uploading objects to S3 using the S3

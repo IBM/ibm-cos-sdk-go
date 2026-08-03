@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 1.15.0
+
+### Content
+
+#### Features
+
+* Support for streaming data through pipes
+
+#### Defect Fixes
+
+* Internal fixes and improvements
+
 ## 1.14.1
 
 ### Content
