@@ -75,9 +75,7 @@ import "../ibm-cos-sdk-go/service/s3/s3manager"
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>The Downloader structure that calls Download(). It is safe to call Download()
-on this structure for multiple objects and across concurrent goroutines.
-Mutating the Downloader's properties is not safe to be done concurrently.</p>
+    <p>GetObjectMetadata retrieves metadata about the S3 object</p>
 
   </div>
 </div>
@@ -298,6 +296,52 @@ Mutating the Downloader's properties is not safe to be done concurrently.</p>
 
   
     <span class="summary_desc"><div class='inline'><p>DownloadWithIterator will download a batched amount of objects in S3 and writes them to the io.WriterAt specificed in the iterator.</p></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#DownloadWithPipe-instance_method" title="s3manager.Downloader.DownloadWithPipe() (method)">func (d *Downloader) <strong>DownloadWithPipe</strong>(ctx aws.Context, input *DownloadPipeInput, options ...func(*Downloader)) (n int64, err error) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>DownloadWithPipe downloads an S3 object to a named pipe with ordered part delivery.</p></div></span>
+  
+</li>
+
+
+      
+        
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#GetObjectMetadata-instance_method" title="s3manager.Downloader.GetObjectMetadata() (method)">func (d *Downloader) <strong>GetObjectMetadata</strong>(ctx aws.Context, input *s3.GetObjectInput) (*ObjectMetadata, error) </a></span></span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -691,15 +735,145 @@ iter := &s3manager.DownloadObjectsIterator{Objects: objects}
 
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="DownloadWithPipe-instance_method">
+  
+    func (d *Downloader) <strong><span class='object_link'><a href="#DownloadWithPipe-instance_method" title="s3manager.Downloader.DownloadWithPipe() (method)">DownloadWithPipe</a></span></strong>(ctx <span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="../s3manager.html#type-DownloadPipeInput" title="s3manager (package)">DownloadPipeInput</a></span>, options ...func(*Downloader)) (n int64, err error) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>DownloadWithPipe downloads an S3 object to a named pipe with ordered part
+delivery. Parts are downloaded in parallel but written to the pipe in
+sequential order to maintain data integrity.</p>
+<p>The method leverages all existing Downloader configuration including PartSize,
+Concurrency, BufferProvider, RequestOptions, etc.</p>
+<p>Additional functional options can be provided to configure the individual
+download. These options are copies of the Downloader instance DownloadWithPipe
+is called from. Modifying the options will not impact the original Downloader
+instance.</p>
+<p>Example:</p>
+<pre class="code go"><code class="go"><div class="hljs">sess := session.Must(session.NewSession())
+downloader := s3manager.NewDownloader(sess)
+
+n, err := downloader.DownloadWithPipe(aws.BackgroundContext(), &s3manager.DownloadPipeInput{
+    PipePath: aws.String(<span class="hljs-string">"/tmp/restore.pipe"</span>),
+    GetObjectInput: &s3.GetObjectInput{
+        Bucket: aws.String(<span class="hljs-string">"my-bucket"</span>),
+        Key:    aws.String(<span class="hljs-string">"backup.tar.gz"</span>),
+    },
+})</div></code></pre>
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+308
+309
+310</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/download.go', line 308</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (d *Downloader) DownloadWithPipe(ctx aws.Context, input *DownloadPipeInput, options ...<span class="hljs-keyword">func</span>(*Downloader)) (n <span class="hljs-constant">int64</span>, err <span class="hljs-constant">error</span>) {
+	<span class="hljs-keyword">return</span> downloadWithPipe(ctx, d, input, options...)
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="GetObjectMetadata-instance_method">
+  
+    func (d *Downloader) <strong><span class='object_link'><a href="#GetObjectMetadata-instance_method" title="s3manager.Downloader.GetObjectMetadata() (method)">GetObjectMetadata</a></span></strong>(ctx <span class='object_link'><a href="../../../aws/Context.html" title="aws.Context (interface)">aws.Context</a></span>, input *<span class='object_link'><a href="../GetObjectInput.html" title="s3.GetObjectInput (struct)">s3.GetObjectInput</a></span>) (*<span class='object_link'><a href="ObjectMetadata.html" title="s3manager.ObjectMetadata (struct)">ObjectMetadata</a></span>, error) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file">// File 'service/s3/s3manager/pipe_download.go', line 268</span>
+
+<div class="hljs"><span class="hljs-keyword">func</span> (d *Downloader) GetObjectMetadata(ctx aws.Context, input *s3.GetObjectInput) (*ObjectMetadata, <span class="hljs-constant">error</span>) {
+	headInput := &s3.HeadObjectInput{
+		Bucket:    input.Bucket,
+		Key:       input.Key,
+		VersionId: input.VersionId,
+	}
+
+	headOutput, err := d.S3.HeadObjectWithContext(ctx, headInput, d.RequestOptions...)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+		<span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>, err
+	}
+
+	metadata := &ObjectMetadata{
+		ContentLength: aws.Int64Value(headOutput.ContentLength),
+		PartsCount:    aws.Int64Value(headOutput.PartsCount),
+	}
+
+	<span class="hljs-keyword">if</span> metadata.PartsCount == 0 {
+		metadata.PartsCount = 1
+	}
+
+	<span class="hljs-keyword">return</span> metadata, <span class="hljs-constant">nil</span>
+}</div></pre>
+    </td>
+  </tr>
+</table>
+
+</div>
+    
   </div>
 
 
       </div>
 
       <div id="footer">
-  Generated on Tue Jun  9 18:45:28 2026 by
+  Generated on Mon Aug  3 13:25:22 2026 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.44 (ruby-3.1.2).
+  0.9.45 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->

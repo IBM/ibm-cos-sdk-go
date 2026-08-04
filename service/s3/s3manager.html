@@ -270,10 +270,52 @@ when using Download().</p>
             <pre class="code"><div class="hljs">5</div></pre>
           </dd>
         
+          <dt id="InvalidParameterError-constant" class="">
+          <div class="defn">const <strong>InvalidParameterError</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"InvalidParameter"</span></div></pre>
+          </dd>
+        
+          <dt id="PipeOpenError-constant" class="">
+          <div class="defn">const <strong>PipeOpenError</strong>  = 
+          <span class="note title readonly">readonly</span>
+          
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs"><span class="hljs-string">"<span class='object_link'><a href="#PipeOpenError-constant" title="service/s3/s3manager.PipeOpenError (constant)">PipeOpenError</a></span>"</span></div></pre>
+          </dd>
+        
       </dl>
     
   
 
+  
+    <h2>Variables</h2>
+    
+      <dl class="constants">
+        
+          <dt id="ErrPipeWriteTimeout-constant" class="">
+          <div class="defn">var <strong>ErrPipeWriteTimeout</strong>  = 
+          <span class="note title writeonly">writable</span>
+          </div>
+            
+          </dt>
+          <dd>
+            <h3>Value:</h3>
+            <pre class="code"><div class="hljs">errors.New(<span class="hljs-string">"pipe write timeout"</span>)</div></pre>
+          </dd>
+        
+      </dl>
+    
   
 
 
@@ -544,6 +586,29 @@ when using Download().</p>
     
       
 <li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-DownloadPipeInput" title="s3manager (package)"><strong>DownloadPipeInput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>DownloadPipeInput provides the input parameters for downloading to a named pipe.</p></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
   <span class="summary_signature"><span class='object_link'><a href="s3manager/Downloader.html" title="s3manager.Downloader (struct)"><strong>Downloader</strong></a></span></span>
   
   
@@ -559,7 +624,7 @@ when using Download().</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The Downloader structure that calls Download().</p></div></span>
+    <span class="summary_desc"><div class='inline'><p>GetObjectMetadata retrieves metadata about the S3 object.</p></div></span>
   
 </li>
 
@@ -606,6 +671,29 @@ when using Download().</p>
 
   
     <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="s3manager/ObjectMetadata.html" title="s3manager.ObjectMetadata (struct)"><strong>ObjectMetadata</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>ObjectMetadata contains metadata about the S3 object to be downloaded.</p></div></span>
   
 </li>
 
@@ -698,6 +786,29 @@ when using Download().</p>
 
   
     <span class="summary_desc"><div class='inline'><p>UploadOutput represents a response from the Upload() call.</p></div></span>
+  
+</li>
+
+
+    
+      
+<li class="public ">
+  <span class="summary_signature"><span class='object_link'><a href="#type-UploadPipeInput" title="s3manager (package)"><strong>UploadPipeInput</strong></a></span></span>
+  
+  
+  <span class="note title readonly">struct</span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>UploadPipeInput provides the input parameters for uploading from a named pipe.</p></div></span>
   
 </li>
 
@@ -1343,6 +1454,97 @@ when using Download().</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="type-DownloadPipeInput">
+  
+    <strong>DownloadPipeInput</strong> struct
+  
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>DownloadPipeInput provides the input parameters for downloading to a named pipe.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>PipePath</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Required: Path to the named pipe (FIFO)</p>
+    
+  </dd>
+
+  <dt><code>
+    <strong>GetObjectInput</strong> *<span class='object_link'><a href="../GetObjectInput.html" title="s3.GetObjectInput (struct)">s3.GetObjectInput</a></span> 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Required: Standard S3 GetObjectInput</p>
+    
+  </dd>
+
+  <dt><code>
+    <strong>MaxBufferMemory</strong> *int64 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Optional: Maximum memory for buffering out-of-order parts</p>
+<p>If not provided, defaults to: Concurrency × PartSize × 2</p>
+<p>This controls how much RAM can be used to buffer downloaded parts that are
+waiting to be written to the pipe in sequential order. The implementation
+uses a worker pool pattern that limits active downloads to the Concurrency
+setting, ensuring predictable memory usage.</p>
+<p>Parts download in parallel but must be written sequentially (1, 2, 3...).
+When parts complete out of order (e.g., Part 5 before Part 1), they wait
+in this buffer. Once Part 1 completes, all sequential parts are written
+and their memory is freed.</p>
+<p>Formula: MaxBufferMemory = Concurrency × PartSize × 2
+Example: 4 concurrent × 512MB parts × 2 = 4GB</p>
+<p>Guidelines for setting MaxBufferMemory:</p>
+<pre class="code go"><code class="go"><div class="hljs">- Small files (<500MB):   1GB
+- Medium files (1-5GB):   2GB
+- Large files (5-20GB):   2-4GB
+- Very large (>20GB):     4-8GB
+</div></code></pre>
+<p>The safety factor of 2 accounts for parts that have been downloaded but
+not yet written to the pipe. Setting this too low causes &quot;buffer memory
+limit exceeded&quot; errors.</p>
+    
+  </dd>
+
+  <dt><code>
+    <strong>MaxRetries</strong> *int 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Optional: Maximum number of retry attempts for failed part downloads (default: 3)
+When a part download fails due to network errors or transient issues,
+the SDK will automatically retry up to this many times with exponential backoff.
+Set to 0 to disable retries (not recommended for production).</p>
+    
+  </dd>
+
+
+</dl>
+</div>
+
+
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="type-UploadInput">
   
     <strong>UploadInput</strong> struct
@@ -1901,6 +2103,46 @@ can be cast to the MultiUploadFailure interface to extract the upload ID.</p>
 </dl>
 </div>
 
+
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="type-UploadPipeInput">
+  
+    <strong>UploadPipeInput</strong> struct
+  
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    <p>UploadPipeInput provides the input parameters for uploading from a named pipe.
+It embeds UploadInput to support all standard S3 upload parameters.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div class="tags">
+<p class="tag_title">Structure Fields:</p>
+<dl class="fields">
+
+  <dt><code>
+    <strong>PipePath</strong> *string 
+    
+    
+  </code></dt>
+  <dd>
+    <p>Required: Path to the named pipe (FIFO)</p>
+    
+  </dd>
+
+
+</dl>
+</div>
+
+  
 
 </div>
     
@@ -2730,9 +2972,9 @@ uploader := s3manager.NewUploaderWithClient(s3Svc, <span class="hljs-keyword">fu
       </div>
 
       <div id="footer">
-  Generated on Tue Jun  9 18:45:13 2026 by
+  Generated on Mon Aug  3 13:25:08 2026 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.44 (ruby-3.1.2).
+  0.9.45 (ruby-3.1.2).
 </div>
 
 <!-- BEGIN-SECTION -->
