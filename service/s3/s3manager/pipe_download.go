@@ -7,14 +7,12 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"runtime"
 	"sync"
 	"time"
 
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
-	"golang.org/x/sys/unix"
 )
 
 // Error codes for pipe download operations
@@ -239,23 +237,6 @@ func min(a, b int) int {
 		return a
 	}
 	return b
-}
-
-// getPipeBufferSize detects the pipe buffer size
-func getPipeBufferSize(pipe *os.File) int {
-	const defaultSize = 64 * 1024
-
-	if runtime.GOOS != "linux" && runtime.GOOS != "darwin" {
-		return defaultSize
-	}
-
-	const F_GETPIPE_SZ = 1032
-	size, err := unix.FcntlInt(pipe.Fd(), F_GETPIPE_SZ, 0)
-	if err != nil {
-		return defaultSize
-	}
-
-	return size
 }
 
 // ObjectMetadata contains metadata about the S3 object to be downloaded
